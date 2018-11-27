@@ -20,3 +20,7 @@ ctrl+shift+F10  正常运行java类
 
 alt+F8          debug时选中查看值
 
+
+
+2.
+
