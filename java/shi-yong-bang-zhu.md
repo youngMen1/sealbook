@@ -24,6 +24,8 @@ alt+F8          debug时选中查看值
 
 找到.idea文件下的workspace.xml，并找到RunDashboard
 
+![](/assets/i.png)
+
 &lt;option name="configurationTypes"&gt;
 
       &lt;set&gt;
@@ -33,6 +35,4 @@ alt+F8          debug时选中查看值
       &lt;/set&gt;
 
     &lt;/option&gt;
-
-
 
