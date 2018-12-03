@@ -26,7 +26,7 @@ alt+F8          debug时选中查看值
 
 &lt;option name="configurationTypes"&gt;
 
-```java
+```asciidoc
   &lt;set&gt;
 
     &lt;option value="SpringBootApplicationConfigurationType" /&gt;
