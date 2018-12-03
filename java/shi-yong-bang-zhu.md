@@ -1,4 +1,4 @@
-1.debug模式
+**1.debug模式**
 
 F9            resume programe 恢复程序
 
@@ -22,7 +22,7 @@ alt+F8          debug时选中查看值
 
 
 
-2.多Application启动查看
+**2.多Application启动查看**
 
 找到.idea文件下的workspace.xml，并找到RunDashboard
 
