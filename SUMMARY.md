@@ -8,4 +8,6 @@
   * [Eureka](springcloud/eureka.md)
 * Linux
   * [盘符概念](pan-fu-gai-nian.md)
+* [MyBatis](mybatis.md)
+  * [错误](mybatis/cuo-wu.md)
 
