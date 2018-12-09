@@ -1,10 +1,10 @@
-1.
+1.注解
 
-@Getter and @Setter 
+@Getter and @Setter
 
 可以用@Getter / @Setter注释字段（也可以注释到类上的—\(在实体类中常用且推荐\)），lombok会自动生成默认的Getter/Setter方法。
 
-@ToString 
+@ToString
 
 自动生成toString\(\)方法，默认情况，按顺序（以“,”分隔）打印你的类名称以及每个字段。也可以设置不包含哪些字段/@ToString\(exclude = {“id”,”name”}\)
 
