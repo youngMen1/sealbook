@@ -4,6 +4,8 @@
 * [IDEA](java.md)
   * [错误](java/cuo-wu.md)
   * [使用帮助](java/shi-yong-bang-zhu.md)
+  * [插件](java/cha-jian.md)
+    * [LomBok插件](java/cha-jian/lombokcha-jian.md)
 * [SpringCloud](springcloud.md)
   * [Eureka](springcloud/eureka.md)
 * Linux
