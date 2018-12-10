@@ -1,4 +1,8 @@
 1.Intellij IDEA运行报Command line is too long解法
 
-![](/assets/import.png)
+![](/assets/import.png)&lt;
+
+property name="dynamic.classpath" value="true" /
+
+&gt;
 
