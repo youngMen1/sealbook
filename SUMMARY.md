@@ -8,6 +8,7 @@
     * [LomBok插件](java/cha-jian/lombokcha-jian.md)
 * [SpringCloud](springcloud.md)
   * [Eureka](springcloud/eureka.md)
+  * [健康检查](springcloud/jian-kang-jian-cha.md)
 * Linux
   * [盘符概念](pan-fu-gai-nian.md)
 * [MyBatis](mybatis.md)
