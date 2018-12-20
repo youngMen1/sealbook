@@ -13,4 +13,6 @@
   * [盘符概念](pan-fu-gai-nian.md)
 * [MyBatis](mybatis.md)
   * [错误](mybatis/cuo-wu.md)
+* [项目发布](xiang-mu-fa-bu.md)
+* 灰度发布
 
