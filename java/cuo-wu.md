@@ -6,3 +6,7 @@ property name="dynamic.classpath" value="true" /
 
 &gt;
 
+2.启动异常
+
+
+
