@@ -6,7 +6,7 @@ property name="dynamic.classpath" value="true" /
 
 &gt;
 
-2.启动异常
+2.SpringBoot启动异常
 
-
+![](/assets/springboot启动异常.png)
 
