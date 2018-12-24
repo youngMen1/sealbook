@@ -14,7 +14,7 @@
 * [MyBatis](mybatis.md)
   * [错误](mybatis/cuo-wu.md)
 * [项目发布](xiang-mu-fa-bu.md)
-* 灰度发布
+* [灰度发布](hui-du-fa-bu.md)
 * [Native Service](native-service.md)
 * [Mongo](mongo.md)
 
