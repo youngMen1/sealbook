@@ -9,10 +9,12 @@
 * [SpringCloud](springcloud.md)
   * [Eureka](springcloud/eureka.md)
   * [健康检查](springcloud/jian-kang-jian-cha.md)
-* Linux
+* [Linux](linux.md)
   * [盘符概念](pan-fu-gai-nian.md)
 * [MyBatis](mybatis.md)
   * [错误](mybatis/cuo-wu.md)
 * [项目发布](xiang-mu-fa-bu.md)
 * 灰度发布
+* [Native Service](native-service.md)
+* [Mongo](mongo.md)
 
