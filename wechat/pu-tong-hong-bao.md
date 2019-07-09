@@ -87,5 +87,74 @@
 | 付款金额 | total\_amount | 是 | 1000 | int | 付款金额，单位分 |
 | 微信单号 | send\_listid | 是 | 100000000020150520314766074200 | String\(32\) | 红包订单的微信单号 |
 
+#### 失败示例：
 
+&lt;xml&gt;
+
+&lt;return\_code&gt;&lt;!\[CDATA\[FAIL\]\]&gt;&lt;/return\_code&gt;
+
+&lt;return\_msg&gt;&lt;!\[CDATA\[系统繁忙,请稍后再试.\]\]&gt;&lt;/return\_msg&gt;
+
+&lt;result\_code&gt;&lt;!\[CDATA\[FAIL\]\]&gt;&lt;/result\_code&gt;
+
+&lt;err\_code&gt;&lt;!\[CDATA\[268458547\]\]&gt;&lt;/err\_code&gt;
+
+&lt;err\_code\_des&gt;&lt;!\[CDATA\[系统繁忙,请稍后再试.\]\]&gt;&lt;/err\_code\_des&gt;
+
+&lt;mch\_billno&gt;&lt;!\[CDATA\[0010010404201411170000046542\]\]&gt;&lt;/mch\_billno&gt;
+
+&lt;mch\_id&gt;10010404&lt;/mch\_id&gt;
+
+&lt;wxappid&gt;&lt;!\[CDATA\[wx6fa7e3bab7e15415\]\]&gt;&lt;/wxappid&gt;
+
+&lt;re\_openid&gt;&lt;!\[CDATA\[onqOjjmM1tad-3ROpncN-yUfa6uI\]\]&gt;&lt;/re\_openid&gt;
+
+&lt;total\_amount&gt;1&lt;/total\_amount&gt;
+
+&lt;/xml&gt;
+
+### 错误码
+
+| 错误码 | 错误描述 | 原因 | 解决方式 |
+| :--- | :--- | :--- | :--- |
+| NO\_AUTH | 发放失败，此请求可能存在风险，已被微信拦截 | 用户账号异常，被拦截 | 请提醒用户检查自身帐号是否异常。使用常用的活跃的微信号可避免这种情况。 |
+| SENDNUM\_LIMIT | 该用户今日领取红包个数超过限制 | 该用户今日领取红包个数超过你在微信支付商户平台配置的上限 | 如有需要、请在微信支付商户平台【api安全】中重新配置 【每日同一用户领取本商户红包不允许超过的个数】。 |
+| ILLEGAL\_APPID | 非法appid，请确认是否为公众号的appid，不能为APP的appid | 错误传入了app的appid | 接口传入的所有appid应该为公众号的appid（在mp.weixin.qq.com申请的），不能为APP的appid（在open.weixin.qq.com申请的）。 |
+| MONEY\_LIMIT | 红包金额发放限制 | 发送红包金额不再限制范围内 | 每个红包金额必须大于1元，小于200元（可联系微信支付wxhongbao@tencent.com申请调高额度） |
+| SEND\_FAILED | 红包发放失败,请更换单号再重试 | 该红包已经发放失败 | 如果需要重新发放，请更换单号再发放 |
+| FATAL\_ERROR | openid和原始单参数不一致 | 更换了openid，但商户单号未更新 | 请商户检查代码实现逻辑 |
+| 金额和原始单参数不一致 | 更换了金额，但商户单号未更新 | 请商户检查代码实现逻辑 | 请检查金额、商户订单号是否正确 |
+| CA\_ERROR | CA证书出错，请登录微信支付商户平台下载证书 | 请求携带的证书出错 | 到商户平台下载证书，请求带上证书后重试 |
+| SIGN\_ERROR | 签名错误 | 1、没有使用商户平台设置的商户API密钥进行加密（有可能之前设置过密钥，后来被修改了，没有使用新的密钥进行加密）。 2、加密前没有按照文档进行参数排序（可参考文档） 3、把值为空的参数也进行了签名。可到（http://mch.weixin.qq.com/wiki/tools/signverify/ ）验证。 4、如果以上3步都没有问题，把请求串中\(post的数据）里面中文都去掉，换成英文，试下，看看是否是编码问题。（post的数据要求是utf8） | 1. 到商户平台重新设置新的密钥后重试 2. 检查请求参数把空格去掉重试 3. 中文不需要进行encode，使用CDATA 4. 按文档要求生成签名后再重试 在线签名验证工具：http://mch.weixin.qq.com/wiki/tools/signverify/ |
+| SYSTEMERROR | 请求已受理，请稍后使用原单号查询发放结果 | 系统无返回明确发放结果 | 使用原单号调用接口，查询发放结果，如果使用新单号调用接口，视为新发放请求 |
+| XML\_ERROR | 输入xml参数格式错误 | 请求的xml格式错误，或者post的数据为空 | 检查请求串，确认无误后重试 |
+| FREQ\_LIMIT | 超过频率限制,请稍后再试 | 受频率限制 | 请对请求做频率控制（可联系微信支付wxhongbao@tencent.com申请调高） |
+| NOTENOUGH | 帐号余额不足，请到商户平台充值后再重试 | 账户余额不足 | 充值后重试 |
+| OPENID\_ERROR | openid和appid不匹配 | openid和appid不匹配 | 发红包的openid必须是本appid下的openid |
+| PARAM\_ERROR | act\_name字段必填,并且少于32个字符 | 请求的act\_name字段填写错误 | 填写正确的act\_name后重试 |
+|  | 发放金额、最小金额、最大金额必须相等 | 请求的金额相关字段填写错误 | 按文档要求填写正确的金额后重试 |
+|  | 红包金额参数错误 | 红包金额过大 | 修改金额重试 |
+|  | appid字段必填,最长为32个字符 | 请求的appid字段填写错误 | 填写正确的appid后重试 |
+|  | 订单号字段必填,最长为28个字符 | 请求的mch\_billno字段填写错误 | 填写正确的billno后重试 |
+|  | client\_ip必须是合法的IP字符串 | 请求的client\_ip填写不正确 | 填写正确的IP后重试 |
+|  | 输入的商户号有误 | 请求的mchid字段非法（或者没填） | 填写对应的商户号再重试 |
+|  | 找不到对应的商户号 | 请求的mchid字段填写错误 | 填写正确的mchid字段后重试 |
+|  | nick\_name字段必填，并且少于16字符 | 请求的nick\_name字段错误 | 按文档填写正确的nick\_name后重试 |
+|  | nonce\_str字段必填,并且少于32字符 | 请求的nonce\_str字段填写不正确 | 按文档要求填写正确的nonce\_str值后重试 |
+|  | re\_openid字段为必填并且少于32个字符 | 请求的re\_openid字段非法 | 填写对re\_openid后重试 |
+|  | remark字段为必填,并且少于256字符 | 请求的remark字段填写错误 | 填写正确的remark后重试 |
+|  | send\_name字段为必填并且少于32字符 | 请求的send\_name字段填写不正确 | 按文档填写正确的send\_name字段后重试 |
+|  | total\_num必须为1 | total\_num字段值不为1 | 修改total\_num值为1后重试 |
+|  | wishing字段为必填,并且少于128个字符 | 缺少wishing字段 | 填写wishing字段再重试 |
+|  | 商户号和wxappid不匹配 | 商户号和wxappid不匹配 | 请修改Mchid或wxappid参数 |
+
+CMS如何调用支付接口：
+
+### 登录微信支付商户平台下载证书以及充值
+
+在调用接口前，请商户使用微信支付商户号登录微信支付商户平台完成下述工作：
+
+备注：
+
+微信支付商户平台地址为pay.weixin.qq.com。微信支付商户号会在商户申请微信支付成功后，通过开户邮件发送给您。请不要使用微信公众平台账号或者appid登录。如果您登录时遇到问题，请联系微信支付小助手weixinpay@tencent.com
 
