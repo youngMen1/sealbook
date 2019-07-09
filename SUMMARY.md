@@ -19,5 +19,5 @@
 * [Mongo](mongo.md)
 * [weChat](wechat.md)
   * [微信公众号](wechat/wei-xin-gong-zhong-hao.md)
-* [Hexo搭建个人Github博客](hexoda-jian-ge-ren-github-bo-ke.md)
+* [Hexo](hexo.md)
 
