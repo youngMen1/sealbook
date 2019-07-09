@@ -39,8 +39,6 @@
 | 是否需要证书 | 是（证书及使用说明详见[商户证书](https://pay.weixin.qq.com/wiki/doc/api/tools/cash_coupon.php?chapter=4_3)） |
 | 请求方式 | POST |
 
-
-
 #### 请求参数
 
 | 字段名 |
@@ -62,26 +60,8 @@
 | Ip地址 | client\_ip | 是 | 192.168.0.1 | String\(15\) | 调用接口的机器Ip地址 |
 | 活动名称 | act\_name | 是 | 猜灯谜抢红包活动 | String\(32\) | 活动名称注意：敏感词会被转义成字符\* |
 | 备注 | remark | 是 | 猜越多得越多，快来抢！ | String\(256\) | 备注信息 |
-| 场景id | scene\_id | 否 | PRODUCT\_8 | String\(32\) | 发放红包使用场景，红包金额大于200或者小于1元时必传PRODUCT\_1:商品促销PRODUCT\_2:抽奖PRODUCT\_3:虚拟物品兑奖 PRODUCT\_4:企业内部福利PRODUCT\_5:渠道分润PRODUCT\_6:保险回馈PRODUCT\_7:彩票派奖PRODUCT\_8:税务刮奖 |
-| 活动信息 | risk\_info | 否 | posttime%3d123123412%26clientversion%3d234134%26mobile%3d122344545%26deviceid%3dIOS | String\(128\) | posttime:用户操作的时间戳mobile:业务系统账号的手机号，国家代码-手机号。不需要+号deviceid :mac 地址或者设备唯一标识 clientversion :用户操作的客户端版本把值为非空的信息用key=value进行拼接，再进行urlencodeurlencode\(posttime=xx& mobile =xx&deviceid=xx\) |
+| 场景id | scene\_id | 否 | PRODUCT\_8 | String\(32\) | 发放红包使用场景，红包金额大于200或者小于1元时必传PRODUCT\_1:商品促销PRODUCT\_2:抽奖PRODUCT\_3:虚拟物品兑奖 PRODUCT\_4:企业内部福利PRODUCT\_5:渠道分润PRODUCT\_6:保险回馈PRODUCT\_7:彩票派奖PRODUCT\_8:税务刮奖 |
+| 活动信息 | risk\_info | 否 | posttime%3d123123412%26clientversion%3d234134%26mobile%3d122344545%26deviceid%3dIOS | String\(128\) | posttime:用户操作的时间戳mobile:业务系统账号的手机号，国家代码-手机号。不需要+号deviceid :mac 地址或者设备唯一标识 clientversion :用户操作的客户端版本把值为非空的信息用key=value进行拼接，再进行urlencodeurlencode\(posttime=xx& mobile =xx&deviceid=xx\) |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+数据示例：
 
