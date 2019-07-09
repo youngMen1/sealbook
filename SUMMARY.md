@@ -17,4 +17,6 @@
 * [灰度发布](hui-du-fa-bu.md)
 * [Native Service](native-service.md)
 * [Mongo](mongo.md)
+* [weChat](wechat.md)
+  * [微信公众号](wechat/wei-xin-gong-zhong-hao.md)
 
