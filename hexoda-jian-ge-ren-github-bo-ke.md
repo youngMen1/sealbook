@@ -1,6 +1,6 @@
-# 使用Hexo搭建个人Github博客
+#  使用Hexo搭建个人Github博客
 
-[2017-05-30](https://blog.yk95.top/2017/05/30/使用Hexo搭建个人Github博客/)
+[2017-05-30](https://blog.yk95.top/2017/05/30/%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BAGithub%E5%8D%9A%E5%AE%A2/)
 
 参考网上的文章总算把自己的Github博客搭建出来了，在这把我的搭建步骤分享给大家，后面的内容还包括了配置域名，如已搭建成功了想要使用自己的域名访问博客可以直接跳到配置域名部分。[搭建个人博客-hexo+github详细完整步骤](http://www.jianshu.com/p/189fd945f38f)[零基础免费搭建个人博客-hexo+github](http://blog.csdn.net/jzooo/article/details/46781805)上面两个链接是我所参考的文章，写的也很详细，如果没看懂我的步骤也可以看看上面的。
 
@@ -8,7 +8,7 @@
 
 # 一、准备
 
-我们需要安装Git、Node.js、Hexo以及注册一个GitHub账号。下载Git、Nodejs可以选择在官网下载，也可以去CSDN下载，大部分都是不需要积分的。PS：官网下载网速超级慢，不知道是资源问题还是墙的原因。[Git官网下载地址](https://git-for-windows.github.io/)[Node.js官网下载地址](https://nodejs.org/en/)[Git CSDN下载](http://download.csdn.net/search/0/10/0/2/1/Git 2.13.0)[Node.js CSDN下载](http://download.csdn.net/search/0/10/0/2/1/Node.js v6.10.3)
+我们需要安装Git、Node.js、Hexo以及注册一个GitHub账号。下载Git、Nodejs可以选择在官网下载，也可以去CSDN下载，大部分都是不需要积分的。PS：官网下载网速超级慢，不知道是资源问题还是墙的原因。[Git官网下载地址](https://git-for-windows.github.io/)[Node.js官网下载地址](https://nodejs.org/en/)[Git CSDN下载](http://download.csdn.net/search/0/10/0/2/1/Git%202.13.0)[Node.js CSDN下载](http://download.csdn.net/search/0/10/0/2/1/Node.js%20v6.10.3)
 
 ## 1、安装Git
 
@@ -86,9 +86,9 @@
 
 附上链接：[有哪些好看的 Hexo 主题？](https://www.zhihu.com/question/24422335)
 
-博主选择的主题是yilia，这里遇到了一个坑：使用yilia主题有了两个\_config.yml文件，一个是我们一直用到的，另一个是yilia主题目录下的，启用yilia的某些功能需要在我们一直用到的\_config.yml文件配置，而yilia主题的定制是在yilia目录下的\_config.yml配置，其他主题可能也会有这样的情况，这一点稍微注意下。
+博主选择的主题是yilia，这里遇到了一个坑：使用yilia主题有了两个_config.yml文件，一个是我们一直用到的，另一个是yilia主题目录下的，启用yilia的某些功能需要在我们一直用到的_config.yml文件配置，而yilia主题的定制是在yilia目录下的\_config.yml配置，其他主题可能也会有这样的情况，这一点稍微注意下。
 
-另附上yilia主题的评论配置：[多说、畅言、网易云跟帖、Disqus评论配置](https://github.com/litten/hexo-theme-yilia/wiki/多说、畅言、网易云跟帖、Disqus评论配置)
+另附上yilia主题的评论配置：[多说、畅言、网易云跟帖、Disqus评论配置](https://github.com/litten/hexo-theme-yilia/wiki/%E5%A4%9A%E8%AF%B4%E3%80%81%E7%95%85%E8%A8%80%E3%80%81%E7%BD%91%E6%98%93%E4%BA%91%E8%B7%9F%E5%B8%96%E3%80%81Disqus%E8%AF%84%E8%AE%BA%E9%85%8D%E7%BD%AE)
 
 ## 2、配置域名
 
@@ -104,7 +104,19 @@
 
 ![](https://blog.yk95.top/static/img/2017-5-29_16-18-31.png)
 
-等解析生效就可以使用域名访问Github page了，例如博主的：https://8to8.top/
+等解析生效就可以使用域名访问Github page了，例如博主的：[http://yk95.top](http://yk95.top/)
 
 使用域名访问Github page还需要注意一点，我们使用`hexo clean && hexo g && hexo d`命令将博客发布到Git时，Hexo会将整个仓库全部清空，然后才提交，这样我们创建的CNAME文件就被删除了，这里提供一个简单的解决方案，在本地博客public文件夹下创建CNAME文件，发布到Git时不clean使用`hexo g && hexo d`命令，发布时会将CNAME文件一起提交。
+
+# 四、发布自己的第一篇博客
+
+将博客搭建起来之后就可以开始写博客了，首先需要配置一些基本信息，这些内容不会解析到博客正文中，见下图。
+
+![](https://blog.yk95.top/static/img/2017-5-29_16-54-21.png)
+
+接下来就是正式写博客正文了，写的文章要遵循markdown语法。附上链接：[Markdown 语法说明 \(简体中文版\)](http://www.appinn.com/markdown/#img)写好博客后就可以使用命令`hexo clean && hexo g && hexo d`发布到Github了（域名访问的请去掉`hexo clean`），下面是博客效果。
+
+![](https://blog.yk95.top/static/img/2017-5-29_19-55-23.png)
+
+至此，本篇博客搭建教程介绍完毕，最后再附上一些链接：[Hexo博客添加百度sitemap](http://www.jianshu.com/p/ab44b916a8b6)[Hexo插件之百度主动提交链接](http://hui-wang.info/2016/10/23/Hexo%E6%8F%92%E4%BB%B6%E4%B9%8B%E7%99%BE%E5%BA%A6%E4%B8%BB%E5%8A%A8%E6%8F%90%E4%BA%A4%E9%93%BE%E6%8E%A5/)[用阿里云的免费 SSL 证书让网站从 HTTP 换成 HTTPS](https://ninghao.net/blog/4449)
 
