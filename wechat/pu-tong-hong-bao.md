@@ -41,3 +41,47 @@
 
 
 
+#### 请求参数
+
+| 字段名 |
+| :--- |
+
+
+|  | 字段 | 必填 | 示例值 | 类型 | 说明 |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| 随机字符串 | nonce\_str | 是 | 5K8264ILTKCH16CQ2502SI8ZNMTM67VS | String\(32\) | 随机字符串，不长于32位 |
+| 签名 | sign | 是 | C380BEC2BFD727A4B6845133519F3AD6 | String\(32\) | 详见[签名生成算法](https://pay.weixin.qq.com/wiki/doc/api/tools/cash_coupon.php?chapter=4_3) |
+| 商户订单号 | mch\_billno | 是 | 10000098201411111234567890 | String\(28\) | 商户订单号（每个订单号必须唯一。取值范围：0~9，a~z，A~Z）接口根据商户订单号支持重入，如出现超时可再调用。 |
+| 商户号 | mch\_id | 是 | 10000098 | String\(32\) | 微信支付分配的商户号 |
+| 公众账号appid | wxappid | 是 | wx8888888888888888 | String\(32\) | 微信分配的公众账号ID（企业号corpid即为此appId）。在微信开放平台（open.weixin.qq.com）申请的移动应用appid无法使用该接口。 |
+| 商户名称 | send\_name | 是 | 天虹百货 | String\(32\) | 红包发送者名称注意：敏感词会被转义成字符\* |
+| 用户openid | re\_openid | 是 | oxTWIuGaIt6gTKsQRLau2M0yL16E | String\(32\) | 接受红包的用户openidopenid为用户在wxappid下的唯一标识（获取openid参见微信公众平台开发者文档：[网页授权获取用户基本信息](http://mp.weixin.qq.com/wiki/4/9ac2e7b1f1d22e9e57260f6553822520.html)） |
+| 付款金额 | total\_amount | 是 | 1000 | int | 付款金额，单位分 |
+| 红包发放总人数 | total\_num | 是 | 1 | int | 红包发放总人数total\_num=1 |
+| 红包祝福语 | wishing | 是 | 感谢您参加猜灯谜活动，祝您元宵节快乐！ | String\(128\) | 红包祝福语注意：敏感词会被转义成字符\* |
+| Ip地址 | client\_ip | 是 | 192.168.0.1 | String\(15\) | 调用接口的机器Ip地址 |
+| 活动名称 | act\_name | 是 | 猜灯谜抢红包活动 | String\(32\) | 活动名称注意：敏感词会被转义成字符\* |
+| 备注 | remark | 是 | 猜越多得越多，快来抢！ | String\(256\) | 备注信息 |
+| 场景id | scene\_id | 否 | PRODUCT\_8 | String\(32\) | 发放红包使用场景，红包金额大于200或者小于1元时必传PRODUCT\_1:商品促销PRODUCT\_2:抽奖PRODUCT\_3:虚拟物品兑奖 PRODUCT\_4:企业内部福利PRODUCT\_5:渠道分润PRODUCT\_6:保险回馈PRODUCT\_7:彩票派奖PRODUCT\_8:税务刮奖 |
+| 活动信息 | risk\_info | 否 | posttime%3d123123412%26clientversion%3d234134%26mobile%3d122344545%26deviceid%3dIOS | String\(128\) | posttime:用户操作的时间戳mobile:业务系统账号的手机号，国家代码-手机号。不需要+号deviceid :mac 地址或者设备唯一标识 clientversion :用户操作的客户端版本把值为非空的信息用key=value进行拼接，再进行urlencodeurlencode\(posttime=xx& mobile =xx&deviceid=xx\) |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
