@@ -65,3 +65,9 @@
 
 数据示例：
 
+| &lt;xml&gt;&lt;sign&gt;&lt;!\[CDATA\[E1EE61A91C8E90F299DE6AE075D60A2D\]\]&gt;&lt;/sign&gt;&lt;mch\_billno&gt;&lt;!\[CDATA\[0010010404201411170000046545\]\]&gt;&lt;/mch\_billno&gt;&lt;mch\_id&gt;&lt;!\[CDATA\[888\]\]&gt;&lt;/mch\_id&gt;&lt;wxappid&gt;&lt;!\[CDATA\[wxcbda96de0b165486\]\]&gt;&lt;/wxappid&gt;&lt;send\_name&gt;&lt;!\[CDATA\[send\_name\]\]&gt;&lt;/send\_name&gt;&lt;re\_openid&gt;&lt;!\[CDATA\[onqOjjmM1tad-3ROpncN-yUfa6uI\]\]&gt;&lt;/re\_openid&gt;&lt;total\_amount&gt;&lt;!\[CDATA\[200\]\]&gt;&lt;/total\_amount&gt;&lt;total\_num&gt;&lt;!\[CDATA\[1\]\]&gt;&lt;/total\_num&gt;&lt;wishing&gt;&lt;!\[CDATA\[恭喜发财\]\]&gt;&lt;/wishing&gt;&lt;client\_ip&gt;&lt;!\[CDATA\[127.0.0.1\]\]&gt;&lt;/client\_ip&gt;&lt;act\_name&gt;&lt;!\[CDATA\[新年红包\]\]&gt;&lt;/act\_name&gt;&lt;remark&gt;&lt;!\[CDATA\[新年红包\]\]&gt;&lt;/remark&gt;&lt;scene\_id&gt;&lt;!\[CDATA\[PRODUCT\_2\]\]&gt;&lt;/scene\_id&gt;&lt;nonce\_str&gt;&lt;!\[CDATA\[50780e0cca98c8c8e814883e5caa672e\]\]&gt;&lt;/nonce\_str&gt;&lt;risk\_info&gt;posttime%3d123123412%26clientversion%3d234134%26mobile%3d122344545%26deviceid%3dIOS&lt;/risk\_info&gt;&lt;/xml&gt; |
+| :--- |
+
+
+
+
