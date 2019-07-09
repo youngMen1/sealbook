@@ -30,5 +30,14 @@
 
 ### 接口调用请求说明
 
+| 请求Url |
+| :--- |
+
+
+|  | https://api.mch.weixin.qq.com/mmpaymkttransfers/sendredpack |
+| :--- | :--- |
+| 是否需要证书 | 是（证书及使用说明详见[商户证书](https://pay.weixin.qq.com/wiki/doc/api/tools/cash_coupon.php?chapter=4_3)） |
+| 请求方式 | POST |
+
 
 
