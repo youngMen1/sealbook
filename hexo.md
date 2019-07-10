@@ -121,9 +121,7 @@
 
 ![](/assets/report.png)或者将你的记录值配置成185.199.108.153\(比较麻烦需要备案\)
 
-
-
-等解析生效就可以使用域名访问Github page了，例如博主的：[http://yk95.top](http://yk95.top/)
+等解析生效就可以使用域名访问Github page了，例如博主的：[http://8](http://yk95.top/)to8.top
 
 使用域名访问Github page还需要注意一点，我们使用`hexo clean && hexo g && hexo d`命令将博客发布到Git时，Hexo会将整个仓库全部清空，然后才提交，这样我们创建的CNAME文件就被删除了，这里提供一个简单的解决方案，在本地博客public文件夹下创建CNAME文件，发布到Git时不clean使用`hexo g && hexo d`命令，发布时会将CNAME文件一起提交。
 
