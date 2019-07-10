@@ -2,7 +2,7 @@
 
 #### 参考同事的博客vick:[http://yk95.top](http://yk95.top/)
 
-[2017-05-30](https://blog.yk95.top/2017/05/30/%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BAGithub%E5%8D%9A%E5%AE%A2/)
+[2017-05-30](https://blog.yk95.top/2017/05/30/使用Hexo搭建个人Github博客/)
 
 参考网上的文章总算把自己的Github博客搭建出来了，在这把我的搭建步骤分享给大家，后面的内容还包括了配置域名，如已搭建成功了想要使用自己的域名访问博客可以直接跳到配置域名部分。  
 [搭建个人博客-hexo+github详细完整步骤](http://www.jianshu.com/p/189fd945f38f)  
@@ -56,11 +56,11 @@
 接下来我们注册Github账号，使用常用邮箱注册即可，过程比较简单这里就不细讲了。  
 注册成功登录后，来到我的仓库页面，点击New repository。
 
-![](https://blog.yk95.top/static/img/2017-5-27_22-31-44.png "img")
+![](/assets/createRepository.png)
 
 注意Repository name一定得是yourname.github.io，这样才能使用这个地址访问到你的Github page，填好Repository name，点击Create repository。（我这里因为之前创建过，所以报同名错误，大家第一次创建的话可以忽略）。
 
-![](https://blog.yk95.top/static/img/2017-5-27_22-37-26.png "img")
+![](/assets/repository.png)
 
 在[零基础免费搭建个人博客-hexo+github](http://blog.csdn.net/jzooo/article/details/46781805)里有个‘启用GitHub Page’的步骤，但我发现页面都已经变得不一样了，最新的页面如下所示，只需要Choose Theme就会自动启用Github Page。
 
@@ -68,7 +68,7 @@
 
 创建仓库后我们后面的步骤需要用到仓库地址，进到yourname.github.io仓库页面，看下图。
 
-![](https://blog.yk95.top/static/img/2017-5-27_22-53-59.png "img")
+![](/assets/re.png)
 
 # 二、本地启动与部署到Github {#二、本地启动与部署到Github}
 
@@ -104,22 +104,24 @@
 
 博主选择的主题是yilia，这里遇到了一个坑：使用yilia主题有了两个\_config.yml文件，一个是我们一直用到的，另一个是yilia主题目录下的，启用yilia的某些功能需要在我们一直用到的\_config.yml文件配置，而yilia主题的定制是在yilia目录下的\_config.yml配置，其他主题可能也会有这样的情况，这一点稍微注意下。
 
-另附上yilia主题的评论配置：[多说、畅言、网易云跟帖、Disqus评论配置](https://github.com/litten/hexo-theme-yilia/wiki/%E5%A4%9A%E8%AF%B4%E3%80%81%E7%95%85%E8%A8%80%E3%80%81%E7%BD%91%E6%98%93%E4%BA%91%E8%B7%9F%E5%B8%96%E3%80%81Disqus%E8%AF%84%E8%AE%BA%E9%85%8D%E7%BD%AE)
+另附上yilia主题的评论配置：[多说、畅言、网易云跟帖、Disqus评论配置](https://github.com/litten/hexo-theme-yilia/wiki/多说、畅言、网易云跟帖、Disqus评论配置)
 
 ## 2、配置域名 {#2、配置域名}
 
 这一步骤提供给需要使用自己的域名访问Github page的读者，不需要的可以直接跳过。  
 在cmd窗口使用`ping yourname.github.io`得到IP地址，见下图。
 
-![](https://blog.yk95.top/static/img/2017-5-29_16-0-36.png "img")
+![](/assets/rer4.png)
 
 在你的Github博客仓库根目录下创建CNAME文件，注意不能有文件名不能有后缀且要大写，内容为你想指定的域名。
 
-![](https://blog.yk95.top/static/img/2017-5-29_16-11-59.png "img")
+![](/assets/re2.png)
 
 然后将你的域名映射到该IP地址，这里以博主的阿里云购买的域名举例，在阿里云域名控制台添加一条解析，如下图。
 
-![](https://blog.yk95.top/static/img/2017-5-29_16-18-31.png "img")
+![](/assets/report.png)或者将你的记录值配置成185.199.108.153\(比较麻烦需要备案\)
+
+
 
 等解析生效就可以使用域名访问Github page了，例如博主的：[http://yk95.top](http://yk95.top/)
 
