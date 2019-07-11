@@ -4,27 +4,27 @@
 
 linux安装docker
 
-
-
 # 二、Docker安装部署
 
 1、自定义网络
 
-![](file://C:/Users/Administrator/Desktop/image/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20190711143115.png?lastModify=1562826784 "微信截图\_20190711143115")
+![](file://C:/Users/Administrator/Desktop/image/微信截图_20190711143115.png?lastModify=1562826784 "微信截图\_20190711143115")
 
 2、安装启动Elasticsearch
 
-![](file://C:/Users/Administrator/Desktop/image/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20190711142807.png?lastModify=1562826784 "微信截图\_20190711142807")
+![](file://C:/Users/Administrator/Desktop/image/微信截图_20190711142807.png?lastModify=1562826784 "微信截图\_20190711142807")
 
 3、安装启动Kinaba
 
 第一次失败了，可能是网络原因。
 
-![](file://C:/Users/Administrator/Desktop/image/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20190711143902.png?lastModify=1562826784 "微信截图\_20190711143902")
+![](file://C:/Users/Administrator/Desktop/image/微信截图_20190711143902.png?lastModify=1562826784 "微信截图\_20190711143902")
 
-4、安装启动Logstash 下载镜像![](file://C:/Users/Administrator/Desktop/image/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20190711144236.png?lastModify=1562826784 "微信截图\_20190711144236")
+4、安装启动Logstash 下载镜像
 
-复制logstash容器配置文件到主机![](file://C:/Users/Administrator/Desktop/image/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20190711144519.png?lastModify=1562826784 "微信截图\_20190711144519")
+![](file://C:/Users/Administrator/Desktop/image/微信截图_20190711144236.png?lastModify=1562826784 "微信截图\_20190711144236")
+
+复制logstash容器配置文件到主机![](file://C:/Users/Administrator/Desktop/image/微信截图_20190711144519.png?lastModify=1562826784 "微信截图\_20190711144519")
 
 停止删除容器
 
@@ -63,7 +63,7 @@ docker run --rm -it --name=logstash --net=elk -p 9600:9600 -p 5000:5000 -v /usr/
 
 有一个名为jvm.options的文件`/etc/elasticsearch/jvm.options`，只需添加`-XX:+AssumeMP`或者-XX:-AssumeMP到此文件中。
 
-![](file://C:/Users/Administrator/Desktop/image/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20190711164934.png?lastModify=1562826784 "微信截图\_20190711164934")
+![](file://C:/Users/Administrator/Desktop/image/微信截图_20190711164934.png?lastModify=1562826784 "微信截图\_20190711164934")
 
 后台启动
 
