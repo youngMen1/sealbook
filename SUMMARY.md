@@ -23,4 +23,5 @@
 * [sealblog](sealblog.md)
   * [hexo](sealblog/hexo.md)
   * [docker+elk+springboot](sealblog/docker.md)
+  * [xxl-job](sealblog/xxl-job.md)
 
