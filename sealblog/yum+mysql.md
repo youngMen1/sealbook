@@ -93,7 +93,12 @@ yum install mysql-community-server
 # 第八步：启动mysql。
 
 ```
-
+service mysqld start
+或者如下命令也可以
+systemctl start mysqld.service      #启动 mysql
+systemctl restart mysqld.service    #重启 mysql
+systemctl stop mysqld.service       #停止 mysql
+systemctl enable mysqld.service     #设置 mysql 开机启动
 ```
 
 
