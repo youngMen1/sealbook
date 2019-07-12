@@ -33,5 +33,37 @@ rpm -qa | grep mariadb | xargs rpm -e --nodeps
 
 # 第三步：卸载已安装的 Mariadb 数据库
 
+```
+rpm -qa | grep mariadb | xargs rpm -e --nodeps
+```
+
+![](/assets/微信截图_20190712132451.png)
+
+# 第四步：再次查看已安装的 Mariadb 数据库版本，确认是否卸载完成
+
+```
+rpm -qa | grep -i mariadb
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
