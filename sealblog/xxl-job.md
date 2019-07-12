@@ -57,7 +57,7 @@ mvn clean package
 在浏览器输入:http://localhost:8080/xxl-job-admin/
 ```
 
-![](/assets/微信截图_20190712175009.png)
+![](/assets/微信截图_20190712182859.png)
 
 添加执行器管理
 
