@@ -30,6 +30,26 @@ tomcat环境变量:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 四、搭建项目
 
 GitHub:[https://github.com/xuxueli/xxl-job/](https://github.com/xuxueli/xxl-job/)
