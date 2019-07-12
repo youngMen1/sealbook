@@ -45,9 +45,9 @@ rpm -qa | grep mariadb | xargs rpm -e --nodeps
 rpm -qa | grep -i mariadb
 ```
 
+![](/assets/微信截图_20190712132632.png)
 
-
-
+第五步：下载并安装mysql的yum源
 
 
 
