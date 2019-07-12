@@ -49,3 +49,11 @@ rpm -qa | grep -i mariadb
 
 
 
+
+
+第五步：下载并安装mysql的yum源
+
+
+
+
+
