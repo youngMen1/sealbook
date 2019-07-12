@@ -24,3 +24,29 @@ GitHub:[https://github.com/xuxueli/xxl-job/](https://github.com/xuxueli/xxl-job/
 
 ![](/assets/微信截图_20190712172637.png)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
