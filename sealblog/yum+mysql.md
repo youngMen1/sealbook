@@ -117,5 +117,7 @@ mysql> quit
 方式二：/usr/bin/mysqladmin -u root password 'new-password'　　#为root账号设置密码
 ```
 
+# 第十步：使用root账号登录mysql。
+
 
 
