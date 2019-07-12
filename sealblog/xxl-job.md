@@ -26,10 +26,6 @@ tomcat：
 
 ![](/assets/微信截图_20190712173009.png)
 
-
-
-
-
 ## 四、搭建项目
 
 GitHub:[https://github.com/xuxueli/xxl-job/](https://github.com/xuxueli/xxl-job/)
