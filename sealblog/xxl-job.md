@@ -28,7 +28,7 @@ Windows:
 
 配置tomcat环境变量:
 
-
+[https://jingyan.baidu.com/article/a3761b2bf2ee681577f9aa42.html](https://jingyan.baidu.com/article/a3761b2bf2ee681577f9aa42.html)
 
 ## 四、搭建项目
 
