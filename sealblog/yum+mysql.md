@@ -133,17 +133,9 @@ mysql>flush privileges;
 
 # 注意:
 
-```
-开放3306端口
-```
+### 开放3306端口由于centos7使用firewalld而不是iptables,所以： {#9}
 
 ```
-由于centos7使用firewalld而不是iptables,所以：
-
-```
-
-```
-
 #开放3306
 firewall-cmd --permanent --add-port=3306/tcp 
 
