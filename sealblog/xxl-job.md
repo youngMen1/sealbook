@@ -51,9 +51,8 @@ mvn clean package
 
 ![](/assets/微信截图_20190712174255.png)
 
-将打好的war包复制到Tomact的webapps目录下然后启动tomcat
-
 ```
+java -jar
 在浏览器输入:http://localhost:8080/xxl-job-admin/
 ```
 
