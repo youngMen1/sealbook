@@ -92,5 +92,9 @@ yum install mysql-community-server
 
 # 第八步：启动mysql。
 
+```
+
+```
+
 
 
