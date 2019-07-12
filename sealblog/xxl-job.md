@@ -52,7 +52,7 @@ mvn clean package
 ![](/assets/微信截图_20190712174255.png)
 
 ```
-java -jar xxl-job-admin-2.1.1-SNAPSHOT.jar
+java -jar xxl-job-admin-2.1.1-SNAPSHOT.jar   或者  用idea工具打开启动
 在浏览器输入:http://localhost:8080/xxl-job-admin/
 ```
 
