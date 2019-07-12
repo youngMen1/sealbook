@@ -74,5 +74,17 @@ rpm -qa | grep -i mariadb
 [root@itheima mysql]# rpm -ivh mysql-community-release-el7-5.noarch.rpm
 ```
 
+如下图所示：
+
+　　安装完成之后，会在 /etc/yum.repos.d/ 目录下新增 mysql-community.repo 、mysql-community-source.repo 两个 yum 源文件。
+
+　　执行 yum repolist all \| grep mysql 命令查看可用的 mysql 安装文件。
+
+# 第六步：正式安装mysql，需要使用yum命令安装。在安装mysql之前需要安装mysql的下载源。需要从oracle的官方网站下载。上面我们已经安装好了！
+
+```
+yum install mysql-community-server
+```
+
 
 
