@@ -34,6 +34,8 @@ Windows:
 
 GitHub:[https://github.com/xuxueli/xxl-job/](https://github.com/xuxueli/xxl-job/)
 
+文档:[http://www.xuxueli.com/xxl-job/\#/?id=%E3%80%8A%E5%88%86%E5%B8%83%E5%BC%8F%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%B9%B3%E5%8F%B0xxl-job%E3%80%8B](http://www.xuxueli.com/xxl-job/#/?id=%E3%80%8A%E5%88%86%E5%B8%83%E5%BC%8F%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%B9%B3%E5%8F%B0xxl-job%E3%80%8B)
+
 ![](/assets/微信截图_20190712172637.png)
 
 maven命令打包成war包：
@@ -56,8 +58,6 @@ mvn clean package
 ![](/assets/微信截图_20190712175009.png)
 
 添加执行器管理
-
-
 
 任务管理
 
