@@ -19,3 +19,17 @@ rm -f /etc/my.cnf
 
 **注意:**使用yum命令卸载，因为yum命令可以自动删除与mysql相关的依赖；如果使用rpm命令卸载，则还需要手动去删除和mysql相关的文件。
 
+# 第二步：查看已安装的 Mariadb 数据库版
+
+```
+rpm -qa | grep mariadb | xargs rpm -e --nodeps
+```
+
+![](/assets/微信截图_20190712115831.png)
+
+# 第三步：卸载已安装的 Mariadb 数据库
+
+
+
+
+
