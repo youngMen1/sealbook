@@ -38,5 +38,9 @@ GitHub:[https://github.com/xuxueli/xxl-job/](https://github.com/xuxueli/xxl-job/
 
 maven命令打包成war包：
 
+```
+#编译
+```
+
 
 
