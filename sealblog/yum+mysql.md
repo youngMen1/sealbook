@@ -90,6 +90,10 @@ yum install mysql-community-server
 
 # 第七步：看安装过程检查mysql是否安装成功
 
+```
+ps -ef|grep mysql
+```
+
 # 第八步：启动mysql。
 
 ```
