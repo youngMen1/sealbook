@@ -22,7 +22,7 @@ XXL-JOB是一个轻量级分布式任务调度框架，开箱即用。
 
 Windows:
 
-tomcat：
+官网下载tomcat：
 
 ![](/assets/微信截图_20190712173009.png)
 
