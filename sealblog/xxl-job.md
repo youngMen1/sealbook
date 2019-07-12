@@ -47,25 +47,5 @@ mvn clean package
 
 ![](/assets/微信截图_20190712174255.png)
 
-将打好的war复制到Tomact的webapps目录下如何启动tomcat
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+将打好的war包复制到Tomact的webapps目录下如何启动tomcat
 
