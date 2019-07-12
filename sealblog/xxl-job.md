@@ -53,5 +53,5 @@ mvn clean package
 http://localhost:8080/xxl-job-admin/
 ```
 
-
+![](/assets/微信截图_20190712175009.png)
 
