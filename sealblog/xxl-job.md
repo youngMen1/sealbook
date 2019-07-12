@@ -36,37 +36,7 @@ GitHub:[https://github.com/xuxueli/xxl-job/](https://github.com/xuxueli/xxl-job/
 
 ![](/assets/微信截图_20190712172637.png)
 
-maven命令打包成war
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+maven命令打包成war包：
 
 
 
