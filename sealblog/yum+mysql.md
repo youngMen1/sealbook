@@ -101,5 +101,17 @@ systemctl stop mysqld.service       #停止 mysql
 systemctl enable mysqld.service     #设置 mysql 开机启动
 ```
 
+# 第九步：需要给root用户设置密码。有两种方式：
+
+**方式一**：mysql5.6 安装完成后，它的 root 用户的密码默认是空的，我们需要及时用 mysql 的 root 用户登录（**第一次直接回车，不用输入密码**），并修改密码。
+
+```
+# mysql -u root
+mysql> show database;
+mysql> use mysql;
+mysql> update user set password=PASSWORD("这里输入root用户密码") where User='root';
+mysql> quit
+```
+
 
 
