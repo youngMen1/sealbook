@@ -49,3 +49,9 @@ mvn clean package
 
 将打好的war包复制到Tomact的webapps目录下然后启动tomcat
 
+```
+http://localhost:8080/xxl-job-admin/
+```
+
+
+
