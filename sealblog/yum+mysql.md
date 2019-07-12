@@ -137,7 +137,7 @@ mysql>flush privileges;
 
 # 注意:
 
-[CentOS7使用firewalld打开关闭防火墙与端口](https://www.cnblogs.com/moxiaoan/p/5683743.html)
+[CentOS7使用firewalld打开关闭防火墙与端口](https://www.cnblogs.com/moxiaoan/p/5683743.html)：https://www.cnblogs.com/moxiaoan/p/5683743.html
 
 ### 开放3306端口由于centos7使用firewalld而不是iptables,所以： {#9}
 
