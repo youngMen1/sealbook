@@ -18,35 +18,9 @@ XXL-JOB是一个轻量级分布式任务调度框架，开箱即用。
 
 运行报表：实时查看任务数量、调度次数、执行器数量。
 
-## 三、搭建项目
+## 四、搭建项目
 
 GitHub:[https://github.com/xuxueli/xxl-job/](https://github.com/xuxueli/xxl-job/)
 
 ![](/assets/微信截图_20190712172637.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
