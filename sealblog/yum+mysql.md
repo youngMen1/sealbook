@@ -131,5 +131,12 @@ mysql>grant all privileges on *.* to 'root'@'%' identified by 'xxxxx(密码)';
 mysql>flush privileges;
 ```
 
+# 注意:
+
+```
+开放3306端口
+由于centos7使用firewalld而不是iptables,所以：
+```
+
 
 
