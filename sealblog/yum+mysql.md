@@ -2,6 +2,10 @@
 
 # 一、检查Linux系统中是否已安装 MySQL
 
+```
+rpm -qa | grep mysql
+```
+
 ![](/assets/微信截图_20190712114852.png)
 
 返回空值的话，就说明没有安装 MySQL 。
@@ -28,8 +32,6 @@ rpm -qa | grep mariadb | xargs rpm -e --nodeps
 ![](/assets/微信截图_20190712115831.png)
 
 # 第三步：卸载已安装的 Mariadb 数据库
-
-
 
 
 
