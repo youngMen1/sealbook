@@ -113,5 +113,9 @@ mysql> update user set password=PASSWORD("这里输入root用户密码") where U
 mysql> quit
 ```
 
+**方式二**：/usr/bin/mysqladmin -u root password 
 
+'new-password'
+
+\#为root账号设置密码
 
