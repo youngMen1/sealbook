@@ -88,44 +88,9 @@ yum install mysql-community-server
 
 ![](/assets/微信截图_20190712133354.png)
 
+
+
 # 第七步：看安装过程检查mysql是否安装成功
 
-  
-
-
 第八步：启动mysql。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
