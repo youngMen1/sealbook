@@ -26,7 +26,7 @@ tomcat：
 
 ![](/assets/微信截图_20190712173009.png)
 
-tomcat环境变量
+tomcat环境变量:
 
 
 
