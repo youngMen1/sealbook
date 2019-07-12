@@ -119,5 +119,9 @@ mysql> quit
 
 # 第十步：使用root账号登录mysql。
 
+```
+mysql -u root -p xxxx
+```
+
 
 
