@@ -47,13 +47,32 @@ rpm -qa | grep -i mariadb
 
 ![](/assets/微信截图_20190712132632.png)
 
+# 第五步：下载并安装mysql的yum源
 
+```
+1、选择一个目录放置下载的mysql的yum源文件
+[root@itheima java]# mkdir mysql
+[root@itheima java]# cd mysql/
+[root@itheima mysql]#
+[root@itheima mysql]# pwd
+/usr/local/java/mysql
 
+2、下载mysql的yum源
+[root@itheima mysql]# wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
+--2018-12-28 18:23:22--  http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
+正在解析主机 repo.mysql.com (repo.mysql.com)... 23.41.23.231
+正在连接 repo.mysql.com (repo.mysql.com)|23.41.23.231|:80... 已连接。
+已发出 HTTP 请求，正在等待回应... 200 OK
+长度：6140 (6.0K) [application/x-redhat-package-manager]
+正在保存至: “mysql-community-release-el7-5.noarch.rpm”
 
+100%[=========================================================================>] 6,140       --.-K/s 用时 0s
 
-第五步：下载并安装mysql的yum源
+2018-12-28 18:23:23 (750 MB/s) - 已保存 “mysql-community-release-el7-5.noarch.rpm” [6140/6140])
 
-
+3、安装mysql的yum源
+[root@itheima mysql]# rpm -ivh mysql-community-release-el7-5.noarch.rpm
+```
 
 
 
