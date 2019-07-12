@@ -40,6 +40,7 @@ maven命令打包成war包：
 
 ```
 #编译
+mvn clean compile
 ```
 
 
