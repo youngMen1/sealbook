@@ -10,9 +10,13 @@
 # wget https://mirrors.tuna.tsinghua.edu.cn/apache/zookeeper/zookeeper-3.4.14/zookeeper-3.4.14.tar.gz
 ```
 
-![](/assets/微信截图_20190715150352.png)
+![](/assets/微信截图_20190715150826.png)
 
 # 解压安装包
+
+```
+tar -zxvf zookeeper-3.4.14.tar.gz
+```
 
 
 
