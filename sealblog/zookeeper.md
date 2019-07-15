@@ -35,21 +35,11 @@ export PATH
 
 ### 修改zookeeper配置文件 {#4修改zookeeper配置文件}
 
-将配置文件`zoo_sample.cfg` 复制为 `zoo.cfg`，操作如下：
+将配置文件`zoo_sample.cfg` 复制为 `zoo.cfg`，操作如下：
 
 ```
-cd 
-/usr/
-local
-/zookeeper/
-zookeeper
--
-3.4
-.10
-/conf/
-cp zoo_sample
-.cfg zoo
-.cfg
+cd /usr/local/zookeeper/zookeeper-3.4.10/conf/
+cp zoo_sample.cfg zoo.cfg
 ```
 
 
