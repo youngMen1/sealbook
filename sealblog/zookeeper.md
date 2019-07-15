@@ -85,6 +85,10 @@ clientPort=2181
 
 
 
+
+
+
+
 # 注意：
 
 如果查看状态：zkServer.sh status启动失败
