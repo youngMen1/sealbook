@@ -26,6 +26,7 @@ tar -zxvf zookeeper-3.4.14.tar.gz
 export ZOOKEEPER_HOME=/usr/local/zookeeper/zookeeper-3.4.14/
 export PATH=$ZOOKEEPER_HOME/bin:$PATH
 export PATH
+
 #保存强制退出
 :wq!
 输入 source /etc/profile命令使其文件立即生效
