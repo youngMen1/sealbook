@@ -81,13 +81,11 @@ clientPort=2181
 
 ![](/assets/微信截图_20190715155455.png)
 
-注意：
+# 注意：
 
 如果查看状态：zkServer.sh status启动失败
 
 ![](/assets/微信截图_20190715155637.png)
-
-
 
 查看zookeeper.out文件:nohup: failed to run command ‘/usr/java/jdk1.8.0\_181/bin/java’: No such file or directory
 
