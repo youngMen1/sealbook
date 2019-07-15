@@ -75,9 +75,5 @@ clientPort=2181
 重启服务：zkServer.sh restart
 ```
 
-
-
-
-
-
+![](/assets/微信截图_20190715152015.png)
 
