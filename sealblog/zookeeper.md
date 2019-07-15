@@ -29,6 +29,7 @@ export PATH
 
 #保存强制退出
 :wq!
+
 输入 source /etc/profile命令使其文件立即生效
 ```
 
