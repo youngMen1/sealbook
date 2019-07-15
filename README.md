@@ -12,7 +12,7 @@ gitbook中文文档
 
 eureka
 
-mysql:
+mysql
 
 ## 134.175.12.243: {#13417512243}
 
