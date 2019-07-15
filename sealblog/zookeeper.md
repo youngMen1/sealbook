@@ -20,5 +20,13 @@ tar -zxvf zookeeper-3.4.14.tar.gz
 
 # 添加系统环境变量 {#3添加系统环境变量}
 
+```
+输入vim /etc/profile命令打开系统配置文件，并在其尾部追加如下内容：
+
+export ZOOKEEPER_HOME=/usr/local/zookeeper/zookeeper-3.4.10/
+export PATH=$ZOOKEEPER_HOME/bin:$PATH
+export PATH
+```
+
 
 
