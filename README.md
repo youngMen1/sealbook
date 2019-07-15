@@ -10,7 +10,7 @@ gitbook中文文档
 
 ### 服务: {#服务}
 
-eureka:nohup java -jar inf-eureka-1.0.0.jar --spring.profiles.active=native1
+eureka: nohup java -jar inf-eureka-1.0.0.jar --spring.profiles.active=native1
 
 mysql
 
