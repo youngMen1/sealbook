@@ -42,5 +42,9 @@ cd /usr/local/zookeeper/zookeeper-3.4.14/conf/
 cp zoo_sample.cfg zoo.cfg
 ```
 
+使用
 
+`vim zoo.cfg`
+
+命令打开，并修改其内容如下：
 
