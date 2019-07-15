@@ -38,7 +38,7 @@ export PATH
 将配置文件`zoo_sample.cfg` 复制为 `zoo.cfg`，操作如下：
 
 ```
-cd /usr/local/zookeeper/zookeeper-3.4.10/conf/
+cd /usr/local/zookeeper/zookeeper-3.4.14/conf/
 cp zoo_sample.cfg zoo.cfg
 ```
 
