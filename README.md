@@ -14,6 +14,8 @@ eureka: nohup java -jar inf-eureka-1.0.0.jar --spring.profiles.active=native1
 
 mysql
 
+xxl-job
+
 ## 134.175.12.243: {#13417512243}
 
 ### 服务: {#服务-2}
