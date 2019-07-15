@@ -87,17 +87,11 @@ clientPort=2181
 
 ![](/assets/微信截图_20190715155637.png)
 
-
-
-
-
-
-
 ```
 
 ```
 
-nohup: failed to run command ‘/usr/java/jdk1.8.0\_181/bin/java’: No such file or directory
+查看zookeeper.out文件:nohup: failed to run command ‘/usr/java/jdk1.8.0\_181/bin/java’: No such file or directory
 
 [https://www.cnblogs.com/abc-begin/p/8206727.html](https://www.cnblogs.com/abc-begin/p/8206727.html)
 
