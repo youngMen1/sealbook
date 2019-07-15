@@ -33,5 +33,7 @@ export PATH
 输入 source /etc/profile命令使其文件立即生效
 ```
 
+### 修改zookeeper配置文件 {#4修改zookeeper配置文件}
+
 
 
