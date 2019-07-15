@@ -77,13 +77,13 @@ clientPort=2181
 
 ![](/assets/微信截图_20190715152015.png)
 
+启动成功
 
+![](/assets/微信截图_20190715155455.png)
 
+注意：
 
-
-
-
-
+https://www.cnblogs.com/abc-begin/p/8206727.html
 
 
 
