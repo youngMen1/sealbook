@@ -66,23 +66,14 @@ dataLogDir=/usr/local/zookeeper/zookeeper-3.4.14/logs
 clientPort=2181
 ```
 
+### 启动、关闭zookeeper服务 {#5启动关闭zookeeper服务}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```
+启动服务：zkServer.sh start
+查看状态：zkServer.sh status
+关闭服务：zkServer.sh stop
+重启服务：zkServer.sh restart
+```
 
 
 
