@@ -23,6 +23,7 @@
 * [sealblog](sealblog.md)
   * [hexo](sealblog/hexo.md)
   * [docker+elk+springboot](sealblog/docker.md)
+  * [elastic-job](elastic-job.md)
   * [xxl-job](sealblog/xxl-job.md)
   * [yum+mysql](sealblog/yum+mysql.md)
 
