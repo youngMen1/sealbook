@@ -10,11 +10,15 @@ gitbook中文文档
 
 ### 服务: {#服务}
 
-eureka: nohup java -jar inf-eureka-1.0.0.jar --spring.profiles.active=native1
+eureka: 
+
+nohup java -jar inf-eureka-1.0.0.jar --spring.profiles.active=native1
+
+http://211.159.189.77:22001/
 
 mysql
 
-xxl-job:http://211.159.189.77:8080/xxl-job-admin/
+xxl-job:[http://211.159.189.77:8080/xxl-job-admin/](http://211.159.189.77:8080/xxl-job-admin/)
 
 ## 134.175.12.243: {#13417512243}
 
