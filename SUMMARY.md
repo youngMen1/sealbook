@@ -26,4 +26,5 @@
   * [xxl-job](sealblog/xxl-job.md)
   * [elastic-job](elastic-job.md)
   * [yum+mysql](sealblog/yum+mysql.md)
+  * [zookeeper](sealblog/zookeeper.md)
 
