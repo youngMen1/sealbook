@@ -66,5 +66,13 @@ java -jar xxl-job-admin-2.1.1-SNAPSHOT.jar   或者  用idea工具打开启动xx
 
 ![](/assets/微信截图_20190715095844.png)
 
-注意版本:https://blog.csdn.net/u011706563/article/details/89258029
+注意版本:[https://blog.csdn.net/u011706563/article/details/89258029](https://blog.csdn.net/u011706563/article/details/89258029)
+
+因为我是xxl-job
+
+```
+2.0.0以上版本配置的版本
+```
+
+
 
