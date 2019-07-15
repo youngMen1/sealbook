@@ -48,3 +48,23 @@ cp zoo_sample.cfg zoo.cfg
 
 命令打开，并修改其内容如下：
 
+```
+#服务器与客户端之间交互的基本时间单元（ms）
+
+tickTime=2000
+
+#配置保存数据文件夹
+
+dataDir=/usr/local/zookeeper/zookeeper-3.4.10/data
+
+#配置保存日志文件夹，当此配置不存在时默认路径与dataDir一致
+
+dataLogDir=/usr/local/zookeeper/zookeeper-3.4.10/logs
+
+#客户端访问zookeeper的端口号
+
+clientPort=2181
+```
+
+
+
