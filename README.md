@@ -48,3 +48,9 @@ nexus-3.15.2-01:
 
 安装路径:/usr/local/nexus-3.15.2-01
 
+zookeeper:
+
+/usr/local/zookeeper/zookeeper-3.4.14
+
+
+
