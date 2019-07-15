@@ -55,16 +55,38 @@ tickTime=2000
 
 #配置保存数据文件夹
 
-dataDir=/usr/local/zookeeper/zookeeper-3.4.10/data
+dataDir=/usr/local/zookeeper/zookeeper-3.4.14/data
 
 #配置保存日志文件夹，当此配置不存在时默认路径与dataDir一致
 
-dataLogDir=/usr/local/zookeeper/zookeeper-3.4.10/logs
+dataLogDir=/usr/local/zookeeper/zookeeper-3.4.14/logs
 
 #客户端访问zookeeper的端口号
 
 clientPort=2181
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
