@@ -71,8 +71,8 @@ java -jar xxl-job-admin-2.1.1-SNAPSHOT.jar   或者  用idea工具打开启动xx
 因为我是xxl-job2.0.0以上版本配置的版本
 
 ```
-2.0.0以上版本配置的版本
-   /**
+         2.0.0以上版本配置的版本
+        /**
          * #xxl-job 2.0.0以上版本配置
          */
         XxlJobSpringExecutor xxlJobSpringExecutor = new XxlJobSpringExecutor();
