@@ -85,5 +85,7 @@ java -jar xxl-job-admin-2.1.1-SNAPSHOT.jar   或者  用idea工具打开启动xx
         xxlJobSpringExecutor.setLogRetentionDays(logRetentionDays);
 ```
 
+![](/assets/微信截图_20190715112021.png)
 
+![](/assets/微信截图_20190715112615.png)
 
