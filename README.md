@@ -18,7 +18,7 @@ mysql
 
 ### 服务: {#服务-2}
 
-#### eureka: nohup java -jar inf-eureka-1.0.0.jar --spring.profiles.active=native2 {#eureka}
+eureka: nohup java -jar inf-eureka-1.0.0.jar --spring.profiles.active=native2
 
 #### rabbitMq: {#rabbitmq}
 
