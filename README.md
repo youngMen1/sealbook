@@ -50,7 +50,5 @@ nexus-3.15.2-01:
 
 zookeeper:
 
-/usr/local/zookeeper/zookeeper-3.4.14
-
-
+安装路径:/usr/local/zookeeper/zookeeper-3.4.14
 
