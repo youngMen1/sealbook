@@ -62,5 +62,9 @@ java -jar xxl-job-admin-2.1.1-SNAPSHOT.jar   或者  用idea工具打开启动xx
 
 添加任务管理![](/assets/微信截图_20190715093810.png)
 
-项目里面的配置![](/assets/微信截图_20190715095609.png)
+项目里面的配置
+
+![](/assets/微信截图_20190715095844.png)
+
+
 
