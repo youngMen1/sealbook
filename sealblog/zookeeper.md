@@ -81,6 +81,10 @@ clientPort=2181
 
 ![](/assets/微信截图_20190715155455.png)
 
+![](/assets/微信截图_20190715161045.png)
+
+
+
 # 注意：
 
 如果查看状态：zkServer.sh status启动失败
