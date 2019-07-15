@@ -89,5 +89,16 @@ clientPort=2181
 
 查看zookeeper.out文件:nohup: failed to run command ‘/usr/java/jdk1.8.0\_181/bin/java’: No such file or directory
 
+```
+# 查看系统环境变量
+export
+# 修改系统环境变量
+export JAVA_HOME=/usr
+```
+
+
+
+
+
 [https://www.cnblogs.com/abc-begin/p/8206727.html](https://www.cnblogs.com/abc-begin/p/8206727.html)
 
