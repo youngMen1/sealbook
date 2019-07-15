@@ -60,7 +60,7 @@ java -jar xxl-job-admin-2.1.1-SNAPSHOT.jar   或者  用idea工具打开启动xx
 
 添加执行器管理
 
+![](/assets/微信截图_20190715093751.png)
+
 任务管理
-
-
 
