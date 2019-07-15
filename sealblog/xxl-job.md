@@ -62,3 +62,5 @@ java -jar xxl-job-admin-2.1.1-SNAPSHOT.jar   或者  用idea工具打开启动xx
 
 任务管理
 
+
+

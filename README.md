@@ -28,7 +28,9 @@ eureka
 
 ### 服务: {#服务-3}
 
-nginx 封师傅官网:taocicom![](/assets/微信截图_20190712114223.png)
+nginx 封师傅官网:taocicom
+
+![](/assets/微信截图_20190712114223.png)
 
 mysql:
 
