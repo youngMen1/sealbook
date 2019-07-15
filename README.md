@@ -26,9 +26,9 @@ xxl-job:[http://211.159.189.77:8080/xxl-job-admin/](http://211.159.189.77:8080/x
 
 eureka:
 
- nohup java -jar inf-eureka-1.0.0.jar --spring.profiles.active=native2
+nohup java -jar inf-eureka-1.0.0.jar --spring.profiles.active=native2
 
-http://134.175.12.243:22002/
+[http://134.175.12.243:22002/](http://134.175.12.243:22002/)
 
 #### rabbitMq: {#rabbitmq}
 
@@ -43,6 +43,4 @@ http://134.175.12.243:22002/
 nginx 封师傅官网:taocicom
 
 ![](/assets/微信截图_20190712114223.png)
-
-mysql:
 
