@@ -100,9 +100,9 @@ export JAVA_HOME=/usr
 
 **再次查看状态**
 
-\[work@xxx zookeeper-3.4.6\]$ bin/zkServer.sh status  
+\[work@xxx zookeeper-3.4.14\]$ bin/zkServer.sh status  
 JMX enabled by default  
-Using config: /home/work/soft/zookeeper-3.4.6/bin/../conf/zoo.cfg  
+Using config: /home/work/soft/zookeeper-3.4.14/bin/../conf/zoo.cfg  
 Mode: standalone
 
 [https://www.cnblogs.com/abc-begin/p/8206727.html](https://www.cnblogs.com/abc-begin/p/8206727.html)
