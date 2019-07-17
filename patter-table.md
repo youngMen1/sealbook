@@ -2,7 +2,7 @@
 | :---: | :---: |
 | TPS\(Throughput\) | 吞吐量 |
 | RT | 响应时间 |
-| QPS\(Query Per Second\) |  |
+| QPS\(Query Per Second\) | 每秒查询率 |
 |  |  |
 |  |  |
 |  |  |
