@@ -3,7 +3,7 @@
 | 类型 | 部分代表 | 特点 |
 | :---: | :---: | :---: |
 | 列存储 | Hbase/Cassandra/Hypertable |  |
-| 文档存储 |  |  |
+| 文档存储 | MongoDB/CouchDB |  |
 | key-value存储 |  |  |
 | 图存储 |  |  |
 | 对象存储 |  |  |
