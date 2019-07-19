@@ -37,5 +37,5 @@
   * [在对象之间搬移特效](refactoring/zai-dui-xiang-zhi-jian-ban-yi-te-xiao.md)
 * [distributedMessageMiddleware](distributedmessagemiddleware.md)
   * rabbitmq
-  * [activityMq](activitymq.md)
+* [activityMq](activitymq.md)
 
