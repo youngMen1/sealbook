@@ -38,5 +38,5 @@
   * [kafka](sealblog/kafka.md)
   * [activityMq](activitymq.md)
   * [rocketMq](sealblog/rocketmq.md)
-  * zeroMQ
+  * [zeroMQ](distributedmessagemiddleware/zeromq.md)
 
