@@ -29,4 +29,5 @@
   * [yum+mysql](sealblog/yum+mysql.md)
   * [zookeeper](sealblog/zookeeper.md)
   * [nexus](sealblog/nexus.md)
+* [activityMq](activitymq.md)
 
