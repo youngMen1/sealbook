@@ -2,7 +2,7 @@
 
 ## [https://github.com/wangvsa/refactoring-cheat-sheet](https://github.com/wangvsa/refactoring-cheat-sheet)
 
-## 
+
 
 ## 提炼函数
 
