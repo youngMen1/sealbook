@@ -51,5 +51,5 @@
   * neo4j
   * hBase
 * [关系型数据库](guan-xi-xing-shu-ju-ku.md)
-  * 简介
+  * [简介](guan-xi-xing-shu-ju-ku/jian-jie.md)
 
