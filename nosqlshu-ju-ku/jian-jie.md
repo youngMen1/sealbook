@@ -2,7 +2,7 @@
 
 | 类型 | 部分代表 | 特点 |
 | :---: | :---: | :---: |
-| 列存储 | Hbase/Cassandra/Hypertable |  |
+| 列存储 | Hbase/Cassandra/Hypertable | 顾名思议，是按列存储数据的，最大的特点是方便存储结构化和半结构化数据，方便做数据压缩，对针对某一列或者某几列的查询有非常大的IO优势 |
 | 文档存储 | MongoDB/CouchDB |  |
 | key-value存储 | Tokyo Cabinet/Tyrant Berkeley DB/MemcacheDB/Redis |  |
 | 图存储 | Neo4j/FlockDB |  |
