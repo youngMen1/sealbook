@@ -31,5 +31,5 @@
   * [activityMq](activitymq.md)
   * [nexus](sealblog/nexus.md)
 * [refactoring](refactoring.md)
-* [重新组织函数](zhong-xin-zu-zhi-han-shu.md)
+  * [重新组织函数](refactoring/zhong-xin-zu-zhi-han-shu.md)
 
