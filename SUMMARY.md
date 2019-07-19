@@ -29,7 +29,6 @@
   * [yum+mysql](sealblog/yum+mysql.md)
   * [zookeeper](sealblog/zookeeper.md)
   * [nexus](sealblog/nexus.md)
-  * [activityMq](activitymq.md)
   * [kafka](sealblog/kafka.md)
 * [refactoring](refactoring.md)
   * [重新组织函数](refactoring/zhong-xin-zu-zhi-han-shu.md)
@@ -37,5 +36,6 @@
 * [分布式消息中间件](distributedmessagemiddleware.md)
   * [rabbitmq](distributedmessagemiddleware/rabbitmq.md)
   * [metaMq](sealblog/metamq.md)
+  * [activityMq](activitymq.md)
   * [rocketMq](sealblog/rocketmq.md)
 
