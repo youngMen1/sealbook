@@ -30,12 +30,12 @@
   * [zookeeper](sealblog/zookeeper.md)
   * [nexus](sealblog/nexus.md)
   * [activityMq](activitymq.md)
-  * [metaMq](sealblog/metamq.md)
   * [kafka](sealblog/kafka.md)
 * [refactoring](refactoring.md)
   * [重新组织函数](refactoring/zhong-xin-zu-zhi-han-shu.md)
   * [在对象之间搬移特效](refactoring/zai-dui-xiang-zhi-jian-ban-yi-te-xiao.md)
 * [分布式消息中间件](distributedmessagemiddleware.md)
   * [rabbitmq](distributedmessagemiddleware/rabbitmq.md)
+  * [metaMq](sealblog/metamq.md)
   * [rocketMq](sealblog/rocketmq.md)
 
