@@ -6,7 +6,7 @@
 | 文档存储 | MongoDB/CouchDB |  |
 | key-value存储 | Tokyo Cabinet/Tyrant Berkeley DB/MemcacheDB/Redis |  |
 | 图存储 | Neo4j/FlockDB |  |
-| 对象存储 | db4o/versant |  |
+| 对象存储 | db4o/Versant |  |
 | xml数据库 |  |  |
 
 参考:
