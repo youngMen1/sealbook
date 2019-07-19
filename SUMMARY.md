@@ -34,12 +34,12 @@
   * [在对象之间搬移特效](refactoring/zai-dui-xiang-zhi-jian-ban-yi-te-xiao.md)
 * [分布式消息中间件](distributedmessagemiddleware.md)
   * [rabbitMq](distributedmessagemiddleware/rabbitmq.md)
+  * 简介
   * [metaMq](sealblog/metamq.md)
   * [kafka](sealblog/kafka.md)
   * [activityMq](activitymq.md)
   * [rocketMq](sealblog/rocketmq.md)
   * [zeroMQ](distributedmessagemiddleware/zeromq.md)
-  * 简介
 * [NoSql数据库](nosqlshu-ju-ku.md)
   * [简介](nosqlshu-ju-ku/jian-jie.md)
   * [mongodb](nosqlshu-ju-ku/mongodb.md)
