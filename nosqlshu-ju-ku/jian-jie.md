@@ -7,7 +7,7 @@
 | key-value存储 | Tokyo Cabinet/Tyrant Berkeley DB/MemcacheDB/Redis | 可以通过key快速查询到其value。一般来说，存储不管value的格式，照单全收。\(redis包含了其他功能\) |
 | 图存储 | Neo4j/FlockDB | 图形关系的最佳存储，使用传统关系数据库来解决的话性能低下，而且设计使用不方便。 |
 | 对象存储 | db4o/Versant | 通过类似面向对象语言的语法操作数据库，通过对象的方式存取数据。 |
-| xml数据库 | BerKeley DB XML/BaseX |  |
+| xml数据库 | BerKeley DB XML/BaseX | 高效的存储xml数据，并支持xml的内部查询 |
 
 参考:
 
