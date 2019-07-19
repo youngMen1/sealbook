@@ -41,6 +41,7 @@
   * [zeroMQ](distributedmessagemiddleware/zeromq.md)
 * [NoSql数据库](nosqlshu-ju-ku.md)
   * [mongodb](nosqlshu-ju-ku/mongodb.md)
+  * [简介](nosqlshu-ju-ku/jian-jie.md)
   * [cassandra](nosqlshu-ju-ku/aa/cassandra.md)
   * couchDB
   * redis
@@ -48,5 +49,4 @@
   * membase
   * neo4j
   * hBase
-* [简介](nosqlshu-ju-ku/jian-jie.md)
 
