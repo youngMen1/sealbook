@@ -45,4 +45,5 @@
   * [cassandra](nosqlshu-ju-ku/aa/cassandra.md)
   * couchDB
   * redis
+  * riak
 
