@@ -30,4 +30,6 @@
   * [zookeeper](sealblog/zookeeper.md)
   * [activityMq](activitymq.md)
   * [nexus](sealblog/nexus.md)
+* [refactoring](refactoring.md)
+* [重新组织函数](zhong-xin-zu-zhi-han-shu.md)
 
