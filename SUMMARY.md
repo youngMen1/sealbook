@@ -41,5 +41,6 @@
   * [zeroMQ](distributedmessagemiddleware/zeromq.md)
 * [NoSql数据库](nosqlshu-ju-ku.md)
   * [aa](nosqlshu-ju-ku/aa.md)
+    * cassandra
   * mongodb
 
