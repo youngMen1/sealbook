@@ -43,4 +43,5 @@
   * [aa](nosqlshu-ju-ku/aa.md)
   * [mongodb](nosqlshu-ju-ku/mongodb.md)
   * [cassandra](nosqlshu-ju-ku/aa/cassandra.md)
+  * couchDB
 
