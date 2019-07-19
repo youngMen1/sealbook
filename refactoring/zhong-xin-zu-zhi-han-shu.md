@@ -1,3 +1,5 @@
+## http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/
+
 ## 提炼函数
 
 ## 内联函数
