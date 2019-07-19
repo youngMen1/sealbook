@@ -32,7 +32,7 @@
   * [nexus](sealblog/nexus.md)
   * [rocketMq](sealblog/rocketmq.md)
   * [metaMq](sealblog/metamq.md)
-  * kafka
+  * [kafka](sealblog/kafka.md)
 * [refactoring](refactoring.md)
   * [重新组织函数](refactoring/zhong-xin-zu-zhi-han-shu.md)
   * [在对象之间搬移特效](refactoring/zai-dui-xiang-zhi-jian-ban-yi-te-xiao.md)
