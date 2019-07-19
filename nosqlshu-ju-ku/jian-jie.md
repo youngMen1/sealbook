@@ -4,7 +4,7 @@
 | :---: | :---: | :---: |
 | 列存储 | Hbase/Cassandra/Hypertable |  |
 | 文档存储 | MongoDB/CouchDB |  |
-| key-value存储 | Tokyo Cabinet/Tyrant Berkeley DB |  |
+| key-value存储 | Tokyo Cabinet/Tyrant Berkeley DB/MemcacheDB |  |
 | 图存储 |  |  |
 | 对象存储 |  |  |
 | xml数据库 |  |  |
