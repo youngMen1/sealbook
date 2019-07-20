@@ -63,6 +63,12 @@ channel.basicConsume(QUEUE_NAME, false, consumer);
  channel.basicAck(tag, false);
 ```
 
+## 反
+
+```
+channel.basicNack(tag, false, false);
+```
+
 ## 注意:
 
 #### 发送不起作用:
