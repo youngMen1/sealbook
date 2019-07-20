@@ -15,7 +15,6 @@
   * [盘符概念](pan-fu-gai-nian.md)
   * [服务安装](fu-wu-an-zhuang.md)
     * [mongodb](mongo.md)
-* [灰度发布](xiang-mu-fa-bu.md)
 * [weChat](wechat.md)
   * [微信公众号](wechat/wei-xin-gong-zhong-hao.md)
   * [普通红包](wechat/pu-tong-hong-bao.md)
@@ -56,4 +55,6 @@
   * [事件 \(Application Event\)](spring40/shi-jian-application-event.md)
   * [Spring EL 和资源调用](spring40/spring-el-he-zi-yuan-diao-yong.md)
   * [Spring Aware](spring40/spring-aware.md)
+* [项目发布](xiang-mu-fa-bu.md)
+* [灰度发布](xiang-mu-fa-bu.md)
 
