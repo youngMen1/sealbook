@@ -55,7 +55,7 @@ channel.basicConsume(QUEUE_NAME, false, consumer);
 消费者从队列中获取消息后，服务器会将该消息标记为不可用状态，等待消费者的反馈，如果消费者一直没有反馈，那么该消息将一直处于不可用状态。
 
 ```
-// 返回确认状态，表示使用自动确认模式
+// 返回确认状态，表示使用手动确认模式
  channel.basicAck(tag, false);
 ```
 
