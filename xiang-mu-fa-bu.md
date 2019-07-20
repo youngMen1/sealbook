@@ -53,33 +53,31 @@
 </dependency>
 ```
 
-2、添加配置\(可以启动命令配置或配置文件配置,请注意各语法\)
+#### 添加配置\(可以启动命令配置或配置文件配置,请注意各语法\)
 
 ```
-   \(1\).由于现有的服务各个节点都加上跨域的配置，所以需要在网关\(zuul\)里面配置
+1.由于现有的服务各个节点都加上跨域的配置，所以需要在网关\(zuul\)里面配置
 
+zuul.routes.路由名称.sensitiveHeaders: Access-Control-Allow-Origin,Access-Control-Allow-Methods
 
+2.服务发现注册中心
 
-   zuul.routes.路由名称.sensitiveHeaders: Access-Control-Allow-Origin,Access-Control-Allow-Methods
+eureka.instance.metadata-map.group=flight 名称自定义\(各个节点中的都需要保持在一个组内\)
 
-   \(2\)服务发现注册中心
+eureka.instance.metadata-map.version=1.0  版本自定义\(用于各个服务版本的对应\)
 
-   eureka.instance.metadata-map.group=flight 名称自定义\(各个节点中的都需要保持在一个组内\)
+3.apollo配置
 
-   eureka.instance.metadata-map.version=1.0  版本自定义\(用于各个服务版本的对应\)
+apollo.meta=http://ip:8080
 
-   \(3\) apollo配置
-
-   apollo.meta=http://ip:8080
-
-   app.id=discovery
+app.id=discovery
 ```
 
-3、使用Nepxion   Console
+#### 使用Nepxion   Console
 
 如果要使用Desktop Console ,则需要新建项目Console，有一点需要要注意，不要在项目中添加context-path ,如果加了context-path,在console中刷新灰度配置的信息的时候，会出现url错误
 
-4、关于apollo配置中心的安装及使用请参与以下链接
+#### 关于apollo配置中心的安装及使用请参与以下链接
 
 [https://github.com/ctripcorp/apollo/wiki/Apollo%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E4%BB%8B%E7%BB%8D](https://github.com/ctripcorp/apollo/wiki/Apollo配置中心介绍)
 
