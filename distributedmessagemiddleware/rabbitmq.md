@@ -18,7 +18,7 @@ RabbitMQ是使用Erlang语言开发的开源消息队列系统，基于AMQP\(AMQ
 
 ## 
 
-## Fanout Exchange\(订阅模式\)
+## 发布订阅模式\(\)
 
 在Fanout模型下:
 
