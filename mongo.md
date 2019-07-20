@@ -32,15 +32,13 @@ _　　数据库实例默认在/var/lib/mongo路径下，日志默认在/var/log
 yum install -y mongodb-org
 ```
 
-_3、开启mongodb服务_
+_3._开启mongodb服务
 
 ```
 service mongod start
 ```
 
-_　　_
-
-_4、通过查看日志方式，验证服务开启成功，其中有一行为：\[thread1\] waiting for connections on port 27017_
+4、通过查看日志方式，验证服务开启成功，其中有一行为：\[thread1\] waiting for connections on port 27017
 
 _　　cat /var/log/mongodb/mongod.log_
 
