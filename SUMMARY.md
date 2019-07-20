@@ -55,4 +55,5 @@
 * [spring4.0](spring40.md)
   * [注解](spring40/zhu-jie.md)
   * 事件 \(Application Event\)
+  * Spring EL 和资源调用
 
