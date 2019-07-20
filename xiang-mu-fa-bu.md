@@ -12,7 +12,7 @@ Hi all
 
 第三方开源组件: Nepxion Discovery
 
-1.添加依赖
+1、添加依赖
 
 ```
 <!--添加依赖版本管理  -->
@@ -55,11 +55,7 @@ Hi all
 <groupId>com.nepxion</groupId>
 <artifactId>discovery-plugin-config-center-starter-apollo</artifactId>
 </dependency>
-
-
 ```
-
-
 
 2、添加配置\(可以启动命令配置或配置文件配置,请注意各语法\)
 
