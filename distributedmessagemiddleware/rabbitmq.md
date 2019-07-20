@@ -4,6 +4,8 @@ RabbitMQ是使用Erlang语言开发的开源消息队列系统，基于AMQP\(AMQ
 
 ## 简单队列
 
+
+
 ## work模式\(多对多使用\)
 
 ## Topic Exchange\(主题模式\)
