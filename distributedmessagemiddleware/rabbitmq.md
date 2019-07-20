@@ -1,6 +1,6 @@
 ## 五种队列模式
 
-RabbitMQ提供了6种消息模型，但是第6种其实是RPC，并不是MQ，因此不予学习。
+RabbitMQ提供了6种消息模型，但是_第6种其实是RPC，并不是MQ_，因此不予学习。
 
 * 基本消息模型：生产者–&gt;队列–&gt;消费者
 
@@ -198,5 +198,5 @@ requeue：被拒绝的是否重新入队列
 
 [https://blog.csdn.net/qq\_38762237/article/details/89433506](https://blog.csdn.net/qq_38762237/article/details/89433506)
 
-https://blog.csdn.net/weixin\_42236165/article/details/92795733
+[https://blog.csdn.net/weixin\_42236165/article/details/92795733](https://blog.csdn.net/weixin_42236165/article/details/92795733)
 
