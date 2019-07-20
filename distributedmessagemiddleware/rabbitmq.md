@@ -48,18 +48,6 @@ Fanout，也称为广播。在广播模式下，消息发送流程是这样的�
 
 
 
-在Topic模型下:
-
-Topic类型的Exchange与Direct相比，都是可以根据RoutingKey把消息路由到不同的队列。只不过Topic类型Exchange可以让队列在绑定Routing key 的时候使用通配符！
-
-Routingkey 一般都是有一个或多个单词组成，多个单词之间以”.”分割，例如： user.insert
-
-通配符规则    举例
-
-\#：匹配一个或多个词    user.\#：能够匹配user.insert.save 或者 user.insert
-
-\*：匹配不多不少恰好1个词    user.\*：只能匹配user.insert
-
 ## 路由模式\(routing/direct\)
 
 ![](/assets/微信截图_20190720163346.png)
@@ -75,6 +63,18 @@ Exchange不再把消息交给每一个绑定的队列，而是根据消息的Rou
 ## 主题模式\(topic\)
 
 ![](/assets/微信截图_20190720163324.png)
+
+在Topic模型下:
+
+Topic类型的Exchange与Direct相比，都是可以根据RoutingKey把消息路由到不同的队列。只不过Topic类型Exchange可以让队列在绑定Routing key 的时候使用通配符！
+
+Routingkey 一般都是有一个或多个单词组成，多个单词之间以”.”分割，例如： user.insert
+
+通配符规则    举例
+
+\#：匹配一个或多个词    user.\#：能够匹配user.insert.save 或者 user.insert
+
+\*：匹配不多不少恰好1个词    user.\*：只能匹配user.insert
 
 ## 二个概念
 
