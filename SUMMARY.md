@@ -15,9 +15,9 @@
   * [盘符概念](pan-fu-gai-nian.md)
   * [服务安装](fu-wu-an-zhuang.md)
     * aa
+  * [Mongo](mongo.md)
 * [灰度发布](hui-du-fa-bu.md)
 * [项目发布](xiang-mu-fa-bu.md)
-* [Mongo](mongo.md)
 * [weChat](wechat.md)
   * [微信公众号](wechat/wei-xin-gong-zhong-hao.md)
   * [普通红包](wechat/pu-tong-hong-bao.md)
