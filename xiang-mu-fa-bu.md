@@ -110,5 +110,3 @@ app.id=discovery
 
 
 
-
-
