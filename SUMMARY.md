@@ -13,9 +13,9 @@
   * [错误](mybatis/cuo-wu.md)
 * [linux](linux.md)
   * [盘符概念](pan-fu-gai-nian.md)
+  * 服务安装
 * [灰度发布](hui-du-fa-bu.md)
 * [项目发布](xiang-mu-fa-bu.md)
-* [Native Service](native-service.md)
 * [Mongo](mongo.md)
 * [weChat](wechat.md)
   * [微信公众号](wechat/wei-xin-gong-zhong-hao.md)
