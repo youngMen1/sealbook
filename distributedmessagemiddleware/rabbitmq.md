@@ -60,7 +60,7 @@ Routingkey 一般都是有一个或多个单词组成，多个单词之间以”
 
 \*：匹配不多不少恰好1个词    user.\*：只能匹配user.insert
 
-## 路由模式
+## 路由模式\(routing/direct\)
 
 ## Topic Exchange\(主题模式\)
 
