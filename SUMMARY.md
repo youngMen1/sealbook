@@ -7,7 +7,7 @@
   * [插件](java/cha-jian.md)
     * [LomBok插件](java/cha-jian/lombokcha-jian.md)
 * [springCloud](springcloud.md)
-  * [Eureka](springcloud/eureka.md)
+  * [eureka](springcloud/eureka.md)
   * [健康检查](springcloud/jian-kang-jian-cha.md)
 * [myBatis](mybatis.md)
   * [错误](mybatis/cuo-wu.md)
