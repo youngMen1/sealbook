@@ -86,17 +86,17 @@
 1. apollo配置中心的使用
 
 ```
-   \(1\).登录[http://ip:8070/signin](http://ip:8070/signin)
+1.登录[http://ip:8070/signin](http://ip:8070/signin)
 
-   \(2\).用户名:apollo密码: admin
+2.用户名:apollo密码: admin
 
-   \(3\).添加项目 名称自定义
+3.添加项目 名称自定义
 
-   \(4\).可以添加namespace,也可以使用默认的application
+4.可以添加namespace,也可以使用默认的application
 
-   \(5\).添加配置key的名称定义,group-serviceId，这些都是在各个服务配置文件或启动参数中配置,如flight-zuul,其中中flight是eureka.instance.metadata.group , serviceId就是spring.application.name
+5.添加配置key的名称定义,group-serviceId，这些都是在各个服务配置文件或启动参数中配置,如flight-zuul,其中中flight是eureka.instance.metadata.group , serviceId就是spring.application.name
 
-   \(6\).配置key对应的value请参与以下xml格式
+6.配置key对应的value请参与以下xml格式
 ```
 
 &lt;?xml version="1.0" encoding="UTF-8"?&gt;
