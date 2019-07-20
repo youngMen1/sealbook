@@ -27,13 +27,19 @@ RabbitMQ是使用Erlang语言开发的开源消息队列系统，基于AMQP\(AMQ
 
 ## 注意:
 
+确认模式:
+
+* basic.ack用于肯定确认
+* basic.nack用于否定确认（注意：这是[AMQP 0-9-1](https://www.rabbitmq.com/nack.html)的[RabbitMQ扩展](https://www.rabbitmq.com/nack.html)）
+* basic.reject用于否定确认，但与basic.nack相比有一个限制
+
+
+
 #### 发送不起作用！
 
 如果这是您第一次使用RabbitMQ并且没有看到“已发送”消息，那么您可能会想到可能出现的问题。也许代理是在没有足够的可用磁盘空间的情况下启动的（默认情况下它至少需要200 MB空闲），因此拒绝接受消息。检查代理日志文件以确认并在必要时减少限制。该[配置文件文档](https://www.rabbitmq.com/configure.html#config-items)会告诉你如何设置disk\_free\_limit。
 
-
-
 参考:
 
-https://www.rabbitmq.com/tutorials/tutorial-one-python.html
+[https://www.rabbitmq.com/tutorials/tutorial-one-python.html](https://www.rabbitmq.com/tutorials/tutorial-one-python.html)
 
