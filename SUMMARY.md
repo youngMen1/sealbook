@@ -50,11 +50,6 @@
   * [hBase](nosqlshu-ju-ku/hbase.md)
 * [关系型数据库](guan-xi-xing-shu-ju-ku.md)
   * [简介](guan-xi-xing-shu-ju-ku/jian-jie.md)
-* [spring4.0](spring40.md)
-  * [注解](spring40/zhu-jie.md)
-  * [事件 \(Application Event\)](spring40/shi-jian-application-event.md)
-  * [Spring EL 和资源调用](spring40/spring-el-he-zi-yuan-diao-yong.md)
-  * [Spring Aware](spring40/spring-aware.md)
-* [项目发布](xiang-mu-fa-bu.md)
+* [项目发布414144](xiang-mu-fa-bu.md)
 * [灰度发布](xiang-mu-fa-bu.md)
 
