@@ -1,4 +1,4 @@
-参考官网[https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/)
+
 
 ## 安装
 
@@ -53,7 +53,7 @@ chkconfig mongod on
 6、停止mongodb服务
 
 ```
-service mongod stop　
+service mongod stop
 ```
 
 7、重启mongodb服务
@@ -67,7 +67,7 @@ service mongod restart
 1、停止服务
 
 ```
-service mongod stop　
+service mongod stop
 ```
 
 2、删除安装的包
@@ -83,5 +83,7 @@ rm -r /var/log/mongodb
 rm -r /var/lib/mongo
 ```
 
-　　
+参考官网：
+
+[https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/)
 
