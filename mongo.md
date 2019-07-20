@@ -30,7 +30,7 @@ _　　数据库实例默认在/var/lib/mongo路径下，日志默认在/var/log
 yum install -y mongodb-org
 ```
 
-_3、_开启mongodb服务
+3、开启mongodb服务
 
 ```
 service mongod start
