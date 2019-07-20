@@ -1,16 +1,31 @@
+## 五种队列模式
+
+![](/assets/20180805224706123.png)
+
 ## 描述:
 
 RabbitMQ是使用Erlang语言开发的开源消息队列系统，基于AMQP\(AMQP（二进制），STOMP（文本），MQTT（二进制）HTTP（里面包装其他协议）等协议。\)协议来实现。AMQP的主要特征是面向消息、队列、路由（包括点对点和发布/订阅）、可靠性、安全。AMQP协议更多用在企业系统内，对数据一致性、稳定性和可靠性要求很高的场景，对性能和吞吐量的要求还在其次。
 
 ## 简单队列
 
-
-
 ## work模式\(多对多使用\)
 
 ## Topic Exchange\(主题模式\)
 
 ## Fanout Exchange\(订阅模式\)
+
+
+
+[5.学习五种队列](https://blog.csdn.net/hellozpc/article/details/81436980#5_192)
+
+* * [5.1.导入my-rabbitmq项目](https://blog.csdn.net/hellozpc/article/details/81436980#51myrabbitmq_194)
+  * [5.2.简单队列](https://blog.csdn.net/hellozpc/article/details/81436980#52_198)
+  * [5.3.Work模式](https://blog.csdn.net/hellozpc/article/details/81436980#53Work_323)
+  * [5.4.Work模式的“能者多劳”](https://blog.csdn.net/hellozpc/article/details/81436980#54Work_478)
+  * [5.5.消息的确认模式](https://blog.csdn.net/hellozpc/article/details/81436980#55_500)
+  * [5.6.订阅模式](https://blog.csdn.net/hellozpc/article/details/81436980#56_515)
+  * [5.7.路由模式](https://blog.csdn.net/hellozpc/article/details/81436980#57_673)
+  * [5.8.主题模式（通配符模式）](https://blog.csdn.net/hellozpc/article/details/81436980#58_684)
 
 
 
