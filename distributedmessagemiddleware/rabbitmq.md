@@ -22,7 +22,7 @@ RabbitMQ是使用Erlang语言开发的开源消息队列系统，基于AMQP\(AMQ
 
 Fanout，也称为广播。在广播模式下，消息发送流程是这样的：
 
-Fanout模型下:
+在Fanout模型下:
 
 1） 可以有多个消费者
 
