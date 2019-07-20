@@ -40,33 +40,48 @@ service mongod start
 
 4、通过查看日志方式，验证服务开启成功，其中有一行为：\[thread1\] waiting for connections on port 27017
 
-_　　cat /var/log/mongodb/mongod.log_
+```
+cat /var/log/mongodb/mongod.log
+```
 
-_5、设置开机启动_
+5、设置开机启动
 
-_　　chkconfig mongod on_
+```
+chkconfig mongod on
+```
 
-_6、停止mongodb服务_
+6、停止mongodb服务
 
-_　　service mongod stop_
+```
+service mongod stop　
+```
 
-_7、重启mongodb服务_
+7、重启mongodb服务
 
-_　　service mongod restart_
+```
+service mongod restart
+```
 
-_二、卸载_
+### 卸载
 
-_1、停止服务_
+1、停止服务
 
-_　　service mongod stop_
+```
+service mongod stop　
+```
 
-_2、删除安装的包_
+2、删除安装的包
 
-_　　yum erase $\(rpm -qa \| grep mongodb-org\)_
+```
+yum erase $(rpm -qa | grep mongodb-org)
+```
 
-_3、删除数据及日志_
+3、删除数据及日志
 
-_　　rm -r /var/log/mongodb_
+```
+rm -r /var/log/mongodb
+rm -r /var/lib/mongo
+```
 
-_　　rm -r /var/lib/mongo_
+　　
 
