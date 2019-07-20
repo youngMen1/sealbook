@@ -131,11 +131,12 @@ Topic类型的Exchange与Direct相比，都是可以根据RoutingKey把消息路
 
 Routingkey 一般都是有一个或多个单词组成，多个单词之间以”.”分割，例如： user.insert
 
-通配符规则    举例
+通配符规则    举例:
 
-\#：匹配一个或多个词    user.\#：能够匹配user.insert.save 或者 user.insert
-
-\*：匹配不多不少恰好1个词    user.\*：只能匹配user.insert
+```
+#：匹配一个或多个词    user.#：能够匹配user.insert.save 或者 user.insert
+*：匹配不多不少恰好1个词    user.*：只能匹配user.insert
+```
 
 1.生产者发送消息，消息携带具体的路由key
 
