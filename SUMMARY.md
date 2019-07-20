@@ -56,4 +56,5 @@
   * [注解](spring40/zhu-jie.md)
   * 事件 \(Application Event\)
   * Spring EL 和资源调用
+  * Spring Aware
 
