@@ -54,6 +54,11 @@ channel.basicConsume(QUEUE_NAME, false, consumer);
 
 消费者从队列中获取消息后，服务器会将该消息标记为不可用状态，等待消费者的反馈，如果消费者一直没有反馈，那么该消息将一直处于不可用状态。
 
+```
+// 返回确认状态，表示使用自动确认模式
+ channel.basicAck(tag, false);
+```
+
 #### 发送不起作用:
 
 如果这是您第一次使用RabbitMQ并且没有看到“已发送”消息，那么您可能会想到可能出现的问题。也许代理是在没有足够的可用磁盘空间的情况下启动的（默认情况下它至少需要200 MB空闲），因此拒绝接受消息。检查代理日志文件以确认并在必要时减少限制。该[配置文件文档](https://www.rabbitmq.com/configure.html#config-items)会告诉你如何设置disk\_free\_limit。
