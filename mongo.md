@@ -13,17 +13,19 @@ touch mongodb-org-3.4.repo
 
 2.在文件mongodb-org-3.4.repo中写入如下内容
 
-\[mongodb-org-3.4\]
-
+```
+[mongodb-org-3.4]
 name=MongoDB Repository
-
-baseurl=[https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.4/x86\_64/](https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.4/x86_64/)
+baseurl=
+https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.4/x86_64/
 
 gpgcheck=1
-
 enable=1
+gpgkey=https://www.mongodb.org/static/pgp/server-3.4.asc
 
-_gpgkey=_[https://www.mongodb.org/static/pgp/server-3.4.asc](https://www.mongodb.org/static/pgp/server-3.4.asc)
+```
+
+
 
 _2、安装mongodb（会安装mongodb-org包及其依赖包mongodb-org-server、mongodb-org-mongos、mongodb-org-shell、mongodb-org-tools_）
 
