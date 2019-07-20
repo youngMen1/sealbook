@@ -18,16 +18,21 @@ RabbitMQ是使用Erlang语言开发的开源消息队列系统，基于AMQP\(AMQ
 
 ## Fanout Exchange\(订阅模式\)
 
-[5.学习五种队列](https://blog.csdn.net/hellozpc/article/details/81436980#5_192)
+1、1个生产者，多个消费者
 
-* * [5.1.导入my-rabbitmq项目](https://blog.csdn.net/hellozpc/article/details/81436980#51myrabbitmq_194)
-  * [5.2.简单队列](https://blog.csdn.net/hellozpc/article/details/81436980#52_198)
-  * [5.3.Work模式](https://blog.csdn.net/hellozpc/article/details/81436980#53Work_323)
-  * [5.4.Work模式的“能者多劳”](https://blog.csdn.net/hellozpc/article/details/81436980#54Work_478)
-  * [5.5.消息的确认模式](https://blog.csdn.net/hellozpc/article/details/81436980#55_500)
-  * [5.6.订阅模式](https://blog.csdn.net/hellozpc/article/details/81436980#56_515)
-  * [5.7.路由模式](https://blog.csdn.net/hellozpc/article/details/81436980#57_673)
-  * [5.8.主题模式（通配符模式）](https://blog.csdn.net/hellozpc/article/details/81436980#58_684)
+2、每一个消费者都有自己的一个队列
+
+3、生产者没有将消息直接发送到队列，而是发送到了交换机
+
+4、每个队列都要绑定到交换机
+
+5、生产者发送的消息，经过交换机，到达队列，实现，一个消息被多个消费者获取的目的
+
+注意：一个消费者队列可以有多个消费者实例，只有其中一个消费者实例会消费
+
+
+
+
 
 ## 二个概念
 
