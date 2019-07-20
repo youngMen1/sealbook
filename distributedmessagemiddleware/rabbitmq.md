@@ -66,6 +66,7 @@ channel.basicConsume(QUEUE_NAME, false, consumer);
 ## 反
 
 ```
+// 反馈消息的消费状态
 channel.basicNack(tag, false, false);
 ```
 
