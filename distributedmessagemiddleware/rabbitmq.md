@@ -1,5 +1,7 @@
 ## 五种队列模式
 
+
+
 ![](/assets/20180805224706123.png)
 
 ## 描述:
@@ -13,8 +15,6 @@ RabbitMQ是使用Erlang语言开发的开源消息队列系统，基于AMQP\(AMQ
 ## Topic Exchange\(主题模式\)
 
 ## Fanout Exchange\(订阅模式\)
-
-
 
 [5.学习五种队列](https://blog.csdn.net/hellozpc/article/details/81436980#5_192)
 
