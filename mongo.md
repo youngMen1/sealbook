@@ -1,5 +1,3 @@
-
-
 ## 安装
 
 ### 配置yum管理包
@@ -83,7 +81,7 @@ rm -r /var/log/mongodb
 rm -r /var/lib/mongo
 ```
 
-参考官网：
+### 参考官网：
 
 [https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/)
 
