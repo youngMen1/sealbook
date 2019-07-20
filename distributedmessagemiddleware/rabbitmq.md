@@ -18,8 +18,6 @@ RabbitMQ是使用Erlang语言开发的开源消息队列系统，基于AMQP\(AMQ
 
 **让多个消费者绑定到一个队列，共同消费队列中的消息，**队列中的消息一旦消费，就会消失，因此任务是不会被重复执行的。
 
-## 
-
 ## 发布订阅模式\(\)
 
 在Fanout模型下:
@@ -122,5 +120,5 @@ requeue：被拒绝的是否重新入队列
 
 [https://www.cnblogs.com/Jeely/p/10784172.html](https://www.cnblogs.com/Jeely/p/10784172.html)
 
-https://blog.csdn.net/qq\_38762237/article/details/89433506
+[https://blog.csdn.net/qq\_38762237/article/details/89433506](https://blog.csdn.net/qq_38762237/article/details/89433506)
 
