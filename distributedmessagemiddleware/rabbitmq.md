@@ -55,6 +55,7 @@ RabbitMQ是使用Erlang语言开发的开源消息队列系统，基于AMQP\(AMQ
 
 * 抢红包
 * 大型系统的资源调度
+* ![](/assets/微信截图_20190720163402.png)
 
 ## 发布订阅模式\(publish/fanout\)
 
