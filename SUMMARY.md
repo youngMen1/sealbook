@@ -13,7 +13,8 @@
   * [错误](mybatis/cuo-wu.md)
 * [linux](linux.md)
   * [盘符概念](pan-fu-gai-nian.md)
-  * 服务安装
+  * [服务安装](fu-wu-an-zhuang.md)
+    * aa
 * [灰度发布](hui-du-fa-bu.md)
 * [项目发布](xiang-mu-fa-bu.md)
 * [Mongo](mongo.md)
