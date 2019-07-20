@@ -42,11 +42,11 @@
   * [简介](nosqlshu-ju-ku/jian-jie.md)
   * [mongodb](nosqlshu-ju-ku/mongodb.md)
   * [cassandra](nosqlshu-ju-ku/aa/cassandra.md)
-  * couchDB
+  * [couchDB](nosqlshu-ju-ku/couchdb.md)
   * [redis](nosqlshu-ju-ku/redis.md)
   * [riak](nosqlshu-ju-ku/riak.md)
-  * membase
-  * neo4j
+  * [membase](nosqlshu-ju-ku/membase.md)
+  * [neo4j](nosqlshu-ju-ku/neo4j.md)
   * [hBase](nosqlshu-ju-ku/hbase.md)
 * [关系型数据库](guan-xi-xing-shu-ju-ku.md)
   * [简介](guan-xi-xing-shu-ju-ku/jian-jie.md)

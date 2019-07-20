@@ -24,7 +24,7 @@ gpgkey=https://www.mongodb.org/static/pgp/server-3.4.asc
 
 ### _安装mongodb（会安装mongodb-org包及其依赖包mongodb-org-server、mongodb-org-mongos、mongodb-org-shell、mongodb-org-tools_）
 
-_　　数据库实例默认在/var/lib/mongo路径下，日志默认在/var/log/mongodb路径下，也可以通过修改/etc/mongod.conf文件的storage.dbPath和systemLog.path配置_
+数据库实例默认在/var/lib/mongo路径下，日志默认在/var/log/mongodb路径下，也可以通过修改/etc/mongod.conf文件的storage.dbPath和systemLog.path配置
 
 ```
 yum install -y mongodb-org
