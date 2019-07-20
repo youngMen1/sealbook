@@ -1,20 +1,20 @@
 # Summary
 
 * [Introduction](README.md)
-* [IDEA](java.md)
+* [idea](java.md)
   * [错误](java/cuo-wu.md)
   * [使用帮助](java/shi-yong-bang-zhu.md)
   * [插件](java/cha-jian.md)
     * [LomBok插件](java/cha-jian/lombokcha-jian.md)
-* [SpringCloud](springcloud.md)
+* [springCloud](springcloud.md)
   * [Eureka](springcloud/eureka.md)
   * [健康检查](springcloud/jian-kang-jian-cha.md)
-* [Linux](linux.md)
-  * [盘符概念](pan-fu-gai-nian.md)
-* [MyBatis](mybatis.md)
+* [myBatis](mybatis.md)
   * [错误](mybatis/cuo-wu.md)
-* [项目发布](xiang-mu-fa-bu.md)
+* [linux](linux.md)
+  * [盘符概念](pan-fu-gai-nian.md)
 * [灰度发布](hui-du-fa-bu.md)
+* [项目发布](xiang-mu-fa-bu.md)
 * [Native Service](native-service.md)
 * [Mongo](mongo.md)
 * [weChat](wechat.md)
@@ -54,7 +54,7 @@
   * [简介](guan-xi-xing-shu-ju-ku/jian-jie.md)
 * [spring4.0](spring40.md)
   * [注解](spring40/zhu-jie.md)
-  * 事件 \(Application Event\)
-  * Spring EL 和资源调用
-  * Spring Aware
+  * [事件 \(Application Event\)](spring40/shi-jian-application-event.md)
+  * [Spring EL 和资源调用](spring40/spring-el-he-zi-yuan-diao-yong.md)
+  * [Spring Aware](spring40/spring-aware.md)
 
