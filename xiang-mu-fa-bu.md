@@ -95,9 +95,6 @@ app.id=discovery
 5.添加配置key的名称定义,group-serviceId，这些都是在各个服务配置文件或启动参数中配置,如flight-zuul,其中中flight是eureka.instance.metadata.group , serviceId就是spring.application.name
 
 6.配置key对应的value请参与以下xml格式
-```
-
-```
 <?xml version="1.0" encoding="UTF-8"?>
 <rule>
 <discovery>
@@ -108,10 +105,15 @@ app.id=discovery
 </version>
 </discovery>
 </rule>
+7.编写好配置之后，点击发布，相应的服务应用会接收到apollo配置变动，从而将灰度发布生效
 ```
 
 ```
-   \(7\).编写好配置之后，点击发布，相应的服务应用会接收到apollo配置变动，从而将灰度发布生效
+
+```
+
+```
+   
 ```
 
 
