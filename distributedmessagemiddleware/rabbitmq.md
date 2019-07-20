@@ -32,7 +32,7 @@ RabbitMQ是使用Erlang语言开发的开源消息队列系统，基于AMQP\(AMQ
 
 ![](/assets/20180805225218886.png)
 
-
+## 路由模式
 
 ## Topic Exchange\(主题模式\)
 
