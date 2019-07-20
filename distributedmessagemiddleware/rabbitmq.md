@@ -63,7 +63,7 @@ channel.basicConsume(QUEUE_NAME, false, consumer);
  channel.basicAck(tag, false);
 ```
 
-channel.basicNack
+**channel.basicNack\(delivery.getEnvelope\(\).getDeliveryTag\(\), false, true\);**
 
 ```
 channel.basicNack(delivery.getEnvelope().getDeliveryTag(), false, true);
