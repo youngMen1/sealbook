@@ -63,11 +63,13 @@ channel.basicConsume(QUEUE_NAME, false, consumer);
  channel.basicAck(tag, false);
 ```
 
-反馈消息的消费状态
+channel.basicNack
 
 ```
-// 反馈消息的消费状态
-channel.basicNack(tag, false, false);
+channel.basicNack(delivery.getEnvelope().getDeliveryTag(), false, true);
+deliveryTag:该消息的index
+multiple：是否批量.true:将一次性拒绝所有小于deliveryTag的消息。
+requeue：被拒绝的是否重新入队列
 ```
 
 ## 注意:
