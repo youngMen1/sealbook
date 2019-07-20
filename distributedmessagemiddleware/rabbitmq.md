@@ -10,14 +10,6 @@ RabbitMQ是使用Erlang语言开发的开源消息队列系统，基于AMQP\(AMQ
 
 ![](/assets/微信截图_20190720163412.png)
 
-
-
-
-
-
-
-
-
 一个生产者一个消费者
 
 ## 工作模式\(work模式\)
@@ -32,15 +24,7 @@ RabbitMQ是使用Erlang语言开发的开源消息队列系统，基于AMQP\(AMQ
 
 ## 发布订阅模式\(publish/fanout\)
 
-
-
 ![](/assets/微信截图_20190720163356.png)
-
-
-
-
-
-
 
 在Fanout模型下:
 
