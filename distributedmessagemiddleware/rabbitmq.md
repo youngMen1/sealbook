@@ -1,7 +1,5 @@
 ## 五种队列模式
 
-
-
 ![](/assets/20180805224706123.png)
 
 ## 描述:
@@ -26,6 +24,14 @@ RabbitMQ是使用Erlang语言开发的开源消息队列系统，基于AMQP\(AMQ
   * [5.6.订阅模式](https://blog.csdn.net/hellozpc/article/details/81436980#56_515)
   * [5.7.路由模式](https://blog.csdn.net/hellozpc/article/details/81436980#57_673)
   * [5.8.主题模式（通配符模式）](https://blog.csdn.net/hellozpc/article/details/81436980#58_684)
+
+
+
+## 注意:
+
+#### 发送不起作用！
+
+如果这是您第一次使用RabbitMQ并且没有看到“已发送”消息，那么您可能会想到可能出现的问题。也许代理是在没有足够的可用磁盘空间的情况下启动的（默认情况下它至少需要200 MB空闲），因此拒绝接受消息。检查代理日志文件以确认并在必要时减少限制。该[配置文件文档](https://www.rabbitmq.com/configure.html#config-items)会告诉你如何设置disk\_free\_limit。
 
 
 
