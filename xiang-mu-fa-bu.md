@@ -79,7 +79,7 @@
 
 如果要使用Desktop Console ,则需要新建项目Console，有一点需要要注意，不要在项目中添加context-path ,如果加了context-path,在console中刷新灰度配置的信息的时候，会出现url错误
 
-4.关于apollo配置中心的安装及使用请参与以下链接
+4、关于apollo配置中心的安装及使用请参与以下链接
 
 [https://github.com/ctripcorp/apollo/wiki/Apollo%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E4%BB%8B%E7%BB%8D](https://github.com/ctripcorp/apollo/wiki/Apollo配置中心介绍)
 
