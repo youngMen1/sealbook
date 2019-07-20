@@ -29,9 +29,9 @@ RabbitMQ是使用Erlang语言开发的开源消息队列系统，基于AMQP\(AMQ
 
 ### 确认模式:
 
-* basic.ack用于肯定确认
-* basic.nack用于否定确认（注意：这是[AMQP 0-9-1](https://www.rabbitmq.com/nack.html)的[RabbitMQ扩展](https://www.rabbitmq.com/nack.html)）
-* basic.reject用于否定确认，但与basic.nack相比有一个限制
+* basic.ack     用于肯定确认
+* basic.nack   用于否定确认（注意：这是[AMQP 0-9-1](https://www.rabbitmq.com/nack.html)的[RabbitMQ扩展](https://www.rabbitmq.com/nack.html)）
+* basic.reject 用于否定确认，但与basic.nack相比有一个限制
 
 #### 发送不起作用:
 
