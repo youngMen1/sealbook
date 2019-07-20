@@ -50,6 +50,5 @@
   * [hBase](nosqlshu-ju-ku/hbase.md)
 * [关系型数据库](guan-xi-xing-shu-ju-ku.md)
   * [简介](guan-xi-xing-shu-ju-ku/jian-jie.md)
-* [项目发布414144](xiang-mu-fa-bu.md)
 * [灰度发布](xiang-mu-fa-bu.md)
 
