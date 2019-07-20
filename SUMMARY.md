@@ -48,13 +48,5 @@
   * [membase](nosqlshu-ju-ku/membase.md)
   * [neo4j](nosqlshu-ju-ku/neo4j.md)
   * [hBase](nosqlshu-ju-ku/hbase.md)
-* [分布式消息中间件](distributedmessagemiddleware.md)
-  * [简介](distributedmessagemiddleware/jian-jie.md)
-  * [rabbitMq](distributedmessagemiddleware/rabbitmq.md)
-  * [metaMq](sealblog/metamq.md)
-  * [kafka](sealblog/kafka.md)
-  * [activityMq](activitymq.md)
-  * [rocketMq](sealblog/rocketmq.md)
-  * [zeroMQ](distributedmessagemiddleware/zeromq.md)
 * [灰度发布](xiang-mu-fa-bu.md)
 
