@@ -123,6 +123,10 @@ Exchange不再把消息交给每一个绑定的队列，而是根据消息的Rou
 
 在Topic模型下:
 
+同一个消息被多个消费者获取。一个消费者队列可以有多个消费者实例，只有其中一个消费者实例会消费到消息。
+
+topic 是RabbitMQ中最灵活的一种方式，可以根据routing\_key自由的绑定不同的队列
+
 Topic类型的Exchange与Direct相比，都是可以根据RoutingKey把消息路由到不同的队列。只不过Topic类型Exchange可以让队列在绑定Routing key 的时候使用通配符！
 
 Routingkey 一般都是有一个或多个单词组成，多个单词之间以”.”分割，例如： user.insert
@@ -142,8 +146,6 @@ Routingkey 一般都是有一个或多个单词组成，多个单词之间以”
 4.和路由模式的区别:
 
 路由模式中的queue绑定携带的是具体的key值，路由细化划分topic主体模式queue携带的是范围的匹配，某一类的消息获取
-
-
 
 ### 确认模式:
 
