@@ -62,7 +62,7 @@ Routingkey 一般都是有一个或多个单词组成，多个单词之间以”
 
 ## 路由模式\(routing/direct\)
 
-## Topic Exchange\(主题模式\)
+## 主题模式\(topic\)
 
 ## 二个概念
 
