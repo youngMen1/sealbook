@@ -75,7 +75,7 @@
    app.id=discovery
 ```
 
-3.使用Nepxion   Console
+3、使用Nepxion   Console
 
 如果要使用Desktop Console ,则需要新建项目Console，有一点需要要注意，不要在项目中添加context-path ,如果加了context-path,在console中刷新灰度配置的信息的时候，会出现url错误
 
