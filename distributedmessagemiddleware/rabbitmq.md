@@ -52,6 +52,7 @@ RabbitMQ是使用Erlang语言开发的开源消息队列系统，基于AMQP\(AMQ
 ```
 // 监听队列，false表示手动返回完成状态，true表示自动
 channel.basicConsume(QUEUE_NAME, false, consumer);
+autoAck：是否自动ack，如果不自动ack，需要使用channel.ack、channel.nack、channel.basicReject 进行消息应答
 ```
 
 模式2：手动确认
@@ -63,7 +64,7 @@ channel.basicConsume(QUEUE_NAME, false, consumer);
  channel.basicAck(tag, false);
 ```
 
-**channel.basicNack\(delivery.getEnvelope\(\).getDeliveryTag\(\), false, true\);**
+**channel.basicNack\(delivery.getEnvelope\(\).getDeliveryTag\(\), false, true\);**
 
 ```
 channel.basicNack(delivery.getEnvelope().getDeliveryTag(), false, true);
