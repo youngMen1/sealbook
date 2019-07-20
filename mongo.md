@@ -2,14 +2,14 @@
 
 ### 配置yum管理包
 
-1.在路径/etc/yum.repos.d/下创建文件mongodb-org-3.4.repo
+1、在路径/etc/yum.repos.d/下创建文件mongodb-org-3.4.repo
 
 ```
 cd /etc/yum.repos.d/
 touch mongodb-org-3.4.repo
 ```
 
-2.在文件mongodb-org-3.4.repo中写入如下内容
+2、在文件mongodb-org-3.4.repo中写入如下内容
 
 ```
 [mongodb-org-3.4]
@@ -30,7 +30,7 @@ _　　数据库实例默认在/var/lib/mongo路径下，日志默认在/var/log
 yum install -y mongodb-org
 ```
 
-_3._开启mongodb服务
+_3、_开启mongodb服务
 
 ```
 service mongod start
