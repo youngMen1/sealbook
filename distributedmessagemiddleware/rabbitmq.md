@@ -104,6 +104,12 @@ Fanout，也称为广播。在广播模式下，消息发送流程是这样的�
 
 Exchange不再把消息交给每一个绑定的队列，而是根据消息的Routing Key进行判断，只有队列的Routingkey与消息的 Routing key完全一致，才会接收到消息
 
+1.生产者还是将消息发送给交换机，消息携带具体的路由key\(routingKey\)
+
+2.交换机类型direct，将接收到的消息中的routingkey，比对与之绑定的队列的routingKey
+
+
+
 ## 主题模式\(topic\)
 
 ![](/assets/微信截图_20190720163324.png)
