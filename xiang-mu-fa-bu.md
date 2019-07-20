@@ -97,25 +97,18 @@ app.id=discovery
 6.配置key对应的value请参与以下xml格式
 ```
 
-&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-
-&lt;rule&gt;
-
-&lt;discovery&gt;
-
-&lt;version&gt;
-
-&lt;!--表示网关z的1.0，允许访问提供端服务a的1.0版本--&gt;
-
-&lt;service consumer-service-name="flight-web-api" provider-service-name="scm" consumer-version-value="1.0" provider-version-value="1.1"/&gt;
-
-&lt;service consumer-service-name="flight-web-api" provider-service-name="onlinecommon" consumer-version-value="1.0" provider-version-value="1.0"/&gt;
-
-&lt;/version&gt;
-
-&lt;/discovery&gt;
-
-&lt;/rule&gt;
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<rule>
+<discovery>
+<version>
+<!--表示网关z的1.0，允许访问提供端服务a的1.0版本-->
+<service consumer-service-name="flight-web-api" provider-service-name="scm" consumer-version-value="1.0" provider-version-value="1.1"/>
+<service consumer-service-name="flight-web-api" provider-service-name="onlinecommon" consumer-version-value="1.0" provider-version-value="1.0"/>
+</version>
+</discovery>
+</rule>
+```
 
 ```
    \(7\).编写好配置之后，点击发布，相应的服务应用会接收到apollo配置变动，从而将灰度发布生效
