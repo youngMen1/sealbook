@@ -1,6 +1,4 @@
-## [http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/)
-
-## [https://github.com/wangvsa/refactoring-cheat-sheet](https://github.com/wangvsa/refactoring-cheat-sheet)
+## 
 
 ## 提炼函数
 
@@ -19,6 +17,14 @@
 ## 以函数对象取代函数
 
 ## 替换算法
+
+
+
+参考:
+
+## [http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/)
+
+## [https://github.com/wangvsa/refactoring-cheat-sheet](https://github.com/wangvsa/refactoring-cheat-sheet)
 
 
 
