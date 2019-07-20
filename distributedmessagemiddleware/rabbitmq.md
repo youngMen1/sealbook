@@ -120,5 +120,7 @@ requeue：被拒绝的是否重新入队列
 
 [https://www.rabbitmq.com/tutorials/tutorial-one-python.html](https://www.rabbitmq.com/tutorials/tutorial-one-python.html)
 
-https://www.cnblogs.com/Jeely/p/10784172.html
+[https://www.cnblogs.com/Jeely/p/10784172.html](https://www.cnblogs.com/Jeely/p/10784172.html)
+
+https://blog.csdn.net/qq\_38762237/article/details/89433506
 
