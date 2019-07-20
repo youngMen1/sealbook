@@ -18,6 +18,7 @@
 </properties>
 <dependencyManagement>
 <dependencies>
+
 <!--用做灰度发布  -->
 <dependency>
 <groupId>com.nepxion</groupId>
