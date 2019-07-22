@@ -7,7 +7,7 @@
 | Translation | 翻译插件 |
 | mavenHelper | maven帮助 |
 | mybatis-log-plugin | sql语句日志 |
-|  |  |
+| grepConsole |  |
 
 
 
