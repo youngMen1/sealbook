@@ -8,7 +8,7 @@
 | mavenHelper | maven帮助 |
 | mybatis-log-plugin | sql语句日志 |
 | grepConsole | onsole输出的日志 |
-|  |  |
+| gsonFormat |  |
 
 参考:
 
