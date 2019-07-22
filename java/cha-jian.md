@@ -5,8 +5,9 @@
 | generateAllSetMethod | 自动生成get/set方法 |
 | FindBugs plugin | 规范扫描 |
 | Translation | 翻译插件 |
-| mavenHelper |  |
+| mavenHelper | maven帮助 |
 | mybatis-log-plugin |  |
+|  |  |
 
 
 
