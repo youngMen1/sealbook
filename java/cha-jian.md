@@ -2,6 +2,7 @@
 | :---: | :---: |
 | lombok |  |
 | Alibaba Java Coding Guidelines |  |
+| generateAllSetMethod |  |
 
 
 
