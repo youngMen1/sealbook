@@ -144,9 +144,10 @@ else
     return basePrice * 0.98;
 ```
 
- 
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
 
----
+  
+
 
 ## 引入解释性变量
 
