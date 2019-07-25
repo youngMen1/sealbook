@@ -34,7 +34,7 @@ http://www.kafkatool.com/download.html
 
 安装:
 
-
+![](/assets/微信截图_20190725150010.png)
 
 
 
