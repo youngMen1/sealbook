@@ -74,7 +74,9 @@ int getRating() {
 }
 ```
 
-**动机**
+**动机:**
+
+
 
 **做法（Mechanics）**
 
