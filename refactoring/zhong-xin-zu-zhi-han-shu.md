@@ -288,6 +288,11 @@ System.out.println (area);
 
 **以一个临时变量取代该参数的位置。**
 
+```
+int discount (int inputVal, int quantity, int yearToDate) {
+    if (inputVal > 50) inputVal -= 2;
+```
+
 ## 以函数对象取代函数
 
 ## 替换算法
