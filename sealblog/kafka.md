@@ -24,7 +24,7 @@ Apache Kafka是分布式发布-订阅消息系统，在 kafka官网上对 Kafka 
 5. 流式处理：比如spark streaming和storm；
 6. 事件源；
 
-### [kafka可视化客户端工具（Kafka Tool）的基本使](https://www.cnblogs.com/frankdeng/p/9452982.html)用
+## kafka可视化客户端工具
 
 ### 
 
