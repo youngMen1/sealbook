@@ -132,6 +132,10 @@ return (anOrder.basePrice() > 1000)
 
 ## 以查询取代临时变量
 
+你的程序以一个临时变量（temp）保存某一表达式的运算结果。
+
+**将这个表达式提炼到一个独立函数（译注：所谓查询式，query）中。将这个临时变量的所有「被引用点」替换为「对新函数的调用」。新函数可被其他函数使用。**
+
 ---
 
 ## 引入解释性变量
@@ -148,7 +152,6 @@ return (anOrder.basePrice() > 1000)
 
 ## 参考:
 
-http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/https://github.com/wangvsa/refactoring-cheat-sheet
-
-
+[http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/)  
+[https://github.com/wangvsa/refactoring-cheat-sheet](https://github.com/wangvsa/refactoring-cheat-sheet)
 
