@@ -13,6 +13,8 @@ void printOwing(double amount) {
 
 
 
+
+
 1.无局部变量
 
 2.有局部变量
