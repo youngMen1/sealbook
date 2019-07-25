@@ -185,8 +185,7 @@ double basePrice() {
   。
 * 编译，测试。
 * 在该临时变量身上实施
-  [以查询取代临时变量](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_8)
-  。
+  [以查询取代临时变量](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_8)。
 
 我们常常使用临时变量保存循环中的累加信息。在这种情况下，整个循环都可以被提为一个独立函数，这也使原本的函数可以少掉几行扰人的循环码。有时候，你可能会用单一循环累加好几个值，就像本书p.26的例子那样。这种情况下你应该针对每个累加值重复一遍循环，这样就可以将所有临时变量都替换为查询式（query）。当然，循环应该很简单，复制这些代码时才不会带来危险。
 
