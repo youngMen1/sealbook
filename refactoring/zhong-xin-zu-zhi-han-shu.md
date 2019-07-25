@@ -234,6 +234,8 @@ if (isMacOs && isIEBrowser && wasInitialized() && wasResized) {
 * 编译，测试。
 * 重复上述过程，处理表达式的其他部分。
 
+---
+
 ## 分解临时变量
 
 ## 移除对参数的赋值
