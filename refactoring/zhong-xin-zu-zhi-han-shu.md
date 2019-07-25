@@ -72,7 +72,7 @@ int getRating() {
 
 **作法（Mechanics）**
 
-检查函数，确定它不具多态性（is not polymorphic）。
+ 检查函数，确定它不具多态性（is not polymorphic）。
 
 * 如果subclass继承了这个函数,就不要将此函数inline化，因为subclass无法覆写（overridde）一个根本不存在的函数。
 * 找出这个函数的所有被调用点。
