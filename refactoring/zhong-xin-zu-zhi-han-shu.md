@@ -249,13 +249,14 @@ temp = _height * _width;
 System.out.println (temp);
 ```
 
-  
-
-
 ![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
 
-  
-
+```
+final double perimeter = 2 * (_height + _width);
+System.out.println (perimeter);
+final double area = _height * _width;
+System.out.println (area);
+```
 
 ## 移除对参数的赋值
 
