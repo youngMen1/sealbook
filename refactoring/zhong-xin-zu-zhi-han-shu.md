@@ -88,6 +88,11 @@ int getRating() {
 
 **将所有对该变量的引用动作，替换为对它赋值的那个表达式本身。**
 
+```
+double basePrice = anOrder.basePrice();
+  return (basePrice > 1000)
+```
+
 ---
 
 ## 以查询取代临时变量
