@@ -8,9 +8,14 @@ void printOwing(double amount) {
     //print details
     System.out.println ("name:" + _name);
     System.out.println ("amount" + amount);
-
 ```
 
+  
+
+
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
+
+  
 
 
 1.无局部变量
