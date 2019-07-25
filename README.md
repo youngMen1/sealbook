@@ -20,9 +20,7 @@ mysql
 
 xxl-job:[http://211.159.189.77:8080/xxl-job-admin/](http://211.159.189.77:8080/xxl-job-admin/)
 
-
-
----------------------
+---
 
 ## 134.175.12.243: {#13417512243}
 
@@ -39,6 +37,8 @@ nohup java -jar inf-eureka-1.0.0.jar --spring.profiles.active=native2
 1 切换到root用户 sudo su root
 
 2 执行重新启动的命令 rabbitmq-server restart
+
+--
 
 ## 47.107.152.93: {#4710715293}
 
