@@ -74,6 +74,10 @@ int getRating() {
 }
 ```
 
+**动机**
+
+
+
 **做法（Mechanics）**
 
 检查函数，确定它不具多态性（is not polymorphic）。
