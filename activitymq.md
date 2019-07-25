@@ -8,3 +8,9 @@ JMS：代表作就是 ActiveMQ，但是其性能不高，因为其是用 java �
 
 AMQP：直接利用协议实现的消息组件，其大众代表作为RabbitMQ，高性能代表作为Kafka。
 
+
+
+
+
+队列模式
+
