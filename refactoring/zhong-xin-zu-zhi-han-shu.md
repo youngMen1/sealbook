@@ -13,7 +13,14 @@ void printOwing(double amount) {
 ![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
 
 ```
-
+void printOwing(double amount) {
+    printBanner();
+    printDetails(amount);
+}
+void printDetails (double amount) {
+    System.out.println ("name:" + _name);
+    System.out.println ("amount" + amount);
+}
 ```
 
 1.无局部变量
