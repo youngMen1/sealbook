@@ -32,7 +32,7 @@ Apache Kafka是分布式发布-订阅消息系统，在 kafka官网上对 Kafka 
 http://www.kafkatool.com/download.html
 ```
 
-安装:
+安装:根据不同的系统下载对应的版本，我这里kafka版本是kafka\_2.11-1.0.0，下载kafka tool 2.0.1。
 
 ![](/assets/微信截图_20190725150010.png)
 
