@@ -352,13 +352,9 @@ double price() {
 }
 ```
 
-  
-
-
 ![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
 
-  
-
+![](/assets/微信截图_20190725194742.png)
 
 ## 替换算法
 
