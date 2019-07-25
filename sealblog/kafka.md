@@ -24,6 +24,10 @@ Apache Kafka是分布式发布-订阅消息系统，在 kafka官网上对 Kafka 
 5. 流式处理：比如spark streaming和storm；
 6. 事件源；
 
+### [kafka可视化客户端工具（Kafka Tool）的基本使](https://www.cnblogs.com/frankdeng/p/9452982.html)
+
+### 
+
 ## 注意:
 
 kafka服务器的端口要开放，可以访问该端口
@@ -44,5 +48,5 @@ C:\Windows\System32\drivers\etc
 
 [https://www.jianshu.com/p/04eff11430e4](https://www.jianshu.com/p/04eff11430e4)
 
-http://www.kafkatool.com/download.html
+kfkaTool：[http://www.kafkatool.com/download.html](http://www.kafkatool.com/download.html)
 
