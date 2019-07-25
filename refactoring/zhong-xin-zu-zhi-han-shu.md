@@ -311,6 +311,16 @@ void aMethod(Object foo) {
     foo = anotherObject;             // trouble and despair will follow you
 ```
 
+我之所以不喜欢这样的作法，因为它降低了代码的清晰度，而且混淆了 pass by value（传值〕和 pass by reference \(传址）这两种参数传递方式。Java只采用 pass by value传递方式（稍后讨论），我们的讨论也正是基于这一点。
+
+在 pass by value情况下，对参数的任何修改，都不会对调用端造成任何影响。那些用过 pass by reference的人可能会在这一点上犯糊涂。
+
+另一个让人糊涂的地方是函数本体内。如果你只以参数表示「被传递进来的东西」，那么代码会清晰得多，因为这种用法在所有语言中都表现出相同语义。
+
+在Java中，不要对参数赋值；如果你看到手上的代码已经这样做了，请使用[移除对参数的赋值](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_7)。
+
+当然，面对那些使用「输出式参数」（ output parameters）的语言，你不必遵循这条规则。不过在那些语言中我会尽量少用输出式参数。
+
 ## 以函数对象取代函数
 
 ## 替换算法
