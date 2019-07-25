@@ -11,7 +11,8 @@ void printOwing(double amount) {
 }
 ```
 
-```
+```java
+
 void printOwing(double amount) {
     printBanner();
     printDetails(amount);
@@ -35,18 +36,6 @@ void printDetails (double amount) {
 一个函数，其本体（method body）应该与其名称（method name\)同样清楚易懂。**在函数调用点插入函数本体，然后移除该函数。**
 
 ![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
-
-
-
-
-
-
-
-
-
-
-
-
 
 ---
 
