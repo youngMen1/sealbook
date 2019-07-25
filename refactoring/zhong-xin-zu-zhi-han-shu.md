@@ -208,6 +208,16 @@ if ( (platform.toUpperCase().indexOf("MAC") > -1) && (browser.toUpperCase().inde
 
 ![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
 
+```
+final boolean isMacOs     = platform.toUpperCase().indexOf("MAC") > -1;
+final boolean isIEBrowser = browser.toUpperCase().indexOf("IE")  > -1;
+final boolean wasResized  = resize > 0;
+
+if (isMacOs && isIEBrowser && wasInitialized() && wasResized) {
+    // do something
+}
+```
+
 ## 分解临时变量
 
 ## 移除对参数的赋值
