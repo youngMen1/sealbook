@@ -47,7 +47,9 @@ boolean moreThanFiveLateDeliveries() {
 ![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
 
 ```
-
+int getRating() {
+  return (_numberOfLateDeliveries > 5) ? 2 : 1;
+}
 ```
 
 ## 内联临时变量
