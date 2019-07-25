@@ -242,6 +242,13 @@ if (isMacOs && isIEBrowser && wasInitialized() && wasResized) {
 
 **针对每次赋值，创造一个独立的、对应的临时变量。**
 
+```
+double temp = 2 * (_height + _width);
+System.out.println (temp);
+temp = _height * _width;
+System.out.println (temp);
+```
+
 ## 移除对参数的赋值
 
 ## 以函数对象取代函数
