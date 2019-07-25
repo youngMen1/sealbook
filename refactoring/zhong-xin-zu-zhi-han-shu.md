@@ -356,6 +356,14 @@ double price() {
 
 ![](/assets/微信截图_20190725194742.png)
 
+**动机（Motivation）**
+
+我在本书中不断向读者强调小型函数的优美动人。只要将相对独立的代码从大型函数中提炼出来，就可以大大提高代码的可读性。
+
+但是，局部变量的存在会增加函数分解难度。如果一个函数之中局部变量泛滥成灾, 那么想分解这个函数是非常困难的。[以查询取代临时变量](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_8)可以助你减轻这一负担，但有时候你会发现根本无法拆解一个需要拆解的函数。这种情况下，你应该把手深深地伸入你的工具箱（好酒沉瓮底呢），祭出函数对象（method object ）\[Beck\]这件法宝。
+
+[以函数对象取代函数](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_9)会将所有局部变量都变成函数对象（method object）的值域（field）。然后你就可以对这个新对象使用[提炼函数](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_1)创造出新函数，从而将原本的大型函数拆解变短。
+
 ## 替换算法
 
 ## 参考:
