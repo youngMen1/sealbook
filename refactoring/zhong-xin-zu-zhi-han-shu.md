@@ -32,6 +32,8 @@ void printDetails (double amount) {
 
 ## 内联函数
 
+
+
 ---
 
 ## 内联临时变量
