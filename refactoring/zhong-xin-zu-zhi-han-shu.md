@@ -337,7 +337,9 @@ void aMethod(Object foo) {
 
 ## 以函数对象取代函数
 
+你有一个大型函数，其中对局部变量的使用，使你无法釆用[提炼函数](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_1)。
 
+**将这个函数放进一个单独对象中，如此一来局部变量就成了对象内的值域（field） 然后你可以在同一个对象中将这个大型函数分解为数个小型函数。**
 
 ## 替换算法
 
