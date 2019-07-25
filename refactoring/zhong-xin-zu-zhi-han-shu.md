@@ -119,7 +119,14 @@ return (anOrder.basePrice() > 1000)
 
 [将临时变量内联化](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_3)多半是作为[以查询取代临时变量](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_8)的一部分来使用，所以真正的动机出现在后者那儿。惟一单独使用[将临时变量内联化](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_3)的情况是：你发现某个临时变量被赋予某个函数调用的返回值。一般来说，这样的临时变量不会有任何危害，你可以放心地把它在那儿。但如果这个临时变量妨碍了其他的重构 手法——例如[提炼函数](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_1)，你就应该将它inline化。
 
-## 
+**作法（Mechanics）**
+
+* 如果这个临时变量并未被声明为final，那就将它声明为final，然后编译。
+* 这可以检查该临时变量是否真的只被赋值一次。
+* 找到该临时变量的所有引用点，将它们替换为「为临时变量赋值」之语句中的等号右侧表达式。
+* 每次修改后，编译并测试。
+* 修改完所有引用点之后，删除该临时变量的声明式和赋值语句。
+* 编译，测试。
 
 ## 
 
