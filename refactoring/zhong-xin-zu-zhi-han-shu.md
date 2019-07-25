@@ -337,6 +337,8 @@ void aMethod(Object foo) {
 
 ## 以函数对象取代函数
 
+
+
 ## 替换算法
 
 ## 参考:
