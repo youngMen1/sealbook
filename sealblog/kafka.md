@@ -15,6 +15,18 @@ Apache Kafka是分布式发布-订阅消息系统，在 kafka官网上对 Kafka 
 5. 高并发：支持数千个客户端同时读写；
 6. 支持实时在线处理和离线处理：可以使用Storm这种实时流处理系统对消息进行实时进行处理，同时还可以使用Hadoop这种批处理系统进行离线处理；
 
+![](/assets/微信截图_20190725151205.png)
+
+
+
+
+
+
+
+
+
+
+
 #### Kafka 使用场景
 
 1. 日志收集：一个公司可以用Kafka可以收集各种服务的log，通过kafka以统一接口服务的方式开放给各种consumer，例如Hadoop、Hbase、Solr等；
@@ -47,8 +59,6 @@ kafka环境搭建请参考：
 ```
 https://www.cnblogs.com/frankdeng/p/9403883.html
 ```
-
-
 
 ## 注意:
 
