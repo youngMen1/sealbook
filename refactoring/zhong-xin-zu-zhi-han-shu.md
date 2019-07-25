@@ -52,6 +52,8 @@ int getRating() {
 }
 ```
 
+**作法（Mechanics）**
+
 ## 内联临时变量
 
 ---
