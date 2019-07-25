@@ -218,6 +218,14 @@ if (isMacOs && isIEBrowser && wasInitialized() && wasResized) {
 }
 ```
 
+**动机（Motivation）**
+
+表达式有可能非常复杂而难以阅读。这种情况下，临时变量可以帮助你将表达式分解为比较容易管理的形式。
+
+在条件逻辑（conditional logic ）中，[引入解释性变量](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_5)特别有价值：你可以用这项重构将每个条件子句提炼出来，以一个良好命名的临时变量来解释对应条件子句的意义。使用这项重构的另一种情况是，在较长算法中，可以运用临时变量来解释每一步运算的意义。
+
+[引入解释性变量](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_5)是一个很常见的重构手法，但我得承认，我并不常用它。我几乎总是尽量使用[提炼函数](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_1)来解释一段代码的意义。毕竟临时变量只在它所处的那个函数中才有意义，局限性较大，函数则可以在对象的整个生命中都有用，并且可被其他对象使用。但有时候，当局部变量使[提炼函数](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_1)难以进行时，我就使用[引入解释性变量](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_5)。
+
 ## 分解临时变量
 
 ## 移除对参数的赋值
