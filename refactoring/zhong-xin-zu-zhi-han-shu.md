@@ -409,6 +409,18 @@ String foundPerson(String[] people){
 }
 ```
 
+  
+
+
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
+
+  
+
+
+## 
+
+## 
+
 ## 参考:
 
 [http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/)  
