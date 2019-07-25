@@ -11,17 +11,7 @@ void printOwing(double amount) {
 }
 ```
 
-```java
 
-void printOwing(double amount) {
-    printBanner();
-    printDetails(amount);
-}
-void printDetails (double amount) {
-    System.out.println ("name:" + _name);
-    System.out.println ("amount" + amount);
-}
-```
 
 1.无局部变量
 
