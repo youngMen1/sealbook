@@ -341,6 +341,17 @@ void aMethod(Object foo) {
 
 **将这个函数放进一个单独对象中，如此一来局部变量就成了对象内的值域（field） 然后你可以在同一个对象中将这个大型函数分解为数个小型函数。**
 
+```
+class Order...
+double price() {
+    double primaryBasePrice;
+    double secondaryBasePrice;
+    double tertiaryBasePrice;
+    // long computation;
+    ...
+}
+```
+
 ## 替换算法
 
 ## 参考:
