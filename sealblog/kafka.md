@@ -30,48 +30,13 @@ kafka服务器的端口要开放，可以访问该端口
 
 host文件中需要添加服务器的ip和hostname
 
-  
+C:\Windows\System32\drivers\etc
 
+192.168.23.128 centos101
 
- C:\Windows\System32\drivers\etc
+192.168.23.132 slave01
 
-  
-
-
- 192.168.23.128 centos101
-
-  
-
-
- 192.168.23.132 slave01
-
-  
-
-
- 106.12.40.240 instance-6orhoahv
-
-  
-
-
-  
-
-
-作者：weisen
-
-  
-
-
-链接：https://www.jianshu.com/p/04eff11430e4
-
-  
-
-
-来源：简书
-
-  
-
-
-简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。
+106.12.40.240 instance-6orhoahv
 
 ## 参考:
 
