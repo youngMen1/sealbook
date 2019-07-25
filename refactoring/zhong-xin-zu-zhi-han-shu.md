@@ -321,7 +321,7 @@ void aMethod(Object foo) {
 
 当然，面对那些使用「输出式参数」（ output parameters）的语言，你不必遵循这条规则。不过在那些语言中我会尽量少用输出式参数。
 
-做**法（Mechanics）**
+**做法（Mechanics）**
 
 * 建立一个临时变量，把待处理的参数值赋予它。
 
