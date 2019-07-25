@@ -44,9 +44,13 @@ boolean moreThanFiveLateDeliveries() {
 }
 ```
 
+  
 
 
----
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
+
+  
+
 
 ## 内联临时变量
 
