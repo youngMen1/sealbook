@@ -159,6 +159,16 @@ double basePrice() {
 }
 ```
 
+**动机（Motivation）**
+
+临时变量的问题在于：它们是暂时的，而且只能在所属函数内使用。由于临时变量只有在所属函数内才可见，所以它们会驱使你写出更长的函数，因为只有这样你才能访问到想要访问的临时变量。如果把临时变量替换为一个查询式（query method），那么同一个class中的所有函数都将可以获得这份信息。这将带给你极大帮助，使你能够为这个编写更清晰的代码。
+
+[以查询取代临时变量](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_8)往往是你运用[提炼函数](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_1)之前必不可少的一个步骤。局部变量会使代码难以被提炼，所以你应该尽可能把它们替换为查询式。
+
+这个重构手法较为直率的情况就是：临时变量只被赋值一次，或者赋值给临时变量的表达式不受其他条件影响。其他情况比较棘手，但也有可能发生。你可能需要先运用[剖解临时变量](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_6)或[将查询函数和修改函数分离](http://wangvsa.github.io/refactoring-cheat-sheet/making-method-calls-simpler/#_15)使情况变得简单一些，然后再替换临时变量。如果你想替换的临时变量是用来收集结果的（例如循环中的累加值），你就需要将某些程序逻辑（例如循环）拷贝到查询式（query method）去。
+
+## 
+
 ## 引入解释性变量
 
 ---
