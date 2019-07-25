@@ -38,7 +38,7 @@ nohup java -jar inf-eureka-1.0.0.jar --spring.profiles.active=native2
 
 2 执行重新启动的命令 rabbitmq-server restart
 
---
+---------------
 
 ## 47.107.152.93: {#4710715293}
 
