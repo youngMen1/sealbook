@@ -206,12 +206,7 @@ if ( (platform.toUpperCase().indexOf("MAC") > -1) && (browser.toUpperCase().inde
 }
 ```
 
----
-
 ![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
-
-  
-
 
 ## 分解临时变量
 
