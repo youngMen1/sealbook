@@ -200,11 +200,12 @@ double basePrice() {
 
 **将该表达式（或其中一部分）的结果放进一个临时变量，以此变量名称来解释表达式用途。**
 
-
-
-
-
-
+```
+if ( (platform.toUpperCase().indexOf("MAC") > -1) && (browser.toUpperCase().indexOf("IE") > -1) &&
+    wasInitialized() && resize > 0 ) {
+    // do something
+}
+```
 
 ---
 
