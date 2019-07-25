@@ -96,7 +96,7 @@ return (basePrice > 1000)
 ![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
 
 ```
-  return (anOrder.basePrice() > 1000)
+return (anOrder.basePrice() > 1000)
 ```
 
 ## 以查询取代临时变量
@@ -120,8 +120,6 @@ return (basePrice > 1000)
 ### [http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/)
 
 ### [https://github.com/wangvsa/refactoring-cheat-sheet](https://github.com/wangvsa/refactoring-cheat-sheet)
-
-
 
 
 
