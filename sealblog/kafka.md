@@ -48,6 +48,8 @@ kafka环境搭建请参考：
 https://www.cnblogs.com/frankdeng/p/9403883.html
 ```
 
+
+
 ## 注意:
 
 kafka服务器的端口要开放，可以访问该端口
