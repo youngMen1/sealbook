@@ -44,3 +44,5 @@ C:\Windows\System32\drivers\etc
 
 [https://www.jianshu.com/p/04eff11430e4](https://www.jianshu.com/p/04eff11430e4)
 
+http://www.kafkatool.com/download.html
+
