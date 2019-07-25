@@ -146,8 +146,18 @@ else
 
 ![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
 
-  
+```
+if (basePrice() > 1000)
+    return basePrice() * 0.95;
+else
+    return basePrice() * 0.98;
 
+...
+
+double basePrice() {
+    return _quantity * _itemPrice;
+}
+```
 
 ## 引入解释性变量
 
