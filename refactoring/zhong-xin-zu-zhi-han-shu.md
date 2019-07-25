@@ -249,6 +249,14 @@ temp = _height * _width;
 System.out.println (temp);
 ```
 
+  
+
+
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
+
+  
+
+
 ## 移除对参数的赋值
 
 ## 以函数对象取代函数
