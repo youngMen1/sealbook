@@ -226,6 +226,14 @@ if (isMacOs && isIEBrowser && wasInitialized() && wasResized) {
 
 [引入解释性变量](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_5)是一个很常见的重构手法，但我得承认，我并不常用它。我几乎总是尽量使用[提炼函数](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_1)来解释一段代码的意义。毕竟临时变量只在它所处的那个函数中才有意义，局限性较大，函数则可以在对象的整个生命中都有用，并且可被其他对象使用。但有时候，当局部变量使[提炼函数](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_1)难以进行时，我就使用[引入解释性变量](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_5)。
 
+**做法（Mechanics）**
+
+* 声明一个final临时变量，将待分解之复杂表达式中的一部分动作的运算结果赋值给它。
+* 将表达式中的「运算结果」这一部分，替换为上述临时变量。
+  * 如果被替换的这一部分在代码中重复出现，你可以每次一个，逐一替换。
+* 编译，测试。
+* 重复上述过程，处理表达式的其他部分。
+
 ## 分解临时变量
 
 ## 移除对参数的赋值
