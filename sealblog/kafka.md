@@ -26,7 +26,7 @@ Apache Kafka是分布式发布-订阅消息系统，在 kafka官网上对 Kafka 
 
 ## kafka可视化客户端工具
 
-下载:
+下载地址:
 
 ```
 http://www.kafkatool.com/download.html
