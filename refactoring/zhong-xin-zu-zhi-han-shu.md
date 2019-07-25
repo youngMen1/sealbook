@@ -93,9 +93,12 @@ double basePrice = anOrder.basePrice();
 return (basePrice > 1000)
 ```
 
- 
-
 ---
+
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
+
+  
+
 
 ## 以查询取代临时变量
 
