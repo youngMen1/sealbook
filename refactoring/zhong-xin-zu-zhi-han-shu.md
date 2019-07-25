@@ -352,6 +352,12 @@ double price() {
 }
 ```
 
+  
+
+
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
+
+  
 
 
 ## 替换算法
