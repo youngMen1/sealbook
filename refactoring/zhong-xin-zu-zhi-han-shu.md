@@ -293,13 +293,13 @@ int discount (int inputVal, int quantity, int yearToDate) {
     if (inputVal > 50) inputVal -= 2;
 ```
 
-  
-
-
 ![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
 
-  
-
+```
+int discount (int inputVal, int quantity, int yearToDate) {
+    int result = inputVal;
+    if (inputVal > 50) result -= 2;
+```
 
 ## 以函数对象取代函数
 
