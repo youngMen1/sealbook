@@ -36,17 +36,15 @@ http://www.kafkatool.com/download.html
 
 ![](/assets/微信截图_20190725150010.png)
 
-
-
 简单使用
+
+kafka环境搭建请参考：
+
+[CentOS7.5搭建Kafka2.11-1.1.0集群](https://www.cnblogs.com/frankdeng/p/9403883.html)
 
 ```
 https://www.cnblogs.com/frankdeng/p/9403883.html
 ```
-
-
-
-
 
 ## 注意:
 
