@@ -409,15 +409,17 @@ String foundPerson(String[] people){
 }
 ```
 
-  
-
-
 ![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
 
-  
-
-
-## 
+```
+String foundPerson(String[] people){
+    List candidates = Arrays.asList(new String[] {"Don", "John", "Kent"});
+    for (int i=0; i<people.length; i++)
+    if (candidates.contains(people[i]))
+        return people[i];
+    return "";
+}
+```
 
 ## 
 
