@@ -238,6 +238,10 @@ if (isMacOs && isIEBrowser && wasInitialized() && wasResized) {
 
 ## 分解临时变量
 
+你的程序有某个临时变量被赋值超过一次，它既不是循环变量，也不是一个集用临时变量（collecting temporary variable）。
+
+**针对每次赋值，创造一个独立的、对应的临时变量。**
+
 ## 移除对参数的赋值
 
 ## 以函数对象取代函数
