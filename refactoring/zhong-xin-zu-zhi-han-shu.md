@@ -90,7 +90,7 @@ int getRating() {
 
 ```
 double basePrice = anOrder.basePrice();
-  return (basePrice > 1000)
+return (basePrice > 1000)
 ```
 
 ---
