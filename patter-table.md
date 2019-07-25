@@ -3,10 +3,10 @@
 | RT | 响应时间 |
 | QPS\(Query Per Second\) | 每秒查询率\(请求数\) |
 | SCB\(Simultaneous Browser Connections） | 并发连接数 |
-| MOM\(Message Orient middleware\) |  |
+| MOM\(Message Orient middleware\) | 消息中间件 |
 |  |  |
 |  |  |
 |  |  |
 
-MOM：Message Orient middleware
+
 
