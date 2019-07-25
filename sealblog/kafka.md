@@ -6,7 +6,18 @@ Apache Kafka 是一个分布式流处理平台，用于构建实时的数据管�
 
 Apache Kafka是分布式发布-订阅消息系统，在 kafka官网上对 Kafka 的定义：一个分布式发布-订阅消息传递系统。
 
+#### Kafka 特性
+
+1. 高吞吐量、低延迟：kafka每秒可以处理几十万条消息，它的延迟最低只有几毫秒，每个topic可以分多个partition, consumer group 对partition进行consume操作；
+2. 可扩展性：kafka集群支持热扩展；
+3. 持久性、可靠性：消息被持久化到本地磁盘，并且支持数据备份防止数据丢失；
+4. 容错性：允许集群中节点失败（若副本数量为n,则允许n-1个节点失败）；
+5. 高并发：支持数千个客户端同时读写；
+6. 支持实时在线处理和离线处理：可以使用Storm这种实时流处理系统对消息进行实时进行处理，同时还可以使用Hadoop这种批处理系统进行离线处理；
+
 ## 参考:
 
 [http://kafka.apache.org/](http://kafka.apache.org/)
+
+https://www.jianshu.com/p/04eff11430e4
 
