@@ -30,3 +30,9 @@ AMQP：直接利用协议实现的消息组件，其大众代表作为RabbitMQ�
 
 
 
+## 参考:
+
+[https://yq.aliyun.com/articles/652745](#)
+
+https://activemq.apache.org/features
+
