@@ -24,6 +24,10 @@ Apache Kafka是分布式发布-订阅消息系统，在 kafka官网上对 Kafka 
 5. 流式处理：比如spark streaming和storm；
 6. 事件源；
 
+## 注意:
+
+#### 注意事项：
+
 ## 参考:
 
 [http://kafka.apache.org/](http://kafka.apache.org/)
