@@ -11,13 +11,7 @@ void printOwing(double amount) {
 }
 ```
 
-  
-
-
-![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
-
-  
-
+                                                                                                   ![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
 
 1.无局部变量
 
