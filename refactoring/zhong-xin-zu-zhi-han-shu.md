@@ -429,6 +429,13 @@ String foundPerson(String[] people){
 
 使用这项重构手法之前，请先确定自己已经尽可能分解了原先函数。替换一个巨大而复杂的算法是非常困难的，只有先将它分解为较简单的小型函数，然后你才能很有把握地进行算法替换工作。
 
+**做法（Mechanics）**
+
+* 准备好你的另一个（替换用）算法，让它通过编译。
+* 针对现有测试，执行上述的新算法。如果结果与原本结果相同，重构结束。
+* 如果测试结果不同于原先，在测试和调试过程中，以旧算法为比较参照标准。
+* 对于每个test case（测试用例），分别以新旧两种算法执行，并观察两者结果是否相同。这可以帮助你看到哪一个test case出现麻烦，以及出现了怎样的麻烦。
+
 ## 参考:
 
 [http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/)  
