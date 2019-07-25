@@ -364,6 +364,26 @@ double price() {
 
 [以函数对象取代函数](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_9)会将所有局部变量都变成函数对象（method object）的值域（field）。然后你就可以对这个新对象使用[提炼函数](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_1)创造出新函数，从而将原本的大型函数拆解变短。
 
+**做法（Mechanics）**
+
+我厚着脸皮从Kent Beck \[Beck\]那里偷来了下列作法：
+
+* 建立一个新class，根据「待被处理之函数」的用途，为这个class命名。
+
+* 在新class中建立一个final值域，用以保存原先大型函数所驻对象。我们将这个值域称为「源对象」。同时，针对原（旧）函数的每个临时变量和每个参数，在新中建立一个个对应的值域保存之。
+
+* 在新class中建立一个构造函数（constructor），接收源对象及原函数的所有参数作为参数。
+
+* 在新class中建立一个compute\(\)函数。
+
+* 将原（旧）函数的代码拷贝到compute\(\)函数中。如果需要调用源对象的任何函数，请以「源对象」值域调用。
+
+* 编译。
+
+* 将旧函数的函数本体替换为这样一条语句：「创建上述新的一个新对象， 而后调用其中的compute\(\)函数」。
+
+现在进行到很有趣的部分了。由于所有局部变量现在都成了值域，所以你可以任意分解这个大型函数，不必传递任何参数。
+
 ## 替换算法
 
 ## 参考:
