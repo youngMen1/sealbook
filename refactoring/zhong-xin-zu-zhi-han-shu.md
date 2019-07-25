@@ -111,7 +111,7 @@ return (basePrice > 1000)
 return (anOrder.basePrice() > 1000)
 ```
 
-## 动机
+**动机**
 
 [将临时变量内联化](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_3)
 
