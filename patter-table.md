@@ -7,5 +7,5 @@
 |  |  |
 |  |  |
 
-
+MOM：Message Orient middleware
 
