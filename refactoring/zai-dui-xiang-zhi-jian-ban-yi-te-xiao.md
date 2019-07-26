@@ -367,6 +367,11 @@ martin.getOfficeTelephone().setAreaCode ("781");
 
 就变成了：
 
+```
+Person martin = new Person();      
+martin.setAreaCode ("781");
+```
+
 ## 隐藏“委托关系”
 
 ## 移除中间人
