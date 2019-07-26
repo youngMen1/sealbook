@@ -461,7 +461,9 @@ manager = john.getManager();
 
 ---
 
-## 移除中间人
+```
+移除中间人
+```
 
 某个class做了过多的简单委托动作（simple delegation）。
 
@@ -482,6 +484,19 @@ manager = john.getManager();
 **范例（Examples）**
 
 我将以另一种方式使用先前用过的「人与部门」例子。还记得吗，上一项重构结束时，Person将Department隐藏起来了：
+
+```
+class Person...
+    Department _department;        
+    public Person getManager() {
+        return _department.getManager();
+
+class Department...
+    private Person _manager;
+    public Department (Person manager) {
+        _manager = manager;
+    }
+```
 
 ## 引入外加函数
 
