@@ -259,6 +259,22 @@ class TelephoneNumber...
     private String _areaCode;
 ```
 
+下一步要做的决定是：要不要对客户揭示这个新口class？我可以将Person中「与电 话号码相关」的函数委托（delegating）至TelephoneNumber，从而完全隐藏这个新class；也可以直接将它对用户曝光。我还可以将它暴露给部分用户（位于同一个package中的用户），而不暴露给其他用户。
+
+如果我选择暴露新class，我就需要考虑别名（aliasing）带来的危险。如果我暴露了TelephoneNumber ，而有个用户修改了对象中的\_areaCode值域值，我又怎么能知道呢？而且，做出修改的可能不是直接用户，而是用户的用户的用户。
+
+面对这个问题，我有下列数种选择：
+
+* 允许任何对象修改TelephoneNumber 对象的任何部分。这就使得TelephoneNumber 对象成为引用对象（reference object），于是我应该考虑使用
+  [将实值对象改为引用对象](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#_4)
+  。这种情况下，Person应该是TelephoneNumber的访问点。
+* 不许任何人「不通过Person对象就修改TelephoneNumber 对象」。为了达到目的，我可以将TelephoneNumber「设为不可修改的（immutable），或为它提供一个不可修改的接口（immutable interface）。
+* 另一个办法是：先复制一个TelephoneNumber 对象，然后将复制得到的新对象传递给用户。但这可能会造成一定程度的迷惑，因为人们会认为他们可以修改TelephoneNumber对象值。此外，如果同一个TelephoneNumber 对象 被传递给多个用户，也可能在用户之间造成别名（aliasing）问题。
+
+[提炼类](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_1)是改善并发（concurrent）程序的一种常用技术，因为它使你可以为提炼后的两个classes分别加锁（locks）。如果你不需要同时锁定两个对象， 你就不必这样做。这方面的更多信息请看Lea\[Lea\]， 3.3节。
+
+这里也存在危险性。如果需要确保两个对象被同时锁定，你就面临事务（transaction）问题，需要使用其他类型的共享锁〔shared locks〕。正如Lea\[Lea\] 8.1节所讨论， 这是一个复杂领域，比起一般情况需要更繁重的机制。事务（transaction）很有实用性，但是编写事务管理程序（transaction manager）则超出了大多数程序员的职责范围。
+
 ## 将类内联化
 
 ## 隐藏“委托关系”
