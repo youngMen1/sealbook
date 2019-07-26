@@ -504,6 +504,15 @@ class Department...
 manager = john.getManager();
 ```
 
+像这样，使用和封装Department都很简单。但如果大量函数都这么做，我就不得不在Person之中安置大量委托行为（delegations）。这就是移除中间人的时候了。 首先在Person建立一个「受托对象（delegate）取得函数」：
+
+```
+class Person...
+   public Department getDepartment() {
+       return _department;
+}
+```
+
 ## 引入外加函数
 
 ## 引入本地扩展
