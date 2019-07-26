@@ -410,7 +410,29 @@ martin.setAreaCode ("781");
 本例从两个classes开始，代表「人」的Person和代表「部门」的Department：
 
 ```
+class Person {
+    Department _department;
 
+    public Department getDepartment() {
+        return _department;
+    }
+    public void setDepartment(Department arg) {
+        _department = arg;
+    }
+}
+
+class Department {
+    private String _chargeCode;
+    private Person _manager;
+
+    public Department (Person manager) {
+        _manager = manager;
+    }
+
+    public Person getManager() {
+        return _manager;
+    }
+...
 ```
 
 **范例（Examples）**
