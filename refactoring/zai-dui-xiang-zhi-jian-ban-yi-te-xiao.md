@@ -342,6 +342,22 @@ class TelephoneNumber...
 
 首先我在Person中声明TelephoneNumber「的所有「可见」（public）函数：
 
+```
+class Person...
+    String getAreaCode() {
+        return _officeTelephone.getAreaCode();        //译注：请注意其变化
+    }
+    void setAreaCode(String arg) {
+        _officeTelephone.setAreaCode(arg);                //译注：请注意其变化
+    }
+    String getNumber() {
+        return _officeTelephone.getNumber();        //译注：请注意其变化
+    }
+    void setNumber(String arg) {
+        _officeTelephone.setNumber(arg);                //译注：请注意其变化
+    }
+```
+
 ## 隐藏“委托关系”
 
 ## 移除中间人
