@@ -479,6 +479,10 @@ manager = john.getManager();
 * 对于每个委托函数（delegate method），在server中删除该函数，并将「客户对该函数的调用」替换为「对delegate（受托对象）的调用」。
 * 处理每个委托函数后，编译、测试。
 
+**范例（Examples）**
+
+我将以另一种方式使用先前用过的「人与部门」例子。还记得吗，上一项重构结束时，Person将Department隐藏起来了：
+
 ## 引入外加函数
 
 ## 引入本地扩展
