@@ -533,6 +533,8 @@ class Person...
 Date newStart = new Date (previousEnd.getYear(), previousEnd.getMonth(), previousEnd.getDate() + 1);
 ```
 
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
+
 ## 引入本地扩展
 
 
