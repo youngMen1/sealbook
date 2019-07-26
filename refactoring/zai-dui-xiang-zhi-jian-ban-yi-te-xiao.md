@@ -616,5 +616,11 @@ private static Date nextDay(Date arg) {
 
 第一件待决事项就是使用subclass或wrapper。subclassing是比较显而易见的办法：
 
+```
+Class mfDate extends Date {
+    public nextDay()...
+    public dayOfYear()...
+```
+
 
 
