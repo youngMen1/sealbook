@@ -409,6 +409,10 @@ martin.setAreaCode ("781");
 
 本例从两个classes开始，代表「人」的Person和代表「部门」的Department：
 
+```
+
+```
+
 **范例（Examples）**
 
 ## 移除中间人
