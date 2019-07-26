@@ -536,7 +536,11 @@ Date newStart = new Date (previousEnd.getYear(), previousEnd.getMonth(), previou
 ![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
 
 ```
+Date newStart = nextDay(previousEnd);
 
+private static Date nextDay(Date arg) {
+    return new Date (arg.getYear(),arg.getMonth(), arg.getDate() + 1);
+}
 ```
 
 ## 引入本地扩展
