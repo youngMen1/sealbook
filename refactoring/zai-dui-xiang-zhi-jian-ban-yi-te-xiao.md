@@ -459,6 +459,8 @@ manager = john.getManager();
 
 只要完成了对Department所有函数的委托关系，并相应修改了Person的所有客 户，我就可以移除Person中的访问函数getDepartment\(\)了。
 
+---
+
 ## 移除中间人
 
 某个class做了过多的简单委托动作（simple delegation）。
