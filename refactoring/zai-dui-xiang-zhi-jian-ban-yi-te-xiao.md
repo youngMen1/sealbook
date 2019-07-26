@@ -279,7 +279,7 @@ class TelephoneNumber...
 
 ## 将类内联化
 
-你的某个class没有做太多事情（没有承担足够责任）。
+的某个class没有做太多事情（没有承担足够责任）。
 
 **将class的所有特性搬移到另一个class中，然后移除原class。**
 
