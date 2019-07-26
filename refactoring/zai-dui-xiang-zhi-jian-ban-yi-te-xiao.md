@@ -461,6 +461,10 @@ manager = john.getManager();
 
 ## 移除中间人
 
+某个class做了过多的简单委托动作（simple delegation）。
+
+**让客户直接调用delegate（受托类）。**![](http://wangvsa.github.io/refactoring-cheat-sheet/images/07fig07.gif)
+
 ## 引入外加函数
 
 ## 引入本地扩展
