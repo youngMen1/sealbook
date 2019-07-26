@@ -105,6 +105,10 @@ class AccountType...
     }
 ```
 
+这时候我可以编译新的AccountType class。
+
+现在，我需要让Account class中访问此\_interestRate field的函数转而使用AccountType对象，然后删除Account class中的\_interestRate field。我必须删除source field，才能保证其访问函数的确改变了操作对象，因为编译器会帮我指出未正确获得修改的函数。
+
 ## 提炼类
 
 ## 将类内联化
