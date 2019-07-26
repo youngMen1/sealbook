@@ -190,6 +190,13 @@ class TelephoneNumber {
 }
 ```
 
+易如反掌！然后，我要建立从Person到TelephoneNumber的连接：
+
+```
+class Person
+    private TelephoneNumber _officeTelephone = new TelephoneNumber();
+```
+
 ## 将类内联化
 
 ## 隐藏“委托关系”
