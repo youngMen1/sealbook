@@ -561,6 +561,8 @@ private static Date nextDay(Date arg) {
 * 将该函数注释为：「外加函数（foreign method），应在server class实现。」
 * 这么一来，将来如果有机会将外加函数搬移到server class中，你便可以轻松找出这些外加函数。
 
+**范例（Examples）**
+
 ## 引入本地扩展
 
 
