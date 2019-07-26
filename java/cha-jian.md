@@ -12,7 +12,7 @@
 | ideajad | 反编译工具 |
 | Free-idea-mybatis | 实现功能，点击dao层方法直接跳转到对应xml |
 | nyanProgressBar | 炫酷 |
-| Activate-power-mode或者Intellij\_power\_mode\_II | 1整个屏幕都在颤抖和炸裂 |
+| Activate-power-mode或者Intellij\_power\_mode\_II | 整个屏幕都在颤抖和炸裂 |
 
 参考:
 
