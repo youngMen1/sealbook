@@ -407,6 +407,8 @@ martin.setAreaCode ("781");
 * 如果将来不再有任何客户需要取用图7.1的Delegate （受托类），便可移除server中的相关访问函数（accessor for the delegate）。
 * 编译，测试。
 
+**范例（Examples）**
+
 ## 移除中间人
 
 ## 引入外加函数
