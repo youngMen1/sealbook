@@ -78,6 +78,8 @@
 
 **范例（Examples）**
 
+下面是Account class的部分代码：
+
 ## 提炼类
 
 ## 将类内联化
