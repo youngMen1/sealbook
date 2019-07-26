@@ -305,6 +305,8 @@ class TelephoneNumber...
 
 先前（上个重构项〉我从TelephoneNumber「提炼出另一个class，现在我要将它inlining塞回到Person去。一开始这两个classes是分离的：
 
+
+
 ## 隐藏“委托关系”
 
 ## 移除中间人
