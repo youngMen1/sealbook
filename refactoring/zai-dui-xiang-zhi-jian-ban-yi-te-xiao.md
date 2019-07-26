@@ -467,6 +467,12 @@ manager = john.getManager();
 
 **让客户直接调用delegate（受托类）。**![](http://wangvsa.github.io/refactoring-cheat-sheet/images/07fig07.gif)
 
+**动机（Motivation）**
+
+在[隐藏委托关系](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_5)的「动机」栏，我谈到了「封装 delegated object（受托对 象）」的好处。但是这层封装也是要付出代价的，它的代价就是：每当客户要使用 delegate（受托类）的新特性时，你就必须在server 端添加一个简单委托函数。随着delegate的特性（功能）愈来愈多，这一过程会让你痛苦不己。server 完全变成了一 个「中间人」，此时你就应该让客户直接调用delegate。
+
+很难说什么程度的隐藏才是合适的。还好，有了[隐藏委托关系](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_5)和[移除中间人](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_6)，你大可不必操心这个问题，因为你可以在系统运行过程中不断进行调整。随着系统的变化，「合适的隐藏程度」这个尺度也相应改变。六个月 前恰如其分的封装，现今可能就显得笨拙。重构的意义就在于：你永远不必说对不起——只要把出问题的地方修补好就行了。
+
 ## 引入外加函数
 
 ## 引入本地扩展
