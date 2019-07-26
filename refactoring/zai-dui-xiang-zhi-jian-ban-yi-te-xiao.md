@@ -197,11 +197,7 @@ class Person
     private TelephoneNumber _officeTelephone = new TelephoneNumber();
 ```
 
-现在，我运用
-
-[搬移值域](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_2)
-
-移动一个值域：
+现在，我运用[搬移值域](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_2)移动一个值域：
 
 ## 将类内联化
 
