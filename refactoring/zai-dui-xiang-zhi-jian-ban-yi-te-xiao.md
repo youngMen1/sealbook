@@ -435,6 +435,12 @@ class Department {
 ...
 ```
 
+如果客户希望知道某人的经理是谁，他必须先取得Department对象：
+
+```
+manager = john.getDepartment().getManager();
+```
+
 **范例（Examples）**
 
 ## 移除中间人
