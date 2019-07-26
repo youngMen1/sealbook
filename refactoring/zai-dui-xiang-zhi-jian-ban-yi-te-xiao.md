@@ -157,6 +157,10 @@ double interestForAmount_days (double amount, int days) {
 
 让我们从一个简单的Person class开始：
 
+```
+
+```
+
 ## 将类内联化
 
 ## 隐藏“委托关系”
