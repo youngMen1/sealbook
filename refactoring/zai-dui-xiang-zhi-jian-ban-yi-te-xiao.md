@@ -374,6 +374,8 @@ martin.setAreaCode ("781");
 
 现在，我可以持续使用[搬移函数](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_3)和[搬移值域](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_2)，直到TelephoneNumber不复存在。
 
+---
+
 ## 隐藏“委托关系”
 
 客户直接调用其server object（服务对象）的delegate class。
