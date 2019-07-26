@@ -301,6 +301,10 @@ class TelephoneNumber...
   ，将source class的特性全部搬移至absorbing class。
 * 为source class举行一个简单的丧礼。
 
+**范例（Examples）**
+
+先前（上个重构项〉我从TelephoneNumber「提炼出另一个class，现在我要将它inlining塞回到Person去。一开始这两个classes是分离的：
+
 ## 隐藏“委托关系”
 
 ## 移除中间人
