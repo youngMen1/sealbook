@@ -6,7 +6,7 @@
 | FindBugs plugin | 规范扫描 |
 | Translation | 翻译插件 |
 | mavenHelper | maven帮助 |
-| mybatis-log-plugin | sql语句日志 |
+| mybatis-log-plugin | sql语句日志\(mybatis log日志\) |
 | grepConsole | onsole输出的日志 |
 | gsonFormat | json对象转对象 |
 | ideajad | 反编译工具 |
