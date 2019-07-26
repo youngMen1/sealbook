@@ -13,7 +13,7 @@
 | Free-idea-mybatis | 实现功能，点击dao层方法直接跳转到对应xml |
 | nyanProgressBar | 炫酷 |
 | Activate-power-mode或者Intellij\_power\_mode\_II | 整个屏幕都在颤抖和炸裂 |
-| JUnitGenerator V2.​0 | 1 |
+| JUnitGenerator V2.​0 | 单元测试习惯的开发者，代码质量肯定是很好的 |
 
 参考:
 
