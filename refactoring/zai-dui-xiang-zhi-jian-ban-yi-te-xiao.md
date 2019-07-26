@@ -126,6 +126,14 @@ double interestForAmount_days (double amount, int days) {
 
 ![](http://wangvsa.github.io/refactoring-cheat-sheet/images/07fig03.gif)
 
+**动机（Motivation）**
+
+你也许听过类似这样的教诲：一个class应该是一个清楚的抽象（abstract），处理一些明确的责任。但是在实际工作中，class会不断成长扩展。你会在这儿加入一些功能，在那儿加入一些数据。给某个class添加一项新责任时，你会觉得不值得为这项责任分离出一个单独的class。于是，随着责任不断増加，这个class会变得过份复杂。很快，你的class就会变成一团乱麻。
+
+这样的class往往含有大量函数和数据。这样的class往往太大而不易理解。此时你需要考虑哪些部分可以分离出去，并将它们分离到一个单独的class中。如果某些数据和某些函数总是一起出现，如果某些数据经常同时变化甚至彼此相依，这就表示你应该将它们分离出去。一个有用的测试就是问你自己，如果你搬移了某些值域和函数，会发生什么事？其他值域和函数是否因此变得无意义？
+
+另一个往往在开发后期出现的信号是class的「subtyped方式」。如果你发现subtyping只影响class的部分特性，或如果你发现某些特性「需要以此方式subtyped」，某些特性「需要以彼方式subtyped」，这就意味你需要分解原来的class。
+
 ## 将类内联化
 
 ## 隐藏“委托关系”
