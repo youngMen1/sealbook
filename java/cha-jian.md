@@ -14,7 +14,7 @@
 | nyanProgressBar | 炫酷 |
 | Activate-power-mode或者Intellij\_power\_mode\_II | 整个屏幕都在颤抖和炸裂 |
 | JUnitGenerator V2.​0 | 单元测试习惯的开发者，代码质量肯定是很好的 |
-| VisualVM Launcher |  |
+| VisualVM Launcher | 1 |
 
 参考:
 
