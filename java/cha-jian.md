@@ -10,7 +10,7 @@
 | grepConsole | onsole输出的日志 |
 | gsonFormat | json对象转对象 |
 | ideajad | 反编译工具 |
-| Free-idea-mybatis |  |
+| Free-idea-mybatis | 实现功能，点击dao层方法直接跳转到对应xml |
 
 参考:
 
