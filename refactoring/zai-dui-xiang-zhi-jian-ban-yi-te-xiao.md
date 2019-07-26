@@ -92,6 +92,19 @@ class Account...
 
 我想把表示利率的\_interestRate搬移到AccountType class去。目前已有数个函数引用了它，interestForAmount\_days\(\) 就是其一。下一步我要在AccountType中建立\_interestRate field以及相应的访问函数：
 
+```
+class AccountType...
+    private double _interestRate;
+
+    void setInterestRate (double arg) {
+        _interestRate = arg;
+    }
+
+    double getInterestRate () {
+        return _interestRate;
+    }
+```
+
 ## 提炼类
 
 ## 将类内联化
