@@ -407,6 +407,8 @@ martin.setAreaCode ("781");
 * 如果将来不再有任何客户需要取用图7.1的Delegate （受托类），便可移除server中的相关访问函数（accessor for the delegate）。
 * 编译，测试。
 
+**范例（Examples）**
+
 本例从两个classes开始，代表「人」的Person和代表「部门」的Department：
 
 ```
@@ -443,7 +445,7 @@ manager = john.getDepartment().getManager();
 
 这样的编码就是对客户揭露了Department的工作原理，于是客户知道：Department用以追踪「经理」这条信息。如果对客户隐藏Department，可以减少耦合（coupling）。 为了这一目的，我在Person中建立一个简单的委托函数：
 
-**范例（Examples）**
+
 
 ## 移除中间人
 
