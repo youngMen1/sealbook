@@ -134,6 +134,25 @@ double interestForAmount_days (double amount, int days) {
 
 另一个往往在开发后期出现的信号是class的「subtyped方式」。如果你发现subtyping只影响class的部分特性，或如果你发现某些特性「需要以此方式subtyped」，某些特性「需要以彼方式subtyped」，这就意味你需要分解原来的class。
 
+**做法（Mechanics）**
+
+* 决定如何分解cass所负责任。
+* 建立一个新class，用以表现从旧class中分离出来的责任。
+* 如果旧class剩下的责任与旧class名称不符，为旧class易名。
+* 建立「从旧class访问新class」的连接关系（link）。
+* 也许你有可能需要一个双向连接。但是在真正需要它之前，不要建立 「从新class通往旧class」的连接。
+* 对于你想搬移的每一个值域，运用
+  [搬移值域](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_2)
+  搬移之。
+* 每次搬移后，编译、测试。
+* 使用
+  [搬移函数](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_3)
+  将必要函数搬移到新class。先搬移较低层函数（也就是「被其他函数调用」多于「调用其他函数」者），再搬移较高层函数。
+* 每次搬移之后，编译、测试。
+* 检查，精简每个class的接口。
+* 如果你建立起双向连接，检查是否可以将它改为单向连接。
+* 决定是否让新class曝光。如果你的确需要曝光它，决定让它成为reference object \(引用型对象〕或immutable value object（不可变之「实值型对象」）。
+
 ## 将类内联化
 
 ## 隐藏“委托关系”
