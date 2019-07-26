@@ -392,6 +392,10 @@ martin.setAreaCode ("781");
 
 ![](http://wangvsa.github.io/refactoring-cheat-sheet/images/07fig06.gif)
 
+图7.1 简单的委托关系（delegation）
+
+对于某些客户或全部客户，你可能会发现，有必要先使用[提炼类](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_1)。一旦你对所有客户都隐藏委托关系（delegation），你就可以将server 接口中的所有 委托都移除。
+
 ## 移除中间人
 
 ## 引入外加函数
