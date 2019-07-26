@@ -500,6 +500,10 @@ class Department...
 
 为了找出某人的经理，客户代码可能这样写：
 
+```
+manager = john.getManager();
+```
+
 ## 引入外加函数
 
 ## 引入本地扩展
