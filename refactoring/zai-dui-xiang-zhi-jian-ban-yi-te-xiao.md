@@ -563,6 +563,8 @@ private static Date nextDay(Date arg) {
 
 **范例（Examples）**
 
+程序中，我需要跨过一个收费周期（billing period）。原本代码像这样：
+
 ## 引入本地扩展
 
 
