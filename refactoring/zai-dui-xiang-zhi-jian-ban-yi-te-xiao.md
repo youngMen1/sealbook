@@ -572,6 +572,15 @@ previousEnd.getMonth(), previousEnd.getDate() + 1);
 
 我可以将赋值运算右侧代码提炼到一个独立函数中。这个函数就是Date class的一个外加函数：
 
+```
+Date newStart = nextDay(previousEnd);
+
+private static Date nextDay(Date arg) {
+    // foreign method, should be on date
+    return new Date (arg.getYear(),arg.getMonth(), arg.getDate() + 1);
+}
+```
+
 ## 引入本地扩展
 
 
