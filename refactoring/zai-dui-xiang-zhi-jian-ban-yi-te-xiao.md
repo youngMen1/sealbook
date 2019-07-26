@@ -601,3 +601,14 @@ private static Date nextDay(Date arg) {
 
 在subclass和wrapper之间做选择时，我通常首选subclass，因为这样的工作量比较少。制作subclass的最大障碍在于，它必须在对象创建期（object-createion time）实施。如果我可以接管对象创建过程，那当然没问题；但如果你想在对象创建之后再使用local extention ；就有问题了。此外，"subclassing"还迫使我必须产生一个subclass对象，这种情况下如果有其他对象引用了旧对象，我们就同时有两个对象保存了原数据！如果原数据是不可修改的（immutable），那也没问题，我可以放心进行拷贝；但如果原数据允许被修改，问题就来了，因为这时候闹了双包，一个修改动作无法同时改变两份拷贝。这时候我就必须改用wrapper。但使用wrapper时， 对local extention的修改会波及原物（original），反之亦然。
 
+**做法（Mechanics）**
+
+* 建立一个extension class，将它作为原物（原类〉的subclass或wrapper。
+* 在extension class 中加入转型构造函数（converting constructors ）。
+* 所谓「转型构造函数」是指接受原物（original）作为参数。如果你釆用subclassing方案，那么转型构造函数应该调用适当的subclass构造函数；如果你采用wrapper方案，那么转型构造函数应该将它所获得之引数（argument）赋值给「用以保存委托关系（delegate）」的那个值域。
+* 在extension class中加入新特性。
+* 根据需要，将原物（original）替换为扩展物（extension）。
+* 将「针对原始类（original class）而定义的所有外加函数（foreign methods）」 搬移到扩展类extension中。
+
+
+
