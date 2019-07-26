@@ -49,6 +49,33 @@
 
 ![](http://wangvsa.github.io/refactoring-cheat-sheet/images/07fig02.gif)
 
+**动机（Motivation）**
+
+在classes之间移动状态（states）和行为，是重构过程中必不可少的措施。随着系统发展，你会发现自己需要新的class，并需要将原本的工作责任拖到新的class中。这个星期中合理而正确的设计决策，到了下个星期可能不再正确。这没问题；如果你从来没遇到这种情况，那才有问题。
+
+如果我发现，对于一个field（值域），在其所驻class之外的另一个class中有更多函数使用了它，我就会考虑搬移这个field。上述所谓「使用」可能是通过设值/取值（setting/getting）函数间接进行。我也可能移动该field的用户（某函数），这取决于是否需要保持接口不受变化。如果这些函数看上去很适合待在原地，我就选择搬移field。
+
+使用[提炼类](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_1)时，我也可能需要搬移field。此时我会先搬移field，然后再搬移函数。
+
+**做法（Mechanics）**
+
+* 如果field的属性是public，首先使用
+  [封装值域](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#_7)
+  将它封装起来。
+* 如果你有可能移动那些频繁访问该field的函数，或如果有许多函数访问某个field，先使用
+  [封装值域](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#_7)
+  也许会有帮助。
+* 编译，测试。
+* 在target class中建立与source field相同的field，并同时建立相应的设值/取值 （setting/getting）函数。
+* 编译target class。
+* 决定如何在source object中引用target object。
+* 一个现成的field或method可以助你得到target object。如果没有，就看能否轻易建立这样一个函数。如果还不行，就得在source class中新建一个field来存放target object。这可能是个永久性修改，但你也可以暂不公开它，因为后续重构可能会把这个新建field除掉。
+* 删除source field。
+* 将所有「对source field的引用」替换为「对target适当函数的调用」。
+* 如果是「读取」该变量，就把「对source field的引用」替换为「对target取值函数（getter）的调用」；如果是「赋值」该变量，就把对source field的引用」替换成「对设值函数（setter）的调用」。
+* 如果source field不是private，就必须在source class的所有subclasses中查找source field的引用点，并进行相应替换。
+* 编译，测试。
+
 ## 提炼类
 
 ## 将类内联化
