@@ -376,6 +376,16 @@ martin.setAreaCode ("781");
 
 ## 隐藏“委托关系”
 
+客户直接调用其server object（服务对象）的delegate class。
+
+**在server端（某个class〕建立客户所需的所有函数，用以隐藏委托关系（delegation）。**
+
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/07fig05.gif)
+
+
+
+
+
 ## 移除中间人
 
 ## 引入外加函数
