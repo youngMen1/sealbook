@@ -116,6 +116,8 @@ double interestForAmount_days (double amount, int days) {
 }
 ```
 
+---
+
 ## 提炼类
 
 某个class做了应该由两个classes做的事。
