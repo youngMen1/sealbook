@@ -185,6 +185,11 @@ class Person...
 
 在这个例子中，我可以将「与电话号码相关」的行为分离到一个独立class中。首 先我耍定义一个TelephoneNumber class来表示「电话号码」这个概念：
 
+```
+class TelephoneNumber {
+}
+```
+
 ## 将类内联化
 
 ## 隐藏“委托关系”
