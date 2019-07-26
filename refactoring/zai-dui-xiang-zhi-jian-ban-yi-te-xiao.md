@@ -451,6 +451,8 @@ public Person getManager() {
 }
 ```
 
+现在，我得修改Person的所有客户，让它们改用新函数：
+
 ## 移除中间人
 
 ## 引入外加函数
