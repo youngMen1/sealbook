@@ -565,6 +565,11 @@ private static Date nextDay(Date arg) {
 
 程序中，我需要跨过一个收费周期（billing period）。原本代码像这样：
 
+```
+Date newStart = new Date (previousEnd.getYear(),
+previousEnd.getMonth(), previousEnd.getDate() + 1);
+```
+
 ## 引入本地扩展
 
 
