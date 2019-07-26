@@ -358,6 +358,8 @@ class Person...
     }
 ```
 
+现在，我要找出TelephoneNumber的所有用户，让它们转而使用Person接口。于是下列代码：
+
 ## 隐藏“委托关系”
 
 ## 移除中间人
