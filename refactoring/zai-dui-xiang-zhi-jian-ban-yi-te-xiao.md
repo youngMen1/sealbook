@@ -141,13 +141,9 @@ double interestForAmount_days (double amount, int days) {
 * 如果旧class剩下的责任与旧class名称不符，为旧class易名。
 * 建立「从旧class访问新class」的连接关系（link）。
 * 也许你有可能需要一个双向连接。但是在真正需要它之前，不要建立 「从新class通往旧class」的连接。
-* 对于你想搬移的每一个值域，运用
-  [搬移值域](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_2)
-  搬移之。
+* 对于你想搬移的每一个值域，运用[搬移值域](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_2)搬移之。
 * 每次搬移后，编译、测试。
-* 使用
-  [搬移函数](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_3)
-  将必要函数搬移到新class。先搬移较低层函数（也就是「被其他函数调用」多于「调用其他函数」者），再搬移较高层函数。
+* 使用[搬移函数](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_3)将必要函数搬移到新class。先搬移较低层函数（也就是「被其他函数调用」多于「调用其他函数」者），再搬移较高层函数。
 * 每次搬移之后，编译、测试。
 * 检查，精简每个class的接口。
 * 如果你建立起双向连接，检查是否可以将它改为单向连接。
