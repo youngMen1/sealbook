@@ -461,9 +461,7 @@ manager = john.getManager();
 
 ---
 
-```
-移除中间人
-```
+## 移除中间人
 
 某个class做了过多的简单委托动作（simple delegation）。
 
