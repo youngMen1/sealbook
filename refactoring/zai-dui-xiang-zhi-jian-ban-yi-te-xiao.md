@@ -558,7 +558,7 @@ private static Date nextDay(Date arg) {
 * 在client class中建立一个函数，用来提供你需要的功能。
 * 这个函数不应该取用client class的任何特性。如果它需要一个值，把该值当作参数传给它。
 * 以server class实体作为该函数的第一个参数。
-* 将该函数注释为：「外加函数（foreign method），应在server class实现。」
+* 将该函数注释为：「外加函数（foreign method），应在server class实现。
 * 这么一来，将来如果有机会将外加函数搬移到server class中，你便可以轻松找出这些外加函数。
 
 **范例（Examples）**
