@@ -118,6 +118,12 @@ double interestForAmount_days (double amount, int days) {
 
 ## 提炼类
 
+某个class做了应该由两个classes做的事。
+
+**建立一个新class，将相关的值域和函数从旧class搬移到新class。**
+
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/07fig03.gif)
+
 ## 将类内联化
 
 ## 隐藏“委托关系”
