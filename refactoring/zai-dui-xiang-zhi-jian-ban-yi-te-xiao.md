@@ -553,6 +553,14 @@ private static Date nextDay(Date arg) {
 
 但是不要忘记：外加函数终归是权宜之计。如果有可能，你仍然应该将这些函数搬移到它们的理想家园。如果代码拥有权（code ownership）是个需要考量的问题， 就把外加函数交给server class的拥有者，请他帮你在此server class中实现这个函数。
 
+**做法（Mechanics）**
+
+* 在client class中建立一个函数，用来提供你需要的功能。
+* 这个函数不应该取用client class的任何特性。如果它需要一个值，把该值当作参数传给它。
+* 以server class实体作为该函数的第一个参数。
+* 将该函数注释为：「外加函数（foreign method），应在server class实现。」
+* 这么一来，将来如果有机会将外加函数搬移到server class中，你便可以轻松找出这些外加函数。
+
 ## 引入本地扩展
 
 
