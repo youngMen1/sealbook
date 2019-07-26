@@ -289,7 +289,7 @@ class TelephoneNumber...
 
 [将类内联化](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_4)正好与[提炼类](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_1)相反。如果一个class不再承担足够 责任、不再有单独存在的理由〔这通常是因为此前的重构动作移走了这个class的 责任），我就会挑选这一「萎缩class」的最频繁用户（也是个class），以[将类内联化](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_4)手法将「妻缩class」塞进去。
 
-**作法（Mechanics）**
+**做法（Mechanics）**
 
 * 在absorbing class（合并端的那个class）身上声明source class的public协议， 并将其中所有函数委托（delegate）至source class。
 * 如果「以一个独立接口表示source class函数」更合适的话，就应该在inlining之前先使用
