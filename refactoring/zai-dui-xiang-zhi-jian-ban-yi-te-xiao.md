@@ -222,6 +222,12 @@ class Person...
     }
 ```
 
+然后我可以移动其他值域，并运用
+
+[搬移函数](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_3)
+
+将相关函数移动到TelephoneNumber class中：
+
 ## 将类内联化
 
 ## 隐藏“委托关系”
