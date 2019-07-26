@@ -515,6 +515,10 @@ class Person...
 
 然后逐一处理每个委托函数。针对每一个这样的函数，我要找出通过Person使用的函数，并对它进行修改，使它首先获得受托对象（delegate），然后直接使用之：
 
+```
+ manager = john.getDepartment().getManager();
+```
+
 ## 引入外加函数
 
 ## 引入本地扩展
