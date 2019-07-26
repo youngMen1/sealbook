@@ -610,5 +610,11 @@ private static Date nextDay(Date arg) {
 * 根据需要，将原物（original）替换为扩展物（extension）。
 * 将「针对原始类（original class）而定义的所有外加函数（foreign methods）」 搬移到扩展类extension中。
 
+**范例（Examples）**
+
+我将以Java 1.0.1的Date class为例。Java 1.1已经提供了我想要的功能，但是在它到来之前的那段日子，很多时候我需要扩展Java 1.0.1的Date class。
+
+第一件待决事项就是使用subclass或wrapper。subclassing是比较显而易见的办法：
+
 
 
