@@ -529,6 +529,10 @@ class Person...
 
 **在client class中建立一个函数，并以一个server class实体作为第一引数（argument）：**
 
+```
+Date newStart = new Date (previousEnd.getYear(), previousEnd.getMonth(), previousEnd.getDate() + 1);
+```
+
 ## 引入本地扩展
 
 
