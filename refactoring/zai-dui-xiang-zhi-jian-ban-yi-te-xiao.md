@@ -591,5 +591,13 @@ private static Date nextDay(Date arg) {
 
 ![](http://wangvsa.github.io/refactoring-cheat-sheet/images/07fig08.gif)
 
+**动机（Motivation）**
 
+很遗憾，classes的作者无法预知未来，他们常常没能为你预先准备一些有用的函数。如果你可以修改源码，最好的办法就是直接加入自己需要的函数。但你经常无法修改源码。如果只需要一两个函数，你可以使用[引入外加函数](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_7)。 但如果你需要的额外函数超过两个，外加函数（foreign methods）就很难控制住它 们了。所以，你需要将这些函数组织在一起，放到一个恰当地方去。要达到这一目 的，标准对象技术subclassing和wrapping是显而易见的办法。这种情况下我把 subclass 或wrapper称为local extention（本地扩展〕。
+
+所谓local extention是一个独立的class，但也是其extended class的subtype（译注： 这里的subtype不同于subclass；它和extended class并不一定存在严格的继承关系，只要能够提供extended class的所有特性即可）。这意味它提供original class的一切特性，同时并额外添加新特性。在任何使用original class的地方，你都可以使用local extention取而代之。
+
+使用local extention（本地扩展）使你得以坚持「函数和数据应该被包装在形式良好 的单元内」这一原则。如果你一直把本该放在extended class 中的代码零散放置于其他classes中，最终只会让其他这些classes变得过分复杂，并使得其中函数难以被复用。
+
+在subclass和wrapper之间做选择时，我通常首选subclass，因为这样的工作量比较少。制作subclass的最大障碍在于，它必须在对象创建期（object-createion time）实施。如果我可以接管对象创建过程，那当然没问题；但如果你想在对象创建之后再使用local extention ；就有问题了。此外，"subclassing"还迫使我必须产生一个subclass对象，这种情况下如果有其他对象引用了旧对象，我们就同时有两个对象保存了原数据！如果原数据是不可修改的（immutable），那也没问题，我可以放心进行拷贝；但如果原数据允许被修改，问题就来了，因为这时候闹了双包，一个修改动作无法同时改变两份拷贝。这时候我就必须改用wrapper。但使用wrapper时， 对local extention的修改会波及原物（original），反之亦然。
 
