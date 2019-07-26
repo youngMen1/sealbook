@@ -585,5 +585,11 @@ private static Date nextDay(Date arg) {
 
 ## 引入本地扩展
 
+你所使用的server class需要一些额外函数，但你无法修改这个class。
+
+**建立一个新class，使它包含这些额外函数。让这个扩展品成为source class的subclass （子类〕或wrapper（外覆类）。**
+
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/07fig08.gif)
+
 
 
