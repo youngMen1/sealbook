@@ -305,7 +305,40 @@ class TelephoneNumber...
 
 先前（上个重构项〉我从TelephoneNumber「提炼出另一个class，现在我要将它inlining塞回到Person去。一开始这两个classes是分离的：
 
+```
+class Person...
+    public String getName() {
+        return _name;
+    }
+    public String getTelephoneNumber(){
+        return _officeTelephone.getTelephoneNumber();
+    }
+    TelephoneNumber getOfficeTelephone() {
+        return _officeTelephone;
+    }
 
+    private String _name;
+    private TelephoneNumber _officeTelephone = new TelephoneNumber();
+
+class TelephoneNumber...
+    public String getTelephoneNumber() {
+        return ("(" + _areaCode + ") " + _number);
+    }
+    String getAreaCode() {
+        return _areaCode;
+    }
+    void setAreaCode(String arg) {
+        _areaCode = arg;
+    }
+    String getNumber() {
+        return _number;
+    }
+    void setNumber(String arg) {
+        _number = arg;
+    }
+    private String _number;
+    private String _areaCode;
+```
 
 ## 隐藏“委托关系”
 
