@@ -37,7 +37,17 @@
   * 如果你想移除source method，请将source class中对source method的所有引用动作，替换为「对target method的引用动作」。
 * 编译，测试。
 
+---
+
 ## 搬移字段
+
+译注：本节大量保留class,method,source,target等字眼）
+
+你的程序中，某个field（值域〕被其所驻class之外的另一个class更多地用到。
+
+**在target class 建立一个new field，修改source field的所有用户，令它们改用此new field。**
+
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/07fig02.gif)
 
 ## 提炼类
 
