@@ -224,6 +224,41 @@ class Person...
 
 然后我可以移动其他值域，并运用[搬移函数](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_3)将相关函数移动到TelephoneNumber class中：
 
+```
+class Person...
+    public String getName() {
+        return _name;
+    }
+    public String getTelephoneNumber(){
+        return _officeTelephone.getTelephoneNumber();
+    }
+    TelephoneNumber getOfficeTelephone() {
+        return _officeTelephone;
+    }
+
+    private String _name;
+    private TelephoneNumber _officeTelephone = new TelephoneNumber();
+
+class TelephoneNumber...
+    public String getTelephoneNumber() {
+        return ("(" + _areaCode + ") " + _number);
+    }
+    String getAreaCode() {
+        return _areaCode;
+    }
+    void setAreaCode(String arg) {
+        _areaCode = arg;
+    }
+    String getNumber() {
+        return _number;
+    }
+    void setNumber(String arg) {
+        _number = arg;
+    }
+    private String _number;
+    private String _areaCode;
+```
+
 ## 将类内联化
 
 ## 隐藏“委托关系”
