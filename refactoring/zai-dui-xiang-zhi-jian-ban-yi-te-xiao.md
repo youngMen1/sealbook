@@ -473,6 +473,12 @@ manager = john.getManager();
 
 很难说什么程度的隐藏才是合适的。还好，有了[隐藏委托关系](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_5)和[移除中间人](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_6)，你大可不必操心这个问题，因为你可以在系统运行过程中不断进行调整。随着系统的变化，「合适的隐藏程度」这个尺度也相应改变。六个月 前恰如其分的封装，现今可能就显得笨拙。重构的意义就在于：你永远不必说对不起——只要把出问题的地方修补好就行了。
 
+**做法（Mechanics）**
+
+* 建立一个函数，用以取用delegate（受托对象）。
+* 对于每个委托函数（delegate method），在server中删除该函数，并将「客户对该函数的调用」替换为「对delegate（受托对象）的调用」。
+* 处理每个委托函数后，编译、测试。
+
 ## 引入外加函数
 
 ## 引入本地扩展
