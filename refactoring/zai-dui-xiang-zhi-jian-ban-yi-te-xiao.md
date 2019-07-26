@@ -153,6 +153,10 @@ double interestForAmount_days (double amount, int days) {
 * 如果你建立起双向连接，检查是否可以将它改为单向连接。
 * 决定是否让新class曝光。如果你的确需要曝光它，决定让它成为reference object \(引用型对象〕或immutable value object（不可变之「实值型对象」）。
 
+**范例（Examples）**
+
+让我们从一个简单的Person class开始：
+
 ## 将类内联化
 
 ## 隐藏“委托关系”
