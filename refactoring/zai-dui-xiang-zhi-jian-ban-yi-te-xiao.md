@@ -340,6 +340,8 @@ class TelephoneNumber...
     private String _areaCode;
 ```
 
+首先我在Person中声明TelephoneNumber「的所有「可见」（public）函数：
+
 ## 隐藏“委托关系”
 
 ## 移除中间人
