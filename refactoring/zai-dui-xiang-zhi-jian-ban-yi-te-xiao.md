@@ -398,6 +398,15 @@ martin.setAreaCode ("781");
 
 对于某些客户或全部客户，你可能会发现，有必要先使用[提炼类](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_1)。一旦你对所有客户都隐藏委托关系（delegation），你就可以将server 接口中的所有 委托都移除。
 
+**做法（Mechanics）**
+
+* 对于每一个委托关系中的函数，在server端建立一个简单的委托函数（delegating method）。
+* 调整客户，令它只调用server 提供的函数（译注：不得跳过径自调用下层）。
+* 如果client \(客户〕和server不在同一个package，考虑修改委托函数 （delegate method）的访问权限，让client得以在package之外调用它。
+* 每次调整后，编译并测试。
+* 如果将来不再有任何客户需要取用图7.1的Delegate （受托类），便可移除server中的相关访问函数（accessor for the delegate）。
+* 编译，测试。
+
 ## 移除中间人
 
 ## 引入外加函数
