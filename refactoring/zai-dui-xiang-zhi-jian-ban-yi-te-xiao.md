@@ -199,6 +199,29 @@ class Person
 
 现在，我运用[搬移值域](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_2)移动一个值域：
 
+```
+class TelephoneNumber {
+    String getAreaCode() {
+        return _areaCode;
+    }
+    void setAreaCode(String arg) {
+        _areaCode = arg;
+    }
+    private String _areaCode;
+}
+
+class Person...
+    public String getTelephoneNumber() {
+        return ("(" + getOfficeAreaCode() + ") " + _officeNumber);
+    }
+    String getOfficeAreaCode() {
+        return _officeTelephone.getAreaCode();
+    }
+    void setOfficeAreaCode(String arg) {
+        _officeTelephone.setAreaCode(arg);
+    }
+```
+
 ## 将类内联化
 
 ## 隐藏“委托关系”
