@@ -80,6 +80,16 @@
 
 下面是Account class的部分代码：
 
+```
+class Account...
+    private AccountType _type;
+    private double _interestRate;
+
+    double interestForAmount_days (double amount, int days) {
+        return _interestRate * amount * days / 365;
+    }
+```
+
 ## 提炼类
 
 ## 将类内联化
