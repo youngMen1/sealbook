@@ -622,5 +622,12 @@ Class mfDate extends Date {
     public dayOfYear()...
 ```
 
+wrapper则需要用上委托（delegation）：
+
+```
+class mfDate {
+    private Date _original;
+```
+
 
 
