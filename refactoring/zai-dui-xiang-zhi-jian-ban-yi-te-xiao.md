@@ -76,6 +76,8 @@
 * 如果source field不是private，就必须在source class的所有subclasses中查找source field的引用点，并进行相应替换。
 * 编译，测试。
 
+**范例（Examples）**
+
 ## 提炼类
 
 ## 将类内联化
