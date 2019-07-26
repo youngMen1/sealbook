@@ -275,7 +275,15 @@ class TelephoneNumber...
 
 这里也存在危险性。如果需要确保两个对象被同时锁定，你就面临事务（transaction）问题，需要使用其他类型的共享锁〔shared locks〕。正如Lea\[Lea\] 8.1节所讨论， 这是一个复杂领域，比起一般情况需要更繁重的机制。事务（transaction）很有实用性，但是编写事务管理程序（transaction manager）则超出了大多数程序员的职责范围。
 
+---
+
 ## 将类内联化
+
+你的某个class没有做太多事情（没有承担足够责任）。
+
+**将class的所有特性搬移到另一个class中，然后移除原class。**
+
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/07fig04.gif)
 
 ## 隐藏“委托关系”
 
