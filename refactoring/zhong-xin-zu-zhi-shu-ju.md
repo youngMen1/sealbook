@@ -227,5 +227,9 @@ class Order...
 
 ## 将值对象改为引用对象
 
+你有一个class，衍生出许多相等实体（equal instances），你希望将它们替换为单一对象。
+
+将这个value object （实值对象）变成一个reference object \(引用对象）。
+
 
 
