@@ -40,6 +40,8 @@ JMS术语 Java消息服务（Java Message Service）
 
 （3）消费者不能消费订阅之前发送的消息。
 
+---
+
 ## 参考:
 
 [https://yq.aliyun.com/articles/652745](#)
