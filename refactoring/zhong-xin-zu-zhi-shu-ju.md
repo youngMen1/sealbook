@@ -261,3 +261,17 @@ class Order...
 
 在[以对象取代数据值](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#_9)一节中，我留下了一个重构后的程序，本节范例就从它开始。我们有下列的Customer class：
 
+```
+class Customer {
+    public Customer (String name) {
+        _name = name;
+    }
+    public String getName() {
+        return _name;
+    }
+    private final String _name;
+}
+```
+
+
+
