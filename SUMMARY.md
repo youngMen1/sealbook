@@ -60,7 +60,7 @@
 * [spring5](spring5.md)
 * [关系型数据库](guan-xi-xing-shu-ju-ku.md)
   * [mysql](guan-xi-xing-shu-ju-ku/mysql.md)
+  * [postgreSQL](guan-xi-xing-shu-ju-ku/postgresql.md)
   * [sqLite](guan-xi-xing-shu-ju-ku/sqlite.md)
-  * postgreSQL
 * [elasticSearch](elasticsearch.md)
 
