@@ -11,5 +11,5 @@ boolean includes (int arg) {
 }
 ```
 
-
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
 
