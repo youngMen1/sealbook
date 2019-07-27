@@ -48,6 +48,7 @@
 * [noSql数据库](nosqlshu-ju-ku.md)
   * [简介](nosqlshu-ju-ku/jian-jie.md)
   * [mongodb](nosqlshu-ju-ku/mongodb.md)
+  * [elasticSearch](elasticsearch.md)
   * [cassandra](nosqlshu-ju-ku/aa/cassandra.md)
   * [couchDB](nosqlshu-ju-ku/couchdb.md)
   * [redis](nosqlshu-ju-ku/redis.md)
@@ -62,5 +63,4 @@
   * [mysql](guan-xi-xing-shu-ju-ku/mysql.md)
   * [postgreSQL](guan-xi-xing-shu-ju-ku/postgresql.md)
   * [sqLite](guan-xi-xing-shu-ju-ku/sqlite.md)
-* [elasticSearch](elasticsearch.md)
 
