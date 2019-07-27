@@ -135,9 +135,13 @@ class CappedRange extends IntRange {
 
 现在，我可以在CappedRange class中覆写getHigh\(\)，从而加入对cap的考虑，而不必修改IntRange class的任何行为。
 
+---
+
 ## 以对象取代数据值
 
+你有一笔数据项（data item），需要额外的数据和行为。
 
+将这笔数据项变成一个对象。
 
 
 
