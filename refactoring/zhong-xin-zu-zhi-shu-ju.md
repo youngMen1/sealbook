@@ -275,3 +275,19 @@ class Customer {
 
 它被以下的Ordre class使用：
 
+```
+class Order...
+    public Order (String customerName) {
+        _customer = new Customer(customerName);
+    }
+    public void setCustomer(String customerName) {
+        _customer = new Customer(customerName);
+    }
+    public String getCustomerName() {
+        return _customer.getName();
+    }
+    private Customer _customer;
+```
+
+
+
