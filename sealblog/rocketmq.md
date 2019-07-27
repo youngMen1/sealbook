@@ -14,19 +14,11 @@ RocketMQ 3.0和MetaQ 3.0的区别其实这两者是等价的版本，只不过�
 
 ![](/assets/微信截图_20190727111204.png)
 
- 
-
 ### 多协议支持 {#h3-u591Au534Fu8BAEu652Fu6301}
 
-* 支持
-  [HTTP 协议](https://help.aliyun.com/document_detail/102996.html)
-  ：采用 RESTful 标准，方便易用，快速接入，跨网络能力强，并支持七种语言客户端。
-* 支持
-  [TCP 协议](https://help.aliyun.com/document_detail/44711.html)
-  ：区别于 HTTP 简单的接入方式，提供更为专业、可靠、稳定的 TCP 协议的 SDK 接入。
-* 支持
-  [STOMP 协议](https://help.aliyun.com/document_detail/112558.html)
-  ：类似于 HTTP 的纯文本的协议机制，常用于脚本语言（如 Ruby、Python、Perl）和消息队列 RocketMQ Broker 进行轻量级交互。
+* 支持[HTTP 协议](https://help.aliyun.com/document_detail/102996.html)：采用 RESTful 标准，方便易用，快速接入，跨网络能力强，并支持七种语言客户端。
+* 支持[TCP 协议](https://help.aliyun.com/document_detail/44711.html)：区别于 HTTP 简单的接入方式，提供更为专业、可靠、稳定的 TCP 协议的 SDK 接入。
+* 支持[STOMP 协议](https://help.aliyun.com/document_detail/112558.html)：类似于 HTTP 的纯文本的协议机制，常用于脚本语言（如 Ruby、Python、Perl）和消息队列 RocketMQ Broker 进行轻量级交互。
 
 ## 参考:
 
