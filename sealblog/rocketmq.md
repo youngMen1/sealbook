@@ -36,6 +36,8 @@ RocketMQ 3.0和MetaQ 3.0的区别其实这两者是等价的版本，只不过�
 
 消息队列 RocketMQ 支持“发布/订阅”模型，消息发布者（生产者）可以将一条消息发送服务端的某个主题（Topic），多个消息接收方（消费者）订阅这个主题以接收该消息，如下图所示：
 
+
+
 ## 参考:
 
 [https://yq.aliyun.com/articles/71889?spm=5176.10695662.1996646101.searchclickresult.2aa8a3dbOaALG0](https://yq.aliyun.com/articles/71889?spm=5176.10695662.1996646101.searchclickresult.2aa8a3dbOaALG0)
