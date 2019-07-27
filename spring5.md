@@ -2,7 +2,7 @@
 
 | 注解 | 解释 |
 | :---: | :---: |
-| 1@Configuration |  |
+| @Configuration | 1 |
 |  |  |
 
 ## 
