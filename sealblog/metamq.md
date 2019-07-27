@@ -63,16 +63,6 @@ Offset
 
 消息在broker上的每个分区都是组织成一个文件列表，消费者拉取数据需要知道数据在文件中的偏移量，这个偏移量就是所谓offset。Offset是绝对偏移量，服务器会将offset转化为具体文件的相对偏移量
 
---------------------- 
-
-作者：frank1998819 
-
-来源：CSDN 
-
-原文：https://blog.csdn.net/frank1998819/article/details/84767357 
-
-版权声明：本文为博主原创文章，转载请附上博文链接！
-
 ## 参考:
 
 [https://blog.csdn.net/frank1998819/article/details/84767357](https://blog.csdn.net/frank1998819/article/details/84767357)
