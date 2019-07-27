@@ -208,3 +208,20 @@ class Customer {
 
 现在，我要将Order中的\_customer值域的型别修改为Customer；并修改所有引用此一值域的函数，让它们恰当地改而使用Customer实体。其中取值函数和构造函数的修改都很简单；至于设值函数（setter），我让它创建一份Customer实体。
 
+```
+class Order...
+    public Order (String customer) {
+        _customer = new Customer(customer);
+    }
+    public String getCustomer() {
+        return _customer.getName();
+    }
+    private Customer _customer;
+
+    public void setCustomer(String arg) {
+        _customer = new Customer(customer);
+    }
+```
+
+
+
