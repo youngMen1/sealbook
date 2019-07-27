@@ -97,27 +97,31 @@ attribute
 
 ## MetaQ适合的场景？
 
- 日志传输，高吞吐量的日志传输，这本来也是kafka的强项。
+日志传输，高吞吐量的日志传输，这本来也是kafka的强项。
 
-    消息广播功能，如广播缓存配置失效。
+```
+消息广播功能，如广播缓存配置失效。
 
-    数据的顺序同步功能，如MySQL binlog复制。
+数据的顺序同步功能，如MySQL binlog复制。
 
-    分布式环境下（broker、producer、consumer都为集群）的消息路由，对顺序和可靠性有极高要求的场景。
+分布式环境下（broker、producer、consumer都为集群）的消息路由，对顺序和可靠性有极高要求的场景。
 
-    作为一般MQ来使用的其他功能。 
+作为一般MQ来使用的其他功能。 
+```
 
---------------------- 
+---
 
-作者：CSDN官方博客 
+作者：CSDN官方博客
 
-来源：CSDN 
+来源：CSDN
 
-原文：https://blog.csdn.net/blogdevteam/article/details/8449916 
+原文：[https://blog.csdn.net/blogdevteam/article/details/8449916](https://blog.csdn.net/blogdevteam/article/details/8449916)
 
 版权声明：本文为博主原创文章，转载请附上博文链接！
 
 ## 参考:
 
 [https://blog.csdn.net/frank1998819/article/details/84767357](https://blog.csdn.net/frank1998819/article/details/84767357)
+
+[https://blog.csdn.net/blogdevteam/article/details/8449916](https://blog.csdn.net/blogdevteam/article/details/8449916)
 
