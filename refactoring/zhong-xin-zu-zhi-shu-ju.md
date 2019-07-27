@@ -48,5 +48,23 @@ int getHigh() {return _high;}
 
 下面这个例子看上去有点过分简单。不过，嘿，起码它写起来很快：
 
+```
+class IntRange {
+
+    private int _low, _high;
+
+    boolean includes (int arg) {
+        return arg >= _low && arg <= _high;
+    }
+
+    void grow(int factor) {
+        _high = _high * factor;
+    }
+    IntRange (int low, int high) {
+        _low = low;
+        _high = high;
+    }
+```
+
 
 
