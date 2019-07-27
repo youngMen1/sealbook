@@ -4,3 +4,12 @@
 
 为这个值域建立取值/设值函数（getting and setting methods ），并且只以这些函数来访问值域。
 
+```
+private int _low, _high;
+boolean includes (int arg) {
+    return arg >= _low && arg <= _high;
+}
+```
+
+
+
