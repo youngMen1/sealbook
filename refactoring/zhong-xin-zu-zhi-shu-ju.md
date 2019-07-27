@@ -194,3 +194,17 @@ private static int numberOfOrdersFor(Collection orders, String customer) {
 
 首先，我要新建一个Customer class来表示「客户」概念。然后在这个class中建立一个final值域，用以保存一个字符串，这是Order class目前所使用的。我将这个新值域命名为\_name，因为这个字符串的用途就是记录客户名称。此外我还要为这个字符串加上取值函数（getter）和构造函数（constructor）。
 
+```
+class Customer {
+    public Customer (String name) {
+        _name = name;
+    }
+    public String getName() {
+        return _name;
+    }
+    private final String _name;
+}
+```
+
+
+
