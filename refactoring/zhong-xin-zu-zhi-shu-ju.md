@@ -164,3 +164,19 @@ class CappedRange extends IntRange {
 
 下面有一个代表「定单」的Order class，其中以一个字符串记录定单客户。现在，我希望改以一个对象来表示客户信息，这样我就有充裕的弹性保存客户地址、信用 等级等等信息，也得以安置这些信息的操作行为。Order class最初如下：
 
+```
+class Order...
+    public Order (String customer) {
+        _customer = customer;
+    }
+    public String getCustomer() {
+        return _customer;
+    }
+    public void setCustomer(String arg) {
+        _customer = arg;
+    }
+    private String _customer;
+```
+
+
+
