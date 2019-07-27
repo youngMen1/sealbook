@@ -291,3 +291,17 @@ class Order...
 
 此外，还有一些代码也会使用Customer对象：
 
+```
+private static int numberOfOrdersFor(Collection orders, String customer) {
+    int result = 0;
+    Iterator iter = orders.iterator();
+    while (iter.hasNext()) {
+        Order each = (Order) iter.next();
+        if (each.getCustomerName().equals(customer)) result++;
+    }
+    return result;
+}
+```
+
+
+
