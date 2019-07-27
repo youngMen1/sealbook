@@ -47,6 +47,8 @@ MongoDB 的主要特性，可以对照自己的业务需求看看，匹配的越
 
 [https://yq.aliyun.com/articles/73884?spm=5176.10695662.1996646101.searchclickresult.12535a51yAjKGr](https://yq.aliyun.com/articles/73884?spm=5176.10695662.1996646101.searchclickresult.12535a51yAjKGr)
 
+https://yq.aliyun.com/articles/702430?spm=5176.10695662.1996646101.searchclickresult.4a5a6c5fRTpOQV
+
 排查MongoDB CPU使用率高的问题
 
 [https://help.aliyun.com/document\_detail/62224.html?spm=5176.10695662.1996646101.searchclickresult.11f018c1AXuDIq](https://help.aliyun.com/document_detail/62224.html?spm=5176.10695662.1996646101.searchclickresult.11f018c1AXuDIq)
