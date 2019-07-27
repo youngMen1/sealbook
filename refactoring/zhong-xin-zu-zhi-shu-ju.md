@@ -237,3 +237,23 @@ class Order...
 
 要在reference object和value objects之间做选择有时并不容易。有时候，你会从一个简单的value objects开始，在其中保存少量不可修改的数据。而后，你可能会希望给这个对象加入一些可修改数据，并确保对任何一个对象的修改都能影响到所有引用此一对象的地方。这时候你就需要将这个对象变成一个reference object。
 
+**做法（Mechanics）**
+
+* 使用
+  [以工厂函数取代构造函数](http://wangvsa.github.io/refactoring-cheat-sheet/making-method-calls-simpler/#_10)
+  。
+* 编译，测试。
+* 决定由什么对象负责提供访问新对象的途径。
+* 可能是个静态字典（static dictionary）或一个注册对象（registry object）。
+* 你也可以使用多个对象作为新对象的访问点（access point）。
+* 决定这些reference object应该预先创建好，或是应该动态创建。
+  * 如果这些reference object是预先创建好的,而你必须从内存中将它们读取出来，那么就得确保它们在被需要的时候能够被及时加载。
+  * 修改factory method 5 ，令它返回reference object。
+  * 如果对象是预先创建好的，你就需要考虑：万一有人索求一个其实并不存在的对象，要如何处理错误？
+  * 你可能希望对factory method使用
+    [重新命名函数](http://wangvsa.github.io/refactoring-cheat-sheet/making-method-calls-simpler/#_9)
+    ，使其传达这样的信息：它返回的是一个既存对象。
+* 编译，测试。
+
+5译注：此处之factory method不等同于GoF在《Design Patterns》书中提出的Factory Method。为避免混淆，读者应该将此处的factory method理解为"Creational Method"，亦即「用以创建某种实体」的函数，这个概念包含GoF的Factory Method，而又比Factory Method广泛。
+
