@@ -106,18 +106,10 @@ attribute
 
 分布式环境下（broker、producer、consumer都为集群）的消息路由，对顺序和可靠性有极高要求的场景。
 
-作为一般MQ来使用的其他功能。 
+作为一般MQ来使用的其他功能。
 ```
 
 ---
-
-作者：CSDN官方博客
-
-来源：CSDN
-
-原文：[https://blog.csdn.net/blogdevteam/article/details/8449916](https://blog.csdn.net/blogdevteam/article/details/8449916)
-
-版权声明：本文为博主原创文章，转载请附上博文链接！
 
 ## 参考:
 
