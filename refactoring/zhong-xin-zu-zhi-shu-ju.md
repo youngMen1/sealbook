@@ -141,7 +141,7 @@ class CappedRange extends IntRange {
 
 你有一笔数据项（data item），需要额外的数据和行为。
 
-将这笔数据项变成一个对象。
+**将这笔数据项变成一个对象。**
 
 ![](/assets/微信截图_20190727085505.png)
 
@@ -229,7 +229,7 @@ class Order...
 
 你有一个class，衍生出许多相等实体（equal instances），你希望将它们替换为单一对象。
 
-将这个value object （实值对象）变成一个reference object \(引用对象）。
+**将这个value object （实值对象）变成一个reference object \(引用对象）。**
 
 
 
