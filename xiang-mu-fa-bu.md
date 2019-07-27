@@ -57,15 +57,15 @@
 #### 添加配置\(可以启动命令配置或配置文件配置,请注意各语法\)
 
 ```
-1.由于现有的服务各个节点都加上跨域的配置，所以需要在网关\(zuul\)里面配置
+1.由于现有的服务各个节点都加上跨域的配置，所以需要在网关(zuul)里面配置
 
 zuul.routes.路由名称.sensitiveHeaders: Access-Control-Allow-Origin,Access-Control-Allow-Methods
 
 2.服务发现注册中心
 
-eureka.instance.metadata-map.group=flight 名称自定义\(各个节点中的都需要保持在一个组内\)
+eureka.instance.metadata-map.group=flight 名称自定义(各个节点中的都需要保持在一个组内)
 
-eureka.instance.metadata-map.version=1.0  版本自定义\(用于各个服务版本的对应\)
+eureka.instance.metadata-map.version=1.0  版本自定义(用于各个服务版本的对应)
 
 3.apollo配置
 
