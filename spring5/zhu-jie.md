@@ -21,5 +21,9 @@
 四、@Profile逻辑组配置  
 五、使用外部变量
 
+---
 
+## **@ComponentScan**
+
+自定扫描路径下边带有@Controller，@Service，@Repository，@Component注解加入spring容器通过includeFilters加入扫描路径下没有以上注解的类加入spring容器通过excludeFilters过滤出不用加入spring容器的类自定义增加了@Component注解的注解方式
 
