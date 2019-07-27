@@ -257,3 +257,7 @@ class Order...
 
 5译注：此处之factory method不等同于GoF在《Design Patterns》书中提出的Factory Method。为避免混淆，读者应该将此处的factory method理解为"Creational Method"，亦即「用以创建某种实体」的函数，这个概念包含GoF的Factory Method，而又比Factory Method广泛。
 
+**范例（Example）**
+
+在[以对象取代数据值](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#_9)一节中，我留下了一个重构后的程序，本节范例就从它开始。我们有下列的Customer class：
+
