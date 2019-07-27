@@ -41,6 +41,7 @@
   * [activityMq](activitymq.md)
   * [rocketMq](sealblog/rocketmq.md)
   * [zeroMQ](distributedmessagemiddleware/zeromq.md)
+  * memcacheq
 * [noSql数据库](nosqlshu-ju-ku.md)
   * [简介](nosqlshu-ju-ku/jian-jie.md)
   * [mongodb](nosqlshu-ju-ku/mongodb.md)
@@ -51,6 +52,7 @@
   * [membase](nosqlshu-ju-ku/membase.md)
   * [neo4j](nosqlshu-ju-ku/neo4j.md)
   * [hBase](nosqlshu-ju-ku/hbase.md)
+  * memcached
 * [灰度发布](xiang-mu-fa-bu.md)
 * [spring5](spring5.md)
 
