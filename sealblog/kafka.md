@@ -19,12 +19,6 @@ Apache Kafka是分布式发布-订阅消息系统，在 kafka官网上对 Kafka 
 
 ![](/assets/微信截图_20190725151149.png)
 
-
-
-
-
-
-
 #### Kafka 使用场景
 
 1. 日志收集：一个公司可以用Kafka可以收集各种服务的log，通过kafka以统一接口服务的方式开放给各种consumer，例如Hadoop、Hbase、Solr等；
@@ -71,6 +65,8 @@ C:\Windows\System32\drivers\etc
 192.168.23.132 slave01
 
 106.12.40.240 instance-6orhoahv
+
+---
 
 ## 参考:
 
