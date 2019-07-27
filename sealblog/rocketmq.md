@@ -8,9 +8,17 @@ RocketMQ 3.0和MetaQ 3.0的区别其实这两者是等价的版本，只不过�
 
 ![](/assets/微信截图_20190727110350.png)
 
+**RocketMQ的整体架构设计**
 
+下图为大家清晰地展示了RocketMQ的几个组件，分别是nameserver、broker、producer和consumer。nameserver主要负责对于源数据的管理，包括了对于Topic和路由信息的管理，broker在启动的时候会去向nameserver注册并且定时发送心跳，producer在启动的时候会到nameserver上去拉取Topic所属的broker具体地址，然后向具体的broker发送消息。
 
+ 
 
+ 
+
+ 
+
+ 
 
 ---
 
