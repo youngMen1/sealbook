@@ -34,11 +34,11 @@ Memcacheq的最大优势是：它是基于memcached开发的，可以通过各�
 
 持久化消息队列memcacheq是一个轻量级的消息队列。依附于Berkeley DB和libevent。Berkeley DB用于持久化存储队列的数据，避免在memcacheq出问题时造成数据丧失。
 
-
-
 ---
 
 ## 参考:
 
 [https://blog.csdn.net/tiedanzi/article/details/53035905](https://blog.csdn.net/tiedanzi/article/details/53035905)
+
+https://segmentfault.com/a/1190000000498922
 
