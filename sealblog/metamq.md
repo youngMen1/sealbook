@@ -18,6 +18,13 @@ JMS定义的消息类型有TextMessage、MapMessage、BytesMessage、StreamMessa
 
 ## 消息持久性
 
+JMS定义两种持久性类型：
+
+PERSISTENT 指示JMS provider持久保存消息，以保证消息不会因为JMS provider的失败而丢失。  
+NON\_PERSISTENT 不要求JMS provider持久保存消息。
+
+Metaq的消息都是持久性的
+
 ## 参考:
 
 [https://blog.csdn.net/frank1998819/article/details/84767357](https://blog.csdn.net/frank1998819/article/details/84767357)
