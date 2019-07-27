@@ -36,7 +36,9 @@
 
 @PropertySouce是spring3.1开始引入的基于java config的注解。
 
-通过@PropertySource注解将properties配置文件中的值存储到Spring的 Environment中，Environment接口提供方法去读取配置文件中的值，参数是properties文件中定义的key值。
+通过@PropertySource注解将properties配置文件中的值存储到Spring的 Environment中，Environment接口提供方法去读取配置文件中的值，参数是properties文件中定义的key值。
+
+---
 
 
 
