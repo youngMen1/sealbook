@@ -38,6 +38,8 @@ RocketMQ 3.0和MetaQ 3.0的区别其实这两者是等价的版本，只不过�
 
 ![](/assets/微信截图_20190727111724.png)
 
+---
+
 ## 参考:
 
 [https://yq.aliyun.com/articles/71889?spm=5176.10695662.1996646101.searchclickresult.2aa8a3dbOaALG0](https://yq.aliyun.com/articles/71889?spm=5176.10695662.1996646101.searchclickresult.2aa8a3dbOaALG0)
@@ -46,5 +48,5 @@ RocketMQ 3.0和MetaQ 3.0的区别其实这两者是等价的版本，只不过�
 
 [https://www.jianshu.com/p/8c4c2c2ab62e](https://www.jianshu.com/p/8c4c2c2ab62e)
 
-https://www.jianshu.com/p/5260a2739d80
+[https://www.jianshu.com/p/5260a2739d80](https://www.jianshu.com/p/5260a2739d80)
 
