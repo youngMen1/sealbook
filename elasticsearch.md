@@ -1,4 +1,12 @@
-ElasticSearch的功能
+## **ES解决了这些问题**
+
+1、自动维护数据的分布到多个节点的索引的建立，还有搜索请求分布到多个节点的执行
+
+2、自动维护数据的冗余副本，保证了一旦机器宕机，不会丢失数据
+
+3、封装了更多高级的功能，例如聚合分析的功能，基于地理位置的搜索
+
+## ElasticSearch的功能
 
 分布式的搜索引擎和数据分析引擎
 
@@ -22,7 +30,7 @@ ElasticSearch的功能
 
 近实时：检索数据要花费1小时（这就不要近实时，离线批处理，batch-processing）；在秒级别对数据进行搜索和分析
 
-ElasticSearch的应用场景
+## ElasticSearch的应用场景
 
 维基百科
 
@@ -42,7 +50,7 @@ BI系统
 
 站内搜索
 
-ElasticSearch的特点
+## ElasticSearch的特点
 
 可以作为一个大型分布式集群（数百台服务器）技术，处理PB级数据，服务大公司；也可以运行在单机上，服务小公司
 
@@ -57,6 +65,4 @@ Elasticsearch作为传统数据库的一个补充,比如全文检索，同义词
 ## 参考:
 
 [https://blog.csdn.net/paicmis/article/details/82535018](https://blog.csdn.net/paicmis/article/details/82535018)
-
-
 
