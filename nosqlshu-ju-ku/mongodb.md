@@ -43,7 +43,7 @@ MongoDB 的主要特性，可以对照自己的业务需求看看，匹配的越
 
 如果上述有1个 Yes，可以考虑 MongoDB，2个及以上的 Yes，选择MongoDB绝不会后悔。
 
-![](/assets/微信截图_20190727140406.png)参考:
+## ![](/assets/微信截图_20190727140406.png)参考:
 
-https://yq.aliyun.com/articles/73884?spm=5176.10695662.1996646101.searchclickresult.12535a51yAjKGr
+[https://yq.aliyun.com/articles/73884?spm=5176.10695662.1996646101.searchclickresult.12535a51yAjKGr](https://yq.aliyun.com/articles/73884?spm=5176.10695662.1996646101.searchclickresult.12535a51yAjKGr)
 
