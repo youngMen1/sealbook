@@ -40,28 +40,7 @@ memcache启动的时候，会启动一个主线程来监听连接，同时启动
 
 libevent可以理解为c++界的netty，是封装io多路复用的框架，它可以自动判断当前系统所使用的io多路复用模型（windows下的IOCP，Linux下的Epoll，Mac下的KQueue），达到非阻塞处理io操作的目的。
 
-  
 
-
-  
-
-
-作者：mrchen004
-
-  
-
-
-链接：https://www.jianshu.com/p/ec7ebe759c44
-
-  
-
-
-来源：简书
-
-  
-
-
-简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。
 
 ## 参考:
 
