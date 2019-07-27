@@ -27,7 +27,7 @@ metaMq的消息都是持久性的
 
 ## API
 
-JMS定义了消息中间件的生产端api和消费端api，这些api都是约定的接口，都都被metaq无视了。
+JMS定义了消息中间件的生产端api和消费端api，这些api都是约定的接口，都都被metaMq无视了。
 
 ## 参考:
 
