@@ -67,14 +67,6 @@ JMS定义了消息中间件的生产端api和消费端api，这些api都是约�
 
 
 
-
-
-
-
-
-
-
-
 ## 参考:
 
 [https://blog.csdn.net/frank1998819/article/details/84767357](https://blog.csdn.net/frank1998819/article/details/84767357)
