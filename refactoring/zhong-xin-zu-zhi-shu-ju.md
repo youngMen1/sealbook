@@ -158,9 +158,9 @@ class CappedRange extends IntRange {
 * 如果source class构造函数中提及这个「待替换值域」（多半是赋值动作），我们就修改构造函数，令它改用新的构造函数来对值域进行赋值动作。
 * 修改source class中「待替换值域」的设值函数（setter），令它为新class创建一个实体。
 * 编译，测试。
-* 现在，你有可能需要对新class使用
-  [将实值对象改为引用对象](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#_4)
-  。
+* 现在，你有可能需要对新class使用[将实值对象改为引用对象](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#_4)。
 
+**范例（Example）**
 
+下面有一个代表「定单」的Order class，其中以一个字符串记录定单客户。现在，我希望改以一个对象来表示客户信息，这样我就有充裕的弹性保存客户地址、信用 等级等等信息，也得以安置这些信息的操作行为。Order class最初如下：
 
