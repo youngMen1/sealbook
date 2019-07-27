@@ -20,9 +20,21 @@ RocketMQ 3.0和MetaQ 3.0的区别其实这两者是等价的版本，只不过�
 * 支持[TCP 协议](https://help.aliyun.com/document_detail/44711.html)：区别于 HTTP 简单的接入方式，提供更为专业、可靠、稳定的 TCP 协议的 SDK 接入。
 * 支持[STOMP 协议](https://help.aliyun.com/document_detail/112558.html)：类似于 HTTP 的纯文本的协议机制，常用于脚本语言（如 Ruby、Python、Perl）和消息队列 RocketMQ Broker 进行轻量级交互。
 
+### 特色功能 {#h3-u7279u8272u529Fu80FD}
+
+* 事务消息：实现类似 X/Open XA 的分布事务功能，以达到事务最终一致性状态。
+* 定时（延时）消息：允许消息生产者指定消息进行定时（延时）投递，最长支持 40 天。
+* 大消息：支持最大 4 MB 消息。
+* 消息轨迹：通过消息轨迹，能清晰定位消息从发布者发出，经由消息队列 RocketMQ 服务端，投递给消息订阅者的完整链路，方便定位排查问题。
+* 广播消费：允许同一个 Group ID 所标识的所有 Consumer 都各自消费某条消息一次。
+* 顺序消息：允许消息消费者按照消息发送的顺序对消息进行消费。
+* 重置消费进度：根据时间重置消费进度，允许用户进行消息回溯或者丢弃堆积消息。
+* 死信队列：将无法正常消费的消息储存到特殊的死信队列供后续处理。
+* 全球消息路由：用于全球不同地域之间的消息同步复制，保证地域之间的数据一致性。
+
 ## 参考:
 
 [https://yq.aliyun.com/articles/71889?spm=5176.10695662.1996646101.searchclickresult.2aa8a3dbOaALG0](https://yq.aliyun.com/articles/71889?spm=5176.10695662.1996646101.searchclickresult.2aa8a3dbOaALG0)
 
-https://help.aliyun.com/document\_detail/29532.html?spm=5176.10695662.1996646101.searchclickresult.2aa8a3dbOaALG0
+[https://help.aliyun.com/document\_detail/29532.html?spm=5176.10695662.1996646101.searchclickresult.2aa8a3dbOaALG0](https://help.aliyun.com/document_detail/29532.html?spm=5176.10695662.1996646101.searchclickresult.2aa8a3dbOaALG0)
 
