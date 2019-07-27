@@ -100,3 +100,16 @@ class IntRange {
 
 使用本项重构时，你必须小心对待「在构造函数中使用设值函数」的情况。一般说来，设值函数被认为应该在「对象创建后」才使用，所以初始化过程中的行为有可能与设值函数的行为不同。在这种情况下，我也许在构造函数中直接访问值域，要不就是建立另一个独立的初始化函数：
 
+```
+IntRange (int low, int high) {
+    initialize (low, high);
+}
+
+private void initialize (int low, int high) {
+    _low = low;
+    _high = high;
+}
+```
+
+
+
