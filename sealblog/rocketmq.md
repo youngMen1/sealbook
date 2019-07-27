@@ -32,6 +32,10 @@ RocketMQ 3.0和MetaQ 3.0的区别其实这两者是等价的版本，只不过�
 * 死信队列：将无法正常消费的消息储存到特殊的死信队列供后续处理。
 * 全球消息路由：用于全球不同地域之间的消息同步复制，保证地域之间的数据一致性。
 
+## 消息收发模型 {#h2-u6D88u606Fu6536u53D1u6A21u578B2}
+
+消息队列 RocketMQ 支持“发布/订阅”模型，消息发布者（生产者）可以将一条消息发送服务端的某个主题（Topic），多个消息接收方（消费者）订阅这个主题以接收该消息，如下图所示：
+
 ## 参考:
 
 [https://yq.aliyun.com/articles/71889?spm=5176.10695662.1996646101.searchclickresult.2aa8a3dbOaALG0](https://yq.aliyun.com/articles/71889?spm=5176.10695662.1996646101.searchclickresult.2aa8a3dbOaALG0)
