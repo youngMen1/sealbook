@@ -143,5 +143,5 @@ class CappedRange extends IntRange {
 
 将这笔数据项变成一个对象。
 
-
+![](/assets/微信截图_20190727085505.png)
 
