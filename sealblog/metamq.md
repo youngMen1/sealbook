@@ -16,6 +16,8 @@ metaMq是一个分布式消息中间件，消息中间件是典型的生产者-�
 
 JMS定义的消息类型有TextMessage、MapMessage、BytesMessage、StreamMessage、ObjectMessage。Metaq只有一种类型：Message。
 
+## 消息持久性
+
 ## 参考:
 
 [https://blog.csdn.net/frank1998819/article/details/84767357](https://blog.csdn.net/frank1998819/article/details/84767357)
