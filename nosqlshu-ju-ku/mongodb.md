@@ -1,5 +1,34 @@
 ## **MongoDB 数据类型**![](/assets/mongodb数据类型.png)
 
+```
+{
+        "desc" : "conn632530",
+        "threadId" : "140298196924160",
+        "connectionId" : 632530,
+        "client" : "11.192.159.236:57052",
+        "active" : true,
+        "opid" : 1008837885,
+        "secs_running" : 0,
+        "microsecs_running" : NumberLong(70),
+        "op" : "update",
+        "ns" : "mygame.players",
+        "query" : {
+            "uid" : NumberLong(31577677)
+        },
+        "numYields" : 0,
+        "locks" : {
+            "Global" : "w",
+            "Database" : "w",
+            "Collection" : "w"
+        },
+        ....
+    },
+```
+
+
+
+
+
 ## 特性
 
 MongoDB 的主要特性，可以对照自己的业务需求看看，匹配的越多，用 MongoDB 就越合适。
