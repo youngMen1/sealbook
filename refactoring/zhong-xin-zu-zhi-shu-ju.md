@@ -113,3 +113,25 @@ private void initialize (int low, int high) {
 
 一旦你拥有一个subclass，上述所有动作的价值就体现出来了。如下所示：
 
+```
+class CappedRange extends IntRange {
+
+    CappedRange (int low, int high, int cap) {
+        super (low, high);
+        _cap = cap;
+    }
+
+    private int _cap;
+
+    int getCap() {
+        return _cap;
+    }
+
+    int getHigh() {
+        return Math.min(super.getHigh(), getCap());
+    }
+}
+```
+
+
+
