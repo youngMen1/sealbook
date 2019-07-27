@@ -180,3 +180,17 @@ class Order...
 
 Order class的客户代码可能像下面这样：
 
+```
+private static int numberOfOrdersFor(Collection orders, String customer) {
+    int result = 0;
+    Iterator iter = orders.iterator();
+    while (iter.hasNext()) {
+        Order each = (Order) iter.next();
+        if (each.getCustomerName().equals(customer)) result++;
+    }
+    return result;
+}
+```
+
+
+
