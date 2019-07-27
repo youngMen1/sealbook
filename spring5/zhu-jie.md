@@ -1,4 +1,4 @@
-## [@Configuration](https://www.cnblogs.com/duanxz/p/7493276.html)
+## @Configuration
 
 **注意**：@Configuration注解的配置类有如下要求：
 
