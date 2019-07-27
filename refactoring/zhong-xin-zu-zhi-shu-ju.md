@@ -289,5 +289,5 @@ class Order...
     private Customer _customer;
 ```
 
-
+此外，还有一些代码也会使用Customer对象：
 
