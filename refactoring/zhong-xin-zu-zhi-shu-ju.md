@@ -111,5 +111,5 @@ private void initialize (int low, int high) {
 }
 ```
 
-
+一旦你拥有一个subclass，上述所有动作的价值就体现出来了。如下所示：
 
