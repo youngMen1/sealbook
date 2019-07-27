@@ -1,4 +1,4 @@
-memcache是主流的缓存框架，现在一般不会再用memcache了，redis逐渐代替了memcache。相比memcache，redis有更丰富的数据类型、支持持久化等等优点
+memcache是主流的缓存框架，现在一般不会再用memcache了，redis逐渐代替了memcache。相比memcache，redis有更丰富的数据类型、支持持久化等等优点。
 
 参考:
 
