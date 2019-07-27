@@ -69,6 +69,8 @@ JMS定义了消息中间件的生产端api和消费端api，这些api都是约�
 
 ## **消息存储**
 
+消息中间件中消息堆积是很常见，这要求broker具有消息存储的能力，消息存储结构决定了消息的读写性能，对整体性能有很大影响，metaq是分布式的，多个borker可以为一个topic提供服务，一个topic下的消息分散存储在多个broker，它们是多对多关系。
+
 ## 参考:
 
 [https://blog.csdn.net/frank1998819/article/details/84767357](https://blog.csdn.net/frank1998819/article/details/84767357)
