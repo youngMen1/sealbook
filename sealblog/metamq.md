@@ -23,7 +23,9 @@ JMS定义两种持久性类型：
 PERSISTENT 指示JMS provider持久保存消息，以保证消息不会因为JMS provider的失败而丢失。  
 NON\_PERSISTENT 不要求JMS provider持久保存消息。
 
-Metaq的消息都是持久性的
+metaMq的消息都是持久性的
+
+
 
 ## 参考:
 
