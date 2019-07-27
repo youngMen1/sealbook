@@ -178,5 +178,5 @@ class Order...
     private String _customer;
 ```
 
-
+Order class的客户代码可能像下面这样：
 
