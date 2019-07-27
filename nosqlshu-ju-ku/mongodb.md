@@ -1,6 +1,6 @@
 ## **MongoDB 数据类型**
 
-## 
+## ![](/assets/mongodb数据类型.png)
 
 ## 特性
 
