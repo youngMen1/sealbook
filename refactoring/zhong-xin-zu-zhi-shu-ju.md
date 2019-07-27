@@ -133,5 +133,5 @@ class CappedRange extends IntRange {
 }
 ```
 
-
+现在，我可以在CappedRange class中覆写getHigh\(\)，从而加入对cap的考虑，而不必修改IntRange class的任何行为。
 
