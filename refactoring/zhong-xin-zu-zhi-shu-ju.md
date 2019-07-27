@@ -145,3 +145,22 @@ class CappedRange extends IntRange {
 
 ![](/assets/微信截图_20190727085505.png)
 
+**动机（Motivation）**
+
+开发初期，你往往决定以简单的数据项（data item）表示简单的行为。但是，随着开发的进行，你可能会发现，这些简单数据项不再那么简单了。比如说，一开始你可能会用一个字符串来表示「电话号码」概念，但是随后你就会发现，电话号码需要「格式化」、「抽取区号」之类的特殊行为。如果这样的数据项只有一二个，你还可以把相关函数放进数据项所属的对象里头；但是Duplication Code臭味和Feature Envy臭味很快就会从代码中散发出来。当这些臭味开始出现，你就应该将数据值（data value）变成对象（object）。
+
+**做法**（Mechanics）
+
+* 为「待替换数值」新建一个class，在其中声明一个final值域，其型别和source class中的「待替换数值」型别一样。然后在新class中加入这个值域的取值函数（getter），再加上一个「接受此值域为参数」的构造函数。
+* 编译。
+* 将source class中的「待替换数值值域」的型别改为上述的新建class。
+* 修改source class中此一值域的取值函数（getter），令它调用新建class的取值函数。
+* 如果source class构造函数中提及这个「待替换值域」（多半是赋值动作），我们就修改构造函数，令它改用新的构造函数来对值域进行赋值动作。
+* 修改source class中「待替换值域」的设值函数（setter），令它为新class创建一个实体。
+* 编译，测试。
+* 现在，你有可能需要对新class使用
+  [将实值对象改为引用对象](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#_4)
+  。
+
+
+
