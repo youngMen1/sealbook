@@ -34,3 +34,19 @@ int getHigh() {return _high;}
 
 如果你想访问superclass中的一个值域，却又想在subclass中将「对这个变量的访问」改为一个计算后的值，这就是最该使用[封装值域](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#_7)的时候。「值域自我封装」只是第一步。完成自我封装之后，你可以在subclass中根据自己的需要随意覆写取值/设值函数（getting and setting methods ）。
 
+**做法（Mechanics）**
+
+* 为「待封装值域」建立取值/设值函数（getting and setting methods）。
+* 找出该值域的所有引用点，将它们全部替换为「对于取值/设值函数的调用」。
+* 如果引用点是「读取」值域值，就将它替换为「调用取值函数」；如果引用点是「设定」值域值，就将它替换为「调用设值函数」。
+* 你可以暂时为该值域改名，让编译器帮助你查找引用点。
+* 将该值域声明为private。
+* 复查，确保找出所有引用点。
+* 编译，测试。
+
+**范例（Example）**
+
+下面这个例子看上去有点过分简单。不过，嘿，起码它写起来很快：
+
+
+
