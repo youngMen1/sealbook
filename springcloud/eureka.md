@@ -6,6 +6,12 @@
 
 例如:[http://xxx.xx.xx.xxx:xxxxx/eureka/apps/HOTEL-REST/UTECHNO9.utech.com:hotel-rest:](http://172.18.21.243:22002/eureka/apps/HOTEL-REST/UTECHNO9.utech.com:hotel-rest:9700)xxxx
 
+```
+## 例如
+http://xxx.xx.xx.xxx:xxxxx/eureka/apps/HOTEL-REST/UTECHNO9.utech.com:hotel-rest:
+xxxx
+```
+
 2.服务提供者使用主机名注册到eureka改为使用ip注册到eureka
 
 ```
