@@ -307,6 +307,8 @@ private static int numberOfOrdersFor(Collection orders, String customer) {
 
 ## 将引用对象改为值对象
 
+---
+
 ## 以对象取代数组
 
 ## 复制“被监控数据”
@@ -330,8 +332,6 @@ private static int numberOfOrdersFor(Collection orders, String customer) {
 ## 以state/Strategy取代类型码
 
 ## 以字段取代子类
-
-
 
 
 
