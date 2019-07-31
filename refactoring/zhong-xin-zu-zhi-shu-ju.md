@@ -353,7 +353,7 @@ class Currency...
 这个也所做的就是保存并返回一个货币种类代码。它是一个reference object，所以如果要得到它的一份实体，必须这么做：
 
 ```
-
+Currency usd = Currency.get("USD");
 ```
 
 ## 以对象取代数组
