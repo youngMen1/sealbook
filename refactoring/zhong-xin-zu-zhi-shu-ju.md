@@ -311,6 +311,33 @@ private static int numberOfOrdersFor(Collection orders, String customer) {
 
 将它变成一个value object（实值对象）。![](http://wangvsa.github.io/refactoring-cheat-sheet/images/08fig03.gif)
 
+
+
+
+
+
+
+**动机（Motivation）**
+
+正如我在[将引用对象改为实值对象](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#_2)中所说，要在reference object和value object之间做选择，有时并不容易。作出选择后，你常会需要一条回头路。
+
+如果reference object开始变得难以使用，也许你就应该将它改为value object。 reference object必须被某种方式控制，你总是必须向其控制者请求适当的reference object。它们可能造成内存区域之间错综复杂的关联。在分布系统和并发系统中，不可变的value object特别有用，因为你无须考虑它们的同步问题。
+
+value object有一个非常重要的特性：它们应该是不可变的（immutable）。无论何时只要你调用同一对象的同一个查询函数，你都应该得到同样结果。如果保证了这一 点，就可以放心地以多个对象表示相同事物（same thing）。如果value object是可变的（mutable），你就必须确保你对某一对象的修改会自动更新其他「代表相同事物」的其他对象。这太痛苦了，与其如此还不如把它变成reference object。
+
+这里有必要澄清一下「不可变（immutable）」的意思。如果你以Money class表示「钱」的概念，其中有「币种」和「金额」两条信息，那么Money对象通常是一个不可变的value object。这并非意味你的薪资不能改变，而是意味：如果要改变你的薪资，你需要使用另一个崭新的Money对象来取代现有的Money对象，而不是在现有的Money对象上修改。你和Money对象之间的关系可以改变，但Money对象自身不能 改变。
+
+译注：《Practical Java》 by Peter Haggar第6章对于mutable/immutable有深入讨论。**作法（Mechanics）**
+
+* 检查重构对象是否为immutable（不可变）对象，或是否可修改为不可变对象。
+* 如果该对象目前还不是immutable，就使用
+  [移除设置函数](http://wangvsa.github.io/refactoring-cheat-sheet/making-method-calls-simpler/#_8)
+  ，直到它成为immutable为止。
+* 如果无法将该对象修改为immutable，就放弃使用本项重构。
+* 建立equal\(\)和hashCode\(\)。
+* 编译，测试。
+* 考虑是否可以删除factory method，并将构造函数声明public 。
+
 ---
 
 ## 以对象取代数组
