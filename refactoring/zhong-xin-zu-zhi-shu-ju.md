@@ -307,6 +307,10 @@ private static int numberOfOrdersFor(Collection orders, String customer) {
 
 ## 将引用对象改为值对象
 
+你有一个reference object（引用对象），很小且不可变（immutable），而且不易管理。
+
+将它变成一个value object（实值对象）。![](http://wangvsa.github.io/refactoring-cheat-sheet/images/08fig03.gif)
+
 ---
 
 ## 以对象取代数组
