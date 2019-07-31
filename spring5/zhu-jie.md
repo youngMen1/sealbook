@@ -1,8 +1,8 @@
-| 1@Component | 1基本注解, 标识了一个受 Spring 管理的组件 |
+| @Component | 基本注解, 标识了一个受 Spring 管理的组件 |
 | :--- | :--- |
-| 1@Respository | 1标识持久层组件 |
-| 1@Service | 1标识服务层\(业务层\)组件 |
-| 1@Controller | 1标识表现层组件 |
+| @Respository | 标识持久层组件 |
+| @Service | 标识服务层\(业务层\)组件 |
+| @Controller | 标识表现层组件 |
 | 1 | 1 |
 | 1 | 1 |
 | 1 | 1 |
