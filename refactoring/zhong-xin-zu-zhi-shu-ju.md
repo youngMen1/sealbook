@@ -319,5 +319,9 @@ private static int numberOfOrdersFor(Collection orders, String customer) {
 
 ## 封装字段
 
+## 封装集合
+
+## 
+
 
 
