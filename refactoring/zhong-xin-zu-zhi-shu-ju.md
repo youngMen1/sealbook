@@ -327,7 +327,9 @@ private static int numberOfOrdersFor(Collection orders, String customer) {
 
 ## 以子类取代类型码
 
-以state/Strategy取代类型码
+## 以state/Strategy取代类型码
+
+## 以字段取代子类
 
 
 
