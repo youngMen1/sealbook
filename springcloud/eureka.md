@@ -1,4 +1,4 @@
-# SpringBoot 2.0之后
+# SpringBoot 2.0以上
 
 ## eureka健康检查
 
