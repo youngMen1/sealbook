@@ -1,3 +1,5 @@
+## eureka踩坑日志
+
 1.从Eureka注册中心删除服务\(PostMan\)
 
 [http://:eureka\_center/eureka/apps/:application/:instance](http://:eureka_center/eureka/apps/:application/:instance)
@@ -17,6 +19,4 @@ eureka:
 ```
 
 其中获取ip，SpringCloud2.0版本对应的key值为${spring.cloud.clent.ip-address},网上流传大多为${spring.cloud.clent.ipAddress}
-
-
 
