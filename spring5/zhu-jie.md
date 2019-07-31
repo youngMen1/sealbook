@@ -6,12 +6,14 @@
 | @Autowired | 注解自动装配**具有兼容类型**的单个 Bean属性 |
 | @Resource | @Resource 注解要求提供一个 Bean 名称的属性，若该属性为空，则自动采用标注处的变量或方法名作为 Bean 的名称 |
 | @Bean | @Bean注解告诉 Spring，一个带有 @Bean 的注解方法将返回一个对象，该对象应该被注册为在 Spring 应用程序上下文中的 bean。 |
-| 1@Qualifier | 1 |
+| @Qualifier | 可能会有这样一种情况，当你创建多个具有相同类型的 bean 时，并且想要用一个属性只为它们其中的一个进行装配，在这种情况下，你可以使用**@Qualifier**注释和**@Autowired**注释通过指定哪一个真正的 bean 将会被装配来消除混乱。下面显示的是使用 @Qualifier 注释的一个示例。 |
 | 1 | 1 |
 | 1 | 1 |
 | 1 | 1 |
 
 @Resource 注解要求提供一个 Bean 名称的属性，若该属性为空，则自动采用标注处的变量或方法名作为 Bean 的名称
+
+
 
 ## @Configuration
 
