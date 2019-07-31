@@ -311,12 +311,6 @@ private static int numberOfOrdersFor(Collection orders, String customer) {
 
 将它变成一个value object（实值对象）。![](http://wangvsa.github.io/refactoring-cheat-sheet/images/08fig03.gif)
 
-
-
-
-
-
-
 **动机（Motivation）**
 
 正如我在[将引用对象改为实值对象](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#_2)中所说，要在reference object和value object之间做选择，有时并不容易。作出选择后，你常会需要一条回头路。
@@ -327,7 +321,9 @@ value object有一个非常重要的特性：它们应该是不可变的（immut
 
 这里有必要澄清一下「不可变（immutable）」的意思。如果你以Money class表示「钱」的概念，其中有「币种」和「金额」两条信息，那么Money对象通常是一个不可变的value object。这并非意味你的薪资不能改变，而是意味：如果要改变你的薪资，你需要使用另一个崭新的Money对象来取代现有的Money对象，而不是在现有的Money对象上修改。你和Money对象之间的关系可以改变，但Money对象自身不能 改变。
 
-译注：《Practical Java》 by Peter Haggar第6章对于mutable/immutable有深入讨论。**作法（Mechanics）**
+译注：《Practical Java》 by Peter Haggar第6章对于mutable/immutable有深入讨论。
+
+**做法（Mechanics）**
 
 * 检查重构对象是否为immutable（不可变）对象，或是否可修改为不可变对象。
 * 如果该对象目前还不是immutable，就使用
