@@ -339,7 +339,15 @@ value object有一个非常重要的特性：它们应该是不可变的（immut
 让我们从一个表示「货币种类」的Currency class开始：
 
 ```
+class Currency...
+    private String _code;
 
+    public String getCode() {
+       return _code;
+    }
+    private Currency (String code) {
+       _code = code;
+    }
 ```
 
 ---
