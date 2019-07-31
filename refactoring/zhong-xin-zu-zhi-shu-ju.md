@@ -311,5 +311,13 @@ private static int numberOfOrdersFor(Collection orders, String customer) {
 
 ## 复制“被监控数据”
 
+## 将单向关联改为双向关联
+
+## 将双向关联改为单向关联
+
+## 以字面常量取代魔法数
+
+## 封装字段
+
 
 
