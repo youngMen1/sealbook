@@ -5,7 +5,7 @@
   * [使用帮助](java/shi-yong-bang-zhu.md)
   * [错误](java/cuo-wu.md)
   * [插件](java/cha-jian.md)
-    * [LomBok插件](java/cha-jian/lombokcha-jian.md)
+    * [lomBok插件](java/cha-jian/lombokcha-jian.md)
 * [springCloud](springcloud.md)
   * [eureka](springcloud/eureka.md)
   * [健康检查](springcloud/jian-kang-jian-cha.md)
