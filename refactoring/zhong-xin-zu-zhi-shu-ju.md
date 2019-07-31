@@ -334,6 +334,10 @@ value object有一个非常重要的特性：它们应该是不可变的（immut
 * 编译，测试。
 * 考虑是否可以删除factory method，并将构造函数声明public 。
 
+**范例（Example）**
+
+让我们从一个表示「货币种类」的Currency class开始：
+
 ---
 
 ## 以对象取代数组
