@@ -6,8 +6,7 @@
 
 ```
 ## 例如
-http://xxx.xx.xx.xxx:xxxxx/eureka/apps/HOTEL-REST/UTECHNO9.utech.com:hotel-rest:
-xxxx
+http://xxx.xx.xx.xxx:xxxxx/eureka/apps/HOTEL-REST/UTECHNO9.utech.com:hotel-rest:xxxx
 ```
 
 2.服务提供者使用主机名注册到eureka改为使用ip注册到eureka
