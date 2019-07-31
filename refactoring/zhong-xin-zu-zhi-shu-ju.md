@@ -321,7 +321,7 @@ private static int numberOfOrdersFor(Collection orders, String customer) {
 
 ## 封装集合
 
-## 
+## 以数据类取代记录
 
 
 
