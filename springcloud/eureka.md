@@ -7,10 +7,10 @@ health 健康检查，修改访问路径
   2.0默认是 /actuator 可以通过这个属性值修改
 
 ```
+#health 健康检查
 management:
   endpoints:
    web:
-     base-path: /
      #开放所有页面节点  默认只开启了health、info两个节点
      exposure:
        include: "*"
