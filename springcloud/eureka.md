@@ -8,36 +8,12 @@
 
 ```
 eureka:
-```
-
-```
-
-
   client:
-
-
     service-url:
-
-
       defaultZone: http://localhost:10010/eureka/
-
-
   instance:
-
-
     preferIpAddress : true
-
-
     instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
-
-
-
-
-
-
-
-
-其中获取ip，SpringCloud2.0版本对应的key值为${spring.cloud.clent.ip-address},网上流传大多为${spring.cloud.clent.ipAddress}
 ```
 
 
