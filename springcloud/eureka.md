@@ -1,6 +1,6 @@
 ## eureka踩坑日志
 
-1.从Eureka注册中心删除服务\(PostMan\)
+1.从Eureka注册中心删除服务\(PostMan delete请求\)
 
 [http://:eureka\_center/eureka/apps/:application/:instance](http://:eureka_center/eureka/apps/:application/:instance)
 
