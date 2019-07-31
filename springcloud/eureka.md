@@ -3,6 +3,24 @@
 ## eureka健康检查
 
 ```
+#health 健康检查
+#修改访问路径
+  #2.0之前默认是/
+  #2.0默认是 /actuator  可以通过这个属性值修改
+management:
+  endpoints:
+   web:
+     base-path: /
+     #开放所有页面节点  默认只开启了health、info两个节点
+     exposure:
+       include: "*"
+  #显示健康具体信息  默认不会显示详细信息
+  endpoint:
+    health:
+      show-details: always
+```
+
+```
 <dependency>
   <groupId>org.springframework.boot</groupId>
   <artifactId>spring-boot-starter-actuator</artifactId>
