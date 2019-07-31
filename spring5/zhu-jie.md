@@ -11,8 +11,6 @@
 | 1 | 1 |
 | 1 | 1 |
 
-
-
 ## @Configuration
 
 **注意**：@Configuration注解的配置类有如下要求：
