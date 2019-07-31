@@ -3,7 +3,7 @@
 | @Respository | 标识持久层组件 |
 | @Service | 标识服务层\(业务层\)组件 |
 | @Controller | 标识表现层组件 |
-| 1 | 1 |
+| 1@Autowired | 1 |
 | 1 | 1 |
 
 ## 
