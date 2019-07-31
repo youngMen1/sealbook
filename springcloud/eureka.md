@@ -1,6 +1,6 @@
 ## 
 
-SpringBoot 2.0之后配置
+# SpringBoot 2.0之后
 
 ## eureka健康检查
 
