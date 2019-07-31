@@ -5,13 +5,11 @@
 | @Controller | 标识表现层组件 |
 | @Autowired | 注解自动装配**具有兼容类型**的单个 Bean属性 |
 | @Resource | @Resource 注解要求提供一个 Bean 名称的属性，若该属性为空，则自动采用标注处的变量或方法名作为 Bean 的名称 |
-| 1@Bean | 1@Bean注解告诉 Spring，一个带有 @Bean 的注解方法将返回一个对象，该对象应该被注册为在 Spring 应用程序上下文中的 bean。 |
+| 1@Bean | @Bean注解告诉 Spring，一个带有 @Bean 的注解方法将返回一个对象，该对象应该被注册为在 Spring 应用程序上下文中的 bean。 |
 | 1 | 1 |
 | 1 | 1 |
 | 1 | 1 |
 | 1 | 1 |
-
-
 
 @Resource 注解要求提供一个 Bean 名称的属性，若该属性为空，则自动采用标注处的变量或方法名作为 Bean 的名称
 
