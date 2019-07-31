@@ -3,8 +3,8 @@
 ## eureka健康检查
 
 health 健康检查，修改访问路径  
-  2.0之前默认是/  
-  2.0默认是 /actuator 可以通过这个属性值修改
+  2.0 之前默认是/  
+  2.0 默认是 /actuator 可以通过这个属性值修改
 
 ```
 #health 健康检查
@@ -54,7 +54,5 @@ eureka:
 
 ## 参考:
 
-https://www.jianshu.com/p/1aadc4c85f51
-
-
+[https://www.jianshu.com/p/1aadc4c85f51](https://www.jianshu.com/p/1aadc4c85f51)
 
