@@ -3,16 +3,12 @@
 | @Respository | 标识持久层组件 |
 | @Service | 标识服务层\(业务层\)组件 |
 | @Controller | 标识表现层组件 |
-| 1@Autowired | 1 |
+| 1@Autowired | 1注解自动装配**具有兼容类型**的单个 Bean属性 |
 | 1 | 1 |
 
 ## 
 
-注解自动装配
 
-**具有兼容类型**
-
-的单个 Bean属性
 
 ## 
 
