@@ -1,5 +1,7 @@
 ## 
 
+SpringBoot 2.0之后配置
+
 ## eureka健康检查
 
 health 健康检查，修改访问路径  
