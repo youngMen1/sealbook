@@ -9,6 +9,7 @@
 * [springCloud](springcloud.md)
   * [eureka](springcloud/eureka.md)
   * [健康检查](springcloud/jian-kang-jian-cha.md)
+  * [configServer](springcloud/configserver.md)
 * [myBatis](mybatis.md)
   * [错误](mybatis/cuo-wu.md)
 * [linux](linux.md)

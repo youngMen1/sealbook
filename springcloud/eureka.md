@@ -1,3 +1,14 @@
+## 
+
+## eureka健康检查
+
+```
+<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+```
+
 ## eureka踩坑日志
 
 1.从Eureka注册中心删除服务\(PostMan delete请求\)
