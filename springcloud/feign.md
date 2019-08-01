@@ -13,7 +13,7 @@ feign.hystrix.enabled=true
 Spring Cloud feign使用中在使用服务发现的时候提到了两种注解，一种为@EnableDiscoveryClient,一种为@EnableEurekaClient,用法上基本一致。  
 spring cloud中discovery service有许多种实现（eureka、consul、zookeeper等等），
 
-@EnableDiscoveryClient基于spring-cloud-commons, 
+@EnableDiscoveryClient基于spring-cloud-commons,
 
 @EnableEurekaClient基于spring-cloud-netflix。  
 其实用更简单的话来说:
