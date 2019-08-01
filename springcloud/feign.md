@@ -40,7 +40,11 @@ private void registerDefaultConfiguration(AnnotationMetadata metadata,
 如果想要feign使用Okhttp，则只需要在pom文件上加上feign-okhttp的依赖：
 
 ```
-
+<dependency>
+    <groupId>com.netflix.feign</groupId>
+    <artifactId>feign-okhttp</artifactId>
+    <version>RELEASE</version>
+</dependency>
 ```
 
 ## 总结
