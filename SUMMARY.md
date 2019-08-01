@@ -11,6 +11,7 @@
   * [健康检查](springcloud/jian-kang-jian-cha.md)
   * [configServer](springcloud/configserver.md)
   * [zuul](springcloud/zuul.md)
+  * [feign](springcloud/feign.md)
 * [myBatis](mybatis.md)
   * [错误](mybatis/cuo-wu.md)
 * [linux](linux.md)
