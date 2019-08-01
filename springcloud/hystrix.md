@@ -6,8 +6,6 @@ Netflix开源了Hystrix组件，实现了断路器模式，SpringCloud对这一�
 
 ![](/assets/微信截图_20190801180422.png)
 
-
-
 ---
 
 [https://blog.csdn.net/forezp/article/details/81040990](https://blog.csdn.net/forezp/article/details/81040990)
