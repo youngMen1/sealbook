@@ -39,6 +39,10 @@ private void registerDefaultConfiguration(AnnotationMetadata metadata,
 
 如果想要feign使用Okhttp，则只需要在pom文件上加上feign-okhttp的依赖：
 
+```
+
+```
+
 ## 总结
 
 总到来说，Feign的源码实现的过程如下：
