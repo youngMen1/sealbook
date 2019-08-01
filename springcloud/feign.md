@@ -19,27 +19,23 @@ feign是一个伪客户端，即它不做任何的请求处理。Feign通过处�
 
 ```
 private void registerDefaultConfiguration(AnnotationMetadata metadata,
-			BeanDefinitionRegistry registry) {
-		Map<String, Object> defaultAttrs = metadata
-				.getAnnotationAttributes(EnableFeignClients.class.getName(), true);
+            BeanDefinitionRegistry registry) {
+        Map<String, Object> defaultAttrs = metadata
+                .getAnnotationAttributes(EnableFeignClients.class.getName(), true);
 
-		if (defaultAttrs != null && defaultAttrs.containsKey("defaultConfiguration")) {
-			String name;
-			if (metadata.hasEnclosingClass()) {
-				name = "default." + metadata.getEnclosingClassName();
-			}
-			else {
-				name = "default." + metadata.getClassName();
-			}
-			registerClientConfiguration(registry, name,
-					defaultAttrs.get("defaultConfiguration"));
-		}
-	}
---------------------- 
-作者：方志朋 
-来源：CSDN 
-原文：https://blog.csdn.net/forezp/article/details/73480304 
-版权声明：本文为博主原创文章，转载请附上博文链接！
+        if (defaultAttrs != null && defaultAttrs.containsKey("defaultConfiguration")) {
+            String name;
+            if (metadata.hasEnclosingClass()) {
+                name = "default." + metadata.getEnclosingClassName();
+            }
+            else {
+                name = "default." + metadata.getClassName();
+            }
+            registerClientConfiguration(registry, name,
+                    defaultAttrs.get("defaultConfiguration"));
+        }
+    }
+
 ```
 
 
