@@ -10,7 +10,17 @@ Feign 整合了ribbon，具有负载均衡的能力
 feign.hystrix.enabled=true
 ```
 
-Spring Cloud feign使用中在使用服务发现的时候提到了两种注解，一种为@EnableDiscoveryClient,一种为@EnableEurekaClient,用法上基本一致。spring cloud中discovery service有许多种实现（eureka、consul、zookeeper等等），@EnableDiscoveryClient基于spring-cloud-commons, @EnableEurekaClient基于spring-cloud-netflix。其实用更简单的话来说，就是如果选用的注册中心是eureka，那么就推荐@EnableEurekaClient，如果是其他的注册中心，那么推荐使用@EnableDiscoveryClient。
+Spring Cloud feign使用中在使用服务发现的时候提到了两种注解，一种为@EnableDiscoveryClient,一种为@EnableEurekaClient,用法上基本一致。  
+spring cloud中discovery service有许多种实现（eureka、consul、zookeeper等等），
+
+@EnableDiscoveryClient基于spring-cloud-commons, 
+
+@EnableEurekaClient基于spring-cloud-netflix。  
+其实用更简单的话来说:
+
+如果选用的注册中心是eureka，那么就推荐@EnableEurekaClient，
+
+如果是其他的注册中心，那么推荐使用@EnableDiscoveryClient。
 
 ## 二、Feign的工作原理
 
