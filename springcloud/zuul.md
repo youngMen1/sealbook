@@ -54,7 +54,7 @@ Zuul有四种标准过滤器类型：
 
 Zuul过滤器将请求和状态信息存储在（并通过）共享`RequestContext`。我们正在使用它来获取`HttpServletRequest`，然后我们记录请求的HTTP方法和URL，然后再发送它。
 
-## 踩坑日记
+## 踩坑日记:
 
 # 当stripPrefix=true的时候 （[http://127.0.0.1:8181/api/user/list](http://127.0.0.1:8181/api/user/list) -&gt;[http://192.168.1.100:8080/user/list](http://192.168.1.100:8080/user/list)）
 
