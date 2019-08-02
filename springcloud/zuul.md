@@ -56,6 +56,8 @@ Zuul过滤器将请求和状态信息存储在（并通过）共享`RequestConte
 
 ## 踩坑日记:
 
+因为我们没有设置zuul.prefix 为所有的匹配增加前缀, 例如 /api,代理前缀默认会从请求路径中移除\(通过 zuul.stripPrefix=false 可以关闭这个功能\)
+
 # 当stripPrefix=true的时候 （[http://127.0.0.1:8181/api/user/list](http://127.0.0.1:8181/api/user/list) -&gt;[http://192.168.1.100:8080/user/list](http://192.168.1.100:8080/user/list)）
 
 # 当stripPrefix=false的时候（[http://127.0.0.1:8181/api/user/list](http://127.0.0.1:8181/api/user/list) -&gt;[http://192.168.1.100:8080/api/user/list](http://192.168.1.100:8080/api/user/list)）
@@ -66,5 +68,5 @@ Zuul过滤器将请求和状态信息存储在（并通过）共享`RequestConte
 
 [https://blog.csdn.net/forezp/article/details/81041012](https://blog.csdn.net/forezp/article/details/81041012)
 
-https://www.jianshu.com/p/ebc0a2aef439
+[https://www.jianshu.com/p/ebc0a2aef439](https://www.jianshu.com/p/ebc0a2aef439)
 
