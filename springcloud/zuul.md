@@ -66,3 +66,5 @@ Zuul过滤器将请求和状态信息存储在（并通过）共享`RequestConte
 
 [https://blog.csdn.net/forezp/article/details/81041012](https://blog.csdn.net/forezp/article/details/81041012)
 
+https://www.jianshu.com/p/ebc0a2aef439
+
