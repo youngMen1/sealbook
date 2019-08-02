@@ -56,6 +56,8 @@ list.add("c");
 list.add("d");
 ```
 
+其实我也知道，这几行代码看起来很烂，我只是想用一些测试数据构造一个不可变的list而已，我希望能像下面这样写一行代码搞定这些。。如何办到？好吧，这很简单！
+
 ```
 ImmutableList<String> of = ImmutableList.of("a", "b", "c", "d");
 ```
