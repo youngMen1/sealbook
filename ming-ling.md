@@ -86,23 +86,33 @@ vi / vim是Linux上最常用的文本编辑器而且功能非常强大。只有�
 
 ![](https://mmbiz.qpic.cn/mmbiz_jpg/tuSaKc6SfPrCdhhPgOiaoBcFPce4tpjykeSGAqQ6vwicJcNf9AtHRpxAb8efawNibqgx2zmkCReVbLYSCuyvXIM6w/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
-4.1 修改文本
+#### 4.1 修改文本
 
 ![](https://mmbiz.qpic.cn/mmbiz_png/YrLz7nDONjFfwIxuqgHaxR6TVoWwicBCiapsRoicnGDROYs7K2Nby9K0cPTQwvicia5pg58pPFRbeYQX23bUriaP9c3Q/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
-4.2 定位命令
+#### 4.2 定位命令
 
 ![](https://mmbiz.qpic.cn/mmbiz_png/YrLz7nDONjFfwIxuqgHaxR6TVoWwicBCiaW9ubIw2eADU27yyNHrgc3qUnjicHWCGV13iaCAcaegLtEXlujR2gyz4w/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
-4.3 替换和取消命令
+#### 4.3 替换和取消命令
 
 ![](https://mmbiz.qpic.cn/mmbiz_png/YrLz7nDONjFfwIxuqgHaxR6TVoWwicBCialCmRBeFam8sY6ibjib0qx75hBPrISqQwywtjq4LZESCD7JYwnmuJvhgg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
-4.4 删除命令
+#### 4.4 删除命令
 
 ![](https://mmbiz.qpic.cn/mmbiz_png/YrLz7nDONjFfwIxuqgHaxR6TVoWwicBCiaJddPfgVP6wh2MZB6Rx7gLLtofaBP6s7j1Ao12RKJcvzZt4IWMHIGdw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
-4.5 常用快捷键
+#### 4.5 常用快捷键
 
 ![](https://mmbiz.qpic.cn/mmbiz_png/YrLz7nDONjFfwIxuqgHaxR6TVoWwicBCia5JB4PkqGw6Qo1icQsc57GaxNUF7AuSzEULiaBomtvcnuhAAicCtpdhqzQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+---
+
+## 参考:
+
+https://mp.weixin.qq.com/s/fmhBcMugMhNlBu\_PEhAk2A
+
+
+
+
 
