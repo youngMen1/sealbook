@@ -68,5 +68,5 @@ Map也一样：
 ImmutableList<String> list2 = listOf("a", "b", "c", "d");
 ```
 
-
+而且如果我想构造填充一个ArrayList（或者一个HashMap），我可以这样：
 
