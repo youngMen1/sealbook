@@ -62,5 +62,11 @@ list.add("d");
 ImmutableList<String> of = ImmutableList.of("a", "b", "c", "d");
 ```
 
+Map也一样：
+
+```
+ImmutableList<String> list2 = listOf("a", "b", "c", "d");
+```
+
 
 
