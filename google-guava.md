@@ -19,7 +19,7 @@ Guava工程包含了若干被Google的 Java项目广泛依赖 的核心库，例
 * 字符串处理 \[string processing\]
 * I/O 等等。
 
-## G**oogle Collections一览**
+## G**oogle Collections**
 
 ```
 Map<String, Map<Long, List<String>>> map = new HashMap<String, Map<Long,List<String>>>();
