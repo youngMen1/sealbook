@@ -12,7 +12,7 @@ zuul有以下功能：
 
 Authentication   认证
 
-Insights
+Insights  观察
 
 Stress Testing
 
