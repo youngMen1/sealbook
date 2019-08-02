@@ -4,13 +4,13 @@
 
 在Spring Cloud微服务系统中，一种常见的负载均衡方式是，客户端的请求首先经过负载均衡（zuul、Ngnix），再到达服务网关（zuul集群），然后再到具体的服。，服务统一注册到高可用的服务注册中心集群，服务的所有的配置文件由配置服务管理（下一篇文章讲述），配置服务的配置文件放在git仓库，方便开发人员随时改配置。
 
---------------------- 
+ 
 
-作者：方志朋 
+---
 
-来源：CSDN 
+## 参考:
 
-原文：https://blog.csdn.net/forezp/article/details/81041012 
+[https://blog.csdn.net/forezp/article/details/81041012](https://blog.csdn.net/forezp/article/details/81041012)
 
-版权声明：本文为博主原创文章，转载请附上博文链接！
+
 
