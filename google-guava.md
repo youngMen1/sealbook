@@ -23,8 +23,11 @@ Guava工程包含了若干被Google的 Java项目广泛依赖 的核心库，例
 
 ```
 Map<String, Map<Long, List<String>>> map = new HashMap<String, Map<Long,List<String>>>();
+```
 
-可以这么写
+可以这么写:
+
+```
 Map<String, Map<Long, List<String>>> map = Maps.newHashMap();
 或者更甚者直接使用静态导入:
 Map<String, Map<Long, List<String>>>map = newHashMap();
