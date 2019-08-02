@@ -1,4 +1,6 @@
-### 概述 {#概述}
+```
+概述
+```
 
 工具类 就是封装平常用的方法，不需要你重复造轮子，节省开发人员时间，提高工作效率。谷歌作为大公司，当然会从日常的工作中提取中很多高效率的方法出来。所以就诞生了guava。
 
@@ -34,6 +36,11 @@ Map<String, Map<Long, List<String>>>map = newHashMap();
 ```
 
 Lists和Sets也有：
+
+```
+Lists.newArrayList();
+Sets.newHashSet();
+```
 
 
 
