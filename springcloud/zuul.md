@@ -16,7 +16,7 @@ Insights  观察
 
 Stress Testing   压力测试
 
-Canary Testing 
+Canary Testing
 
 Dynamic Routing  动态路由
 
@@ -31,6 +31,16 @@ Static Response handling 静态响应处理
 Active/Active traffic management 主动/主动流量管理
 
 ![](/assets/微信截图_20190802085208.png)
+
+Zuul有四种标准过滤器类型：
+
+* **预**过滤器在请求路由之前执行，
+
+* **路由**过滤器可以处理请求的实际路由，
+
+* **邮件**过滤器在请求被路由后执行，并且
+
+* 如果在处理请求过程中发生错误，则会执行**错误**过滤器
 
 ---
 
