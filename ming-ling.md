@@ -40,7 +40,7 @@ Linux是目前应用最广泛的服务器操作系统，基于Unix，开源免�
 如：ls -la /usr
 ```
 
-2.1 操作文件及目录
+#### 2.1 操作文件及目录
 
 ![](https://mmbiz.qpic.cn/mmbiz_png/YrLz7nDONjFfwIxuqgHaxR6TVoWwicBCiaMyzWUmHXfOmbOtzqmF8XFrlGTZjXlldGIjFIzXjjVd9qqfv5DNZe4Q/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
