@@ -9,7 +9,6 @@
 * [springCloud](springcloud.md)
   * [eureka](springcloud/eureka.md)
   * [健康检查](springcloud/jian-kang-jian-cha.md)
-  * [configServer](springcloud/configserver.md)
   * [zuul](springcloud/zuul.md)
   * [feign](springcloud/feign.md)
   * [hystrix](springcloud/hystrix.md)
