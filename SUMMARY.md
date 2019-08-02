@@ -14,7 +14,7 @@
   * [hystrix](springcloud/hystrix.md)
   * [config](springcloud/config.md)
   * [bus](springcloud/bus.md)
-* [myBatis](mybatis.md)
+* [mybatis](mybatis.md)
   * [错误](mybatis/cuo-wu.md)
 * [linux](linux.md)
   * [盘符概念](pan-fu-gai-nian.md)
