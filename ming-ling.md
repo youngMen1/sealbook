@@ -4,7 +4,9 @@ Linux是目前应用最广泛的服务器操作系统，基于Unix，开源免�
 
 ![](https://mmbiz.qpic.cn/mmbiz_jpg/tuSaKc6SfPrCdhhPgOiaoBcFPce4tpjykKa6Mib0INI8WR69mJnFnqycibJJyudibgmAPfx8eDgL3p9Phe3tgFmVzA/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
-                                                                                            / 下级目录结构
+```
+                                                  / 下级目录结构
+```
 
 * bin \(binaries\)存放二进制可执行文件
 
