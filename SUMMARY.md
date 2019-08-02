@@ -13,6 +13,7 @@
   * [feign](springcloud/feign.md)
   * [hystrix](springcloud/hystrix.md)
   * [config](springcloud/config.md)
+  * bus
 * [myBatis](mybatis.md)
   * [错误](mybatis/cuo-wu.md)
 * [linux](linux.md)
