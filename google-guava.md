@@ -49,6 +49,14 @@ Sets.newHashSet();
 当你在写单元测试时，经常会构造一些测试数据，可能是list、map、set等，对于一些像我一样草率的人来说，测试代码中会经常看到类似下面的语句：
 
 ```
+List<String> list = new ArrayList<String>();
+list.add("a");
+list.add("b");
+list.add("c");
+list.add("d");
+```
+
+```
 ImmutableList<String> of = ImmutableList.of("a", "b", "c", "d");
 ```
 
