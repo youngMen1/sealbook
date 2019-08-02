@@ -27,6 +27,7 @@ Map<String, Map<Long, List<String>>> map = new HashMap<String, Map<Long,List<Str
 可以这么写
 Map<String, Map<Long, List<String>>> map = Maps.newHashMap();
 或者更甚者直接使用静态导入：
+Map<String, Map<Long, List<String>>>map = newHashMap();
 ```
 
 
