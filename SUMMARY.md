@@ -12,7 +12,7 @@
   * [zuul](springcloud/zuul.md)
   * [feign](springcloud/feign.md)
   * [hystrix](springcloud/hystrix.md)
-  * config
+  * [config](springcloud/config.md)
 * [myBatis](mybatis.md)
   * [错误](mybatis/cuo-wu.md)
 * [linux](linux.md)
