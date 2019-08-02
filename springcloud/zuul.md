@@ -14,7 +14,7 @@ Authentication   认证
 
 Insights  观察
 
-Stress Testing
+Stress Testing   压力测试
 
 Canary Testing
 
