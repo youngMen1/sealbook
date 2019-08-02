@@ -32,5 +32,31 @@ Linux是目前应用最广泛的服务器操作系统，基于Unix，开源免�
 
 * var \(variable\)用于存放运行时需要改变数据的文件
 
+# 二、linux常用命令
+
+命令格式：命令 -选项 参数 （选项和参数可以为空）
+
+```
+如：
+ls
+ -
+la
+ /usr
+```
+
+2.1 操作文件及目录
+
+![](https://mmbiz.qpic.cn/mmbiz_png/YrLz7nDONjFfwIxuqgHaxR6TVoWwicBCiaMyzWUmHXfOmbOtzqmF8XFrlGTZjXlldGIjFIzXjjVd9qqfv5DNZe4Q/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+  
+
+
+![](https://mmbiz.qpic.cn/mmbiz_png/YrLz7nDONjFfwIxuqgHaxR6TVoWwicBCiaxBcpuWAufxawefmBjR3svV0XfIDe91ANDN7POcialBPIRX4UCVdHmew/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+  
+
+
+![](https://mmbiz.qpic.cn/mmbiz_png/YrLz7nDONjFfwIxuqgHaxR6TVoWwicBCiaL2xfnaDDv2bGznogE1ppXPxha6U6hQ5aYP9evavx9Aw3D8Tl5LuMWg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
 
 
