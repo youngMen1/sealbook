@@ -16,7 +16,7 @@ Insights  观察
 
 Stress Testing   压力测试
 
-Canary Testing
+Canary Testing  金丝雀测试
 
 Dynamic Routing  动态路由
 
