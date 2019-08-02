@@ -22,7 +22,7 @@ Dynamic Routing  动态路由
 
 Service Migration 服务迁移
 
-Load Shedding  负载均衡
+Load Shedding  负载削减
 
 Security 安全
 
