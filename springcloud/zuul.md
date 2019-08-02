@@ -16,19 +16,19 @@ Insights  观察
 
 Stress Testing   压力测试
 
-Canary Testing
+Canary Testing 
 
-Dynamic Routing
+Dynamic Routing  动态路由
 
-Service Migration
+Service Migration 服务迁移
 
-Load Shedding
+Load Shedding  负载均衡
 
-Security
+Security 安全
 
-Static Response handling
+Static Response handling 静态响应处理
 
-Active/Active traffic management
+Active/Active traffic management 主动/主动流量管理
 
 ![](/assets/微信截图_20190802085208.png)
 
