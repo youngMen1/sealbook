@@ -10,7 +10,7 @@ Zuul的主要功能是路由转发和过滤器。路由功能是微服务的一�
 
 zuul有以下功能：
 
-Authentication
+Authentication   认证
 
 Insights
 
@@ -31,18 +31,6 @@ Static Response handling
 Active/Active traffic management
 
 ![](/assets/微信截图_20190802085208.png)
-
-
-
-
-
-
-
-
-
-
-
-
 
 ---
 
