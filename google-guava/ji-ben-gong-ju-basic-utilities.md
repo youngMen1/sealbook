@@ -76,9 +76,13 @@ _\*位置值和位置范围常用来截取列表、字符串或数组，如List.
 
 从实现上说，Ordering实例就是一个特殊的Comparator实例。Ordering把很多基于Comparator的静态方法（如Collections.max）包装为自己的实例方法（非静态方法），并且提供了链式调用方法，来定制和增强现有的比较器。
 
+**创建排序器**：常见的排序器可以由下面的静态方法创建
 
-
-
+| **方法** | **描述** |
+| :--- | :--- |
+| [natural\(\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html#natural%28%29) | 对可排序类型做自然排序，如数字按大小，日期按先后排序 |
+| [usingToString\(\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html#usingToString%28%29) | 按对象的字符串形式做字典排序\[lexicographical ordering\] |
+| [from\(Comparator\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html#from%28java.util.Comparator%29) | 把给定的Comparator转化为排序器 |
 
 
 
