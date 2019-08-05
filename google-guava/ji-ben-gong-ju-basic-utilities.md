@@ -34,5 +34,7 @@ Guava用[Optional&lt;T&gt;](http://docs.guava-libraries.googlecode.com/git-histo
 
 ## 1.2-前置条件
 
+前置条件：让方法调用的前置条件判断更简单。
+
 
 
