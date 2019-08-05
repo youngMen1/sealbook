@@ -75,4 +75,5 @@
   * [缓存\[Caches\]](google-guava/huan-5b585b-caches.md)
   * [函数式风格\[Functional idioms\]](google-guava/han-shu-shi-feng-683c5b-functional-idioms.md)
   * 并发\[Concurrency\]
+  * 字符串处理\[Strings\]
 
