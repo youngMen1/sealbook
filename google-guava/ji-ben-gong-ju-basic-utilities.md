@@ -36,5 +36,10 @@ Guava用[Optional&lt;T&gt;](http://docs.guava-libraries.googlecode.com/git-histo
 
 前置条件：让方法调用的前置条件判断更简单。
 
+没有额外参数：抛出的异常中没有错误消息；
+
+* 有一个Object对象作为额外参数：抛出的异常使用Object.toString\(\) 作为错误消息；
+* 有一个String对象作为额外参数，并且有一组任意数量的附加Object对象：这个变种处理异常消息的方式有点类似printf，但考虑GWT的兼容性和效率，只支持%s指示符。
+
 
 
