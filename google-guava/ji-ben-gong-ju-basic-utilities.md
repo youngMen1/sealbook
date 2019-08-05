@@ -1,4 +1,4 @@
-# 1.1[使用和避免null](http://ifeve.com/using-and-avoiding-null/)
+## 1.1[使用和避免null](http://ifeve.com/using-and-avoiding-null/)
 
 null是模棱两可的，会引起令人困惑的错误，有些时候它让人很不舒服。很多Guava工具类用快速失败拒绝null值，而不是盲目地接受。
 
