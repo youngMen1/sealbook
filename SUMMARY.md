@@ -74,6 +74,6 @@
   * [基本工具 \[Basic utilities\]](google-guava/ji-ben-gong-ju-basic-utilities.md)
   * [缓存\[Caches\]](google-guava/huan-5b585b-caches.md)
   * [函数式风格\[Functional idioms\]](google-guava/han-shu-shi-feng-683c5b-functional-idioms.md)
-  * 并发\[Concurrency\]
+  * [并发\[Concurrency\]](google-guava/bing-53d15b-concurrency.md)
   * 字符串处理\[Strings\]
 
