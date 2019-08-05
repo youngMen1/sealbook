@@ -56,7 +56,9 @@ Guava用[Optional&lt;T&gt;](http://docs.guava-libraries.googlecode.com/git-histo
 
 \*索引值常用来查找列表、字符串或数组中的元素，如List.get\(int\), String.charAt\(int\)
 
-_\*位置值和位置范围常用来截取列表、字符串或数组，如List.subList\(int，int\), String.substring\(int\)_相比Apache Commons提供的类似方法，我们把Guava中的Preconditions作为首选。Piotr Jagielski在[他的博客](http://piotrjagielski.com/blog/google-guava-vs-apache-commons-for-argument-validation/)中简要地列举了一些理由：
+_\*位置值和位置范围常用来截取列表、字符串或数组，如List.subList\(int，int\), String.substring\(int\)_
+
+相比Apache Commons提供的类似方法，我们把Guava中的Preconditions作为首选。Piotr Jagielski在[他的博客](http://piotrjagielski.com/blog/google-guava-vs-apache-commons-for-argument-validation/)中简要地列举了一些理由：
 
 * 在静态导入后，Guava方法非常清楚明晰。checkNotNull清楚地描述做了什么，会抛出什么异常；
 * checkNotNull直接返回检查的参数，让你可以在构造函数中保持字段的单行赋值风格：this.field = checkNotNull\(field\)
