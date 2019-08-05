@@ -70,5 +70,11 @@ ImmutableList<String> list2 = listOf("a", "b", "c", "d");
 ArrayList<String> list3 = arrayListOf("a", "b", "c", "d");
 ```
 
+---
+
+## 参考:
+
+http://ifeve.com/google-guava/
+
 
 
