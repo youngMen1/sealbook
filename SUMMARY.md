@@ -71,7 +71,8 @@
   * [sqLite](guan-xi-xing-shu-ju-ku/sqlite.md)
 * [googleGuava](google-guava.md)
   * [集合\[Collections\]](google-guava/ji-54085b-collections.md)
-  * 基本工具 \[Basic utilities\]
-  * 缓存\[Caches\]
-  * 函数式风格\[Functional idioms\]
+  * [基本工具 \[Basic utilities\]](google-guava/ji-ben-gong-ju-basic-utilities.md)
+  * [缓存\[Caches\]](google-guava/huan-5b585b-caches.md)
+  * [函数式风格\[Functional idioms\]](google-guava/han-shu-shi-feng-683c5b-functional-idioms.md)
+  * 并发\[Concurrency\]
 
