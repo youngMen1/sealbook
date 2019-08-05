@@ -50,9 +50,19 @@ Guava用[Optional&lt;T&gt;](http://docs.guava-libraries.googlecode.com/git-histo
 | [checkArgument\(boolean\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Preconditions.html#checkArgument%28boolean%29) | 检查boolean是否为true，用来检查传递给方法的参数。 | IllegalArgumentException |
 | [checkNotNull\(T\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Preconditions.html#checkNotNull%28T%29) | 检查value是否为null，该方法直接返回value，因此可以内嵌使用checkNotNull。 | NullPointerException |
 | [checkState\(boolean\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Preconditions.html#checkState%28boolean%29) | 用来检查对象的某些状态。 | IllegalStateException |
-| [checkElementIndex\(int index, int size\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Preconditions.html#checkElementIndex%28int,%20int%29) | 检查index作为索引值对某个列表、字符串或数组是否有效。index&gt;=0 && index&lt;size \* | IndexOutOfBoundsException |
-| [checkPositionIndex\(int index, int size\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Preconditions.html#checkPositionIndex%28int,%20int%29) | 检查index作为位置值对某个列表、字符串或数组是否有效。index&gt;=0 && index&lt;=size \* | IndexOutOfBoundsException |
-| [checkPositionIndexes\(int start, int end, int size\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Preconditions.html#checkPositionIndexes%28int,%20int,%20int%29) | 检查\[start, end\]表示的位置范围对某个列表、字符串或数组是否有效\* | IndexOutOfBoundsException |
+| [checkElementIndex\(int index, int size\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Preconditions.html#checkElementIndex%28int, int%29) | 检查index作为索引值对某个列表、字符串或数组是否有效。index&gt;=0 && index&lt;size \* | IndexOutOfBoundsException |
+| [checkPositionIndex\(int index, int size\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Preconditions.html#checkPositionIndex%28int, int%29) | 检查index作为位置值对某个列表、字符串或数组是否有效。index&gt;=0 && index&lt;=size \* | IndexOutOfBoundsException |
+| [checkPositionIndexes\(int start, int end, int size\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Preconditions.html#checkPositionIndexes%28int, int, int%29) | 检查\[start, end\]表示的位置范围对某个列表、字符串或数组是否有效\* | IndexOutOfBoundsException |
 
+\*索引值常用来查找列表、字符串或数组中的元素，如List.get\(int\), String.charAt\(int\)
 
+_\*位置值和位置范围常用来截取列表、字符串或数组，如List.subList\(int，int\), String.substring\(int\)_相比Apache Commons提供的类似方法，我们把Guava中的Preconditions作为首选。Piotr Jagielski在[他的博客](http://piotrjagielski.com/blog/google-guava-vs-apache-commons-for-argument-validation/)中简要地列举了一些理由：
+
+* 在静态导入后，Guava方法非常清楚明晰。checkNotNull清楚地描述做了什么，会抛出什么异常；
+* checkNotNull直接返回检查的参数，让你可以在构造函数中保持字段的单行赋值风格：this.field = checkNotNull\(field\)
+* 简单的、参数可变的printf风格异常信息。鉴于这个优点，在JDK7已经引入
+  [Objects.requireNonNull](http://docs.oracle.com/javase/7/docs/api/java/util/Objects.html#requireNonNull%28java.lang.Object,java.lang.String%29)
+  的情况下，我们仍然建议你使用checkNotNull。
+
+在编码时，如果某个值有多重的前置条件，我们建议你把它们放到不同的行，这样有助于在调试时定位。此外，把每个前置条件放到不同的行，也可以帮助你编写清晰和有用的错误消息。
 
