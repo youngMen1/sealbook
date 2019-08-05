@@ -72,4 +72,5 @@
 * [googleGuava](google-guava.md)
   * [集合\[Collections\]](google-guava/ji-54085b-collections.md)
   * 基本工具 \[Basic utilities\]
+  * 缓存\[Caches\]
 
