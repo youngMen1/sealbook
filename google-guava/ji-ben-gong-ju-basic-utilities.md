@@ -72,5 +72,13 @@ _\*位置值和位置范围常用来截取列表、字符串或数组，如List.
 
 ## 排序: Guava强大的”流畅风格比较器”
 
+[排序器\[Ordering\]](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html)是Guava流畅风格比较器\[Comparator\]的实现，它可以用来为构建复杂的比较器，以完成集合排序的功能。
+
+从实现上说，Ordering实例就是一个特殊的Comparator实例。Ordering把很多基于Comparator的静态方法（如Collections.max）包装为自己的实例方法（非静态方法），并且提供了链式调用方法，来定制和增强现有的比较器。
+
+
+
+
+
 
 
