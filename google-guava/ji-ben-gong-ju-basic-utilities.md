@@ -30,3 +30,9 @@ Guava用[Optional&lt;T&gt;](http://docs.guava-libraries.googlecode.com/git-histo
 
 如同输入参数，方法的返回值也可能是null。和其他人一样，你绝对很可能会忘记别人写的方法method\(a,b\)会返回一个null，就好像当你实现method\(a,b\)时，也很可能忘记输入参数a可以为null。将方法的返回类型指定为Optional，也可以迫使调用者思考返回的引用缺失的情形。
 
+---
+
+## 1.2-前置条件
+
+
+
