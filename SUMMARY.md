@@ -70,9 +70,9 @@
   * [postgreSQL](guan-xi-xing-shu-ju-ku/postgresql.md)
   * [sqLite](guan-xi-xing-shu-ju-ku/sqlite.md)
 * [googleGuava](google-guava.md)
-  * [集合\[Collections\]](google-guava/ji-54085b-collections.md)
-  * [缓存\[Caches\]](google-guava/huan-5b585b-caches.md)
   * [基本工具 \[Basic utilities\]](google-guava/ji-ben-gong-ju-basic-utilities.md)
+  * [缓存\[Caches\]](google-guava/huan-5b585b-caches.md)
+  * [集合\[Collections\]](google-guava/ji-54085b-collections.md)
   * [函数式风格\[Functional idioms\]](google-guava/han-shu-shi-feng-683c5b-functional-idioms.md)
   * [并发\[Concurrency\]](google-guava/bing-53d15b-concurrency.md)
   * 字符串处理\[Strings\]
