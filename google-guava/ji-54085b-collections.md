@@ -12,7 +12,7 @@
 * 不可变对象因为有固定不变，可以作为常量来安全使用。
 
 创建对象的不可变拷贝是一项很好的防御性编程技巧。Guava为所有JDK标准集合类型和Guava新集合类型都提供了简单易用的不可变版本。  
- JDK也提供了Collections.unmodifiableXXX方法把集合包装为不可变形式，但我们认为不够好：
+ JDK也提供了Collections.unmodifiableXXX方法把集合包装为不可变形式，但我们认为不够好：
 
 * 笨重而且累赘：不能舒适地用在所有想做防御性拷贝的场景；
 * 不安全：要保证没人通过原集合的引用进行修改，返回的集合才是事实上不可变的；
@@ -42,16 +42,27 @@ public static final ImmutableSet<Color> GOOGLE_COLORS =
 
 请注意，ImmutableXXX.copyOf方法会尝试在安全的时候避免做拷贝——实际的实现细节不详，但通常来说是很智能的，比如：
 
+```
+ImmutableSet<String> foobar = ImmutableSet.of("foo", "bar", "baz");
+thingamajig(foobar);
+
+void thingamajig(Collection<String> collection) {
+    ImmutableList<String> defensiveCopy = ImmutableList.copyOf(collection);
+    ...
+}
+```
+
 在这段代码中，ImmutableList.copyOf\(foobar\)会智能地直接返回foobar.asList\(\),它是一个ImmutableSet的常量时间复杂度的List视图。  
 作为一种探索，ImmutableXXX.copyOf\(ImmutableCollection\)会试图对如下情况避免线性时间拷贝：
 
 * 在常量时间内使用底层数据结构是可能的——例如，ImmutableSet.copyOf\(ImmutableList\)就不能在常量时间内完成。
-* 不会造成内存泄露——例如，你有个很大的不可变集合ImmutableList
-  &lt;
-  String
+* 不会造成内存泄露——例如，你有个很大的不可变集合ImmutableList  
+  &lt;  
+  String  
   &gt;
- 
+
   hugeList， ImmutableList.copyOf\(hugeList.subList\(0, 10\)\)就会显式地拷贝，以免不必要地持有hugeList的引用。
+
 * 不改变语义——所以ImmutableSet.copyOf\(myImmutableSortedSet\)会显式地拷贝，因为和基于比较器的ImmutableSortedSet相比，ImmutableSet对hashCode\(\)和equals有不同语义。
 
 在可能的情况下避免线性拷贝，可以最大限度地减少防御性编程风格所带来的性能开销。
