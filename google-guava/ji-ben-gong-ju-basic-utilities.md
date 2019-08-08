@@ -84,5 +84,7 @@ _\*位置值和位置范围常用来截取列表、字符串或数组，如List.
 | [usingToString\(\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html#usingToString%28%29) | 按对象的字符串形式做字典排序\[lexicographical ordering\] |
 | [from\(Comparator\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html#from%28java.util.Comparator%29) | 把给定的Comparator转化为排序器 |
 
+**链式调用方法**
 
+：通过链式调用，可以由给定的排序器衍生出其它排序器
 
