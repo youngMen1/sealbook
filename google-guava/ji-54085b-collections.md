@@ -120,15 +120,21 @@ asList\(\)返回的ImmutableList通常是——并不总是——开销稳定的
 
 包含的工具方法。Guava沿着这些路线提供了更多的工具方法：适用于所有集合的静态方法。这是Guava最流行和成熟的部分之一。
 
+我们用相对直观的方式把工具类与特定集合接口的对应关系归纳如下：
 
+| **集合接口** | **属于JDK还是Guava** | **对应的Guava工具类** |
+| :--- | :--- | :--- |
+| Collection | JDK | [Collections2](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Collections2.html)：不要和java.util.Collections混淆 |
+| List | JDK | [Lists](http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/collect/Lists.html) |
+| Set | JDK | [Sets](http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/collect/Sets.html) |
+| SortedSet | JDK | [Sets](http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/collect/Sets.html) |
+| Map | JDK | [Maps](http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/collect/Maps.html) |
+| SortedMap | JDK | [Maps](http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/collect/Maps.html) |
+| Queue | JDK | [Queues](http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/collect/Queues.html) |
+| [Multiset](http://code.google.com/p/guava-libraries/wiki/NewCollectionTypesExplained#Multiset) | Guava | [Multisets](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Multisets.html) |
+| [Multimap](http://code.google.com/p/guava-libraries/wiki/NewCollectionTypesExplained#Multimap) | Guava | [Multimaps](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Multimaps.html) |
+| [BiMap](http://code.google.com/p/guava-libraries/wiki/NewCollectionTypesExplained#BiMap) | Guava | [Maps](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Maps.html) |
+| [Table](http://code.google.com/p/guava-libraries/wiki/NewCollectionTypesExplained#Table) | Guava | [Tables](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Tables.html) |
 
-
-
-
-
-
-
-
-
-
+在找类似转化、过滤的方法？请看第四章，函数式风格。
 
