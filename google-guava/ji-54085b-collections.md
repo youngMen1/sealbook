@@ -75,10 +75,7 @@ void thingamajig(Collection<String> collection) {
 作为一种探索，ImmutableXXX.copyOf\(ImmutableCollection\)会试图对如下情况避免线性时间拷贝：
 
 * 在常量时间内使用底层数据结构是可能的——例如，ImmutableSet.copyOf\(ImmutableList\)就不能在常量时间内完成。
-* 不会造成内存泄露——例如，你有个很大的不可变集合ImmutableList  
-  &lt;  
-  String  
-  &gt;
+* 不会造成内存泄露——例如，你有个很大的不可变集合ImmutableList&lt;String&gt;
 
   hugeList， ImmutableList.copyOf\(hugeList.subList\(0, 10\)\)就会显式地拷贝，以免不必要地持有hugeList的引用。
 
