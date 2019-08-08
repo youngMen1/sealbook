@@ -70,7 +70,7 @@ _\*位置值和位置范围常用来截取列表、字符串或数组，如List.
 
 ---
 
-## 排序: Guava强大的”流畅风格比较器”
+## 1.4-排序: Guava强大的”流畅风格比较器”
 
 [排序器\[Ordering\]](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html)是Guava流畅风格比较器\[Comparator\]的实现，它可以用来为构建复杂的比较器，以完成集合排序的功能。
 
