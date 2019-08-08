@@ -147,6 +147,13 @@ List<TypeThatsTooLongForItsOwnGood> list = Lists.newArrayList();
 Map<KeyType, LongishValueType> map = Maps.newLinkedHashMap();
 ```
 
+可以肯定的是，JDK7版本的钻石操作符\(&lt;&gt;\)没有这样的麻烦：
+
+```
+List<TypeThatsTooLongForItsOwnGood> list = new ArrayList<>();
+
+```
+
 但Guava的静态工厂方法远不止这么简单。用工厂方法模式，我们可以方便地在初始化时就指定起始元素。
 
 ```
