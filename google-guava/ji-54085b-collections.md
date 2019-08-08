@@ -137,6 +137,7 @@ asList\(\)返回的ImmutableList通常是——并不总是——开销稳定的
 在JDK 7之前，构造新的范型集合时要讨厌地重复声明范型：
 
 ```
+List<TypeThatsTooLongForItsOwnGood> list = new ArrayList<TypeThatsTooLongForItsOwnGood>();
 
 ```
 
@@ -147,4 +148,24 @@ asList\(\)返回的ImmutableList通常是——并不总是——开销稳定的
 ```
 
 但Guava的静态工厂方法远不止这么简单。用工厂方法模式，我们可以方便地在初始化时就指定起始元素。
+
+```
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
