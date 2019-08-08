@@ -124,5 +124,7 @@ Ordering<Foo> ordering = Ordering.natural().nullsFirst().onResultOf(new Function
 Ordering<Foo> ordering = Ordering.natural().nullsFirst().onResultOf(sortKeyFunction)
 ```
 
+**运用排序器：**
 
+Guava的排序器实现有若干操纵集合或元素值的方法
 
