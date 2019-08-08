@@ -190,26 +190,25 @@ Multiset<String> multiset = HashMultiset.create();
 
 | [concat\(Iterable&lt;Iterable&gt;\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Iterables.html#concat%28java.lang.Iterable%29) | 串联多个iterables的懒视图\* | [concat\(Iterable...\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Iterables.html#concat%28java.lang.Iterable...%29) |
 | :--- | :--- | :--- |
-| [frequency\(Iterable, Object\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Iterables.html#frequency%28java.lang.Iterable,%20java.lang.Object%29) | 返回对象在iterable中出现的次数 | 与Collections.frequency \(Collection,   Object\)比较；[Multiset](http://code.google.com/p/guava-libraries/wiki/NewCollectionTypesExplained#Multiset) |
-| [partition\(Iterable, int\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Iterables.html#partition%28java.lang.Iterable,%20int%29) | 把iterable按指定大小分割，得到的子集都不能进行修改操作 | [Lists.partition\(List, int\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Lists.html#partition%28java.util.List,%20int%29)；[paddedPartition\(Iterable, int\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Iterables.html#paddedPartition%28java.lang.Iterable,%20int%29) |
-| [getFirst\(Iterable, T default\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Iterables.html#getFirst%28java.lang.Iterable,%20T%29) | 返回iterable的第一个元素，若iterable为空则返回默认值 | 与Iterable.iterator\(\). next\(\)比较;[FluentIterable.first\(\)](http://docs.guava-libraries.googlecode.com/git-history/release12/javadoc/com/google/common/collect/FluentIterable.html#first%28%29) |
-| [getLast\(Iterable\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Iterables.html#getLast%28java.lang.Iterable%29) | 返回iterable的最后一个元素，若iterable为空则抛出NoSuchElementException | [getLast\(Iterable, T default\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Iterables.html#getLast%28java.lang.Iterable,%20T%29)； [FluentIterable.last\(\)](http://docs.guava-libraries.googlecode.com/git-history/release12/javadoc/com/google/common/collect/FluentIterable.html#last%28%29) |
-| [elementsEqual\(Iterable, Iterable\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Iterables.html#elementsEqual%28java.lang.Iterable,%20java.lang.Iterable%29) | 如果两个iterable中的所有元素相等且顺序一致，返回true | 与List.equals\(Object\)比较 |
+| [frequency\(Iterable, Object\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Iterables.html#frequency%28java.lang.Iterable, java.lang.Object%29) | 返回对象在iterable中出现的次数 | 与Collections.frequency \(Collection,   Object\)比较；[Multiset](http://code.google.com/p/guava-libraries/wiki/NewCollectionTypesExplained#Multiset) |
+| [partition\(Iterable, int\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Iterables.html#partition%28java.lang.Iterable, int%29) | 把iterable按指定大小分割，得到的子集都不能进行修改操作 | [Lists.partition\(List, int\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Lists.html#partition%28java.util.List, int%29)；[paddedPartition\(Iterable, int\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Iterables.html#paddedPartition%28java.lang.Iterable, int%29) |
+| [getFirst\(Iterable, T default\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Iterables.html#getFirst%28java.lang.Iterable, T%29) | 返回iterable的第一个元素，若iterable为空则返回默认值 | 与Iterable.iterator\(\). next\(\)比较;[FluentIterable.first\(\)](http://docs.guava-libraries.googlecode.com/git-history/release12/javadoc/com/google/common/collect/FluentIterable.html#first%28%29) |
+| [getLast\(Iterable\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Iterables.html#getLast%28java.lang.Iterable%29) | 返回iterable的最后一个元素，若iterable为空则抛出NoSuchElementException | [getLast\(Iterable, T default\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Iterables.html#getLast%28java.lang.Iterable, T%29)； [FluentIterable.last\(\)](http://docs.guava-libraries.googlecode.com/git-history/release12/javadoc/com/google/common/collect/FluentIterable.html#last%28%29) |
+| [elementsEqual\(Iterable, Iterable\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Iterables.html#elementsEqual%28java.lang.Iterable, java.lang.Iterable%29) | 如果两个iterable中的所有元素相等且顺序一致，返回true | 与List.equals\(Object\)比较 |
 | [unmodifiableIterable\(Iterable\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Iterables.html#unmodifiableIterable%28java.lang.Iterable%29) | 返回iterable的不可变视图 | 与Collections. unmodifiableCollection\(Collection\)比较 |
-| [limit\(Iterable, int\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Iterables.html#limit%28java.lang.Iterable,%20int%29) | 限制iterable的元素个数限制给定值 | [FluentIterable.limit\(int\)](http://docs.guava-libraries.googlecode.com/git-history/release12/javadoc/com/google/common/collect/FluentIterable.html#limit%28int%29) |
-| [getOnlyElement\(Iterable\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Iterables.html#getOnlyElement%28java.lang.Iterable%29) | 获取iterable中唯一的元素，如果iterable为空或有多个元素，则快速失败 | [getOnlyElement\(Iterable, T default\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Iterables.html#getOnlyElement%28java.lang.Iterable,%20T%29) |
+| [limit\(Iterable, int\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Iterables.html#limit%28java.lang.Iterable, int%29) | 限制iterable的元素个数限制给定值 | [FluentIterable.limit\(int\)](http://docs.guava-libraries.googlecode.com/git-history/release12/javadoc/com/google/common/collect/FluentIterable.html#limit%28int%29) |
+| [getOnlyElement\(Iterable\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Iterables.html#getOnlyElement%28java.lang.Iterable%29) | 获取iterable中唯一的元素，如果iterable为空或有多个元素，则快速失败 | [getOnlyElement\(Iterable, T default\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Iterables.html#getOnlyElement%28java.lang.Iterable, T%29) |
 
 \*译者注：懒视图意味着如果还没访问到某个iterable中的元素，则不会对它进行串联操作。
 
-
-
-
-
-
-
-
-
-
+```
+Iterable<Integer> concatenated = Iterables.concat(
+        Ints.asList(1, 2, 3),
+        Ints.asList(4, 5, 6)); // concatenated包括元素 1, 2, 3, 4, 5, 6
+String lastAdded = Iterables.getLast(myLinkedHashSet);
+String theElement = Iterables.getOnlyElement(thisSetIsDefinitelyASingleton);
+//如果set不是单元素集，就会出错了！
+```
 
 
 
