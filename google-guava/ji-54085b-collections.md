@@ -114,11 +114,7 @@ asList\(\)返回的ImmutableList通常是——并不总是——开销稳定的
 
 ## 2.3-强大的集合工具类：java.util.Collections中未包含的集合工具
 
-任何对JDK集合框架有经验的程序员都熟悉和喜欢
-
-[java.util.Collections](http://docs.oracle.com/javase/7/docs/api/java/util/Collections.html)
-
-包含的工具方法。Guava沿着这些路线提供了更多的工具方法：适用于所有集合的静态方法。这是Guava最流行和成熟的部分之一。
+任何对JDK集合框架有经验的程序员都熟悉和喜欢[java.util.Collections](http://docs.oracle.com/javase/7/docs/api/java/util/Collections.html)包含的工具方法。Guava沿着这些路线提供了更多的工具方法：适用于所有集合的静态方法。这是Guava最流行和成熟的部分之一。
 
 我们用相对直观的方式把工具类与特定集合接口的对应关系归纳如下：
 
