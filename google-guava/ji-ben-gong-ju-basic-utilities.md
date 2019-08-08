@@ -105,7 +105,8 @@ Ordering<String> byLengthOrdering = new Ordering<String>() {
 
 ```
 class Foo {
-    @Nullable String sortedBy;
+    @Nullable 
+    String sortedBy;
     int notSortedBy;
 }
 Ordering<Foo> ordering = Ordering.natural().nullsFirst().onResultOf(new Function<Foo, String>() {
