@@ -138,13 +138,13 @@ asList\(\)返回的ImmutableList通常是——并不总是——开销稳定的
 
 ```
 List<TypeThatsTooLongForItsOwnGood> list = new ArrayList<TypeThatsTooLongForItsOwnGood>();
-
 ```
 
 我想我们都认为这很讨厌。因此Guava提供了能够推断范型的静态工厂方法：
 
 ```
-
+List<TypeThatsTooLongForItsOwnGood> list = Lists.newArrayList();
+Map<KeyType, LongishValueType> map = Maps.newLinkedHashMap();
 ```
 
 但Guava的静态工厂方法远不止这么简单。用工厂方法模式，我们可以方便地在初始化时就指定起始元素。
@@ -152,20 +152,6 @@ List<TypeThatsTooLongForItsOwnGood> list = new ArrayList<TypeThatsTooLongForItsO
 ```
 
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
