@@ -160,5 +160,13 @@ Set<Type> copySet = Sets.newHashSet(elements);
 List<String> theseElements = Lists.newArrayList("alpha", "beta", "gamma");
 ```
 
+此外，通过为工厂方法命名（Effective Java第一条），我们可以提高集合初始化大小的可读性：
+
+```
+List<Type> exactly100 = Lists.newArrayListWithCapacity(100);
+List<Type> approx100 = Lists.newArrayListWithExpectedSize(100);
+Set<Type> approx100Set = Sets.newHashSetWithExpectedSize(100);
+```
+
 
 
