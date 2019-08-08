@@ -2,6 +2,23 @@
 
 ## 2.1-不可变集合
 
+```
+public static final ImmutableSet<String> COLOR_NAMES = ImmutableSet.of(
+        "red",
+        "orange",
+        "yellow",
+        "green",
+        "blue",
+        "purple");
+
+class Foo {
+    Set<Bar> bars;
+    Foo(Set<Bar> bars) {
+        this.bars = ImmutableSet.copyOf(bars); // defensive copy!
+    }
+}
+```
+
 ## 为什么要使用不可变集合
 
 不可变对象有很多优点，包括：
