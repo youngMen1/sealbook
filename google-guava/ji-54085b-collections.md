@@ -151,13 +151,13 @@ Map<KeyType, LongishValueType> map = Maps.newLinkedHashMap();
 
 ```
 List<TypeThatsTooLongForItsOwnGood> list = new ArrayList<>();
-
 ```
 
 但Guava的静态工厂方法远不止这么简单。用工厂方法模式，我们可以方便地在初始化时就指定起始元素。
 
 ```
-
+Set<Type> copySet = Sets.newHashSet(elements);
+List<String> theseElements = Lists.newArrayList("alpha", "beta", "gamma");
 ```
 
 
