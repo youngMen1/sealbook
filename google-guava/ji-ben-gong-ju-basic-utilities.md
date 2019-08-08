@@ -95,5 +95,5 @@ _\*位置值和位置范围常用来截取列表、字符串或数组，如List.
 | [lexicographical\(\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html#lexicographical%28%29) | 基于处理类型T的排序器，返回该类型的可迭代对象Iterable&lt;T&gt;的排序器。 |
 | [onResultOf\(Function\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html#onResultOf%28com.google.common.base.Function%29) | 对集合中元素调用Function，再按返回值用当前排序器排序。 |
 
-
+注：用compound方法包装排序器时，就不应遵循从后往前读的原则。为了避免理解上的混乱，请不要把compound写在一长串链式调用的中间，你可以另起一行，在链中最先或最后调用compound。
 
