@@ -137,6 +137,8 @@ Guava的排序器实现有若干操纵集合或元素值的方法
 | [min\(E, E, E, E...\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html#min%28E, E, E, E...%29) | 返回多个参数中最小的那个。如果有超过一个参数都最小，则返回第一个最小的参数。 | [max\(E, E, E, E...\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html#max%28E, E, E, E...%29) |
 | [min\(Iterable\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html#min%28java.lang.Iterable%29) | 返回迭代器中最小的元素。如果可迭代对象中没有元素，则抛出NoSuchElementException。 | [max\(Iterable\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html#max%28java.lang.Iterable%29),[min\(Iterator\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html#min%28java.util.Iterator%29),[max\(Iterator\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html#max%28java.util.Iterator%29) |
 
+---
+
 ## 1.5-Throwables：简化异常和错误的传播与检查
 
 
