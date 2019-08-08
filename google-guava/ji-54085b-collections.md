@@ -2,6 +2,8 @@
 
 ## 2.1-不可变集合
 
+## 范例
+
 ```
 public static final ImmutableSet<String> COLOR_NAMES = ImmutableSet.of(
         "red",
