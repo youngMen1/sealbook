@@ -168,5 +168,14 @@ List<Type> approx100 = Lists.newArrayListWithExpectedSize(100);
 Set<Type> approx100Set = Sets.newHashSetWithExpectedSize(100);
 ```
 
+确切的静态工厂方法和相应的工具类一起罗列在下面的章节。
+
+注意：Guava引入的新集合类型没有暴露原始构造器，也没有在工具类中提供初始化方法。而是直接在集合类中提供了静态工厂方法，例如：
+
+```
+Multiset<String> multiset = HashMultiset.create();
+
+```
+
 
 
