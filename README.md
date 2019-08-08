@@ -56,3 +56,5 @@ zookeeper:
 
 安装路径:/usr/local/zookeeper/zookeeper-3.4.14
 
+![](/assets/微信图片_20190625154318.jpg)
+
