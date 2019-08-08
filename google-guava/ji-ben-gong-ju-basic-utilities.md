@@ -128,3 +128,18 @@ Ordering<Foo> ordering = Ordering.natural().nullsFirst().onResultOf(sortKeyFunct
 
 Guava的排序器实现有若干操纵集合或元素值的方法
 
+| **方法** |
+| :--- |
+
+
+|  | **描述** | **另请参见** |
+| :--- | :--- | :--- |
+| [greatestOf\(Iterable iterable, int k\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html#greatestOf%28java.lang.Iterable,%20int%29) | 获取可迭代对象中最大的k个元素。 | [leastOf](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html#leastOf%28java.lang.Iterable,%20int%29) |
+| [isOrdered\(Iterable\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html#isOrdered%28java.lang.Iterable%29) | 判断可迭代对象是否已按排序器排序：允许有排序值相等的元素。 | [isStrictlyOrdered](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html#isStrictlyOrdered%28java.lang.Iterable%29) |
+| [sortedCopy\(Iterable\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html#sortedCopy%28java.lang.Iterable%29) | 判断可迭代对象是否已严格按排序器排序：不允许排序值相等的元素。 | [immutableSortedCopy](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html#immutableSortedCopy%28java.lang.Iterable%29) |
+| [min\(E, E\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html#min%28E,%20E%29) | 返回两个参数中最小的那个。如果相等，则返回第一个参数。 | [max\(E, E\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html#max%28E,%20E%29) |
+| [min\(E, E, E, E...\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html#min%28E,%20E,%20E,%20E...%29) | 返回多个参数中最小的那个。如果有超过一个参数都最小，则返回第一个最小的参数。 | [max\(E, E, E, E...\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html#max%28E,%20E,%20E,%20E...%29) |
+| [min\(Iterable\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html#min%28java.lang.Iterable%29) | 返回迭代器中最小的元素。如果可迭代对象中没有元素，则抛出NoSuchElementException。 | [max\(Iterable\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html#max%28java.lang.Iterable%29),[min\(Iterator\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html#min%28java.util.Iterator%29),[max\(Iterator\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html#max%28java.util.Iterator%29) |
+
+
+
