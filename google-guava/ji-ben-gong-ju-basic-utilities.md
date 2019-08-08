@@ -86,3 +86,28 @@ _\*位置值和位置范围常用来截取列表、字符串或数组，如List.
 
 **链式调用方法**：通过链式调用，可以由给定的排序器衍生出其它排序器
 
+| **方法** |
+| :--- |
+
+
+|  | **描述** |
+| :--- | :--- |
+| [reverse\(\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html#reverse%28%29) | 获取语义相反的排序器 |
+| [nullsFirst\(\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html#nullsFirst%28%29) | 使用当前排序器，但额外把null值排到最前面。 |
+| [nullsLast\(\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html#nullsLast%28%29) | 使用当前排序器，但额外把null值排到最后面。 |
+| [compound\(Comparator\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html#compound%28java.util.Comparator%29) | 合成另一个比较器，以处理当前排序器中的相等情况。 |
+| [lexicographical\(\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html#lexicographical%28%29) | 基于处理类型T的排序器，返回该类型的可迭代对象Iterable&lt;T&gt;的排序器。 |
+| [onResultOf\(Function\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Ordering.html#onResultOf%28com.google.common.base.Function%29) | 对集合中元素调用Function，再按返回值用当前排序器排序。 |
+
+
+
+
+
+
+
+
+
+
+
+
+
