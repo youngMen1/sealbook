@@ -99,3 +99,10 @@ _\*位置值和位置范围常用来截取列表、字符串或数组，如List.
 
 超过一定长度的链式调用，也可能会带来阅读和理解上的难度。我们建议按下面的代码这样，在一个链中最多使用三个方法。此外，你也可以把Function分离成中间对象，让链式调用更简洁紧凑
 
+```
+Ordering<Foo> ordering = Ordering.natural().nullsFirst().onResultOf(sortKeyFunction)
+
+```
+
+
+
