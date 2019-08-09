@@ -136,8 +136,9 @@ try {
 
 ```
 bytes = string.getBytes(Charsets.UTF_8);
-
 ```
 
+[Charsets](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Charsets.html)
 
+针对所有Java平台都要保证支持的六种字符集提供了常量引用。尝试使用这些常量，而不是通过名称获取字符集实例。
 
