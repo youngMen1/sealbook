@@ -154,13 +154,9 @@ CaseFormat被用来方便地在各种ASCII大小写规范间转换字符串—�
 
 CaseFormat的用法很直接：
 
-
-
-
-
-
-
-
+```
+CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, "CONSTANT_NAME")); // returns "constantName"
+```
 
 
 
