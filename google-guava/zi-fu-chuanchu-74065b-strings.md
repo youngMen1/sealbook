@@ -29,5 +29,12 @@ JDK内建的字符串拆分工具有一些古怪的特性。比如，String.spli
 
 正确答案是5：””, “a”, “”, “b”。只有尾部的空字符串被忽略了。[Splitter](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Splitter.html)使用令人放心的、直白的流畅API模式对这些混乱的特性作了完全的掌控。
 
+```
+Splitter.on(',')
+        .trimResults()
+        .omitEmptyStrings()
+        .split("foo,bar,,   qux");
+```
+
 
 
