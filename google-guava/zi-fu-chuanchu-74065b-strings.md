@@ -19,5 +19,15 @@ Joiner.on(",").join(Arrays.asList(1, 5, 7)); // returns "1,5,7"
 
 ## 拆分器\[Splitter\]
 
+JDK内建的字符串拆分工具有一些古怪的特性。比如，String.split悄悄丢弃了尾部的分隔符。 问题：”,a,,b,”.split\(“,”\)返回？
+
+1. “”, “a”, “”, “b”, “”
+2. null, “a”, null, “b”, null
+3. “a”, null, “b”
+4. “a”, “b”
+5. 以上都不对
+
+正确答案是5：””, “a”, “”, “b”。只有尾部的空字符串被忽略了。[Splitter](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Splitter.html)使用令人放心的、直白的流畅API模式对这些混乱的特性作了完全的掌控。
+
 
 
