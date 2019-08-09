@@ -44,9 +44,18 @@ Splitter.on(',')
 | :--- | :--- | :--- |
 | [Splitter.on\(char\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Splitter.html#on%28char%29) | 按单个字符拆分 | Splitter.on\(‘;’\) |
 | [Splitter.on\(CharMatcher\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Splitter.html#on%28com.google.common.base.CharMatcher%29) | 按字符匹配器拆分 | Splitter.on\(CharMatcher.BREAKING\_WHITESPACE\) |
-| [Splitter.on\(String\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Splitter.html#on%28java.lang.String%29) | 按字符串拆分 | Splitter.on\(“,   “\) |
+| [Splitter.on\(String\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Splitter.html#on%28java.lang.String%29) | 按字符串拆分 | Splitter.on\(“,   “\) |
 | [Splitter.on\(Pattern\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Splitter.html#on%28java.util.regex.Pattern%29)[Splitter.onPattern\(String\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Splitter.html#onPattern%28java.lang.String%29) | 按正则表达式拆分 | Splitter.onPattern\(“\r?\n”\) |
 | [Splitter.fixedLength\(int\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Splitter.html#fixedLength%28int%29) | 按固定长度拆分；最后一段可能比给定长度短，但不会为空。 | Splitter.fixedLength\(3\) |
 
+### 拆分器修饰符
 
+| **方法** | **描述** |
+| :--- | :--- |
+| [omitEmptyStrings\(\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Splitter.html#omitEmptyStrings%28%29) | 从结果中自动忽略空字符串 |
+| [trimResults\(\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Splitter.html#trimResults%28%29) | 移除结果字符串的前导空白和尾部空白 |
+| [trimResults\(CharMatcher\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Splitter.html#trimResults%28com.google.common.base.CharMatcher%29) | 给定匹配器，移除结果字符串的前导匹配字符和尾部匹配字符 |
+| [limit\(int\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Splitter.html#limit%28int%29) | 限制拆分出的字符串数量 |
+
+如果你想要拆分器返回List，只要使用Lists.newArrayList\(splitter.split\(string\)\)或类似方法。警告：splitter实例总是不可变的。用来定义splitter目标语义的配置方法总会返回一个新的splitter实例。这使得splitter实例都是线程安全的，你可以将其定义为static final常量。
 
