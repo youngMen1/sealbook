@@ -140,3 +140,17 @@ bytes = string.getBytes(Charsets.UTF_8);
 
 [Charsets](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Charsets.html)针对所有Java平台都要保证支持的六种字符集提供了常量引用。尝试使用这些常量，而不是通过名称获取字符集实例。
 
+## 大小写格式\[CaseFormat\]
+
+CaseFormat被用来方便地在各种ASCII大小写规范间转换字符串——比如，编程语言的命名规范。CaseFormat支持的格式如下：
+
+| **格式** | **范例** |
+| :--- | :--- |
+| [LOWER\_CAMEL](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CaseFormat.html#LOWER_CAMEL) | lowerCamel |
+| [LOWER\_HYPHEN](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CaseFormat.html#LOWER_HYPHEN) | lower-hyphen |
+| [LOWER\_UNDERSCORE](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CaseFormat.html#LOWER_UNDERSCORE) | lower\_underscore |
+| [UPPER\_CAMEL](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CaseFormat.html#UPPER_CAMEL) | UpperCamel |
+| [UPPER\_UNDERSCORE](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CaseFormat.html#UPPER_UNDERSCORE) | UPPER\_UNDERSCORE |
+
+
+
