@@ -82,5 +82,5 @@ String lowerAndDigit = CharMatcher.JAVA_DIGIT.or(CharMatcher.JAVA_LOWER_CASE).re
 // 只保留数字和小写字母
 ```
 
-
+注：CharMatcher只处理char类型代表的字符；它不能理解0x10000到0x10FFFF的Unicode 增补字符。这些逻辑字符以代理对\[surrogate pairs\]的形式编码进字符串，而CharMatcher只能将这种逻辑字符看待成两个独立的字符。
 
