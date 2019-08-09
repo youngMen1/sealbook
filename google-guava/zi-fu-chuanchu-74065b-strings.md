@@ -59,3 +59,16 @@ Splitter.on(',')
 
 如果你想要拆分器返回List，只要使用Lists.newArrayList\(splitter.split\(string\)\)或类似方法。警告：splitter实例总是不可变的。用来定义splitter目标语义的配置方法总会返回一个新的splitter实例。这使得splitter实例都是线程安全的，你可以将其定义为static final常量。
 
+## 字符匹配器\[CharMatcher\]
+
+在以前的Guava版本中，StringUtil类疯狂地膨胀，其拥有很多处理字符串的方法：allAscii、collapse、collapseControlChars、collapseWhitespace、indexOfChars、lastIndexNotOf、numSharedChars、removeChars、removeCrLf、replaceChars、retainAllChars、strip、stripAndCollapse、stripNonDigits。 所有这些方法指向两个概念上的问题：
+
+1. 怎么才算匹配字符？
+2. 如何处理这些匹配字符？
+
+为了收拾这个泥潭，我们开发了CharMatcher。
+
+直观上，你可以认为一个CharMatcher实例代表着某一类字符，如数字或空白字符。事实上来说，CharMatcher实例就是对字符的布尔判断——CharMatcher确实也实现了[Predicate&lt;Character&gt;](http://code.google.com/p/guava-libraries/wiki/FunctionalExplained#Predicate)——但类似”所有空白字符”或”所有小写字母”的需求太普遍了，Guava因此创建了这一API。
+
+然而使用CharMatcher的好处更在于它提供了一系列方法，让你对字符作特定类型的操作：修剪\[trim\]、折叠\[collapse\]、移除\[remove\]、保留\[retain\]等等。CharMatcher实例首先代表概念1：怎么才算匹配字符？然后它还提供了很多操作概念2：如何处理这些匹配字符？这样的设计使得API复杂度的线性增加可以带来灵活性和功能两方面的增长。
+
