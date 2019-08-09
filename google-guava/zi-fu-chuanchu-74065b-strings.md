@@ -123,3 +123,14 @@ CharMatcher提供了[多种多样的方法](http://docs.guava-libraries.googleco
 
 不要这样做字符集处理：
 
+```
+try {
+    bytes = string.getBytes("UTF-8");
+} catch (UnsupportedEncodingException e) {
+    // how can this possibly happen?
+    throw new AssertionError(e);
+}
+```
+
+
+
