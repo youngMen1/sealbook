@@ -110,12 +110,16 @@ CharMatcher提供了[多种多样的方法](http://docs.guava-libraries.googleco
 
 | **方法** | **描述** |
 | :--- | :--- |
-| [collapseFrom\(CharSequence,   char\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#collapseFrom%28java.lang.CharSequence,%20char%29) | 把每组连续的匹配字符替换为特定字符。如WHITESPACE.collapseFrom\(string, ‘ ‘\)把字符串中的连续空白字符替换为单个空格。 |
+| [collapseFrom\(CharSequence,   char\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#collapseFrom%28java.lang.CharSequence, char%29) | 把每组连续的匹配字符替换为特定字符。如WHITESPACE.collapseFrom\(string, ‘ ‘\)把字符串中的连续空白字符替换为单个空格。 |
 | [matchesAllOf\(CharSequence\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#matchesAllOf%28java.lang.CharSequence%29) | 测试是否字符序列中的所有字符都匹配。 |
 | [removeFrom\(CharSequence\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#removeFrom%28java.lang.CharSequence%29) | 从字符序列中移除所有匹配字符。 |
 | [retainFrom\(CharSequence\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#retainFrom%28java.lang.CharSequence%29) | 在字符序列中保留匹配字符，移除其他字符。 |
 | [trimFrom\(CharSequence\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#trimFrom%28java.lang.CharSequence%29) | 移除字符序列的前导匹配字符和尾部匹配字符。 |
-| [replaceFrom\(CharSequence,   CharSequence\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#replaceFrom%28java.lang.CharSequence,%20java.lang.CharSequence%29) | 用特定字符序列替代匹配字符。 |
+| [replaceFrom\(CharSequence,   CharSequence\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#replaceFrom%28java.lang.CharSequence, java.lang.CharSequence%29) | 用特定字符序列替代匹配字符。 |
 
 所有这些方法返回String，除了matchesAllOf返回的是boolean。
+
+## 字符集\[Charsets\]
+
+不要这样做字符集处理：
 
