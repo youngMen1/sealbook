@@ -134,3 +134,10 @@ try {
 
 试试这样写：
 
+```
+bytes = string.getBytes(Charsets.UTF_8);
+
+```
+
+
+
