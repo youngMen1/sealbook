@@ -11,5 +11,9 @@ return joiner.join("Harry", null, "Ron", "Hermione");
 
 上述代码返回”Harry; Ron; Hermione”。另外，useForNull\(String\)方法可以给定某个字符串来替换null，而不像skipNulls\(\)方法是直接忽略null。 Joiner也可以用来连接对象类型，在这种情况下，它会把对象的toString\(\)值连接起来。
 
+```
+Joiner.on(",").join(Arrays.asList(1, 5, 7)); // returns "1,5,7"
+```
+
 警告：joiner实例总是不可变的。用来定义joiner目标语义的配置方法总会返回一个新的joiner实例。这使得joiner实例都是线程安全的，你可以将其定义为static final常量。
 
