@@ -158,5 +158,5 @@ CaseFormat的用法很直接：
 CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, "CONSTANT_NAME")); // returns "constantName"
 ```
 
-
+我们CaseFormat在某些时候尤其有用，比如编写代码生成器的时候。
 
