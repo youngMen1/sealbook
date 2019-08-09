@@ -36,5 +36,13 @@ Splitter.on(',')
         .split("foo,bar,,   qux");
 ```
 
+上述代码返回Iterable
 
+&lt;
+
+String
+
+&gt;
+
+，其中包含”foo”、”bar”和”qux”。Splitter可以被设置为按照任何模式、字符、字符串或字符匹配器拆分。
 
