@@ -152,7 +152,7 @@ CaseFormat被用来方便地在各种ASCII大小写规范间转换字符串—�
 | [UPPER\_CAMEL](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CaseFormat.html#UPPER_CAMEL) | UpperCamel |
 | [UPPER\_UNDERSCORE](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CaseFormat.html#UPPER_UNDERSCORE) | UPPER\_UNDERSCORE |
 
-CaseFormat的用法很直接：
+CaseFormat的用法很直接:
 
 ```
 CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, "CONSTANT_NAME")); // returns "constantName"
