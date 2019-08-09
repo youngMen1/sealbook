@@ -17,3 +17,7 @@ Joiner.on(",").join(Arrays.asList(1, 5, 7)); // returns "1,5,7"
 
 警告：joiner实例总是不可变的。用来定义joiner目标语义的配置方法总会返回一个新的joiner实例。这使得joiner实例都是线程安全的，你可以将其定义为static final常量。
 
+## 拆分器\[Splitter\]
+
+
+
