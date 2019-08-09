@@ -100,7 +100,22 @@ CharMatcher中的常量可以满足大多数字符匹配需求：
 | :--- | :--- |
 | [anyOf\(CharSequence\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#anyOf%28java.lang.CharSequence%29) | 枚举匹配字符。如CharMatcher.anyOf\(“aeiou”\)匹配小写英语元音 |
 | [is\(char\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#is%28char%29) | 给定单一字符匹配。 |
-| [inRange\(char, char\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#inRange%28char,%20char%29) | 给定字符范围匹配，如CharMatcher.inRange\(‘a’, ‘z’\) |
+| [inRange\(char, char\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#inRange%28char, char%29) | 给定字符范围匹配，如CharMatcher.inRange\(‘a’, ‘z’\) |
 
 此外，CharMatcher还有[negate\(\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#negate%28%29)、[and\(CharMatcher\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#and%28com.google.common.base.CharMatcher%29)和[or\(CharMatcher\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#or%28com.google.common.base.CharMatcher%29)方法。
+
+### 使用字符匹配器
+
+CharMatcher提供了[多种多样的方法](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#method_summary)操作CharSequence中的特定字符。其中最常用的罗列如下：
+
+| **方法** | **描述** |
+| :--- | :--- |
+| [collapseFrom\(CharSequence,   char\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#collapseFrom%28java.lang.CharSequence,%20char%29) | 把每组连续的匹配字符替换为特定字符。如WHITESPACE.collapseFrom\(string, ‘ ‘\)把字符串中的连续空白字符替换为单个空格。 |
+| [matchesAllOf\(CharSequence\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#matchesAllOf%28java.lang.CharSequence%29) | 测试是否字符序列中的所有字符都匹配。 |
+| [removeFrom\(CharSequence\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#removeFrom%28java.lang.CharSequence%29) | 从字符序列中移除所有匹配字符。 |
+| [retainFrom\(CharSequence\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#retainFrom%28java.lang.CharSequence%29) | 在字符序列中保留匹配字符，移除其他字符。 |
+| [trimFrom\(CharSequence\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#trimFrom%28java.lang.CharSequence%29) | 移除字符序列的前导匹配字符和尾部匹配字符。 |
+| [replaceFrom\(CharSequence,   CharSequence\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#replaceFrom%28java.lang.CharSequence,%20java.lang.CharSequence%29) | 用特定字符序列替代匹配字符。 |
+
+所有这些方法返回String，除了matchesAllOf返回的是boolean。
 
