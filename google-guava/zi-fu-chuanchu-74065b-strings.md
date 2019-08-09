@@ -92,7 +92,15 @@ CharMatcher中的常量可以满足大多数字符匹配需求：
 | :--- | :--- | :--- | :--- |
 | [INVISIBLE](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#INVISIBLE) | [DIGIT](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#DIGIT) | [JAVA\_LETTER](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#JAVA_LETTER) | [JAVA\_DIGIT](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#JAVA_DIGIT) |
 | [JAVA\_LETTER\_OR\_DIGIT](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#JAVA_LETTER_OR_DIGIT) | [JAVA\_ISO\_CONTROL](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#JAVA_ISO_CONTROL) | [JAVA\_LOWER\_CASE](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#JAVA_LOWER_CASE) | [JAVA\_UPPER\_CASE](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#JAVA_UPPER_CASE) |
-| [ASCII](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#ASCII) | [SINGLE\_WIDTH](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#SINGLE_WIDTH) |  |   |
+| [ASCII](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#ASCII) | [SINGLE\_WIDTH](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#SINGLE_WIDTH) |  |  |
 
+其他获取字符匹配器的常见方法包括：
 
+| **方法** | **描述** |
+| :--- | :--- |
+| [anyOf\(CharSequence\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#anyOf%28java.lang.CharSequence%29) | 枚举匹配字符。如CharMatcher.anyOf\(“aeiou”\)匹配小写英语元音 |
+| [is\(char\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#is%28char%29) | 给定单一字符匹配。 |
+| [inRange\(char, char\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#inRange%28char,%20char%29) | 给定字符范围匹配，如CharMatcher.inRange\(‘a’, ‘z’\) |
+
+此外，CharMatcher还有[negate\(\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#negate%28%29)、[and\(CharMatcher\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#and%28com.google.common.base.CharMatcher%29)和[or\(CharMatcher\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/CharMatcher.html#or%28com.google.common.base.CharMatcher%29)方法。
 
