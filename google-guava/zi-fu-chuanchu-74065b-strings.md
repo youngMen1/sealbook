@@ -72,3 +72,15 @@ Splitter.on(',')
 
 然而使用CharMatcher的好处更在于它提供了一系列方法，让你对字符作特定类型的操作：修剪\[trim\]、折叠\[collapse\]、移除\[remove\]、保留\[retain\]等等。CharMatcher实例首先代表概念1：怎么才算匹配字符？然后它还提供了很多操作概念2：如何处理这些匹配字符？这样的设计使得API复杂度的线性增加可以带来灵活性和功能两方面的增长。
 
+```
+String noControl = CharMatcher.JAVA_ISO_CONTROL.removeFrom(string); //移除control字符
+String theDigits = CharMatcher.DIGIT.retainFrom(string); //只保留数字字符
+String spaced = CharMatcher.WHITESPACE.trimAndCollapseFrom(string, ' ');
+//去除两端的空格，并把中间的连续空格替换成单个空格
+String noDigits = CharMatcher.JAVA_DIGIT.replaceFrom(string, "*"); //用*号替换所有数字
+String lowerAndDigit = CharMatcher.JAVA_DIGIT.or(CharMatcher.JAVA_LOWER_CASE).retainFrom(string);
+// 只保留数字和小写字母
+```
+
+
+
