@@ -36,13 +36,17 @@ Splitter.on(',')
         .split("foo,bar,,   qux");
 ```
 
-上述代码返回Iterable
+上述代码返回Iterable&lt;String&gt;，其中包含”foo”、”bar”和”qux”。Splitter可以被设置为按照任何模式、字符、字符串或字符匹配器拆分。
 
-&lt;
+### 拆分器工厂
 
-String
+| **方法** | **描述** | **范例** |
+| :--- | :--- | :--- |
+| [Splitter.on\(char\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Splitter.html#on%28char%29) | 按单个字符拆分 | Splitter.on\(‘;’\) |
+| [Splitter.on\(CharMatcher\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Splitter.html#on%28com.google.common.base.CharMatcher%29) | 按字符匹配器拆分 | Splitter.on\(CharMatcher.BREAKING\_WHITESPACE\) |
+| [Splitter.on\(String\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Splitter.html#on%28java.lang.String%29) | 按字符串拆分 | Splitter.on\(“,   “\) |
+| [Splitter.on\(Pattern\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Splitter.html#on%28java.util.regex.Pattern%29)[Splitter.onPattern\(String\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Splitter.html#onPattern%28java.lang.String%29) | 按正则表达式拆分 | Splitter.onPattern\(“\r?\n”\) |
+| [Splitter.fixedLength\(int\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Splitter.html#fixedLength%28int%29) | 按固定长度拆分；最后一段可能比给定长度短，但不会为空。 | Splitter.fixedLength\(3\) |
 
-&gt;
 
-，其中包含”foo”、”bar”和”qux”。Splitter可以被设置为按照任何模式、字符、字符串或字符匹配器拆分。
 
