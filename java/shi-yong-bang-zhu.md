@@ -26,14 +26,10 @@ alt+F8          debug时选中查看值
 
 ```
 <option name="configurationTypes">
-
-      <set>
-
-        <option value="SpringBootApplicationConfigurationType" />
-
-      </set>
-
-    </option>
+<set>
+<option value="SpringBootApplicationConfigurationType" />
+</set>
+</option>
 ```
 
 
