@@ -2,9 +2,9 @@
 
 [https://cn.bing.com/](https://cn.bing.com/)
 
-#### https://www.gitlogs.com/
+#### [https://www.gitlogs.com/](https://www.gitlogs.com/)
 
-#### 
+#### https://www.jiumodiary.com/
 
 #### 表情
 
