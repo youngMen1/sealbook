@@ -110,7 +110,13 @@ vi / vim是Linux上最常用的文本编辑器而且功能非常强大。只有�
 
 ## 日记:
 
+今天，无意发现一个很简单的办法，可以直接让jps显示出真实的jar包名称，简单到哭，说出来都没人信。
 
+java -jarjar包的完整路径
+
+比如： java -jar/home/weblogic/test/hello.jar 
+
+---
 
 ## 参考:
 
