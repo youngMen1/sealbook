@@ -38,9 +38,9 @@ nohup java -jar inf-eureka-1.0.0.jar --spring.profiles.active=native2
 
 2 执行重新启动的命令 rabbitmq-server restart
 
-# Spring Cloud Alibaba:
+#### Spring Cloud Alibaba:
 
-# Nacos作为服务注册发现组件
+Nacos作为服务注册发现组件
 
 ---
 
