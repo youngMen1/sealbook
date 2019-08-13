@@ -6,7 +6,7 @@
   * [错误](java/cuo-wu.md)
   * [插件](java/cha-jian.md)
     * [lomBok插件](java/cha-jian/lombokcha-jian.md)
-  * 工具
+  * [工具](java/gong-ju.md)
 * [springcloud](springcloud.md)
   * [eureka](springcloud/eureka.md)
   * [健康检查](springcloud/jian-kang-jian-cha.md)
