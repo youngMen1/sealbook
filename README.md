@@ -20,6 +20,8 @@ mysql
 
 xxl-job:[http://211.159.189.XX:8080/xxl-job-admin/](http://211.159.189.77:8080/xxl-job-admin/)
 
+安装了docker
+
 ---
 
 ## 134.175.12.XXX: {#13417512243}
