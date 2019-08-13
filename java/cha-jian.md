@@ -16,7 +16,7 @@
 | JUnitGenerator V2.​0 | 单元测试习惯的开发者，代码质量肯定是很好的 |
 | VisualVM Launcher | 本地开发进行压力测试，性能测试之类的监控器 |
 | MyBatisCodeHelperPro | 编辑XML文件时自动补全 |
-| Docker插件 | docker插件 |
+| Docke | docker插件 |
 
 ## 参考:
 
