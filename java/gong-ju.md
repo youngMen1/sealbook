@@ -2,6 +2,8 @@
 
 [https://cn.bing.com/](https://cn.bing.com/)
 
+
+
 #### [https://www.gitlogs.com/](https://www.gitlogs.com/)
 
 #### [https://www.jiumodiary.com/](https://www.jiumodiary.com/)
@@ -20,7 +22,7 @@
 
 [http://mahua.jser.me/](http://mahua.jser.me/)
 
-https://duckduckgo.com/
+[https://duckduckgo.com/](https://duckduckgo.com/)
 
 #### 表情
 
