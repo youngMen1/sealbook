@@ -396,7 +396,15 @@ row.setWins("15");
 * 每修改一个元素，编译并测试。
 * 数组的所有元素都在对应的class内有了相应值域之后，删除该数组。
 
+---
+
 ## 复制“被监控数据”
+
+\(译注：本节大量保留domain，presentation，event，getter/setter，observed等字眼。所谓presentation class，用以处理「数据表现形式」；所谓domain class，用以处理业务逻辑。）
+
+你有一些domain class置身于GUI控件中，而domain method需要访问之。
+
+将该笔数据拷贝到一个domain object中。建立一个Observer模式，用以对domain object和GUI object内的重复数据进行同步控制（sync.）。
 
 ## 将单向关联改为双向关联
 
