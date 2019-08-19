@@ -366,6 +366,12 @@ Currency class维护一个实体链表（list of instances）；我不能直接�
 
 以对象替换数组。对于数组中的每个元素，以一个值域表示之。
 
+```
+String[] row = new String[3];
+row [0] = "Liverpool";
+row [1] = "15";
+```
+
 ## 复制“被监控数据”
 
 ## 将单向关联改为双向关联
