@@ -358,6 +358,8 @@ Currency usd = Currency.get("USD");
 
 Currency class维护一个实体链表（list of instances）；我不能直接使用构造函数创建实体，因为Currency构造函数是private。
 
+---
+
 ## 以对象取代数组
 
 ## 复制“被监控数据”
