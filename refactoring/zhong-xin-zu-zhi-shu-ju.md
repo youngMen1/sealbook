@@ -418,6 +418,10 @@ row.setWins("15");
 
 ## 将单向关联改为双向关联
 
+两个classes都需要使用对方特性，但其间只有一条单向连接（one-way link）。
+
+添加一个反向指针，并使修改函数（modifiers）能够同时更新两条连接。（译注：这里的指针等同于句柄（handle），修改函数（modifier）指的是改变双方关系者）![](http://wangvsa.github.io/refactoring-cheat-sheet/images/08fig06.gif)
+
 ## 将双向关联改为单向关联
 
 ## 以字面常量取代魔法数
