@@ -372,6 +372,14 @@ row [0] = "Liverpool";
 row [1] = "15";
 ```
 
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
+
+```
+Performance row = new Performance();
+row.setName("Liverpool");
+row.setWins("15");
+```
+
 ## 复制“被监控数据”
 
 ## 将单向关联改为双向关联
