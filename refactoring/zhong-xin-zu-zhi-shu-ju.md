@@ -585,3 +585,5 @@ _以一个subclass 取代这个type code。_![](http://wangvsa.github.io/refacto
 
 
 
+
+
