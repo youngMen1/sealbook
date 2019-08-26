@@ -581,9 +581,30 @@ _以一个subclass 取代这个type code。_![](http://wangvsa.github.io/refacto
 
 ## 以state/Strategy取代类型码
 
+你有一个type code ，它会影响class 的行为，但你无法使用subclassing。
+
+_以state object （专门用来描述状态的对象）取代type code 。_![](http://wangvsa.github.io/refactoring-cheat-sheet/images/08fig11.gif)
+
+**动机（Motivation）**
+
+本项重构和[以子类取代型别码](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#_14)很相似，但如果「type code 的值在对象生命期中发生变化」或「其他原因使得宿主类不能被subclassing 」，你也可以使用本重构。本重构使用State 模式或Stategy 模式\[Gang of Four\]。
+
+State 模式和Stategy 模式非常相似，因此无论你选择其中哪一个，重构过程都是相同的。「选择哪一个模式」并非问题关键所在，你只需要选择更适合特定情境的模式就行了。如果你打算在完成本项重构之后再以[以多态取代条件式](http://wangvsa.github.io/refactoring-cheat-sheet/simplifying-conditional-expressions/#_6)简化一个算法，那么选择Stategy 模式比较合适；如果你打算搬移与状态相关（state-specific）的数据，而且你把新建对象视为一种变迁状态 （changing state），就应该选择使用State 模式。
+
+**作法（Mechanics）**
+
+* 使用Self-encapsulate Field 将type code 自我封装起来。
+* 新建一个class ，根据type code 的用途为它命名。这就是一个state object。
+* 为这个新建的class 添加subclass ，每个subclass 对应一种type code 。
+  * 比起逐一添加，一次性加入所有必要的subclass 可能更简单些。
+* 在superclass 中建立一个抽象的查询函数（abstract query ），用以返回type code 。 在每个subclass 中覆写该函数，返回确切的type code 。
+* 编译。
+* 在source class 中建立一个值域，用以保存新建的state object。
+* 调整source class 中负责查询type code 的函数，将查询动作转发给state object 。
+* 调整source class 中「为type code 设值」的函数，将一个恰当的state object subclass 赋值给「保存state object」的那个值域。
+* 编译，测试。
+
 ## 以字段取代子类
-
-
 
 
 
