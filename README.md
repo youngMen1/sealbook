@@ -48,6 +48,8 @@ Nacos作为服务注册发现组件：
 
 ## 47.107.152.XX: {#4710715XXX}
 
+nohup java -jar inf-eureka-1.0.0.jar --spring.profiles.active=native1
+
 ### 服务: {#服务-3}
 
 nginx 封师傅官网:taocicom
