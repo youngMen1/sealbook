@@ -490,7 +490,24 @@ class常常会使用群集（collection，可能是array、list、set或vector�
     修改原取值函数的名称；再建立一个新取值函数用以返回枚举；最后再修改 所有调用者，使其调用新取值函数。
 * 编译，测试。
 
+---
+
 ## 以数据类取代记录
+
+你需要面对传统编程环境中的record structure （记录结构）。
+
+_为该record （记录）创建一个「咂」数据对象（dumb data object）。_
+
+**动机（Motivation）**
+
+Record structures （记录型结构）是许多编程环境的共同性质。有一些理由使它们被带进面向对象程序之中：你可能面对的是一个老旧程序（ legacy program ），也可能需要通过一个传统API 来与structured record 交流，或是处理从数据库读出的 records。这些时候你就有必要创建一个interfacing class ，用以处理这些外来数据。最简单的作法就是先建立一个看起来类似外部记录（external record）的class ，以便日后将某些值域和函数搬移到这个class 之中。一个不太常见但非常令人注目的情况是：数组中的每个位置上的元素都有特定含义，这种情况下你应该使用[以对象取代数组](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#_8)。
+
+**作法（Mechanics）**
+
+* 新建一个class ，表示这个record 。
+* 对于record 中的每一笔数据项，在新建的class 中建立对应的一个private 值域， 并提供相应的取值丨设值函数（getter/setter）。
+
+现在，你拥有了一个「哑」数据对象（dumb data object）。这个对象现在还没有任何有用行为（函数〕，但是更进一步的重构会解决这个问题。
 
 ## 以类取代类型码
 
