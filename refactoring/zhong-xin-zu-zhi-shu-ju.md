@@ -551,6 +551,32 @@ _以一个新的class 替换该数值型别码（type code）。_
 
 ## 以子类取代类型码
 
+你有一个不可变的（immutable）type code ，它会影响class 的行为。
+
+_以一个subclass 取代这个type code。_![](http://wangvsa.github.io/refactoring-cheat-sheet/images/08fig10.gif)
+
+**动机（Motivation）**
+
+如果你面对的type code 不会影响宿主类的行为，你可以使用[以类取代型别码](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#_13)来处理它们。但如果type code 会影响宿主类的行为，那么最好的办法就是借助多态（polymorphism ）来处理变化行为。
+
+一般来说，这种情况的标志就是像switch 这样的条件式。这种条件式可能有两种表现形式：switch 语句或者if-then-else 结构。不论哪种形式，它们都是检查type code 值，并根据不同的值执行不同的动作。这种情况下你应该以[以多态取代条件式](http://wangvsa.github.io/refactoring-cheat-sheet/simplifying-conditional-expressions/#_6)进行重构。但为了能够顺利进行那样的重构，首先应该将type code 替换为可拥有多态行为的继承体系。这样的一个继承体系应该以type code 的宿主类为base class，并针对每一种type code 各建立一个subclass 。
+
+为建立这样的继承体系，最简单的办法就是[以子类取代型别码](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#_14)：以type code 的宿主类为base class，针对每种type code 建立相应的subclass 。 但是以下两种情况你不能那么做：\(1\) type code 值在对象创建之后发生了改变；\(2\) 由于某些原因，type code 宿主类已经有了subclass 。如果你恰好面临这两种情况之一，就需要使用[以State/Strategy取代型别码](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#statestrategy)。
+
+[以子类取代型别码](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#_14)的主要作用其实是搭建一个舞台，让[以多态取代条件式](http://wangvsa.github.io/refactoring-cheat-sheet/simplifying-conditional-expressions/#_6)得以一展身手。如果宿主类中并没有出现条件式，那么[以类取代型别码](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#_13)更合适，风险也比较低。使用[以子类取代型别码](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#_14)的另一个原因就是，宿主类中出现 了「只与具备特定type code 之对象相关」的特性。完成本项重构之后，你可以使用[函数下移](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_10)和[值域下移](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_9)将这些特性推到合适的subclass去，以彰显它们「只与特定情况相关」这一事实。
+
+[以子类取代型别码](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#_14)的好处在于：它把「对不同行为的了解」从class 用户那儿转移到了class 自身。如果需要再加入新的行为变化，我只需添加subclass 一个就行了。如果没有多态机制，我就必须找到所有条件式，并逐一修改它们。因此，如果未来还有可能加入新行为，这项重构将特别有价值。
+
+**作法（Mechanics）**
+
+* 使用Self-encapsulate Field 将type code 自我封装起来。
+* 如果type code 被传递给构造函数，你就需要将构造函数换成factory method。
+* 为type code 的每一个数值建立一个相应的subclass 。在每个subclass 中覆写（override）type code的取值函数（getter），使其返回相应的type code 值。
+* 这个值被硬编码于return 中（例如：return 1）。这看起来很骯脏， 但只是权宜之计。当所有case 子句都被替换后，问题就解决了。
+* 每建立一个新的subclass ，编译并测试。
+* 从superclass 中删掉保存type code 的值域。将type code 访问函数（accessors）声明为抽象函数（abstract method）。
+* 编译，测试。
+
 ## 以state/Strategy取代类型码
 
 ## 以字段取代子类
