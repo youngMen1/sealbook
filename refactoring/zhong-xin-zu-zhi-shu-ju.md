@@ -604,6 +604,8 @@ State 模式和Stategy 模式非常相似，因此无论你选择其中哪一个
 * 调整source class 中「为type code 设值」的函数，将一个恰当的state object subclass 赋值给「保存state object」的那个值域。
 * 编译，测试。
 
+---
+
 ## 以字段取代子类
 
 你的各个subclasses 的惟一差别只在「返回常量数据」的函数身上。
