@@ -509,7 +509,45 @@ Record structures （记录型结构）是许多编程环境的共同性质。�
 
 现在，你拥有了一个「哑」数据对象（dumb data object）。这个对象现在还没有任何有用行为（函数〕，但是更进一步的重构会解决这个问题。
 
+---
+
 ## 以类取代类型码
+
+class 之中有一个数值型别码（ numeric type code ），但它并不影响class 的行为。
+
+_以一个新的class 替换该数值型别码（type code）。_
+
+!\[\]\(../images/08fig09.gif"/&gt;
+
+**动机（Motivation）**
+
+在以C 为基础的编程语言中，type code（型别码）或枚举值（enumerations）很常见。如果带着一个有意义的符号名，type code 的可读性还是不错的。问题在于，符号名终究只是个别名，编译器看见的、进行型别检验的，还是背后那个数值。任何接受type code 作为引数（argument）的函数，所期望的实际上是一个数值，无法强制使用符号名。这会大大降低代码的可读性，从而成为臭虫之源。
+
+如果把那样的数值换成一个class ，编译器就可以对这个class 进行型别检验。只要为这个class 提供factory methods ，你就可以始终保证只有合法的实体才会被创建出 来，而且它们都会被传递给正确的宿主对象。
+
+但是，在使用[以类取代型别码](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#_13)之前，你应该先考虑type code 的其他替换方式。只有当type code 是纯粹数据时（也就是type code 不会在switch 语句中引起行为变化时），你才能以class 来取代它。Java 只能以整数作为switch 语句的「转辙」依据，不能使用任意class ，因此那种情况下不能够以class 替换type code 。更重要的是：任何switch 语句都应该运用[以多态取代条件式](http://wangvsa.github.io/refactoring-cheat-sheet/simplifying-conditional-expressions/#_6)去掉。为了进行那样的重构，你首先必须运用[以子类取代型别码](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#_14)或[以State/Strategy取代型别码](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#statestrategy)把type code处理掉。
+
+即使一个type code 不会因其数值的不同而引起行为上的差异，宿主类中的某些行为还是有可能更适合置放于type code class 中，因此你还应该留意是否有必要使用[搬移函数](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_3)将一两个函数搬过去。
+
+**做法（Mechanics）**
+
+* 为type code 建立一个class 。
+  * 这个class 内需要一个用以记录type code 的值域，其型别应该和type code 相同；并应该有对应的取值函数（getter）。此外还应该用一组static 变量保存「允许被创建」的实体，并以一个对static 函数根据原本的type code 返回合适的实体。
+* 修改source class 实现码，让它使用上述新建的class 。
+  * 维持原先以type code 为基础的函数接口，但改变static 值域，以新建的class 产生代码。然后，修改type code 相关函数，让它们也从新建的class 中获取代码。
+* 编译，测试。
+  * 此时，新建的class 可以对type code 进行运行期检查。
+* 对于source class 中每一个使用type code 的函数，相应建立一个函数，让新函数使用新建的class 。
+  * 你需要建立「以新class 实体为自变量」的函数，用以替换原先「直接以type code 为引数」的函数。你还需要建立一个「返回新class 实体」的函数，用以替换原先「直接返回type code」的函数。建立新函数前，你可以使用
+    [重新命名函数](http://wangvsa.github.io/refactoring-cheat-sheet/making-method-calls-simpler/#_9)
+    修改原函数名称，明确指出那些函数仍然使用旧式的type code ，这往往是个明智之举。
+* 逐一修改source class 用户，让它们使用新接口。
+* 每修改一个用户，编译并测试。
+  * 你也可能需要一次性修改多个彼此相关的函数，才能保持这些函数之 间的一致性，才能顺利地编译、测试。
+* 删除「使用type code」的旧接口，并删除「保存旧type code」的静态变量。
+* 编译，测试。
+
+---
 
 ## 以子类取代类型码
 
