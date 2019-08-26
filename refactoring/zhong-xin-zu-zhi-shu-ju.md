@@ -606,5 +606,35 @@ State 模式和Stategy 模式非常相似，因此无论你选择其中哪一个
 
 ## 以字段取代子类
 
+你的各个subclasses 的惟一差别只在「返回常量数据」的函数身上。
+
+_修改这些函数，使它们返回superclass 中的某个（新增）值域，然后销毁subclasses 。_![](http://wangvsa.github.io/refactoring-cheat-sheet/images/08fig12.gif)
+
+**动机（Motivation）**
+
+建立subclass 的目的，是为了增如新特性，或变化其行为。有一种变化行为（variant behavior ）称为「常量函数」（constant method）\[Beck\]，它们会返回一个硬编码 （hard-coded）值。这东西有其用途：你可以让不同的subclasses 中的同一个访问函数（accessors）返回不同的值。你可以在superclass 中将访问函数声明为抽象函数， 并在不同的subclass 中让它返回不同的值。
+
+尽管常量函数有其用途，但若subclass 中只有常量函数，实在没有足够的存在价值。 你可以在中设计一个与「常量函数返回值」相应的值域，从而完全去除这样的subclass 。如此一来就可以避免因subclassing 而带来的额外复杂性。
+
+**作法（Mechanics）**
+
+* 对所有subclasses 使用
+  [以工厂函数取代构造函数](http://wangvsa.github.io/refactoring-cheat-sheet/making-method-calls-simpler/#_10)
+  。
+* 如果有任何代码直接引用subclass，令它改而引用superclass 。
+* 针对每个常量函数，在superclass 中声明一个final 值域。
+* 为superclass 声明一个protected 构造函数，用以初始化这些新增值域。
+* 新建或修改subclass 构造函数，使它调用superclass 的新增构造函数。
+* 编译，测试。
+* 在superclass 中实现所有常量函数，令它们返回相应值域值，然后将该函数从subclass 中删掉。
+* 每删除一个常量函数，编译并测试。
+* subclass 中所有的常量函数都被删除后，使用
+  [将函数内联化](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_2)
+  将subclass 构造函数内联（inlining）到superclass 的factory method 中。
+* 编译，测试。
+* 将subclass 删掉。
+* 编译，测试。
+* 重复「inlining 构造函数、删除subclass」过程，直到所有subclass 都被删除。
+
 
 
