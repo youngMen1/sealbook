@@ -577,6 +577,8 @@ _以一个subclass 取代这个type code。_![](http://wangvsa.github.io/refacto
 * 从superclass 中删掉保存type code 的值域。将type code 访问函数（accessors）声明为抽象函数（abstract method）。
 * 编译，测试。
 
+---
+
 ## 以state/Strategy取代类型码
 
 ## 以字段取代子类
