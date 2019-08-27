@@ -141,6 +141,16 @@ else {
 
 ![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
 
+```
+if (isSpecialDeal())
+    total = price * 0.95;
+else
+    total = price * 0.98;
+send();
+```
+
+
+
 ## 移出控制标记 {#_5}
 
 ## 以卫语句取代嵌套条件式 {#_7}
