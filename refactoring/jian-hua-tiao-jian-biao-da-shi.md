@@ -321,6 +321,21 @@ void checkSecurity(String[] people) {
 
 **使用卫语句（guard clauses）表现所有特殊情况。**
 
+```
+double getPayAmount() {
+    double result;
+    if (_isDead) result = deadAmount();
+    else {
+        if (_isSeparated) result = separatedAmount();
+        else {
+            if (_isRetired) result = retiredAmount();
+            else result = normalPayAmount();
+        }
+    }
+    return result;
+}
+```
+
 
 
 
