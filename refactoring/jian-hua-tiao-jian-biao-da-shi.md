@@ -608,6 +608,8 @@ class Engineer extends EmployeeType...
 ... and other subclasses
 ```
 
+switch 语句已经被很好地提炼出来，因此我不必费劲再做一遍。不过我需要将它移至EmployeeType class，因为EmployeeType 才是被subclassing 的class 。
+
 ## 引入Null对象 {#null}
 
 ## 引入断言 {#_4}
