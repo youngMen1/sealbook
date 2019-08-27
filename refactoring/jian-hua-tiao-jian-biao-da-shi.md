@@ -167,6 +167,27 @@ send();
 
 你可能遇到这样的代码：
 
+```
+if (isSpecialDeal()) {
+    total = price * 0.95;
+    send();
+}
+else {
+    total = price * 0.98;
+    send();
+}
+```
+
+由于条件式的两个分支都执行了 send\(\) 函数，所以我应该将send\(\) 移到条件式的外围：
+
+```
+if (isSpecialDeal())
+    total = price * 0.95;
+else
+    total = price * 0.98;
+send();
+```
+
 ## 移出控制标记 {#_5}
 
 ## 以卫语句取代嵌套条件式 {#_7}
