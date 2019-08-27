@@ -389,6 +389,23 @@ double getPayAmount() {
 
 在这段代码中，非正常情况的检查掩盖了正常情况的检查，所以我应该使用『卫语句」来取代这些检查，以提高程序清晰度。我可以逐一引入卫语句。让我们从最上面的条件检查动作开始：
 
+```
+double getPayAmount() {
+    double result;
+    if (_isDead) return deadAmount();
+    if (_isSeparated) result = separatedAmount();
+    else {
+        if (_isRetired) result = retiredAmount();
+        else result = normalPayAmount();
+    }
+    return result;
+ }
+```
+
+
+
+
+
 ## 以多态取代条件式 {#_6}
 
 ## 引入Null对象 {#null}
