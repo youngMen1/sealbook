@@ -404,6 +404,32 @@ double getPayAmount() {
 
 然后，继续下去，仍然一次替换一个检查动作：
 
+```
+double getPayAmount() {
+    double result;
+    if (_isDead) return deadAmount();
+    if (_isSeparated) return separatedAmount();
+    if (_isRetired) result = retiredAmount();
+    else result = normalPayAmount();
+    return result;
+}
+```
+
+然后是最后一个：
+
+```
+double getPayAmount() {
+    double result;
+    if (_isDead) return deadAmount();
+    if (_isSeparated) return separatedAmount();
+    if (_isRetired) return retiredAmount();
+    result = normalPayAmount();
+    return result;
+}
+```
+
+
+
 ## 以多态取代条件式 {#_6}
 
 ## 引入Null对象 {#null}
