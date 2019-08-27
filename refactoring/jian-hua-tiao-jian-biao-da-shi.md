@@ -102,7 +102,11 @@ double disabilityAmount() {
     ...
 ```
 
-##  {#_2}
+现在，我可以观察这个新的条件式，并运用
+
+[提炼函数](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_1)
+
+将它提炼成一个独立函数，以函数名称表达该语句所检查的条件：
 
 ## 合并重复的条件片段 {#_2}
 
