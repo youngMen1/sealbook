@@ -494,6 +494,13 @@ double potentialEnergy(double mass, double height) {
 
 ![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
 
+```
+double potentialEnergy(double mass, double height) {
+    return mass * GRAVITATIONAL_CONSTANT * height;
+}
+static final double GRAVITATIONAL_CONSTANT = 9.81;
+```
+
 封装字段
 
 ---
