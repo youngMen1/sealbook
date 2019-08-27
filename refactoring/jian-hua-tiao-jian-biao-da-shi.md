@@ -470,6 +470,30 @@ public double getAdjustedCapital() {
 }
 ```
 
+下一个条件稍微复杂一点，所以我分两步进行逆反。首先加入一个"logical-NOT"操作：
+
+```
+public double getAdjustedCapital() {
+    double result = 0.0;
+    if (_capital <= 0.0) return result;
+    if (!(_intRate > 0.0 && _duration > 0.0)) return result;
+    result = (_income / _duration) * ADJ_FACTOR;
+    return result;
+}
+```
+
+但是在这样的条件式中留下一个"logical-NOT"，会把我的脑袋拧成一团乱麻，所以我把它简化成下面这样：
+
+```
+public double getAdjustedCapital() {
+    double result = 0.0;
+    if (_capital <= 0.0) return result;
+    if (_intRate <= 0.0 || _duration <= 0.0) return result;
+    result = (_income / _duration) * ADJ_FACTOR;
+    return result;
+}
+```
+
 ##  {#_6}
 
 ## 以多态取代条件式 {#_6}
