@@ -108,6 +108,18 @@ double disabilityAmount() {
 
 将它提炼成一个独立函数，以函数名称表达该语句所检查的条件：
 
+```
+double disabilityAmount() {
+    if (isNotEligibleForDisability()) return 0;
+    // compute the disability amount
+    ...
+}
+
+boolean isNotEligibleForDisability() {
+    return ((_seniority < 2) || (_monthsDisabled > 12) || (_isPartTime));
+}
+```
+
 ## 合并重复的条件片段 {#_2}
 
 ## 移出控制标记 {#_5}
