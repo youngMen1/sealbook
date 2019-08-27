@@ -536,6 +536,14 @@ double getSpeed() {
 }
 ```
 
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
+
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/09fig01a.gif)
+
+
+
+
+
 
 
 
