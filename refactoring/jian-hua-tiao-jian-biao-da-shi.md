@@ -610,6 +610,85 @@ class Engineer extends EmployeeType...
 
 switch 语句已经被很好地提炼出来，因此我不必费劲再做一遍。不过我需要将它移至EmployeeType class，因为EmployeeType 才是被subclassing 的class 。
 
+```
+class EmployeeType...
+    int payAmount(Employee emp) {
+        switch (getTypeCode()) {
+            case ENGINEER:
+                return emp.getMonthlySalary();
+            case SALESMAN:
+                return emp.getMonthlySalary() + emp.getCommission();
+            case MANAGER:
+                return emp.getMonthlySalary() + emp.getBonus();
+            default:
+                throw new RuntimeException("Incorrect Employee");
+        }
+    }
+```
+
+由于我需要EmployeeType class 的数据，所以我需要将Employee 对象作为参数传递给payAmount\(\)。这些数据中的一部分也许可以移到EmployeeType class 来，但那是另一项重构需要关心的问题了。
+
+调整代码，使之通过编译，然后我修改Employee 中的payAmount\(\) 函数，令它委托（delegate，转调用）EmployeeType ：
+
+```
+class Employee...
+    int payAmount() {
+        return _type.payAmount(this);
+    }
+```
+
+现在，我可以处理switch 语句了。这个过程有点像淘气小男孩折磨一只昆虫——每次掰掉它一条腿 6。首先我把switch 语句中的"Engineer"这一分支拷贝到Engineer class：
+
+```
+class Engineer...
+    int payAmount(Employee emp) {
+        return emp.getMonthlySalary();
+    }
+```
+
+6译注：「腿」和条件式「分支」的英文都是"leg"。作者幽默地说「掰掉一条腿」， 意思就是「去掉一个分支」。
+
+这个新函数覆写了superclass 中的switch 语句之内那个专门处理"Engineer"的分支。我是个徧执狂，有时我会故意在case 子句中放一个陷阱，检查Engineer class 是否正常工作（是否被调用）：
+
+```
+class EmployeeType...
+    int payAmount(Employee emp) {
+        switch (getTypeCode()) {
+        case ENGINEER:
+            throw new RuntimeException ("Should be being overridden");
+        case SALESMAN:
+            return emp.getMonthlySalary() + emp.getCommission();
+        case MANAGER:
+            return emp.getMonthlySalary() + emp.getBonus();
+        default:
+            throw new RuntimeException("Incorrect Employee");
+    }
+}
+```
+
+接下来，我重复上述过程，直到所有分支都被去除为止：
+
+```
+class Salesman...
+    int payAmount(Employee emp) {
+        return emp.getMonthlySalary() + emp.getCommission();
+    }
+
+class Manager...
+    int payAmount(Employee emp) {
+        return emp.getMonthlySalary() + emp.getBonus();
+    }
+```
+
+然后，将superclass 的payAmount\(\) 函数声明为抽象函数：
+
+```
+class EmployeeType...
+    abstract int payAmount(Employee emp);
+```
+
+##  {#null}
+
 ## 引入Null对象 {#null}
 
 ## 引入断言 {#_4}
