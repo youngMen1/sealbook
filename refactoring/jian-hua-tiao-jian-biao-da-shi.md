@@ -494,7 +494,31 @@ public double getAdjustedCapital() {
 }
 ```
 
-##  {#_6}
+这时候我比较喜欢在卫语句（guard clause）内返回一个明确值，因为这样我可以一 目了然地看到卫语句返回的失败结果。此外，这种时候我也会考虑使用[以符号常量/字面常量取代魔法数](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#_10)。
+
+```
+public double getAdjustedCapital() {
+    double result = 0.0;
+    if (_capital <= 0.0) return 0.0;
+    if (_intRate <= 0.0 || _duration <= 0.0) return 0.0;
+    result = (_income / _duration) * ADJ_FACTOR;
+    return result;
+}
+```
+
+完成替换之后，我同样可以将临时变量移除：
+
+```
+public double getAdjustedCapital() {
+    if (_capital <= 0.0) return 0.0;
+    if (_intRate <= 0.0 || _duration <= 0.0) return 0.0;
+    return (_income / _duration) * ADJ_FACTOR;
+}
+```
+
+
+
+
 
 ## 以多态取代条件式 {#_6}
 
