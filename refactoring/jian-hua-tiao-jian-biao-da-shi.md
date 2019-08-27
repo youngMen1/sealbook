@@ -237,7 +237,21 @@ while not done
 下列函数用来检查一系列人名之中是否包含两个可疑人物的名字（这两个人的名字硬编码于代码中〕：
 
 ```
-
+void checkSecurity(String[] people) {
+    boolean found = false;
+    for (int i = 0; i < people.length; i++) {
+        if (! found) {
+            if (people[i].equals ("Don")){
+                sendAlert();
+                found = true;
+            }
+            if (people[i].equals ("John")){
+                sendAlert();
+                found = true;
+            }
+        }
+    }
+}
 ```
 
 ## 以卫语句取代嵌套条件式 {#_7}
