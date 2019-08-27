@@ -492,11 +492,7 @@ double potentialEnergy(double mass, double height) {
 }
 ```
 
- 
-
- 
-
- 
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
 
 封装字段
 
