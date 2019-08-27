@@ -276,6 +276,26 @@ void checkSecurity(String[] people) {
 
 最后获得这样的成功：
 
+```
+void checkSecurity(String[] people) {
+    boolean found = false;
+    for (int i = 0; i < people.length; i++) {
+        if (! found) {
+            if (people[i].equals ("Don")){
+                sendAlert();
+                break;
+            }
+            if (people[i].equals ("John")){
+                sendAlert();
+                break;
+            }
+        }
+    }
+}
+```
+
+
+
 ## 以卫语句取代嵌套条件式 {#_7}
 
 ## 以多态取代条件式 {#_6}
