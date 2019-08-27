@@ -687,9 +687,18 @@ class EmployeeType...
     abstract int payAmount(Employee emp);
 ```
 
-##  {#null}
+---
 
 ## 引入Null对象 {#null}
+
+你需要再三检查「某物是否为null value」。
+
+**将null value （无效值）替换为null object（无效物）。**
+
+```
+if (customer == null) plan = BillingPlan.basic();
+else plan = customer.getPlan();
+```
 
 ## 引入断言 {#_4}
 
