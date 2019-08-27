@@ -254,6 +254,26 @@ void checkSecurity(String[] people) {
 }
 ```
 
+这种情况下很容易找出控制标记：当变量found 被赋予true 时，搜索就结束。我可以逐一引入break 语句：
+
+```
+void checkSecurity(String[] people) {
+    boolean found = false;
+    for (int i = 0; i < people.length; i++) {
+        if (! found) {
+            if (people[i].equals ("Don")){
+                sendAlert();
+                break;
+            }
+            if (people[i].equals ("John")){
+                sendAlert();
+                found = true;
+            }
+        }
+    }
+}
+```
+
 ## 以卫语句取代嵌套条件式 {#_7}
 
 ## 以多态取代条件式 {#_6}
