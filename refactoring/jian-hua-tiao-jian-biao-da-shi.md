@@ -55,6 +55,16 @@ double disabilityAmount() {
     // compute the disability amount
 ```
 
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
+
+```
+double disabilityAmount() {
+    if (isNotEligableForDisability()) return 0;
+    // compute the disability amount
+```
+
+##  {#_2}
+
 ## 合并重复的条件片段 {#_2}
 
 ## 移出控制标记 {#_5}
