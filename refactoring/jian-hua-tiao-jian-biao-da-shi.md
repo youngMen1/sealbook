@@ -457,11 +457,20 @@ public double getAdjustedCapital() {
 }
 ```
 
+同样地，我逐一进行替换。不过这次在插入卫语句（guard clauses）时，我需要将相应的条件逆反过来：
 
+```
+public double getAdjustedCapital() {
+    double result = 0.0;
+    if (_capital <= 0.0) return result;
+    if (_intRate > 0.0 && _duration > 0.0) {
+        result = (_income / _duration) * ADJ_FACTOR;
+    }
+    return result;
+}
+```
 
-
-
-
+##  {#_6}
 
 ## 以多态取代条件式 {#_6}
 
