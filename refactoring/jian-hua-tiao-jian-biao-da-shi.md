@@ -546,8 +546,6 @@ double getSpeed() {
 
 
 
-
-
 ## 引入Null对象 {#null}
 
 ## 引入断言 {#_4}
