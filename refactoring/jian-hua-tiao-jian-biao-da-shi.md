@@ -428,7 +428,16 @@ double getPayAmount() {
 }
 ```
 
+此时，result 变量已经没有价值了，所以我把它删掉：
 
+```
+double getPayAmount() {
+    if (_isDead) return deadAmount();
+    if (_isSeparated) return separatedAmount();
+    if (_isRetired) return retiredAmount();
+    return normalPayAmount();
+}
+```
 
 ## 以多态取代条件式 {#_6}
 
