@@ -41,7 +41,7 @@
   * [在对象之间搬移特效](refactoring/zai-dui-xiang-zhi-jian-ban-yi-te-xiao.md)
   * [重新组织数据](refactoring/zhong-xin-zu-zhi-shu-ju.md)
   * [简化条件表达式](refactoring/jian-hua-tiao-jian-biao-da-shi.md)
-  * 简化函数调用
+  * [简化函数调用](refactoring/jian-hua-han-shu-diao-yong.md)
 * [分布式消息中间件](distributedmessagemiddleware.md)
   * [简介](distributedmessagemiddleware/jian-jie.md)
   * [rabbitMq](distributedmessagemiddleware/rabbitmq.md)
