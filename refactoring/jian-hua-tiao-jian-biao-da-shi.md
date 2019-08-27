@@ -439,6 +439,12 @@ double getPayAmount() {
 }
 ```
 
+嵌套（nested）条件代码往往由那些深信「每个函数只能有一个出口」的程序员写出。我发现那条规则（函数只能有一个出口）实在有点太简单化了。如果对函数剩余部分不再有兴趣，当然应该立刻退出。引导阅读者去看一个没有用的else 区段，只会妨碍他们的理解。
+
+**范例：将条件逆反（Reversing the Conditions）**
+
+审阅本书初稿时，Joshua Kerievsky 指出：你常常可以将条件表达式逆反，从而实现[以卫语句取代嵌套条件式](http://wangvsa.github.io/refactoring-cheat-sheet/simplifying-conditional-expressions/#_7)。为了拯救我可怜的想像力，他还好心帮我想了个例子：
+
 ## 以多态取代条件式 {#_6}
 
 ## 引入Null对象 {#null}
