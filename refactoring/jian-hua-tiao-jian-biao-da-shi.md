@@ -39,5 +39,11 @@ send();
   [提炼函数](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_1)
   将共通 代码提炼到一个独立函数中，再以前面所说的办法来处理。
 
+---
+
+## 合并条件表达式
+
+## 合并重复的条件片段 {#_2}
+
 
 
