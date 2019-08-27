@@ -336,9 +336,16 @@ double getPayAmount() {
 }
 ```
 
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
 
-
-
+```
+double getPayAmount() {
+    if (_isDead) return deadAmount();
+    if (_isSeparated) return separatedAmount();
+    if (_isRetired) return retiredAmount();
+    return normalPayAmount();
+}
+```
 
 ## 以多态取代条件式 {#_6}
 
