@@ -194,6 +194,27 @@ send();
 
 ## 移出控制标记 {#_5}
 
+在一系列布尔表达式（boolean expressions）中，某个变量带有「控制标记」（control flag）的作用。**以break 语句或return 的语句取代控制标记。**
+
+**动机（Motivation）**
+
+在一系列条件表达式中，你常常会看到「用以判断何时停止条件检查」的控制标记（control flag）：
+
+```
+set done to false
+while not done
+    if (condition)
+        do something
+    set done to true
+    next step of loop
+```
+
+
+
+
+
+
+
 
 
 ## 以卫语句取代嵌套条件式 {#_7}
