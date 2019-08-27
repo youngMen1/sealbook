@@ -727,7 +727,31 @@ else plan = customer.getPlan();
 * 对于每一个上述地点，在null class 中覆写A动作，使其行为和B 动作相同。
 * 使用上述的被覆写动作（A），然后删除「对象是否等于null」的条件测试。编译并测试。
 
+---
+
 ## 引入断言 {#_4}
+
+某一段代码需要对程序状态（state）做出某种假设。
+
+**以assertion（断言）明确表现这种假设。**
+
+```
+double getExpenseLimit() {
+    // should have either expense limit or a primary project
+    return (_expenseLimit != NULL_EXPENSE) ?
+        _expenseLimit:_primaryProject.getMemberExpenseLimit();
+}
+```
+
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
+
+```
+double getExpenseLimit() {
+    Assert.isTrue (_expenseLimit != NULL_EXPENSE || _primaryProject != null);
+    return (_expenseLimit != NULL_EXPENSE) ?
+        _expenseLimit: _primaryProject.getMemberExpenseLimit();
+}
+```
 
 
 
