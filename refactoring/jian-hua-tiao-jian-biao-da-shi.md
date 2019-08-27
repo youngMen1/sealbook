@@ -572,11 +572,9 @@ double getSpeed() {
 
 **范例：（Example）**
 
+请允许我继续使用「员工与薪资」这个简单而又乏味的例子。我的classes是从[以State/Strategy取代型别码](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#statestrategy)那个例子中拿来的，因此示意图就如图9.1所示（如果想知道这个图是怎么得到的，请看第8章范例）。
 
-
-
-
-##  {#null}
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/09fig01.gif)
 
 ## 引入Null对象 {#null}
 
