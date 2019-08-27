@@ -445,6 +445,24 @@ double getPayAmount() {
 
 审阅本书初稿时，Joshua Kerievsky 指出：你常常可以将条件表达式逆反，从而实现[以卫语句取代嵌套条件式](http://wangvsa.github.io/refactoring-cheat-sheet/simplifying-conditional-expressions/#_7)。为了拯救我可怜的想像力，他还好心帮我想了个例子：
 
+```
+public double getAdjustedCapital() {
+    double result = 0.0;
+    if (_capital > 0.0) {
+        if (_intRate > 0.0 && _duration > 0.0) {
+            result = (_income / _duration) * ADJ_FACTOR;
+        }
+    }
+    return result;
+}
+```
+
+
+
+
+
+
+
 ## 以多态取代条件式 {#_6}
 
 ## 引入Null对象 {#null}
