@@ -139,7 +139,7 @@ else {
 }
 ```
 
-
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
 
 ## 移出控制标记 {#_5}
 
