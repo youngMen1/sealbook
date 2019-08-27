@@ -372,6 +372,25 @@ double getPayAmount() {
 
 假设我在这个系统中看到下列代码：
 
+```
+double getPayAmount() {
+    double result;
+    if (_isDead) result = deadAmount();
+    else {
+        if (_isSeparated) result = separatedAmount();
+        else {
+            if (_isRetired) result = retiredAmount();
+            else result = normalPayAmount();
+        }
+    }
+    return result;
+}
+```
+
+
+
+
+
 ##  {#_6}
 
 ## 以多态取代条件式 {#_6}
