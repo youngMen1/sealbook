@@ -313,8 +313,6 @@ void checkSecurity(String[] people) {
 
 ---
 
-##  {#_7}
-
 ## 以卫语句取代嵌套条件式 {#_7}
 
 函数中的条件逻辑（conditional logic）使人难以看清正常的执行路径。
@@ -516,11 +514,13 @@ public double getAdjustedCapital() {
 }
 ```
 
-
-
-
+---
 
 ## 以多态取代条件式 {#_6}
+
+你手上有个条件式，它根据对象型别的不同而选择不同的行为。
+
+**将这个条件式的每个分支放进一个subclass 内的覆写函数中，然后将原始函数声明为抽象函数（abstract method）。**
 
 ## 引入Null对象 {#null}
 
