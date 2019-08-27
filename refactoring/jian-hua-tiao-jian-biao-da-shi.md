@@ -95,7 +95,12 @@ double disabilityAmount() {
 
 在这段代码中，我们看到一连串的条件检查，它们都做同一件事。对于这样的代码， 上述条件检查等价于一个以"logical-OR"连接起来的语句：
 
-##  {#_2}
+```
+double disabilityAmount() {
+    if ((_seniority < 2) || (_monthsDisabled > 12) || (_isPartTime)) return 0;
+    // compute the disability amount
+    ...
+```
 
 ##  {#_2}
 
