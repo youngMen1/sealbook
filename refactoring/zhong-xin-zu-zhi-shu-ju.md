@@ -442,9 +442,57 @@ row.setWins("15");
 
 ## 将双向关联改为单向关联
 
+两个鄉之间有双向关联，但其中一个class如今不再需要另一个class的特性。
+
+去除不必要的关联（association）。
+
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/08fig07.gif)
+
+**动机（Motivation）**
+
+双向关联（bidirectional associations）很有用，但你也必须为它付出代价，那就是「维护双向连接、确保对象被正确创建和删除」而增加的复杂度。而且，由于很多程序 员并不习惯使用双向关联，它往往成为错误之源。
+
+大量的双向连接（two-way links）也很容易引发「僵尸对象」：某个对象本来已经该死亡了，却仍然保留在系统中，因为对它的各项引用还没有完全清除。
+
+此外，双向关联也迫使两个classes之间有了相依性。对其中任一个class的任何修 改，都可能引发另一个class的变化。如果这两个classes处在不同的package中， 这种相依性就是packages之间的相依。过多的依存性（inter-dependencies）会造就紧耦合（highly coupled）系统，使得任何一点小小改动都可能造成许多无法预知的后果。
+
+只有在你需要双向关联的时候，才应该使用它。如果你发现双向关联不再有存在价值，就应该去掉其中不必要的一条关联。
+
+**做法（Mechanics）**
+
+* 找出『你想去除的指针」的保存值域，检查它的每一个用户，判断是否可以去除该指针。
+* 不但要检查「直接读取点」，也要检查「直接读取点」的调用函数。
+* 考虑有无可能不通过指针取得「被引用对象」（referred object）。如 果有可能，你就可以对取值函数（getter）使用
+  [替换你的算法](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_10)
+  ，从而让客户在没有指针的情况下也可以使用该取值函数。
+* 对于使用该值域的所有函数，考虑将「被引用对象」（refered object）作为引数（argument）传进去。
+* 如果客户使用了取值函数（getter），先运用
+  [封装值域](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#_7)
+  将「待除值域」自我封装起来，然后使用
+  [替换你的算法](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_10)
+  对付取值函数，令它不再使用该（待除）值域。然后编译、测试。
+* 如果客户并未使用取值函数（getter），那就直接修改「待除值域」的所有被引用点：改以其他途径获得该值域所保存的对象。每次修改后，编译并测试。
+* 如果已经没有任何函数使用该（待除〕值域，移除所有「对该值域的更新逻辑」，然后移除该值域。
+* 如果有许多地方对此值域赋值，先运用
+  [封装值域](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#_7)
+  使这些地点改用同一个设值函数（setter）。编译、测试。而后将这个 设值函数的本体清空。再编译、再测试。如果这些都可行，就可以将此值域和其设值函数，连同对设值函数的所有调用，全部移除。
+* 编译，测试。
+
 ---
 
 ## 以字面常量取代魔法数
+
+你有一个字面数值（literal number ），带有特别含义。
+
+创造一个常量，根据其意义为它命名，并将上述的字面数值替换为这个常量。
+
+```
+double potentialEnergy(double mass, double height) {
+    return mass * 9.81 * height;
+}
+```
+
+
 
 ---
 
