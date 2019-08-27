@@ -522,6 +522,24 @@ public double getAdjustedCapital() {
 
 **将这个条件式的每个分支放进一个subclass 内的覆写函数中，然后将原始函数声明为抽象函数（abstract method）。**
 
+```
+double getSpeed() {
+    switch (_type) {
+    case EUROPEAN:
+        return getBaseSpeed();
+    case AFRICAN:
+        return getBaseSpeed() - getLoadFactor() * _numberOfCoconuts;
+    case NORWEGIAN_BLUE:
+        return (_isNailed) ? 0 : getBaseSpeed(_voltage);
+    }
+    throw new RuntimeException ("Should be unreachable");
+}
+```
+
+
+
+
+
 ## 引入Null对象 {#null}
 
 ## 引入断言 {#_4}
