@@ -83,6 +83,22 @@ double disabilityAmount() {
 
 **范例：Ors**
 
+请看下列代码：
+
+```
+double disabilityAmount() {
+    if (_seniority < 2) return 0;
+    if (_monthsDisabled > 12) return 0;
+    if (_isPartTime) return 0;
+    // compute the disability amount
+```
+
+在这段代码中，我们看到一连串的条件检查，它们都做同一件事。对于这样的代码， 上述条件检查等价于一个以"logical-OR"连接起来的语句：
+
+##  {#_2}
+
+##  {#_2}
+
 ## 合并重复的条件片段 {#_2}
 
 ## 移出控制标记 {#_5}
