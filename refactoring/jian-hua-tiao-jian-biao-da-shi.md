@@ -576,6 +576,8 @@ double getSpeed() {
 
 ![](http://wangvsa.github.io/refactoring-cheat-sheet/images/09fig01.gif)
 
+图9.1 继承机构
+
 ## 引入Null对象 {#null}
 
 ## 引入断言 {#_4}
