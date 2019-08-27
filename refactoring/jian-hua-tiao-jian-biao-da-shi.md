@@ -540,11 +540,43 @@ double getSpeed() {
 
 ![](http://wangvsa.github.io/refactoring-cheat-sheet/images/09fig01a.gif)
 
+**动机（Motivation）**
+
+在面向对象术语中，听上去最高贵的词非「多态」莫属。多态（polymorphism）最根本的好处就是：如果你需要根据对象的不同型别而采取不同的行为，多态使你不必编写明显的条件式（explicit conditional ）。
+
+正因为有了多态，所以你会发现：「针对type code（型别码）而写的switch 语句」 以及「针对type string （型别名称字符串）而写的if-then-else 语句」在面向对象程序中很少出现。
+
+多态（polymorphism）能够给你带来很多好处。如果同一组条件式在程序许多地点出现，那么使用多态的收益是最大的。使用条件式时，如果你想添加一种新型别，就必须查找并更新所有条件式。但如果改用多态，只需建立一个新的subclass ，并在其中提供适当的函数就行了。class 用户不需要了解这个subclass ，这就大大降低了系统各部分之间的相依程度，使系统升级更加容易。
+
+**作法（Mechanics）**
+
+使用[以多态取代条件式](http://wangvsa.github.io/refactoring-cheat-sheet/simplifying-conditional-expressions/#_6)之前，你首先必须有一个继承结构。你可能已经通过先前的重构得到了这一结构。如果还没有，现在就需要建立它。
+
+要建立继承结构，你有两种选择：[以子类取代型别码](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#_14)和[以State/Strategy取代型别码](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#statestrategy)。前一种作法比较简单，因此你应该尽可能使用它。但如果你需要在对象创建好之后修改type code；就不能使用subclassing 作法，只能使用State/Strategy 模式。此，如果由于其他原因你要重构的class 已经有了subclass ，那么也得使用State/Strategy 。记住，如果若干switch 语句针对的是同一个type code；你只需针对这个type code 建立一个继承结构就行 了。
+
+现在，可以向条件式开战了。你的目标可能是switch（case）语句，也可能是if 语句。
+
+* 如果要处理的条件式是一个更大函数中的一部分，首先对条件式进行分析，然后使用
+  [提炼函数](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_1)
+  将它提炼到一个独立函数去。
+* 如果有必要，使用
+  [搬移函数](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_3)
+  将条件式放置到继承结构的顶端。
+* 任选一个subclass ，在其中建立一个函数，使之覆写superclass 中容纳条件式的那个函数。将「与subclass 相关的条件式分支」拷贝到新建函数中，并对它进行适当调整。
+  * 为了顺利进行这一步骤，你可能需要将superclass 中的某些private 值域声明为protected 。
+* 编译，测试。
+* 在superclass 中删掉条件式内被拷贝出去的分支。
+* 编译，测试。
+* 针对条件式的每个分支，重复上述过程，直到所有分支都被移到subclass 内的函数为止。
+* 将superclass 之中容纳条件式的函数声明为抽象函数（abstract method）。
+
+**范例：（Example）**
 
 
 
 
 
+##  {#null}
 
 ## 引入Null对象 {#null}
 
