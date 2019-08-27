@@ -700,6 +700,33 @@ if (customer == null) plan = BillingPlan.basic();
 else plan = customer.getPlan();
 ```
 
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
+
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/09fig01b.gif)
+
+**动机（Motivation）**
+
+多态（polymorphism ）的最根本好处在于：你不必再向对象询问「你是什么型别」 而后根据得到的答案调用对象的某个行为——你只管调用该行为就是了，其他的一切多态机制会为你安排妥当。当你的某个值域内容是null value 时，多态可扮演另一个较不直观（亦较不为人所知）的用途。让我们先听听Ron Jeffries 的故事。
+
+> Ron Jeffries 我们第一次使用Null Object 模式，是因为Rih Garzaniti 发现，系统在对对象发送一个消息之前，总要检査对象是否存在，这样的检査出现很多次。我们可能会向一个对象索求它所相关的Person 对象，然后再问那个对象是否为null 。如果对象的确存在，我们才能调用它的rate\(\) 函数以查询这个人的薪资级别。我们在好些地方都是这样做的， 造成的重复代码让我们很烦心。 所以.我们编写了一个MissingPerson class，让它返回 '0' 薪资等级（我们把null objects 称为missing object（虚构对象）。很快地MissingPerson 就有了很多函数，rate\(\) 自然是其中之一。如今我们的系统有超过80个null object classes。 我们常常在显示信息的时候使用null object。例如我们想要显示一个Person 对象信息，它大约有20个instance 变量。如果这些变量可被设为null，那么打印一个Person 对象的工作将非常复杂。所以我们不让instance 变量被设为null ，而是插入各式各样的null objects ——它们都知道如何正常（正确地）显示自己。这样，我们就可以摆脱大量代码。 我们对null object 的最聪明运用，就是拿它来表示不存在的Gemstone session。我们使用Gemstone 数据库来保存成品（程序代码），但我们更愿息在没有数据库的情况下进行开发，毎过一周左右再把新码放进Gemstone 数据库。然而在代码的某些地方，我们必须登录（log in）一个Gemstone session。当我们没有Gemstone 数据库时，我们就仅仅安插一个miss Gemstone session，其接口和真正的Gemstone session 一模一样，使我们无需判断数据库是否存在，就可以进行开发和测试。 null object 的另一个用途是表现出「虚构的箱仓」（missing bin）。所谓「箱仓\]，这里是指群集（collection），用来保存某些薪资值，并常常谣要对各个薪资值进行加和或遍历。如果某个箱仓不存在，我们就给出一个虚构的箱仓对象，其行为和一个空箱仓（empty bin）一样；这个虚构箱仓知道自己其实不带任何数据，总值为0。通过这种作法，我们就不必为上千位员工每人产生数十来个空箱（empty bins）对象了。 使用null objects 有个非常有趣的性质：好事绝对不会因为null objects 而「被破坏」。由于null objects 对所有外界请求的响应，都像real objects 的响应一样，所以系统行为总是正常的。但这并非总是好事，有吋会造成问题的侦测和查找上的困难，因为从来没有任何东西被破坏。当然，只要认真检查一下，你就会发现null objects 有时出现在不该出现的地方。 请记住：null objects 一定是常量，它们的任何成分都不会发生变化。因此我们可以使用Singleton 模式\[Gang of Four\]来实现它们。例如不管任何时候，只要你索求一个MissingPerson 对象，你得到的一定是MissingPerson 的惟一实体。
+
+关于Null Object 模式，你可以在Woolf \[Woolf\] 中找到更详细的介绍。
+
+**作法（Mechanics）**
+
+* 为source class 建立一个subclass ，使其行为像source class 的null 版本。在source class 和null class 中都加上isNull\(\) 函数，前者的isNull\(\) 应该返回false，后者的isNull\(\) 应该返回true。
+* 下面这个办法也可能对你有所帮助：建立一个nullable 接口，将isNull\(\) 函数放在其中，让source class 实现这个接口。
+* 另外，你也可以创建一个testing 接口，专门用来检查对象是否为null。
+* 编译。
+* 找出所有「索求source object 却获得一个null 」的地方。修改这些地方，使它们改而获得一个null object。
+* 找出所有「将source object 与null 做比较」的地方。修改这些地方，使它们调用isNull\(\) 函数。
+* 你可以每次只处理一个source object 及其客户程序，编译并测试后， 再处理另一个source object 。
+* 你可以在「不该再出现null value」的地方放上一些assertions（断言）， 确保null 的确不再出现。这可能对你有所帮助。
+* 编译，测试。
+* 找出这样的程序点：如果对象不是null ，做A动作，否则做B 动作。
+* 对于每一个上述地点，在null class 中覆写A动作，使其行为和B 动作相同。
+* 使用上述的被覆写动作（A），然后删除「对象是否等于null」的条件测试。编译并测试。
+
 ## 引入断言 {#_4}
 
 
