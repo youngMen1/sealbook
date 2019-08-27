@@ -296,7 +296,20 @@ void checkSecurity(String[] people) {
 
 然后我就可以把对控制标记的所有引用去掉：
 
-
+```
+void checkSecurity(String[] people) {
+    for (int i = 0; i < people.length; i++) {
+        if (people[i].equals ("Don")){
+            sendAlert();
+            break;
+        }
+        if (people[i].equals ("John")){
+            sendAlert();
+            break;
+        }
+    }
+}
+```
 
 
 
