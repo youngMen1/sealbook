@@ -47,11 +47,13 @@ send();
 
 **将这些测试合并为一个条件式，并将这个条件式提炼成为一个独立函数。**
 
-
-
-
-
-
+```
+double disabilityAmount() {
+    if (_seniority < 2) return 0;
+    if (_monthsDisabled > 12) return 0;
+    if (_isPartTime) return 0;
+    // compute the disability amount
+```
 
 ## 合并重复的条件片段 {#_2}
 
