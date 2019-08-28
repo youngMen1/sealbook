@@ -76,44 +76,15 @@
 **在superclass 中新建一个构造函数，并在subclass 构造函数中调用它。**
 
 ```
-class
+class Manager extends Employee...
+    public Manager (String name, String id, int grade) {
+        _name = name;
+        _id = id;
+        _grade = grade;
+    }
 ```
 
-```
-Manager
-extends
-Employee
-...
-public
-Manager
-(
-String
- name
-,
-String
- id
-,
-int
- grade
-)
-{
-
-        _name 
-=
- name
-;
-
-        _id 
-=
- id
-;
-
-        _grade 
-=
- grade
-;
-}
-```
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
 
 ## 函数下移
 
