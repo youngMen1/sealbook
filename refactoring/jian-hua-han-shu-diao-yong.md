@@ -201,7 +201,42 @@ protected int usageInRange(int start, int end) {
 
 本项重构的伎俩在于：以「可将少量数值视为参数」为依据，找出带有重复性的代码。
 
+---
+
 ## 以明确函数取代参数 {#_13}
+
+你有一个函数，其内完全取决于参数值而采取不同反应。
+
+**针对该参数的每一个可能值，建立一个独立函数。**
+
+```
+void setValue (String name, int value) {
+    if (name.equals("height"))
+        _height = value;
+    if (name.equals("width"))
+        _width = value;
+    Assert.shouldNeverReachHere();
+}
+```
+
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
+
+```
+void setHeight(int arg) {
+    _height = arg;
+}
+void setWidth (int arg) {
+    _width = arg;
+}
+```
+
+**动机（Motivation）**
+
+[以明确函数取代参数](http://wangvsa.github.io/refactoring-cheat-sheet/making-method-calls-simpler/#_13)洽恰相反于[令函数携带参数](http://wangvsa.github.io/refactoring-cheat-sheet/making-method-calls-simpler/#_5)。如果某个参数有离散取值，而函数内又以条件式检查这些参数值，并根据不同参数值做出不同的反应，那么就应该使用本项重构。调用者原本必须赋予参数适当的值，以决定该函数做出何种响应；现在，既然你提供了不同的函数给调用 者使用，就可以避免出现条件式。此外你还可以获得「编译期代码检验」的好处， 而且接口也更清楚。如果以参数值决定函数行为，那么函数用户不但需要观察该函数，而且还要判断参数值是否合法，而「合法的参数值」往往很少在文档中被清楚地提出。
+
+就算不考虑「编译期检验」的好处，只是为了获得一个清晰的接口，也值得你执行本项重构。哪怕只是给一个内部的布尔（boolean）变量赋值，相较之下Switch.beOn\(\) 也比Switch.setState\(true\) 要清楚得-多。
+
+但是，如果参数值不会对函数行为有太多影响，你就不应该使用[以明确函数取代参数](http://wangvsa.github.io/refactoring-cheat-sheet/making-method-calls-simpler/#_13)。如果情况真是这样，而你也只需要通过参数为一个值域赋值，那么直接使用设值函数（setter）就行了。如果你的确需要「条件判断」 式的行为，可考虑使用[以多态取代条件式](http://wangvsa.github.io/refactoring-cheat-sheet/simplifying-conditional-expressions/#_6)。
 
 ## 保持对象完整 {#_6}
 
