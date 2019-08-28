@@ -766,7 +766,44 @@ try {
 
 修改新函数名称，使它与旧函数相同。
 
+---
+
 ## 以测试取代异常 {#_12}
+
+面对一个「调用者可预先加以检查」的条件，你抛出了一个异常。
+
+**修改调用者，使它在调用函数之前先做检查。**
+
+```
+double getValueForPeriod (int periodNumber) {
+    try {
+        return _values[periodNumber];
+     } catch (ArrayIndexOutOfBoundsException e) {
+        return 0;
+    }
+}
+```
+
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
+
+```
+double getValueForPeriod (int periodNumber) {
+    if (periodNumber >= _values.length) return 0;
+    return _values[periodNumber];
+}
+```
+
+**动机（Motivation）**
+
+异常（exception）的出现是程序语言的一大进步。运用[以异常取代错误码](http://wangvsa.github.io/refactoring-cheat-sheet/making-method-calls-simpler/#_11)，异常便可协助我们避免很多复杂的错误处理逻辑。但是，就像许多好东西一样，异常也会被滥用，从而变得不再让人偷快（就连味道极好的Aventinus 啤酒，喝得太多也会让我厌烦\[Jackson\]）。「异常」只应该被用于异常 的、罕见的行为，也就是那些「产生意料外的错误」的行为，而不应该成为「条件 检查」的替代品。如果你可以合理期望调用者在调用函数之前先检査某个条件，那么你就应该提供一个测试，而调用者应该使用它。
+
+**作法（Mechanics）**
+
+* 在函数调用点之前，放置一个测试句，将函数内的catch 区段中的代码拷贝到测试句的适当if 分支中。
+* 在catch 区段起始处加入一个assertion，确保catch 区段绝对不会被执行。
+* 编译，测试。
+* 移除所有catch 区段，然后将区段内的代码拷贝到try 之外，然后移除try 区段。
+* 编译，测试，
 
 
 
