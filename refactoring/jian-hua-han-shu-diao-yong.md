@@ -429,7 +429,36 @@ double finalPrice = discountedPrice (basePrice);
   [移除参数](http://wangvsa.github.io/refactoring-cheat-sheet/making-method-calls-simpler/#_7)
   将该参数去掉。
 
+---
+
 ## 引入参数对象 {#_4}
+
+某些参数总是很自然地同时出现。**以一个对象取代这些参数。**
+
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/10fig06.gif)
+
+**动机（Motivation）**
+
+你常会看到特定的一组参数总是一起被传递。可能有好几个函数都使用这一组参数，这些函数可能隶属同一个class，也可能隶属不同的classes 。这样一组参数就是所谓的Date Clump （数据泥团）」，我们可以运用一个对象包装所有这些数据，再以该对象取代它们。哪怕只是为了把这些数据组织在一起，这样做也是值得的。本项重构的价值在于「缩短了参数列的长度」，而你知道，过长的参数列总是难以理解的。此外，新对象所定义的访问函数（accessors）还可以使代码更具一致性，这又进一步降低了代码的理解难度和修改难度。
+
+本项重构还可以带给你更多好处。当你把这些参数组织到一起之后，往往很快可以发现一些「可被移至新建class」的行为。通常，原本使用那些参数的函数对那些参数会有一些共通措施，如果将这些共通行为移到新对象中，你可以减少很多重复代码。
+
+**作法（Mechanics）**
+
+* 新建一个class，用以表现你想替换的一组参数。将这个设为不可变的（不可被修改的，immutable）。
+* 编译。
+* 针对使用该组参数的所有函数，实施
+  [添加参数](http://wangvsa.github.io/refactoring-cheat-sheet/making-method-calls-simpler/#_1)
+  ，以上述新建class 之实体对象作为新添参数，并将此一参数值设为null 。
+  * 如果你所修改的函数被其他很多函数调用，那么你可以保留修改前的旧函数，并令它调用修改后的新函数。你可以先对旧函数进行重构， 然后逐一令调用端转而调用新函数，最后再将旧函数删除。
+* 对于Data Clump（数据泥团）中的每一项（在此均为参数），从函数签名式（signature）中移除之，并修改调用端和函数本体，令它们都改而通过「新建 的参数对象」取得该值。
+* 每去除一个参数，编译并测试。
+* 将原先的参数全部去除之后，观察有无适当函数可以运用
+  [搬移函数](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_3)
+  搬移到参数对象之中。
+  * 被搬移的可能是整个函数，也可能是函数中的一个段落。如果是后者， 首先使用
+    [提炼函数](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_1)
+    将该段落提炼为一个独立函数，再搬移这一新建函数。
 
 ## 移除设值函数 {#_8}
 
