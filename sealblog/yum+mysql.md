@@ -124,7 +124,10 @@ mysql> exit;
 # 第十步：使用root账号登录mysql。
 
 ```
-mysql -u root -p xxxx
+mysql -u root -p xxxx;
+
+或者
+mysql -rroot -p123456;
 ```
 
 # 第十一步：需要先登录到mysql，设置远程连接授权，执行以下命令，为root 用户添加远程登录的能力。
