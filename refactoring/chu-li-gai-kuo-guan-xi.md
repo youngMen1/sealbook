@@ -211,7 +211,55 @@ class 中的某些特性（features）只被某些（而非全部）实体（ins
     。
 * 每次下移之后，编译并测试。
 
+---
+
 ## 提炼超类
+
+两个classes 有相似特性（similar features）。
+
+**为这两个classes 建立一个superclass ，将相同特性移至superclass 。**
+
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/11fig08.gif)
+
+**动机（Motivation）**
+
+重复代码是系统中最主要的一种糟糕东西。如果你在不同的地方进行相同一件事 情，一旦需要修改那些动作时，你就得负担比你原本应该负担的更多事情。
+
+重复代码的某种形式就是：两个classes 以相同的方式做类似的事情，或者以不同的方式做类似的事情。对象提供了一种简化这种情况的机制，那就是继承机制。但是，在建立这些具有共通性的classes 之前，你往往无法发现这样的共通性，因此你经常会在「具有共通性」的classes 存在之后，再幵始建立其间的继承结构。
+
+另一种选择就是[提炼类](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_1)。这两种方案之间的选择其实就是继承（Inheritance ）和委托（delegation）之间的选择。如果两个classes 可以共享行为， 也可以共享接口，那么继承是比较简单的作法。如果你选错了，也总有[以委托取代继承](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_12)这瓶后悔药可吃。
+
+**作法（Mechanics）**
+
+* 为原本的classes 新建一个空白的abstract superclass。
+* 运用
+  [值域上移](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_7)
+  ,
+  [函数上移](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_8)
+  , 和
+  [构造函数本体上移](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_6)
+  逐一将subclass 的共同充素上移到superclass 。
+  * 先搬移值域，通常比较简单。
+  * 如果相应的subclass 函数有不同的签名式（signature），但用途相同，可以先使用
+    [重新命名函数](http://wangvsa.github.io/refactoring-cheat-sheet/making-method-calls-simpler/#_9)
+    将它们的签名式改为相同，然后 再使用
+    [函数上移](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_8)
+    。
+  * 如果相应的subclass 函数有相同的签名式，但函数本体不同，可以在superclass 中把它们的共同签名式声明为抽象函数。
+  * 如果相应的subclass 函数有不同的函数本体，但用途相同，可试着使用
+    [替换你的算法](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_10)
+    把其中一个函数的函数本体拷贝到另一个函数中。如果运转正常，你就可以使用
+    [函数上移](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_8)
+    。
+* 每次上移后，编译并测试。
+* 检查留在subclass 中的函数，看它们是否还有共通成分。如果有，可以使用
+  [提炼函数](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_1)
+  将共通部分再提炼出来，然后使用
+  [函数上移](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_8)
+  将提炼出的函数上移到superclass 。如果各个subclass 中某个函数的整体流程很相似，你也许可以使用
+  [塑造模板函数](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_5)
+  。
+* 将所有共通元素都上移到superclass 之后，检查subclass 的所有用户。如果它们只使用共同接口，你就可以把它们所索求的对象型别改为superclass 。
 
 ## 提炼接口
 
