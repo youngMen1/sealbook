@@ -113,7 +113,7 @@ systemctl enable mysqld.service     #设置 mysql 开机启动
 # mysql -u root
 mysql> show database;
 mysql> use mysql;
-mysql> update user set password=PASSWORD('123456') where User='root';
+mysql> update user set password=password('123456') where user='root';
 mysql> quit;
 ```
 
