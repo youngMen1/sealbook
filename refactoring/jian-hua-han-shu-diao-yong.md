@@ -579,11 +579,27 @@ class Employee...
     }
 ```
 
-##  {#_2}
-
-##  {#_2}
+---
 
 ## 封装\[向下转型\]动作 {#_2}
+
+某个函数返回的对象，需要由函数调用者执行「向下转型」（downcast）动作。
+
+**将向下转型（downcast）动作移到函数中。**
+
+```
+Object lastReading() {
+    return readings.lastElement();
+}
+```
+
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
+
+```
+Reading lastReading() {
+    return (Reading) readings.lastElement();
+}
+```
 
 ## 以异常取代错误码 {#_11}
 
