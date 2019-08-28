@@ -615,8 +615,9 @@ Reading lastReading() {
   * 这种情况通常出现在「返回一个群集（collection）或迭代器（iterator）」 的函数中。
 * 将向下转型动作搬移到该函数中。
   * 针对返回群集（collection）的函数，使用
-    [封装群集](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#_6)
-    。
+    [封装群集](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#_6)。
+
+---
 
 ## 以异常取代错误码 {#_11}
 
