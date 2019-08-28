@@ -621,6 +621,30 @@ Reading lastReading() {
 
 ## 以异常取代错误码 {#_11}
 
+某个函数返回一个特定的代码（special code），用以表示某种错误情况。
+
+**改用异常（exception）。**
+
+```
+int withdraw(int amount) {
+    if (amount > _balance)
+        return -1;
+    else {
+        _balance -= amount;
+        return 0;
+    }
+}
+```
+
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
+
+```
+void withdraw(int amount) throws BalanceException {
+    if (amount > _balance) throw new BalanceException();
+    _balance -= amount;
+}
+```
+
 ## 以测试取代异常 {#_12}
 
 
