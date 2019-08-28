@@ -238,6 +238,8 @@ void setWidth (int arg) {
 
 但是，如果参数值不会对函数行为有太多影响，你就不应该使用[以明确函数取代参数](http://wangvsa.github.io/refactoring-cheat-sheet/making-method-calls-simpler/#_13)。如果情况真是这样，而你也只需要通过参数为一个值域赋值，那么直接使用设值函数（setter）就行了。如果你的确需要「条件判断」 式的行为，可考虑使用[以多态取代条件式](http://wangvsa.github.io/refactoring-cheat-sheet/simplifying-conditional-expressions/#_6)。
 
+
+
 ## 保持对象完整 {#_6}
 
 ## 以函数取代参数 {#_14}
