@@ -93,6 +93,29 @@ public Manager (String name, String id, int grade) {
 }
 ```
 
+**动机（Motivation）**
+
+构造函数（constructors ）是很奇妙的东西。它们不是普通函数，使用它们比使用普通函数受到更多的限制。
+
+如果你看见各个subclass 中的函数有共同行为，你的第一个念头应该是将共同行为提炼到一个独立函数中，然后将这个函数提升到superclass 。对构造函数而言，它们彼此的共同行为往往就是「对象的建构」。这时候你需要在superclass 中提供一个构造函数，然后让subclass 都来调用它。很多时候，「调用superclass 构造函数」就是subclass 构造函数的惟一动作。这里不能运用[函数上移](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_8)，因为你无法在subclass 中继承superclass 构造函数（你可曾痛恨过这个规定？）。
+
+如果重构过程过于复杂，你可以考虑转而使用[以工厂函数取代构造函数](http://wangvsa.github.io/refactoring-cheat-sheet/making-method-calls-simpler/#_10)。
+
+**作法（Mechanics）**
+
+* 在superclass 中定义一个构造函数。
+* 将subclass 构造函数中的共同代码搬移到superclass 构造函数中。
+  * 被搬移的可能是subclass 构造函数的全部内容。
+  * 首先设法将共同代码搬移到subclass 构造函数起始处，然后再拷贝到superclass构造函数中。
+* 将subclass 构造函数中的共同代码删掉，改而调用新建的superclass 构造函数。
+  * 如果subclass 构造函数中的所有代码都是共同码，那么对superclass 构造函数的调用将是subclass 构造函数的惟一动作。
+* 编译，测试。
+  * 如果日后subclass 构造函数再出现共同代码，你可以首先使用
+    [提炼函数](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_1)
+    将那一部分提炼到一个独立函数，然后使用
+    [函数上移](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_8)
+    将该函数上移到superclass。
+
 ## 函数下移
 
 ## 字段下移
