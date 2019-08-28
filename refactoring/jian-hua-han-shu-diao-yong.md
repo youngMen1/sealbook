@@ -508,6 +508,20 @@ double finalPrice = discountedPrice (basePrice);
 
 ## 以\[工厂函数\]取代\[构造函数\] {#_10}
 
+你希望在创建对象时不仅仅是对它做简单的建构动作（simple construction ）。
+
+**将constructor （构造函数）替换为factory method（工厂函数）。**
+
+
+
+
+
+
+
+
+
+
+
 ## 封装\[向下转型\]动作 {#_2}
 
 ## 以异常取代错误码 {#_11}
