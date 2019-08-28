@@ -130,7 +130,7 @@ mysql -u root -p xxxx
 # 第十一步：需要先登录到mysql，设置远程连接授权，执行以下命令，为root 用户添加远程登录的能力。
 
 ```
-mysql>use mysql
+mysql>use mysql;
 mysql>grant all privileges on *.* to 'root'@'%' identified by 'xxxxx(密码)';
 mysql>flush privileges;
 ```
