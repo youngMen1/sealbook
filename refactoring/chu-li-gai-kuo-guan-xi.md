@@ -86,6 +86,13 @@ class Manager extends Employee...
 
 ![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
 
+```
+public Manager (String name, String id, int grade) {
+    super (name, id);
+    _grade = grade;
+}
+```
+
 ## 函数下移
 
 ## 字段下移
