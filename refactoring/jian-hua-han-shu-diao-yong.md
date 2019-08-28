@@ -397,6 +397,21 @@ withinPlan = plan.withinRange(daysTempRange());
 
 **让参数接受者去除该项参数，并直接调用前一个函数。**
 
+```
+int basePrice = _quantity * _itemPrice;
+discountLevel = getDiscountLevel();
+double finalPrice = discountedPrice (basePrice, discountLevel);
+```
+
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
+
+```
+int basePrice = _quantity * _itemPrice;
+double finalPrice = discountedPrice (basePrice);
+```
+
+
+
 ## 引入参数对象 {#_4}
 
 ## 移除设值函数 {#_8}
