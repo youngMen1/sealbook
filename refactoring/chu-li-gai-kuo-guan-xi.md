@@ -290,15 +290,127 @@ classes 之间彼此互用的方式有若干种。「使用一个class 」通常
 * 让相关的胡实现上述接口。
 * 调整客户端的型别声明，使得以运用该接口。
 
-
+---
 
 ## 折叠继承体系
 
+superclass 和subclass 之间无太大区别。
+
+**将它们合为一体。**
+
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/11fig10.gif)
+
+**动机（Motivation）**
+
+如果你曾经编写过继承体系，你就会知道，继承体系很容易变得过分复杂。所谓重构继承体系，往往是将函数和值域在体系中上下移动。完成这些动作后，你 很可能发现某个subclass 并未带来该有的价值，因此需要把classes 并合（折叠）起来。
+
+**作法（Mechanics）**
+
+* 选择你想移除的class ：是superclass 还是subclass ？
+* 使用
+  [值域上移](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_7)
+  和
+  [函数上移](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_8)
+  ，或者
+  [函数下移](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_10)
+  和
+  [值域下移](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_9)
+  ，把想要移除的class 内的所有行为和数据 （值域）搬移到另一个class 。
+* 每次移动后，编译并测试。
+* 调整「即将被移除的那个class 」的所有引用点，令它们改而引用合并（折叠）后留下的class 。这个动作将会影响变量的声明、参数的型别以及构造函数。
+* 移除我们的目标；此时的它应该已经成为一个空类（empty class）。
+* 编译，测试。
+
+---
+
 ## 塑造模板函数 {#_5}
+
+你有一些subclasses ，其中相应的某些函数以相同顺序执行类似的措施，但各措施实际上有所不同。
+
+**将各个措施分别放进独立函数中，并保持它们都有相同的签名式（signature），于是原函数也就变得相同了。然后将原函数上移至superclass 。**
+
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/11fig11.gif)
+
+**动机（Motivation）**
+
+继承是「避免重复行为」的一个强大工具。无论何时，只要你看见两个subclasses 之中有类似的函数，就可以把它们提升到superclass 。但是如果这些函数并不完全相同呢？此时的你应该怎么办？我们仍有必要尽量避免重复，但又必须保持这些函 数之间的实质差异。
+
+常见的一种情况是：两个函数以相同序列（sequence）执行大致相近的措施，但是各措施不完全相同。这种情况下我们可以将「执行各措施」的序列移至superclass ， 并倚赖多态（polymorphism ）保证各措施仍得以保持差异性。这样的函数被称为Template Method （模板函数）\[Gang of Four\]。
+
+**作法（Mechanics）**
+
+* 在各个subclass 中分解目标函数，使分解后的各个函数要不完全相同，要不完全不同。
+* 运用
+  [函数上移](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_8)
+  将各subclass 内寒全相同的函数上移至superclass 。
+* 对于那些（剩余的、存在于各subclasses 内的）完全不同的函数，实施
+  [重新命名函数](http://wangvsa.github.io/refactoring-cheat-sheet/making-method-calls-simpler/#_9)
+  ，使所有这些函数的签名式（signature）完全相同。
+  * 这将使得原函数变为完全相同，因为它们都执行同样一组函数调用； 但各subclass 会以不同方式响应这些调用。
+* 修改上述所有签名式后，编译并测试。
+* 运用
+  [函数上移](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_8)
+  将所有原函数上移至superclass 。在superclass 中将那些「有所不同、代表各种不同措施」的函数定义为抽象函数。
+* 编译，测试。
+* 移除其他subclass 中的原函数，每删除一个，编译并测试。
+
+---
 
 ## 以委托取代继承 {#_12}
 
+某个subclass 只使用superclass 接口中的一部分，或是根本不需要继承而来的数据。
+
+**在subclass 中新建一个值域用以保存superclass ；调整subclass 函数，令它改而委托superclass ；然后去掉两者之间的继承关系。**
+
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/11fig14.gif)
+
+**动机（Motivation）**
+
+继承（Inheritance ）是一件很棒的事，但有时候它并不是你要的。常常你会遇到这样的情况：一开始你继承了一个class ，随后发现superclass 的许多操作并不真正 适用于subclass 。这种情况下你所拥有的接口并未真正反映出class 的功能。或者，你可能发现你从superclass 中继承了 一大堆subclass 并不需要的数据，抑或者你可能发现superclass 中的某些protected 函数对subclass 并没有什么意义。
+
+你可以选择容忍，并接受传统说法：subclass 可以只使用superclass 功能的一部分。但这样做的结果是：代码传达的信息与你的意图南辑北辙——这是一种裩淆，你应该将它去除。
+
+如果以委托（delegation）取代继承（Inheritance ），你可以更清楚地表明：你只需要受托类（delegated class）的一部分功能。接口中的哪一部分应该被使用，哪一部分应该被忽略，完全由你主导控制。这样做的成本则是需要额外写出请托函数（delegating methods），但这些函数都非常简单，极少可能出错。
+
+**作法（Mechanics）**
+
+* 在subclass 中新建一个值域，使其引用（指向、指涉、refers）superclass 的一个实体，并将它初始化为this。
+* 修改subclass 内的每一个（可能）函数，让它们不再使用superclass ，转而使 用上述那个「受托值域」（delegated field）。每次修改后，编译并测试。
+  * 你不能如此这般地修改subclass 中「通过super 调用superclass 函数」的函数，否则它们会陷入无限递归（infinite recurse）。这一类函数只有在继承关系被打破后才能修改。
+* 去除两个classes 之间的继承关系，将上述「受托值域」（delegated field）的赋值动作修改为「赋予一个新对象」。
+* 针对客户端所用的每一个superclass 函数，为它添加一个简单的请托函数（delegating method）。
+* 编译，测试。
+
+---
+
 ## 以继承取代委托 {#_11}
+
+你在两个classes 之间使用委托关系（delegation），并经常为整个接口编写许多极简单的请托函数（delegating methods）。
+
+**让「请托（delegating）class」继承「受托 class （delegate）」。**
+
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/11fig15.gif)
+
+**动机（Motivation）**
+
+本重构与[以继承取代委托](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_11)恰恰相反。如果你发现自己需要使用「受托 class」中的所有函数，并且费了很大力气编写所有极简的请托函数（delegating methods），本重构可以帮助你轻松回头使用「继承」。
+
+两条告诫需牢记于心。首先，如果你并没有使用「受托class 」的所有函数（而非只是部分函数），那么就不应该使用[以继承取代委托](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_11)，因为subclass 应该总是遵循（奉行）superclass 的接口。如果过多的请托函数让你烦心，你有别的选择：你可以通过[移除中间人](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_6)让客户端自己调用受托函数，也可以使用[提炼超类](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_4)将两个classes 接口相同的部分提炼到superclass 中， 然后让两个classes 都继承这个新的superclass ；你还可以以类似手法使用[提炼接口](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_2)。
+
+另一种需要当心的情况是：受托对象被不止一个其他对象共享，而且受托对象是可变的（mutable）。在这种情况下，你就不能将「委托关系」替换为「继承关系」，因为这样就无法再共享数据了。数据共享是必须由「委托关系」承担的一种责任，你无法把它转给「继承关系」。如果受托对象是不可变的（immutable），数据共享就不 成问题，因为你大可放心地拷贝对象，谁都不会知道。
+
+**作法（Mechanics）**
+
+* 让「请托端」成为「受托端」的一个subclass 。
+* 编译。
+  * 此时，某些函数可能会发生冲突：它们可能有相同的名称，但在返回型别（return type）、异常指定（exceptions）或可视性（visibility）方面有所差异。你可以使用
+    [重新命名函数](http://wangvsa.github.io/refactoring-cheat-sheet/making-method-calls-simpler/#_9)
+    解决此类问题。
+* 将「受托值域」（delegated field）设为「该值域所处之对象自身」。
+* 去掉简单的请托函数（delegating methods）。
+* 编译并测试。
+* 将所有其他「涉及委托关系」的动作，改为「调用对象自身（继承而来的函 数）」。
+* 移除「受托值域」（delegated field）。
 
 
 
