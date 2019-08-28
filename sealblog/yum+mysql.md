@@ -124,7 +124,7 @@ mysql> exit;
 # 第十步：使用root账号登录mysql。
 
 ```
-mysql -u root -p xxxx;
+mysql -u账号 -p密码
 
 或者
 mysql -rroot -p123456;
