@@ -528,6 +528,20 @@ static Employee create(int type) {
 }
 ```
 
+**动机（Motivation）**
+
+使用[以工厂函数取代构造函数](http://wangvsa.github.io/refactoring-cheat-sheet/making-method-calls-simpler/#_10)的最显而易见的动机就是在subclassing 过程中以factory method 以取代type code。你可能常常需要根据type code 创建相应的对象，现在，创建名单中还得加上subclasses，那些subclasses 也是根据type code 来创建。然而由于构造函数只能返回「被索求之对象」，因此你需要将构造函数替换为Factory Method \[Gang of Four\]。
+
+此外，如果构造函数的功能不能满足你的需要，也可以使用factory method 来代替它。Factory method 也是[将实值对象改为引用对象](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#_4)的基础。你也可以令你的factory method 根据参数的个数和型别，选择不同的创建行为。
+
+**做法（Mechanics）**
+
+* 新建一个factory method ，让它调用现有的构造函数。
+* 将「对构造函数的调用」替换为「对factory method 的调用」。
+* 每次替换后，编译并测试。
+* 将构造函数声明为private。
+* 编译。
+
 ## 封装\[向下转型\]动作 {#_2}
 
 ## 以异常取代错误码 {#_11}
