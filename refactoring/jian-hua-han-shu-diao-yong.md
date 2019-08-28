@@ -514,6 +514,20 @@ double finalPrice = discountedPrice (basePrice);
 
 **将constructor （构造函数）替换为factory method（工厂函数）。**
 
+```
+Employee (int type) {
+    _type = type;
+}
+```
+
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
+
+```
+static Employee create(int type) {
+    return new Employee(type);
+}
+```
+
 ## 封装\[向下转型\]动作 {#_2}
 
 ## 以异常取代错误码 {#_11}
