@@ -120,6 +120,27 @@ public Manager (String name, String id, int grade) {
 
 ## 函数下移
 
+superclass 中的某个函数只与部分（而非全部）subclasses 有关。
+
+**将这个函数移到相关的那些subclasses 去。**
+
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/11fig05.gif)
+
+**动机（Motivation）**
+
+[函数下移](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_10)恰恰相反于[函数上移](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_8)。当我有必要把某些行为从superclass 移至特定的subclass 时，我就使用[函数下移](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_10)，它通常也只在这种时候有用。使用[提炼子类](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_3)之后你可能会需要它。
+
+**作法（Mechanics）**
+
+* 在所有subclass 中声明该函数，将superclass 中的函数本体拷贝到每一个subclass 函数中。
+  * 你可能需要将superclass 的某些值域声明为protected，让subclass 函数也能够访问它们。如果日后你也想把这些值域下移到subclasses ， 通常就可以那么做；否则应该使用superclass 提供的访问函数（accessors）。如果访问函数并非public ，你得将它声明为protected 。
+* 删除superclass 中的函数。
+  * 你可能必须修改调用端的某些变量声明或参数声明，以便能够使用subclass 。
+  * 如果有必要通过一个superclass 对象访问该函数，或如果你不想把该函数从任何subclass 中移除，或如果superclass 是抽象类，那么你就可以在superclass 中把该函数声明为抽象函数。
+* 编译，测试。
+* 将该函数从所有不需要它的那些subclasses 中删掉。
+* 编译，测试。
+
 ## 字段下移
 
 ## 提炼子类
