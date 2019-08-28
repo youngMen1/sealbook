@@ -460,6 +460,8 @@ double finalPrice = discountedPrice (basePrice);
     [提炼函数](http://wangvsa.github.io/refactoring-cheat-sheet/composing-methods/#_1)
     将该段落提炼为一个独立函数，再搬移这一新建函数。
 
+---
+
 ## 移除设值函数 {#_8}
 
 你的class 中的某个值域，应该在对象初创时被设值，然后就不再改变。**去掉该值域的所有设值函数（setter）。**
@@ -511,16 +513,6 @@ double finalPrice = discountedPrice (basePrice);
 你希望在创建对象时不仅仅是对它做简单的建构动作（simple construction ）。
 
 **将constructor （构造函数）替换为factory method（工厂函数）。**
-
-
-
-
-
-
-
-
-
-
 
 ## 封装\[向下转型\]动作 {#_2}
 
