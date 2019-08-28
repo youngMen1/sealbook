@@ -116,6 +116,8 @@ public Manager (String name, String id, int grade) {
     [函数上移](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_8)
     将该函数上移到superclass。
 
+---
+
 ## 函数下移
 
 ## 字段下移
