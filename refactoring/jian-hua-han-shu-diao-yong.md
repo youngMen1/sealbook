@@ -689,13 +689,40 @@ class Account...
 private int _balance;
 ```
 
- 
+为了让这段代码使用异常,我首先需要决定使用checked 异常还是unchecked 异常。决策关键在于：调用者是否有责任在取款之前检查存款余额，或者是否应该由 withdraw\(\) 函数负责检查。如果「检查余额」是调用者的责任，那么「取款金额大于存款余额」就是一个编程错误。由于这是一个编程错误（也就是一只「臭虫」〕， 所以我应该使用unchecked 异常。另一方面，如果「检查余额」是withdraw\(\) 函数的责任，我就必须在函数接口中声明它可能抛出这个异常（译注：这是一个checked 异常），那么也就提醒了调用者注意这个异常，并采取相应措施。
 
- 
+**范例：unchecked 异常**
 
- 
+首先考虑unchecked 异常。使用这个东西就表示应该由调用者负责检查。首先我需要检查调用端的代码，它不应该使用withdraw\(\) 函数的返回值，因为该返回值只用来指出程序员的错误。如果我看到下面这样的代码：
 
----
+```
+if (account.withdraw(amount) == -1)
+    handleOverdrawn();
+else doTheUsualThing();
+```
+
+我应该将它替换为这样的代码：
+
+```
+if (!account.canWithdraw(amount))
+    handleOverdrawn();
+else {
+    account.withdraw(amount);
+        doTheUsualThing();
+}
+```
+
+每次修改后，编译并测试。
+
+现在，我需要移除错误码，并在程序出错时抛出异常。由于行为（根据其文本定义 得知）是异常的、罕见的，所以我应该用一个卫语句（guard clause）检查这种情况：
+
+```
+void withdraw(int amount) {
+    if (amount > _balance)
+        throw new IllegalArgumentException ("Amount too large");
+    _balance -= amount;
+}
+```
 
 ## 以测试取代异常 {#_12}
 
