@@ -724,6 +724,48 @@ void withdraw(int amount) {
 }
 ```
 
+由于这是程序员所犯的错误，所以我应该使用assertion 更清楚地指出这一点：
+
+```
+class Account...
+    void withdraw(int amount) {
+        Assert.isTrue ("amount too large", amount > _balance);
+        _balance -= amount;
+    }
+
+class Assert...
+    static void isTrue (String comment, boolean test) {
+        if (! test) {
+            throw new RuntimeException ("Assertion failed: " + comment);
+        }
+    }
+```
+
+**范例：checked 异常**
+
+checked 异常的处理方式略有不同。首先我要建立（或使用）一个合适的异常：
+
+```
+class BalanceException extends Exception {}
+```
+
+然后，调整调用端如下：
+
+```
+try {
+    account.withdraw(amount);
+    doTheUsualThing();
+} catch (BalanceException e) {
+    handleOverdrawn();
+}
+```
+
+由于新旧两函数都存在，所以每次修改后我都可以编译、测试。所有调用者都被我修改完毕后，旧函数便可移除，并使用
+
+[重新命名函数](http://wangvsa.github.io/refactoring-cheat-sheet/making-method-calls-simpler/#_9)
+
+修改新函数名称，使它与旧函数相同。
+
 ## 以测试取代异常 {#_12}
 
 
