@@ -261,7 +261,36 @@ class 中的某些特性（features）只被某些（而非全部）实体（ins
   。
 * 将所有共通元素都上移到superclass 之后，检查subclass 的所有用户。如果它们只使用共同接口，你就可以把它们所索求的对象型别改为superclass 。
 
+---
+
 ## 提炼接口
+
+若干客户使用class 接口中的同一子集；或者，两个classes 的接口有部分相同。
+
+**将相同的子集提炼到一个独立接口中。**
+
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/11fig09.gif)
+
+**动机（Motivation）**
+
+classes 之间彼此互用的方式有若干种。「使用一个class 」通常意味覆盖该class 的所有责任区（ whole area of responsibilities ）。另一种情况是，某一组客户只使用class 责任区中的一个特定子集。再一种情况则是，class 需要与「所有可协助处理某些特定请求」的classes 合作。
+
+对于后两种情况，将「被使用之部分责任」分离出来通常很有意义，因为这样可以使系统的用法更清晰，同时也更容易看清系统的责任划分。如果新的需要支持上述子集，也比较能够看清子集内有些什么东西。
+
+在许多面向对象语言中，这种「责任划分」能力是通过多重继承（multiple inheritance）支持的。你可以针对一段行为（each segment of behavior ）建立一个class ，再将它们组合于一份实现品（implementation）中。Java 只提供单一继承（single inher），但你可以运用interfaces \(接口〉来昭示并实现上述需求。interfaces 对于Java 程序的设计方式有着巨大的影响，就连Smalltalk 程序员都认为interfaces （接口） 是一大进步！
+
+[提炼超类](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_4)和[提炼接口](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_2)之间有些相似之处。[提炼接口](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_2)只能提炼共通接口，不能提炼共通代码。使用[提炼接口](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_2)可能造成难闻的「重复」臭味，幸而你可以运用[提炼类](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_1)先把共通行为放进一个组件（component）中，然后将工作委托（delegating）该组件，从而解决这个问题。如果有不少共通行为，[提炼超类](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_4)会比较简单，但是每个class 只能有一个superclass（译注：每个class 却能有多个interfaces ）。
+
+如果某个class 在不同环境下扮演截然不同的角色，使用interface （接口）就是个好主意。你可以针对每个角色以[提炼接口](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_2)提炼出相应接口。另一种可以用上[提炼接口](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_2)的情况是：你想要描述一个class 的外驶接口（outbound interface ），亦即这个class 对其server 所进行的操作〉。如果你打算将来加入其他种类的server ，只需要求它们实现这个接口即可。
+
+**作法（Mechanics）**
+
+* 新建一个空接口（empty interface ）。
+* 在接口中声明「待提炼类」的共通操作。
+* 让相关的胡实现上述接口。
+* 调整客户端的型别声明，使得以运用该接口。
+
+
 
 ## 折叠继承体系
 
