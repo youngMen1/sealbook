@@ -348,6 +348,18 @@ Employee kent = Employee.createEngineer()
 
 **改使用（传递）整个对象。**
 
+```
+int low = daysTempRange().getLow();
+int high = daysTempRange().getHigh();
+withinPlan = plan.withinRange(low, high);
+```
+
+![](http://wangvsa.github.io/refactoring-cheat-sheet/images/arrow.gif)
+
+```
+withinPlan = plan.withinRange(daysTempRange());
+```
+
 ## 以函数取代参数 {#_14}
 
 ## 引入参数对象 {#_4}
