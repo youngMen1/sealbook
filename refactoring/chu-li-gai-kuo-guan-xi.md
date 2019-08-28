@@ -141,9 +141,75 @@ superclass 中的某个函数只与部分（而非全部）subclasses 有关。
 * 将该函数从所有不需要它的那些subclasses 中删掉。
 * 编译，测试。
 
+---
+
 ## 字段下移
 
+superclass 中的某个值域只被部分（而非全部）subclasses 用到。
+
+**将这个值域移到需要它的那些subclasses 去。**![](http://wangvsa.github.io/refactoring-cheat-sheet/images/11fig06.gif)
+
+**动机（Motivation）**
+
+[值域下移](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_9)恰恰相反[值域上移](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_7)。如果只有某些（而非全部）subclasses 需要superclass 内的一个值域，你可以使用本项重构。
+
+**作法（Mechanics）**
+
+* 在所有subclass 中声明该值域。
+* 将该值域从superclass 中移餘。
+* 编译，测试。
+* 将该值域从所有不需要它的那些subclasses 中删掉。
+* 编译，测试。
+
+---
+
 ## 提炼子类
+
+class 中的某些特性（features）只被某些（而非全部）实体（instances）用到。
+
+**新建一个subclass ，将上面所说的那一部分特性移到subclass 中。**![](http://wangvsa.github.io/refactoring-cheat-sheet/images/11fig07.gif)
+
+**动机（Motivation）**
+
+使用[提炼子类](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_3)的主要动机是：你发现class 中的某些行为只被一部分实体用到，其他实体不需要它们。有时候这种行为上的差异是通过type code 区分 的，此时你可以使用[以子类取代型别码](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#_14)或[以State/Strategy取代型别码](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#statestrategy)。但是，并非一定要出现了type code 才表示需要考虑使用subclass 。
+
+[提炼类](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_1)是[提炼子类](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_3)之外的另一种选择，两者之间的抉择其实就是委托（delegation）和继承（inheritance）之间的抉择。[提炼子类](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_3)通常更容易进行，但它也有限制：一旦对象创建完成，你无法再改变「与型别相关的行为」（class-based behavior ）。但如果使用[提炼类](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_1)，你只需插入另一个不同组件（ plugging in different components）就可以改变对象的行为。此外，subclasses 只能用以表现一组变化（one set of variations）。如果你希望class 以数种不同的方式变化，就必须使用委托（delegation）。
+
+**作法（Mechanics）**
+
+* 为source class 定义一个新的subclass 。
+* 为这个新的subclass 提供构造函数。
+  * 简单的作法是：让subclass 构造函数接受与superclass 构造函数相同的参数，并通过super 调用superclass 构造函数。
+  * 如果你希望对用户隐藏subclass 的存在，可使用
+    [以工厂函数取代构造函数](http://wangvsa.github.io/refactoring-cheat-sheet/making-method-calls-simpler/#_10)
+    。
+* 找出调用superclass 构造函数的所有地点。如果它们需要的是新建的subclass ， 令它们改而调用新构造函数。
+  * 如果subclass 构造函数需要的参数和superclass 构造函数的参数不同，可以使用
+    [重新命名函数](http://wangvsa.github.io/refactoring-cheat-sheet/making-method-calls-simpler/#_9)
+    修改其参数列。如果subclass 构造函数不需要superclass 构造函数的某些参数，可以使用
+    [重新命名函数](http://wangvsa.github.io/refactoring-cheat-sheet/making-method-calls-simpler/#_9)
+    将它们去除。
+  * 如果不再需要直接实体化（具现化，instantiated）superclass ，就将它声明为抽象类。
+* 逐一使用
+  [函数下移](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_10)
+  和
+  [值域下移](http://wangvsa.github.io/refactoring-cheat-sheet/dealing-with-generalization/#_9)
+  将source class 的特性移到subclass 去。
+  * 和
+    [提炼类](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_1)
+    不同的是，先处理函数再处理数据，通常会简单一些。
+  * 当一个public 函数被下移到subclass 后，你可能需要重新定义该函数的调用端的局部变量或参数型别，让它们改调用subclass 中的新函数。如果忘记进行这一步骤，编译器会提醒你。
+* 找到所有这样的值域：它们所传达的信息如今可由继承体系自身传达（这一类值域通常是boolean 变量或type code ）。以
+  [封装值域](http://wangvsa.github.io/refactoring-cheat-sheet/organizing-data/#_7)
+  避免直接使用这些值域，然后将它们的取值函数（getter）替换为多态常量函数（polymorphic constant methods）。所有使用这些值域的地方都应该以
+  [以多态取代条件式](http://wangvsa.github.io/refactoring-cheat-sheet/simplifying-conditional-expressions/#_6)
+  重构。
+  * 任何函数如果位于source class 之外，而又使用了上述值域的访问函数（accessors），考虑以
+    [搬移函数](http://wangvsa.github.io/refactoring-cheat-sheet/moving-features-between-objects/#_3)
+    将它移到source class 中， 然后再使用
+    [以多态取代条件式](http://wangvsa.github.io/refactoring-cheat-sheet/simplifying-conditional-expressions/#_6)
+    。
+* 每次下移之后，编译并测试。
 
 ## 提炼超类
 
