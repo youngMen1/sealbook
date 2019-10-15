@@ -159,7 +159,7 @@ firewall-cmd --list-all
 
 # 踩坑日记:
 
-阿里云安全组记得打开
+阿里云安全组记得打开入方向
 
 ![img](/static/image/微信截图_20191015140046.png)
 
