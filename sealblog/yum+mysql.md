@@ -161,7 +161,7 @@ firewall-cmd --list-all
 
 阿里云安全组记得打开
 
-微信截图\_20191015140046.png
+![img](/static/image/微信截图_20191015140046.png)
 
 # 参考
 
