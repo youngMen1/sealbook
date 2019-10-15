@@ -157,6 +157,12 @@ firewall-cmd --query-port=3306/tcp
 firewall-cmd --list-all
 ```
 
+# 踩坑日记:
+
+阿里云安全组记得打开
+
+微信截图\_20191015140046.png
+
 # 参考
 
 [https://yq.aliyun.com/articles/442037?spm=a2c4e.11153940.0.0.41c240a5LC800d](https://yq.aliyun.com/articles/442037?spm=a2c4e.11153940.0.0.41c240a5LC800d)
