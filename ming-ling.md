@@ -114,7 +114,7 @@ vi / vim是Linux上最常用的文本编辑器而且功能非常强大。只有�
 
 java -jarjar包的完整路径
 
-比如： java -jar/home/weblogic/test/hello.jar 
+比如： java  -jar  /home/weblogic/test/hello.jar
 
 ---
 
