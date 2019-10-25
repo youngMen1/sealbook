@@ -99,3 +99,8 @@ daemonize yes
 ```
 第三步：关闭redis进程
 首先使用ps -aux | grep redis查看redis进程
+```
+[root@iZwz991stxdwj560bfmadtZ src]# ps -aux | grep redis
+root     18714  0.0  0.1 141752  2008 ?        Ssl  13:07   0:00 ./redis-server 127.0.0.1:6379
+root     18719  0.0  0.0 112644   968 pts/0    R+   13:09   0:00 grep --color=auto redis
+```
