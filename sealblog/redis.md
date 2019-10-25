@@ -137,3 +137,4 @@ service redisd does not support chkconfig　
 # chkconfig:   2345 90 10
 # description:  Redis is a persistent key-value database
 ```
+再次执行开机自启命令，成功
