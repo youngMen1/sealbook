@@ -153,3 +153,6 @@ Starting Redis server...
 2288:C 13 Dec 13:51:38.087 # Redis version=4.0.6, bits=64, commit=00000000, modified=0, pid=2288, just started
 2288:C 13 Dec 13:51:38.087 # Configuration loaded
 ```
+关闭：
+
+方法1：service redisd stop
