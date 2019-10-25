@@ -97,3 +97,4 @@ daemonize yes
 18713:C 13 Dec 13:07:41.109 # Redis version=4.0.6, bits=64, commit=00000000, modified=0, pid=18713, just started
 18713:C 13 Dec 13:07:41.109 # Configuration loaded
 ```
+第三步：关闭redis进程
