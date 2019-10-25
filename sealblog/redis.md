@@ -118,3 +118,8 @@ mkdir redis
 ```
 [root@iZwz991stxdwj560bfmadtZ redis]# cp /usr/local/redis-4.0.6/redis.conf /etc/redis/6379.conf
 ```
+4、设置redis开机自启动
+
+先切换到/etc/init.d目录下
+
+然后执行自启命令
