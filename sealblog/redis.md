@@ -27,7 +27,7 @@ yum install gcc
 ```
 ## 第四步：跳转到redis解压目录下
 ```
-cd redis-4.0.6
+[root@iZwz991stxdwj560bfmadtZ local]# cd redis-4.0.6
 ```
 ## 第五步：编译安装
 ```
