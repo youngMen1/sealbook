@@ -25,3 +25,4 @@ tar -zxvf redis-4.0.6.tar.gz
 yum install gcc
 遇到选择,输入y即可
 ```
+## 第四步：跳转到redis解压目录下
