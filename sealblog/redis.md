@@ -110,4 +110,5 @@ root     18719  0.0  0.0 112644   968 pts/0    R+   13:09   0:00 grep --color=au
 ```
 ## 3、设置redis开机自启动
 1、在/etc目录下新建redis目录
+1、在/etc目录下新建redis目录
 mkdir redis
