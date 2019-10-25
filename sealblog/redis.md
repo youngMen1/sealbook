@@ -79,3 +79,4 @@ Hint: It's a good idea to run 'make test' ;)
 18685:M 13 Dec 12:56:12.508 * Ready to accept connections
 ```
 如上图：redis启动成功，但是这种启动方式需要一直打开窗口，不能进行其他操作，不太方便。
+按 ctrl + c可以关闭窗口。
