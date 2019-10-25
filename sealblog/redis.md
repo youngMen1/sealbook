@@ -114,3 +114,4 @@ mkdir redis
 ```
 [root@iZwz991stxdwj560bfmadtZ etc]# mkdir redis
 ```
+2、将/usr/local/redis-4.0.6/redis.conf 文件复制一份到/etc/redis目录下，并命名为6379.conf　　
