@@ -83,3 +83,6 @@ Hint: It's a good idea to run 'make test' ;)
 ## 2、以后台进程方式启动redis
 第一步：修改redis.conf文件
 将
+```
+daemonize no
+```
