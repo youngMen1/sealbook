@@ -18,7 +18,7 @@ Saving to: ‘redis-4.0.6.tar.gz’
 
 ## 第二步：解压压缩包
 ```
-tar -zxvf redis-4.0.6.tar.gz
+[root@iZwz991stxdwj560bfmadtZ local]# tar -zxvf redis-4.0.6.tar.gz
 ```
 ## 第三步：yum安装gcc依赖
 ```
