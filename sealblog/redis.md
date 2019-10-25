@@ -138,3 +138,6 @@ service redisd does not support chkconfig　
 # description:  Redis is a persistent key-value database
 ```
 再次执行开机自启命令，成功
+```
+[root@iZwz991stxdwj560bfmadtZ init.d]# chkconfig redisd on
+```
