@@ -141,3 +141,8 @@ service redisd does not support chkconfig　
 ```
 [root@iZwz991stxdwj560bfmadtZ init.d]# chkconfig redisd on
 ```
+现在可以直接已服务的形式启动和关闭redis了
+
+启动：
+
+service redisd start　
