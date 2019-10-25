@@ -91,3 +91,9 @@ daemonize no
 daemonize yes
 ```
 第二步：指定redis.conf文件启动
+```
+[root@iZwz991stxdwj560bfmadtZ src]# ./redis-server /usr/local/redis-4.0.6/redis.conf 
+18713:C 13 Dec 13:07:41.109 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+18713:C 13 Dec 13:07:41.109 # Redis version=4.0.6, bits=64, commit=00000000, modified=0, pid=18713, just started
+18713:C 13 Dec 13:07:41.109 # Configuration loaded
+```
