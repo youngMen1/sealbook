@@ -86,3 +86,7 @@ Hint: It's a good idea to run 'make test' ;)
 ```
 daemonize no
 ```
+改成
+```
+daemonize yes
+```
