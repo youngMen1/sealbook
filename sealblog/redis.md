@@ -98,3 +98,4 @@ daemonize yes
 18713:C 13 Dec 13:07:41.109 # Configuration loaded
 ```
 第三步：关闭redis进程
+首先使用ps -aux | grep redis查看redis进程
