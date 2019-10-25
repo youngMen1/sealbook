@@ -34,5 +34,15 @@ cd redis-4.0.6
 make MALLOC=libc
 ```
 将/usr/local/redis-4.0.6/src目录下的文件加到/usr/local/bin目录
+```
+[root@iZwz991stxdwj560bfmadtZ redis-4.0.6]# cd src && make install
+    CC Makefile.dep
 
-cd src && make install
+Hint: It's a good idea to run 'make test' ;)
+
+    INSTALL install
+    INSTALL install
+    INSTALL install
+    INSTALL install
+    INSTALL install
+```
