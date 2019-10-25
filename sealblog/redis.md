@@ -31,7 +31,7 @@ cd redis-4.0.6
 ```
 ## 第五步：编译安装
 ```
-make MALLOC=libc
+[root@iZwz991stxdwj560bfmadtZ redis-4.0.6]# make MALLOC=libc
 ```
 将/usr/local/redis-4.0.6/src目录下的文件加到/usr/local/bin目录
 ```
