@@ -29,3 +29,4 @@ yum install gcc
 ```
 cd redis-4.0.6
 ```
+## 第五步：编译安装
