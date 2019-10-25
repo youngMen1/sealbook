@@ -133,6 +133,7 @@ service redisd does not support chkconfig　
 
 使用vim编辑redisd文件，在第一行加入如下两行注释，保存退出
 ```
+注释的意思是，redis服务必须在运行级2，3，4，5下被启动或关闭，启动的优先级是90，关闭的优先级是10。
 # chkconfig:   2345 90 10
 # description:  Redis is a persistent key-value database
 ```
