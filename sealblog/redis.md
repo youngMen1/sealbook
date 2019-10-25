@@ -127,3 +127,12 @@ mkdir redis
 [root@iZwz991stxdwj560bfmadtZ init.d]# chkconfig redisd on
 service redisd does not support chkconfig　    
 ```
+看结果是redisd不支持chkconfig
+
+解决方法：
+
+使用vim编辑redisd文件，在第一行加入如下两行注释，保存退出
+```
+# chkconfig:   2345 90 10
+# description:  Redis is a persistent key-value database
+```
