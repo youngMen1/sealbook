@@ -90,3 +90,4 @@ daemonize no
 ```
 daemonize yes
 ```
+第二步：指定redis.conf文件启动
