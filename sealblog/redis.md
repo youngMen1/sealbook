@@ -17,4 +17,7 @@ Saving to: ‘redis-4.0.6.tar.gz’
 ```
 
 ## 第二步：解压压缩包
+```
+tar -zxvf redis-4.0.6.tar.gz
+```
 
