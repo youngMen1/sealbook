@@ -23,3 +23,4 @@ tar -zxvf redis-4.0.6.tar.gz
 ## 第三步：yum安装gcc依赖
 ```
 yum install gcc
+```
