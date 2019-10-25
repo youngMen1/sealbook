@@ -146,3 +146,10 @@ service redisd does not support chkconfig　
 启动：
 
 service redisd start　
+```
+[root@izwz991stxdwj560bfmadtz ~]# service redisd start
+Starting Redis server...
+2288:C 13 Dec 13:51:38.087 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+2288:C 13 Dec 13:51:38.087 # Redis version=4.0.6, bits=64, commit=00000000, modified=0, pid=2288, just started
+2288:C 13 Dec 13:51:38.087 # Configuration loaded
+```
