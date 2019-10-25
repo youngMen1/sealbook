@@ -156,3 +156,8 @@ Starting Redis server...
 关闭：
 
 方法1：service redisd stop
+```
+[root@izwz991stxdwj560bfmadtz ~]# service redisd stop
+Stopping ...
+Redis stopped
+```
