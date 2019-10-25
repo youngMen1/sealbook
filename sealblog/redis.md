@@ -123,3 +123,7 @@ mkdir redis
 先切换到/etc/init.d目录下
 
 然后执行自启命令
+```
+[root@iZwz991stxdwj560bfmadtZ init.d]# chkconfig redisd on
+service redisd does not support chkconfig　    
+```
