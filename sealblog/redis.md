@@ -47,3 +47,5 @@ Hint: It's a good idea to run 'make test' ;)
     INSTALL install
 ```
 # 二、启动redis的三种方式
+
+## 1、直接启动redis
