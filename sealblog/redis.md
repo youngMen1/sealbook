@@ -204,6 +204,7 @@ Redis stopped
 
 ```
 6379.conf 将bind 127.0.0.1改成 bind 0.0.0.0
+redis 将bind 127.0.0.1改成 bind 0.0.0.0
 ```
 
 
