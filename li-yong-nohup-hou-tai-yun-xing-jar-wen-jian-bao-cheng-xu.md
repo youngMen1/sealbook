@@ -38,6 +38,8 @@ jobs
 那么就会列出所有后台执行的作业，并且每个作业前面都有个编号。  
 如果想将某个作业调回前台控制，只需要 fg + 编号即可。
 
+## 例子
+
 ```
 nohup java -jar /home/java/vickze-gateway-1.0-SNAPSHOT.jar >> /home/java/output.log 2>&1 &
 ```
