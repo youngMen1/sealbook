@@ -70,7 +70,7 @@ zookeeper:
 
 ## 120.79.XXX.221
 
-nohup java -jar /home/java/springcloud-eureka-0.0.1-SNAPSHOT.jar --spring.profiles.active=native1 &gt;&gt; /home/java/output.log 2&gt;&1 &
+eureka:nohup java -jar /home/java/springcloud-eureka-0.0.1-SNAPSHOT.jar --spring.profiles.active=native1 &gt;&gt; /home/java/output.log 2&gt;&1 &
 
 ---
 
