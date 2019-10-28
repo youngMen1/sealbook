@@ -22,8 +22,6 @@ xxl-job:[http://211.159.189.XX:8080/xxl-job-admin/](http://211.159.189.77:8080/x
 
 安装了docker
 
-
-
 ---
 
 ## 134.175.12.XXX: {#13417512XXX}
@@ -71,6 +69,8 @@ zookeeper:
 ---
 
 ## 120.79.XXX.221
+
+nohup java -jar /home/java/springcloud-eureka-0.0.1-SNAPSHOT.jar --spring.profiles.active=native1 &gt;&gt; /home/java/output.log 2&gt;&1 &
 
 ---
 
