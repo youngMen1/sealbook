@@ -22,7 +22,7 @@ xxl-job:[http://211.159.189.XX:8080/xxl-job-admin/](http://211.159.189.77:8080/x
 
 安装了docker
 
-nohup java -jar /home/java/springcloud-eureka-0.0.1-SNAPSHOT.jar --spring.profiles.active=native2 &gt;&gt; /home/java/output.log 2&gt;&1 &
+
 
 ---
 
@@ -51,6 +51,8 @@ Nacos作为服务注册发现组件：
 ## 47.107.152.XX: {#4710715XXX}
 
 nohup java -jar inf-eureka-1.0.0.jar --spring.profiles.active=native1
+
+nohup java -jar /home/java/springcloud-eureka-0.0.1-SNAPSHOT.jar --spring.profiles.active=native1 &gt;&gt; /home/java/output.log 2&gt;&1 &
 
 ### 服务: {#服务-3}
 
