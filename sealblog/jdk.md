@@ -17,5 +17,5 @@
 wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm
 ```
 
-
+JDK我一般放在/usr/java目录下，现在我们把下载的rpm文件挪过去：
 
