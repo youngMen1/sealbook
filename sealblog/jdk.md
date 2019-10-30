@@ -46,3 +46,10 @@ rpm -ivh jdk-8u101-linux-x64.rpm
 
 6.查看是否安装成功：
 
+```
+//查看java的版本信息
+java -version
+```
+
+
+
