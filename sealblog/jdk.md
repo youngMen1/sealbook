@@ -27,5 +27,22 @@ mkdir /usr/java
 cp jdk-8u131-linux-x64.rpm /usr/java/
 ```
 
+4.添加执行权限:
+
+```
+//进入目录
+cd /usr/java
+
+//添加可执行权限
+chmod +x jdk-8u101-linux-x64.rpm
+```
+
+5.执行rpm命令安装:
+
+```
+//安装rpm软件包
+rpm -ivh jdk-8u101-linux-x64.rpm
+```
+
 
 
