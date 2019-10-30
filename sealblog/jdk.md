@@ -1,4 +1,6 @@
-# centos7安装redis
+# centos7安装jdk
+
+
 
 
 
