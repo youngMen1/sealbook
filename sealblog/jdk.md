@@ -7,7 +7,7 @@
 * 我们需要三个参数：**–no-check-certificate、–no-cookies、–header**，通过`man wget`命令可以查到。
 * **用于禁止检查证书**
 
-首先我们要找到要下载JDK的URL地址，例如：
+## 首先我们要找到要下载JDK的URL地址，例如：
 
 1. [http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm](http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm)
    。这个地址可以去Orcale的官网找到。
