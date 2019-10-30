@@ -44,5 +44,5 @@ chmod +x jdk-8u101-linux-x64.rpm
 rpm -ivh jdk-8u101-linux-x64.rpm
 ```
 
-
+6.查看是否安装成功：
 
