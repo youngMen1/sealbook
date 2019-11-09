@@ -16,5 +16,5 @@ Iconfinder:[https://www.iconfinder.com](https://www.iconfinder.com)
 
 TinEye:[https://www.tineye.com](https://www.tineye.com)
 
-https://www.semanticscholar.org
+SemanticScholar:[https://www.semanticscholar.org](https://www.semanticscholar.org)
 
