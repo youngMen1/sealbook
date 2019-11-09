@@ -17,6 +17,7 @@
 | VisualVM Launcher | 本地开发进行压力测试，性能测试之类的监控器 |
 | MyBatisCodeHelperPro | 编辑XML文件时自动补全 |
 | Docker | docker插件 |
+| .ignore |  |
 
 ## 参考:
 
