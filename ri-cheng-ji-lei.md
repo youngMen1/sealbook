@@ -28,3 +28,5 @@ guava:[https://www.yiibai.com/guava/](https://www.yiibai.com/guava/)
 
 MaHua 在线markdown编辑器:mahua.jser.me
 
+emoji表情代码大全:bj.96weixin.com/tools/emoji
+
