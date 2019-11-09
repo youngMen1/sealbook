@@ -6,5 +6,5 @@ DuckDuckGo:[https://duckduckgo.com](https://duckduckgo.com)
 
 Stack Overflow:[https://stackoverflow.com](https://stackoverflow.com)
 
-https://www.gitlogs.com
+Gitlogs:[https://www.gitlogs.com](https://www.gitlogs.com)
 
