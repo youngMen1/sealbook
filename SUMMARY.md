@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-  * 日程积累
+  * [日程积累](ri-cheng-ji-lei.md)
 * [idea](java.md)
   * [使用帮助](java/shi-yong-bang-zhu.md)
   * [错误](java/cuo-wu.md)
