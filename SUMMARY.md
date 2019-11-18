@@ -17,7 +17,7 @@
     * [IDEA 快捷键拆解系列（七）：Analyze 篇](java/idea-kuai-jie-jian-chai-jie-xi-lie/idea-kuai-jie-jianchai-jie-xi-lie-ff08-qi-ff09-ff1a-analyze-pian.md)
     * [IDEA 快捷键拆解系列（八）：Refactor 篇](java/idea-kuai-jie-jian-chai-jie-xi-lie/idea-kuai-jie-jian-chai-jie-xi-lie-ff08-ba-ff09-ff1a-refactor-pian.md)
     * [IDEA 快捷键拆解系列（九）：Build 篇](java/idea-kuai-jie-jian-chai-jie-xi-lie/idea-kuai-jie-jian-chai-jie-xi-lie-ff08-jiu-ff09-ff1a-build-pian.md)
-    * IDEA 快捷键拆解系列（十）：Run 篇
+    * [IDEA 快捷键拆解系列（十）：Run 篇](java/idea-kuai-jie-jian-chai-jie-xi-lie/idea-kuai-jie-jian-chai-jie-xi-lie-ff08-shi-ff09-ff1a-run-pian.md)
 * [springcloud](springcloud.md)
   * [eureka](springcloud/eureka.md)
   * [健康检查](springcloud/jian-kang-jian-cha.md)
