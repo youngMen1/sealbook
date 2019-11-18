@@ -1,18 +1,18 @@
 这是IDEA快捷键拆解系列的第八篇。
 
-  以下是关于Refactor导航项及其每一子项的拆解介绍，其中，加粗部分的选项是博主认为比较重要的。
+以下是关于Refactor导航项及其每一子项的拆解介绍，其中，加粗部分的选项是博主认为比较重要的。
 
-* Refactor
-  1. **Refactor This （ 重构当前 ）**
-     `Ctrl + Alt + Shift + T`
-  2. **Rename （ 重命名 ）**
-     `Shift + F6`
-  3. Rename File
-  4. Change Signature （ 修改方法、类的签名，含参数、返回值类型等 ） 
-     `Ctrl + F6`
-  5. Type Migration （ 类型迁移 ） 
-     `Ctrl + Shift + F6`
-  6. Make Static （ 添加Static关键字 ）
+* Refactor  
+  1. **Refactor This （ 重构当前 ）**  
+     `Ctrl + Alt + Shift + T`  
+  2. **Rename （ 重命名 ）**  
+     `Shift + F6`  
+  3. Rename File  
+  4. Change Signature （ 修改方法、类的签名，含参数、返回值类型等 ）   
+     `Ctrl + F6`  
+  5. Type Migration （ 类型迁移 ）   
+     `Ctrl + Shift + F6`  
+  6. Make Static （ 添加Static关键字 ）  
   7. Convert To Instance Method （ 转换为实例方法 ）
 
   ---
@@ -27,6 +27,7 @@
   ---
 
   1. Extract（ 提取 ）
+
      * **Variable （ 变量 ）**
        `Ctrl + Alt + V`
      * **Constant （ 常量 ）**
@@ -55,6 +56,7 @@
      * Interrface
      * Superclass
      * Subquery ad CTE
+
   2. Inline （ 转换为内联、方法链形式的调用 ） 
      `Ctrl + Alt + N`
   3. Find and Replace Code Duplicates
@@ -86,6 +88,7 @@
   ---
 
   1. Lombok \( Lombok插件：添加 \)
+
      * Default @Date
 
      ---
@@ -98,7 +101,9 @@
      ---
 
      * @Log \(and friends\)
+
   2. Delombok \( Lombok插件：删除 \)
+
      * All lombok annotations
 
      ---
@@ -120,28 +125,8 @@
      ---
 
      * @Log \(and friends\)
+
   3. Internationalize（国际化）
 
-  
 
-
-  
-
-
-作者：happyJared
-
-  
-
-
-链接：https://www.jianshu.com/p/51e06d91d3f1
-
-  
-
-
-来源：简书
-
-  
-
-
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
