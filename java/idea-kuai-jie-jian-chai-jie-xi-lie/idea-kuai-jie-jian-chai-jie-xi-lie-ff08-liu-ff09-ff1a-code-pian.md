@@ -1,14 +1,14 @@
 这是IDEA快捷键拆解系列的第六篇。
 
-  以下是关于Code导航项及其每一子项的拆解介绍，其中，加粗部分的选项是博主认为比较重要的。
+以下是关于Code导航项及其每一子项的拆解介绍，其中，加粗部分的选项是博主认为比较重要的。
 
-* Code
-  1. **Override Methods （ 重写覆盖方法 ）**
-     `Ctrl + O`
-  2. **Implements Methods （ 实现接口方法 ）**
-     `Ctrl + I`
-  3. Delegate Methods
-  4. **Gengrate （ 用于生成Construct、Getter/Setter、toString等）**
+* Code  
+  1. **Override Methods （ 重写覆盖方法 ）**  
+     `Ctrl + O`  
+  2. **Implements Methods （ 实现接口方法 ）**  
+     `Ctrl + I`  
+  3. Delegate Methods  
+  4. **Gengrate （ 用于生成Construct、Getter/Setter、toString等）**  
      `Alt + Insert`
 
   ---
@@ -21,6 +21,7 @@
   ---
 
   1. Completion
+
      * Basic 
        `Ctrl + 空格`
      * SmartType （ 智能选择并实现 ） 
@@ -32,7 +33,9 @@
        `Alt + /`
      * **Cyclic Expand Word （Backwrad）（ 循环往下选择单词 ）**
        `Alt + Shift + /`
+
   2. Folding
+
      * **Expand （ 方法展开 ）**
        `Ctrl + 加号`
      * **Collapse （ 方法折叠 ）**
@@ -111,26 +114,5 @@
 
   1. Update Copyright
 
-  
 
-
-  
-
-
-作者：happyJared
-
-  
-
-
-链接：https://www.jianshu.com/p/615b65798174
-
-  
-
-
-来源：简书
-
-  
-
-
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
