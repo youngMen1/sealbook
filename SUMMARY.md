@@ -15,6 +15,7 @@
     * [IDEA 快捷键拆解系列（五）：Navigate 篇](java/idea-kuai-jie-jian-chai-jie-xi-lie/idea-kuai-jie-jian-chai-jie-xi-lie-ff08-wu-ff09-ff1a-navigate-pian.md)
     * [IDEA 快捷键拆解系列（六）：Code 篇](java/idea-kuai-jie-jian-chai-jie-xi-lie/idea-kuai-jie-jian-chai-jie-xi-lie-ff08-liu-ff09-ff1a-code-pian.md)
     * [IDEA 快捷键拆解系列（七）：Analyze 篇](java/idea-kuai-jie-jian-chai-jie-xi-lie/idea-kuai-jie-jianchai-jie-xi-lie-ff08-qi-ff09-ff1a-analyze-pian.md)
+    * IDEA 快捷键拆解系列（八）：Refactor 篇
 * [springcloud](springcloud.md)
   * [eureka](springcloud/eureka.md)
   * [健康检查](springcloud/jian-kang-jian-cha.md)
