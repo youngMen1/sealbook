@@ -10,7 +10,7 @@
   * [IDEA 快捷键拆解系列](java/idea-kuai-jie-jian-chai-jie-xi-lie.md)
     * [IDEA 快捷键拆解系列（一）](java/idea-kuai-jie-jian-chai-jie-xi-lie/idea-kuai-jie-jian-chai-jie-xi-lie-ff08-yi-ff09.md)
     * IDEA 快捷键拆解系列（二）：File 篇
-    * IDEA 快捷键拆解系列（三）：Edit 篇
+    * [IDEA 快捷键拆解系列（三）：Edit 篇](java/idea-kuai-jie-jian-chai-jie-xi-lie/idea-kuai-jie-jian-chai-jie-xi-lie-ff08-san-ff09-ff1a-edit-pian.md)
 * [springcloud](springcloud.md)
   * [eureka](springcloud/eureka.md)
   * [健康检查](springcloud/jian-kang-jian-cha.md)
