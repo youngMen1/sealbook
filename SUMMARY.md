@@ -12,6 +12,7 @@
     * [IDEA 快捷键拆解系列（二）：File 篇](java/idea-kuai-jie-jian-chai-jie-xi-lie/idea-kuai-jie-jian-chai-jie-xi-lie-ff08-er-ff09-ff1a-file-pian.md)
     * [IDEA 快捷键拆解系列（三）：Edit 篇](java/idea-kuai-jie-jian-chai-jie-xi-lie/idea-kuai-jie-jian-chai-jie-xi-lie-ff08-san-ff09-ff1a-edit-pian.md)
     * [IDEA 快捷键拆解系列（四）：View 篇](java/idea-kuai-jie-jian-chai-jie-xi-lie/idea-kuai-jie-jian-chai-jie-xi-lie-ff08-si-ff09-ff1a-view-pian.md)
+    * IDEA 快捷键拆解系列（五）：Navigate 篇
 * [springcloud](springcloud.md)
   * [eureka](springcloud/eureka.md)
   * [健康检查](springcloud/jian-kang-jian-cha.md)
