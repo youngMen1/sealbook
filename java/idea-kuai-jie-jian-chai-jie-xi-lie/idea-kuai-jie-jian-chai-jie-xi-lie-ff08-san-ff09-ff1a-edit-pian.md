@@ -1,11 +1,11 @@
 这是IDEA快捷键拆解系列的第三篇。
 
-  以下是关于Edit导航项及其每一子项的拆解，其中，加粗部分的选项是博主认为比较重要的。
+以下是关于Edit导航项及其每一子项的拆解，其中，加粗部分的选项是博主认为比较重要的。
 
-* Edit
-  1. **Undo （ 撤销 ）**
-     `Ctrl + Z`
-  2. **Redo （ 重做还原、取消撤销 ）**
+* Edit  
+  1. **Undo （ 撤销 ）**  
+     `Ctrl + Z`  
+  2. **Redo （ 重做还原、取消撤销 ）**  
      `Ctrl + Shift + Z`
 
   ---
@@ -31,6 +31,7 @@
   ---
 
   1. Find
+
      * **Find （ 在当前文件查找 ）**
        `Ctrl + F`
      * **Replace （ 在当前文件查找替换 ）**
@@ -75,6 +76,7 @@
 
      * Find by XPath 
        `Ctrl + Alt + X , F`
+
   2. Macros （ 类似于录像机器人功能，用于记录操作，然后点播放可以还原记录的操作过程 ）
      * Play Back Last Macro
      * Start Macro Recording
@@ -128,26 +130,5 @@
      `Ctrl + Alt + Shift + J`
   5. Edit as Table
 
-  
 
-
-  
-
-
-作者：happyJared
-
-  
-
-
-链接：https://www.jianshu.com/p/5a4663e79e43
-
-  
-
-
-来源：简书
-
-  
-
-
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
