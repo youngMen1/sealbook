@@ -8,7 +8,7 @@
   * [插件](java/cha-jian.md)
     * [lomBok插件](java/cha-jian/lombokcha-jian.md)
   * [IDEA 快捷键拆解系列](java/idea-kuai-jie-jian-chai-jie-xi-lie.md)
-    * IDEA 快捷键拆解系列（一）
+    * [IDEA 快捷键拆解系列（一）](java/idea-kuai-jie-jian-chai-jie-xi-lie/idea-kuai-jie-jian-chai-jie-xi-lie-ff08-yi-ff09.md)
 * [springcloud](springcloud.md)
   * [eureka](springcloud/eureka.md)
   * [健康检查](springcloud/jian-kang-jian-cha.md)
