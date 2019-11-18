@@ -1,17 +1,17 @@
 这是IDEA快捷键拆解系列的第五篇。
 
-  以下是关于Navigate导航项及其每一子项的拆解介绍，其中，加粗部分的选项是博主认为比较重要的。
+以下是关于Navigate导航项及其每一子项的拆解介绍，其中，加粗部分的选项是博主认为比较重要的。
 
-* Navigate
-  1. **Class （ 查找类 ）**
-     `Ctrl + N`
-  2. **File （ 查找文件 ）**
-     `Ctrl + Shift + N`
-  3. **Symbol （ 查找标志符号，常用与查找方法名，变量名等 ）**
-     `Ctrl + Shift +Alt + N`
-  4. Custom Folding 
-     `Ctrl + Alt + 句点`
-  5. **Line/Column （ 跳转指定行 ）**
+* Navigate  
+  1. **Class （ 查找类 ）**  
+     `Ctrl + N`  
+  2. **File （ 查找文件 ）**  
+     `Ctrl + Shift + N`  
+  3. **Symbol （ 查找标志符号，常用与查找方法名，变量名等 ）**  
+     `Ctrl + Shift +Alt + N`  
+  4. Custom Folding   
+     `Ctrl + Alt + 句点`  
+  5. **Line/Column （ 跳转指定行 ）**  
      `Ctrl + G`
 
   ---
@@ -40,7 +40,7 @@
   2. **Jump to Navigation Bar （ 跳转到项目导航条 ）**
      `Alt + Home`
   3. **Declaration （ 跳转到声明处，同**
-     **`F4`**
+     `F4`
      ** ）**
      `Ctrl + B`
   4. **Implementations （ 跳转到实现处 ）**
@@ -81,26 +81,5 @@
   2. **Previous Method （ 上一个方法 ）**
      `Alt + 向下箭头`
 
-  
 
-
-  
-
-
-作者：happyJared
-
-  
-
-
-链接：https://www.jianshu.com/p/329f90d0095c
-
-  
-
-
-来源：简书
-
-  
-
-
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
