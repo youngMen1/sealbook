@@ -78,10 +78,12 @@
        `Ctrl + Alt + X , F`
 
   2. Macros （ 类似于录像机器人功能，用于记录操作，然后点播放可以还原记录的操作过程 ）
+
      * Play Back Last Macro
      * Start Macro Recording
      * Edit Macros
      * Play Saved Macros
+
   3. **Column Selection Mode （ 行、列选择模式，默认是行选择模式 ）**
      `Alt + Shift + Insert`
   4. **Select All （ 选择全部 ）**
