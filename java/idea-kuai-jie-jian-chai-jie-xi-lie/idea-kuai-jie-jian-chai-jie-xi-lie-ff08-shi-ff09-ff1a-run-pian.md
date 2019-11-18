@@ -1,27 +1,28 @@
 这是IDEA快捷键拆解系列的第十篇。
 
-  以下是关于Run导航项及其每一子项的拆解介绍，其中，加粗部分的选项是博主认为比较重要的。
+以下是关于Run导航项及其每一子项的拆解介绍，其中，加粗部分的选项是博主认为比较重要的。
 
-* Run
-  1. **Run current file （ 运行当前文件 ）**
-     `Shift + F10`
-  2. **Debug current file （ Debug运行当前文件 ）**
-     `Shift + F9`
-  3. Run File with Coverage （ 以统计覆盖的形式运行当前文件 ）
-  4. Run with JRebel File （ JRebel插件，以普通形式运行 ）
-  5. Debug with JRebel File （ JRebel插件，以Debug形式运行 ）
-  6. JREBEL synchronized project with remote server
-  7. **Run （ 选择文件运行 ）**
-     `Alt + Shift + F10`
-  8. **Debug （ 选择文件Debug运行 ）**
-     `Alt + Shift + F9`
-  9. Attach to Local Process
-  10. **Edit Configurations （ 配置编辑 ）**
+* Run  
+  1. **Run current file （ 运行当前文件 ）**  
+     `Shift + F10`  
+  2. **Debug current file （ Debug运行当前文件 ）**  
+     `Shift + F9`  
+  3. Run File with Coverage （ 以统计覆盖的形式运行当前文件 ）  
+  4. Run with JRebel File （ JRebel插件，以普通形式运行 ）  
+  5. Debug with JRebel File （ JRebel插件，以Debug形式运行 ）  
+  6. JREBEL synchronized project with remote server  
+  7. **Run （ 选择文件运行 ）**  
+     `Alt + Shift + F10`  
+  8. **Debug （ 选择文件Debug运行 ）**  
+     `Alt + Shift + F9`  
+  9. Attach to Local Process  
+  10. **Edit Configurations （ 配置编辑 ）**  
   11. Import Test Results
-      * From File
-  12. **Stop （ 关闭运行 ）**
-      `Ctrl + F2`
-  13. Show Running List （ 查看运行列表 ）
+
+  * From File
+    1. **Stop （ 关闭运行 ）**
+       `Ctrl + F2`
+    2. Show Running List （ 查看运行列表 ）
 
   ---
 
@@ -71,26 +72,5 @@
 
   1. Get thread dump
 
-  
 
-
-  
-
-
-作者：happyJared
-
-  
-
-
-链接：https://www.jianshu.com/p/60cc5661fc97
-
-  
-
-
-来源：简书
-
-  
-
-
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
