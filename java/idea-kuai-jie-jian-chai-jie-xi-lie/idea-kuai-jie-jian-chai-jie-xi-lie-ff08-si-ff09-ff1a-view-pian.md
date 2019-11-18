@@ -1,24 +1,25 @@
 这是IDEA快捷键拆解系列的第四篇。
 
-  以下是关于View导航项及其每一子项的拆解介绍，其中，加粗部分的选项是博主认为比较重要的。
+以下是关于View导航项及其每一子项的拆解介绍，其中，加粗部分的选项是博主认为比较重要的。
 
-* View
+* View  
   1. Tool Windows（工具窗）
-     * **Project （项目）**
-       `Alt + 1`
-     * Favorites （标签） Alt + 2
-     * **Run （项目运行）**
-       `Alt + 4`
-     * **Debug （项目Debug运行）**
-       `Alt + 5`
-     * **TODO （TODO）**
-       `Alt + 6`
-     * **Structure （结构）**
-       `Alt + 7`
-     * **Version Control （版本控制）**
-       `Alt + 9`
-     * **Terminal （终端）**
-       `Alt + 12`
+
+  * **Project （项目）**
+    `Alt + 1`
+  * Favorites （标签） Alt + 2
+  * **Run （项目运行）**
+    `Alt + 4`
+  * **Debug （项目Debug运行）**
+    `Alt + 5`
+  * **TODO （TODO）**
+    `Alt + 6`
+  * **Structure （结构）**
+    `Alt + 7`
+  * **Version Control （版本控制）**
+    `Alt + 9`
+  * **Terminal （终端）**
+    `Alt + 12`
 
   ---
 
@@ -38,9 +39,9 @@
   ---
 
   1. **Jump to Source （快速跳转到类、变量定义处，相当于**
-     **`Ctrl + 鼠标点击`**
+     `Ctrl + 鼠标点击`
      **，也相当与**
-     **`Ctrl + B`**
+     `Ctrl + B`
      **）**
      `F4`
   2. **Recent Files （列出最近打开的文件列表）**
@@ -88,26 +89,5 @@
   2. Enter Distraction Free Mode
   3. **Enter\(Exit\) Full Screen （全屏模式）**
 
-  
 
-
-  
-
-
-作者：happyJared
-
-  
-
-
-链接：https://www.jianshu.com/p/23f30181b6b9
-
-  
-
-
-来源：简书
-
-  
-
-
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
