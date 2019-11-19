@@ -20,6 +20,7 @@
     * [IDEA 快捷键拆解系列（十）：Run 篇](java/idea-kuai-jie-jian-chai-jie-xi-lie/idea-kuai-jie-jian-chai-jie-xi-lie-ff08-shi-ff09-ff1a-run-pian.md)
     * [IDEA 快捷键拆解系列（十一）：Tools 篇](java/idea-kuai-jie-jian-chai-jie-xi-lie/idea-kuai-jie-jian-chai-jie-xi-lie-ff08-shi-yi-ff09-ff1a-tools-pian.md)
     * [IDEA 快捷键拆解系列（十二）：VCS 篇](java/idea-kuai-jie-jian-chai-jie-xi-lie/idea-kuai-jie-jian-chai-jie-xi-lie-ff08-shi-er-ff09-ff1a-vcs-pian.md)
+    * IDEA 快捷键拆解系列（十三）：Window 篇
 * [springcloud](springcloud.md)
   * [eureka](springcloud/eureka.md)
   * [健康检查](springcloud/jian-kang-jian-cha.md)
