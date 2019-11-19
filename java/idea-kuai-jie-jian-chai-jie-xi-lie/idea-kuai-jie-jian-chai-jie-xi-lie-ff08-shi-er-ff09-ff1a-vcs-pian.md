@@ -1,12 +1,13 @@
- 这是IDEA快捷键拆解系列的第十二篇。
+这是IDEA快捷键拆解系列的第十二篇。
 
-  以下是关于VCS导航项及其每一子项的拆解介绍，其中，加粗部分的选项是博主认为比较重要的。
+以下是关于VCS导航项及其每一子项的拆解介绍，其中，加粗部分的选项是博主认为比较重要的。
 
-* VCS
+* VCS  
   1. Local history
-     * **Show History （ 查看本地历史 ）**
-     * **Show History for Selection （ 查看所选文件的本地历史 ）**
-     * Put Label
+
+  * **Show History （ 查看本地历史 ）**
+  * **Show History for Selection （ 查看所选文件的本地历史 ）**
+  * Put Label
 
   ---
 
@@ -24,6 +25,7 @@
   ---
 
   1. Git
+
      * **Commit File （ 进行提交修改 ）**
        `Ctrl + K`
      * Add （ 添加版本控制 ） 
@@ -97,26 +99,5 @@
      * Browse Subversion Repository
   4. Sync Settings
 
-  
 
-
-  
-
-
-作者：happyJared
-
-  
-
-
-链接：https://www.jianshu.com/p/487607af4739
-
-  
-
-
-来源：简书
-
-  
-
-
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
