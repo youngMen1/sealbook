@@ -39,7 +39,5 @@
 
 ## 插件破解:
 
-https://blog.csdn.net/liusf1993/article/details/80569707
-
-
+https://blog.csdn.net/is\_chenzh/article/details/82148157
 
