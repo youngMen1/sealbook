@@ -37,5 +37,9 @@
 | Power mode II | 抖动气泡 | ☆ |
 | Activate-power-mode | 抖动气泡 | ☆ |
 
+## 插件破解:
+
+https://blog.csdn.net/liusf1993/article/details/80569707
+
 
 
