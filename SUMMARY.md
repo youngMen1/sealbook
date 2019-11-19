@@ -24,6 +24,7 @@
     * [IDEA 快捷键拆解系列（十四）：Help 篇](java/idea-kuai-jie-jian-chai-jie-xi-lie/idea-kuai-jie-jian-chai-jie-xi-lie-ff08-shi-si-ff09-ff1a-help-pian.md)
     * [IDEA 快捷键拆解系列（十五）：经验篇](java/idea-kuai-jie-jian-chai-jie-xi-lie/idea-kuai-jie-jian-chai-jie-xi-lie-ff08-shi-wu-ff09-ff1a-jing-yan-pian.md)
     * [IDEA 快捷键拆解系列（十六）：插件篇](java/idea-kuai-jie-jian-chai-jie-xi-lie/idea-kuai-jie-jian-chai-jie-xi-lie-ff08-shi-liu-ff09-ff1a-cha-jian-pian.md)
+    * IDEA 快捷键拆解系列（十七）：Debug 篇
 * [springcloud](springcloud.md)
   * [eureka](springcloud/eureka.md)
   * [健康检查](springcloud/jian-kang-jian-cha.md)
