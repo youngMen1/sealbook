@@ -39,5 +39,5 @@
 
 ## 插件破解:
 
-https://blog.csdn.net/is\_chenzh/article/details/82148157
+JRebel for IntelliJ 热部署破解方法：[https://blog.csdn.net/is\_chenzh/article/details/82148157](https://blog.csdn.net/is_chenzh/article/details/82148157)
 
