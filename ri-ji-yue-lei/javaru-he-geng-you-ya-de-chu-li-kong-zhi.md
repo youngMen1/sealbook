@@ -10,7 +10,15 @@
 
 ## 业务中的空值
 
-
+```
+public List<User> listUser(){
+    List<User> userList = userListRepostity.selectByExample(new UserExample());
+    if(CollectionUtils.isEmpty(userList)){//spring util工具类
+      return null;
+    }
+    return userList;
+}
+```
 
 
 
