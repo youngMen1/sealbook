@@ -24,7 +24,19 @@ public List<User> listUser(){
 
 如果调用者是一个谨慎的人，他会进行是否为null的条件判断。如果他并非谨慎，或者他是一个面向接口编程的狂热分子\(当然，面向接口编程是正确的方向\)，他会按照自己的理解去调用接口，而不进行是否为null的条件判断，如果这样的话，是非常危险的，它很有可能出现空指针异常！
 
-根据墨菲定律来判断: **“很有可能出现的问题，在将来一定会出现!”**
+根据墨菲定律来判断: **“很有可能出现的问题，在将来一定会出现!”**
 
 基于此，我们将它进行优化:
+
+```
+public List<User> listUser(){
+    List<User> userList = userListRepostity.selectByExample(new UserExample());
+    if(CollectionUtils.isEmpty(userList)){
+      return Lists.newArrayList();//guava类库提供的方式
+    }
+    return userList;
+}
+```
+
+
 
