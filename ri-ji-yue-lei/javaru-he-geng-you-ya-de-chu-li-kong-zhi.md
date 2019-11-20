@@ -35,12 +35,13 @@ public List<User> listUser(){
       return Lists.newArrayList();//guava类库提供的方式
     }
     return userList;
+
 }
 ```
 
+#### 使用Optional可以进行优化
+
 ## 参考:
 
-https://mp.weixin.qq.com/s/SX1puW0KSuCcwi4MI5jLGg
-
-
+[https://mp.weixin.qq.com/s/SX1puW0KSuCcwi4MI5jLGg](https://mp.weixin.qq.com/s/SX1puW0KSuCcwi4MI5jLGg)
 
