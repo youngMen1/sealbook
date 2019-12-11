@@ -10,6 +10,7 @@
   * [错误](java/cuo-wu.md)
   * [插件](java/cha-jian.md)
     * [lomBok插件](java/cha-jian/lombokcha-jian.md)
+    * Cloud Toolkit
   * [IDEA 快捷键拆解系列](java/idea-kuai-jie-jian-chai-jie-xi-lie.md)
     * [IDEA 快捷键拆解系列（一）](java/idea-kuai-jie-jian-chai-jie-xi-lie/idea-kuai-jie-jian-chai-jie-xi-lie-ff08-yi-ff09.md)
     * [IDEA 快捷键拆解系列（二）：File 篇](java/idea-kuai-jie-jian-chai-jie-xi-lie/idea-kuai-jie-jian-chai-jie-xi-lie-ff08-er-ff09-ff1a-file-pian.md)
