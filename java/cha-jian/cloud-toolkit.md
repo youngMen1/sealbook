@@ -22,7 +22,7 @@ PyCharm 版：[https://help.aliyun.com/documentdetail/112740.html](https://help.
 
 Maven 版：[https://help.aliyun.com/documentdetail/108682.html](https://help.aliyun.com/documentdetail/108682.html)
 
-
+![img](/static/image/微信截图_20191211105545.png)
 
 ## 参考:
 
