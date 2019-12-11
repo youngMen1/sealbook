@@ -18,6 +18,7 @@
 | MyBatisCodeHelperPro | 编辑XML文件时自动补全 |
 | Docker | docker插件 |
 | .ignore | 忽略不需要提交的文件 |
+| Cloud Toolkit |  |
 
 ## 参考:
 
