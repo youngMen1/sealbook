@@ -12,15 +12,19 @@
 
 @DatetimeFormat是将String转换成Date，一般前台给后台传值时用
 
- @JsonFormat\(pattern="yyyy-MM-dd"\) 将Date转换成String 一般后台传值给前台时
+@JsonFormat\(pattern="yyyy-MM-dd"\) 将Date转换成String 一般后台传值给前台时
 
-  
+### @JsonFormat
 
+用法为在属性值上 @JsonFormat\(pattern=”yyyy-MM-dd”,timezone=”GMT+8”\)，如果直接使用 @JsonFormat\(pattern=”yyyy-MM-dd”\)就会出现2018-08-01 08:00:00的情况， 会相差8个小时，因为我们是东八区（北京时间）。所以我们在格式化的时候要指定时区（timezone ）
 
-  
+### @JSONField
 
+用法：目前最长的用属性是@JSONField\(name=”resType”\)和 @JSONField\(format=”yyyy-MM-dd”\) 
 
+name：@JSONField\(name=”resType”\)主要用于指定前端传到后台时对应的key值，如果bean中没有这个注解，则默认前端传过来的key是field本身，即如果是private String name，name前端对应的key就是name才能对应上。 
 
+format @JSONField\(format=”yyyy-MM-dd”\)主要用于格式化日期，比如前台传过来的时间是2018-07-12 17:44:08，但是通过这个注解，你存到数据库的时间就是2018-07-12 00:00:00.
 
 ### 
 
