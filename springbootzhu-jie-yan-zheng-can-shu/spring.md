@@ -8,6 +8,20 @@
 
 3、DateTimeFormat是spring自带的处理框架，主要用于将时间格式化。
 
+### 作用
+
+@DatetimeFormat是将String转换成Date，一般前台给后台传值时用
+
+ @JsonFormat\(pattern="yyyy-MM-dd"\) 将Date转换成String 一般后台传值给前台时
+
+  
+
+
+  
+
+
+
+
 ### 
 
 
