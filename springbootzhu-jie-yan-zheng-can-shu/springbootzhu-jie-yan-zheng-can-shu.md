@@ -19,7 +19,7 @@
 | @Pattern | 字符串、字符 | 正则匹配字符串 |
 
 ### @Pattern的用法:
-![img/static/image/微信截图_20191224104229.png]()
+![img](/static/image/微信截图_20191224104229.png)
 
 
 
