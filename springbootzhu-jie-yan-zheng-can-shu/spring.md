@@ -14,11 +14,33 @@
 
 @JsonFormat\(pattern="yyyy-MM-dd"\) 将Date转换成String 一般后台传值给前台时
 
-
-
 ### @DateTimeFormat
 
 因为其用法比较单一，只用于将字符串格式化成日期，在加入spring以后，直接使用注解@DateTimeFormat\(pattern=”yyyy-MM-dd”\)即可。@DateTimeFormat 注解有3个可选的属性：style，pattern和iso。
+
+属性style： 允许我们使用两个字符的字符串来表明怎样格式化日期和时间。第一个字符表明了 日期的格式，第二个字符表明了时间的格式。下面的表格中列出了可用的选择以及相应的输出的例子： 
+
+描述 字符串值 示例输出
+
+
+
+Tables	Are	Cool
+
+短格式（这是缺省值）	SS	8/30/64 11:24 AM
+
+中等格式	MM	Aug 30, 1964 11:24:41 AM
+
+长格式	LL	August 30, 1964 11:24:41 AM CDT
+
+完整格式	FF	Sunday, August 30,1964 11:24:41 AM CDT
+
+使用短横线省略日期或时间	M-	Aug 30, 1964
+
+Pattern： 属性允许我们使用自定义的日期/时间格式。该属性的值遵循java标准的date/time格式规范。缺省的该属性的值为空，也就是不进行特殊的格式化。通常情况下我们都是使用这个 注解做自定义格式化的。 
+
+iso： 基本上用不上，这里不做讲解
+
+
 
 ### @JsonFormat
 
