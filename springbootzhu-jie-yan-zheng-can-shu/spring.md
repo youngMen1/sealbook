@@ -24,17 +24,17 @@
 
 描述 字符串值 示例输出
 
-Tables	Are	Cool
+Tables    Are    Cool
 
-短格式（这是缺省值）	SS	8/30/64 11:24 AM
+短格式（这是缺省值）    SS    8/30/64 11:24 AM
 
-中等格式	MM	Aug 30, 1964 11:24:41 AM
+中等格式    MM    Aug 30, 1964 11:24:41 AM
 
-长格式	LL	August 30, 1964 11:24:41 AM CDT
+长格式    LL    August 30, 1964 11:24:41 AM CDT
 
-完整格式	FF	Sunday, August 30,1964 11:24:41 AM CDT
+完整格式    FF    Sunday, August 30,1964 11:24:41 AM CDT
 
-使用短横线省略日期或时间	M-	Aug 30, 1964
+使用短横线省略日期或时间    M-    Aug 30, 1964
 
 ————————————————
 
