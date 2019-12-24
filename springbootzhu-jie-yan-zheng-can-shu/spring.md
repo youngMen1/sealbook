@@ -14,7 +14,11 @@
 
 @JsonFormat\(pattern="yyyy-MM-dd"\) 将Date转换成String 一般后台传值给前台时
 
-@DateTimeFormat
+
+
+### @DateTimeFormat
+
+因为其用法比较单一，只用于将字符串格式化成日期，在加入spring以后，直接使用注解@DateTimeFormat\(pattern=”yyyy-MM-dd”\)即可。@DateTimeFormat 注解有3个可选的属性：style，pattern和iso。
 
 ### @JsonFormat
 
