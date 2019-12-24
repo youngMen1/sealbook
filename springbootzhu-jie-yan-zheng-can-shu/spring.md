@@ -14,6 +14,8 @@
 
 @JsonFormat\(pattern="yyyy-MM-dd"\) 将Date转换成String 一般后台传值给前台时
 
+@JSONField来源于fastjson，是\[阿里巴巴的开源框架，主要进行JSON解析和序列化
+
 ### @DateTimeFormat
 
 因为其用法比较单一，只用于将字符串格式化成日期，在加入spring以后，直接使用注解@DateTimeFormat\(pattern=”yyyy-MM-dd”\)即可。@DateTimeFormat 注解有3个可选的属性：style，pattern和iso。
