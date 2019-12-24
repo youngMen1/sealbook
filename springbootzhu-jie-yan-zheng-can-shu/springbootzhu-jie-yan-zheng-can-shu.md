@@ -4,7 +4,7 @@
 | :--- | :--- | :--- |
 | @NotNull | 任何类型 | 属性不能为null |
 | @NotEmpty | 集合 | 集合不能为null，且size大于0 |
-| @NotBlanck | 字符串、字符 | 字符类不能为null，且去掉空格之后长度大于0 |
+| @NotBlank | 字符串、字符 | 字符类不能为null，且去掉空格之后长度大于0 |
 | @AssertTrue | Boolean、boolean | 布尔属性必须是true |
 | @Min | 数字类型（原子和包装） | 限定数字的最小值（整型） |
 | @Max | 同@Min | 限定数字的最大值（整型） |
