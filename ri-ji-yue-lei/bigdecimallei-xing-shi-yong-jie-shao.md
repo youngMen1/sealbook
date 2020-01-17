@@ -5,17 +5,17 @@
  // 尽量用字符串的形式初始化
 BigDecimal num1 = new BigDecimal("0.005");
 BigDecimal num2 = new BigDecimal("1000000");
-* 加法 add()函数 
-BigDecimal result1 = num1.add(num2);
-* 减法subtract()函数
-BigDecimal result2 = num1.subtract(num2);
-* 乘法multiply()函数
-BigDecimal result3 = num1.multiply(num2);
-* 除法divide()函数(BigDecimal divisor 除数，int scale 精确小数位，int roundingMode 舍入模式)
-BigDecimal result5 = num2.divide(num1,20,BigDecimal.ROUND_HALF_UP);
-1.可以看到舍入模式有很多种BigDecimal.ROUND_XXXX_XXX, 具体都是什么意思呢?
+### 加法 add()函数 
+* BigDecimal result1 = num1.add(num2);
+### 减法subtract()函数
+* BigDecimal result2 = num1.subtract(num2);
+### 乘法multiply()函数
+* BigDecimal result3 = num1.multiply(num2);
+### 除法divide()函数(BigDecimal divisor 除数，int scale 精确小数位，int roundingMode 舍入模式)
+* BigDecimal result5 = num2.divide(num1,20,BigDecimal.ROUND_HALF_UP);
+* 1.可以看到舍入模式有很多种BigDecimal.ROUND_XXXX_XXX, 具体都是什么意思呢?
 ![img](/static/image/2018091611573630.png)
-计算1÷3的结果（最后一种ROUND_UNNECESSARY在结果为无限小数的情况下会报错）
+* 计算1÷3的结果（最后一种ROUND_UNNECESSARY在结果为无限小数的情况下会报错）
 ![img](/static/image/2018091611592867.png)
 ## 八种舍入模式解释如下
 ### 1、ROUND_UP
