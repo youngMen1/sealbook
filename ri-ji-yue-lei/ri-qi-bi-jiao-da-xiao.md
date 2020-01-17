@@ -14,7 +14,7 @@ try {
     Date date1 = format.parse(beginTime);
     Date date2 = format.parse(endTime);
 
-   // date1大于date2返回1，date1小于date2返回-1，相等返回0
+    // date1大于date2返回1，date1小于date2返回-1，相等返回0
     int compareTo = date1.compareTo(date2);
 
     System.out.println(compareTo);
@@ -54,6 +54,8 @@ try {
 ```
 
 before\(\)或者after\(\)方法的返回值为boolean类型
+
+---
 
 ### 方法三：
 
