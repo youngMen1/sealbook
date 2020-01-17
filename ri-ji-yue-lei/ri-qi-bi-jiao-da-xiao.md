@@ -35,24 +35,21 @@ compareTo\(\)方法的返回值，date1小于date2返回-1，date1大于date2返
 ```
 String beginTime = "2018-07-28 14:42:32";
 String endTime = "2018-07-29 12:26:32";
- 
+
 SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
- 
+
 try {
-	Date date1 = format.parse(beginTime);
-	Date date2 = format.parse(endTime);
-	
-	// date1大于date2返回true，date1小于date2返回false
-	boolean before = date1.before(date2);
-	
-	System.out.println(before);
-	
+    Date date1 = format.parse(beginTime);
+    Date date2 = format.parse(endTime);
+
+    // date1大于date2返回true，date1小于date2返回false
+    boolean before = date1.before(date2);
+
+    System.out.println(before);
+
 } catch (ParseException e) {
-	e.printStackTrace();
+    e.printStackTrace();
 }
-————————————————
-版权声明：本文为CSDN博主「永恒的春天」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/lz199719/article/details/81261336
 ```
 
 ### 方法三：
