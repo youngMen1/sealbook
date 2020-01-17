@@ -1,5 +1,15 @@
 ## BigDecimal compareTo比较大小
 
+```
+BigDecimal b1 = new BigDecimal(0.1);
+BigDecimal b2 = new BigDecimal(0.2);
+int c = b1.compareTo(b2);  // -1
+
+c=1表示b1大于b2
+c=0表示b1等于b2
+c=-1表示b1小于b2
+```
+
 ## BigDecimal加减乘除计算
 
 // 尽量用字符串的形式初始化  
@@ -30,7 +40,7 @@ BigDecimal num2 = new BigDecimal\("1000000"\);
 
 注意，此舍入模式始终不会减少计算值的大小。
 
-无条件进1，1.01 ->1.1
+无条件进1，1.01 -&gt;1.1
 
 ### 2、ROUND\_DOWN
 
@@ -40,7 +50,8 @@ BigDecimal num2 = new BigDecimal\("1000000"\);
 
 注意，此舍入模式始终不会增加计算值的大小。
 
-无条件舍弃，1.09 -> 1.0
+无条件舍弃，1.09 -&gt; 1.0
+
 ### 3、ROUND\_CEILING
 
 接近正无穷大的舍入模式。
@@ -51,8 +62,7 @@ BigDecimal num2 = new BigDecimal\("1000000"\);
 
 注意，此舍入模式始终不会减少计算值。
 
-向正无穷方向舍弃，1.01  -> 1.1
-
+向正无穷方向舍弃，1.01  -&gt; 1.1
 
 ### 4、ROUND\_FLOOR
 
@@ -64,7 +74,7 @@ BigDecimal num2 = new BigDecimal\("1000000"\);
 
 注意，此舍入模式始终不会增加计算值。
 
-向负无穷方向舍弃，1.09  -> 1.0
+向负无穷方向舍弃，1.09  -&gt; 1.0
 
 ### 5、ROUND\_HALF\_UP
 
@@ -102,15 +112,15 @@ BigDecimal num2 = new BigDecimal\("1000000"\);
 
 1.15&gt;1.2 1.25&gt;1.2
 
-当舍弃部分的左边是奇数时，表现同ROUND_HALF_UP（四舍五入）  
-当舍弃部分的左边是偶数时，表现同ROUND_HALF_DOWN（五舍六入
+当舍弃部分的左边是奇数时，表现同ROUND\_HALF\_UP（四舍五入）  
+当舍弃部分的左边是偶数时，表现同ROUND\_HALF\_DOWN（五舍六入
 
 ### 8、ROUND\_UNNECESSARY
 
 断言请求的操作具有精确的结果，因此不需要舍入。
 
-Assert操作，证明计算是准确的，不需要round
-System.out.println(new BigDecimal(1.25).setScale(1, BigDecimal.ROUND_HALF_UP).setScale(1, BigDecimal.ROUND_UNNECESSARY));
+Assert操作，证明计算是准确的，不需要round  
+System.out.println\(new BigDecimal\(1.25\).setScale\(1, BigDecimal.ROUND\_HALF\_UP\).setScale\(1, BigDecimal.ROUND\_UNNECESSARY\)\);
 
 ## 绝对值abs\(\)函数
 
