@@ -44,6 +44,7 @@ try {
 
     // date1大于date2返回true，date1小于date2返回false
     boolean before = date1.before(date2);
+    boolean before = date1.after(date2);
 
     System.out.println(before);
 
