@@ -8,9 +8,13 @@ BigDecimal num2 = new BigDecimal("1000000");
 * 加法 add()函数 
 BigDecimal result1 = num1.add(num2);
 * 减法subtract()函数
-* 乘法multiply()函数    
+BigDecimal result2 = num1.subtract(num2);
+* 乘法multiply()函数
+BigDecimal result3 = num1.multiply(num2);
 * 除法divide()函数
+BigDecimal result5 = num2.divide(num1,20,BigDecimal.ROUND_HALF_UP);
 * 绝对值abs()函数
+BigDecimal result4 = num3.abs();
 ### 注意
 1.System.out.println()中的数字默认是double类型的，double类型小数计算不精准。
 2.使用BigDecimal类构造方法传入double类型时，计算的结果也是不精确的！
