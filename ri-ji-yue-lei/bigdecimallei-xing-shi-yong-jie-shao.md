@@ -1,7 +1,6 @@
 
 
 ## BigDecimal加减乘除计算
-
  // 尽量用字符串的形式初始化
 BigDecimal num1 = new BigDecimal("0.005");
 BigDecimal num2 = new BigDecimal("1000000");
