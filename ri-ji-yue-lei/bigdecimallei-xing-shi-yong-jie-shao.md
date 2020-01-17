@@ -5,7 +5,6 @@ BigDecimal num1 = new BigDecimal\("0.005"\);
 BigDecimal num2 = new BigDecimal\("1000000"\);
 
 ### 加法 add\(\)函数
-
 * BigDecimal result1 = num1.add\(num2\);
 ### 减法subtract\(\)函数
 * BigDecimal result2 = num1.subtract\(num2\);
