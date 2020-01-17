@@ -42,7 +42,7 @@ try {
     Date date1 = format.parse(beginTime);
     Date date2 = format.parse(endTime);
 
-    // date1.after(date2),当date1大于date2时，返回TRUE，当小于等于时，返回false；\
+    // date1.after(date2),当date1大于date2时，返回TRUE，当小于等于时，返回false；
     boolean before = date1.after(date2);
 
     // date1.before(date2),当date1小于date2时，返回TRUE，当大于等于时，返回false； 
