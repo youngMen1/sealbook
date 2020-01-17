@@ -5,8 +5,9 @@
  // 尽量用字符串的形式初始化
 BigDecimal num1 = new BigDecimal("0.005");
 BigDecimal num2 = new BigDecimal("1000000");
-* 加法 add()函数
-BigDecimal result1 = num1.add(num2);
+* 加法 add()函数 BigDecimal result1 = num1.add(num2);
+
+
 * 减法subtract()函数
 * 乘法multiply()函数    
 * 除法divide()函数
