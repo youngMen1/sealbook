@@ -4,14 +4,14 @@
 BigDecimal num1 = new BigDecimal\("0.005"\);  
 BigDecimal num2 = new BigDecimal\("1000000"\);
 
-###     加法 add\(\)函数
+### 加法 add\(\)函数
 
 * BigDecimal result1 = num1.add\(num2\);
-  ### 减法subtract\(\)函数
+### 减法subtract\(\)函数
 * BigDecimal result2 = num1.subtract\(num2\);
-  ### 乘法multiply\(\)函数
+### 乘法multiply\(\)函数
 * BigDecimal result3 = num1.multiply\(num2\);
-  ### 除法divide\(\)函数\(BigDecimal divisor 除数，int scale 精确小数位，int roundingMode 舍入模式\)
+### 除法divide\(\)函数\(BigDecimal divisor 除数，int scale 精确小数位，int roundingMode 舍入模式\)
 * BigDecimal result5 = num2.divide\(num1,20,BigDecimal.ROUND\_HALF\_UP\);
 * 1.可以看到舍入模式有很多种BigDecimal.ROUND\_XXXX\_XXX, 具体都是什么意思呢?
   ![img](/static/image/2018091611573630.png)
