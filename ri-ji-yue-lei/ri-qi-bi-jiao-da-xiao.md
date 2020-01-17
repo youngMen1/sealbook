@@ -62,24 +62,21 @@ before\(\)或者after\(\)方法的返回值为boolean类型
 ```
 String beginTime = "2018-07-28 14:42:32";
 String endTime = "2018-07-29 12:26:32";
- 
+
 SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
- 
+
 try {
-	Date date1 = format.parse(beginTime);
-	Date date2 = format.parse(endTime);
-	
-	long beginMillisecond = date1.getTime();
-	long endMillisecond = date2.getTime();
-	
-	System.out.println(beginMillisecond > endMillisecond);
-	
+    Date date1 = format.parse(beginTime);
+    Date date2 = format.parse(endTime);
+
+    long beginMillisecond = date1.getTime();
+    long endMillisecond = date2.getTime();
+
+    System.out.println(beginMillisecond > endMillisecond);
+
 } catch (ParseException e) {
-	e.printStackTrace();
+    e.printStackTrace();
 }
-————————————————
-版权声明：本文为CSDN博主「永恒的春天」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/lz199719/article/details/81261336
 ```
 
 
