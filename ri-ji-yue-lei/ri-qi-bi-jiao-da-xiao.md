@@ -26,6 +26,8 @@ try {
 
 compareTo\(\)方法的返回值，date1小于date2返回-1，date1大于date2返回1，相等返回0
 
+---
+
 ### 方法二：
 
 通过Date自带的before\(\)或者after\(\)方法比较
