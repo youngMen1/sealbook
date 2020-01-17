@@ -16,8 +16,6 @@ BigDecimal result5 = num2.divide(num1,20,BigDecimal.ROUND_HALF_UP);
 1.可以看到舍入模式有很多种BigDecimal.ROUND_XXXX_XXX, 具体都是什么意思呢?
 ![img](/static/image/2018091611573630.png)
 
-
-
 * 绝对值abs()函数
 BigDecimal result4 = num3.abs();
 ### 注意
