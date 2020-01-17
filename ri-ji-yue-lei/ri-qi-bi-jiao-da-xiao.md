@@ -7,21 +7,23 @@ java.util.Date类实现了Comparable接口，可以直接调用Date的compareTo\
 ```
 String beginTime = "2018-07-28 14:42:32";
 String endTime = "2018-07-29 12:26:32";
- 
+
 SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
- 
+
 try {
-	Date date1 = format.parse(beginTime);
-	Date date2 = format.parse(endTime);
-	
-	int compareTo = date1.compareTo(date2);
-	
-	System.out.println(compareTo);
-	
+    Date date1 = format.parse(beginTime);
+    Date date2 = format.parse(endTime);
+
+    int compareTo = date1.compareTo(date2);
+
+    System.out.println(compareTo);
+
 } catch (ParseException e) {
-	e.printStackTrace();
+    e.printStackTrace();
 }
 ```
+
+compareTo\(\)方法的返回值，date1小于date2返回-1，date1大于date2返回1，相等返回0
 
 ### 方法二：
 
