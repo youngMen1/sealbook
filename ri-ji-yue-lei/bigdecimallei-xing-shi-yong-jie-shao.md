@@ -11,5 +11,4 @@ BigDecimal num22 = new BigDecimal("1000000");
 * 乘法multiply()函数    
 * 除法divide()函数    
 * 绝对值abs()函数
-### 
-注意
+### 注意
