@@ -17,7 +17,7 @@ BigDecimal result5 = num2.divide(num1,20,BigDecimal.ROUND_HALF_UP);
 ![img](/static/image/2018091611573630.png)
 计算1÷3的结果（最后一种ROUND_UNNECESSARY在结果为无限小数的情况下会报错）
 ![img](/static/image/2018091611592867.png)
-八种舍入模式解释如下
+## 八种舍入模式解释如下
 1、ROUND_UP
 
 舍入远离零的舍入模式。
