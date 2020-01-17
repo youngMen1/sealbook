@@ -100,6 +100,9 @@ BigDecimal num2 = new BigDecimal\("1000000"\);
 
 1.15&gt;1.2 1.25&gt;1.2
 
+当舍弃部分的左边是奇数时，表现同ROUND_HALF_UP（四舍五入）  
+当舍弃部分的左边是偶数时，表现同ROUND_HALF_DOWN（五舍六入
+
 ### 8、ROUND\_UNNECESSARY
 
 断言请求的操作具有精确的结果，因此不需要舍入。
