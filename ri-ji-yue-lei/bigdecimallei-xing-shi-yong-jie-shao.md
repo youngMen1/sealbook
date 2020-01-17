@@ -85,7 +85,6 @@ BigDecimal num2 = new BigDecimal\("1000000"\);
 1.15&gt;1.2 1.25&gt;1.2
 
 ### 8、ROUND\_UNNECESSARY
-
 断言请求的操作具有精确的结果，因此不需要舍入。
 ## 绝对值abs\(\)函数
 * BigDecimal result4 = num3.abs();
