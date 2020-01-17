@@ -107,6 +107,9 @@ BigDecimal num2 = new BigDecimal\("1000000"\);
 
 断言请求的操作具有精确的结果，因此不需要舍入。
 
+Assert操作，证明计算是准确的，不需要round
+System.out.println(new BigDecimal(1.25).setScale(1, BigDecimal.ROUND_HALF_UP).setScale(1, BigDecimal.ROUND_UNNECESSARY));
+
 ## 绝对值abs\(\)函数
 
 * BigDecimal result4 = num3.abs\(\);
