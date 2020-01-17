@@ -4,6 +4,7 @@
   * [日程积累](ri-cheng-ji-lei.md)
   * [日积月累](ri-ji-yue-lei.md)
     * [Java:如何更优雅的处理空值](ri-ji-yue-lei/javaru-he-geng-you-ya-de-chu-li-kong-zhi.md)
+    * [BigDecimal类型使用介绍](ri-ji-yue-lei/bigdecimallei-xing-shi-yong-jie-shao.md)
   * [书](shu.md)
 * [idea](java.md)
   * [使用帮助](java/shi-yong-bang-zhu.md)
