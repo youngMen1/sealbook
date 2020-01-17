@@ -18,7 +18,7 @@ BigDecimal result5 = num2.divide(num1,20,BigDecimal.ROUND_HALF_UP);
 计算1÷3的结果（最后一种ROUND_UNNECESSARY在结果为无限小数的情况下会报错）
 ![img](/static/image/2018091611592867.png)
 ## 八种舍入模式解释如下
-1、ROUND_UP
+### 1、ROUND_UP
 
 舍入远离零的舍入模式。
 
@@ -26,7 +26,7 @@ BigDecimal result5 = num2.divide(num1,20,BigDecimal.ROUND_HALF_UP);
 
 注意，此舍入模式始终不会减少计算值的大小。
 
-2、ROUND_DOWN
+### 2、ROUND_DOWN
 
 接近零的舍入模式。
 
@@ -34,7 +34,7 @@ BigDecimal result5 = num2.divide(num1,20,BigDecimal.ROUND_HALF_UP);
 
 注意，此舍入模式始终不会增加计算值的大小。
 
-3、ROUND_CEILING
+### 3、ROUND_CEILING
 
 接近正无穷大的舍入模式。
 
@@ -44,7 +44,7 @@ BigDecimal result5 = num2.divide(num1,20,BigDecimal.ROUND_HALF_UP);
 
 注意，此舍入模式始终不会减少计算值。
 
-4、ROUND_FLOOR
+### 4、ROUND_FLOOR
 
 接近负无穷大的舍入模式。
 
@@ -54,7 +54,7 @@ BigDecimal result5 = num2.divide(num1,20,BigDecimal.ROUND_HALF_UP);
 
 注意，此舍入模式始终不会增加计算值。
 
-5、ROUND_HALF_UP
+### 5、ROUND_HALF_UP
 
 向“最接近的”数字舍入，如果与两个相邻数字的距离相等，则为向上舍入的舍入模式。
 
@@ -62,13 +62,13 @@ BigDecimal result5 = num2.divide(num1,20,BigDecimal.ROUND_HALF_UP);
 
 注意，这是我们大多数人在小学时就学过的舍入模式(四舍五入)。
 
-6、ROUND_HALF_DOWN
+### 6、ROUND_HALF_DOWN
 
 向“最接近的”数字舍入，如果与两个相邻数字的距离相等，则为上舍入的舍入模式。
 
 如果舍弃部分 > 0.5，则舍入行为与 ROUND_UP 相同;否则舍入行为与 ROUND_DOWN 相同(五舍六入)。
 
-7、ROUND_HALF_EVEN
+### 7、ROUND_HALF_EVEN
 
 向“最接近的”数字舍入，如果与两个相邻数字的距离相等，则向相邻的偶数舍入。
 
@@ -86,7 +86,7 @@ BigDecimal result5 = num2.divide(num1,20,BigDecimal.ROUND_HALF_UP);
 
 1.15>1.2 1.25>1.2
 
-8、ROUND_UNNECESSARY
+### 8、ROUND_UNNECESSARY
 
 断言请求的操作具有精确的结果，因此不需要舍入。
 
