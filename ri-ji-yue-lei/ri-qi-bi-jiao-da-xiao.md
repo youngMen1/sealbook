@@ -52,6 +52,8 @@ try {
 }
 ```
 
+before\(\)或者after\(\)方法的返回值为boolean类型
+
 ### 方法三：
 
 通过调用Date的getTime\(\)方法获取到毫秒数来进行比较
