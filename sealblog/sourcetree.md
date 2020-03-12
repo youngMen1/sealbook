@@ -41,7 +41,7 @@
   }
 ]
 ```
-如图：
+如图:
 ![](/static/image/16496299-f8e98d62abce4343.webp)
 然后在运行%programfiles(x86)%\Atlassian\Sourcetree\SourceTree.exe即可
 
