@@ -4,9 +4,8 @@
 
 ![](/static/image/16496299-cd7cb57ba43ac72c.webp)
 
-![](https://upload-images.jianshu.io/upload_images/16496299-6798c28cc45930b3.png?imageMogr2/auto-orient/strip|imageView2/2/w/494/format/webp)
 
-![](https://upload-images.jianshu.io/upload_images/16496299-a7378f6cbe703f9b.png?imageMogr2/auto-orient/strip|imageView2/2/w/494/format/webp)
+![](/static/image//16496299-6798c28cc45930b3.webp)
 
 ![](https://upload-images.jianshu.io/upload_images/16496299-87506f3ae3cb1b25.png?imageMogr2/auto-orient/strip|imageView2/2/w/494/format/webp)
 
