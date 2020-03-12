@@ -1,6 +1,6 @@
 ## SourceTree3.3.8企业版
 
-首次点击msi进行安装 （当前最新版SourcetreeEnterpriseSetup\_3.3.8.msi）
+### 首次点击msi进行安装 （当前最新版SourcetreeEnterpriseSetup\_3.3.8.msi）
 
 ![](https://upload-images.jianshu.io/upload_images/16496299-cd7cb57ba43ac72c.png?imageMogr2/auto-orient/strip|imageView2/2/w/494/format/webp)
 
