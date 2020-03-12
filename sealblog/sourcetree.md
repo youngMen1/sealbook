@@ -6,10 +6,7 @@
 
 
 ![](/static/image//16496299-6798c28cc45930b3.webp)
-
-![](https://upload-images.jianshu.io/upload_images/16496299-87506f3ae3cb1b25.png?imageMogr2/auto-orient/strip|imageView2/2/w/494/format/webp)
-
-![](https://upload-images.jianshu.io/upload_images/16496299-cf9c5eb5cb53fb5f.png?imageMogr2/auto-orient/strip|imageView2/2/w/494/format/webp)
+16496299-a7378f6cbe703f9b.webp
 
 ## 参考
 
