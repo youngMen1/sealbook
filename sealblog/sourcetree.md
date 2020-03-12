@@ -8,6 +8,7 @@
 ![](/static/image/16496299-cf9c5eb5cb53fb5f.webp)
 ### 然后找到在 %programfiles(x86)%\Atlassian\Sourcetree 目录下找到SourceTree.exe 运行后会出现注册界面
 ![](/static/image/16496299-f943b4b3c51db332.webp)
+### 关掉sourcetree 打开%LocalAppData%\Atlassian\SourceTree
 ## 参考
 [https://www.jianshu.com/p/625824c067e6](https://www.jianshu.com/p/625824c067e6)
 [https://www.cnblogs.com/fisherbook/p/11397168.html](https://www.cnblogs.com/fisherbook/p/11397168.html)
