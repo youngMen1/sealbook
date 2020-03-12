@@ -11,7 +11,6 @@
 ### 关掉sourcetree 打开%LocalAppData%\Atlassian\SourceTree
 新建文件：accounts.json
 
-
 ```
 [
   {
