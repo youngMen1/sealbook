@@ -51,7 +51,7 @@ rpm -ivh jdk-8u101-linux-x64.rpm
 java -version
 ```
 
-## [Windows 10 配置Java 环境变量](https://www.runoob.com/w3cnote/windows10-java-setup.html)
+## Windows 10 配置Java 环境变量
 
-https://www.runoob.com/w3cnote/windows10-java-setup.html
+[https://www.runoob.com/w3cnote/windows10-java-setup.html](https://www.runoob.com/w3cnote/windows10-java-setup.html)
 
