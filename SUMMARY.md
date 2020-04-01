@@ -49,7 +49,7 @@
   * [盘符概念](pan-fu-gai-nian.md)
   * [命令](ming-ling.md)
   * [利用nohup后台运行jar文件包程序](li-yong-nohup-hou-tai-yun-xing-jar-wen-jian-bao-cheng-xu.md)
-  * 服务部署
+  * [服务部署](fu-wu-bu-shu.md)
 * [WeChat](wechat.md)
   * [普通红包](wechat/pu-tong-hong-bao.md)
   * [微信公众号](wechat/wei-xin-gong-zhong-hao.md)
