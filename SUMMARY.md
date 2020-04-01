@@ -124,5 +124,5 @@
   * [数据库连接池](java/shu-ju-ku-lian-jie-chi.md)
 * [SpringCloudAlibaba](springcloudalibaba.md)
   * [SpringCloudAlibaba基本介绍](springcloudalibaba/zhu-yi.md)
-  * Nacos
+  * [Nacos](springcloudalibaba/nacos.md)
 
