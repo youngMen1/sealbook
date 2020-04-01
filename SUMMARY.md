@@ -120,6 +120,6 @@
   * [springboot注解验证参数](springbootzhu-jie-yan-zheng-can-shu/springbootzhu-jie-yan-zheng-can-shu.md)
 * [JAVA](java.md)
   * 日程问题
-  * 灰度
+  * [灰度](java/hui-du.md)
 * [灰度发布](xiang-mu-fa-bu.md)
 
