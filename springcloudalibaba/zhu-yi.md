@@ -8,5 +8,7 @@ Spring Cloud Alibaba项目由两部分组成：阿里巴巴开源组件和阿里
 
 实现了 Spring Cloud common 中定义的 registry 相关规范接口，引入依赖并添加一些简单的配置即可将你的服务注册到Nacos Server中，并且支持与Ribbon的集成。
 
+## 1.2、**配置管理**
+
 
 
