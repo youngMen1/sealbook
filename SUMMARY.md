@@ -3,7 +3,6 @@
 * [Introduction](README.md)
   * [日程积累](ri-cheng-ji-lei.md)
   * [日积月累](ri-ji-yue-lei.md)
-    * [数据库连接池](ri-ji-yue-lei/shu-ju-ku-lian-jie-chi.md)
     * [日期比较大小](ri-ji-yue-lei/ri-qi-bi-jiao-da-xiao.md)
   * [书](shu.md)
 * [IDEA](java.md)
@@ -122,4 +121,5 @@
   * [BigDecimal类型使用介绍](java/di-fang.md)
   * [Java:如何更优雅的处理空值](java/shi.md)
   * [数据库连接池](java/shu-ju-ku-lian-jie-chi.md)
+  * [受到](java/shou-dao.md)
 
