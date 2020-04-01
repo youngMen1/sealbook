@@ -6,7 +6,7 @@
     * [Java:如何更优雅的处理空值](ri-ji-yue-lei/javaru-he-geng-you-ya-de-chu-li-kong-zhi.md)
     * [BigDecimal类型使用介绍](ri-ji-yue-lei/bigdecimallei-xing-shi-yong-jie-shao.md)
     * [日期比较大小](ri-ji-yue-lei/ri-qi-bi-jiao-da-xiao.md)
-    * [数据库连接池](ri-ji-yue-lei/shu-ju-ku-lian-jie-chi.md)
+  * [数据库连接池](ri-ji-yue-lei/shu-ju-ku-lian-jie-chi.md)
   * [书](shu.md)
 * [idea](java.md)
   * [使用帮助](java/shi-yong-bang-zhu.md)
@@ -100,7 +100,6 @@
   * [neo4j](nosqlshu-ju-ku/neo4j.md)
   * [hBase](nosqlshu-ju-ku/hbase.md)
   * [memcached](nosqlshu-ju-ku/memcached.md)
-* [灰度发布](xiang-mu-fa-bu.md)
 * [spring5](spring5.md)
   * [注解](spring5/zhu-jie.md)
 * [关系型数据库](guan-xi-xing-shu-ju-ku.md)
@@ -121,4 +120,5 @@
   * [springboot注解验证参数](springbootzhu-jie-yan-zheng-can-shu/springbootzhu-jie-yan-zheng-can-shu.md)
 * [JAVA](java.md)
   * 日程问题
+* [灰度发布](xiang-mu-fa-bu.md)
 
