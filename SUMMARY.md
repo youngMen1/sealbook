@@ -8,7 +8,7 @@
     * [数据库连接池](ri-ji-yue-lei/shu-ju-ku-lian-jie-chi.md)
     * [日期比较大小](ri-ji-yue-lei/ri-qi-bi-jiao-da-xiao.md)
   * [书](shu.md)
-* [idea](java.md)
+* [IDEA](java.md)
   * [使用帮助](java/shi-yong-bang-zhu.md)
   * [错误](java/cuo-wu.md)
   * [插件](java/cha-jian.md)
