@@ -16,7 +16,7 @@ ExecStart=/usr/bin/dockerd  -H tcp://0.0.0.0:2375  -H unix:///var/run/docker.soc
 
 ## 连接成功
 
-![img](/static/image/20190328191037691.png) 
+![img](/static/image/20190328191037691.png)   
 ![img](/static/image/微信截图_20200320101249.png)  
 ![img](/static/image/微信截图_20200320100041.png)  
 ![img](/static/image/微信截图_20200320143734.png)  
@@ -37,11 +37,11 @@ ExecStart=/usr/bin/dockerd  -H tcp://0.0.0.0:2375  -H unix:///var/run/docker.soc
 第二步： mvn package docker:build
 ```
 
-
-
 ## 参考
 
 [https://blog.csdn.net/weixin\_33709364/article/details/92515818](https://blog.csdn.net/weixin_33709364/article/details/92515818)
 
 [https://www.cnblogs.com/dalianpai/p/11800892.html](https://www.cnblogs.com/dalianpai/p/11800892.html)
+
+https://blog.csdn.net/bobozai86/article/details/88875784
 
