@@ -119,6 +119,6 @@
   * [日期转换注解](springbootzhu-jie-yan-zheng-can-shu/spring.md)
   * [springboot注解验证参数](springbootzhu-jie-yan-zheng-can-shu/springbootzhu-jie-yan-zheng-can-shu.md)
 * [JAVA](java.md)
-  * 日程问题
+  * [日常问题](java/ri-cheng-wen-ti.md)
   * [灰度发布](java/hui-du.md)
 
