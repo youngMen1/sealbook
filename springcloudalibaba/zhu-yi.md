@@ -10,5 +10,11 @@ Spring Cloud Alibaba项目由两部分组成：阿里巴巴开源组件和阿里
 
 ## 1.2、**配置管理**
 
+实现了 
+
+`PropertySoureLocator`
+
+ 接口，引入依赖并添加一些简单的配置即可从 Nacos Server 中获取应用配置并设置在 Spring 的 Environment 中，而且无需依赖其他组件即可支持配置的实时推送和推送状态查询。
+
 
 
