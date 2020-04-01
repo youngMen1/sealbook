@@ -2,3 +2,7 @@ Spring Cloud Alibaba项目由两部分组成：阿里巴巴开源组件和阿里
 
 注意： 版本 0.2.0.RELEASE 对应的是 Spring Boot 2.x 版本，版本 0.1.0.RELEASE 对应的是 Spring Boot 1.x 版本.
 
+## **一、阿里巴巴开源组件**
+
+
+
