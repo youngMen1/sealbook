@@ -30,7 +30,25 @@
 
 /srv： 服务启动之后需要访问的数据目录，如 www 服务需要访问的网页数据存放在 /srv/www 内。
 
-**/usr**：应用程序存放目录，**/usr/bin 存放应用程序**，/usr/share 存放共享数据，/usr/lib 存放不能直接运行的，却是许多程序运行所必需的一些函数库文件。**/usr/local: 存放软件升级包**。/usr/share/doc: 系统说明文件存放目录。/usr/share/man: 程序说明文件存放目录。
+**/usr**：应用程序存放目录，
 
-/var：放置系统执行过程中经常变化的文件，如随时更改的日志文件 /var/log，/var/log/message：所有的登录文件存放目录，/var/spool/mail：邮件存放的目录，/var/run:程序或服务启动后，其PID存放在该目录下。
+**/usr/bin 存放应用程序**，
+
+/usr/share 存放共享数据，
+
+/usr/lib 存放不能直接运行的，却是许多程序运行所必需的一些函数库文件。
+
+**/usr/local: 存放软件升级包**。
+
+/usr/share/doc: 系统说明文件存放目录。
+
+/usr/share/man: 程序说明文件存放目录。
+
+/var：放置系统执行过程中经常变化的文件，如随时更改的日志文件 /var/log，
+
+/var/log/message：所有的登录文件存放目录，
+
+/var/spool/mail：邮件存放的目录，
+
+/var/run:程序或服务启动后，其PID存放在该目录下。
 
