@@ -121,5 +121,5 @@
 * [JAVA](java.md)
   * [日常问题](java/ri-cheng-wen-ti.md)
   * [灰度发布](java/hui-du.md)
-  * 地方
+  * [BigDecimal类型使用介绍](java/di-fang.md)
 
