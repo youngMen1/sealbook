@@ -16,6 +16,8 @@ ExecStart=/usr/bin/dockerd  -H tcp://0.0.0.0:2375  -H unix:///var/run/docker.soc
 
 ## 连接成功
 ![img](/static/image/微信截图_20200320101249.png)
+![img](/static/image/微信截图_20200320100041.png)
+
 ## 参考
 https://blog.csdn.net/weixin\_33709364/article/details/92515818
 
