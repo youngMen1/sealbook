@@ -23,10 +23,18 @@ ExecStart=/usr/bin/dockerd  -H tcp://0.0.0.0:2375  -H unix:///var/run/docker.soc
 ![img](/static/image/微信截图_20200320144431.png)  
 ![img](/static/image/微信截图_20200320160152.png)  
 ![img](/static/image/微信截图_20200320160915.png)  
-![img](/static/image/微信截图_20200320161031.png)
+![img](/static/image/微信截图_20200320161031.png)  
 ![img](/static/image/微信截图_20200320160346.png)
 
 ## 命令
+
+```
+通过maven 命令：
+
+第一步：mvn clean
+
+第二步： mvn package docker:build
+```
 
 
 
