@@ -70,7 +70,7 @@ Sentinel 控制台提供一个轻量级的控制台，它提供机器发现、�
 
 Sentinel DashBoard下载地址：[https://github.com/alibaba/Sentinel/releases](https://github.com/alibaba/Sentinel/releases)
 
-![img](/static/image/微信截图_20200402110327.png)
+![img](/static/image/微信截图_20200402111503.png)
 
 ### 成功后的结果截图
 
