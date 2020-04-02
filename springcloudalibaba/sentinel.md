@@ -112,53 +112,15 @@ sentinel dashboard显示了nacos-provider的接口资源信息。
 Hystrix默认集成在Spring Cloud 的Feign Client组件中，Sentinel也可以提供这样的功能。现以案例的形式来讲解如何在FeignClient中使用Sentinel，z本案例是在之前的nacos教程案例的nacos-consumer工程上进行改造，除了引入spring-cloud-starter-alibaba-sentinel，还需要引入spring-cloud-starter-openfeign，代码如下：
 
 ```
-<
-dependency
->
-<
-groupId
->
-org.springframework.cloud
-<
-/groupId
->
-<
-artifactId
->
-spring-cloud-starter-openfeign
-<
-/artifactId
->
-<
-/dependency
->
-<
-dependency
->
-<
-groupId
->
-org.springframework.cloud
-<
-/groupId
->
-<
-artifactId
->
-spring-cloud-starter-alibaba-sentinel
-<
-/artifactId
->
-<
-version
->
-0.9.0.RELEASE
-<
-/version
->
-<
-/dependency
->
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-openfeign</artifactId>
+</dependency>
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+	<version>0.9.0.RELEASE</version>
+</dependency>
 ```
 
 在配置文件中需要加上sentinel.transport. dashboard配置外，还需要加上feign.sentinel.enabled的配置，代码如下：
