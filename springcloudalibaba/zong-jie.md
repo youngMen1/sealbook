@@ -24,8 +24,9 @@ sh startup.sh -m standalone
 
 #### Sentinel
 linux或mac执行以下命令启动Sentinel
+
 ```
-sh startup.sh -m standalone
+java -jar sentinel-dashboard-1.6.1.jar
 ```
 
 
