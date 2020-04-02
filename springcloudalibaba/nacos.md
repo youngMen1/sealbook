@@ -7,7 +7,7 @@ Sentinel 具有以下特征:
 * 完善的 SPI 扩展点： Sentinel 提供简单易用、完善的 SPI 扩展点。您可以通过实现扩展点，快速的定制逻辑。例如定制规则管理、适配数据源等。
 
 # 2.如何在Spring Cloud中使用Sentinel
-
+Sentinel作为Spring Cloud Alibaba的组件之一，在Spring Cloud项目中使用它非常的简单
 
 ```
 <dependency>
