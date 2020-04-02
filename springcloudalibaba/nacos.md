@@ -79,8 +79,9 @@ java -jar sentinel-dashboard-1.7.1.jar
 ```
 ![img](/static/image/微信截图_20200402112417.png)
 默认启动端口为8080，可以-Dserver.port=8081的形式改变默认端口。启动成功后，在浏览器上访问localhost:8080，就可以显示Sentinel的登陆界面，登陆名为sentinel，密码为sentinel。
-微信截图_20200402112914.png
-微信截图_20200402112954.png
+![img](/static/image/微信截图_20200402112914.png)
+![img](/static/image/微信截图_20200402112954.png)
+在簇点链路在/hi资源处设置接口的限流功能，在“+流控”按钮点击开设置界面如下,设置阈值类型为 qps，单机阈值为2。
 ### 
 
 ### 成功后的结果截图
