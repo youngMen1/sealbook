@@ -7,7 +7,13 @@ Nacos 的关键特性包括:
 * 服务及其元数据管理
 
 # 2.使用Nacos服务注册和发现
-## 2.1Nacos下载
+## 2.1.Nacos下载
+Nacos依赖于Java环境，所以必须安装Java环境。然后从官网下载Nacos的解压包，安装稳定版的，下载地址：
+```
+https://github.com/alibaba/nacos/releases
+```
+
+
 
 # 3.总结
 # 4.参考
