@@ -113,10 +113,6 @@ hi 封志强
 
 在Spring Cloud 的Feign Client组件中默认集成了Hystrix
 
-
-
-
-
 # 3.总结
 
 源码地址:[https://github.com/youngMen1/springcloud-alibaba-code](https://github.com/youngMen1/springcloud-alibaba-code)
