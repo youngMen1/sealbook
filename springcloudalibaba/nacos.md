@@ -112,6 +112,8 @@ public class SpringcloudNacosConsumerApplication {
 }
 ```
 
+写一个FeignClient，调用nacos-provider的服务，代码如下：
+
 # 3.总结
 
 Nacos下载地址:[https://github.com/alibaba/nacos/releases](https://github.com/alibaba/nacos/releases)
