@@ -1,4 +1,4 @@
-## 什么是Sentinel {#什么是sentinel}
+## 1.什么是Sentinel {#什么是sentinel}
 
 Sentinel，中文翻译为哨兵，是为微服务提供流量控制、熔断降级的功能，它和Hystrix提供的功能一样，可以有效的解决微服务调用产生的“雪崩”效应，为微服务系统提供了稳定性的解决方案。随着Hytrxi进入了维护期，不再提供新功能，Sentinel是一个不错的替代方案。通常情况，Hystrix采用线程池对服务的调用进行隔离，Sentinel才用了用户线程对接口进行隔离，二者相比，Hystrxi是服务级别的隔离，Sentinel提供了接口级别的隔离，Sentinel隔离级别更加精细，另外Sentinel直接使用用户线程进行限制，相比Hystrix的线程池隔离，减少了线程切换的开销。另外Sentinel的DashBoard提供了在线更改限流规则的配置，也更加的优化。
 
@@ -40,8 +40,6 @@ spring:
       transport:
         port: 8719
         dashboard: localhost:8080
-
-
 ```
 
 写一个RestController，在接口上加上SentinelResource注解就可以了。
@@ -58,7 +56,6 @@ public class ProviderController {
     }
 
 }
-
 ```
 
 关于@SentinelResource 注解，有以下的属性：
@@ -72,14 +69,12 @@ public class ProviderController {
 
 ## Sentinel DashBoard {#sentinel-dashboard}
 
-Sentinel 控制台提供一个轻量级的控制台，它提供机器发现、单机资源实时监控、集群资源汇总，以及规则管理的功能. Sentinel DashBoard下载地址：https://github.com/alibaba/Sentinel/releases
+Sentinel 控制台提供一个轻量级的控制台，它提供机器发现、单机资源实时监控、集群资源汇总，以及规则管理的功能. Sentinel DashBoard下载地址：[https://github.com/alibaba/Sentinel/releases](https://github.com/alibaba/Sentinel/releases)
 
 下载完成后，以以下的命令启动
 
 ```
 java -jar sentinel-dashboard-1.6.1.jar
-
-
 ```
 
 默认启动端口为8080，可以-Dserver.port=8081的形式改变默认端口。启动成功后，在浏览器上访问localhost:8080，就可以显示Sentinel的登陆界面，登陆名为sentinel，密码为sentinel。
@@ -102,7 +97,7 @@ sentinel dashboard显示了nacos-provider的接口资源信息。
 
 ## 测试 {#测试}
 
-多次快速访问nacos-provider的接口资源http://localhost:8762/hi，可以发现偶尔出现以下的信息：
+多次快速访问nacos-provider的接口资源[http://localhost:8762/hi，可以发现偶尔出现以下的信息：](http://localhost:8762/hi，可以发现偶尔出现以下的信息：)
 
 > Blocked by Sentinel \(flow limiting\)
 
@@ -184,7 +179,6 @@ spring:
         dashboard: localhost:8080
 
 feign.sentinel.enabled: true
-
 ```
 
 写一个FeignClient，调用nacos-provider的/hi接口：
@@ -196,9 +190,6 @@ public interface ProviderClient {
     @GetMapping("/hi")
     String hi(@RequestParam(value = "name", defaultValue = "forezp", required = false) String name);
 }
-
-
-
 ```
 
 写一个RestController调用ProviderClient，代码如下：
@@ -209,21 +200,19 @@ public class ConsumerController {
 
     @Autowired
     ProviderClient providerClient;
-    
+
     @GetMapping("/hi-feign")
     public String hiFeign(){
        return providerClient.hi("feign");
     }
 }
-
-
 ```
 
 在FeignClient中，Sentinel为Feign调用生成了资源名策略定义，定义规则为httpmethod:protocol://requesturl。启动nacos-consumer工程，在Sentinel DashBoard生成了如下的资源信息：
 
 ![](https://www.fangzhipeng.com/img/jianshu/2279594-1ae0b0f5436bb9b5.png "WX20190602-195133@2x.png")
 
-添加流控，QPS为2，在浏览器上快速多次点击访问http://localhost:8763/hi-feign，浏览器在正常情况下是能够正常返回如下的信息：
+添加流控，QPS为2，在浏览器上快速多次点击访问[http://localhost:8763/hi-feign，浏览器在正常情况下是能够正常返回如下的信息：](http://localhost:8763/hi-feign，浏览器在正常情况下是能够正常返回如下的信息：)
 
 > hi feign
 
