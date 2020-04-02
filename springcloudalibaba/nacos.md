@@ -72,7 +72,6 @@ Sentinel DashBoard下载地址：[https://github.com/alibaba/Sentinel/releases](
 
 ![img](/static/image/微信截图_20200402110327.png)
 
-
 ### 成功后的结果截图
 
 # 3.总结
