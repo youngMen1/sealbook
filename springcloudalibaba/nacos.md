@@ -130,7 +130,26 @@ hi 封志强
 </dependency>
 ```
 
-在配置文件中需要加上sentinel.transport. dashboard配置外，还需要加上feign.sentinel.enabled的配置，代码如下：
+在配置文件中需要加上sentinel.transport. dashboard配置外，还需要加上feign.sentinel.enabled的配置，代码如下:
+
+```
+server:
+  port: 8763
+spring:
+  application:
+    name: nacos-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 134.175.12.243:8848
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: localhost:8080
+feign:
+  sentinel:
+    enabled: true
+```
 
 # 3.总结
 
