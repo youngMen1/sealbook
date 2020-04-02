@@ -170,13 +170,25 @@ public class ConsumerController {
 
     @Autowired
     ProviderClient providerClient;
-    
+
     @GetMapping("/hi-feign")
     public String hiFeign(){
        return providerClient.hi("feign");
     }
 }
 ```
+
+在FeignClient中，Sentinel为Feign调用生成了资源名策略定义，定义规则为httpmethod:protocol://requesturl。启动nacos-consumer工程，在Sentinel DashBoard生成了如下的资源信息：
+
+2279594-1ae0b0f5436bb9b5.png
+
+添加流控，QPS为2，在浏览器上快速多次点击访问http://localhost:8763/hi-feign，浏览器在正常情况下是能够正常返回如下的信息：
+
+> hi feign
+
+在被限流的时候返回错误信息。
+
+需要注意的是，被限流的时候FeignClient并不会调用nacos-provider的接口，而是在nacos-consumer工程里直接报错。
 
 # 3.总结
 
