@@ -36,7 +36,7 @@ spring:
         port: 8719
         dashboard: localhost:8080
 ```
-写一个RestController，在接口上加上SentinelResource注解就可以了:
+写一个TestController，在接口上加上SentinelResource注解就可以了:
 
 
 
