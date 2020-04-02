@@ -79,6 +79,8 @@ java -jar sentinel-dashboard-1.7.1.jar
 ```
 ![img](/static/image/微信截图_20200402112417.png)
 默认启动端口为8080，可以-Dserver.port=8081的形式改变默认端口。启动成功后，在浏览器上访问localhost:8080，就可以显示Sentinel的登陆界面，登陆名为sentinel，密码为sentinel。
+微信截图_20200402112914.png
+微信截图_20200402112954.png
 ### 
 
 ### 成功后的结果截图
