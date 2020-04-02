@@ -26,5 +26,4 @@ sh startup.sh -m standalone
 
 #### Sentinel
 linux或mac执行以下命令启动Sentinel
-
 ![img](/static/image/微信截图_20200402112417.png)
