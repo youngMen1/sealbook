@@ -17,9 +17,9 @@ Spring Cloud Alibaba项目由两部分组成：阿里巴巴开源组件和阿里
 默认集成了 Servlet、RestTemplate、Dubbo、RocketMQ 的限流\(Flow Control\)降级\(Circuit Breaking and Concurrency\)，只需要引入依赖即可完成限流降级的集成动作，并支持在应用运行状态下通过 Sentinel 控制台来实时修改限流降级的策略和阈值。
 
 # 参考
-https://github.com/alibaba/spring-cloud-alibaba/wiki
+
+## 阿里github官网
+
+[https://github.com/alibaba/spring-cloud-alibaba/wiki](https://github.com/alibaba/spring-cloud-alibaba/wiki)  
 ![img](/static/image/微信截图_20200402094652.png)
-
-
-
 
