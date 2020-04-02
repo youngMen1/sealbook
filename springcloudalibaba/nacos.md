@@ -44,8 +44,6 @@ Spring boot版本为2.1.4.RELEASE，Spring Cloud 版本为Greenwich.RELEASE，�
 </dependency>
 ```
 application.yml做相关的配置如下:
-
-
 ```
 server:
   port: 8762
