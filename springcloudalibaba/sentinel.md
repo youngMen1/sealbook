@@ -9,7 +9,7 @@ Sentinel，中文翻译为哨兵，是为微服务提供流量控制、熔断降
 * 广泛的开源生态： Sentinel 提供开箱即用的与其它开源框架/库的整合模块，例如与 Spring Cloud、Dubbo、gRPC 的整合。您只需要引入相应的依赖并进行简单的配置即可快速地接入 Sentinel。
 * 完善的 SPI 扩展点： Sentinel 提供简单易用、完善的 SPI 扩展点。您可以通过实现扩展点，快速的定制逻辑。例如定制规则管理、适配数据源等。
 
-## 2.如何在Spring Cloud中使用Sentinel {#如何在spring-cloud中使用sentinel}
+# 2.如何在Spring Cloud中使用Sentinel {#如何在spring-cloud中使用sentinel}
 
 Sentinel作为Spring Cloud Alibaba的组件之一，在Spring Cloud项目中使用它非常的简单。现在以案例的形式来讲解如何在Spring Cloud项目中使用Sentinel。本项目是在之前nacos教程的案例基础上进行改造。在工程的pom文件加上sentinel的Spring Cloud起步依赖，代码如下：
 
@@ -67,7 +67,7 @@ public class ProviderController {
 
 启动Nacos，并启动nacos-provider项目。文末有源码下载链接。
 
-## Sentinel DashBoard {#sentinel-dashboard}
+## 2.1.Sentinel DashBoard {#sentinel-dashboard}
 
 Sentinel 控制台提供一个轻量级的控制台，它提供机器发现、单机资源实时监控、集群资源汇总，以及规则管理的功能. Sentinel DashBoard下载地址：[https://github.com/alibaba/Sentinel/releases](https://github.com/alibaba/Sentinel/releases)
 
@@ -95,7 +95,7 @@ sentinel dashboard显示了nacos-provider的接口资源信息。
 
 ![](https://www.fangzhipeng.com/img/jianshu/2279594-367002bee1cc0232.png "WX20190602-191931@2x.png")
 
-## 测试 {#测试}
+### 测试 {#测试}
 
 多次快速访问nacos-provider的接口资源[http://localhost:8762/hi，可以发现偶尔出现以下的信息：](http://localhost:8762/hi，可以发现偶尔出现以下的信息：)
 
@@ -107,7 +107,7 @@ sentinel dashboard显示了nacos-provider的接口资源信息。
 
 由以上可只，接口资源/hi的限流规则起到了作用。
 
-## 在FeignClient中使用Sentinel {#在feignclient中使用sentinel}
+## 2.2.在FeignClient中使用Sentinel {#在feignclient中使用sentinel}
 
 Hystrix默认集成在Spring Cloud 的Feign Client组件中，Sentinel也可以提供这样的功能。现以案例的形式来讲解如何在FeignClient中使用Sentinel，z本案例是在之前的nacos教程案例的nacos-consumer工程上进行改造，除了引入spring-cloud-starter-alibaba-sentinel，还需要引入spring-cloud-starter-openfeign，代码如下：
 
@@ -182,13 +182,11 @@ public class ConsumerController {
 
 需要注意的是，被限流的时候FeignClient并不会调用nacos-provider的接口，而是在nacos-consumer工程里直接报错。
 
-# 总结
+# 3.总结
 
+源码地址:https://github.com/youngMen1/springcloud-alibaba-code
 
-
-# 参考
-
-
+# 4.参考
 
 
 
