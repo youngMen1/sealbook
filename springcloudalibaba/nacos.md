@@ -9,6 +9,7 @@ Nacos 的关键特性包括:
 * 服务及其元数据管理
 
 # 2.使用Nacos服务注册和发现
+服务注册和发现是微服务治理的根基，服务注册和发现组件是整个微服务系统的灵魂，选择合适的服务注册和发现组件至关重要，目前主流的服务注册和发现组件有Consul、Eureka、Etcd等。 随着Eureka的闭源，Spring cloud netflix-oss组件大规模的进入到了维护期，不再提供新功能，spring cloud alibaba受到开源社区的大力拥护。
 
 ## 2.1.Nacos下载
 
