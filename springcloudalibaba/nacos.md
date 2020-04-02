@@ -151,7 +151,16 @@ feign:
     enabled: true
 ```
 
-写一个FeignClient，调用nacos-provider的/hi接口：
+写一个FeignClient，调用nacos-provider的/hi接口:
+
+```
+@FeignClient("nacos-provider")
+public interface ProviderClient {
+
+    @GetMapping("/hi")
+    String hi(@RequestParam(value = "name", defaultValue = "forezp", required = false) String name);
+}
+```
 
 # 3.总结
 
