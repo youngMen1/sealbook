@@ -64,7 +64,7 @@ public class TestController {
 * fallback：fallback 函数名称，可选项，用于在抛出异常的时候提供 fallback 处理逻辑。
 * 启动Nacos，并启动nacos-provider项目。文末有源码下载链接。
 
-## Sentinel DashBoard {#sentinel-dashboard}
+## 2.1.Sentinel DashBoard {#sentinel-dashboard}
 
 Sentinel 控制台提供一个轻量级的控制台，它提供机器发现、单机资源实时监控、集群资源汇总，以及规则管理的功能。
 
