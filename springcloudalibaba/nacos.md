@@ -88,7 +88,14 @@ public class SpringcloudNacosProviderApplication {
 
 ## 2.6.FeignClient调用服务 {#是feignclient调用服务}
 
+在nacos-consumer的pom文件引入以下的依赖：
 
+```
+<dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+```
 
 # 3.总结
 
