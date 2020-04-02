@@ -59,7 +59,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848:8848
+        server-addr: 127.0.0.1:8848
 ```
 
 ## 2.4.构建服务消费者nacos-consumer
