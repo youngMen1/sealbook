@@ -11,7 +11,7 @@ Sentinel 具有以下特征:
 
 # 2.如何在Spring Cloud中使用Sentinel
 
-Sentinel作为Spring Cloud Alibaba的组件之一，在Spring Cloud项目中使用它非常的简单,在工程的pom文件加上sentinel的Spring Cloud起步依赖，代码如下：
+### Sentinel作为Spring Cloud Alibaba的组件之一，在Spring Cloud项目中使用它非常的简单,在工程的pom文件加上sentinel的Spring Cloud起步依赖，代码如下：
 
 ```
 <dependency>
@@ -21,7 +21,7 @@ Sentinel作为Spring Cloud Alibaba的组件之一，在Spring Cloud项目中使�
 </dependency>
 ```
 
-在工程的配置文件application.yml文件中配置，需要新增2个配置：
+### 在工程的配置文件application.yml文件中配置，需要新增2个配置：
 
 * spring.cloud.sentinel.transport.port: 8719 ，这个端口配置会在应用对应的机器上启动一个 Http Server，该 Server 会与 Sentinel 控制台做交互。比如 Sentinel 控制台添加了1个限流规则，会把规则数据 push 给这个 Http Server 接收，Http Server 再将规则注册到 Sentinel 中。
 * spring.cloud.sentinel.transport.dashboard: 8080，这个是Sentinel DashBoard的地址。
@@ -42,7 +42,7 @@ spring:
         dashboard: localhost:8080
 ```
 
-写一个TestController，在接口上加上SentinelResource注解就可以了:
+### 写一个TestController，在接口上加上SentinelResource注解就可以了:
 
 ```
 @RestController
@@ -56,7 +56,7 @@ public class TestController {
 }
 ```
 
-关于@SentinelResource 注解，有以下的属性：
+### 关于@SentinelResource 注解，有以下的属性：
 
 * value：资源名称，必需项（不能为空）
 * entryType：entry 类型，可选项（默认为 EntryType.OUT）
@@ -67,8 +67,6 @@ public class TestController {
 # 3.总结
 
 源码地址:
-
-
 
 # 4.参考
 
