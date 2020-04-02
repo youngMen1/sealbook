@@ -118,16 +118,16 @@ hi 封志强
 在Spring Cloud 的Feign Client组件中默认集成了Hystrix，Sentinel也可以提供这样的功能。现以案例的形式来讲解如何在FeignClient中使用Sentinel。
 
 ```
-<dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
+ <dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-openfeign</artifactId>
+</dependency>
 
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
-            <version>0.9.0.RELEASE</version>
-        </dependency>
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+    <version>0.9.0.RELEASE</version>
+</dependency>
 ```
 
 # 3.总结
