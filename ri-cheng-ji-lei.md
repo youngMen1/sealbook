@@ -34,7 +34,5 @@ Cron表达式在线生成网站:[http://cron.qqe2.com/](http://cron.qqe2.com/)
 
 ## 优秀的博客地址
 
-https://www.javadoop.com/
-
-
+资深Java工程师:[https://www.javadoop.com/](https://www.javadoop.com/)
 
