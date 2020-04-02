@@ -96,6 +96,7 @@ java -jar sentinel-dashboard-1.7.1.jar
 ![img](/static/image/2279594-367002bee1cc0232.png)
 
 ### 测试
+
 多次快速访问nacos-provider的接口资源[http://localhost:8762/hi，可以发现偶尔出现以下的信息：](http://localhost:8762/hi，可以发现偶尔出现以下的信息：)
 
 ```
@@ -181,7 +182,7 @@ public class ConsumerController {
 
 ![img](/static/image/2279594-1ae0b0f5436bb9b5.png)
 
-添加流控，QPS为2，在浏览器上快速多次点击访问http://localhost:8763/hi-feign，浏览器在正常情况下是能够正常返回如下的信息：
+添加流控，QPS为2，在浏览器上快速多次点击访问[http://localhost:8763/hi-feign，浏览器在正常情况下是能够正常返回如下的信息：](http://localhost:8763/hi-feign，浏览器在正常情况下是能够正常返回如下的信息：)
 
 > hi feign
 
@@ -198,6 +199,8 @@ Sentinel DashBoard下载地址：[https://github.com/alibaba/Sentinel/releases](
 Nacos下载地址:
 
 # 4.参考
+
+https://www.fangzhipeng.com/springcloud/2019/06/02/sc-sentinel.html
 
 
 
