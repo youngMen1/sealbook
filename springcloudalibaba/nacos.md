@@ -77,7 +77,7 @@ Sentinel DashBoard下载地址：[https://github.com/alibaba/Sentinel/releases](
 ```
 java -jar sentinel-dashboard-1.7.1.jar
 ```
-
+微信截图_20200402112417.png
 ### 
 
 ### 成功后的结果截图
