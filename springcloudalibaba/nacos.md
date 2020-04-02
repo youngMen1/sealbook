@@ -83,6 +83,7 @@ java -jar sentinel-dashboard-1.7.1.jar
 ![img](/static/image/微信截图_20200402112954.png)
 在簇点链路
 在/hi资源处设置接口的限流功能，在“+流控”按钮点击开设置界面如下,设置阈值类型为 qps，单机阈值为2。
+![img](/static/image/2279594-ac4e0be06515ec9a.png)
 ### 
 
 ### 成功后的结果截图
