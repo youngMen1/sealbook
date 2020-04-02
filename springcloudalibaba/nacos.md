@@ -23,18 +23,18 @@ Sentinel作为Spring Cloud Alibaba的组件之一，在Spring Cloud项目中使�
 
 ```
 server:
-  port: 8763
+  port: 8765
 spring:
   application:
-    name: nacos-consumer
+    name: nacos-sentinel
   cloud:
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848
+        server-addr: 134.175.12.243:8848
     sentinel:
       transport:
         port: 8719
-        dashboard: localhost:8080
+        dashboard: 134.175.12.243:8080
 ```
 
 
