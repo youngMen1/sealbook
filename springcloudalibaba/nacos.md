@@ -36,6 +36,15 @@ https://github.com/alibaba/nacos/releases
 
 ## 2.3.构建服务提供者nacos-provider
 Spring boot版本为2.1.4.RELEASE，Spring Cloud 版本为Greenwich.RELEASE，在pom文件引入nacos的Spring Cloud起步依赖，代码如下：
+```
+<dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            <version>0.9.0.RELEASE</version>
+        </dependency>
+```
+
+
 
 ## 2.4.构建服务消费者nacos-consumer
 
