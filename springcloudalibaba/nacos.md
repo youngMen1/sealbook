@@ -151,6 +151,8 @@ feign:
     enabled: true
 ```
 
+写一个FeignClient，调用nacos-provider的/hi接口：
+
 # 3.总结
 
 源码地址:[https://github.com/youngMen1/springcloud-alibaba-code](https://github.com/youngMen1/springcloud-alibaba-code)
