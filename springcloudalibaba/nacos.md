@@ -17,7 +17,7 @@ Sentinel作为Spring Cloud Alibaba的组件之一，在Spring Cloud项目中使�
 </dependency>
 
 ```
-
+在工程的配置文件application.yml文件中配置，需要新增2个配置：
 
 
 
