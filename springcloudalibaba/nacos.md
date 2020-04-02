@@ -33,7 +33,8 @@ https://github.com/alibaba/nacos/releases
 
 ## 2.2.服务注册
 在本案例中，使用2个服务注册到Nacos上，分别为nacos-provider和nacos-consumer。
-构建服务提供者nacos-provider
+
+## 2.3.构建服务提供者nacos-provider
 # 3.总结
 
 Nacos下载地址:[https://github.com/alibaba/nacos/releases](https://github.com/alibaba/nacos/releases)
