@@ -23,6 +23,8 @@ https://github.com/alibaba/nacos/releases
 * windows系统点击startup.cmd就可以启动nacos。
 * linux或mac执行以下命令启动nacos。
 
+启动成功，在浏览器上访问：http://localhost:8848/nacos，会跳转到登陆界面，默认的登陆用户名为nacos，密码也为nacos。
+
 # 3.总结
 
 Nacos下载地址:[https://github.com/alibaba/nacos/releases](https://github.com/alibaba/nacos/releases)
