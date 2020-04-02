@@ -109,11 +109,9 @@ hi 封志强
 
 由以上可只，接口资源/hi的限流规则起到了作用。
 
+---
+
 ## FeignClient中使用Sentinel {#在feignclient中使用sentinel}
-
-
-
-
 
 # 3.总结
 
@@ -121,7 +119,7 @@ hi 封志强
 
 Sentinel DashBoard下载地址：[https://github.com/alibaba/Sentinel/releases](https://github.com/alibaba/Sentinel/releases)
 
-Nacos下载地址:  
+Nacos下载地址:
 
 # 4.参考
 
