@@ -186,9 +186,11 @@ public class ConsumerController {
 
 源码地址:[https://github.com/youngMen1/springcloud-alibaba-code](https://github.com/youngMen1/springcloud-alibaba-code)
 
-https://github.com/alibaba/spring-cloud-alibaba/wiki/Nacos-discovery
+[https://github.com/alibaba/spring-cloud-alibaba/wiki/Nacos-discovery](https://github.com/alibaba/spring-cloud-alibaba/wiki/Nacos-discovery)
 
 # 4.参考
+
+https://www.fangzhipeng.com/springcloud/2019/06/02/sc-sentinel.html
 
 
 
