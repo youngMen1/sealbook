@@ -18,7 +18,8 @@ Sentinel作为Spring Cloud Alibaba的组件之一，在Spring Cloud项目中使�
 
 ```
 在工程的配置文件application.yml文件中配置，需要新增2个配置：
-
+* spring.cloud.sentinel.transport.port: 8719 ，这个端口配置会在应用对应的机器上启动一个 Http Server，该 Server 会与 Sentinel 控制台做交互。比如 Sentinel 控制台添加了1个限流规则，会把规则数据 push 给这个 Http Server 接收，Http Server 再将规则注册到 Sentinel 中。
+* spring.cloud.sentinel.transport.dashboard: 8080，这个是Sentinel DashBoard的地址。
 
 ```
 
