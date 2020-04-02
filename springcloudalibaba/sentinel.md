@@ -71,7 +71,7 @@ public class ProviderController {
 
 Sentinel 控制台提供一个轻量级的控制台，它提供机器发现、单机资源实时监控、集群资源汇总，以及规则管理的功能. Sentinel DashBoard下载地址：[https://github.com/alibaba/Sentinel/releases](https://github.com/alibaba/Sentinel/releases)
 
-下载完成后，以以下的命令启动
+**下载完成后，以以下的命令启动**
 
 ```
 java -jar sentinel-dashboard-1.6.1.jar
@@ -183,6 +183,8 @@ public class ConsumerController {
 需要注意的是，被限流的时候FeignClient并不会调用nacos-provider的接口，而是在nacos-consumer工程里直接报错。
 
 # 3.总结
+
+DashBoard下载地址：[https://github.com/alibaba/Sentinel/releases](https://github.com/alibaba/Sentinel/releases)
 
 源码地址:[https://github.com/youngMen1/springcloud-alibaba-code](https://github.com/youngMen1/springcloud-alibaba-code)
 
