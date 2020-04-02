@@ -28,7 +28,7 @@ https://github.com/alibaba/nacos/releases
 启动成功界面:
 
 ![img](/static/image/微信截图_20200402170324.png)
-
+从界面可知，此时没有服务注册到Nacos上。
 # 3.总结
 
 Nacos下载地址:[https://github.com/alibaba/nacos/releases](https://github.com/alibaba/nacos/releases)
