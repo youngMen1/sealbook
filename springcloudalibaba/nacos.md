@@ -12,7 +12,7 @@ Nacos依赖于Java环境，所以必须安装Java环境。然后从官网下载N
 ```
 https://github.com/alibaba/nacos/releases
 ```
-
+本次案例下载的版本为1.0.0 ，下载完成后，解压，在解压后的文件的/bin目录下，windows系统点击startup.cmd就可以启动nacos。linux或mac执行以下命令启动nacos。
 
 
 # 3.总结
