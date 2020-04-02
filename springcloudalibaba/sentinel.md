@@ -184,7 +184,9 @@ public class ConsumerController {
 
 # 3.总结
 
-源码地址:https://github.com/youngMen1/springcloud-alibaba-code
+源码地址:[https://github.com/youngMen1/springcloud-alibaba-code](https://github.com/youngMen1/springcloud-alibaba-code)
+
+https://github.com/alibaba/spring-cloud-alibaba/wiki/Nacos-discovery
 
 # 4.参考
 
