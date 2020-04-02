@@ -81,6 +81,9 @@ public class SpringcloudNacosProviderApplication {
 
 ## 2.5.验证服务注册个发现
 分别启动2个工程，待工程启动成功之后，在访问localhost:8848，可以发现nacos-provider和nacos-consumer，均已经向nacos-server注册，如下图所示：
+![img](/static/image/微信截图_20200402172329.png)
+![img](/static/image/微信截图_20200402172301.png)
+
 
 # 3.总结
 
