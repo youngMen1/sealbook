@@ -144,10 +144,10 @@ public class TestController {
 ![img](/static/image/微信截图_20200402173226.png)
 
 # 3.总结
-https://nacos.io/zh-cn/docs/what-is-nacos.html
 Nacos下载地址:[https://github.com/alibaba/nacos/releases](https://github.com/alibaba/nacos/releases)
 
 # 4.参考
+https://nacos.io/zh-cn/docs/what-is-nacos.html
 
 
 
