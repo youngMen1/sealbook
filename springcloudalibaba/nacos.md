@@ -141,7 +141,7 @@ public class TestController {
 ```
 
 在浏览器上访问[http://localhost:8763/hi-feign，可以在浏览器上展示正确的响应，这时nacos-consumer调用nacos-provider服务成功。](http://localhost:8763/hi-feign，可以在浏览器上展示正确的响应，这时nacos-consumer调用nacos-provider服务成功。)
-微信截图_20200402173226.png
+![img](/static/image/微信截图_20200402173226.png)
 
 # 3.总结
 
