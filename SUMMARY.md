@@ -38,6 +38,8 @@
   * [hystrix](springcloud/hystrix.md)
   * [config](springcloud/config.md)
   * [bus](springcloud/bus.md)
+  * Eureka
+  * Hystrix
 * [Mybatis](mybatis.md)
   * [错误](mybatis/cuo-wu.md)
 * [Linux](linux.md)
