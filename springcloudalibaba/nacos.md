@@ -130,6 +130,8 @@ hi 封志强
 </dependency>
 ```
 
+在配置文件中需要加上sentinel.transport. dashboard配置外，还需要加上feign.sentinel.enabled的配置，代码如下：
+
 # 3.总结
 
 源码地址:[https://github.com/youngMen1/springcloud-alibaba-code](https://github.com/youngMen1/springcloud-alibaba-code)
