@@ -97,7 +97,7 @@ Blocked by Sentinel (flow limiting)
 正常的返回逻辑为
 
 ```
-hi 
+hi 封志强
 ```
 
 由以上可只，接口资源/hi的限流规则起到了作用。
