@@ -64,6 +64,8 @@ public class TestController {
 * fallback：fallback 函数名称，可选项，用于在抛出异常的时候提供 fallback 处理逻辑。
 * 启动Nacos，并启动nacos-provider项目。文末有源码下载链接。
 
+---
+
 ## 2.1.Sentinel DashBoard {#sentinel-dashboard}
 
 Sentinel 控制台提供一个轻量级的控制台，它提供机器发现、单机资源实时监控、集群资源汇总，以及规则管理的功能。
@@ -109,15 +111,24 @@ hi 封志强
 
 由以上可只，接口资源/hi的限流规则起到了作用。
 
+---
+
 ## 2.2.FeignClient中使用Sentinel {#在feignclient中使用sentinel}
 
-在Spring Cloud 的Feign Client组件中默认集成了Hystrix，Sentinel也可以提供这样的功能。现以案例的形式来讲解如何在FeignClient中使用Sentinel
+在Spring Cloud 的Feign Client组件中默认集成了Hystrix，Sentinel也可以提供这样的功能。现以案例的形式来讲解如何在FeignClient中使用Sentinel。
 
+```
+<dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
 
-
-
-
-
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+            <version>0.9.0.RELEASE</version>
+        </dependency>
+```
 
 # 3.总结
 
