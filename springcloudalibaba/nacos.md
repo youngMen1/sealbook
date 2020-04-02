@@ -109,9 +109,13 @@ hi 封志强
 
 由以上可只，接口资源/hi的限流规则起到了作用。
 
----
+## 2.2.FeignClient中使用Sentinel {#在feignclient中使用sentinel}
 
-## FeignClient中使用Sentinel {#在feignclient中使用sentinel}
+在Spring Cloud 的Feign Client组件中默认集成了Hystrix
+
+
+
+
 
 # 3.总结
 
