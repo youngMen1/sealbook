@@ -22,7 +22,15 @@ Sentinel作为Spring Cloud Alibaba的组件之一，在Spring Cloud项目中使�
 * spring.cloud.sentinel.transport.dashboard: 8080，这个是Sentinel DashBoard的地址。
 
 ```
-
+server:
+  port: 8762
+spring:
+  application:
+    name: nacos-provider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 134.175.12.243:8848
 ```
 
 
