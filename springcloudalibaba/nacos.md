@@ -9,6 +9,17 @@ Sentinel 具有以下特征:
 # 2.如何在Spring Cloud中使用Sentinel
 
 
+```
+<dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-nacos-config</artifactId>
+            <version>0.9.0.RELEASE</version>
+        </dependency>
+
+```
+
+
+
 
 
 
