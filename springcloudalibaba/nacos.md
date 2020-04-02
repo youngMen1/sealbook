@@ -66,7 +66,9 @@ public class TestController {
 
 ## Sentinel DashBoard {#sentinel-dashboard}
 
-Sentinel 控制台提供一个轻量级的控制台，它提供机器发现、单机资源实时监控、集群资源汇总，以及规则管理的功能. Sentinel DashBoard下载地址：https://github.com/alibaba/Sentinel/releases
+### Sentinel 控制台提供一个轻量级的控制台，它提供机器发现、单机资源实时监控、集群资源汇总，以及规则管理的功能。
+
+### Sentinel DashBoard下载地址：[https://github.com/alibaba/Sentinel/releases](https://github.com/alibaba/Sentinel/releases)
 
 ### 成功后的结果截图
 
