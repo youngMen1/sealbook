@@ -190,7 +190,13 @@ public class ConsumerController {
 
 # 4.参考
 
-https://www.fangzhipeng.com/springcloud/2019/06/02/sc-sentinel.html
+[https://www.fangzhipeng.com/springcloud/2019/06/02/sc-sentinel.html](https://www.fangzhipeng.com/springcloud/2019/06/02/sc-sentinel.html)
 
+https://github.com/alibaba/Sentinel/releases
 
+https://github.com/alibaba/Sentinel/tree/master/sentinel-dashboard
+
+https://github.com/spring-cloud-incubator/spring-cloud-alibaba/wiki/Sentinel
+
+https://github.com/alibaba/Sentinel/wiki/%E6%8E%A7%E5%88%B6%E5%8F%B0
 
