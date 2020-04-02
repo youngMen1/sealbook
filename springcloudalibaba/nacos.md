@@ -61,6 +61,7 @@ spring:
       discovery:
         server-addr: 127.0.0.1:8848
 ```
+在Spring Boot的启动文件NacosProviderApplication加上@EnableDiscoveryClient注解
 
 ## 2.4.构建服务消费者nacos-consumer
 
