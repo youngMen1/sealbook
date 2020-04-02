@@ -64,6 +64,8 @@ public class TestController {
 * fallback：fallback 函数名称，可选项，用于在抛出异常的时候提供 fallback 处理逻辑。
 * 启动Nacos，并启动nacos-provider项目。文末有源码下载链接。
 
+## Sentinel DashBoard {#sentinel-dashboard}
+
 ### 成功后的结果截图
 
 # 3.总结
