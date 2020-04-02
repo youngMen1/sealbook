@@ -36,5 +36,7 @@ Cron表达式在线生成网站:[http://cron.qqe2.com/](http://cron.qqe2.com/)
 
 资深Java工程师:[https://www.javadoop.com/](https://www.javadoop.com/)
 
-方志鹏:https://www.fangzhipeng.com/
+方志鹏:[https://www.fangzhipeng.com/](https://www.fangzhipeng.com/)
+
+https://cloud.tencent.com/developer/user/1650787
 
