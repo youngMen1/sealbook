@@ -158,9 +158,11 @@ feign:
 public interface ProviderClient {
 
     @GetMapping("/hi")
-    String hi(@RequestParam(value = "name", defaultValue = "forezp", required = false) String name);
+    String hi(@RequestParam(value = "name", defaultValue = "fengzhiqiang", required = false) String name);
 }
 ```
+
+写一个TestController调用ProviderClient，代码如下：
 
 # 3.总结
 
