@@ -21,7 +21,5 @@ Spring Cloud Alibaba项目由两部分组成：阿里巴巴开源组件和阿里
 阿里github官网:
 
 [https://github.com/alibaba/spring-cloud-alibaba/wiki](https://github.com/alibaba/spring-cloud-alibaba/wiki)  
-![img](/static/image/微信截图_20200402094652.png)方志
-
-
+![img](/static/image/微信截图_20200402094652.png)方志鹏:https://www.fangzhipeng.com/springcloud/2019/06/02/sc-sentinel.html
 
