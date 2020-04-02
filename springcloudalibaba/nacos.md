@@ -43,6 +43,21 @@ Spring boot版本为2.1.4.RELEASE，Spring Cloud 版本为Greenwich.RELEASE，�
     <version>0.9.0.RELEASE</version>
 </dependency>
 ```
+application.yml做相关的配置如下:
+
+
+```
+server:
+  port: 8762
+spring:
+  application:
+    name: nacos-provider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+```
+
 
 
 
