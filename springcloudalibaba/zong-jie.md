@@ -1,5 +1,3 @@
-![img](/static/image/微信截图_20200402164147.png)
-
 ## windows环境启动
 
 #### Nacos
@@ -31,5 +29,9 @@ linux或mac执行以下命令启动Sentinel
 java -jar sentinel-dashboard-1.6.1.jar
 ```
 
-
 ![img](/static/image/微信截图_20200402112417.png)
+
+
+![img](/static/image/微信截图_20200402164147.png)
+
+
