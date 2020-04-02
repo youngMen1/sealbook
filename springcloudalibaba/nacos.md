@@ -34,7 +34,7 @@ spring:
     sentinel:
       transport:
         port: 8719
-        dashboard: 134.175.12.243:8080
+        dashboard: localhost:8080
 ```
 
 
