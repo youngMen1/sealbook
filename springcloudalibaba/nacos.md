@@ -96,7 +96,6 @@ java -jar sentinel-dashboard-1.7.1.jar
 ![img](/static/image/2279594-367002bee1cc0232.png)
 
 ### 测试
-
 多次快速访问nacos-provider的接口资源[http://localhost:8762/hi，可以发现偶尔出现以下的信息：](http://localhost:8762/hi，可以发现偶尔出现以下的信息：)
 
 ```
