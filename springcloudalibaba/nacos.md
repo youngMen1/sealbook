@@ -61,7 +61,9 @@ spring:
       discovery:
         server-addr: 127.0.0.1:8848
 ```
+
 在Spring Boot的启动文件NacosProviderApplication加上@EnableDiscoveryClient注解：
+
 ```
 @EnableDiscoveryClient
 @SpringBootApplication
@@ -74,16 +76,17 @@ public class SpringcloudNacosProviderApplication {
 }
 ```
 
-
-
 ## 2.4.构建服务消费者nacos-consumer
+
 和nacos-provider一样，构建服务消费者nacos-consumer，nacos-cosumer的启动端口8763。构建过程同nacos-provider一样,这里省略......
 
 ## 2.5.验证服务注册个发现
-分别启动2个工程，待工程启动成功之后，在访问localhost:8848，可以发现nacos-provider和nacos-consumer，均已经向nacos-server注册，如下图所示：
-![img](/static/image/微信截图_20200402172329.png)
+
+分别启动2个工程，待工程启动成功之后，在访问localhost:8848，可以发现nacos-provider和nacos-consumer，均已经向nacos-server注册，如下图所示：  
+![img](/static/image/微信截图_20200402172329.png)  
 ![img](/static/image/微信截图_20200402172301.png)
 
+#### 2.6.FeignClient调用服务 {#是feignclient调用服务}
 
 # 3.总结
 
