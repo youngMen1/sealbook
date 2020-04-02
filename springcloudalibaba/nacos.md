@@ -79,16 +79,15 @@ java -jar sentinel-dashboard-1.7.1.jar
 ```
 ![img](/static/image/微信截图_20200402112417.png)
 
-默认启动端口为8080，可以-Dserver.port=8081的形式改变默认端口。启动成功后，在浏览器上访问localhost:8080，就可以显示Sentinel的登陆界面，登陆名为sentinel，密码为sentinel。  
+### 默认启动端口为8080，可以-Dserver.port=8081的形式改变默认端口。启动成功后，在浏览器上访问localhost:8080，就可以显示Sentinel的登陆界面，登陆名为sentinel，密码为sentinel。  
 
 ![img](/static/image/微信截图_20200402113811.png)  
 ![img](/static/image/微信截图_20200402112954.png)  
-在簇点链路  
-在/hi资源处设置接口的限流功能，在“+流控”按钮点击开设置界面如下,设置阈值类型为 qps，单机阈值为2。  
+### 在簇点链路在/hi资源处设置接口的限流功能，在“+流控”按钮点击开设置界面如下,设置阈值类型为 qps，单机阈值为2。  
 ![img](/static/image/2279594-ac4e0be06515ec9a.png)  
-设置成功后可以在流控规则这一栏进行查看，如图所示：  
+### 设置成功后可以在流控规则这一栏进行查看，如图所示：  
 ![img](/static/image/2279594-367002bee1cc0232.png)  
-测试  
+### 测试  
 多次快速访问nacos-provider的接口资源[http://localhost:8762/hi，可以发现偶尔出现以下的信息：](http://localhost:8762/hi，可以发现偶尔出现以下的信息：)
 
 ```
@@ -98,7 +97,7 @@ Blocked by Sentinel (flow limiting)
 正常的返回逻辑为
 
 ```
-hi forezp
+hi 
 ```
 
 由以上可只，接口资源/hi的限流规则起到了作用。
