@@ -66,6 +66,12 @@ public class TestController {
 
 ## Sentinel DashBoard {#sentinel-dashboard}
 
+
+
+
+
+
+
 ### 成功后的结果截图
 
 # 3.总结
