@@ -11,10 +11,10 @@ Sentinel 具有以下特征:
 
 ```
 <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-alibaba-nacos-config</artifactId>
-            <version>0.9.0.RELEASE</version>
-        </dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-alibaba-nacos-config</artifactId>
+    <version>0.9.0.RELEASE</version>
+</dependency>
 
 ```
 
