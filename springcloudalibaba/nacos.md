@@ -27,7 +27,7 @@ https://github.com/alibaba/nacos/releases
 
 启动成功界面:
 
-微信截图\_20200402170324.png
+![img](/static/image/微信截图_20200402170324.png)
 
 # 3.总结
 
