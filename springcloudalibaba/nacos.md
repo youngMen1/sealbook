@@ -123,6 +123,14 @@ public interface ProviderClient {
 }
 ```
 
+
+
+在nacos-consumer写一个消费API，该API使用ProviderClient来调用nacos-provider的API服务，代码如下：
+
+
+
+在浏览器上访问http://localhost:8763/hi-feign，可以在浏览器上展示正确的响应，这时nacos-consumer调用nacos-provider服务成功。
+
 # 3.总结
 
 Nacos下载地址:[https://github.com/alibaba/nacos/releases](https://github.com/alibaba/nacos/releases)
