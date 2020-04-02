@@ -9,7 +9,7 @@ Sentinel，中文翻译为哨兵，是为微服务提供流量控制、熔断降
 * 广泛的开源生态： Sentinel 提供开箱即用的与其它开源框架/库的整合模块，例如与 Spring Cloud、Dubbo、gRPC 的整合。您只需要引入相应的依赖并进行简单的配置即可快速地接入 Sentinel。
 * 完善的 SPI 扩展点： Sentinel 提供简单易用、完善的 SPI 扩展点。您可以通过实现扩展点，快速的定制逻辑。例如定制规则管理、适配数据源等。
 
-## 如何在Spring Cloud中使用Sentinel {#如何在spring-cloud中使用sentinel}
+## 2.如何在Spring Cloud中使用Sentinel {#如何在spring-cloud中使用sentinel}
 
 Sentinel作为Spring Cloud Alibaba的组件之一，在Spring Cloud项目中使用它非常的简单。现在以案例的形式来讲解如何在Spring Cloud项目中使用Sentinel。本项目是在之前nacos教程的案例基础上进行改造。在工程的pom文件加上sentinel的Spring Cloud起步依赖，代码如下：
 
