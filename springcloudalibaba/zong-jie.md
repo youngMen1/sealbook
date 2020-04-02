@@ -13,6 +13,8 @@ windows系统点击startup.cmd就可以启动nacos
 #### Sentinel
 
 ```
+// 在cmd命令窗口
+java -jar sentinel-dashboard-1.6.1.jar
 
 ```
 ## Linux环境启动
