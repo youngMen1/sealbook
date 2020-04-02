@@ -164,6 +164,20 @@ public interface ProviderClient {
 
 写一个TestController调用ProviderClient，代码如下：
 
+```
+@RestController
+public class ConsumerController {
+
+    @Autowired
+    ProviderClient providerClient;
+    
+    @GetMapping("/hi-feign")
+    public String hiFeign(){
+       return providerClient.hi("feign");
+    }
+}
+```
+
 # 3.总结
 
 源码地址:[https://github.com/youngMen1/springcloud-alibaba-code](https://github.com/youngMen1/springcloud-alibaba-code)
