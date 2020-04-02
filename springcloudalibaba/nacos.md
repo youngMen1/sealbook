@@ -57,8 +57,6 @@ spring:
 ```
 
 
-
-
 ## 2.4.构建服务消费者nacos-consumer
 
 # 3.总结
