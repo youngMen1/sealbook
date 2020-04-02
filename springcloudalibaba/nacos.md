@@ -97,6 +97,21 @@ public class SpringcloudNacosProviderApplication {
 </dependency>
 ```
 
+在NacosConsumerApplication启动文件上加上@EnableFeignClients注解开启FeignClient的功能
+
+```
+@EnableFeignClients
+@EnableDiscoveryClient
+@SpringBootApplication
+public class SpringcloudNacosConsumerApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(SpringcloudNacosConsumerApplication.class, args);
+    }
+
+}
+```
+
 # 3.总结
 
 Nacos下载地址:[https://github.com/alibaba/nacos/releases](https://github.com/alibaba/nacos/releases)
