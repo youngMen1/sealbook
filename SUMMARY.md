@@ -1,9 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-  * [日程积累](ri-cheng-ji-lei.md)
-  * [日积月累](ri-ji-yue-lei.md)
-    * [日期比较大小](ri-ji-yue-lei/ri-qi-bi-jiao-da-xiao.md)
+  * [日常积累](ri-cheng-ji-lei.md)
   * [书](shu.md)
 * [IDEA](java.md)
   * [使用帮助](java/shi-yong-bang-zhu.md)
