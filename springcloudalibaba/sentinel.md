@@ -182,7 +182,13 @@ public class ConsumerController {
 
 需要注意的是，被限流的时候FeignClient并不会调用nacos-provider的接口，而是在nacos-consumer工程里直接报错。
 
-## 参考
+# 总结
+
+
+
+# 参考
+
+
 
 
 
