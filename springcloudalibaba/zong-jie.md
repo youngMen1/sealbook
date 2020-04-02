@@ -18,8 +18,6 @@ windows系统点击startup.cmd就可以启动nacos
 ## Linux环境启动
 #### Nacos
 linux或mac执行以下命令启动nacos
-
-
 ```
 sh startup.sh -m standalone
 ```
