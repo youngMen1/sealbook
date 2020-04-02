@@ -55,20 +55,18 @@ public class TestController {
     }
 }
 ```
+
 关于@SentinelResource 注解，有以下的属性：
+
 * value：资源名称，必需项（不能为空）
 * entryType：entry 类型，可选项（默认为 EntryType.OUT）
 * blockHandler / blockHandlerClass: blockHandler 对应处理 BlockException 的函数名称，可选项
 * fallback：fallback 函数名称，可选项，用于在抛出异常的时候提供 fallback 处理逻辑。
 * 启动Nacos，并启动nacos-provider项目。文末有源码下载链接。
 
-
-
-
-
-
-
 # 3.总结
+
+源码地址:
 
 # 4.参考
 
