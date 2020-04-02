@@ -113,13 +113,13 @@ Hystrix默认集成在Spring Cloud 的Feign Client组件中，Sentinel也可以�
 
 ```
 <dependency>
-	<groupId>org.springframework.cloud</groupId>
-	<artifactId>spring-cloud-starter-openfeign</artifactId>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-openfeign</artifactId>
 </dependency>
 <dependency>
-	<groupId>org.springframework.cloud</groupId>
-	<artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
-	<version>0.9.0.RELEASE</version>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+    <version>0.9.0.RELEASE</version>
 </dependency>
 ```
 
@@ -181,4 +181,8 @@ public class ConsumerController {
 在被限流的时候返回错误信息。
 
 需要注意的是，被限流的时候FeignClient并不会调用nacos-provider的接口，而是在nacos-consumer工程里直接报错。
+
+## 参考
+
+
 
