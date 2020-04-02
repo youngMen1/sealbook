@@ -30,7 +30,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 134.175.12.243:8848
+        server-addr: localhost:8848
 ```
 
 
