@@ -111,7 +111,13 @@ hi 封志强
 
 ## 2.2.FeignClient中使用Sentinel {#在feignclient中使用sentinel}
 
-在Spring Cloud 的Feign Client组件中默认集成了Hystrix
+在Spring Cloud 的Feign Client组件中默认集成了Hystrix，Sentinel也可以提供这样的功能。现以案例的形式来讲解如何在FeignClient中使用Sentinel
+
+
+
+
+
+
 
 # 3.总结
 
