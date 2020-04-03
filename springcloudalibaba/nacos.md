@@ -173,6 +173,21 @@ spring:
     active: dev
 ```
 
+```
+@RestController
+@RefreshScope
+public class ConfigController {
+
+    @Value("${username:lily}")
+    private String username;
+
+    @RequestMapping("/username")
+    public String get() {
+        return username;
+    }
+}
+```
+
 # 微信截图\_20200403100830.png
 
 微信截图\_20200403100909.png
