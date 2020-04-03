@@ -181,6 +181,10 @@ public class TestController {
 从上图可知，consul-provider服务已经成功注册到consul上面去了。
 
 ### 2.2.2.服务消费者springcloud-consul-consumer
+服务消费者的搭建过程同服务提供者，在pom文件中引入的依赖同服务提供者，在配置文件application.yml配置同服务提供者，不同的点在端口为8765，服务名为consul-consumer。
+
+写一个FeignClient，该FeignClient调用consul-provider的REST API，代码如下：
+
 
 
 
