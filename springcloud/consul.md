@@ -122,19 +122,24 @@ consul agent -dev
 | springcloud-consul-consumer | 8765 | 服务消费者 |
 
 其中，服务提供者和服务消费者分别向consul注册，注册完成后，服务消费者通过FeignClient来消费服务提供者的服务。
+
 ### 2.2.1服务提供者springcloud-consul-provider
+
 1.创建一个工程springcloud-consul-provider，在工程的pom文件引入以下依赖，包括consul-discovery的起步依赖，该依赖是spring cloud consul用来向consul 注册和发现服务的依赖，采用REST API的方式进行通讯。另外加上web的起步依赖，用于对外提供REST API。代码如下：
+
 ```
 <dependency>
-	<groupId>org.springframework.cloud</groupId>
-	<artifactId>spring-cloud-starter-consul-discovery</artifactId>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-consul-discovery</artifactId>
 </dependency>
 <dependency>
-	<groupId>org.springframework.boot</groupId>
-	<artifactId>spring-boot-starter-web</artifactId>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
 </dependency>
 ```
+
 2.在工程的配置文件application.yml做下以下配置：
+
 ```
 server:
   port: 8763
@@ -148,8 +153,10 @@ spring:
       discovery:
         serviceName: consul-provider
 ```
-3.上面的配置，指定了程序的启动端口为8763，应用名为consul-provider，consul注册中心的地址为localhost:8500
+
+3.上面的配置，指定了程序的启动端口为8763，应用名为consul-provider，consul注册中心的地址为localhost:8500  
 在程序员的启动类ConsulProviderApplication加上@EnableDiscoveryClient注解，开启服务发现的功能。
+
 ```
 @EnableDiscoveryClient
 @SpringBootApplication
@@ -163,6 +170,7 @@ public class SpringcloudConsulProviderApplication {
 ```
 
 4.写一个TestController，该API为一个GET请求，返回当前程序的启动端口，代码如下。
+
 ```
 @RestController
 public class TestController {
@@ -176,24 +184,25 @@ public class TestController {
     }
 }
 ```
-5.启动工程，在浏览器上访问http://localhost:8500，页面显示如下：
-![img](/static/image/微信截图_20200403143808.png)
+
+5.启动工程，在浏览器上访问[http://localhost:8500，页面显示如下：](http://localhost:8500，页面显示如下：)  
+![img](/static/image/微信截图_20200403143808.png)  
 从上图可知，consul-provider服务已经成功注册到consul上面去了。
 
 ### 2.2.2.服务消费者springcloud-consul-consumer
-1.服务消费者的搭建过程同服务提供者，在pom文件中引入的依赖同服务提供者，在配置文件application.yml配置同服务提供者，不同的点在端口为8765，服务名为consul-consumer。
+
+1.服务消费者的搭建过程同服务提供者，在pom文件中引入的依赖同服务提供者，在配置文件application.yml配置同服务提供者，不同的点在端口为8765，服务名为consul-consumer。  
 引入
+
 ```
 <!--通过 @EnableFeginClients 注解开启 Feign 功能-->
 <dependency>
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-starter-openfeign</artifactId>
 </dependency>
-
 ```
 
 2.配置如下
-
 
 ```
 server:
@@ -209,8 +218,6 @@ spring:
         serviceName: consul-consumer
 ```
 
-
-
 3.写一个FeignClient，该FeignClient调用consul-provider的REST API，代码如下：
 
 ```
@@ -223,46 +230,45 @@ public interface EurekaClientFeign {
 
 4.Service层代码如下：
 ```
-@Service
+
+@Service  
 public class HiService {
 
-    @Autowired
-    EurekaClientFeign eurekaClientFeign;
+```
+@Autowired
+EurekaClientFeign eurekaClientFeign;
 
 
-    public String sayHi(String name) {
-        return eurekaClientFeign.sayHiFromClientEureka(name);
-    }
+public String sayHi(String name) {
+    return eurekaClientFeign.sayHiFromClientEureka(name);
 }
 ```
 
-
-5.对外提供一个REST API，该API调用了consul-provider的服务，代码如下：
+}
 
 ```
-@RestController
+5.对外提供一个REST API，该API调用了consul-provider的服务，代码如下：
+```
+
+@RestController  
 public class TestController {
 
-    @Autowired
-    HiService hiService;
+```
+@Autowired
+HiService hiService;
 
-    @GetMapping("/hi")
-    public String sayHi(@RequestParam(defaultValue = "fengzhiqiang", required = false) String name) {
-        return hiService.sayHi(name);
-    }
+@GetMapping("/hi")
+public String sayHi(@RequestParam(defaultValue = "fengzhiqiang", required = false) String name) {
+    return hiService.sayHi(name);
+}
+```
 
 }
 
-```
-6.在浏览器上访问http://localhost:8765/hi，浏览器响应如下：
-![img](/static/image/微信截图_20200403152035.png)
+\`\`\`  
+6.在浏览器上访问[http://localhost:8767/hi，浏览器响应如下：](http://localhost:8765/hi，浏览器响应如下：)  
+![img](/static/image/微信截图_20200403152035.png)  
 ![img](/static/image/微信截图_20200403152001.png)
-
-
-
-
-
-
 
 ## 2.3.使用Spring Cloud Consul Config来做服务配置中心
 
@@ -272,16 +278,18 @@ Consul采用Go语言编写，支持Linux、Mac、Windows等各大操作系统
 下载地址：[https://www.consul.io/downloads.html](https://www.consul.io/downloads.html)
 
 # 4.参考
-https://www.consul.io/intro/index.html
 
-https://www.consul.io/docs/internals/architecture.html
+[https://www.consul.io/intro/index.html](https://www.consul.io/intro/index.html)
 
-https://www.consul.io/intro/vs/eureka.html
+[https://www.consul.io/docs/internals/architecture.html](https://www.consul.io/docs/internals/architecture.html)
 
-http://www.ityouknow.com/springcloud/2018/07/20/spring-cloud-consul.html
+[https://www.consul.io/intro/vs/eureka.html](https://www.consul.io/intro/vs/eureka.html)
 
-https://springcloud.cc/spring-cloud-consul.html
+[http://www.ityouknow.com/springcloud/2018/07/20/spring-cloud-consul.html](http://www.ityouknow.com/springcloud/2018/07/20/spring-cloud-consul.html)
 
-https://www.cnblogs.com/lsf90/p/6021465.html
+[https://springcloud.cc/spring-cloud-consul.html](https://springcloud.cc/spring-cloud-consul.html)
 
-https://blog.csdn.net/longgeqiaojie304/article/details/85227936
+[https://www.cnblogs.com/lsf90/p/6021465.html](https://www.cnblogs.com/lsf90/p/6021465.html)
+
+[https://blog.csdn.net/longgeqiaojie304/article/details/85227936](https://blog.csdn.net/longgeqiaojie304/article/details/85227936)
+
