@@ -142,6 +142,7 @@ public class TestController {
 
 在浏览器上访问[http://localhost:8763/hi-feign，可以在浏览器上展示正确的响应，这时nacos-consumer调用nacos-provider服务成功。](http://localhost:8763/hi-feign，可以在浏览器上展示正确的响应，这时nacos-consumer调用nacos-provider服务成功。)
 ![img](/static/image/微信截图_20200402173226.png)
+![img](/static/image/微信截图_20200403085716.png)
 
 # 3.总结
 Nacos下载地址:[https://github.com/alibaba/nacos/releases](https://github.com/alibaba/nacos/releases)
