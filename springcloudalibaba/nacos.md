@@ -143,7 +143,7 @@ public class TestController {
 ![img](/static/image/微信截图_20200402173226.png)  
 ![img](/static/image/微信截图_20200403085716.png)
 
-# 3.
+# 3.如何使用nacos作为配置中心
 
 # 4.总结
 
@@ -153,5 +153,5 @@ Nacos下载地址:[https://github.com/alibaba/nacos/releases](https://github.com
 
 [https://nacos.io/zh-cn/docs/what-is-nacos.html](https://nacos.io/zh-cn/docs/what-is-nacos.html)
 
-https://www.fangzhipeng.com/springcloud/2019/06/01/sc-nacos-config.html
+[https://www.fangzhipeng.com/springcloud/2019/06/01/sc-nacos-config.html](https://www.fangzhipeng.com/springcloud/2019/06/01/sc-nacos-config.html)
 
