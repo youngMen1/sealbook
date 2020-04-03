@@ -191,10 +191,6 @@ public class ConfigController {
 ![img](/static/image/微信截图_20200403100830.png)
 ![img](/static/image/微信截图_20200403100909.png)
 
-# 
-
-# 
-
 # 4.总结
 
 Nacos下载地址:[https://github.com/alibaba/nacos/releases](https://github.com/alibaba/nacos/releases)
