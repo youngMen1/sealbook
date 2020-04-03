@@ -179,7 +179,7 @@ public class TestController {
 5.启动工程，在浏览器上访问http://localhost:8500，页面显示如下：
 ![img](/static/image/微信截图_20200403143808.png)
 从上图可知，consul-provider服务已经成功注册到consul上面去了。
-### 2.2.2.服务消费者springcloud-consul-consum
+### 2.2.2.服务消费者springcloud-consul-consumer
 
 
 
