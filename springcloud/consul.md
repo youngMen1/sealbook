@@ -275,6 +275,33 @@ public String sayHi(@RequestParam(defaultValue = "fengzhiqiang", required = fals
 	<artifactId>spring-cloud-starter-consul-config</artifactId>
 </dependency>
 ```
+2.然后在配置文件application.yml加上以下的以下的配置，配置如下：
+```
+spring:
+  profiles:
+    active: dev 
+```
+上面的配置指定了SpringBoot启动时的读取的profiles为dev。 然后再工程的启动配置文件bootstrap.yml文件中配置以下的配置：
+```
+spring:
+  application:
+    name: consul-provider
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        serviceName: consul-provider
+      config:
+        enabled: true
+        format: yaml           
+        prefix: config     
+        profile-separator: ':'    
+        data-key: data        
+```
+
+
+
 
 
 
