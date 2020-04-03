@@ -145,6 +145,10 @@ public class TestController {
 
 # 3.如何使用nacos作为配置中心
 
+nacos作为服务配置中心的功能。类似于consul config，Nacos 是支持热加载的
+
+
+
 # 4.总结
 
 Nacos下载地址:[https://github.com/alibaba/nacos/releases](https://github.com/alibaba/nacos/releases)
