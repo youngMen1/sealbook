@@ -72,20 +72,37 @@ Eureka Server端采用的是P2P的复制模式，但是它不保证复制操作�
 # 2.怎么使用Consul
 
 ## 2.1.Consul下载和安装
+
 ```
 Consul采用Go语言编写，支持Linux、Mac、Windows等各大操作系统，本文使用windows操作系统，下载地址：https://www.consul.io/downloads.html，下完成后解压到计算机目录下，解压成功后，只有一个可执行的consul.exe可执行文件。打开cmd终端，切换到目录，执行以下命令：
 ```
+
 终端显示如下：
+
 ```
 Consul v1.4.2
 Protocol 2 spoken by default, understands 2 to 3 (agent will automatically use p
 rotocol >2 when speaking to compatible agents)
 ```
 
+证明consul下载成功了，并可执行。
 
+consul的一些常见的执行命令如下：
 
+| 命令 | 解释 | 示例 |
+| :--- | :--- | :--- |
+| agent | 运行一个consul agent | consul agent -dev |
+| join | 将agent加入到consul集群 | consul join IP |
+| members | 列出consul cluster集群中的members | consul members |
+| leave | 将节点移除所在集群 | consul leave |
+
+更多命令请查看官方网站：https://www.consul.io/docs/commands/index.html
+
+开发模式启动：
 
 ## 2.2.使用spring cloud consul来服务注册与发现
+
+微信截图\_20200403135940.png
 
 ## 2.3.使用Spring Cloud Consul Config来做服务配置中心
 
