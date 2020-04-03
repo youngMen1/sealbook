@@ -124,8 +124,6 @@ consul agent -dev
 其中，服务提供者和服务消费者分别向consul注册，注册完成后，服务消费者通过FeignClient来消费服务提供者的服务。
 ### 2.2.1服务提供者springcloud-consul-provider
 创建一个工程springcloud-consul-provider，在工程的pom文件引入以下依赖，包括consul-discovery的起步依赖，该依赖是spring cloud consul用来向consul 注册和发现服务的依赖，采用REST API的方式进行通讯。另外加上web的起步依赖，用于对外提供REST API。代码如下：
-
-
 ```
 <dependency>
 	<groupId>org.springframework.cloud</groupId>
@@ -136,6 +134,36 @@ consul agent -dev
 	<artifactId>spring-boot-starter-web</artifactId>
 </dependency>
 ```
+在工程的配置文件application.yml做下以下配置：
+```
+server:
+  port: 8763
+spring:
+  application:
+    name: consul-provider
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        serviceName: consul-provider
+```
+上面的配置，指定了程序的启动端口为8763，应用名为consul-provider，consul注册中心的地址为localhost:8500
+
+在程序员的启动类ConsulProviderApplication加上@EnableDiscoveryClient注解，开启服务发现的功能。
+```
+@EnableDiscoveryClient
+@SpringBootApplication
+public class SpringcloudConsulProviderApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(SpringcloudConsulProviderApplication.class, args);
+    }
+
+}
+```
+
+
 
 
 
