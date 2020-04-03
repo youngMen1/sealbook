@@ -125,6 +125,20 @@ consul agent -dev
 ### 2.2.1服务提供者springcloud-consul-provider
 创建一个工程springcloud-consul-provider，在工程的pom文件引入以下依赖，包括consul-discovery的起步依赖，该依赖是spring cloud consul用来向consul 注册和发现服务的依赖，采用REST API的方式进行通讯。另外加上web的起步依赖，用于对外提供REST API。代码如下：
 
+
+```
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-consul-discovery</artifactId>
+</dependency>
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+```
+
+
+
 ## 2.3.使用Spring Cloud Consul Config来做服务配置中心
 
 # 3.总结
