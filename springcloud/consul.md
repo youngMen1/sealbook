@@ -192,7 +192,26 @@ public class TestController {
 
 ```
 
-写一个FeignClient，该FeignClient调用consul-provider的REST API，代码如下：
+2.配置如下
+
+
+```
+server:
+  port: 8767
+spring:
+  application:
+    name: consul-consumer
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        serviceName: consul-consumer
+```
+
+
+
+3.写一个FeignClient，该FeignClient调用consul-provider的REST API，代码如下：
 
 ```
 @FeignClient(value = "consul-provider")
@@ -202,8 +221,7 @@ public interface EurekaClientFeign {
     String sayHiFromClientEureka(@RequestParam(value = "name") String name);
 }
 
-Service层代码如下：
-
+4.Service层代码如下：
 ```
 @Service
 public class HiService {
@@ -219,7 +237,7 @@ public class HiService {
 ```
 
 
-对外提供一个REST API，该API调用了consul-provider的服务，代码如下：
+5.对外提供一个REST API，该API调用了consul-provider的服务，代码如下：
 
 ```
 @RestController
@@ -236,12 +254,9 @@ public class TestController {
 }
 
 ```
-
-
-
-
-微信截图_20200403152035.png
-微信截图_20200403152001.png
+6.在浏览器上访问http://localhost:8765/hi，浏览器响应如下：
+![img](/static/image/微信截图_20200403152035.png)
+![img](/static/image/微信截图_20200403152001.png)
 
 
 
