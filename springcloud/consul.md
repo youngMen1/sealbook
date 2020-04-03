@@ -122,6 +122,7 @@ consul agent -dev
 | springcloud-consul-consumer | 8765 | 服务消费者 |
 
 其中，服务提供者和服务消费者分别向consul注册，注册完成后，服务消费者通过FeignClient来消费服务提供者的服务。
+### 2.2.1服务提供者springcloud-consul-provider
 
 ## 2.3.使用Spring Cloud Consul Config来做服务配置中心
 
