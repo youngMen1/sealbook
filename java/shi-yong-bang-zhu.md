@@ -25,11 +25,11 @@ alt+F8          debug时选中查看值
 找到.idea文件下的workspace.xml，并找到RunDashboard
 
 ```
-<option name="configurationTypes">
-<set>
-<option value="SpringBootApplicationConfigurationType" />
-</set>
-</option>
+ <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
 ```
 
 
