@@ -319,7 +319,6 @@ key值为：**
 
 ```
 config/consul-provider:dev/data
-
 ```
 
 **value值如下:**
@@ -329,8 +328,8 @@ foo:
   bar: bar1  
 server:  
   port: 8081
-
 ```
+
 ![img](/static/image/微信截图_20200403154513.png)
 
 在consul-provider工程新建一个API，该API返回从consul 配置中心读取foo.bar的值，代码如下：
@@ -347,6 +346,42 @@ public String getFooBar() {
 ```
 
 4.启动工程，可以看到程序的启动端口为8081，即是consul的配置中心配置的server.port端口。 工程启动完成后，在浏览器上访问[http://localhost:8081/foo，页面显示bar1。由此可知，应用consul-provider已经成功从consul的配置中心读取了配置foo.bar的配置。](http://localhost:8081/foo，页面显示bar1。由此可知，应用consul-provider已经成功从consul的配置中心读取了配置foo.bar的配置。)
+
+微信截图\_20200403155258.png
+
+
+
+### 动态刷新配置 {#动态刷新配置}
+
+当使用spring cloud config作为配置中心的时候，可以使用spring cloud config bus支持动态刷新配置。Spring Cloud Comsul Config默认就支持动态刷新，只需要在需要动态刷新的类上加上@RefreshScope注解即可，修改代码如下：
+
+```
+@RestController
+@RefreshScope
+public class FooBarController {
+
+    @Value("${foo.bar}")
+    String fooBar;
+
+    @GetMapping("/foo")
+    public String getFooBar() {
+        return fooBar;
+    }
+}
+```
+
+启动consul-provider工程，在浏览器上访问http://localhost:8081/foo，页面显示bar1。然后 在网页上访问consul的KV存储的管理界面，即http://localhost:8500/ui/dc1/kv，修改config/consul-provider:dev/data的值，修改后的值如下：
+
+```
+foo:
+  bar: fengzhiqiang
+server: 
+  port: 8081
+```
+
+微信截图\_20200403155212.png
+
+此时不重新启动consul-provider，在浏览器上访问http://localhost:8081/foo，页面显示bar2。可见foo.bar的最新配置在应用不重启的情况下已经生效。
 
 # 3.总结
 
