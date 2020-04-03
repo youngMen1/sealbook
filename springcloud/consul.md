@@ -299,6 +299,25 @@ spring:
         profile-separator: ':'    
         data-key: data        
 ```
+关于spring.cloud.consul.config的配置项描述如下：
+
+enabled 设置config是否启用，默认为true
+format 设置配置的值的格式，可以yaml和properties
+prefix 设置配的基本目录，比如config
+defaultContext 设置默认的配置，被所有的应用读取，本例子没用的
+profileSeparator profiles配置分隔符,默认为‘,’
+date-key为应用配置的key名字，值为整个应用配置的字符串。
+网页上访问consul的KV存储的管理界面，即http://localhost:8500/ui/dc1/kv，创建一条记录，
+
+key值为：config/consul-provider:dev/data value值如下:
+```
+foo:
+  bar: bar1
+server:
+  port: 8081
+
+```
+
 
 
 
