@@ -1,11 +1,10 @@
 ## Intellij IDEA运行报Command line is too long解法
 
-![](/assets/import.png)&lt;
+![img](/static/image/import.png)
 
 ```
-<property name="dynamic.classpath" value="true"/> 
+<property name="dynamic.classpath" value="true"/>
 ```
-
 
 2.SpringBoot启动异常
 
