@@ -34,9 +34,9 @@ https://github.com/alibaba/nacos/releases
 
 ## 2.2.服务注册
 
-在本案例中，使用2个服务注册到Nacos上，分别为springcloud-nacos-provider和springcloud-nacos-consumer。
+在本案例中，使用2个服务注册到Nacos上，分别为nacos-provider和nacos-consumer。
 
-## 2.3.构建服务提供者springcloud-nacos-provider
+## 2.3.构建服务提供者nacos-provider
 
 Spring boot版本为2.1.4.RELEASE，Spring Cloud 版本为Greenwich.RELEASE，在pom文件引入nacos的Spring Cloud起步依赖，代码如下：
 
@@ -76,9 +76,9 @@ public class SpringcloudNacosProviderApplication {
 }
 ```
 
-## 2.4.构建服务消费者springcloud-nacos-consumer
+## 2.4.构建服务消费者nacos-consumer
 
-和springcloud-nacos-provider一样，构建服务消费者springcloud-nacos-consumer，springcloud-nacos-cosumer的启动端口8763。构建过程同springcloud-nacos-provider一样,这里省略......
+和nacos-provider一样，构建服务消费者nacos-consumer，nacos-cosumer的启动端口8763。构建过程同nacos-provider一样,这里省略......
 
 ## 2.5.验证服务注册个发现
 
