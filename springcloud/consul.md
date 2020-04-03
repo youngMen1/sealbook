@@ -244,18 +244,13 @@ EurekaClientFeign eurekaClientFeign;
 public String sayHi(String name) {
     return eurekaClientFeign.sayHiFromClientEureka(name);
 }
-```
-
 }
-
 ```
 5.对外提供一个REST API，该API调用了consul-provider的服务，代码如下：
 ```
-
 @RestController  
 public class TestController {
 
-```
 @Autowired
 HiService hiService;
 
