@@ -114,12 +114,12 @@ consul agent -dev
 
 ## 2.2.使用spring cloud consul来服务注册与发现
 
-本小节以案例的形式来讲解如何使用Spring Cloud Consul来进行服务注册和发现的，并且使用Feign来消费服务。再讲解之前，已经启动consul的agent，并且在浏览器上http://localhost:8500能够显示正确的页面。本案例一共有2个工程，分别如下：
+本小节以案例的形式来讲解如何使用Spring Cloud Consul来进行服务注册和发现的，并且使用Feign来消费服务。再讲解之前，已经启动consul的agent，并且在浏览器上[http://localhost:8500能够显示正确的页面。本案例一共有2个工程，分别如下：](http://localhost:8500能够显示正确的页面。本案例一共有2个工程，分别如下：)
 
 | 工程名 | 端口 | 描述 |
 | :--- | :--- | :--- |
-| consul-provider | 8763 | 服务提供者 |
-| consul-consumer | 8765 | 服务消费者 |
+| springcloud-consul-provider | 8763 | 服务提供者 |
+| springcloud-consul-consumer | 8765 | 服务消费者 |
 
 其中，服务提供者和服务消费者分别向consul注册，注册完成后，服务消费者通过FeignClient来消费服务提供者的服务。
 
