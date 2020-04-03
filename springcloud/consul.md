@@ -228,7 +228,6 @@ public interface EurekaClientFeign {
     String sayHiFromClientEureka(@RequestParam(value = "name") String name);
 }
 
-4.Service层代码如下：
 ```
 
 4.Service层代码如下：
