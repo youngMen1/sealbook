@@ -157,7 +157,7 @@ nacos作为服务配置中心的功能。类似于consul config，Nacos 是支�
 </dependency>
 ```
 
-在bootstrap.yml\(一定是bootstrap.yml文件，不是application.yml文件\)文件配置以下内容：
+在bootstrap.yml(一定是bootstrap.yml文件，不是application.yml文件\)文件配置以下内容：
 
 ```
 spring:
@@ -187,6 +187,8 @@ public class ConfigController {
     }
 }
 ```
+
+
 
 # 微信截图\_20200403100830.png
 
