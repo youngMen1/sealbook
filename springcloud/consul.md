@@ -96,9 +96,13 @@ consul的一些常见的执行命令如下：
 | members | 列出consul cluster集群中的members | consul members |
 | leave | 将节点移除所在集群 | consul leave |
 
-更多命令请查看官方网站：https://www.consul.io/docs/commands/index.html
+更多命令请查看官方网站：[https://www.consul.io/docs/commands/index.html](https://www.consul.io/docs/commands/index.html)
 
 开发模式启动：
+
+```
+consul agent -dev 
+```
 
 ## 2.2.使用spring cloud consul来服务注册与发现
 
