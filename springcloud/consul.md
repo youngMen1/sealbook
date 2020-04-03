@@ -37,7 +37,7 @@ server节点也作为WAN gossip Pool的一部分。这个Pool不同于LAN Pool�
 这使得数据中心之间只有一个很低的耦合，但是由于故障检测，连接缓存和复用，跨数据中心的请求都是相对快速和可靠的。
 ## 1.4.Consul 服务注册发现流程
 Consul在业界最广泛的用途就是作为服务注册中心，同Eureka类型，consul作为服务注册中心，它的注册和发现过程如下图：
-2279594-89ad0386fbbb93e3.png
+![img](/static/image/2279594-89ad0386fbbb93e3.png)
 
 # 2.怎么使用Consul
 ## 2.1.下载和安装
