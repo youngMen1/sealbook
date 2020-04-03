@@ -262,26 +262,32 @@ public String sayHi(@RequestParam(defaultValue = "fengzhiqiang", required = fals
     return hiService.sayHi(name);
 }
 ```
+
 6.在浏览器上访问[http://localhost:8767/hi，浏览器响应如下：](http://localhost:8765/hi，浏览器响应如下：)  
 ![img](/static/image/微信截图_20200403152635.png)  
 ![img](/static/image/微信截图_20200403152001.png)
 
 ## 2.3.使用Spring Cloud Consul Config来做服务配置中心
+
 1.Consul不仅能用来服务注册和发现，Consul而且支持Key/Value键值对的存储，可以用来做配置中心。Spring Cloud 提供了Spring Cloud Consul Config依赖去和Consul相集成，用来做配置中心。 现在以案例的形式来讲解如何使用Consul作为配置中心，本案例在上一个案例的consul-provider基础上进行改造。首先在工程的pom文件加上consul-config的起步依赖，代码如下：
 
 ```
 <dependency>
-	<groupId>org.springframework.cloud</groupId>
-	<artifactId>spring-cloud-starter-consul-config</artifactId>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-consul-config</artifactId>
 </dependency>
 ```
+
 2.然后在配置文件application.yml加上以下的以下的配置，配置如下：
+
 ```
 spring:
   profiles:
-    active: dev 
+    active: dev
 ```
+
 3.上面的配置指定了SpringBoot启动时的读取的profiles为dev。 然后再工程的启动配置文件bootstrap.yml文件中配置以下的配置：
+
 ```
 spring:
   application:
@@ -297,53 +303,48 @@ spring:
         format: yaml           
         prefix: config     
         profile-separator: ':'    
-        data-key: data        
+        data-key: data
 ```
+
 关于spring.cloud.consul.config的配置项描述如下：
 
-enabled 设置config是否启用，默认为true
-format 设置配置的值的格式，可以yaml和properties
-prefix 设置配的基本目录，比如config
-defaultContext 设置默认的配置，被所有的应用读取，本例子没用的
-profileSeparator profiles配置分隔符,默认为‘,’
-date-key为应用配置的key名字，值为整个应用配置的字符串。
-**网页上访问consul的KV存储的管理界面，即http://localhost:8500/ui/dc1/kv，创建一条记录，
+enabled 设置config是否启用，默认为true  
+format 设置配置的值的格式，可以yaml和properties  
+prefix 设置配的基本目录，比如config  
+defaultContext 设置默认的配置，被所有的应用读取，本例子没用的  
+profileSeparator profiles配置分隔符,默认为‘,’  
+date-key为应用配置的key名字，值为整个应用配置的字符串。  
+**网页上访问consul的KV存储的管理界面，即**[http://localhost:8500/ui/dc1/kv，创建一条记录，](http://localhost:8500/ui/dc1/kv，创建一条记录，)**  
 key值为：**
 
-``config/consul-provider:dev/data 
-```
+\`\`config/consul-provider:dev/data
 
+```
 value值如下:
 
 ```
-foo:
-  bar: bar1
-server:
+foo:  
+  bar: bar1  
+server:  
   port: 8081
+
 ```
 ![img](/static/image/微信截图_20200403154513.png)
 
 在consul-provider工程新建一个API，该API返回从consul 配置中心读取foo.bar的值，代码如下：
-```
-@RestController
-public class FooBarController {
-    @Value("${foo.bar}")
-    String fooBar;
 
-    @GetMapping("/foo")
-    public String getFooBar() {
-        return fooBar;
-    }
+```
+@RestController  
+public class FooBarController {  
+    @Value\("${foo.bar}"\)  
+    String fooBar;
+@GetMapping("/foo")
+public String getFooBar() {
+    return fooBar;
 }
 ```
 
-4.启动工程，可以看到程序的启动端口为8081，即是consul的配置中心配置的server.port端口。 工程启动完成后，在浏览器上访问http://localhost:8081/foo，页面显示bar1。由此可知，应用consul-provider已经成功从consul的配置中心读取了配置foo.bar的配置。
-
-
-
-
-
-
+4.启动工程，可以看到程序的启动端口为8081，即是consul的配置中心配置的server.port端口。 工程启动完成后，在浏览器上访问[http://localhost:8081/foo，页面显示bar1。由此可知，应用consul-provider已经成功从consul的配置中心读取了配置foo.bar的配置。](http://localhost:8081/foo，页面显示bar1。由此可知，应用consul-provider已经成功从consul的配置中心读取了配置foo.bar的配置。)
 
 # 3.总结
 
