@@ -104,15 +104,24 @@ consul的一些常见的执行命令如下：
 consul agent -dev
 ```
 
-启动成功，在浏览器上访问：http://localhost:8500，显示的界面如下：
+启动成功，在浏览器上访问：[http://localhost:8500，显示的界面如下：](http://localhost:8500，显示的界面如下：)
 
 ![img](/static/image/微信截图_20200403135940.png)
+
 ## 2.2.spring cloud consul
+
 该项目通过自动配置并绑定到Spring环境和其他Spring编程模型成语，为Spring Boot应用程序提供Consul集成。通过几个简单的注释，您可以快速启用和配置应用程序中的常见模式，并使用基于Consul的组件构建大型分布式系统。提供的模式包括服务发现，控制总线和配置。智能路由（Zuul）和客户端负载平衡（Ribbon），断路器（Hystrix）通过与Spring Cloud Netflix的集成提供。
 
 ## 2.2.使用spring cloud consul来服务注册与发现
 
+本小节以案例的形式来讲解如何使用Spring Cloud Consul来进行服务注册和发现的，并且使用Feign来消费服务。再讲解之前，已经启动consul的agent，并且在浏览器上http://localhost:8500能够显示正确的页面。本案例一共有2个工程，分别如下：
 
+| 工程名 | 端口 | 描述 |
+| :--- | :--- | :--- |
+| consul-provider | 8763 | 服务提供者 |
+| consul-consumer | 8765 | 服务消费者 |
+
+其中，服务提供者和服务消费者分别向consul注册，注册完成后，服务消费者通过FeignClient来消费服务提供者的服务。
 
 ## 2.3.使用Spring Cloud Consul Config来做服务配置中心
 
