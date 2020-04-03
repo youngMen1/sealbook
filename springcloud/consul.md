@@ -231,10 +231,13 @@ public interface EurekaClientFeign {
 4.Service层代码如下：
 ```
 
+4.Service层代码如下：
+```
+
 @Service  
 public class HiService {
 
-```
+
 @Autowired
 EurekaClientFeign eurekaClientFeign;
 
