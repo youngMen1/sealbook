@@ -1,4 +1,4 @@
-# 1.什么是Protobuffer\]
+# 1.什么是Protobuffer
 
 # 2.怎么使用
 
