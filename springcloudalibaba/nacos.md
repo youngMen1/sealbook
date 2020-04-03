@@ -145,9 +145,13 @@ public class TestController {
 
 # 3.如何使用nacos作为配置中心
 
-nacos作为服务配置中心的功能。类似于consul config，Nacos 是支持热加载的
+nacos作为服务配置中心的功能。类似于consul config，Nacos 是支持热加载的。
 
+springcloud-nacos-config工程上改造的，在工程的pom文件引入nacos-config的Spring cloud依赖，版本为0.9.0. RELEASE，代码如下：
 
+```
+
+```
 
 # 4.总结
 
