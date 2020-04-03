@@ -71,9 +71,9 @@ Eureka Server端采用的是P2P的复制模式，但是它不保证复制操作�
 
 # 2.怎么使用Consul
 
-## 2.1Consul下载和安装 {#consul下载和安装}
 
-## 2.1.下载和安装
+
+## 2.1.Consul下载和安装
 
 ## 2.2.使用spring cloud consul来服务注册与发现
 
