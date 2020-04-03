@@ -182,6 +182,18 @@ public class TestController {
 
 ### 2.2.2.服务消费者springcloud-consul-consumer
 服务消费者的搭建过程同服务提供者，在pom文件中引入的依赖同服务提供者，在配置文件application.yml配置同服务提供者，不同的点在端口为8765，服务名为consul-consumer。
+引入
+
+```
+   <!--通过 @EnableFeginClients 注解开启 Feign 功能-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+```
+
+
 
 写一个FeignClient，该FeignClient调用consul-provider的REST API，代码如下：
 
