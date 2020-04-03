@@ -269,6 +269,15 @@ public String sayHi(@RequestParam(defaultValue = "fengzhiqiang", required = fals
 ## 2.3.使用Spring Cloud Consul Config来做服务配置中心
 1.Consul不仅能用来服务注册和发现，Consul而且支持Key/Value键值对的存储，可以用来做配置中心。Spring Cloud 提供了Spring Cloud Consul Config依赖去和Consul相集成，用来做配置中心。 现在以案例的形式来讲解如何使用Consul作为配置中心，本案例在上一个案例的consul-provider基础上进行改造。首先在工程的pom文件加上consul-config的起步依赖，代码如下：
 
+```
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-consul-config</artifactId>
+</dependency>
+```
+
+
+
 # 3.总结
 
 Consul采用Go语言编写，支持Linux、Mac、Windows等各大操作系统  
