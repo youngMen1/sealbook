@@ -71,9 +71,14 @@ Eureka Server端采用的是P2P的复制模式，但是它不保证复制操作�
 
 # 2.怎么使用Consul
 
-
-
 ## 2.1.Consul下载和安装
+
+
+```
+Consul采用Go语言编写，支持Linux、Mac、Windows等各大操作系统，本文使用windows操作系统，下载地址：https://www.consul.io/downloads.html，下完成后解压到计算机目录下，解压成功后，只有一个可执行的consul.exe可执行文件。打开cmd终端，切换到目录，执行以下命令：
+```
+
+
 
 ## 2.2.使用spring cloud consul来服务注册与发现
 
