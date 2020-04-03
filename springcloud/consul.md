@@ -385,6 +385,9 @@ server:
 ![img](/static/image/微信截图_20200403155626.png)
 
 # 3.总结
+**注意事项:**
+consul支持的KV存储的Value值不能超过512KB
+Consul的dev模式，所有数据都存储在内存中，重启Consul的时候会导致所有数据丢失，在正式的环境中，Consul的数据会持久化，数据不会丢失。
 
 Consul采用Go语言编写，支持Linux、Mac、Windows等各大操作系统  
 下载地址：[https://www.consul.io/downloads.html](https://www.consul.io/downloads.html)
