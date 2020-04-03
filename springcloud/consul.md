@@ -101,12 +101,16 @@ consul的一些常见的执行命令如下：
 开发模式启动：
 
 ```
-consul agent -dev 
+consul agent -dev
 ```
+
+启动成功，在浏览器上访问：http://localhost:8500，显示的界面如下：
+
+![img](/static/image/微信截图_20200403135940.png)
 
 ## 2.2.使用spring cloud consul来服务注册与发现
 
-微信截图\_20200403135940.png
+
 
 ## 2.3.使用Spring Cloud Consul Config来做服务配置中心
 
