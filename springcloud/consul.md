@@ -176,7 +176,8 @@ public class TestController {
     }
 }
 ```
-
+5.启动工程，在浏览器上访问http://localhost:8500，页面显示如下：
+![img](/static/image/微信截图_20200403143808.png)
 
 
 
