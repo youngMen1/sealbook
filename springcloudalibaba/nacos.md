@@ -78,7 +78,7 @@ public class SpringcloudNacosProviderApplication {
 
 ## 2.4.构建服务消费者nacos-consumer
 
-和nacos-provider一样，构建服务消费者springcloud-nacos-consumer，springcloud-nacos-cosumer的启动端口8763。构建过程同nacos-provider一样,这里省略......
+和springcloud-nacos-provider一样，构建服务消费者springcloud-nacos-consumer，springcloud-nacos-cosumer的启动端口8763。构建过程同springcloud-nacos-provider一样,这里省略......
 
 ## 2.5.验证服务注册个发现
 
