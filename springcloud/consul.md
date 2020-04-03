@@ -268,6 +268,7 @@ public String sayHi(@RequestParam(defaultValue = "fengzhiqiang", required = fals
 
 ## 2.3.使用Spring Cloud Consul Config来做服务配置中心
 
+
 # 3.总结
 
 Consul采用Go语言编写，支持Linux、Mac、Windows等各大操作系统  
