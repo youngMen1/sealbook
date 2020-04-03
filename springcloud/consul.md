@@ -198,6 +198,35 @@ public class TestController {
 
 
 ```
+
+
+@FeignClient(value = "consul-provider")
+public interface EurekaClientFeign {
+
+    @GetMapping(value = "/hi")
+    String sayHiFromClientEureka(@RequestParam(value = "name") String name);
+}
+
+Service层代码如下：
+
+```
+@Service
+public class HiService {
+
+    @Autowired
+    EurekaClientFeign eurekaClientFeign;
+
+
+    public String sayHi(String name) {
+        return eurekaClientFeign.sayHiFromClientEureka(name);
+    }
+}
+```
+
+
+对外提供一个REST API，该API调用了consul-provider的服务，代码如下：
+
+```
 @RestController
 public class TestController {
 
@@ -209,25 +238,6 @@ public class TestController {
         return hiService.sayHi(name);
     }
 
-}
-
-@FeignClient(value = "consul-provider")
-public interface EurekaClientFeign {
-
-    @GetMapping(value = "/hi")
-    String sayHiFromClientEureka(@RequestParam(value = "name") String name);
-}
-
-@Service
-public class HiService {
-
-    @Autowired
-    EurekaClientFeign eurekaClientFeign;
-
-
-    public String sayHi(String name) {
-        return eurekaClientFeign.sayHiFromClientEureka(name);
-    }
 }
 
 ```
