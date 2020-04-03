@@ -107,6 +107,8 @@ consul agent -dev
 启动成功，在浏览器上访问：http://localhost:8500，显示的界面如下：
 
 ![img](/static/image/微信截图_20200403135940.png)
+spring cloud consul
+该项目通过自动配置并绑定到Spring环境和其他Spring编程模型成语，为Spring Boot应用程序提供Consul集成。通过几个简单的注释，您可以快速启用和配置应用程序中的常见模式，并使用基于Consul的组件构建大型分布式系统。提供的模式包括服务发现，控制总线和配置。智能路由（Zuul）和客户端负载平衡（Ribbon），断路器（Hystrix）通过与Spring Cloud Netflix的集成提供。
 
 ## 2.2.使用spring cloud consul来服务注册与发现
 
