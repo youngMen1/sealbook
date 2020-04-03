@@ -1,6 +1,6 @@
 ## Intellij IDEA运行报Command line is too long解法
 
-![img](/static/image/import.png)
+![img](/static/image/impor.png)
 
 ```
 <property name="dynamic.classpath" value="true"/>
