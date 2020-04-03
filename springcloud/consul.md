@@ -346,8 +346,7 @@ public String getFooBar() {
 ```
 
 4.启动工程，可以看到程序的启动端口为8081，即是consul的配置中心配置的server.port端口。 工程启动完成后，在浏览器上访问[http://localhost:8081/foo，页面显示bar1。由此可知，应用consul-provider已经成功从consul的配置中心读取了配置foo.bar的配置。](http://localhost:8081/foo，页面显示bar1。由此可知，应用consul-provider已经成功从consul的配置中心读取了配置foo.bar的配置。)
-
-微信截图\_20200403155258.png
+![img](/static/image/微信截图_20200403155258.png)
 
 
 
@@ -379,7 +378,7 @@ server:
   port: 8081
 ```
 
-微信截图\_20200403155212.png
+![img](/static/image/微信截图_20200403155212.png)
 
 此时不重新启动consul-provider，在浏览器上访问http://localhost:8081/foo，页面显示bar2。可见foo.bar的最新配置在应用不重启的情况下已经生效。
 
