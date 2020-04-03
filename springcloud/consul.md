@@ -382,6 +382,7 @@ server:
 ![img](/static/image/微信截图_20200403155212.png)
 
 此时不重新启动consul-provider，在浏览器上访问http://localhost:8081/foo，页面显示bar2。可见foo.bar的最新配置在应用不重启的情况下已经生效。
+![img](/static/image/微信截图_20200403155626.png)
 
 # 3.总结
 
