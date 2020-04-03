@@ -151,11 +151,33 @@ nacos作为服务配置中心的功能。类似于consul config，Nacos 是支�
 
 ```
 <dependency>
-	<groupId>org.springframework.cloud</groupId>
-	<artifactId>spring-cloud-alibaba-nacos-config</artifactId>
-	<version>0.9.0.RELEASE</version>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-alibaba-nacos-config</artifactId>
+    <version>0.9.0.RELEASE</version>
 </dependency>
 ```
+
+在bootstrap.yml\(一定是bootstrap.yml文件，不是application.yml文件\)文件配置以下内容：
+
+```
+spring:
+  application:
+    name: nacos-config
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+        prefix: nacos-config
+  profiles:
+    active: dev
+```
+
+
+
+
+
+
 
 # 4.总结
 
