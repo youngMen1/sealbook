@@ -192,3 +192,17 @@ public class TestController {
 Consul采用Go语言编写，支持Linux、Mac、Windows等各大操作系统  
 下载地址：[https://www.consul.io/downloads.html](https://www.consul.io/downloads.html)
 
+# 4.参考
+https://www.consul.io/intro/index.html
+
+https://www.consul.io/docs/internals/architecture.html
+
+https://www.consul.io/intro/vs/eureka.html
+
+http://www.ityouknow.com/springcloud/2018/07/20/spring-cloud-consul.html
+
+https://springcloud.cc/spring-cloud-consul.html
+
+https://www.cnblogs.com/lsf90/p/6021465.html
+
+https://blog.csdn.net/longgeqiaojie304/article/details/85227936
