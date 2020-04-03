@@ -188,11 +188,8 @@ public class ConfigController {
 }
 ```
 启动工程nacos-config，在浏览器上访问localhost:8764/username，可以返回在nacos控制台上配置的username。在nacos 网页上更改username的配置，在不重启nacos-config工程的情况下，重新访问localhost:8764/username，返回的事修改后的值，可见nacos作为配置中心实现了热加载功能。
-
-
-# 微信截图_20200403100830.png
-
-微信截图_20200403100909.png
+![img](/static/image/微信截图_20200403100830.png)
+![img](/static/image/微信截图_20200403100909.png)
 
 # 
 
