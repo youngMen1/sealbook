@@ -267,7 +267,7 @@ public String sayHi(@RequestParam(defaultValue = "fengzhiqiang", required = fals
 
 \`\`\`  
 6.在浏览器上访问[http://localhost:8767/hi，浏览器响应如下：](http://localhost:8765/hi，浏览器响应如下：)  
-![img](/static/image/微信截图_20200403152035.png)  
+![img](/static/image/微信截图_20200403152635.png)  
 ![img](/static/image/微信截图_20200403152001.png)
 
 ## 2.3.使用Spring Cloud Consul Config来做服务配置中心
