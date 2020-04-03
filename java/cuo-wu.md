@@ -2,9 +2,10 @@
 
 ![](/assets/import.png)&lt;
 
-property name="dynamic.classpath" value="true" /
+```
+<property name="dynamic.classpath" value="true"/> 
+```
 
-&gt;
 
 2.SpringBoot启动异常
 
