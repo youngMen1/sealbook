@@ -123,7 +123,7 @@ consul agent -dev
 
 其中，服务提供者和服务消费者分别向consul注册，注册完成后，服务消费者通过FeignClient来消费服务提供者的服务。
 ### 2.2.1服务提供者springcloud-consul-provider
-
+创建一个工程springcloud-consul-provider，在工程的pom文件引入以下依赖，包括consul-discovery的起步依赖，该依赖是spring cloud consul用来向consul 注册和发现服务的依赖，采用REST API的方式进行通讯。另外加上web的起步依赖，用于对外提供REST API。代码如下：
 
 ## 2.3.使用Spring Cloud Consul Config来做服务配置中心
 
