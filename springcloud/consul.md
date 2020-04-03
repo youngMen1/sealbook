@@ -267,7 +267,7 @@ public String sayHi(@RequestParam(defaultValue = "fengzhiqiang", required = fals
 ![img](/static/image/微信截图_20200403152001.png)
 
 ## 2.3.使用Spring Cloud Consul Config来做服务配置中心
-
+1.Consul不仅能用来服务注册和发现，Consul而且支持Key/Value键值对的存储，可以用来做配置中心。Spring Cloud 提供了Spring Cloud Consul Config依赖去和Consul相集成，用来做配置中心。 现在以案例的形式来讲解如何使用Consul作为配置中心，本案例在上一个案例的consul-provider基础上进行改造。首先在工程的pom文件加上consul-config的起步依赖，代码如下：
 
 # 3.总结
 
