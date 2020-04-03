@@ -35,6 +35,9 @@ Consul是HashiCorp公司推出的开源软件，使用GO语言编写，提供了
 server节点也作为WAN gossip Pool的一部分。这个Pool不同于LAN Pool，因为它是为了优化互联网更高的延迟，并且它只包含其他Consul server节点。这个Pool的目的是为了允许数据中心能够以low-touch的方式发现彼此。这使得一个新的数据中心可以很容易的加入现存的WAN gossip。因为server都运行在这个pool中，它也支持跨数据中心请求。当一个server收到来自另一个数据中心的请求时，它随即转发给正确数据中想一个server。该server再转发给本地leader。
 
 这使得数据中心之间只有一个很低的耦合，但是由于故障检测，连接缓存和复用，跨数据中心的请求都是相对快速和可靠的。
+## 1.4.Consul 服务注册发现流程
+Consul在业界最广泛的用途就是作为服务注册中心，同Eureka类型，consul作为服务注册中心，它的注册和发现过程如下图：
+2279594-89ad0386fbbb93e3.png
 
 # 2.怎么使用Consul
 ## 2.1.下载和安装
