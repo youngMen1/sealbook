@@ -34,7 +34,7 @@ https://github.com/alibaba/nacos/releases
 
 ## 2.2.服务注册
 
-在本案例中，使用2个服务注册到Nacos上，分别为nacos-provider和nacos-consumer。
+在本案例中，使用2个服务注册到Nacos上，分别为springcloud-nacos-provider和springcloud-nacos-consumer。
 
 ## 2.3.构建服务提供者springcloud-nacos-provider
 
