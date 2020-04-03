@@ -185,11 +185,11 @@ public class TestController {
 引入
 
 ```
-   <!--通过 @EnableFeginClients 注解开启 Feign 功能-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
+<!--通过 @EnableFeginClients 注解开启 Feign 功能-->
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-openfeign</artifactId>
+</dependency>
 
 ```
 
