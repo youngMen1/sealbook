@@ -194,8 +194,49 @@ public class TestController {
 ```
 
 
-
 写一个FeignClient，该FeignClient调用consul-provider的REST API，代码如下：
+
+
+```
+@RestController
+public class TestController {
+
+    @Autowired
+    HiService hiService;
+
+    @GetMapping("/hi")
+    public String sayHi(@RequestParam(defaultValue = "fengzhiqiang", required = false) String name) {
+        return hiService.sayHi(name);
+    }
+
+}
+
+@FeignClient(value = "consul-provider")
+public interface EurekaClientFeign {
+
+    @GetMapping(value = "/hi")
+    String sayHiFromClientEureka(@RequestParam(value = "name") String name);
+}
+
+@Service
+public class HiService {
+
+    @Autowired
+    EurekaClientFeign eurekaClientFeign;
+
+
+    public String sayHi(String name) {
+        return eurekaClientFeign.sayHiFromClientEureka(name);
+    }
+}
+
+```
+
+
+
+
+微信截图_20200403152035.png
+微信截图_20200403152001.png
 
 
 
