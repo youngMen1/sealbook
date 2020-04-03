@@ -43,6 +43,7 @@ Consul在业界最广泛的用途就是作为服务注册中心，同Eureka类�
 * 服务提供者Provider启动的时候，会向Consul发送一个请求，将自己的host、ip、应用名、健康检查等元数据信息发送给Consul
 * Consul 接收到 Provider 的注册后，定期向 Provider 发送健康检查的请求，检验Provider是否健康
 * 服务消费者Consumer会从注册中心Consul中获取服务注册列表，当服务消费者消费服务时，根据应用名从服务注册列表获取到具体服务的实例（1个或者多个），从而完成服务的调用。
+
 ## 1.5.Consul VS Eureka
 Eureka是一种服务发现工具。 该体系结构主要是客户端/服务器，每个数据中心有一组Eureka服务器，通常每个可用区域一个。 通常，Eureka的客户使用嵌入式SDK来注册和发现服务。 对于非本地集成的客户端，使用Ribbon等边车通过Eureka透明地发现服务。
 
