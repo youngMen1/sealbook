@@ -150,7 +150,11 @@ nacos作为服务配置中心的功能。类似于consul config，Nacos 是支�
 新建springcloud-nacos-config工程，在工程的pom文件引入nacos-config的Spring cloud依赖，版本为0.9.0. RELEASE，代码如下：
 
 ```
-
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-alibaba-nacos-config</artifactId>
+	<version>0.9.0.RELEASE</version>
+</dependency>
 ```
 
 # 4.总结
