@@ -8,7 +8,7 @@ Spring Security 应用级别的安全主要包含两个主要部分，即**登�
 
 ![img](/static/image/20190116102342618.jpg)
 
-20190813175708861.jpg
+![img](/static/image/20190813175708861.jpg)
 
 ## 1.1.其主要过滤器
 * WebAsyncManagerIntegrationFilter 
