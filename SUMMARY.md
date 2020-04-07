@@ -114,7 +114,7 @@
 * [SpringBoot](springbootzhu-jie-yan-zheng-can-shu.md)
   * [日期转换注解](springbootzhu-jie-yan-zheng-can-shu/spring.md)
   * [SpringBoot注解验证参数](springbootzhu-jie-yan-zheng-can-shu/springbootzhu-jie-yan-zheng-can-shu.md)
-  * SpringBoot整合Spring Security
+  * [SpringBoot整合Spring Security](springbootzhu-jie-yan-zheng-can-shu/springbootzheng-he-spring-security.md)
 * [JAVA](java.md)
   * [日常问题](java/ri-cheng-wen-ti.md)
   * [灰度发布](java/hui-du.md)
