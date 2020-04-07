@@ -44,7 +44,7 @@ Spring Security 应用级别的安全主要包含两个主要部分，即**登�
 * UserDetails：构建Authentication对象必须的信息，可以自定义，可能需要访问DB得到
 * UserDetailsService：通过username构建UserDetails对象，通过loadUserByUsername根据userName获取（UserDetail对象 （可以在这里基于自身业务进行自定义的实现  如通过数据库，xml,缓存获取等）   
 
-## 参数详解
+## 1.3.参数详解
 1、注解 @EnableWebSecurity
      在 Spring boot 应用中使用 Spring Security，用到了 @EnableWebSecurity注解，官方说明为，该注解和 @Configuration 注解一起使用, 注解 WebSecurityConfigurer 类型的类，或者利用@EnableWebSecurity 注解继承 WebSecurityConfigurerAdapter的类，这样就构成了 Spring Security 的配置。
 
@@ -56,7 +56,7 @@ Spring Security 应用级别的安全主要包含两个主要部分，即**登�
 
 
 
-## 1.3.JWT认证的实现
+## 1.4.JWT认证的实现
 * 支持用户通过用户名和密码登录
 * 登录后通过http header返回token，每次请求，客户端需通过header将token带回，用于权限校验
 * 服务端负责token的定期刷新
