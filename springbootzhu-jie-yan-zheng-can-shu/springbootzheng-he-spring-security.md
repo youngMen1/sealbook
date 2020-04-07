@@ -55,6 +55,56 @@ Spring Security 应用级别的安全主要包含两个主要部分，即**登�
      Demo 中重写了 WebSecurityConfigurerAdapter 的两个方法：
 
 
+```
+/**
+     * 通过 {@link #authenticationManager()} 方法的默认实现尝试获取一个 {@link AuthenticationManager}.
+     * 如果被复写, 应该使用{@link AuthenticationManagerBuilder} 来指定 {@link AuthenticationManager}.
+     *
+     * 例如, 可以使用以下配置在内存中进行注册公开内存的身份验证{@link UserDetailsService}:
+     *
+     * // 在内存中添加 user 和 admin 用户
+     * @Override
+     * protected void configure(AuthenticationManagerBuilder auth) {
+     *     auth
+     *       .inMemoryAuthentication().withUser("user").password("password").roles("USER").and()
+     *         .withUser("admin").password("password").roles("USER", "ADMIN");
+     * }
+     *
+     * // 将 UserDetailsService 显示为 Bean
+     * @Bean
+     * @Override
+     * public UserDetailsService userDetailsServiceBean() throws Exception {
+     *     return super.userDetailsServiceBean();
+     * }
+     *
+     */
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        this.disableLocalConfigureAuthenticationBldr = true;
+    }
+ 
+ 
+    /**
+     * 复写这个方法来配置 {@link HttpSecurity}. 
+     * 通常，子类不能通过调用 super 来调用此方法，因为它可能会覆盖其配置。 默认配置为：
+     * 
+     * http.authorizeRequests().anyRequest().authenticated().and().formLogin().and().httpBasic();
+     *
+     */
+    protected void configure(HttpSecurity http) throws Exception {
+        logger.debug("Using default configure(HttpSecurity). If subclassed this will potentially override subclass configure(HttpSecurity).");
+​
+        http
+            .authorizeRequests()
+                .anyRequest().authenticated()
+                .and()
+            .formLogin().and()
+            .httpBasic();
+    }
+
+```
+
+
+
 
 ## 1.4.JWT认证的实现
 * 支持用户通过用户名和密码登录
