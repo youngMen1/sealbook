@@ -24,7 +24,7 @@ Spring Security 应用级别的安全主要包含两个主要部分，即**登�
 * FilterSecurityInterceptor
 * UsernamePasswordAuthenticationFilter
 * BasicAuthenticationFilter
-
+## 1.2.框架的核心组件
 
 
 # 2.怎么使用
