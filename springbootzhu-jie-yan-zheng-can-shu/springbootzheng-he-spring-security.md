@@ -1,4 +1,4 @@
-# 基本介绍
+# 1.基本介绍
 
 Spring Security 是 Spring 社区的一个顶级项目，也是 Spring Boot 官方推荐使用的安全框架。除了常规的认证（Authentication）和授权（Authorization）之外，**Spring Security还提供了诸如ACLs，LDAP，JAAS，CAS等高级特性以满足复杂场景下的安全需求**。另外，就目前而言，Spring Security和Shiro也是当前广大应用使用比较广泛的两个安全框架。
 
