@@ -150,11 +150,9 @@ httpBasic\(\)    配置 Http Basic 验证
 
 addFilterAt\(\)    在指定的Filter类的位置添加过滤器
 
-类 AuthenticationManagerBuilder主要作用：
+**类 AuthenticationManagerBuilder主要作用：**
 
 AuthenticationManagerBuilder 用于创建一个 AuthenticationManager，让我能够轻松的实现内存验证、LADP验证、基于JDBC的验证、添加UserDetailsService、添加AuthenticationProvider。
-
-
 
 ## 1.5.JWT认证的实现
 
