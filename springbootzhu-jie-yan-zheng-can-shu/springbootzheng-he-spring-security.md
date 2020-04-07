@@ -6,7 +6,7 @@ Spring Security 应用级别的安全主要包含两个主要部分，即**登�
 
 **Spring Security 另外一个强大之处就是它可以结合 OAuth2,玩出更多的花样出来。**
 
-20190116102342618.jpg
+![img](/static/image/20190116102342618.jpg)
 
 20190813175708861.jpg
 
