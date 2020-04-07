@@ -45,6 +45,15 @@ Spring Security 应用级别的安全主要包含两个主要部分，即**登�
 * UserDetailsService：通过username构建UserDetails对象，通过loadUserByUsername根据userName获取（UserDetail对象 （可以在这里基于自身业务进行自定义的实现  如通过数据库，xml,缓存获取等）   
 
 ## 参数详解
+1、注解 @EnableWebSecurity
+     在 Spring boot 应用中使用 Spring Security，用到了 @EnableWebSecurity注解，官方说明为，该注解和 @Configuration 注解一起使用, 注解 WebSecurityConfigurer 类型的类，或者利用@EnableWebSecurity 注解继承 WebSecurityConfigurerAdapter的类，这样就构成了 Spring Security 的配置。
+
+2、抽象类 WebSecurityConfigurerAdapter
+     一般情况，会选择继承 WebSecurityConfigurerAdapter 类，其官方说明为：WebSecurityConfigurerAdapter 提供了一种便利的方式去创建 WebSecurityConfigurer的实例，只需要重写 WebSecurityConfigurerAdapter 的方法，即可配置拦截什么URL、设置什么权限等安全控制。
+
+3、方法 configure(AuthenticationManagerBuilder auth) 和 configure(HttpSecurity http)
+     Demo 中重写了 WebSecurityConfigurerAdapter 的两个方法：
+
 
 
 ## 1.3.JWT认证的实现
