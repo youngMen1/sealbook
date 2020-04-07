@@ -11,6 +11,21 @@ Spring Security 应用级别的安全主要包含两个主要部分，即**登�
 20190813175708861.jpg
 
 ## 1.1.其主要过滤器
+* WebAsyncManagerIntegrationFilter 
+* SecurityContextPersistenceFilter 
+* HeaderWriterFilter 
+* CorsFilter 
+* LogoutFilter
+* RequestCacheAwareFilter
+* SecurityContextHolderAwareRequestFilter
+* AnonymousAuthenticationFilter
+* SessionManagementFilter
+* ExceptionTranslationFilter
+* FilterSecurityInterceptor
+* UsernamePasswordAuthenticationFilter
+* BasicAuthenticationFilter
+
+
 
 # 2.怎么使用
 
