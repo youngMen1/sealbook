@@ -152,7 +152,7 @@ addFilterAt\(\)    在指定的Filter类的位置添加过滤器
 
 ---
 
-**类 AuthenticationManagerBuilder主要作用：**
+**类 AuthenticationManagerBuilder主要作用:**
 
 AuthenticationManagerBuilder 用于创建一个 AuthenticationManager，让我能够轻松的实现内存验证、LADP验证、基于JDBC的验证、添加UserDetailsService、添加AuthenticationProvider。
 
@@ -163,8 +163,6 @@ AuthenticationManagerBuilder 用于创建一个 AuthenticationManager，让我�
 * 服务端负责token的定期刷新
 
 # 2.怎么使用
-
-
 
 # 3.参考
 
