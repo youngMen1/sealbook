@@ -400,6 +400,18 @@ dataType–数据类型
 paramType–参数类型  
 example–举例说明
 
+```
+@ApiOperation("查询测试")
+  @GetMapping("select")
+  //@ApiImplicitParam(name="name",value="用户名",dataType="String", paramType = "query")
+  @ApiImplicitParams({
+  @ApiImplicitParam(name="name",value="用户名",dataType="string", paramType = "query",example="xingguo"),
+  @ApiImplicitParam(name="id",value="用户id",dataType="long", paramType = "query")})
+  public void select(){
+
+  }
+```
+
 # 4.注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
