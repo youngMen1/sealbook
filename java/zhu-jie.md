@@ -110,8 +110,6 @@ g: name  指定映射的名称:
 
 2：在调用的地方必须加事务，没有事务不能正常执行。
 
-
-
 **@Transactional： **事务注解
 
 **@Query： **自定义查询语句 JPQL
@@ -173,7 +171,7 @@ TABLE：通过表产生主键，框架借由表模拟序列产生主键，使用
 
 **@ExceptionHandler（Exception.class）**：用在方法上面表示遇到这个异常就执行以下方法。
 
-@ControllerAdvice：包含@Component。可以被扫描到。统一处理异常。
+**@ControllerAdvice：**包含@Component。可以被扫描到。统一处理异常。
 
 ## 1.4.其他注解
 
