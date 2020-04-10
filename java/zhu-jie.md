@@ -318,7 +318,18 @@ value–参数说明
 required–是否必填
 
 ```
-@ApiParam(name="id",value="用户id",required=true)
+@Api(value="用户controller",tags={"用户操作接口"})
+@RestController
+public class UserController {
+     @ApiOperation(value="获取用户信息",tags={"获取用户信息copy"},notes="注意问题点")
+     @GetMapping("/getUserInfo")
+     public User getUserInfo(@ApiParam(name="id",value="用户id",required=true) Long id,@ApiParam(name="username",value="用户名") String username) {
+     // userService可忽略，是业务逻辑
+      User user = userService.getUserInfo();
+
+      return user;
+  }
+}
 ```
 
 # 4.注解优势
