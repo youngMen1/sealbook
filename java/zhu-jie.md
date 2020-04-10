@@ -311,22 +311,15 @@ tags可以重新分组（视情况而用）
 
 用于方法，参数，字段说明；表示对参数的添加元数据（说明或是否必填等）
 
-  
-
-
 name–参数名
-
-  
-
 
 value–参数说明
 
-  
-
-
 required–是否必填
 
-
+```
+@ApiParam(name="id",value="用户id",required=true)
+```
 
 # 4.注解优势
 
