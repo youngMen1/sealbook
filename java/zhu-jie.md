@@ -257,6 +257,8 @@ EntityManager.refresh\(\)方法被调用后。
 
 **@Value：**与@Data相对应的@Value， 两个annotation的主要区别就是如果变量不加@NonFinal ，@Value会给所有的弄成final的。当然如果是final的话，就没有set方法了。
 
+**@Synchronized：**同步方法
+
 # 3.注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
