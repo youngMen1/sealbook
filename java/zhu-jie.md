@@ -185,6 +185,48 @@ Mapper类上面添加注解@Mapper，这种方式要求每一个mapper类都需�
 
 Spring Cloud的commons模块提供了一个@LoadBalanced注解，方便我们对RestTemplate添加一个LoadBalancerClient，以实现客户端负载均衡。通过源码可以发现这是一个标记注解,我们可以通过ribbon实现客户端的负载均衡功能。
 
+**@MappedSuperclass：**
+
+1.@MappedSuperclass 注解使用在父类上面，是用来标识父类的
+
+2.@MappedSuperclass 标识的类表示其不能映射到数据库表，因为其不是一个完整的实体类，但是它所拥有的属性能够映射在其子类对用的数据库表中
+
+3.@MappedSuperclass 标识的类不能再有@Entity或@Table注解
+
+**1）数据库查询**
+
+@PostLoad事件在下列情况下触发：
+
+执行EntityManager.find\(\)或getreference\(\)方法载入一个实体后。
+
+执行JPQL查询后。
+
+EntityManager.refresh\(\)方法被调用后。
+
+**2）数据库插入**
+
+@PrePersist和@PostPersist事件在实体对象插入到数据库的过程中发生：
+
+@PrePersist事件在调用persist\(\)方法后立刻发生，此时的数据还没有真正插入进数据库。
+
+@PostPersist事件在数据已经插入进数据库后发生。
+
+3）数据库更新
+
+@PreUpdate和@PostUpdate事件的触发由更新实体引起：
+
+@PreUpdate事件在实体的状态同步到数据库之前触发，此时的数据还没有真正更新到数据库。
+
+@PostUpdate事件在实体的状态同步到数据库之后触发，同步在事务提交时发生。
+
+**4）数据库删除**
+
+@PreRemove和@PostRemove事件的触发由删除实体引起：
+
+@PreRemove事件在实体从数据库删除之前触发，即在调用remove\(\)方法删除时发生，此时的数据还没有真正从数据库中删除。
+
+@PostRemove事件在实体从数据库中删除后触发。
+
 
 
 ## 注解优势
