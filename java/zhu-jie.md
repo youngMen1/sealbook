@@ -177,6 +177,12 @@ TABLE：通过表产生主键，框架借由表模拟序列产生主键，使用
 
 **@Mapper和@MapperScan：**
 
+Mapper类上面添加注解@Mapper，这种方式要求每一个mapper类都需要添加此注解
+
+使用@MapperScan可以指定要扫描的Mapper类的包的路径（@MapperScan\("com.demo.\*.mapper"\)\|\| @MapperScan\("com.test.\*.mapper", "com.demo.\*.mapper"\)）
+
+
+
 ## 注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
