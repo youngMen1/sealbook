@@ -110,9 +110,7 @@ g: name  指定映射的名称:
 
 2：在调用的地方必须加事务，没有事务不能正常执行。
 
-**@ExceptionHandler（Exception.class）**：用在方法上面表示遇到这个异常就执行以下方
-
-法。
+**@ExceptionHandler（Exception.class）**：用在方法上面表示遇到这个异常就执行以下方法。
 
 ## 注解优势
 
