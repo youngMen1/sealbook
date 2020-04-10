@@ -239,6 +239,12 @@ EntityManager.refresh\(\)方法被调用后。
 
 **@NoArgsConstructor：**生成一个无参数的构造方法
 
+**@AllArgsConstructor：**生成全部参数构造
+
+@RequiredArgsConstructor： 会生成一个包含常量，和标识了NotNull的变量的构造方法。生成的构造方法是私有的private。
+
+主要使用前两个注解，这样就不需要自己写构造方法，代码简洁规范。
+
 # 3.注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
