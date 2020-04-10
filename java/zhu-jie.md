@@ -255,7 +255,7 @@ EntityManager.refresh\(\)方法被调用后。
 
 **@Builder：**构造Builder模式的结构。通过内部类Builder\(\)进行构建对象。
 
-@Value：
+**@Value：**与@Data相对应的@Value， 两个annotation的主要区别就是如果变量不加@NonFinal ，@Value会给所有的弄成final的。当然如果是final的话，就没有set方法了。
 
 # 3.注解优势
 
