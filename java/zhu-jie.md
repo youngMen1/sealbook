@@ -138,7 +138,8 @@ columnDefinition: 定义建表时创建此列的DDL
 secondaryTable: 从表名。如果此列不建在主表上（默认建在主表），该属性定义该列所在从表的名字。
 @Column(name = "user_code", nullable = false, length=32)//设置属性userCode对应的字段为user_code，长度为32，非空
 private String userCode;
-@Column(name = "user_wages", nullable = true, precision=12,scale=2)//设置属性wages对应的字段为user_wages，12位数字可保留两位小数，可以为空
+//设置属性wages对应的字段为user_wages，12位数字可保留两位小数，可以为空
+@Column(name = "user_wages", nullable = true, precision=12,scale=2)
 private double wages;
 ```
 
