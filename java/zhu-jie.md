@@ -58,9 +58,9 @@ response body中。比如异步获取json数据，加上@responsebody后，会�
 
 据。该注解一般会配合@RequestMapping一起使用。
 
-**@PathVariable和@RequestParam: **两者的作用都是将request里的参数的值绑定到contorl里的方法参数里的，区别在于，URL写法不同。
+**@PathVariable和@RequestParam: **
 
-当请求参数username不存在时会有异常发生,可以通过设置属性required=false解决,例如:
+** **两者的作用都是将request里的参数的值绑定到contorl里的方法参数里的，区别在于，URL写法不同。当请求参数username不存在时会有异常发生,可以通过设置属性required=false解决,例如:
 
 @RequestParam\(value="username",required=false\)
 
@@ -69,6 +69,20 @@ response body中。比如异步获取json数据，加上@responsebody后，会�
 使用@PathVariable时，URL是这样的：[http://host:port/path/参数值](http://host:port/path/参数值)
 
 不写的时候也可以获取到参数值，但是必须名称对应。参数可以省略不写
+
+@RequestMapping　　和请求报文是做对应的　　　
+
+　　a：value，指定请求的地址 
+
+　　b：method 请求方法类型 这个不写的话，自适应：get或者post
+
+　　c：consumes 请求的提交内容类型 
+
+　　d：produces 指定返回的内容类型 仅当request请求头中的\(Accept\)类型中包含该指定类型才返回
+
+　　e: params 指定request中必须包含某些参数值 
+
+　　f：headers 指定request中必须包含指定的header值
 
 ## 注解优势
 
