@@ -423,6 +423,8 @@ example–举例说明
 
 **@ApiImplicitParams：**用在方法上包含一组参数说明；
 
+**@ApiResponses：**用于表示一组响应；
+
 # 4.注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
