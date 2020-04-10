@@ -255,6 +255,8 @@ EntityManager.refresh\(\)方法被调用后。
 
 **@Builder：**构造Builder模式的结构。通过内部类Builder\(\)进行构建对象。
 
+@Value：
+
 # 3.注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
