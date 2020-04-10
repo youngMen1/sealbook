@@ -275,6 +275,10 @@ EntityManager.refresh\(\)方法被调用后。
 
 **@NonNull：**注解在参数上 如果该参数为null 会throw new NullPointerException\(参数名\);
 
+**@Slf4j：**使用log打印日志
+
+
+
 # 3.注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
