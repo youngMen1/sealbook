@@ -231,7 +231,13 @@ EntityManager.refresh\(\)方法被调用后。
 
 @PostRemove事件在实体从数据库中删除后触发。
 
-# 2.LomBok插件注解
+# 2.lombok插件注解
+
+**@Setter：**生成setter方法,final变量不包含
+
+
+
+
 
 # 3.注解优势
 
