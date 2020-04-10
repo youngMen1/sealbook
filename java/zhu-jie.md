@@ -199,7 +199,7 @@ Spring Cloud的commons模块提供了一个@LoadBalanced注解，方便我们对
 
 **1）数据库查询**
 
-@PostLoad事件在下列情况下触发：
+**@PostLoad事件在下列情况下触发：**
 
 执行EntityManager.find\(\)或getreference\(\)方法载入一个实体后。
 
@@ -217,7 +217,7 @@ EntityManager.refresh\(\)方法被调用后。
 
 **3）数据库更新**
 
-@PreUpdate和@PostUpdate事件的触发由更新实体引起：
+**@PreUpdate和@PostUpdate事件的触发由更新实体引起：**
 
 @PreUpdate事件在实体的状态同步到数据库之前触发，此时的数据还没有真正更新到数据库。
 
@@ -225,7 +225,7 @@ EntityManager.refresh\(\)方法被调用后。
 
 **4）数据库删除**
 
-@PreRemove和@PostRemove事件的触发由删除实体引起：
+**@PreRemove和@PostRemove事件的触发由删除实体引起：**
 
 @PreRemove事件在实体从数据库删除之前触发，即在调用remove\(\)方法删除时发生，此时的数据还没有真正从数据库中删除。
 
