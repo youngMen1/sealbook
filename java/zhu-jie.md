@@ -428,5 +428,5 @@ example–举例说明
 
 [https://blog.csdn.net/u013225178/article/details/80721799](https://blog.csdn.net/u013225178/article/details/80721799)
 
-swagger :[https://www.jianshu.com/p/12f4394462d5](https://www.jianshu.com/p/12f4394462d5)
+swagger： [https://www.jianshu.com/p/12f4394462d5](https://www.jianshu.com/p/12f4394462d5)
 
