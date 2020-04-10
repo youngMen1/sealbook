@@ -84,6 +84,46 @@ e: params 指定request中必须包含某些参数值
 
 f：headers 指定request中必须包含指定的header值
 
+g: name  指定映射的名称  
+
+
+
+ @RequestMapping\(method = RequestMethod.GET\)
+
+
+
+ @RequestMapping\(method = RequestMethod.POST\)
+
+
+
+ @RequestMapping\(method = RequestMethod.PUT\)
+
+
+
+ @RequestMapping\(method = RequestMethod.DELETE\)
+
+
+
+ 当然也可以使用
+
+
+
+ @GetMapping
+
+
+
+ @PostMapping
+
+
+
+ @PutMapping
+
+
+
+ @DeleteMapping 这与上面的是一样的效果
+
+
+
 ## 注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
