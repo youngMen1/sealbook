@@ -8,7 +8,9 @@
 
 **@Configuration:**
 
-等同于spring的XML配置文件；使用Java代码可以检查类型安全。
+注解在类上，表示这是一个IOC容器，相当于spring的配置文件，java配置的方式。 IOC容器的配置类一般与 @Bean 注解配合使用，用 @Configuration 注解类等价与 XML 中配置 beans，用@Bean 注解方法等价于 XML 中配置 bean。
+
+@Bean： 注解在方法上，声明当前方法返回一个Bean
 
 ## 注解优势
 
@@ -19,8 +21,4 @@
 3.类型安全对重构可以提供良好的支持
 
 4.减少复杂配置文件的同时亦能享受到springIoC容器提供的功能
-
-
-
-
 
