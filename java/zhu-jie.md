@@ -38,9 +38,9 @@
 
 **@Value：**注解在变量上，从配置文件中读取。例如：@Value\(value = “\#{message}”\)
 
-**@ConfigurationProperties：**赋值，将注解转换成对象。给对象赋值。车险项目：HttpClientSetting
+**@ConfigurationProperties：**赋值，将注解转换成对象。给对象赋值。车险项目：HttpClientSetting类
 
-类
+**@Profile：**注解在方法类上在不同情况下选择实例化不同的Bean特定环境下生效
 
 ## 注解优势
 
