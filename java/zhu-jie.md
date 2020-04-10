@@ -279,9 +279,7 @@ EntityManager.refresh\(\)方法被调用后。
 
 **@Accessors：**注解也用在lombok不同的寻找getters的方法中，例如@EqualsAndHashCode\(不懂\)如果提供了前缀列表，属性名没有一个以其中的一个前缀开头，则属性会被lombok完全忽略掉，并且会产生一个警告。
 
-# swagger注解
-
-
+# Swagger注解
 
 # 3.注解优势
 
