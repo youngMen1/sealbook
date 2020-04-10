@@ -281,6 +281,8 @@ EntityManager.refresh\(\)方法被调用后。
 
 # 3.swagger注解
 
+
+
 # 4.注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
