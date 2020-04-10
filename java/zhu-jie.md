@@ -126,7 +126,33 @@ g: name  指定映射的名称:
 
 **@NoRepositoryBean：** 一般用作父类的repository，有这个注解，spring不会去实例化该repository。
 
-**@Column**：如果字段名与列名相同，则可以省略。
+**@Column**：通过@Column注解设置，包含的设置如下 
+
+name：数据库表字段名 
+
+unique：是否唯一 
+
+nullable：是否可以为空 
+
+
+
+Length:长度
+
+inserttable：是否可以插入 
+
+updateable：是否可以更新 
+
+columnDefinition: 定义建表时创建此列的DDL 
+
+secondaryTable: 从表名。如果此列不建在主表上（默认建在主表），该属性定义该列所在从表的名字。 
+
+@Column\(name = "user\_code", nullable = false, length=32\)//设置属性userCode对应的字段为user\_code，长度为32，非空     
+
+private String userCode;     
+
+@Column\(name = "user\_wages", nullable = true, precision=12,scale=2\)//设置属性wages对应的字段为user\_wages，12位数字可保留两位小数，可以为空     
+
+private double wages;  
 
 **@Id**：表示该属性为主键。
 
@@ -152,7 +178,7 @@ SEQUENCE：通过序列产生主键，通过 @SequenceGenerator 注解指定序�
 
 TABLE：通过表产生主键，框架借由表模拟序列产生主键，使用该策略可以使应用更易于数据库移植。
 
-**@Temporal\(TemporalType.DATE\)：**设置为时间类型     例如：private Date joinDate; 
+**@Temporal\(TemporalType.DATE\)：**设置为时间类型     例如：private Date joinDate;
 
 ## 注解优势
 
