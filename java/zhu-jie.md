@@ -383,6 +383,18 @@ public class User implements Serializable{
 }
 ```
 
+**@ApiIgnore\(\)**用于类或者方法上，可以不被swagger显示在页面上  
+比较简单, 这里不做举例
+
+**@ApiImplicitParam\(\)**用于方法  
+表示单独的请求参数  
+**@ApiImplicitParams\(\)**用于方法，包含多个 @ApiImplicitParam  
+name–参数ming  
+value–参数说明  
+dataType–数据类型  
+paramType–参数类型  
+example–举例说明
+
 # 4.注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
