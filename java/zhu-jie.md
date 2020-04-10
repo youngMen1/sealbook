@@ -305,6 +305,12 @@ tags可以重新分组（视情况而用）
 
 ```
 @ApiOperation(value="获取用户信息",tags={"获取用户信息copy"},notes="注意问题点")
+@PostMapping("/updateUserInfo")
+public int updateUserInfo(@RequestBody @ApiParam(name="用户对象",value="传入json格式",required=true) User user){
+
+   int num = userService.updateUserInfo(user);
+   return num;
+}
 ```
 
 **@ApiParam\(\)**
