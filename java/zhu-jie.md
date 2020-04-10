@@ -8,7 +8,7 @@
 
 **@EnableAutoConfiguration: **启用 Spring 应用程序上下文的自动配置，试图猜测和配置您可能需要的bean。自动配置类通常采用基于你的classpath 和已经定义的 beans 对象进行应用。被 @EnableAutoConfiguration 注解的类所在的包有特定的意义，并且作为默认配置使用。通常推荐将 @EnableAutoConfiguration 配置在 root 包下，这样所有的子包、类都可以被查找到。
 
-**@ComponentScan：**注解在类上，扫描标注了@Controller等注解的类，注册为bean 。@ComponentScan 为 @Configuration注解的类配置组件扫描指令。@ComponentScan 注解会自动扫描指定包下的全部标有 @Component注解的类，并注册成bean，当然包括 @Component下的子注解@Service、@Repository、@Controller。
+**@ComponentScan：**注解在类上，扫描标注了@Controller等注解的类，注册为bean 。@ComponentScan 为 @Configuration注解的类配置组件扫描指令。@ComponentScan 注解会自动扫描指定包下的全部标有 @Component注解的类，并注册成bean，当然包括 @Component下的子注解@Service、@Repository、@Controller。如果不设置basePackage的话 默认会扫描包的所有类，所以最好还是写上basePackage （@componentScan\({" ... "}）,减少加载时间。默认扫描\*\*/\*.class路径 比如这个注解在com.wuhulala 下面 ，那么会扫描这个包下的所有类还有子包的所有类,比如com.wuhulala.service包的应用
 
 **@Configuration: **注解在类上，表示这是一个IOC容器，相当于spring的配置文件，java配置的方式。 IOC容器的配置类一般与 @Bean 注解配合使用，用 @Configuration 注解类等价与 XML 中配置 beans，用@Bean 注解方法等价于 XML 中配置 bean。
 
@@ -174,10 +174,6 @@ TABLE：通过表产生主键，框架借由表模拟序列产生主键，使用
 **@Async和 @EnableAsync：**
 
 @EnableAsync注解的意思是可以异步执行，就是开启多线程的意思。可以标注在方法、类上。为了让@Async注解能够生效，需要在Spring Boot的主程序中配置@EnableAsync，@Async所修饰的函数不要定义为static类型，这样异步调用不会生效
-
-
-
-
 
 
 
