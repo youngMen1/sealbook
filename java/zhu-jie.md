@@ -249,6 +249,10 @@ EntityManager.refresh\(\)方法被调用后。
 
 **@EqualsAndHashCode：**生成equals\(\)方法和hashCode方法
 
+**@Data\(常用\)：**@Data直接修饰POJO or beans， getter所有的变量，setter所有不为final的变量。如果你不需要默认的生成方式，直接填写你需要的annotation的就可以了。默认生成的所有的annotation都是public的，如果需要不同权限修饰符可以使用AccessLevel.NONE选项。当然@Data 也可以使用staticConstructor选项生成一个静态方法。
+
+等于:@Setter+@Getter+@EqualsAndHashCode+@NoArgsConstructor
+
 # 3.注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
