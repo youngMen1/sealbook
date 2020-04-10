@@ -237,6 +237,8 @@ EntityManager.refresh\(\)方法被调用后。
 
 **@Getter：**生成getter方法,final变量不包含
 
+**@NoArgsConstructor：**生成空参构造
+
 # 3.注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
