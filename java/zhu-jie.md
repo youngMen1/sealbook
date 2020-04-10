@@ -261,6 +261,14 @@ EntityManager.refresh\(\)方法被调用后。
 
 **@Cleanup 和@SneakyThrows：**自动调用close方法关闭资源。
 
+**@Cleanup：**注释在引用变量前：自动回收资源 默认调用close方法
+
+　　@Cleanup\("dispose"\) org.eclipse.swt.widgets.CoolBar bar = new CoolBar\(parent, 0\);
+
+　　@Cleanup InputStream in = new FileInputStream\(args\[0\]\);
+
+　　@Cleanup OutputStream out = new FileOutputStream\(args\[1\]\);
+
 **@Log4j ：**注解在类上；为类提供一个 属性名为log 的 log4j 日志对象
 
 **@NonNull：**注解在参数上 如果该参数为null 会throw new NullPointerException\(参数名\);
