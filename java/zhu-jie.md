@@ -215,7 +215,7 @@ EntityManager.refresh\(\)方法被调用后。
 
 @PostPersist事件在数据已经插入进数据库后发生。
 
-3）数据库更新
+**3）数据库更新**
 
 @PreUpdate和@PostUpdate事件的触发由更新实体引起：
 
