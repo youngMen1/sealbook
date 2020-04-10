@@ -281,7 +281,11 @@ EntityManager.refresh\(\)方法被调用后。
 
 # 3.swagger注解
 
+**@Api\(\)：**用于类,表示标识这个类是swagger的资源
 
+tags–表示说明
+
+value–也是说明，可以使用tags替代
 
 # 4.注解优势
 
