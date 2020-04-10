@@ -118,41 +118,37 @@ g: name  指定映射的名称:
 
 ## 1.2.**JPA注解**
 
-**@Entity**：@Table\(name=”“\)：表明这是一个实体类。一般用于jpa这两个注解一般一块使
-
-用，但是如果表名和实体类名相同的话，@Table可以省略
+**@Entity**：@Table\(name=”“\)：表明这是一个实体类。一般用于jpa这两个注解一般一块使用，但是如果表名和实体类名相同的话，@Table可以省略
 
 **@MappedSuperClass：**用在确定是父类的entity上。父类的属性子类可以继承。
 
 **@NoRepositoryBean：** 一般用作父类的repository，有这个注解，spring不会去实例化该repository。
 
-**@Column**：通过@Column注解设置，包含的设置如下 
+**@Column**：通过@Column注解设置，包含的设置如下
 
-name：数据库表字段名 
+name：数据库表字段名
 
-unique：是否唯一 
+unique：是否唯一
 
-nullable：是否可以为空 
-
-
+nullable：是否可以为空
 
 Length:长度
 
-inserttable：是否可以插入 
+inserttable：是否可以插入
 
-updateable：是否可以更新 
+updateable：是否可以更新
 
-columnDefinition: 定义建表时创建此列的DDL 
+columnDefinition: 定义建表时创建此列的DDL
 
-secondaryTable: 从表名。如果此列不建在主表上（默认建在主表），该属性定义该列所在从表的名字。 
+secondaryTable: 从表名。如果此列不建在主表上（默认建在主表），该属性定义该列所在从表的名字。
 
-@Column\(name = "user\_code", nullable = false, length=32\)//设置属性userCode对应的字段为user\_code，长度为32，非空     
+@Column\(name = "user\_code", nullable = false, length=32\)//设置属性userCode对应的字段为user\_code，长度为32，非空
 
-private String userCode;     
+private String userCode;
 
-@Column\(name = "user\_wages", nullable = true, precision=12,scale=2\)//设置属性wages对应的字段为user\_wages，12位数字可保留两位小数，可以为空     
+@Column\(name = "user\_wages", nullable = true, precision=12,scale=2\)//设置属性wages对应的字段为user\_wages，12位数字可保留两位小数，可以为空
 
-private double wages;  
+private double wages;
 
 **@Id**：表示该属性为主键。
 
