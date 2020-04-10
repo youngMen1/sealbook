@@ -247,7 +247,7 @@ EntityManager.refresh\(\)方法被调用后。
 
 **@ToString：**生成所有属性的toString\(\)方法
 
-
+**@EqualsAndHashCode：**生成equals\(\)方法和hashCode方法
 
 # 3.注解优势
 
