@@ -36,13 +36,11 @@
 
 （5）globalSession：表示在全局会话内有效（只适用于web应用）
 
-**@Value：**注解在变量上，从配置文件中读取。
+**@Value：**注解在变量上，从配置文件中读取。例如：@Value\(value = “\#{message}”\)
 
-例如：@Value\(value = “\#{message}”\)
+**@ConfigurationProperties：**赋值，将注解转换成对象。给对象赋值。车险项目：HttpClientSetting
 
-
-
-
+类
 
 ## 注解优势
 
