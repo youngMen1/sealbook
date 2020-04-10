@@ -175,7 +175,7 @@ TABLE：通过表产生主键，框架借由表模拟序列产生主键，使用
 
 @EnableAsync注解的意思是可以异步执行，就是开启多线程的意思。可以标注在方法、类上。为了让@Async注解能够生效，需要在Spring Boot的主程序中配置@EnableAsync，@Async所修饰的函数不要定义为static类型，这样异步调用不会生效
 
-
+**@Mapper和@MapperScan：**
 
 ## 注解优势
 
