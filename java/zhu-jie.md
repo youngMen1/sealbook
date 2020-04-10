@@ -279,9 +279,9 @@ EntityManager.refresh\(\)方法被调用后。
 
 **@Accessors：**注解也用在lombok不同的寻找getters的方法中，例如@EqualsAndHashCode\(不懂\)如果提供了前缀列表，属性名没有一个以其中的一个前缀开头，则属性会被lombok完全忽略掉，并且会产生一个警告。
 
-# Swagger注解
+# 3.swagger注解
 
-# 3.注解优势
+# 4.注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
 
@@ -291,7 +291,7 @@ EntityManager.refresh\(\)方法被调用后。
 
 4.减少复杂配置文件的同时亦能享受到springIoC容器提供的功能
 
-## 4.参考
+## 5.参考
 
 [https://blog.csdn.net/yitian\_66/article/details/80866571](https://blog.csdn.net/yitian_66/article/details/80866571)
 
