@@ -112,6 +112,10 @@ g: name  指定映射的名称:
 
 **@ExceptionHandler（Exception.class）**：用在方法上面表示遇到这个异常就执行以下方法。
 
+**@Transactional： **事务注解
+
+**@Query： **自定义查询语句 JPQL
+
 ## 注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
