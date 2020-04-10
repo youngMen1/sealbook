@@ -421,6 +421,8 @@ example–举例说明
 * required ： 是否必要
 * defaultValue：参数的默认值
 
+**@ApiImplicitParams：**用在方法上包含一组参数说明；
+
 # 4.注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
