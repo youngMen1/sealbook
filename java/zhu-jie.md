@@ -231,9 +231,11 @@ EntityManager.refresh\(\)方法被调用后。
 
 @PostRemove事件在实体从数据库中删除后触发。
 
-# 1.5.LomBok插件注解
+# LomBok插件注解
 
-## 注解优势
+
+
+# 注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
 
