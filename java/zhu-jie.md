@@ -26,31 +26,17 @@
 
 **@Component：** 注解在类上，表示通用bean，value不写默认就是类名首字母小写
 
-@Scope：注解在类上，描述spring容器如何创建Bean实例。
-
-
+**@Scope：**注解在类上，描述spring容器如何创建Bean实例。
 
 （1）singleton： 表示在spring容器中的单例，通过spring容器获得该bean时总是返回唯一的实例
 
-
-
 （2）prototype：表示每次获得bean都会生成一个新的对象
-
-
 
 （3）request：表示在一次http请求内有效（只适用于web应用）
 
-
-
 （4）session：表示在一个用户会话内有效（只适用于web应用）
 
-
-
 （5）globalSession：表示在全局会话内有效（只适用于web应用）
-
-————————————————
-
-版权声明：本文为CSDN博主「java-小学生」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
 
 
 
@@ -66,7 +52,5 @@
 
 ## 参考
 
-https://blog.csdn.net/yitian\_66/article/details/80866571
-
-
+[https://blog.csdn.net/yitian\_66/article/details/80866571](https://blog.csdn.net/yitian_66/article/details/80866571)
 
