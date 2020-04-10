@@ -412,6 +412,23 @@ example–举例说明
   }
 ```
 
+@ApiImplicitParam：用在@ApiImplicitParams注解中，指定一个请求参数的各个方面
+
+* paramType：参数放在哪个地方
+* name：参数代表的含义
+* value：参数名称
+* dataType： 参数类型，有String/int，无用
+* required ： 是否必要
+* defaultValue：参数的默认值
+
+  
+
+
+  
+
+
+
+
 # 4.注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
