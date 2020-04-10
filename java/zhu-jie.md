@@ -104,6 +104,10 @@ g: name  指定映射的名称:
 
 @DeleteMapping 这与上面的是一样的效果
 
+**@EnableCaching：**注解是spring framework中的注解驱动的缓存管理功能。自spring版本3.1起加入了该注解。如果你使用了这个注解，那么你就不需要在XML文件中配置cache manager了。
+
+
+
 ## 注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
