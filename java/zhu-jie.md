@@ -425,6 +425,11 @@ example–举例说明
 
 **@ApiResponses：**用于表示一组响应；
 
+**@ApiResponse：**用在@ApiResponses中，一般用于表达一个错误的响应信息；
+
+* code： 响应码\(int型\)，可自定义
+* message：状态码对应的响应信息
+
 # 4.注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
