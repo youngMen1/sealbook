@@ -332,6 +332,25 @@ public class UserController {
 }
 ```
 
+**@ApiModel\(\)**
+
+用于类 ；表示对类进行说明，用于参数用实体类接收
+
+  
+
+
+value–表示对象名
+
+  
+
+
+description–描述
+
+  
+
+
+都可省略
+
 # 4.注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
