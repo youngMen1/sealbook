@@ -209,7 +209,7 @@ EntityManager.refresh\(\)方法被调用后。
 
 **2）数据库插入**
 
-@PrePersist和@PostPersist事件在实体对象插入到数据库的过程中发生：
+**@PrePersist和@PostPersist事件在实体对象插入到数据库的过程中发生：**
 
 @PrePersist事件在调用persist\(\)方法后立刻发生，此时的数据还没有真正插入进数据库。
 
