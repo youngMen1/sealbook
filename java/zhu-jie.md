@@ -237,7 +237,7 @@ EntityManager.refresh\(\)方法被调用后。
 
 **@Getter：**生成getter方法,final变量不包含
 
-**@NoArgsConstructor：**生成空参构造
+**@NoArgsConstructor：**生成一个无参数的构造方法
 
 # 3.注解优势
 
