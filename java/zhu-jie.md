@@ -20,6 +20,8 @@
 
 **@Controller：**注解在类上，表示这是一个控制层bean
 
+**@RestController**：用于标注控制层组件\(如struts中的action\)，@ResponseBody和@Controller的合集。
+
 **@Repository: ** 注解在类上，表示这是一个数据访问层bean
 
 **@Component：** 注解在类上，表示通用bean，value不写默认就是类名首字母小写
