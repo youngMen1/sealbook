@@ -6,6 +6,10 @@
 
 包含了@ComponentScan、@Configuration和@EnableAutoConfiguration注解。其中@ComponentScan让spring Boot扫描到Configuration类并把它加入到程序上下文。
 
+**@EnableAutoConfiguration: **启用 Spring 应用程序上下文的自动配置，试图猜测和配置您可能需要的bean。自动配置类通常采用基于你的classpath 和已经定义的 beans 对象进行应用。被 @EnableAutoConfiguration 注解的类所在的包有特定的意义，并且作为默认配置使用。通常推荐将 @EnableAutoConfiguration 配置在 root 包下，这样所有的子包、类都可以被查找到。
+
+**@ComponentScan：**注解在类上，扫描标注了@Controller等注解的类，注册为bean 。@ComponentScan 为 @Configuration注解的类配置组件扫描指令。@ComponentScan 注解会自动扫描指定包下的全部标有 @Component注解的类，并注册成bean，当然包括 @Component下的子注解@Service、@Repository、@Controller。 
+
 **@Configuration: **注解在类上，表示这是一个IOC容器，相当于spring的配置文件，java配置的方式。 IOC容器的配置类一般与 @Bean 注解配合使用，用 @Configuration 注解类等价与 XML 中配置 beans，用@Bean 注解方法等价于 XML 中配置 bean。
 
 **@Bean： **注解在方法上，声明当前方法返回一个Bean
@@ -20,7 +24,7 @@
 
 **@Controller：**注解在类上，表示这是一个控制层bean
 
-**@RestController**：用于标注控制层组件\(如struts中的action\)，@ResponseBody和@Controller的合集。
+**@RestController**：用于标注控制层组件\(如struts中的action\)，结合了 @ResponseBody和 @Controller 的注解
 
 **@Repository: ** 注解在类上，表示这是一个数据访问层bean
 
@@ -43,6 +47,8 @@
 **@ConfigurationProperties：**赋值，将注解转换成对象。给对象赋值。车险项目：HttpClientSetting类
 
 **@Profile：**注解在方法类上在不同情况下选择实例化不同的Bean特定环境下生效
+
+
 
 ## 注解优势
 
