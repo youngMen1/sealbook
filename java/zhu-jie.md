@@ -241,7 +241,7 @@ EntityManager.refresh\(\)方法被调用后。
 
 **@AllArgsConstructor：**生成全部参数构造
 
-@RequiredArgsConstructor： 会生成一个包含常量，和标识了NotNull的变量的构造方法。生成的构造方法是私有的private。
+**@RequiredArgsConstructor：** 会生成一个包含常量，和标识了NotNull的变量的构造方法。生成的构造方法是私有的private。
 
 主要使用前两个注解，这样就不需要自己写构造方法，代码简洁规范。
 
