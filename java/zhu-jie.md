@@ -421,6 +421,8 @@ example–举例说明
 * required ： 是否必要
 * defaultValue：参数的默认值
 
+998342-20171129203814573-235322774.png
+
 **@ApiImplicitParams：**用在方法上包含一组参数说明；
 
 **@ApiResponses：**用于表示一组响应；
