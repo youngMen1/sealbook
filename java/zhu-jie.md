@@ -148,9 +148,11 @@ IDENTITY：采用数据库 ID自增长的方式来自增主键字段，Oracle �
 
 AUTO： JPA自动选择合适的策略，是默认选项；
 
-SEQUENCE：通过序列产生主键，通过 @SequenceGenerator 注解指定序列名，MySql 不支持这种方式
+SEQUENCE：通过序列产生主键，通过 @SequenceGenerator 注解指定序列名，MySql 不支持这种方式
 
 TABLE：通过表产生主键，框架借由表模拟序列产生主键，使用该策略可以使应用更易于数据库移植。
+
+**@Temporal\(TemporalType.DATE\)：**设置为时间类型     例如：private Date joinDate; 
 
 ## 注解优势
 
