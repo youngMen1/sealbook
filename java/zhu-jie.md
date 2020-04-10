@@ -297,20 +297,15 @@ value–也是说明，可以使用tags替代
 
 用于方法；表示一个http请求的操作
 
-  
-
-
 value用于方法描述
-
-  
-
 
 notes用于提示内容
 
-  
-
-
 tags可以重新分组（视情况而用）
+
+```
+@ApiOperation(value="获取用户信息",tags={"获取用户信息copy"},notes="注意问题点")
+```
 
 # 4.注解优势
 
