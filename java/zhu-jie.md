@@ -16,7 +16,15 @@
 
 区别：@Resource默认按照名称方式进行bean匹配，@Autowired默认按照类型方式进行bean匹配
 
-**@Resource: **默认按照名称方式进行bean匹配
+**@Resource:  **默认按照名称方式进行bean匹配
+
+**@Service: **注解在类上，表示这是一个业务层bean
+
+**@Controller：**注解在类上，表示这是一个控制层bean
+
+**@Repository: ** 注解在类上，表示这是一个数据访问层bean
+
+**@Component：** 注解在类上，表示通用bean，value不写默认就是类名首字母小写
 
 ## 注解优势
 
