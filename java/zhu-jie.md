@@ -261,6 +261,10 @@ EntityManager.refresh\(\)方法被调用后。
 
 **@Cleanup 和@SneakyThrows：**自动调用close方法关闭资源。
 
+**@Log4j ：**注解在类上；为类提供一个 属性名为log 的 log4j 日志对象
+
+**@NonNull：**注解在参数上 如果该参数为null 会throw new NullPointerException\(参数名\);
+
 # 3.注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
