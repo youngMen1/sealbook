@@ -70,7 +70,9 @@ response body中。比如异步获取json数据，加上@responsebody后，会�
 
 不写的时候也可以获取到参数值，但是必须名称对应。参数可以省略不写
 
-**@RequestMapping：**和请求报文是做对应的
+**@RequestMapping：**
+
+和请求报文是做对应的
 
 a：value，指定请求的地址
 
