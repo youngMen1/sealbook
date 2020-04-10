@@ -110,7 +110,7 @@ g: name  指定映射的名称:
 
 2：在调用的地方必须加事务，没有事务不能正常执行。
 
-**@ExceptionHandler（Exception.class）**：用在方法上面表示遇到这个异常就执行以下方法。
+
 
 **@Transactional： **事务注解
 
@@ -169,7 +169,13 @@ TABLE：通过表产生主键，框架借由表模拟序列产生主键，使用
 
 **@Temporal\(TemporalType.DATE\)：**设置为时间类型     例如：private Date joinDate;
 
-## 1.3.其他注解
+## 1.3.**全局异常处理**
+
+**@ExceptionHandler（Exception.class）**：用在方法上面表示遇到这个异常就执行以下方法。
+
+@ControllerAdvice：包含@Component。可以被扫描到。统一处理异常。
+
+## 1.4.其他注解
 
 **@Async和 @EnableAsync：**
 
@@ -226,8 +232,6 @@ EntityManager.refresh\(\)方法被调用后。
 @PreRemove事件在实体从数据库删除之前触发，即在调用remove\(\)方法删除时发生，此时的数据还没有真正从数据库中删除。
 
 @PostRemove事件在实体从数据库中删除后触发。
-
-
 
 ## 注解优势
 
