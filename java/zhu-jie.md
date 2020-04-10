@@ -70,19 +70,19 @@ response body中。比如异步获取json数据，加上@responsebody后，会�
 
 不写的时候也可以获取到参数值，但是必须名称对应。参数可以省略不写
 
-@RequestMapping　　和请求报文是做对应的　　　
+**@RequestMapping：**和请求报文是做对应的
 
-　　a：value，指定请求的地址 
+a：value，指定请求的地址
 
-　　b：method 请求方法类型 这个不写的话，自适应：get或者post
+b：method 请求方法类型 这个不写的话，自适应：get或者post
 
-　　c：consumes 请求的提交内容类型 
+c：consumes 请求的提交内容类型
 
-　　d：produces 指定返回的内容类型 仅当request请求头中的\(Accept\)类型中包含该指定类型才返回
+d：produces 指定返回的内容类型 仅当request请求头中的\(Accept\)类型中包含该指定类型才返回
 
-　　e: params 指定request中必须包含某些参数值 
+e: params 指定request中必须包含某些参数值
 
-　　f：headers 指定request中必须包含指定的header值
+f：headers 指定request中必须包含指定的header值
 
 ## 注解优势
 
