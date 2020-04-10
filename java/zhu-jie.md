@@ -289,6 +289,10 @@ tags–表示说明
 
 value–也是说明，可以使用tags替代
 
+```
+@Api(value="用户controller",tags={"用户操作接口"})
+```
+
 # 4.注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
