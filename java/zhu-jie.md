@@ -293,6 +293,25 @@ value–也是说明，可以使用tags替代
 @Api(value="用户controller",tags={"用户操作接口"})
 ```
 
+**@ApiOperation\(\)**
+
+用于方法；表示一个http请求的操作
+
+  
+
+
+value用于方法描述
+
+  
+
+
+notes用于提示内容
+
+  
+
+
+tags可以重新分组（视情况而用）
+
 # 4.注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
