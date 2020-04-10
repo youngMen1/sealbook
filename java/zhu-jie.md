@@ -108,7 +108,13 @@ g: name  指定映射的名称:
 
 **@EnableCaching：**注解是spring framework中的注解驱动的缓存管理功能。自spring版本3.1起加入了该注解。如果你使用了这个注解，那么你就不需要在XML文件中配置cache manager了。
 
+**@suppresswarnings : **抑制警告
 
+**@Modifying ：**如果是增，改，删加上此注解
+
+1：方法的返回值应该是int，表示更新语句所影响的行数。
+
+2：在调用的地方必须加事务，没有事务不能正常执行。
 
 ## 注解优势
 
