@@ -235,9 +235,7 @@ EntityManager.refresh\(\)方法被调用后。
 
 **@Setter：**生成setter方法,final变量不包含
 
-
-
-
+**@Getter：**生成getter方法,final变量不包含
 
 # 3.注解优势
 
