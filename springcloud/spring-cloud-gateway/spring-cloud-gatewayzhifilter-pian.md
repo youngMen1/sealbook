@@ -214,7 +214,7 @@ curl localhost:8081/customer/123
 
 在上面的自定义过滤器中，有没有办法自定义过滤器工厂类呢?这样就可以在配置文件中配置过滤器了。现在需要实现一个过滤器工厂，在打印时间的时候，可以设置参数来决定是否打印请参数。查看GatewayFilterFactory的源码，可以发现GatewayFilterfactory的层级如下：
 
-![img](/static/image/2279594-f97e1045cebc954c.png)
+![img](/static/image/)
 
 过滤器工厂的顶级接口是GatewayFilterFactory，我们可以直接继承它的两个抽象类来简化开发AbstractGatewayFilterFactory和AbstractNameValueGatewayFilterFactory，这两个抽象类的区别就是前者接收一个参数（像StripPrefix和我们创建的这种），后者接收两个参数（像AddResponseHeader）。
 
