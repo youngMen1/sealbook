@@ -498,6 +498,7 @@ public enum ElementType {
 }
 
 ```
+@Retention注解
 
 
 
