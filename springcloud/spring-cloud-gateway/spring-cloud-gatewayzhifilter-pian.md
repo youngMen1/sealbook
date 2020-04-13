@@ -26,3 +26,5 @@ Spring Cloud Gateway同zuul类似（前置过滤器和后置过滤器），有�
 
 GatewayFilter工厂同上一篇介绍的Predicate工厂类似，都是在配置文件application.yml中配置，遵循了约定大于配置的思想，只需要在配置文件配置GatewayFilter Factory的名称，而不需要写全部的类名，比如AddRequestHeaderGatewayFilterFactory只需要在配置文件中写AddRequestHeader，而不是全部类名。在配置文件中配置的GatewayFilter Factory最终都会相应的过滤器工厂类处理。
 Spring Cloud Gateway 内置的过滤器工厂一览表如下：
+![img](/static/image/2279594-21f95f970275e70f.png)
+
