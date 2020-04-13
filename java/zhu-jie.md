@@ -594,7 +594,7 @@ public class RetentionTest {
            2. 编译器分别使用了 RuntimeInvisibleAnnotations 和 RuntimeVisibleAnnotations 属性去记录了classPolicy()方法 和 runtimePolicy()方法 的注解信息；  
 
 ### 4.2.3.@Documented注解
-Documented注解的作用是：描述在使用 javadoc 工具为类生成帮助文档时是否要保留其注解信息。
+Documented注解的作用是：**描述在使用 javadoc 工具为类生成帮助文档时是否要保留其注解信息。**
 
 为了验证Documented注解的作用到底是什么，我们创建一个带有 @Documented 的自定义注解类。 
 
