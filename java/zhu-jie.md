@@ -630,7 +630,7 @@ public class MyDocumentedTest {
 ```
 接下来，使用以下命令为 MyDocumentedTest 类生成帮助文档。  
 
-20180325085153442
+![img](/static/image/20180325085153442)
 
 
 
