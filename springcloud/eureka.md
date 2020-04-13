@@ -1,11 +1,13 @@
 # 1.基本介绍
 
-[Eureka](https://github.com/Netflix/Eureka) 是 [Netflix](https://github.com/Netflix) 开发的，一个基于 REST 服务的，服务注册与发现的组件
+[Eureka](https://github.com/Netflix/Eureka) 是 [Netflix](https://github.com/Netflix) 开发的，一个基于 REST 服务的，服务注册与发现的组件
 
 它主要包括两个组件：Eureka Server 和 Eureka Client
 
 * Eureka Client：一个Java客户端，用于简化与 Eureka Server 的交互（通常就是微服务中的客户端和服务端）
 * Eureka Server：提供服务注册和发现的能力（通常就是微服务中的注册中心）
+![img](/static/image/398358-20190722105850485-951984065.png)
+
 
 # 2.怎么使用
 
