@@ -869,6 +869,106 @@ public class YellowPersion implements CommandLineRunner {
 
 我们可以通过调整@Order的值来调整类执行顺序的优先级，即执行的先后；当然也可以将@Order注解更换为Ordered接口，效果是一样的
 
+#### 4..到这里可能会疑惑IOC容器是如何根据优先级值来先后执行程序的，那接下来看容器是如何加载component的
+
+```
+@SpringBootApplication
+public class CommonBootStrap {
+    public static void main(String[] args) {
+        SpringApplication.run(CommonBootStrap.class, args);
+    }
+}
+
+```
+
+#### 进入run方法
+
+```
+
+    public ConfigurableApplicationContext run(String... args) {
+        StopWatch stopWatch = new StopWatch();
+        stopWatch.start();
+        ConfigurableApplicationContext context = null;
+        Collection<SpringBootExceptionReporter> exceptionReporters = new ArrayList();
+        this.configureHeadlessProperty();
+        SpringApplicationRunListeners listeners = this.getRunListeners(args);
+        listeners.starting();
+
+        Collection exceptionReporters;
+        try {
+            ApplicationArguments applicationArguments = new DefaultApplicationArguments(args);
+            ConfigurableEnvironment environment = this.prepareEnvironment(listeners, applicationArguments);
+            this.configureIgnoreBeanInfo(environment);
+            Banner printedBanner = this.printBanner(environment);
+            context = this.createApplicationContext();
+            exceptionReporters = this.getSpringFactoriesInstances(SpringBootExceptionReporter.class, new Class[]{ConfigurableApplicationContext.class}, context);
+            this.prepareContext(context, environment, listeners, applicationArguments, printedBanner);
+            this.refreshContext(context);
+            this.afterRefresh(context, applicationArguments);
+            stopWatch.stop();
+            if (this.logStartupInfo) {
+                (new StartupInfoLogger(this.mainApplicationClass)).logStarted(this.getApplicationLog(), stopWatch);
+            }
+
+            listeners.started(context);
+            //这里是重点，调用具体的执行方法
+            this.callRunners(context, applicationArguments);
+        } catch (Throwable var10) {
+            this.handleRunFailure(context, var10, exceptionReporters, listeners);
+            throw new IllegalStateException(var10);
+        }
+
+        try {
+            listeners.running(context);
+            return context;
+        } catch (Throwable var9) {
+            this.handleRunFailure(context, var9, exceptionReporters, (SpringApplicationRunListeners)null);
+            throw new IllegalStateException(var9);
+        }
+    }
+   private void callRunners(ApplicationContext context, ApplicationArguments args) {
+        List<Object> runners = new ArrayList();
+        runners.addAll(context.getBeansOfType(ApplicationRunner.class).values());
+        runners.addAll(context.getBeansOfType(CommandLineRunner.class).values());
+        // 重点来了，按照定义的优先级顺序排序
+        AnnotationAwareOrderComparator.sort(runners);
+        Iterator var4 = (new LinkedHashSet(runners)).iterator();
+        // 循环调用具体方法
+        while(var4.hasNext()) {
+            Object runner = var4.next();
+            if (runner instanceof ApplicationRunner) {
+                this.callRunner((ApplicationRunner)runner, args);
+            }
+
+            if (runner instanceof CommandLineRunner) {
+                this.callRunner((CommandLineRunner)runner, args);
+            }
+        }
+
+    }
+
+    private void callRunner(ApplicationRunner runner, ApplicationArguments args) {
+        try {
+            //执行方法
+            runner.run(args);
+        } catch (Exception var4) {
+            throw new IllegalStateException("Failed to execute ApplicationRunner", var4);
+        }
+    }
+
+    private void callRunner(CommandLineRunner runner, ApplicationArguments args) {
+        try {
+            //执行方法
+            runner.run(args.getSourceArgs());
+        } catch (Exception var4) {
+            throw new IllegalStateException("Failed to execute CommandLineRunner", var4);
+        }
+    }
+
+```
+
+到这里优先级类的示例及其执行原理都分析完毕；不过还是要强调下@Order、Ordered不影响类的加载顺序而是影响Bean加载如IOC容器之后执行的顺序（优先级）；
+
 # 7.注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
