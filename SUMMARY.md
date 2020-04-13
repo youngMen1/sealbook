@@ -32,6 +32,7 @@
     * [IDEA 快捷键拆解系列（后记）](java/idea-kuai-jie-jian-chai-jie-xi-lie/idea-kuai-jie-jian-chai-jie-xi-lie-ff08-hou-ji-ff09.md)
 * [SpringCloud](springcloud.md)
   * [Eureka](springcloud/eureka.md)
+    * Eureka高可用
   * [健康检查](springcloud/jian-kang-jian-cha.md)
   * [zuul](springcloud/zuul.md)
   * [feign](springcloud/feign.md)
