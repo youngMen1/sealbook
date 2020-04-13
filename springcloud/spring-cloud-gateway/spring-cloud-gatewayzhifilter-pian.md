@@ -196,8 +196,12 @@ public class RequestTimeFilter implements GatewayFilter, Ordered {
                 .build();
         // @formatter:on
     }
+```
 
+重启程序，通过curl命令模拟请求：
 
+```
+curl localhost:8081/customer/123
 ```
 
 # 参考
