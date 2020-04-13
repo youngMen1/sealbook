@@ -204,6 +204,8 @@ public class RequestTimeFilter implements GatewayFilter, Ordered {
 curl localhost:8081/customer/123
 ```
 
+在程序的控制台输出一下的请求信息的日志：
+
 # 参考
 
 [https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.1.0.M1/single/spring-cloud-gateway.html](https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.1.0.M1/single/spring-cloud-gateway.html)
