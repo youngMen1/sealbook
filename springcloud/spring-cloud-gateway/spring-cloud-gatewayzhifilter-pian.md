@@ -94,7 +94,24 @@ public class AddRequestHeaderGatewayFilterFactory extends AbstractNameValueGatew
 curl localhost:8081
 ```
 
-最终显示了从 http://httpbin.org:80/get得到了请求，响应如下：
+最终显示了从 [http://httpbin.org:80/get得到了请求，响应如下：](http://httpbin.org:80/get得到了请求，响应如下：)
+
+```
+{
+  "args": {},
+  "headers": {
+    "Accept": "*/*",
+    "Connection": "close",
+    "Forwarded": "proto=http;host=\"localhost:8081\";for=\"0:0:0:0:0:0:0:1:56248\"",
+    "Host": "httpbin.org",
+    "User-Agent": "curl/7.58.0",
+    "X-Forwarded-Host": "localhost:8081",
+    "X-Request-Foo": "Bar"
+  },
+  "origin": "0:0:0:0:0:0:0:1, 210.22.21.66",
+  "url": "http://localhost:8081/get"
+}
+```
 
 # 参考
 
