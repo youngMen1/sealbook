@@ -40,6 +40,7 @@
   * [config](springcloud/config.md)
   * [bus](springcloud/bus.md)
   * [Consul](springcloud/consul.md)
+  * spring-cloud-gateway
 * [Mybatis](mybatis.md)
   * [错误](mybatis/cuo-wu.md)
 * [Linux](linux.md)
