@@ -468,6 +468,7 @@ Annotation类型
   * @Documented
 
   * @Inherited
+@Target注解
 
 
 # 5.注解优势
