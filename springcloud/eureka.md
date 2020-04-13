@@ -59,7 +59,6 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
 ```
-
 ## 结果
 ![img](/static/image/2279594-d830f93f1e56f6a2.png)
 
