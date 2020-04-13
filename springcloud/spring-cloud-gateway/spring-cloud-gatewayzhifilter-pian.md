@@ -149,6 +149,11 @@ spring:
 
 ## 自定义过滤器 {#自定义过滤器}
 
+Spring Cloud Gateway内置了19种强大的过滤器工厂，能够满足很多场景的需求，那么能不能自定义自己的过滤器呢，当然是可以的。在spring Cloud Gateway中，过滤器需要实现GatewayFilter和Ordered2个接口。写一个RequestTimeFilter，代码如下：
+
+  
+
+
 
 
 # 参考
