@@ -282,6 +282,13 @@ public class RequestTimeGatewayFilterFactory extends AbstractGatewayFilterFactor
 
 最后，需要在工程的启动文件Application类中，向Srping Ioc容器注册RequestTimeGatewayFilterFactory类的Bean。
 
+```
+@Bean
+    public RequestTimeGatewayFilterFactory elapsedGatewayFilterFactory() {
+        return new RequestTimeGatewayFilterFactory();
+    }
+```
+
 # 参考
 
 [https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.1.0.M1/single/spring-cloud-gateway.html](https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.1.0.M1/single/spring-cloud-gateway.html)
