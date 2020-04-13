@@ -103,24 +103,6 @@ spring cloud中discovery service有许多种实现（eureka、consul、zookeeper
 
 **如果是其他的注册中心，那么推荐使用@EnableDiscoveryClient。**
 
-
-
-# 4.参考
-
-官网项目地址：[https://github.com/spring-cloud/spring-cloud-netflix/issues/203](https://github.com/spring-cloud/spring-cloud-netflix/issues/203)
-
-[Eureka - Eureka配置列表](https://www.cnblogs.com/tiancai/p/9593648.html)：[https://www.cnblogs.com/tiancai/p/9593648.html](https://www.cnblogs.com/tiancai/p/9593648.html)
-
-[Eureka的自我保护模式、IP选择、健康检查](https://www.cnblogs.com/jinjiyese153/p/8617951.html)：[https://www.cnblogs.com/jinjiyese153/p/8617951.html](https://www.cnblogs.com/jinjiyese153/p/8617951.html)
-
-@EnableEurekaServer注解源码: [https://blog.csdn.net/TP89757/article/details/100877037](https://blog.csdn.net/TP89757/article/details/100877037)
-
-[https://www.jianshu.com/p/1aadc4c85f51](#)
-
-# 
-
-
-
 ## eureka踩坑日志
 
 1.从Eureka注册中心删除服务\(PostMan delete请求\)
@@ -145,6 +127,25 @@ eureka:
 ```
 
 其中获取ip，SpringCloud2.0版本对应的key值为${spring.cloud.clent.ip-address},网上流传大多为${spring.cloud.clent.ipAddress}
+
+
+
+# 4.参考
+
+官网项目地址：[https://github.com/spring-cloud/spring-cloud-netflix/issues/203](https://github.com/spring-cloud/spring-cloud-netflix/issues/203)
+
+[Eureka - Eureka配置列表](https://www.cnblogs.com/tiancai/p/9593648.html)：[https://www.cnblogs.com/tiancai/p/9593648.html](https://www.cnblogs.com/tiancai/p/9593648.html)
+
+[Eureka的自我保护模式、IP选择、健康检查](https://www.cnblogs.com/jinjiyese153/p/8617951.html)：[https://www.cnblogs.com/jinjiyese153/p/8617951.html](https://www.cnblogs.com/jinjiyese153/p/8617951.html)
+
+@EnableEurekaServer注解源码: [https://blog.csdn.net/TP89757/article/details/100877037](https://blog.csdn.net/TP89757/article/details/100877037)
+
+[https://www.jianshu.com/p/1aadc4c85f51](#)
+
+# 
+
+
+
 
 ## 参考:
 
