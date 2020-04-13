@@ -87,6 +87,7 @@ eureka.instance.preferIpAddress=true是通过设置ip让eureka让其他服务注
 
 此时的架构图：
 ![img](/static/image/2279594-a052854a3084fdd6.png)
+Eureka-eserver peer1 8761,Eureka-eserver peer2 8769相互感应，当有服务注册时，两个Eureka-eserver是对等的，它们都存有相同的信息，这就是通过服务器的冗余来增加可靠性，当有一台服务器宕机了，服务并不会终止，因为另一台服务存有相同的数据。
 # 3.总结
 
 # 4.来源
