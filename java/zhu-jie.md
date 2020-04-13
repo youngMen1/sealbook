@@ -634,7 +634,23 @@ public class MyDocumentedTest {
 命令执行完成之后，会在当前目录下生成一个 doc 文件夹，其内包含以下文件。 
 ![img](/static/image/20180325085233066)
 查看 index.html 帮助文档，可以发现在类和方法上都保留了 MyDocumentedtAnnotation 注解信息。 
-![img]()static/image/20180325085330837)
+![img](static/image/20180325085330837)
+修改 MyDocumentedtAnnotation 注解类，去掉上面的 @Documented 注解。 
+
+
+```
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Target;
+ 
+@Target({ElementType.TYPE,ElementType.METHOD})
+public @interface MyDocumentedtAnnotation {
+ 
+	public String value() default "这是@Documented注解为文档添加的注释";
+}
+
+```
+重新生成帮助文档，此时类和方法上的 MyDocumentedtAnnotation 注解信息都不见了。 
+![img](/static/image/20180325085507391)
 
 
 # 5.注解优势
