@@ -651,7 +651,7 @@ public @interface MyDocumentedtAnnotation {
 重新生成帮助文档，此时类和方法上的 MyDocumentedtAnnotation 注解信息都不见了。 
 ![img](/static/image/20180325085507391)
 ### 4.2.4.@Inherited注解
-
+Inherited注解的作用是：使被它修饰的注解具有继承性（如果某个类使用了被@Inherited修饰的注解，则其子类将自动具有该注解）。
 
 # 5.注解优势
 
