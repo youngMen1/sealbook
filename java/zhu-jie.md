@@ -599,6 +599,23 @@ Documented注解的作用是：**描述在使用 javadoc 工具为类生成帮�
 为了验证Documented注解的作用到底是什么，我们创建一个带有 @Documented 的自定义注解类。 
 
 
+```
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Target;
+ 
+@Documented
+@Target({ElementType.TYPE,ElementType.METHOD})
+public @interface MyDocumentedtAnnotation {
+ 
+	public String value() default "这是@Documented注解为文档添加的注释";
+}
+
+
+```
+
+
+
 
 
 
