@@ -436,23 +436,21 @@ example–举例说明
 
 ## 4.1.Annotation\(注解\)
 
-从JDK 1.5开始, Java增加了对元数据\(MetaData\)的支持，也就是 Annotation\(注解\)。 
+从JDK 1.5开始, Java增加了对元数据\(MetaData\)的支持，也就是 Annotation\(注解\)。
 
+注解其实就是代码里的特殊标记，它用于替代配置文件：传统方式通过配置文件告诉类如何运行，有了注解技术后，开发人员可以通过注解告诉类如何运行。在Java技术里注解的典型应用是：可以通过反射技术去得到类里面的注解，以决定怎么去运行类。
 
-
-注解其实就是代码里的特殊标记，它用于替代配置文件：传统方式通过配置文件告诉类如何运行，有了注解技术后，开发人员可以通过注解告诉类如何运行。在Java技术里注解的典型应用是：可以通过反射技术去得到类里面的注解，以决定怎么去运行类。 
-
-
-
-注解可以标记在包、类、属性、方法，方法参数以及局部变量上，且同一个地方可以同时标记多个注解。 
+注解可以标记在包、类、属性、方法，方法参数以及局部变量上，且同一个地方可以同时标记多个注解。
 
 ————————————————
 
 版权声明：本文为CSDN博主「pengjunlee」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
 
-原文链接：https://blog.csdn.net/pengjunlee/article/details/79683621
+原文链接：[https://blog.csdn.net/pengjunlee/article/details/79683621](https://blog.csdn.net/pengjunlee/article/details/79683621)
 
 ## 4.2.meta-annotation（元注解）
+
+\* 注解参数的可支持数据类型：所有基本数据类型（int,float,boolean,byte,double,char,long,short\)String类型Class类型enum类型Annotation类型以上所有类型的数组
 
 # 5.注解优势
 
