@@ -42,6 +42,20 @@ spring:
 
 ## 客户端配置
 
+```
+server:
+  port: 8762
+
+spring:
+  application:
+    name: service-hi
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+```
+
 # 3.总结
 
 # 4.参考
