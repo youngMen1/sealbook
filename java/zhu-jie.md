@@ -452,71 +452,70 @@ example–举例说明
 ## 4.2.meta-annotation（元注解）
 
 * 注解参数的可支持数据类型：  
-所有基本数据类型（int,float,boolean,byte,double,char,long,short\)  
-String类型  
-Class类型  
-enum类型  
-Annotation类型  
-以上所有类型的数组
+  所有基本数据类型（int,float,boolean,byte,double,char,long,short\)  
+  String类型  
+  Class类型  
+  enum类型  
+  Annotation类型  
+  以上所有类型的数组
 
 除了直接使用JDK 定义好的注解，我们还可以自定义注解，在JDK 1.5中提供了4个标准的用来对注解类型进行注解的注解类，我们称之为 meta-annotation（元注解），他们分别是：
 
-  * @Target
+* @Target
 
-  * @Retention
+* @Retention
 
-  * @Documented
+* @Documented
 
-  * @Inherited
+* @Inherited
 
 ### 4.2.1.@Target注解
+
 Target注解的作用是：描述注解的使用范围（即：被修饰的注解可以用在什么地方）。
 
 Target注解用来说明那些被它所注解的注解类可修饰的对象范围：注解可以用于修饰 packages、types（类、接口、枚举、注解类）、类成员（方法、构造方法、成员变量、枚举值）、方法参数和本地变量（如循环变量、catch参数），在定义注解类时使用了@Target 能够更加清晰的知道它能够被用来修饰哪些对象，它的取值范围定义在ElementType 枚举中。
 
 ```
 public enum ElementType {
- 
+
     TYPE, // 类、接口、枚举类
- 
+
     FIELD, // 成员变量（包括：枚举常量）
- 
+
     METHOD, // 成员方法
- 
+
     PARAMETER, // 方法参数
- 
+
     CONSTRUCTOR, // 构造方法
- 
+
     LOCAL_VARIABLE, // 局部变量
- 
+
     ANNOTATION_TYPE, // 注解类
- 
+
     PACKAGE, // 可用于修饰：包
- 
+
     TYPE_PARAMETER, // 类型参数，JDK 1.8 新增
- 
+
     TYPE_USE // 使用类型的任何地方，JDK 1.8 新增
 }
-
 ```
-###4.2.2.@Retention注解
+
+### 4.2.2.@Retention注解
 
 Reteniton注解的作用是：描述注解保留的时间范围（即：被描述的注解在它所修饰的类中可以被保留到何时） 。
 
 Reteniton注解用来限定那些被它所注解的注解类在注解到其他类上以后，可被保留到何时，一共有三种策略，定义在RetentionPolicy枚举中。
 
-
 ```
 public enum RetentionPolicy {
- 
+
     SOURCE,    // 源文件保留
     CLASS,       // 编译期保留，默认值
     RUNTIME   // 运行期保留，可通过反射去获取注解信息
 }
-
 ```
-为了验证应用了这三种策略的注解类有何区别，分别使用三种策略各定义一个注解类做测试。
 
+为了验证应用了这三种策略的注解类有何区别，分别使用三种策略各定义一个注解类做测试。
 
 ```
 @Retention(RetentionPolicy.SOURCE)
@@ -530,23 +529,22 @@ public @interface RuntimePolicy {
 }
 用定义好的三个注解类分别去注解一个方法。
 public class RetentionTest {
-	@SourcePolicy
-	public void sourcePolicy() {
-	}
- 
-	@ClassPolicy
-	public void classPolicy() {
-	}
- 
-	@RuntimePolicy
-	public void runtimePolicy() {
-	}
+    @SourcePolicy
+    public void sourcePolicy() {
+    }
+
+    @ClassPolicy
+    public void classPolicy() {
+    }
+
+    @RuntimePolicy
+    public void runtimePolicy() {
+    }
 }
-
 ```
-![img](/static/image/20180325084649363)
-如图所示，通过执行 javap -verbose RetentionTest命令获取到的RetentionTest 的 class 字节码内容如下。
 
+![img](/static/image/20180325084649363)  
+如图所示，通过执行 javap -verbose RetentionTest命令获取到的RetentionTest 的 class 字节码内容如下。
 
 ```
 {
@@ -589,69 +587,71 @@ public class RetentionTest {
       0: #14()
 }
 ```
-从 RetentionTest 的字节码内容我们可以得出以下两点结论：
-           1. 编译器并没有记录下 sourcePolicy() 方法的注解信息； 
-           2. 编译器分别使用了 RuntimeInvisibleAnnotations 和 RuntimeVisibleAnnotations 属性去记录了classPolicy()方法 和 runtimePolicy()方法 的注解信息；  
+
+从 RetentionTest 的字节码内容我们可以得出以下两点结论：  
+           1. 编译器并没有记录下 sourcePolicy\(\) 方法的注解信息；   
+           2. 编译器分别使用了 RuntimeInvisibleAnnotations 和 RuntimeVisibleAnnotations 属性去记录了classPolicy\(\)方法 和 runtimePolicy\(\)方法 的注解信息；
 
 ### 4.2.3.@Documented注解
+
 Documented注解的作用是：**描述在使用 javadoc 工具为类生成帮助文档时是否要保留其注解信息。**
 
-为了验证Documented注解的作用到底是什么，我们创建一个带有 @Documented 的自定义注解类。 
-
+为了验证Documented注解的作用到底是什么，我们创建一个带有 @Documented 的自定义注解类。
 
 ```
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Target;
- 
+
 @Documented
 @Target({ElementType.TYPE,ElementType.METHOD})
 public @interface MyDocumentedtAnnotation {
- 
-	public String value() default "这是@Documented注解为文档添加的注释";
+
+    public String value() default "这是@Documented注解为文档添加的注释";
 }
-
-
 ```
-再创建一个 MyDocumentedTest 类。  
 
+再创建一个 MyDocumentedTest 类。
 
 ```
 @MyDocumentedtAnnotation
 public class MyDocumentedTest {
- 
-	@Override
-	@MyDocumentedtAnnotation
-	public String toString() {
-		return this.toString();
-	}
+
+    @Override
+    @MyDocumentedtAnnotation
+    public String toString() {
+        return this.toString();
+    }
 }
-
 ```
-接下来，使用以下命令为 MyDocumentedTest 类生成帮助文档。  
-![img](/static/image/20180325085153442)
-命令执行完成之后，会在当前目录下生成一个 doc 文件夹，其内包含以下文件。 
-![img](/static/image/20180325085233066)
-查看 index.html 帮助文档，可以发现在类和方法上都保留了 MyDocumentedtAnnotation 注解信息。 
-![img](/static/image/20180325085330837)
-修改 MyDocumentedtAnnotation 注解类，去掉上面的 @Documented 注解。 
 
+接下来，使用以下命令为 MyDocumentedTest 类生成帮助文档。  
+![img](/static/image/20180325085153442)  
+命令执行完成之后，会在当前目录下生成一个 doc 文件夹，其内包含以下文件。   
+![img](/static/image/20180325085233066)  
+查看 index.html 帮助文档，可以发现在类和方法上都保留了 MyDocumentedtAnnotation 注解信息。   
+![img](/static/image/20180325085330837)  
+修改 MyDocumentedtAnnotation 注解类，去掉上面的 @Documented 注解。
 
 ```
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Target;
- 
+
 @Target({ElementType.TYPE,ElementType.METHOD})
 public @interface MyDocumentedtAnnotation {
- 
-	public String value() default "这是@Documented注解为文档添加的注释";
-}
 
+    public String value() default "这是@Documented注解为文档添加的注释";
+}
 ```
-重新生成帮助文档，此时类和方法上的 MyDocumentedtAnnotation 注解信息都不见了。 
+
+重新生成帮助文档，此时类和方法上的 MyDocumentedtAnnotation 注解信息都不见了。   
 ![img](/static/image/20180325085507391)
+
 ### 4.2.4.@Inherited注解
-Inherited注解的作用是：使被它修饰的注解具有继承性（如果某个类使用了被@Inherited修饰的注解，则其子类将自动具有该注解）。
+
+Inherited注解的作用是：**使被它修饰的注解具有继承性（如果某个类使用了被@Inherited修饰的注解，则其子类将自动具有该注解）。**
+
+接下来我们使用代码来进行测试，首先创建一个被@Inherited修饰的注解类MyInheritedAnnotation。
 
 ```
 import java.lang.annotation.ElementType;
@@ -659,19 +659,17 @@ import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
- 
+
 @Inherited
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface MyInheritedAnnotation {
- 
-	public String name() default "pengjunlee";
+
+    public String name() default "pengjunlee";
 }
 ```
 
-
-
-
+# 
 
 # 5.注解优势
 
