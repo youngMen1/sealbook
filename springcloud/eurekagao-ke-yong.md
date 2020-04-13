@@ -45,7 +45,7 @@ eureka:
 
 windows电脑，在c:/windows/systems/drivers/etc/hosts 修改。
 
-这时需要改造下service-hi:
+这时需要改造下客服端service-hi:
 
 ```
 eureka:
