@@ -589,7 +589,7 @@ public class RetentionTest {
 ```
 
 从 RetentionTest 的字节码内容我们可以得出以下两点结论：  
-           1. 编译器并没有记录下 sourcePolicy\(\) 方法的注解信息；   
+           1. 编译器并没有记录下 sourcePolicy\(\) 方法的注解信息；  
            2. 编译器分别使用了 RuntimeInvisibleAnnotations 和 RuntimeVisibleAnnotations 属性去记录了classPolicy\(\)方法 和 runtimePolicy\(\)方法 的注解信息；
 
 ### 4.2.3.@Documented注解
@@ -627,9 +627,9 @@ public class MyDocumentedTest {
 
 接下来，使用以下命令为 MyDocumentedTest 类生成帮助文档。  
 ![img](/static/image/20180325085153442)  
-命令执行完成之后，会在当前目录下生成一个 doc 文件夹，其内包含以下文件。   
+命令执行完成之后，会在当前目录下生成一个 doc 文件夹，其内包含以下文件。  
 ![img](/static/image/20180325085233066)  
-查看 index.html 帮助文档，可以发现在类和方法上都保留了 MyDocumentedtAnnotation 注解信息。   
+查看 index.html 帮助文档，可以发现在类和方法上都保留了 MyDocumentedtAnnotation 注解信息。  
 ![img](/static/image/20180325085330837)  
 修改 MyDocumentedtAnnotation 注解类，去掉上面的 @Documented 注解。
 
@@ -644,7 +644,7 @@ public @interface MyDocumentedtAnnotation {
 }
 ```
 
-重新生成帮助文档，此时类和方法上的 MyDocumentedtAnnotation 注解信息都不见了。   
+重新生成帮助文档，此时类和方法上的 MyDocumentedtAnnotation 注解信息都不见了。  
 ![img](/static/image/20180325085507391)
 
 ### 4.2.4.@Inherited注解
@@ -669,7 +669,7 @@ public @interface MyInheritedAnnotation {
 }
 ```
 
-# 
+创建一个带有 MyInheritedAnnotation 注解的父类和一个无任何注解的子类。  
 
 # 5.注解优势
 
