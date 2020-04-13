@@ -113,6 +113,8 @@ $ curl -H 'X-Request-Id:1' localhost:8081
 
 # 3.总结
 
+在本篇文章中，首先介绍了Spring Cloud Gateway的工作流程和原理，然后介绍了gateway框架内置的predict及其分类，最后以案例的形式重点讲解了几个重要的Predict。Predict作为断言，它决定了请求会被路由到哪个router 中。在断言之后，请求会被进入到filter过滤器的逻辑，下篇文章将会为大家介绍Spring Cloud Gateway过滤器相关的内容。
+
 # 4.参考资料
 
 [https://www.fangzhipeng.com/springcloud/2018/12/05/sc-f-gateway2.html](https://www.fangzhipeng.com/springcloud/2018/12/05/sc-f-gateway2.html)
