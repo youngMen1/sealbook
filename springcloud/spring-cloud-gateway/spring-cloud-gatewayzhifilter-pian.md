@@ -11,6 +11,7 @@
 ### 1.2.作用
 
 当我们有很多个服务时，比如下图中的user-service、goods-service、sales-service等服务，客户端请求各个服务的Api时，每个服务都需要做相同的事情，比如鉴权、限流、日志输出等。
+![img](/static/image/2279594-1ad11b98829e33e5.png)
 
 
 
