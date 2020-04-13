@@ -49,7 +49,11 @@ cookie类型的CookieRoutePredicateFactory，指定的cookie满足正则匹配�
 
 AfterRoutePredicateFactory，可配置一个时间，当请求的时间在配置时间之后，才交给 router去处理。否则则报错，不通过路由。
 
+在工程的application.yml配置如下：
 
+```
+
+```
 
 # 3.总结
 
