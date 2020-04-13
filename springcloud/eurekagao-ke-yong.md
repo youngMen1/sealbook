@@ -74,7 +74,8 @@ java -jar eureka-server-0.0.1-SNAPSHOT.jar - -spring.profiles.active=peer2
 ```
 java -jar service-hi-0.0.1-SNAPSHOT.jar
 ```
-
+**访问：localhost:8761,如图：**
+![img](/static/image/2279594-659c68e405bd70bd.png)
 # 3.总结
 
 # 4.来源
