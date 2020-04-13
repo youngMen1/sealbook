@@ -548,6 +548,54 @@ public class RetentionTest {
 如图所示，通过执行 javap -verbose RetentionTest命令获取到的RetentionTest 的 class 字节码内容如下。
 
 
+```
+{
+  public retention.RetentionTest();
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 3: 0
+
+  public void sourcePolicy();
+    flags: ACC_PUBLIC
+    Code:
+      stack=0, locals=1, args_size=1
+         0: return
+      LineNumberTable:
+        line 7: 0
+
+  public void classPolicy();
+    flags: ACC_PUBLIC
+    Code:
+      stack=0, locals=1, args_size=1
+         0: return
+      LineNumberTable:
+        line 11: 0
+    RuntimeInvisibleAnnotations:
+      0: #11()
+
+  public void runtimePolicy();
+    flags: ACC_PUBLIC
+    Code:
+      stack=0, locals=1, args_size=1
+         0: return
+      LineNumberTable:
+        line 15: 0
+    RuntimeVisibleAnnotations:
+      0: #14()
+}
+```
+从 RetentionTest 的字节码内容我们可以得出以下两点结论：
+           1. 编译器并没有记录下 sourcePolicy() 方法的注解信息； 
+           2. 编译器分别使用了 RuntimeInvisibleAnnotations 和 RuntimeVisibleAnnotations 属性去记录了classPolicy()方法 和 runtimePolicy()方法 的注解信息；  
+
+### 4.2.3.@Documented注解
+
+
 
 
 
