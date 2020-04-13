@@ -206,6 +206,10 @@ curl localhost:8081/customer/123
 
 在程序的控制台输出一下的请求信息的日志：
 
+```
+2018-11-16 15:02:20.177  INFO 20488 --- [ctor-http-nio-3] o.s.cloud.gateway.filter.GatewayFilter   : /customer/123: 152ms
+```
+
 # 参考
 
 [https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.1.0.M1/single/spring-cloud-gateway.html](https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.1.0.M1/single/spring-cloud-gateway.html)
