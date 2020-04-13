@@ -348,6 +348,10 @@ public class TokenFilter implements GlobalFilter, Ordered {
     }
 }
 ```
+在上面的TokenFilter需要实现GlobalFilter和Ordered接口，这和实现GatewayFilter很类似。然后根据ServerWebExchange获取ServerHttpRequest，然后根据ServerHttpRequest中是否含有参数token，如果没有则完成请求，终止转发，否则执行正常的逻辑。
+
+然后需要将TokenFilter在工程的启动类中注入到Spring Ioc容器中，代码如下：
+
 
 
 
