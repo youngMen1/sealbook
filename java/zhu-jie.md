@@ -789,16 +789,13 @@ name of method
 @Documented
 public @interface Order {
 
-	/**
-	 * 默认是最低优先级,值越小优先级越高
-	 */
-	int value() default Ordered.LOWEST_PRECEDENCE;
+    /**
+     * 默认是最低优先级,值越小优先级越高
+     */
+    int value() default Ordered.LOWEST_PRECEDENCE;
 
 }
-
 ```
-
-
 
 # 7.注解优势
 
@@ -810,7 +807,7 @@ public @interface Order {
 
 4.减少复杂配置文件的同时亦能享受到springIoC容器提供的功能
 
-## 8.参考
+## 8.考
 
 [https://blog.csdn.net/yitian\_66/article/details/80866571](https://blog.csdn.net/yitian_66/article/details/80866571)
 
