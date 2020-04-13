@@ -20,7 +20,7 @@
 
 # 2.怎么使用
 
-## 服务端配置
+## 2.1.服务端配置
 
 **@EnableEurekaServer：服务注册中心\(服务端\)**，这个注解需要在springboot工程的启动application类上加
 
