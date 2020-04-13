@@ -103,6 +103,14 @@ spring:
   profiles: header_route
 ```
 
+在上面的配置中，当请求的Header中有X-Request-Id的header名，且header值为数字时，请求会被路由到配置的 uri. 使用curl执行以下命令:
+
+```
+$ curl -H 'X-Request-Id:1' localhost:8081
+```
+
+执行命令后，会正确的返回请求结果，结果省略。如果在请求中没有带上X-Request-Id的header名，并且值不为数字时，请求就会报404，路由没有被正确转发。
+
 # 3.总结
 
 # 4.参考资料
