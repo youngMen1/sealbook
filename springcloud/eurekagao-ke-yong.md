@@ -59,6 +59,22 @@ spring:
     name: service-hi
 ```
 
+## 启动工程 {#三启动工程}
+
+**启动eureka-server：**
+
+```
+java -jar eureka-server-0.0.1-SNAPSHOT.jar - -spring.profiles.active=peer1
+
+java -jar eureka-server-0.0.1-SNAPSHOT.jar - -spring.profiles.active=peer2
+```
+
+**启动service-hi:**
+
+```
+java -jar service-hi-0.0.1-SNAPSHOT.jar
+```
+
 # 3.总结
 
 # 4.来源
