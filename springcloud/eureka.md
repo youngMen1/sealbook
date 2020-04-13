@@ -129,7 +129,6 @@ eureka:
 其中获取ip，SpringCloud2.0版本对应的key值为${spring.cloud.clent.ip-address},网上流传大多为${spring.cloud.clent.ipAddress}
 
 
-
 # 4.参考
 
 官网项目地址：[https://github.com/spring-cloud/spring-cloud-netflix/issues/203](https://github.com/spring-cloud/spring-cloud-netflix/issues/203)
@@ -142,12 +141,6 @@ eureka:
 
 [https://www.jianshu.com/p/1aadc4c85f51](#)
 
-# 
-
-
-
-
-## 参考:
 
 
 
