@@ -777,11 +777,26 @@ name of method
 
 # 6.Spring注解
 
-### @Order注解的使用
+## @Order注解的使用
 
 @Order注解或者接口Ordered的作用是定义Spring IOC容器中Bean的执行顺序的优先级，而不是定义Bean的加载顺序，Bean的加载顺序不受@Order或Ordered接口的影响
 
+#### 1.@Order的注解源码解读
 
+```
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.TYPE, ElementType.METHOD, ElementType.FIELD})
+@Documented
+public @interface Order {
+
+	/**
+	 * 默认是最低优先级,值越小优先级越高
+	 */
+	int value() default Ordered.LOWEST_PRECEDENCE;
+
+}
+
+```
 
 
 
