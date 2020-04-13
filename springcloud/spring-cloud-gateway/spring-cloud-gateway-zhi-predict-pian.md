@@ -52,7 +52,22 @@ AfterRoutePredicateFactory，可配置一个时间，当请求的时间在配置
 在工程的application.yml配置如下：
 
 ```
+server:
+  port: 8081
+spring:
+  profiles:
+    active: after_route
 
+---
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: after_route
+        uri: http://httpbin.org:80/get
+        predicates:
+        - After=2017-01-20T17:42:47.789-07:00[America/Denver]
+  profiles: after_route
 ```
 
 # 3.总结
