@@ -765,7 +765,7 @@ name of method
 
 # 5.SpringClod常用注解
 
-**@ConfigurationProperties\(prefix = "oss"\)：**  读取yml、properties的配置文件的根节点，并映射成Bean对象
+**@ConfigurationProperties\(prefix = "oss"\)：**  读取yml、properties的配置文件的根节点，并映射成Bean对象
 
 **@Value\("${oss.domain.file}"\)：**单条读取yml、properties的配置文件内容
 
