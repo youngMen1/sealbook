@@ -15,27 +15,33 @@
 
 对于这样重复的工作，有没有办法做的更好，答案是肯定的。在微服务的上一层加一个全局的权限控制、限流、日志输出的Api Gatewat服务，然后再将请求转发到具体的业务服务层。这个Api Gateway服务就是起到一个服务边界的作用，外接的请求访问系统，必须先通过网关层。  
 ![img](/static/image/2279594-8aef2be1eccab3d8.png)
+
 ### 1.3.生命周期
-Spring Cloud Gateway同zuul类似（前置过滤器和后置过滤器），有“pre”和“post”两种方式的filter。客户端的请求先经过“pre”类型的filter，然后将请求转发到具体的业务服务，比如上图中的user-service，收到业务服务的响应之后，再经过“post”类型的filter处理，最后返回响应到客户端。
-![img](/static/image/2279594-16242cf54a5b82e8.png)
+
+Spring Cloud Gateway同zuul类似（前置过滤器和后置过滤器），有“pre”和“post”两种方式的filter。客户端的请求先经过“pre”类型的filter，然后将请求转发到具体的业务服务，比如上图中的user-service，收到业务服务的响应之后，再经过“post”类型的filter处理，最后返回响应到客户端。  
+![img](/static/image/2279594-16242cf54a5b82e8.png)  
 与zuul不同的是，filter除了分为“pre”和“post”两种方式的filter外，在Spring Cloud Gateway中，filter从作用范围可分为另外两种，一种是针对于单个路由的gateway filter，它在配置文件中的写法同predict类似；另外一种是针对于所有路由的global gateway filer。现在从作用范围划分的维度来讲解这两种filter。
 
 # 2.怎么使用
+
 ## gateway filter
+
 过滤器允许以某种方式修改传入的HTTP请求或传出的HTTP响应。过滤器可以限定作用在某些特定请求路径上。 Spring Cloud Gateway包含许多内置的GatewayFilter工厂。
 
-GatewayFilter工厂同上一篇介绍的Predicate工厂类似，都是在配置文件application.yml中配置，遵循了约定大于配置的思想，只需要在配置文件配置GatewayFilter Factory的名称，而不需要写全部的类名，比如AddRequestHeaderGatewayFilterFactory只需要在配置文件中写AddRequestHeader，而不是全部类名。在配置文件中配置的GatewayFilter Factory最终都会相应的过滤器工厂类处理。
-Spring Cloud Gateway 内置的过滤器工厂一览表如下：
-![img](/static/image/2279594-21f95f970275e70f.png)
+GatewayFilter工厂同上一篇介绍的Predicate工厂类似，都是在配置文件application.yml中配置，遵循了约定大于配置的思想，只需要在配置文件配置GatewayFilter Factory的名称，而不需要写全部的类名，比如AddRequestHeaderGatewayFilterFactory只需要在配置文件中写AddRequestHeader，而不是全部类名。在配置文件中配置的GatewayFilter Factory最终都会相应的过滤器工厂类处理。  
+Spring Cloud Gateway 内置的过滤器工厂一览表如下：  
+![img](/static/image/2279594-21f95f970275e70f.png)  
 现在挑几个常见的过滤器工厂来讲解，每一个过滤器工厂在官方文档都给出了详细的使用案例，如果不清楚的还可以在org.springframework.cloud.gateway.filter.factory看每一个过滤器工厂的源码。
 
+### AddRequestHeader GatewayFilter Factory {#addrequestheader-gatewayfilter-factory}
 
 # 参考
-https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.1.0.M1/single/spring-cloud-gateway.html
 
-https://www.jianshu.com/p/eb3a67291050
+[https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.1.0.M1/single/spring-cloud-gateway.html](https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.1.0.M1/single/spring-cloud-gateway.html)
 
-https://blog.csdn.net/qq_36236890/article/details/80822051
+[https://www.jianshu.com/p/eb3a67291050](https://www.jianshu.com/p/eb3a67291050)
 
-https://windmt.com/2018/05/08/spring-cloud-14-spring-cloud-gateway-filter
+[https://blog.csdn.net/qq\_36236890/article/details/80822051](https://blog.csdn.net/qq_36236890/article/details/80822051)
+
+[https://windmt.com/2018/05/08/spring-cloud-14-spring-cloud-gateway-filter](https://windmt.com/2018/05/08/spring-cloud-14-spring-cloud-gateway-filter)
 
