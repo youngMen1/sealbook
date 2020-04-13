@@ -878,13 +878,11 @@ public class CommonBootStrap {
         SpringApplication.run(CommonBootStrap.class, args);
     }
 }
-
 ```
 
-#### 进入run方法
+#### 进入run方法看注释
 
 ```
-
     public ConfigurableApplicationContext run(String... args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
@@ -964,7 +962,6 @@ public class CommonBootStrap {
             throw new IllegalStateException("Failed to execute CommandLineRunner", var4);
         }
     }
-
 ```
 
 到这里优先级类的示例及其执行原理都分析完毕；不过还是要强调下@Order、Ordered不影响类的加载顺序而是影响Bean加载如IOC容器之后执行的顺序（优先级）；
