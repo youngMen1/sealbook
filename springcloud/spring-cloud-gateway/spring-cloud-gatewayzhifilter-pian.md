@@ -17,4 +17,4 @@
 ![img](/static/image/2279594-8aef2be1eccab3d8.png)
 ### 1.3.生命周期
 Spring Cloud Gateway同zuul类似，有“pre”和“post”两种方式的filter。客户端的请求先经过“pre”类型的filter，然后将请求转发到具体的业务服务，比如上图中的user-service，收到业务服务的响应之后，再经过“post”类型的filter处理，最后返回响应到客户端。
-
+![img](/static/image/2279594-16242cf54a5b82e8.png)
