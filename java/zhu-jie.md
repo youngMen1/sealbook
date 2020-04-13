@@ -451,7 +451,7 @@ example–举例说明
 
 ## 4.2.meta-annotation（元注解）
 
-\* 注解参数的可支持数据类型：  
+* 注解参数的可支持数据类型：  
 所有基本数据类型（int,float,boolean,byte,double,char,long,short\)  
 String类型  
 Class类型  
