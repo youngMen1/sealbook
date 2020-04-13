@@ -909,7 +909,7 @@ public class CommonBootStrap {
             }
 
             listeners.started(context);
-            //这里是重点，调用具体的执行方法
+            // 这里是重点，调用具体的执行方法
             this.callRunners(context, applicationArguments);
         } catch (Throwable var10) {
             this.handleRunFailure(context, var10, exceptionReporters, listeners);
@@ -964,7 +964,7 @@ public class CommonBootStrap {
     }
 ```
 
-到这里优先级类的示例及其执行原理都分析完毕；不过还是要强调下@Order、Ordered不影响类的加载顺序而是影响Bean加载如IOC容器之后执行的顺序（优先级）；
+**到这里优先级类的示例及其执行原理都分析完毕；不过还是要强调下@Order、Ordered不影响类的加载顺序而是影响Bean加载如IOC容器之后执行的顺序（优先级）；**
 
 # 7.注解优势
 
