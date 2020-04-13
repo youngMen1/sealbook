@@ -92,8 +92,6 @@ Eureka-eserver peer1 8761,Eureka-eserver peer2 8769相互感应，当有服务�
 
 ## 2.1.注解:
 
-
-
 # 3.总结
 
 ## 3.1.**eureka.instance.preferIpAddress=true是通过设置ip让eureka让其他服务注册它。也许能通过去改变去通过改变host的方式：**
@@ -157,8 +155,6 @@ server:
 logging:
   file: /var/log/hotel-eureka/inf-eureka.log
 ```
-
-## 
 
 # 4.来源
 
