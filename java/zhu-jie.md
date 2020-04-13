@@ -442,15 +442,15 @@ example–举例说明
 
 注解可以标记在包、类、属性、方法，方法参数以及局部变量上，且同一个地方可以同时标记多个注解。
 
-————————————————
-
-版权声明：本文为CSDN博主「pengjunlee」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
-
-原文链接：[https://blog.csdn.net/pengjunlee/article/details/79683621](https://blog.csdn.net/pengjunlee/article/details/79683621)
-
 ## 4.2.meta-annotation（元注解）
 
-\* 注解参数的可支持数据类型：所有基本数据类型（int,float,boolean,byte,double,char,long,short\)String类型Class类型enum类型Annotation类型以上所有类型的数组
+\* 注解参数的可支持数据类型：  
+所有基本数据类型（int,float,boolean,byte,double,char,long,short\)  
+String类型  
+Class类型  
+enum类型  
+Annotation类型  
+以上所有类型的数组
 
 # 5.注解优势
 
