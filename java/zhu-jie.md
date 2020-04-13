@@ -629,7 +629,7 @@ public class MyDocumentedTest {
 
 ```
 接下来，使用以下命令为 MyDocumentedTest 类生成帮助文档。  
-![img](/static/image/20180325085153442)
+![img](/static/image/20180325085153441)
 命令执行完成之后，会在当前目录下生成一个 doc 文件夹，其内包含以下文件。 
 ![img](/static/image/20180325085233066)
 查看 index.html 帮助文档，可以发现在类和方法上都保留了 MyDocumentedtAnnotation 注解信息。 
