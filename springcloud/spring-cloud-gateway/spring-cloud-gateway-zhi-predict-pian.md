@@ -47,5 +47,7 @@ cookie类型的CookieRoutePredicateFactory，指定的cookie满足正则匹配�
 
 # 4.参考资料
 
+**官方文档地址：**http://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.0.0.RELEASE/single/spring-cloud-gateway.html
+
 
 
