@@ -653,6 +653,26 @@ public @interface MyDocumentedtAnnotation {
 ### 4.2.4.@Inherited注解
 Inherited注解的作用是：使被它修饰的注解具有继承性（如果某个类使用了被@Inherited修饰的注解，则其子类将自动具有该注解）。
 
+```
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Inherited;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+ 
+@Inherited
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface MyInheritedAnnotation {
+ 
+	public String name() default "pengjunlee";
+}
+```
+
+
+
+
+
 # 5.注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
