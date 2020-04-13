@@ -93,6 +93,8 @@ spring-boot-starter-actuator（健康监控）配置和使用，在生产环境�
 </dependency>
 ```
 
+# 2.5.注解
+
 # 3.总结
 
 spring cloud中discovery service有许多种实现（eureka、consul、zookeeper等等），@EnableDiscoveryClient基于spring-cloud-commons, @EnableEurekaClient基于spring-cloud-netflix。
