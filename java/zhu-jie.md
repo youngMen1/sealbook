@@ -814,6 +814,31 @@ public interface Ordered {
 
 #### 3.创建BlackPersion、YellowPersion类，这两个类都实现CommandLineRunner
 
+实现CommandLineRunner接口的类会在Spring IOC容器加载完毕后执行，适合预加载类及其它资源；也可以使用ApplicationRunner,使用方法及效果是一样的
+
+```
+package com.yaomy.common.order;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
+
+/**
+ * @Description: Description
+ * @ProjectName: spring-parent
+ * @Version: 1.0
+ */
+@Component
+@Order(1)
+public class BlackPersion implements CommandLineRunner {
+    @Override
+    public void run(String... args) throws Exception {
+        System.out.println("----BlackPersion----");
+    }
+}
+
+```
+
 # 7.注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
