@@ -43,6 +43,22 @@ eureka:
 127.0.0.1 peer2
 ```
 
+windows电脑，在c:/windows/systems/drivers/etc/hosts 修改。
+
+这时需要改造下service-hi:
+
+```
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:8761/eureka/
+server:
+  port: 8762
+spring:
+  application:
+    name: service-hi
+```
+
 # 3.总结
 
 # 4.来源
