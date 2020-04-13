@@ -442,6 +442,13 @@ example–举例说明
 
 注解可以标记在包、类、属性、方法，方法参数以及局部变量上，且同一个地方可以同时标记多个注解。
 
+```
+// 抑制编译期的未指定泛型、未使用和过时警告
+@SuppressWarnings({ "rawtypes", "unused", "deprecation" })
+// 重写
+@Override
+```
+
 ## 4.2.meta-annotation（元注解）
 
 \* 注解参数的可支持数据类型：  
