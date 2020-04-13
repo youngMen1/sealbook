@@ -765,7 +765,7 @@ name of method
 
 # 5.SpringClod常用注解
 
-# 5.注解优势
+# 6.注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
 
@@ -775,7 +775,7 @@ name of method
 
 4.减少复杂配置文件的同时亦能享受到springIoC容器提供的功能
 
-## 6.参考
+## 7.参考
 
 [https://blog.csdn.net/yitian\_66/article/details/80866571](https://blog.csdn.net/yitian_66/article/details/80866571)
 
