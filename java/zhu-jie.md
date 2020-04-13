@@ -765,6 +765,18 @@ name of method
 
 # 5.SpringClod常用注解
 
+**@ConfigurationProperties\(prefix = "oss"\)：**  读取yml、properties的配置文件的根节点，并映射成Bean对象
+
+**@Value\("${oss.domain.file}"\)：**单条读取yml、properties的配置文件内容
+
+**@InitBinder：** 一般用于controller 可以将所以form 讲所有传递进来的string 进行html编码，防止xss攻击，比如可以将字符串类型的日期转换成date类型
+
+**@LoadBalanced：**Spring Cloud的commons模块提供了一个@LoadBalanced注解，方便我们对RestTemplate添加一个LoadBalancerClient，以实现客户端负载均衡。通过源码可以发现这是一个标记注解,我们可以通过ribbon实现客户端的负载均衡功能。
+
+**@RefreshScope：**进行热部署，当配置发生变更的时候可以在不重启应用的前提下完成bean中相关属性的刷新
+
+
+
 # 6.注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
