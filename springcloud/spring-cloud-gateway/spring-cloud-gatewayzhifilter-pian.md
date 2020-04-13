@@ -42,7 +42,6 @@ Spring Cloud Gateway 内置的过滤器工厂一览表如下：
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-starter-gateway</artifactId>
 </dependency>
-
 ```
 
 在工程的配置文件中，加入以下的配置：
@@ -66,8 +65,12 @@ spring:
         predicates:
         - After=2017-01-20T17:42:47.789-07:00[America/Denver]
   profiles: add_request_header_route
-
 ```
+
+在上述的配置中，工程的启动端口为8081，配置文件为add\_request\_header\_route，在add\_request\_header\_route配置中，配置了roter的id为add\_request\_header\_route，路由地址为http://httpbin.org:80/get，该router有AfterPredictFactory，有一个filter为AddRequestHeaderGatewayFilterFactory\(约定写成AddRequestHeader\)，AddRequestHeader过滤器工厂会在请求头加上一对请求头，名称为X-Request-Foo，值为Bar。为了验证AddRequestHeaderGatewayFilterFactory是怎么样工作的，查看它的源码，AddRequestHeaderGatewayFilterFactory的源码如下：
+
+  
+
 
 # 参考
 
