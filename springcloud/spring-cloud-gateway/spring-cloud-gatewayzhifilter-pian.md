@@ -90,6 +90,10 @@ public class AddRequestHeaderGatewayFilterFactory extends AbstractNameValueGatew
 
 启动工程，通过curl命令来模拟请求：
 
+```
+curl localhost:8081
+```
+
 # 参考
 
 [https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.1.0.M1/single/spring-cloud-gateway.html](https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.1.0.M1/single/spring-cloud-gateway.html)
