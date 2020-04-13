@@ -461,13 +461,13 @@ Annotation类型
 
 除了直接使用JDK 定义好的注解，我们还可以自定义注解，在JDK 1.5中提供了4个标准的用来对注解类型进行注解的注解类，我们称之为 meta-annotation（元注解），他们分别是：
 
-  @Target
+  * @Target
 
-  @Retention
+  * @Retention
 
-  @Documented
+  * @Documented
 
-  @Inherited
+  * @Inherited
 
 
 # 5.注解优势
