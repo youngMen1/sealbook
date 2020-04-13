@@ -94,9 +94,35 @@ Eureka-eserver peer1 8761,Eureka-eserver peer2 8769相互感应，当有服务�
 
 **eureka.instance.preferIpAddress=true是通过设置ip让eureka让其他服务注册它。也许能通过去改变去通过改变host的方式：**
 
-dev1:
+**dev1:**
 
+```
+EUREKA_HOST: 172.18.xx.243
+EUREKA_PORT: 22002
+SERVER_PORT: 22001
+spring:
+  application:
+    name: eureka-server-hotel
+eureka:
+  environment: dev
+  server:
+    enable-self-preservation: false
+  instance:
+      hostname: localhost
+      status-page-url: http://${spring.cloud.client.ip-address}:${server.port}/swagger-ui.html
+      prefer-ip-address: true
+      instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+       defaultZone: http://${EUREKA_HOST:localhost}:${EUREKA_PORT:22002}/eureka/
+server:
+  port: ${SERVER_PORT:22001}
 
+logging:
+  file: /var/log/hotel-eureka/inf-eureka.log
+```
 
 # 4.来源
 
