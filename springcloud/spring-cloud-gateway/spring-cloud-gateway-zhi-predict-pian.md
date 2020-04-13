@@ -70,15 +70,17 @@ spring:
   profiles: after_route
 ```
 
-在上面的配置文件中，配置了服务的端口为8081，配置spring.profiles.active:after\_route指定了程序的spring的启动文件为after\_route文件。在application.yml再建一个配置文件，语法是三个横线，在此配置文件中通过spring.profiles来配置文件名，和spring.profiles.active一致，然后配置spring cloud gateway 相关的配置，id标签配置的是router的id，每个router都需要一个唯一的id，uri配置的是将请求路由到哪里，本案例全部路由到http://httpbin.org:80/get。
+在上面的配置文件中，配置了服务的端口为8081，配置spring.profiles.active:after\_route指定了程序的spring的启动文件为after\_route文件。在application.yml再建一个配置文件，语法是三个横线，在此配置文件中通过spring.profiles来配置文件名，和spring.profiles.active一致，然后配置spring cloud gateway 相关的配置，id标签配置的是router的id，每个router都需要一个唯一的id，uri配置的是将请求路由到哪里，本案例全部路由到[http://httpbin.org:80/get。](http://httpbin.org:80/get。)
 
-predicates： After=2017-01-20T17:42:47.789-07:00\[America/Denver\] 会被解析成PredicateDefinition对象 （name =After ，args= 2017-01-20T17:42:47.789-07:00\[America/Denver\]）。在这里需要注意的是predicates的After这个配置，遵循的契约大于配置的思想，它实际被AfterRoutePredicateFactory这个类所处理，这个After就是指定了它的Gateway web handler类为AfterRoutePredicateFactory，同理，其他类型的predicate也遵循这个规则。
+predicates： After=2017-01-20T17:42:47.789-07:00\[America/Denver\] 会被解析成PredicateDefinition对象 （name =After ，args= 2017-01-20T17:42:47.789-07:00\[America/Denver\]）。**在这里需要注意的是predicates的After这个配置，遵循的契约大于配置的思想，它实际被AfterRoutePredicateFactory这个类所处理**，这个After就是指定了它的Gateway web handler类为AfterRoutePredicateFactory，同理，其他类型的predicate也遵循这个规则。
 
-当请求的时间在这个配置的时间之后，请求会被路由到http://httpbin.org:80/get。
+当请求的时间在这个配置的时间之后，请求会被路由到[http://httpbin.org:80/get。](http://httpbin.org:80/get。)
 
-启动工程，在浏览器上访问http://localhost:8081/，会显示http://httpbin.org:80/get返回的结果，此时gateway路由到了配置的uri。如果我们将配置的时间设置到当前时之后，浏览器会显示404，此时证明没有路由到配置的uri.
+启动工程，在浏览器上访问[http://localhost:8081/，会显示http://httpbin.org:80/get返回的结果，此时gateway路由到了配置的uri。如果我们将配置的时间设置到当前时之后，浏览器会显示404，此时证明没有路由到配置的uri](http://localhost:8081/，会显示http://httpbin.org:80/get返回的结果，此时gateway路由到了配置的uri。如果我们将配置的时间设置到当前时之后，浏览器会显示404，此时证明没有路由到配置的uri).
 
 跟时间相关的predicates还有Before Route Predicate Factory、Between Route Predicate Factory，读者可以自行查阅官方文档，再次不再演示。
+
+### Header Route Predicate Factory {#header-route-predicate-factory}
 
 # 3.总结
 
