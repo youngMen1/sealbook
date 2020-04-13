@@ -154,6 +154,10 @@ logging:
   file: /var/log/hotel-eureka/inf-eureka.log
 ```
 
+## 注解
+
+
+
 # 4.来源
 
 [https://www.fangzhipeng.com/springcloud/2018/08/10/sc-f10-eureka.html](https://www.fangzhipeng.com/springcloud/2018/08/10/sc-f10-eureka.html)
