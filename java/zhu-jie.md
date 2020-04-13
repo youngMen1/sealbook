@@ -613,8 +613,24 @@ public @interface MyDocumentedtAnnotation {
 
 
 ```
+再创建一个 MyDocumentedTest 类。  
 
 
+```
+@MyDocumentedtAnnotation
+public class MyDocumentedTest {
+ 
+	@Override
+	@MyDocumentedtAnnotation
+	public String toString() {
+		return this.toString();
+	}
+}
+
+```
+接下来，使用以下命令为 MyDocumentedTest 类生成帮助文档。  
+
+20180325085153442
 
 
 
