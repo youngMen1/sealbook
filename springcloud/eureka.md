@@ -64,30 +64,6 @@ eureka:
 
 ![img](/static/image/2279594-d830f93f1e56f6a2.png)
 
-# 3.总结
-
-spring cloud中discovery service有许多种实现（eureka、consul、zookeeper等等），@EnableDiscoveryClient基于spring-cloud-commons, @EnableEurekaClient基于spring-cloud-netflix。
-
-**其实用更简单的话来说，就是**
-
-**如果选用的注册中心是eureka，那么就推荐@EnableEurekaClient，**
-
-**如果是其他的注册中心，那么推荐使用@EnableDiscoveryClient。**
-
-# 4.参考
-
-官网项目地址：[https://github.com/spring-cloud/spring-cloud-netflix/issues/203](https://github.com/spring-cloud/spring-cloud-netflix/issues/203)
-
-[Eureka - Eureka配置列表](https://www.cnblogs.com/tiancai/p/9593648.html)：[https://www.cnblogs.com/tiancai/p/9593648.html](https://www.cnblogs.com/tiancai/p/9593648.html)
-
-[Eureka的自我保护模式、IP选择、健康检查](https://www.cnblogs.com/jinjiyese153/p/8617951.html)：[https://www.cnblogs.com/jinjiyese153/p/8617951.html](https://www.cnblogs.com/jinjiyese153/p/8617951.html)
-
-@EnableEurekaServer注解源码: [https://blog.csdn.net/TP89757/article/details/100877037](https://blog.csdn.net/TP89757/article/details/100877037)
-
-# 
-
-# SpringBoot 2.0以上
-
 ## eureka健康检查
 
 health 健康检查，修改访问路径  
@@ -114,6 +90,36 @@ management:
   <artifactId>spring-boot-starter-actuator</artifactId>
 </dependency>
 ```
+
+
+
+# 3.总结
+
+spring cloud中discovery service有许多种实现（eureka、consul、zookeeper等等），@EnableDiscoveryClient基于spring-cloud-commons, @EnableEurekaClient基于spring-cloud-netflix。
+
+**其实用更简单的话来说，就是**
+
+**如果选用的注册中心是eureka，那么就推荐@EnableEurekaClient，**
+
+**如果是其他的注册中心，那么推荐使用@EnableDiscoveryClient。**
+
+
+
+# 4.参考
+
+官网项目地址：[https://github.com/spring-cloud/spring-cloud-netflix/issues/203](https://github.com/spring-cloud/spring-cloud-netflix/issues/203)
+
+[Eureka - Eureka配置列表](https://www.cnblogs.com/tiancai/p/9593648.html)：[https://www.cnblogs.com/tiancai/p/9593648.html](https://www.cnblogs.com/tiancai/p/9593648.html)
+
+[Eureka的自我保护模式、IP选择、健康检查](https://www.cnblogs.com/jinjiyese153/p/8617951.html)：[https://www.cnblogs.com/jinjiyese153/p/8617951.html](https://www.cnblogs.com/jinjiyese153/p/8617951.html)
+
+@EnableEurekaServer注解源码: [https://blog.csdn.net/TP89757/article/details/100877037](https://blog.csdn.net/TP89757/article/details/100877037)
+
+[https://www.jianshu.com/p/1aadc4c85f51](#)
+
+# 
+
+
 
 ## eureka踩坑日志
 
@@ -142,5 +148,5 @@ eureka:
 
 ## 参考:
 
-[https://www.jianshu.com/p/1aadc4c85f51](https://www.jianshu.com/p/1aadc4c85f51)
+
 
