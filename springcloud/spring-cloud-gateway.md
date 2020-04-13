@@ -12,5 +12,11 @@ Spring Cloud Gateway是Spring Cloud官方推出的第二代网关框架，取代
 
 **Spring Cloud官方案例地址：** [https://spring.io/guides/gs/gateway/](https://spring.io/guides/gs/gateway/)
 
-**例子：**https://github.com/spring-cloud-samples/spring-cloud-gateway-sample
+**例子：**[https://github.com/spring-cloud-samples/spring-cloud-gateway-sample](https://github.com/spring-cloud-samples/spring-cloud-gateway-sample)
+
+**Spring Cloud Gateway 入门：**https://juejin.im/post/5aa4eacbf265da237a4ca36f
+
+**Spring Cloud Gateway - 快速开始：**https://www.jianshu.com/p/1c942a8abe18
+
+**微服务网关Zuul迁移到Spring Cloud Gateway：**https://juejin.im/post/5ba8daa56fb9a05cfe486ebf
 

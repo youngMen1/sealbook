@@ -44,7 +44,7 @@
     * [Spring Cloud Gateway之Predict篇](springcloud/spring-cloud-gateway/spring-cloud-gateway-zhi-predict-pian.md)
     * [Spring Cloud Gateway之Filter篇](springcloud/spring-cloud-gateway/spring-cloud-gatewayzhifilter-pian.md)
     * [Spring Cloud Gateway之限流篇](springcloud/spring-cloud-gateway/spring-cloud-gateway-zhi-xian-liu-pian.md)
-    * Spring Cloud Gateway之服务注册与发现
+    * [Spring Cloud Gateway之服务注册与发现](springcloud/spring-cloud-gateway/spring-cloud-gatewayzhi-fu-wu-zhu-ce-yu-fa-xian.md)
 * [Mybatis](mybatis.md)
   * [错误](mybatis/cuo-wu.md)
 * [Linux](linux.md)
