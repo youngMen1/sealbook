@@ -21,6 +21,7 @@ Spring Cloud Gateway作为Spring Cloud框架的第二代网关，在功能上要
 Predicate来自于java8的接口。Predicate 接受一个输入参数，返回一个布尔值结果。该接口包含多种默认方法来将Predicate组合成其他复杂的逻辑（比如：与，或，非）。可以用于接口请求参数校验、判断新老数据是否有变化需要进行更新操作。add--与、or--或、negate--非。
 ```
 Spring Cloud Gateway内置了许多Predict,这些Predict的源码在org.springframework.cloud.gateway.handler.predicate包中，如果读者有兴趣可以阅读一下。现在列举各种Predicate如下图：
+![img](/static/image/12191355-7c74ff861a209cd9.png)
 
 # 2.怎么使用
 
