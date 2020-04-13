@@ -810,9 +810,9 @@ public interface Ordered {
 }
 ```
 
+实现CommandLineRunner接口的类会在Spring IOC容器加载完毕后执行，适合预加载类及其它资源；也可以使用ApplicationRunner,使用方法及效果是一样的
+
 #### 3.创建BlackPersion、YellowPersion类，这两个类都实现CommandLineRunner
-
-
 
 # 7.注解优势
 
