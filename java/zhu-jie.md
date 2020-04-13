@@ -797,6 +797,23 @@ public @interface Order {
 }
 ```
 
+#### 2.Ordered接口类
+
+```
+package org.springframework.core;
+
+public interface Ordered {
+    int HIGHEST_PRECEDENCE = -2147483648;
+    int LOWEST_PRECEDENCE = 2147483647;
+
+    int getOrder();
+}
+```
+
+#### 3.创建BlackPersion、YellowPersion类，这两个类都实现CommandLineRunner
+
+
+
 # 7.注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
