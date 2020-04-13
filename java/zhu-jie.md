@@ -858,8 +858,16 @@ public class YellowPersion implements CommandLineRunner {
         System.out.println("----YellowPersion----");
     }
 }
+```
+
+#### 启动应用程序打印出结果
 
 ```
+----YellowPersion----
+----BlackPersion----
+```
+
+我们可以通过调整@Order的值来调整类执行顺序的优先级，即执行的先后；当然也可以将@Order注解更换为Ordered接口，效果是一样的
 
 # 7.注解优势
 
