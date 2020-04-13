@@ -43,6 +43,7 @@
   * [Gateway](springcloud/spring-cloud-gateway.md)
     * [Spring Cloud Gateway 之Predict篇](springcloud/spring-cloud-gateway/spring-cloud-gateway-zhi-predict-pian.md)
     * [Spring Cloud Gateway之Filter篇](springcloud/spring-cloud-gateway/spring-cloud-gatewayzhifilter-pian.md)
+    * Spring Cloud Gateway 之限流篇
 * [Mybatis](mybatis.md)
   * [错误](mybatis/cuo-wu.md)
 * [Linux](linux.md)
