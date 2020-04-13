@@ -669,7 +669,29 @@ public @interface MyInheritedAnnotation {
 }
 ```
 
-创建一个带有 MyInheritedAnnotation 注解的父类和一个无任何注解的子类。  
+创建一个带有 MyInheritedAnnotation 注解的父类和一个无任何注解的子类。
+
+```
+@MyInheritedAnnotation(name="parent")
+public class Parent {
+ 
+}
+
+```
+
+```
+public class Child extends Parent{
+ 
+	public static void main(String[] args) {
+		Class<Child> child=Child.class;
+		MyInheritedAnnotation annotation = child.getAnnotation(MyInheritedAnnotation.class);
+		System.out.println(annotation.name());
+	}
+}
+
+```
+
+运行程序，打印结果如下：  parent
 
 # 5.注解优势
 
