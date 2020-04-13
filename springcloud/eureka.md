@@ -99,6 +99,10 @@ spring-boot-starter-actuator（健康监控）配置和使用，在生产环境�
 
 **@EnableDiscoveryClient：**启用发现客户端加在主类上方
 
+**如果选用的注册中心是eureka，那么就推荐@EnableEurekaClient，**
+
+**如果是其他的注册中心，那么推荐使用@EnableDiscoveryClient。**
+
 # 3.总结
 
 **Spring Cloud中discovery service有许多种实现（eureka、consul、zookeeper等等），@EnableDiscoveryClient基于spring-cloud-commons, @EnableEurekaClient基于spring-cloud-netflix。**
