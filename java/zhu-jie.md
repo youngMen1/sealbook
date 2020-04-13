@@ -651,7 +651,7 @@ public @interface MyDocumentedtAnnotation {
 ```
 重新生成帮助文档，此时类和方法上的 MyDocumentedtAnnotation 注解信息都不见了。 
 ![img](/static/image/20180325085507391)
-### 4.2.3.@Inherited注解
+### 4.2.4.@Inherited注解
 
 
 # 5.注解优势
