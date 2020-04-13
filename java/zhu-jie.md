@@ -474,6 +474,33 @@ Target注解的作用是：描述注解的使用范围（即：被修饰的注�
 
 Target注解用来说明那些被它所注解的注解类可修饰的对象范围：注解可以用于修饰 packages、types（类、接口、枚举、注解类）、类成员（方法、构造方法、成员变量、枚举值）、方法参数和本地变量（如循环变量、catch参数），在定义注解类时使用了@Target 能够更加清晰的知道它能够被用来修饰哪些对象，它的取值范围定义在ElementType 枚举中。
 
+```
+public enum ElementType {
+ 
+    TYPE, // 类、接口、枚举类
+ 
+    FIELD, // 成员变量（包括：枚举常量）
+ 
+    METHOD, // 成员方法
+ 
+    PARAMETER, // 方法参数
+ 
+    CONSTRUCTOR, // 构造方法
+ 
+    LOCAL_VARIABLE, // 局部变量
+ 
+    ANNOTATION_TYPE, // 注解类
+ 
+    PACKAGE, // 可用于修饰：包
+ 
+    TYPE_PARAMETER, // 类型参数，JDK 1.8 新增
+ 
+    TYPE_USE // 使用类型的任何地方，JDK 1.8 新增
+}
+
+```
+
+
 
 
 # 5.注解优势
