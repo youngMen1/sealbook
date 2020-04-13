@@ -83,7 +83,9 @@ management:
     health:
       show-details: always
 ```
-spring-boot-starter-actuator（健康监控）配置和使用
+
+spring-boot-starter-actuator（健康监控）配置和使用，Spring Boot的actuator（健康监控）功能提供了很多监控所需的接口，可以对应用系统进行配置查看、相关功能统计等。
+
 ```
 <dependency>
   <groupId>org.springframework.boot</groupId>
