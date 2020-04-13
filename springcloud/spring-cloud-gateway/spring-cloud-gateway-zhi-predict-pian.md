@@ -29,7 +29,17 @@ Spring Cloud Gateway内置了许多Predict,这些Predict的源码在org.springfr
 
 ![img](/static/image/12191355-7c74ff861a209cd9.png)
 
-在上图中，有很多类型的Predicate,比如说时间类型的Predicated（AfterRoutePredicateFactory BeforeRoutePredicateFactory BetweenRoutePredicateFactory），当只有满足特定时间要求的请求会进入到此predicate中，并交由router处理；cookie类型的CookieRoutePredicateFactory，指定的cookie满足正则匹配，才会进入此router;以及host、method、path、querparam、remoteaddr类型的predicate，每一种predicate都会对当前的客户端请求进行判断，是否满足当前的要求，如果满足则交给当前请求处理。如果有很多个Predicate，并且一个请求满足多个Predicate，则按照配置的顺序第一个生效。
+在上图中，有很多类型的Predicate,比如说
+
+时间类型的Predicated（AfterRoutePredicateFactory BeforeRoutePredicateFactory BetweenRoutePredicateFactory），当只有满足特定时间要求的请求会进入到此predicate中，并交由router处理；
+
+cookie类型的CookieRoutePredicateFactory，指定的cookie满足正则匹配，才会进入此router;
+
+以及host、method、path、querparam、remoteaddr类型的predicate，
+
+每一种predicate都会对当前的客户端请求进行判断，是否满足当前的要求，
+
+如果满足则交给当前请求处理。如果有很多个Predicate，并且一个请求满足多个Predicate，则按照配置的顺序第一个生效。
 
 # 2.怎么使用
 
