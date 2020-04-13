@@ -76,6 +76,12 @@ java -jar service-hi-0.0.1-SNAPSHOT.jar
 ```
 **访问：localhost:8761,如图：**
 ![img](/static/image/2279594-659c68e405bd70bd.png)
+
+你会发现注册了service-hi，并且有个peer2节点，同理访问localhost:8769你会发现有个peer1节点。
+
+client只向8761注册，但是你打开8769，你也会发现，8769也有 client的注册信息。
+
+个人感受：这是通过看官方文档的写的demo ，但是需要手动改host是不是不符合Spring Cloud 的高上大？
 # 3.总结
 
 # 4.来源
