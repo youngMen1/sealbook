@@ -147,7 +147,7 @@ spring:
 
 [比如在网页上请求localhost:8081/foo/forezp/1，页面显示404，就是因为不存在https://blog.csdn.net/forezp/1这个页面。](https://blog.csdn.net。比如在网页上请求localhost:8081/foo/forezp，此时会将请求转发到https://blog.csdn.net/forezp的页面，比如在网页上请求localhost:8081/foo/forezp/1，页面显示404，就是因为不存在https://blog.csdn.net/forezp/1这个页面。)
 
-### 自定义过滤器 {#自定义过滤器}
+## 自定义过滤器 {#自定义过滤器}
 
 # 参考
 
