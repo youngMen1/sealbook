@@ -10,6 +10,7 @@
 * 可以在网关层做权限的判断
 * 可以在网关层做缓存
 Spring Cloud Gateway作为Spring Cloud框架的第二代网关，在功能上要比Zuul更加的强大，性能也更好。随着Spring Cloud的版本迭代，Spring Cloud官方有打算弃用Zuul的意思。在笔者调用了Spring Cloud Gateway的使用和功能上，Spring Cloud Gateway替换掉Zuul的成本上是非常低的，几乎可以无缝切换。Spring Cloud Gateway几乎包含了zuul的所有功能。
+![img](/static/image/spring_cloud_gateway_diagram.png)
 
 # 2.怎么使用
 
