@@ -43,11 +43,13 @@ cookie类型的CookieRoutePredicateFactory，指定的cookie满足正则匹配�
 
 # 2.怎么使用
 
+## 2.1.predicate配置
+
 # 3.总结
 
 # 4.参考资料
 
-**官方文档地址：**http://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.0.0.RELEASE/single/spring-cloud-gateway.html
+https://www.fangzhipeng.com/springcloud/2018/12/05/sc-f-gateway2.html
 
-
+**官方文档地址：**[http://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.0.0.RELEASE/single/spring-cloud-gateway.html](http://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.0.0.RELEASE/single/spring-cloud-gateway.html)
 
