@@ -103,7 +103,7 @@ spring cloud中discovery service有许多种实现（eureka、consul、zookeeper
 
 **如果是其他的注册中心，那么推荐使用@EnableDiscoveryClient。**
 
-## eureka踩坑日志
+## 3.1.eureka踩坑日志
 
 1.从Eureka注册中心删除服务\(PostMan delete请求\)
 
