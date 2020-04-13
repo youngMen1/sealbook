@@ -22,7 +22,7 @@
 
 ## 服务端配置
 
-**@EnableEurekaServer：服务注册中心**，这个注解需要在springboot工程的启动application类上加
+**@EnableEurekaServer：服务注册中心\(服务端\)**，这个注解需要在springboot工程的启动application类上加
 
 ```
 server:
@@ -45,8 +45,6 @@ spring:
 ## 客户端配置
 
 **@EnableEurekaClient：**开启服务客户端
-
-
 
 ```
 server:
