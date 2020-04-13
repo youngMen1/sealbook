@@ -28,6 +28,8 @@
 
 [Eureka - Eureka配置列表](https://www.cnblogs.com/tiancai/p/9593648.html)：[https://www.cnblogs.com/tiancai/p/9593648.html](https://www.cnblogs.com/tiancai/p/9593648.html)
 
+[Eureka的自我保护模式、IP选择、健康检查](https://www.cnblogs.com/jinjiyese153/p/8617951.html)：https://www.cnblogs.com/jinjiyese153/p/8617951.html
+
 # 
 
 # SpringBoot 2.0以上
