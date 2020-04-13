@@ -44,7 +44,7 @@ spring:
 
 ## 客户端配置
 
-**@EnableEurekaClient：**开启客户端,这个注解需要在springboot工程的启动application类上加
+**@EnableEurekaClient：**开启客户端，这个注解需要在springboot工程的启动application类上加
 
 ```
 server:
