@@ -24,9 +24,9 @@
 
 # 4.参考
 
-官网项目地址:[https://github.com/spring-cloud/spring-cloud-netflix/issues/203](https://github.com/spring-cloud/spring-cloud-netflix/issues/203)
+官网项目地址：[https://github.com/spring-cloud/spring-cloud-netflix/issues/203](https://github.com/spring-cloud/spring-cloud-netflix/issues/203)
 
-[Eureka - Eureka配置列表](https://www.cnblogs.com/tiancai/p/9593648.html):https://www.cnblogs.com/tiancai/p/9593648.html
+[Eureka - Eureka配置列表](https://www.cnblogs.com/tiancai/p/9593648.html)：[https://www.cnblogs.com/tiancai/p/9593648.html](https://www.cnblogs.com/tiancai/p/9593648.html)
 
 # 
 
