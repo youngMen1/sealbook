@@ -777,6 +777,12 @@ name of method
 
 # 6.Spring注解
 
+### @Order注解的使用
+
+@Order注解或者接口Ordered的作用是定义Spring IOC容器中Bean的执行顺序的优先级，而不是定义Bean的加载顺序，Bean的加载顺序不受@Order或Ordered接口的影响
+
+
+
 
 
 # 7.注解优势
