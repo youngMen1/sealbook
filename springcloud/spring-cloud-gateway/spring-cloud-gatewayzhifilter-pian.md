@@ -151,6 +151,34 @@ spring:
 
 Spring Cloud Gateway内置了19种强大的过滤器工厂，能够满足很多场景的需求，那么能不能自定义自己的过滤器呢，当然是可以的。在spring Cloud Gateway中，过滤器需要实现GatewayFilter和Ordered2个接口。写一个RequestTimeFilter，代码如下：
 
+```
+public class RequestTimeFilter implements GatewayFilter, Ordered {
+
+    private static final Log log = LogFactory.getLog(GatewayFilter.class);
+    private static final String REQUEST_TIME_BEGIN = "requestTimeBegin";
+
+    @Override
+    public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+
+        exchange.getAttributes().put(REQUEST_TIME_BEGIN, System.currentTimeMillis());
+        return chain.filter(exchange).then(
+                Mono.fromRunnable(() -> {
+                    Long startTime = exchange.getAttribute(REQUEST_TIME_BEGIN);
+                    if (startTime != null) {
+                        log.info(exchange.getRequest().getURI().getRawPath() + ": " + (System.currentTimeMillis() - startTime) + "ms");
+                    }
+                })
+        );
+
+    }
+
+    @Override
+    public int getOrder() {
+        return 0;
+    }
+}
+```
+
 # 参考
 
 [https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.1.0.M1/single/spring-cloud-gateway.html](https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.1.0.M1/single/spring-cloud-gateway.html)
