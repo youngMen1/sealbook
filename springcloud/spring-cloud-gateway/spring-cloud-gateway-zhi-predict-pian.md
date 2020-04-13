@@ -84,7 +84,7 @@ predicates： After=2017-01-20T17:42:47.789-07:00\[America/Denver\] 会被解析
 
 Header Route Predicate Factory需要2个参数，一个是header名，另外一个header值，该值可以是一个正则表达式。当此断言匹配了请求的header名和值时，断言通过，进入到router的规则中去。
 
-配置：
+在工程的配置文件加上以下的配置：：
 
 ```
 spring:
