@@ -67,20 +67,20 @@ spring:
   profiles: add_request_header_route
 ```
 
-在上述的配置中，工程的启动端口为8081，配置文件为add\_request\_header\_route，在add\_request\_header\_route配置中，配置了roter的id为add\_request\_header\_route，路由地址为[http://httpbin.org:80/get，该router有AfterPredictFactory，有一个filter为AddRequestHeaderGatewayFilterFactory\(约定写成AddRequestHeader\)，AddRequestHeader过滤器工厂会在请求头加上一对请求头，名称为X-Request-Foo，值为Bar。为了验证AddRequestHeaderGatewayFilterFactory是怎么样工作的，查看它的源码，AddRequestHeaderGatewayFilterFactory的源码如下：](http://httpbin.org:80/get，该router有AfterPredictFactory，有一个filter为AddRequestHeaderGatewayFilterFactory%28约定写成AddRequestHeader%29，AddRequestHeader过滤器工厂会在请求头加上一对请求头，名称为X-Request-Foo，值为Bar。为了验证AddRequestHeaderGatewayFilterFactory是怎么样工作的，查看它的源码，AddRequestHeaderGatewayFilterFactory的源码如下：)
+在上述的配置中，工程的启动端口为8081，配置文件为add\_request\_header\_route，在add\_request\_header\_route配置中，配置了routes的id为add\_request\_header\_route，路由地址为[http://httpbin.org:80/get，该router有AfterPredictFactory，有一个filter为AddRequestHeaderGatewayFilterFactory\(约定写成AddRequestHeader\)，AddRequestHeader过滤器工厂会在请求头加上一对请求头，名称为X-Request-Foo，值为Bar。为了验证AddRequestHeaderGatewayFilterFactory是怎么样工作的，查看它的源码，AddRequestHeaderGatewayFilterFactory的源码如下：](http://httpbin.org:80/get，该router有AfterPredictFactory，有一个filter为AddRequestHeaderGatewayFilterFactory%28约定写成AddRequestHeader%29，AddRequestHeader过滤器工厂会在请求头加上一对请求头，名称为X-Request-Foo，值为Bar。为了验证AddRequestHeaderGatewayFilterFactory是怎么样工作的，查看它的源码，AddRequestHeaderGatewayFilterFactory的源码如下：)
 
 ```
 public class AddRequestHeaderGatewayFilterFactory extends AbstractNameValueGatewayFilterFactory {
 
-	@Override
-	public GatewayFilter apply(NameValueConfig config) {
-		return (exchange, chain) -> {
-			ServerHttpRequest request = exchange.getRequest().mutate()
-					.header(config.getName(), config.getValue())
-					.build();
+    @Override
+    public GatewayFilter apply(NameValueConfig config) {
+        return (exchange, chain) -> {
+            ServerHttpRequest request = exchange.getRequest().mutate()
+                    .header(config.getName(), config.getValue())
+                    .build();
 
-			return chain.filter(exchange.mutate().request(request).build());
-		};
+            return chain.filter(exchange.mutate().request(request).build());
+        };
     }
 
 }
