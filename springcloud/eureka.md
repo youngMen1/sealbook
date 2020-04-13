@@ -64,7 +64,7 @@ eureka:
 
 ![img](/static/image/2279594-d830f93f1e56f6a2.png)
 
-## eureka健康检查
+## 2.4.eureka健康检查
 
 health 健康检查，修改访问路径  
   2.0 之前默认是/  
