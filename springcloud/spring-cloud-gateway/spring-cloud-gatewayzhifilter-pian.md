@@ -289,6 +289,29 @@ public class RequestTimeGatewayFilterFactory extends AbstractGatewayFilterFactor
     }
 ```
 
+然后可以在配置文件中配置如下：
+
+```
+spring:
+  profiles:
+    active: elapse_route
+
+---
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: elapse_route
+        uri: http://httpbin.org:80/get
+        filters:
+        - RequestTime=false
+        predicates:
+        - After=2017-01-20T17:42:47.789-07:00[America/Denver]
+  profiles: elapse_route
+```
+
+启动工程，在浏览器上访问localhost:8081?name=forezp，可以在控制台上看到，日志输出了请求消耗的时间和请求参数。
+
 # 参考
 
 [https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.1.0.M1/single/spring-cloud-gateway.html](https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.1.0.M1/single/spring-cloud-gateway.html)
