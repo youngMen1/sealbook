@@ -20,6 +20,22 @@ eureka:
       defaultZone: http://peer2:8769/eureka/
 ```
 
+并且创建另外一个配置文件application-peer2.yml：
+
+```
+server:
+  port: 8769
+
+spring:
+  profiles: peer2
+eureka:
+  instance:
+    hostname: peer2
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:8761/eureka/
+```
+
 # 3.总结
 
 # 4.来源
