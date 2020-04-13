@@ -29,3 +29,13 @@ Spring Cloud Gateway 内置的过滤器工厂一览表如下：
 ![img](/static/image/2279594-21f95f970275e70f.png)
 现在挑几个常见的过滤器工厂来讲解，每一个过滤器工厂在官方文档都给出了详细的使用案例，如果不清楚的还可以在org.springframework.cloud.gateway.filter.factory看每一个过滤器工厂的源码。
 
+
+# 参考
+https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.1.0.M1/single/spring-cloud-gateway.html
+
+https://www.jianshu.com/p/eb3a67291050
+
+https://blog.csdn.net/qq_36236890/article/details/80822051
+
+https://windmt.com/2018/05/08/spring-cloud-14-spring-cloud-gateway-filter
+
