@@ -22,7 +22,7 @@ Spring Cloud 已经把 Eureka 集成在其子项目 Spring Cloud Netflix 里面
 # 3.总结
 
 # 4.参考
-
+https://github.com/spring-cloud/spring-cloud-netflix/issues/203
 # 
 
 # 
