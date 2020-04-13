@@ -775,9 +775,11 @@ name of method
 
 **@RefreshScope：**进行热部署，当配置发生变更的时候可以在不重启应用的前提下完成bean中相关属性的刷新
 
+# 6.Spring注解
 
 
-# 6.注解优势
+
+# 7.注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
 
@@ -787,7 +789,7 @@ name of method
 
 4.减少复杂配置文件的同时亦能享受到springIoC容器提供的功能
 
-## 7.参考
+## 8.参考
 
 [https://blog.csdn.net/yitian\_66/article/details/80866571](https://blog.csdn.net/yitian_66/article/details/80866571)
 
