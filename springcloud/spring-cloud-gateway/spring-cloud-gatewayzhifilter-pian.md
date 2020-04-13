@@ -94,6 +94,8 @@ public class AddRequestHeaderGatewayFilterFactory extends AbstractNameValueGatew
 curl localhost:8081
 ```
 
+最终显示了从 http://httpbin.org:80/get得到了请求，响应如下：
+
 # 参考
 
 [https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.1.0.M1/single/spring-cloud-gateway.html](https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.1.0.M1/single/spring-cloud-gateway.html)
