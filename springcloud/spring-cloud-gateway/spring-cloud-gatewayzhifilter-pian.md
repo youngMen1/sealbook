@@ -353,6 +353,28 @@ public class TokenFilter implements GlobalFilter, Ordered {
 然后需要将TokenFilter在工程的启动类中注入到Spring Ioc容器中，代码如下：
 
 
+```
+@Bean
+public TokenFilter tokenFilter(){
+        return new TokenFilter();
+}
+```
+启动工程，使用curl命令请求：
+
+
+```
+ curl localhost:8081/customer/123
+```
+可以看到请没有被转发，请求被终止，并在控制台打印了如下日志：
+
+
+```
+2018-11-16 15:30:13.543  INFO 19372 --- [ctor-http-nio-2] gateway.TokenFilter                      : token is empty...
+```
+上面的日志显示了请求进入了没有传“token”的逻辑。
+
+# 总结
+本篇文章讲述了Spring Cloud Gateway中的过滤器，包括GatewayFilter和GlobalFilter。从官方文档的内置过滤器讲起，然后讲解自定义GatewayFilter、GatewayFilterFactory以及自定义的GlobalFilter。有很多内置的过滤器并没有讲述到，比如限流过滤器，这个我觉得是比较重要和大家关注的过滤器，将在之后的文章讲述。
 
 
 # 参考
