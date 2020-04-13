@@ -43,6 +43,10 @@ spring:
 ## 客户端配置
 
 ```
+@EnableEurekaClient
+```
+
+```
 server:
   port: 8762
 
