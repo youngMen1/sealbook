@@ -631,6 +631,7 @@ public class MyDocumentedTest {
 接下来，使用以下命令为 MyDocumentedTest 类生成帮助文档。  
 
 ![img](/static/image/20180325085153442)
+命令执行完成之后，会在当前目录下生成一个 doc 文件夹，其内包含以下文件。 
 
 
 
