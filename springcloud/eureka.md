@@ -83,7 +83,7 @@ management:
     health:
       show-details: always
 ```
-
+spring-boot-starter-actuator（健康监控）配置和使用
 ```
 <dependency>
   <groupId>org.springframework.boot</groupId>
