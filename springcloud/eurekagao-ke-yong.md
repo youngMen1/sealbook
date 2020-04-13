@@ -86,6 +86,7 @@ client只向8761注册，但是你打开8769，你也会发现，8769也有 clie
 eureka.instance.preferIpAddress=true是通过设置ip让eureka让其他服务注册它。也许能通过去改变去通过改变host的方式。
 
 此时的架构图：
+![img](/static/image/2279594-a052854a3084fdd6.png)
 # 3.总结
 
 # 4.来源
