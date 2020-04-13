@@ -459,6 +459,17 @@ enum类型
 Annotation类型  
 以上所有类型的数组
 
+除了直接使用JDK 定义好的注解，我们还可以自定义注解，在JDK 1.5中提供了4个标准的用来对注解类型进行注解的注解类，我们称之为 meta-annotation（元注解），他们分别是：
+
+  @Target
+
+  @Retention
+
+  @Documented
+
+  @Inherited
+
+
 # 5.注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
