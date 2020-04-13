@@ -36,6 +36,13 @@ eureka:
       defaultZone: http://peer1:8761/eureka/
 ```
 
+**按照官方文档的指示，需要改变etc/hosts，linux系统通过vim /etc/hosts ,加上：**
+
+```
+127.0.0.1 peer1
+127.0.0.1 peer2
+```
+
 # 3.总结
 
 # 4.来源
