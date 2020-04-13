@@ -22,6 +22,8 @@
 
 ## 服务端配置
 
+**@EnableEurekaServer：服务注册中心**，这个注解需要在springboot工程的启动application类上加
+
 ```
 server:
   port: 8761
