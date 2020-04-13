@@ -500,6 +500,9 @@ public enum ElementType {
 ```
 ###4.2.2.@Retention注解
 
+Reteniton注解的作用是：描述注解保留的时间范围（即：被描述的注解在它所修饰的类中可以被保留到何时） 。
+
+Reteniton注解用来限定那些被它所注解的注解类在注解到其他类上以后，可被保留到何时，一共有三种策略，定义在RetentionPolicy枚举中。
 
 
 
