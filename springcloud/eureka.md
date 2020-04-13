@@ -95,9 +95,8 @@ spring-boot-starter-actuator（健康监控）配置和使用，在生产环境�
 
 ## 2.5.注解
 
-**@EnableEurekaServe:**
+**@EnableEurekaServe:**启用eureka服务端 加在主类上方
 
-//启用eureka服务端 加在主类上方
 
  
 
