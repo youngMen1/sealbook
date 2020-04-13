@@ -44,9 +44,9 @@ spring:
 
 ## 客户端配置
 
-```
-@EnableEurekaClient
-```
+**@EnableEurekaClient：**开启服务客户端
+
+
 
 ```
 server:
@@ -72,7 +72,7 @@ eureka:
 
 [Eureka的自我保护模式、IP选择、健康检查](https://www.cnblogs.com/jinjiyese153/p/8617951.html)：[https://www.cnblogs.com/jinjiyese153/p/8617951.html](https://www.cnblogs.com/jinjiyese153/p/8617951.html)
 
-@EnableEurekaServer注解源码: https://blog.csdn.net/TP89757/article/details/100877037
+@EnableEurekaServer注解源码: [https://blog.csdn.net/TP89757/article/details/100877037](https://blog.csdn.net/TP89757/article/details/100877037)
 
 # 
 
