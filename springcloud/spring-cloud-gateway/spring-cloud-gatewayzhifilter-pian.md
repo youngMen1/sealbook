@@ -322,6 +322,8 @@ Spring Cloud Gateway根据作用范围划分为GatewayFilter和GlobalFilter，�
 
 Spring Cloud Gateway框架内置的GlobalFilter如下：
 
+GlobalFilter.png
+
 # 参考
 
 [https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.1.0.M1/single/spring-cloud-gateway.html](https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.1.0.M1/single/spring-cloud-gateway.html)
