@@ -312,6 +312,16 @@ spring:
 
 启动工程，在浏览器上访问localhost:8081?name=forezp，可以在控制台上看到，日志输出了请求消耗的时间和请求参数。
 
+## global filter {#global-filter}
+
+Spring Cloud Gateway根据作用范围划分为GatewayFilter和GlobalFilter，二者区别如下：
+
+* GatewayFilter : 需要通过spring.cloud.routes.filters 配置在具体路由下，只作用在当前路由上或通过spring.cloud.default-filters配置在全局，作用在所有路由上
+
+* GlobalFilter : 全局过滤器，不需要在配置文件中配置，作用在所有的路由上，最终通过GatewayFilterAdapter包装成GatewayFilterChain可识别的过滤器，它为请求业务以及路由的URI转换为真实业务服务的请求地址的核心过滤器，不需要配置，系统初始化时加载，并作用在每个路由上。
+
+Spring Cloud Gateway框架内置的GlobalFilter如下：
+
 # 参考
 
 [https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.1.0.M1/single/spring-cloud-gateway.html](https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.1.0.M1/single/spring-cloud-gateway.html)
