@@ -118,7 +118,6 @@ Cookie Route Predicate Factory需要2个参数，一个时cookie名字，另一�
 在配置文件添加以下配置：
 
 ```
-
 spring:
   profiles:
     active: cookie_route
@@ -134,16 +133,12 @@ spring:
         predicates:
         - Cookie=name, forezp
   profiles: cookie_route
-
-
 ```
 
-在上面的配置中，请求带有cookie名为 name, cookie值为forezp 的请求将都会转发到uri为 http://httpbin.org:80/get的地址上。 使用curl命令进行请求，在请求中带上 cookie，会返回正确的结果，否则，请求报404错误。
+在上面的配置中，请求带有cookie名为 name, cookie值为forezp 的请求将都会转发到uri为 [http://httpbin.org:80/get的地址上。](http://httpbin.org:80/get的地址上。) 使用curl命令进行请求，在请求中带上 cookie，会返回正确的结果，否则，请求报404错误。
 
 ```
 $ curl -H 'Cookie:name=forezp' localhost:8081
-
-
 ```
 
 ### Host Route Predicate Factory {#host-route-predicate-factory}
@@ -153,7 +148,6 @@ Host Route Predicate Factory需要一个参数即hostname，它可以使用. \* 
 在工程的配置文件，加上以下配置：
 
 ```
-
 spring:
   profiles:
     active: host_route
@@ -167,16 +161,12 @@ spring:
         predicates:
         - Host=**.fangzhipeng.com
   profiles: host_route
-
 ```
 
 在上面的配置中，请求头中含有Host为fangzhipeng.com的请求将会被路由转发转发到配置的uri。 启动工程，执行以下的curl命令，请求会返回正确的请求结果：
 
 ```
-
 curl -H 'Host:www.fangzhipeng.com' localhost:8081
-
-
 ```
 
 ### Method Route Predicate Factory {#method-route-predicate-factory}
@@ -184,7 +174,6 @@ curl -H 'Host:www.fangzhipeng.com' localhost:8081
 Method Route Predicate Factory 需要一个参数，即请求的类型。比如GET类型的请求都转发到此路由。在工程的配置文件加上以下的配置：
 
 ```
-
 spring:
   profiles:
     active: method_route
@@ -199,26 +188,18 @@ spring:
         predicates:
         - Method=GET
   profiles: method_route
-
-
-
 ```
 
 在上面的配置中，所有的GET类型的请求都会路由转发到配置的uri。使用 curl命令模拟 get类型的请求，会得到正确的返回结果。
 
 ```
-
 $ curl localhost:8081
-
-
 ```
 
 使用 curl命令模拟 post请求，则返回404结果。
 
 ```
 $ curl -XPOST localhost:8081
-
-
 ```
 
 ### Path Route Predicate Factory {#path-route-predicate-factory}
@@ -228,7 +209,6 @@ Path Route Predicate Factory 需要一个参数: 一个spel表达式，应用匹
 在工程的配置文件application.yml文件中，做以下的配置：
 
 ```
-
 spring:
   profiles:
     active: path_route
@@ -242,8 +222,6 @@ spring:
         predicates:
         - Path=/foo/{segment}
   profiles: path_route
-
-
 ```
 
 在上面的配置中，所有的请求路径满足/foo/{segment}的请求将会匹配并被路由，比如/foo/1 、/foo/bar的请求，将会命中匹配，并成功转发。
@@ -252,8 +230,6 @@ spring:
 
 ```
 $ curl localhost:8081/foo/dew
-
-
 ```
 
 ### Query Route Predicate Factory {#query-route-predicate-factory}
@@ -261,7 +237,6 @@ $ curl localhost:8081/foo/dew
 Query Route Predicate Factory 需要2个参数:一个参数名和一个参数值的正则表达式。在工程的配置文件application.yml做以下的配置：
 
 ```
-
 spring:
   profiles:
     active: query_route
@@ -275,8 +250,6 @@ spring:
         predicates:
         - Query=foo, ba.
   profiles: query_route
-
-
 ```
 
 在上面的配置文件中，配置了请求中含有参数foo，并且foo的值匹配ba.，则请求命中路由，比如一个请求中含有参数名为foo，值的为bar，能够被正确路由转发。
@@ -285,15 +258,11 @@ spring:
 
 ```
 $ curl localhost:8081?foo=bar
-
-
-
 ```
 
-Query Route Predicate Factory也可以只填一个参数，填一个参数时，则只匹配参数名，即请求的参数中含有配置的参数名，则命中路由。比如以下的配置中，配置了请求参数中含有参数名为foo 的参数将会被请求转发到uri为http://httpbin.org:80/get。
+Query Route Predicate Factory也可以只填一个参数，填一个参数时，则只匹配参数名，即请求的参数中含有配置的参数名，则命中路由。比如以下的配置中，配置了请求参数中含有参数名为foo 的参数将会被请求转发到uri为[http://httpbin.org:80/get。](http://httpbin.org:80/get。)
 
 ```
-
 spring:
   cloud:
     gateway:
@@ -303,11 +272,7 @@ spring:
         predicates:
         - Query=foo
   profiles: query_route
-
 ```
-
-  
-
 
 # 3.总结
 
@@ -318,4 +283,10 @@ spring:
 [https://www.fangzhipeng.com/springcloud/2018/12/05/sc-f-gateway2.html](https://www.fangzhipeng.com/springcloud/2018/12/05/sc-f-gateway2.html)
 
 **官方文档地址：**[http://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.0.0.RELEASE/single/spring-cloud-gateway.html](http://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.0.0.RELEASE/single/spring-cloud-gateway.html)
+
+http://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.0.0.RELEASE/single/spring-cloud-gateway.html
+
+https://www.jianshu.com/p/35b60946b8ce
+
+https://www.jianshu.com/p/03d42105f81f
 
