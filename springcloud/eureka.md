@@ -44,7 +44,7 @@ spring:
 
 ## 客户端配置
 
-**@EnableEurekaClient：**开启服务客户端
+**@EnableEurekaClient：**开启客户端
 
 ```
 server:
@@ -59,10 +59,20 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
 ```
+
 ## 结果
+
 ![img](/static/image/2279594-d830f93f1e56f6a2.png)
 
 # 3.总结
+
+spring cloud中discovery service有许多种实现（eureka、consul、zookeeper等等），@EnableDiscoveryClient基于spring-cloud-commons, @EnableEurekaClient基于spring-cloud-netflix。
+
+ 其实用更简单的话来说，就是如果选用的注册中心是eureka，那么就推荐@EnableEurekaClient，如果是其他的注册中心，那么推荐使用@EnableDiscoveryClient。
+
+  
+
+
 
 
 # 4.参考
