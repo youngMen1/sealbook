@@ -44,7 +44,7 @@ spring:
 
 ## 客户端配置
 
-**@EnableEurekaClient：**开启客户端
+**@EnableEurekaClient：**开启客户端,这个注解需要在springboot工程的启动application类上加
 
 ```
 server:
@@ -91,8 +91,6 @@ management:
 </dependency>
 ```
 
-
-
 # 3.总结
 
 spring cloud中discovery service有许多种实现（eureka、consul、zookeeper等等），@EnableDiscoveryClient基于spring-cloud-commons, @EnableEurekaClient基于spring-cloud-netflix。
@@ -128,7 +126,6 @@ eureka:
 
 其中获取ip，SpringCloud2.0版本对应的key值为${spring.cloud.clent.ip-address},网上流传大多为${spring.cloud.clent.ipAddress}
 
-
 # 4.参考
 
 官网项目地址：[https://github.com/spring-cloud/spring-cloud-netflix/issues/203](https://github.com/spring-cloud/spring-cloud-netflix/issues/203)
@@ -140,7 +137,4 @@ eureka:
 @EnableEurekaServer注解源码: [https://blog.csdn.net/TP89757/article/details/100877037](https://blog.csdn.net/TP89757/article/details/100877037)
 
 [https://www.jianshu.com/p/1aadc4c85f51](#)
-
-
-
 
