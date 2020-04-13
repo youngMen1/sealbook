@@ -506,6 +506,19 @@ Reteniton注解的作用是：描述注解保留的时间范围（即：被描�
 Reteniton注解用来限定那些被它所注解的注解类在注解到其他类上以后，可被保留到何时，一共有三种策略，定义在RetentionPolicy枚举中。
 
 
+```
+public enum RetentionPolicy {
+ 
+    SOURCE,    // 源文件保留
+    CLASS,       // 编译期保留，默认值
+    RUNTIME   // 运行期保留，可通过反射去获取注解信息
+}
+
+```
+
+
+
+
 
 # 5.注解优势
 
