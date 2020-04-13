@@ -432,7 +432,9 @@ example–举例说明
 * code： 响应码\(int型\)，可自定义
 * message：状态码对应的响应信息
 
-# 4.注解优势
+# 4.元注解
+
+# 5.注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
 
@@ -442,7 +444,7 @@ example–举例说明
 
 4.减少复杂配置文件的同时亦能享受到springIoC容器提供的功能
 
-## 5.参考
+## 6.参考
 
 [https://blog.csdn.net/yitian\_66/article/details/80866571](https://blog.csdn.net/yitian_66/article/details/80866571)
 
