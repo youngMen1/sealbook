@@ -674,24 +674,96 @@ public @interface MyInheritedAnnotation {
 ```
 @MyInheritedAnnotation(name="parent")
 public class Parent {
- 
-}
 
+}
 ```
 
 ```
 public class Child extends Parent{
+
+    public static void main(String[] args) {
+        Class<Child> child=Child.class;
+        MyInheritedAnnotation annotation = child.getAnnotation(MyInheritedAnnotation.class);
+        System.out.println(annotation.name());
+    }
+}
+```
+
+运行程序，打印结果如下：  parent
+
+### 4.2.5.注解应用举例 {#%E6%B3%A8%E8%A7%A3%E5%BA%94%E7%94%A8%E4%B8%BE%E4%BE%8B}
+
+首先自定义一个注解类。 
+
+```
+package com.pengjunlee;
  
-	public static void main(String[] args) {
-		Class<Child> child=Child.class;
-		MyInheritedAnnotation annotation = child.getAnnotation(MyInheritedAnnotation.class);
-		System.out.println(annotation.name());
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Inherited;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+ 
+@Target({ ElementType.TYPE, ElementType.METHOD })
+@Retention(RetentionPolicy.RUNTIME)
+@Inherited
+public @interface MyAnnotation {
+ 
+	public String name() default "pengjunlee";
+}
+
+```
+
+在 AnnotationTest 中使用反射获取注解信息。  
+
+```
+package com.pengjunlee;
+ 
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
+ 
+@MyAnnotation(name = "name of type")
+public class AnnotationTest {
+ 
+	@MyAnnotation(name = "name of method")
+	public String hello() {
+		return "hello";
+	}
+ 
+	public static void main(String[] args) throws NoSuchMethodException, SecurityException {
+ 
+		Class<AnnotationTest> annotationTest = AnnotationTest.class;
+		// 获取类上的所有注解
+		Annotation[] annotations = annotationTest.getAnnotations();
+		for (Annotation annotation : annotations) {
+			// 获取注解的全类名
+			System.out.println(annotation.annotationType().getName());
+		}
+ 
+		// 获取 hello() 方法
+		Method method = annotationTest.getMethod("hello", new Class[] {});
+ 
+		// hello() 方法上是否有 MyAnnotation 注解
+		if (method.isAnnotationPresent(MyAnnotation.class)) {
+ 
+			// 获得注解
+			MyAnnotation annotation = method.getAnnotation(MyAnnotation.class);
+ 
+			// 获取注解的内容
+			System.out.println(annotation.name());
+ 
+		}
 	}
 }
 
 ```
 
-运行程序，打印结果如下：  parent
+运行程序，打印结果如下：  
+
+```
+com.pengjunlee.MyAnnotation
+name of method
+```
 
 # 5.注解优势
 
