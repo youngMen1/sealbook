@@ -471,9 +471,9 @@ example–举例说明
 
 ### 4.2.1.@Target注解
 
-Target注解的作用是：描述注解的使用范围（即：被修饰的注解可以用在什么地方）。
+@Target注解的作用是：描述注解的使用范围（即：被修饰的注解可以用在什么地方）。
 
-Target注解用来说明那些被它所注解的注解类可修饰的对象范围：注解可以用于修饰 packages、types（类、接口、枚举、注解类）、类成员（方法、构造方法、成员变量、枚举值）、方法参数和本地变量（如循环变量、catch参数），在定义注解类时使用了@Target 能够更加清晰的知道它能够被用来修饰哪些对象，它的取值范围定义在ElementType 枚举中。
+@Target注解用来说明那些被它所注解的注解类可修饰的对象范围：注解可以用于修饰 packages、types（类、接口、枚举、注解类）、类成员（方法、构造方法、成员变量、枚举值）、方法参数和本地变量（如循环变量、catch参数），在定义注解类时使用了@Target 能够更加清晰的知道它能够被用来修饰哪些对象，它的取值范围定义在ElementType 枚举中。
 
 ```
 public enum ElementType {
@@ -502,9 +502,9 @@ public enum ElementType {
 
 ### 4.2.2.@Retention注解
 
-Reteniton注解的作用是：描述注解保留的时间范围（即：被描述的注解在它所修饰的类中可以被保留到何时） 。
+@Reteniton注解的作用是：描述注解保留的时间范围（即：被描述的注解在它所修饰的类中可以被保留到何时） 。
 
-Reteniton注解用来限定那些被它所注解的注解类在注解到其他类上以后，可被保留到何时，一共有三种策略，定义在RetentionPolicy枚举中。
+@Reteniton注解用来限定那些被它所注解的注解类在注解到其他类上以后，可被保留到何时，一共有三种策略，定义在RetentionPolicy枚举中。
 
 ```
 public enum RetentionPolicy {
@@ -596,7 +596,7 @@ public class RetentionTest {
 
 @Documented注解的作用是：**描述在使用 javadoc 工具为类生成帮助文档时是否要保留其注解信息。**
 
-为了验证Documented注解的作用到底是什么，我们创建一个带有 @Documented 的自定义注解类。
+为了验证@Documented注解的作用到底是什么，我们创建一个带有 @Documented 的自定义注解类。
 
 ```
 import java.lang.annotation.Documented;
