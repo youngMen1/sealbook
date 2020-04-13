@@ -515,6 +515,38 @@ public enum RetentionPolicy {
 }
 
 ```
+为了验证应用了这三种策略的注解类有何区别，分别使用三种策略各定义一个注解类做测试。
+
+
+```
+@Retention(RetentionPolicy.SOURCE)
+public @interface SourcePolicy {
+}
+@Retention(RetentionPolicy.CLASS)
+public @interface ClassPolicy {
+}
+@Retention(RetentionPolicy.RUNTIME)
+public @interface RuntimePolicy {
+}
+用定义好的三个注解类分别去注解一个方法。
+public class RetentionTest {
+	@SourcePolicy
+	public void sourcePolicy() {
+	}
+ 
+	@ClassPolicy
+	public void classPolicy() {
+	}
+ 
+	@RuntimePolicy
+	public void runtimePolicy() {
+	}
+}
+
+```
+![img](/static/image/20180325084649363)
+如图所示，通过执行 javap -verbose RetentionTest命令获取到的RetentionTest 的 class 字节码内容如下。
+
 
 
 
