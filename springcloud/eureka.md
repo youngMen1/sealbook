@@ -103,9 +103,9 @@ spring cloud中discovery service有许多种实现（eureka、consul、zookeeper
 
 **如果是其他的注册中心，那么推荐使用@EnableDiscoveryClient。**
 
-## 3.1.eureka踩坑日志
+## 3.1.Eureka踩坑日志
 
-1.从Eureka注册中心删除服务\(PostMan delete请求\)
+**1.从Eureka注册中心删除服务\(PostMan delete请求\)**
 
 [http://:eureka\_center/eureka/apps/:application/:instance](http://:eureka_center/eureka/apps/:application/:instance)
 
@@ -114,7 +114,7 @@ spring cloud中discovery service有许多种实现（eureka、consul、zookeeper
 http://xxx.xx.xx.xxx:xxxxx/eureka/apps/HOTEL-REST/UTECHNO9.utech.com:hotel-rest:xxxx
 ```
 
-2.服务提供者使用主机名注册到eureka改为使用ip注册到eureka
+**2.服务提供者使用主机名注册到eureka改为使用ip注册到eureka**
 
 ```
 eureka:
