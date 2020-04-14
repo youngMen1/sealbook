@@ -4,8 +4,8 @@
   * [日常积累](ri-cheng-ji-lei.md)
   * [书](shu.md)
   * [知识拓展](zhi-shi-tuo-zhan.md)
-    * TensorFlow
-    * keras
+    * [TensorFlow](zhi-shi-tuo-zhan/tensorflow.md)
+    * [keras](zhi-shi-tuo-zhan/keras.md)
 * [IDEA](java.md)
   * [使用帮助](java/shi-yong-bang-zhu.md)
   * [错误](java/cuo-wu.md)
@@ -143,4 +143,5 @@
   * [百度的Disconf](fen-bu-shi-pei-zhi-zhong-xin/bai-du-disconf.md)
   * [携程的Apollo](fen-bu-shi-pei-zhi-zhong-xin/xi-cheng-apollo.md)
   * [分布式配置中心的一般实现思路](fen-bu-shi-pei-zhi-zhong-xin/fen-bu-shi-pei-zhi-zhong-xin-de-yi-ban-shi-xian-si-lu.md)
+* 分布式系统
 
