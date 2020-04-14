@@ -145,7 +145,7 @@
   * [分布式配置中心的一般实现思路](fen-bu-shi-pei-zhi-zhong-xin/fen-bu-shi-pei-zhi-zhong-xin-de-yi-ban-shi-xian-si-lu.md)
 * [分布式系统](fen-bu-shi-xi-tong.md)
   * [分布式系统一致性](fen-bu-shi-xi-tong/fen-bu-shi-xi-tong-yi-zhi-xing.md)
-  * 分布式系统可用性
-  * 性能优化
+  * [分布式系统可用性](fen-bu-shi-xi-tong/fen-bu-shi-xi-tong-ke-yong-xing.md)
+  * [性能优化](fen-bu-shi-xi-tong/xing-neng-you-hua.md)
   * 常用架构模式
 
