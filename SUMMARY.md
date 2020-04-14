@@ -137,6 +137,6 @@
   * [总结](springcloudalibaba/zong-jie.md)
 * [分布式配置中心](fen-bu-shi-pei-zhi-zhong-xin.md)
   * [阿里的Diamond](fen-bu-shi-pei-zhi-zhong-xin/a-lidiamond.md)
-  * 百度Disconf
-  * 携程Apollo
+  * [百度的Disconf](fen-bu-shi-pei-zhi-zhong-xin/bai-du-disconf.md)
+  * [携程的Apollo](fen-bu-shi-pei-zhi-zhong-xin/xi-cheng-apollo.md)
 
