@@ -5,6 +5,7 @@
   * [书](shu.md)
   * [知识拓展](zhi-shi-tuo-zhan.md)
     * TensorFlow
+    * keras
 * [IDEA](java.md)
   * [使用帮助](java/shi-yong-bang-zhu.md)
   * [错误](java/cuo-wu.md)
