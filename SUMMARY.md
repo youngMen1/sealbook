@@ -136,7 +136,7 @@
   * [Sentinel](springcloudalibaba/sentinel.md)
   * [总结](springcloudalibaba/zong-jie.md)
 * [分布式配置中心](fen-bu-shi-pei-zhi-zhong-xin.md)
-  * 阿里Diamond
+  * [阿里的Diamond](fen-bu-shi-pei-zhi-zhong-xin/a-lidiamond.md)
   * 百度Disconf
   * 携程Apollo
 
