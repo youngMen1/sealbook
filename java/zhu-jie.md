@@ -966,6 +966,8 @@ public class CommonBootStrap {
 
 **到这里优先级类的示例及其执行原理都分析完毕；不过还是要强调下@Order、Ordered不影响类的加载顺序而是影响Bean加载如IOC容器之后执行的顺序（优先级）；**
 
+**@PostConstruct：**被@PostConstruct修饰的方法会在服务器加载Servlet的时候运行，并且只会被服务器调用一次，类似于Serclet的inti\(\)方法。被@PostConstruct修饰的方法会在构造函数之后，init\(\)方法之前运行。
+
 # 7.注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
