@@ -143,5 +143,6 @@
   * [百度的Disconf](fen-bu-shi-pei-zhi-zhong-xin/bai-du-disconf.md)
   * [携程的Apollo](fen-bu-shi-pei-zhi-zhong-xin/xi-cheng-apollo.md)
   * [分布式配置中心的一般实现思路](fen-bu-shi-pei-zhi-zhong-xin/fen-bu-shi-pei-zhi-zhong-xin-de-yi-ban-shi-xian-si-lu.md)
-* 分布式系统
+* [分布式系统](fen-bu-shi-xi-tong.md)
+  * 分布式系统一致性
 
