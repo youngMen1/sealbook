@@ -85,6 +85,7 @@
 * [分布式消息中间件](distributedmessagemiddleware.md)
   * [简介](distributedmessagemiddleware/jian-jie.md)
   * [RabbitMq](distributedmessagemiddleware/rabbitmq.md)
+    * Rabbitmq之高级特性——百分百投递消息
   * [metaMq](sealblog/metamq.md)
   * [kafka](sealblog/kafka.md)
   * [activityMq](activitymq.md)
