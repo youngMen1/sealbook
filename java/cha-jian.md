@@ -4,7 +4,7 @@
 | Alibaba Java Coding Guidelines | 阿里规约 |
 | GenerateAllSetter | 自动生成get/set方法 |
 | FindBugs plugin | 规范扫描 |
-| Translation | 翻译插件 |
+| Translation | 翻译插件\(ctrl+shift+y翻译，ctrl+shift+s切换翻译源\) |
 | mavenHelper | maven帮助 |
 | mybatis-log-plugin | sql语句日志\(mybatis log日志\) |
 | grepConsole | onsole输出的日志 |
