@@ -84,7 +84,7 @@
   * [处理概括关系](refactoring/chu-li-gai-kuo-guan-xi.md)
 * [分布式消息中间件](distributedmessagemiddleware.md)
   * [简介](distributedmessagemiddleware/jian-jie.md)
-  * [rabbitMq](distributedmessagemiddleware/rabbitmq.md)
+  * [RabbitMq](distributedmessagemiddleware/rabbitmq.md)
   * [metaMq](sealblog/metamq.md)
   * [kafka](sealblog/kafka.md)
   * [activityMq](activitymq.md)
