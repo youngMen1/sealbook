@@ -154,5 +154,5 @@
   * [分布式事务设计方案](fen-bu-shi-xi-tong/fen-bu-shi-shi-wu-she-ji-fang-an.md)
 * [JVM](jvm.md)
   * JConsole可视化工具使用
-  * Jprofile
+  * [Jprofile使用](jvm/jprofile.md)
 
