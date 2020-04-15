@@ -7,7 +7,7 @@
 | Translation | 翻译插件\(ctrl+shift+y翻译，ctrl+shift+s切换翻译源\) |
 | mavenHelper | maven帮助 |
 | mybatis-log-plugin | sql语句日志\(mybatis log日志\) |
-| grepConsole | onsole输出的日志 |
+| grepConsole | console输出的日志 |
 | gsonFormat | json对象转对象 |
 | ideajad | 反编译工具 |
 | Free-idea-mybatis | 实现功能，点击dao层方法直接跳转到对应xml |
