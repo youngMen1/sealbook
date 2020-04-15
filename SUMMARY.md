@@ -150,9 +150,9 @@
   * [常用架构模式](fen-bu-shi-xi-tong/chang-yong-jia-gou-mo-shi.md)
   * [TCC](fen-bu-shi-xi-tong/tcc.md)
   * [异步消息补偿](fen-bu-shi-xi-tong/yi-bu-xiao-xi-bu-chang.md)
-  * 数据库高并发部署方案
+  * [数据库高并发部署方案](fen-bu-shi-xi-tong/shu-ju-ku-gao-bing-fa-bu-shu-fang-an.md)
   * [分布式事务设计方案](fen-bu-shi-xi-tong/fen-bu-shi-shi-wu-she-ji-fang-an.md)
 * [JVM](jvm.md)
-  * JConsole可视化工具使用
+  * [JConsole可视化工具使用](jvm/jconsoleke-shi-hua-gong-ju-shi-yong.md)
   * [Jprofile使用](jvm/jprofile.md)
 
