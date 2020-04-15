@@ -8,3 +8,5 @@ CAP理论：一个分布式系统最多只能同时满足一致性（Consistency
 
 **Partition Tolerance分区容错性\(分布式必须要考虑的问题）**
 
+
+
