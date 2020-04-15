@@ -149,4 +149,5 @@
   * [性能优化](fen-bu-shi-xi-tong/xing-neng-you-hua.md)
   * 常用架构模式
   * TCC
+  * 异步消息补偿
 
