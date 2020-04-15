@@ -120,7 +120,7 @@ BASE理论是由eBay架构师提出的。BASE是对CAP中一致性和可用性�
 
 既是无法做到强一致性（Strong consistency），但每个应用都可以根据自身的业务特点，采用适当的方式来使系统达到最终一致性（Eventual consistency）
 
-# 2.怎么使用
+# 2.怎么使用\(解决方案\)
 
 # 3.总结
 
