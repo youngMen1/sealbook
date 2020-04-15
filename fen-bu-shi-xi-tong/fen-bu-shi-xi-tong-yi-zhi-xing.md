@@ -116,7 +116,6 @@ A库中写入失败，但是B库中却成功写入。
 https://blog.csdn.net/xinyalong/java/article/details/92796087
 
 分布式系统一致性问题解决实战：
-
 https://www.cnblogs.com/kerwing/p/9098893.html  
 分布式理论: BASE理论   
 [https://www.cnblogs.com/kerwing/p/9098893.html](https://www.cnblogs.com/kerwing/p/9098893.html)
