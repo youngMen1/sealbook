@@ -6,3 +6,5 @@ CAP理论：一个分布式系统最多只能同时满足一致性（Consistency
 
 **Availability 可用性（大型互联网为了服务可用，舍弃强一致性，保证最终一致性）**
 
+Partition Tolerance分区容错性\(分布式必须要考虑的问题）
+
