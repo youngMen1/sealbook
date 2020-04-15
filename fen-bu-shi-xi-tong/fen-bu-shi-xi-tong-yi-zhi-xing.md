@@ -108,6 +108,14 @@ A库中写入失败，但是B库中却成功写入。
 
 BASE理论是由eBay架构师提出的。BASE是对CAP中一致性和可用性权衡的结果，其来源于对大规模互联网分布式系统实践的总结，是基于CAP定律逐步演化而来。其核心思想是即使无法做到强一致性，但每个应用都可以根据自身业务特点，才用适当的方式来使系统打到最终一致性。
 
+**BASE理论的内容：**
+
+基本可用（Basically Available）
+
+软状态（Soft State）
+
+最终一致性（Eventually Consistent）
+
 **核心思想：**
 
 既是无法做到强一致性（Strong consistency），但每个应用都可以根据自身的业务特点，采用适当的方式来使系统达到最终一致性（Eventual consistency）
