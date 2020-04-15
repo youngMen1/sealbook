@@ -152,4 +152,5 @@
   * [异步消息补偿](fen-bu-shi-xi-tong/yi-bu-xiao-xi-bu-chang.md)
   * 数据库高并发部署方案
   * [分布式事务设计方案](fen-bu-shi-xi-tong/fen-bu-shi-shi-wu-she-ji-fang-an.md)
+* JVM
 
