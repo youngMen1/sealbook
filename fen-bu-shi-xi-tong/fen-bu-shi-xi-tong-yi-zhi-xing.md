@@ -110,11 +110,11 @@ BASE理论是由eBay架构师提出的。BASE是对CAP中一致性和可用性�
 
 **BASE理论的内容：**
 
-基本可用（Basically Available）
+* 基本可用（Basically Available）
 
-软状态（Soft State）
+* 软状态（Soft State）
 
-最终一致性（Eventually Consistent）
+* 最终一致性（Eventually Consistent）
 
 **核心思想：**
 
