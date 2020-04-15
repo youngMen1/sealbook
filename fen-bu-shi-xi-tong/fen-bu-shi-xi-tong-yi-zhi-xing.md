@@ -115,4 +115,6 @@ A库中写入失败，但是B库中却成功写入。
 # 4.参考
 
 原文链接：[https://blog.csdn.net/xinyalong/java/article/details/92796087](https://blog.csdn.net/xinyalong/java/article/details/92796087)
+分布式理论: BASE理论 
+https://www.cnblogs.com/kerwing/p/9098893.html
 
