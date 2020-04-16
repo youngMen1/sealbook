@@ -147,15 +147,13 @@ mybatis:
   mapper-locations: classpath:/mapper/*.xml
 ```
 
-2.3.生产者发送消息
+### 2.3.生产者发送消息
 
-2.4.消息是否成功发送到Exchange，消息确认ConfirmCallback
+### 2.4.消息是否成功发送到Exchange，消息确认ConfirmCallback
 
-2.5.消费者消费消息
+### 2.5.消费者消费消息
 
-2.6.**定时任务重新投递发送失败的消息**
-
-
+### 2.6.**定时任务重新投递发送失败的消息**
 
 # 3.总结
 
