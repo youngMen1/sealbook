@@ -1,6 +1,7 @@
 # 1.基本介绍
 ## 消息发送确认，消费确认整体流程图
 ![img](/static/image/RabbitMq消息确认图.jpg)
+
 什么是生产端的可靠性投递？
 保障消息的成功发出
 保障MQ节点的成功接收
@@ -13,10 +14,15 @@
 消息的延迟投递，做二次确认，回调检查
 具体使用哪种要根据业务场景和并发量、数据量大小来决定
 
-作者：若汐缘
-链接：https://www.jianshu.com/p/5f3a5512b25e
-来源：简书
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+
+rabbitmq的高级特性：
+
+　　如何保障消息的百分之百成功？
+
+　　要满足4个条件：生产方发送出去，消费方接受到消息，发送方接收到消费者的确认信息，完善的消费补偿机制
+
+　　解决方案，1）消息落库，进行消息状态打标
 ![img](/static/image/1305004-20180908100016978-1607725171.jpg)
 
 # 2.怎么使用
@@ -24,6 +30,6 @@
 # 3.总结
 
 # 4.参考
-
-[https://blog.csdn.net/zuixiaoyao\_001/article/details/82599115](https://blog.csdn.net/zuixiaoyao_001/article/details/82599115)
+Rabbitmq之高级特性——百分百投递消息：
+https://blog.csdn.net/zuixiaoyao_001/article/details/82599115
 
