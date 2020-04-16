@@ -70,7 +70,7 @@
 
 ## 介绍
 
-MailUtil: 发送邮件工具类
+* MailUtil: 发送邮件工具类
 
 * RabbitConfig: rabbitmq相关配置
 
