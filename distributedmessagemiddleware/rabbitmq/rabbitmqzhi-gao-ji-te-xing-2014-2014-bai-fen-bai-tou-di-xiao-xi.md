@@ -80,11 +80,13 @@
 
 * ResendMsgTask: 定时任务, 重新投递发送失败的消息
 
+
+
 # 3.总结
 
 # 4.参考
 
-源码地址：
+自己的源码地址：
 
 Rabbitmq之高级特性——百分百投递消息：  
 [https://blog.csdn.net/zuixiaoyao\_001/article/details/82599115](https://blog.csdn.net/zuixiaoyao_001/article/details/82599115)
@@ -99,5 +101,5 @@ SpringBoot+RabbitMQ 保证消息100%投递成功实例：
 
 SpringBoot+RabbitMQ ，保证消息100%投递成功并被消费（附源码）:
 
-https://blog.csdn.net/weixin\_38405253/article/details/103740420?depth\_1-utm\_source=distribute.pc\_relevant.none-task-blog-OPENSEARCH-1&utm\_source=distribute.pc\_relevant.none-task-blog-OPENSEARCH-1
+[https://blog.csdn.net/weixin\_38405253/article/details/103740420?depth\_1-utm\_source=distribute.pc\_relevant.none-task-blog-OPENSEARCH-1&utm\_source=distribute.pc\_relevant.none-task-blog-OPENSEARCH-1](https://blog.csdn.net/weixin_38405253/article/details/103740420?depth_1-utm_source=distribute.pc_relevant.none-task-blog-OPENSEARCH-1&utm_source=distribute.pc_relevant.none-task-blog-OPENSEARCH-1)
 
