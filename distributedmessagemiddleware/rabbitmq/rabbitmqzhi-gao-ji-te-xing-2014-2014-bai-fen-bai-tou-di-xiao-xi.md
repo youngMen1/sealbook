@@ -149,6 +149,8 @@ mybatis:
 
 2.3.生产者发送消息
 
+2.4.消息是否成功发送到Exchange，消息确认ConfirmCallback
+
 
 
 # 3.总结
