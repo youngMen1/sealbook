@@ -4,7 +4,7 @@
   rabbitmq:
     username: admin
     password: admin
-    addresses: 172.18.21.219:5672,172.18.21.220:5672,172.18.21.221:5672
+    addresses: 172.18.21.XXX:5672,172.18.21.XXX:5672,172.18.21.XXX:5672
     listener:
       type: simple
       simple:
