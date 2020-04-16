@@ -104,7 +104,7 @@
   rabbitmq:
     username: admin
     password: admin@123
-    addresses: 192.168.1.28:5672
+    addresses: localhost:5672
     listener:
       type: simple
       simple:
