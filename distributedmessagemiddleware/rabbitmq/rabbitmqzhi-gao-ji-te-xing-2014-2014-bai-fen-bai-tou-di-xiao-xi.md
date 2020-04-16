@@ -72,13 +72,13 @@
 
 * MailUtil: 发送邮件工具类
 
-* RabbitConfig: rabbitmq相关配置
+* RabbitMqConfig: rabbitmq相关配置
 
 * TestServiceImpl: 生产者, 发送消息
 
 * MailConsumer: 消费者, 消费消息, 发送邮件
 
-* ResendMsg: 定时任务, 重新投递发送失败的消息
+* ResendMsgTask: 定时任务, 重新投递发送失败的消息
 
 # 3.总结
 
