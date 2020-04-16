@@ -81,5 +81,7 @@ Rabbitmq之高级特性——百分百投递消息：
 
 [https://blog.csdn.net/luoyang\_java/article/details/92797134](https://blog.csdn.net/luoyang_java/article/details/92797134)
 
-https://blog.csdn.net/weixin\_44460333/article/details/103942627
+SpringBoot+RabbitMQ 保证消息100%投递成功实例
+
+[https://blog.csdn.net/weixin\_44460333/article/details/103942627](https://blog.csdn.net/weixin_44460333/article/details/103942627)
 
