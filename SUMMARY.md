@@ -99,7 +99,8 @@
 * [NoSql数据库](nosqlshu-ju-ku.md)
   * [简介](nosqlshu-ju-ku/jian-jie.md)
   * [mongodb](nosqlshu-ju-ku/mongodb.md)
-  * [elasticSearch](elasticsearch.md)
+  * [ElasticSearch](elasticsearch.md)
+    * 相关配置
   * [cassandra](nosqlshu-ju-ku/aa/cassandra.md)
   * [couchDB](nosqlshu-ju-ku/couchdb.md)
   * [redis](nosqlshu-ju-ku/redis.md)
