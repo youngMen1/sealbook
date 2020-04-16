@@ -179,7 +179,7 @@ mybatis:
 
 # 4.参考
 
-自己的源码地址：
+自己的源码地址：https://github.com/youngMen1/springboot-code
 
 Rabbitmq之高级特性——百分百投递消息：  
 [https://blog.csdn.net/zuixiaoyao\_001/article/details/82599115](https://blog.csdn.net/zuixiaoyao_001/article/details/82599115)
