@@ -128,7 +128,7 @@
         max-attempts: 3
         initial-interval: 1000ms #尝试时间间隔
     virtual-host: /
-
+## 说明: password即授权码, username和from要一致
   mail:
     from: fengzhiqiangzxx@163.com
     host: smtp.163.com
@@ -146,6 +146,8 @@
 mybatis:
   mapper-locations: classpath:/mapper/*.xml
 ```
+
+# 
 
 # 3.总结
 
