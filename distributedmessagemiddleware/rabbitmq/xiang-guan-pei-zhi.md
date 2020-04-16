@@ -1,4 +1,4 @@
-# SpringBoot配置
+# SpringBoot配置RabbitMq
 
 ```
   rabbitmq:
