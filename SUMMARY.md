@@ -85,7 +85,7 @@
 * [分布式消息中间件](distributedmessagemiddleware.md)
   * [简介](distributedmessagemiddleware/jian-jie.md)
   * [RabbitMq](distributedmessagemiddleware/rabbitmq.md)
-    * [Rabbitmq之高级特性——百分百投递消息](distributedmessagemiddleware/rabbitmq/rabbitmqzhi-gao-ji-te-xing-2014-2014-bai-fen-bai-tou-di-xiao-xi.md)
+    * [Rabbitmq之高级特性之百分百投递消息](distributedmessagemiddleware/rabbitmq/rabbitmqzhi-gao-ji-te-xing-2014-2014-bai-fen-bai-tou-di-xiao-xi.md)
     * Rabbitmq 之死信队列\(延迟消费消息\)
   * [metaMq](sealblog/metamq.md)
   * [kafka](sealblog/kafka.md)
