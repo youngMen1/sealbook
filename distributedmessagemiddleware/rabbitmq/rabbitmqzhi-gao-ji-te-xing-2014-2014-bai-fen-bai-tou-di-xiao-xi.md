@@ -97,3 +97,7 @@ SpringBoot+RabbitMQ 保证消息100%投递成功实例：
 
 [https://blog.csdn.net/weixin\_44460333/article/details/103942627](https://blog.csdn.net/weixin_44460333/article/details/103942627)
 
+SpringBoot+RabbitMQ ，保证消息100%投递成功并被消费（附源码）:
+
+https://blog.csdn.net/weixin\_38405253/article/details/103740420?depth\_1-utm\_source=distribute.pc\_relevant.none-task-blog-OPENSEARCH-1&utm\_source=distribute.pc\_relevant.none-task-blog-OPENSEARCH-1
+
