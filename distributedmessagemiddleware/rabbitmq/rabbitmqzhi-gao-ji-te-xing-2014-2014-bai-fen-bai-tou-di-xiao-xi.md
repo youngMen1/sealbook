@@ -98,7 +98,7 @@
 
 该授权码就是配置文件spring.mail.password需要的密码
 
-### R**abbitmq、邮箱配置**
+### 2.2.R**abbitmq、邮箱配置**
 
 ```
   rabbitmq:
@@ -147,7 +147,9 @@ mybatis:
   mapper-locations: classpath:/mapper/*.xml
 ```
 
-# 
+2.3.生产者发送消息
+
+
 
 # 3.总结
 
