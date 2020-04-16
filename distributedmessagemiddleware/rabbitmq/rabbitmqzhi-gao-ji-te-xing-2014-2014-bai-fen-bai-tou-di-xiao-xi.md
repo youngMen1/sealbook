@@ -1,5 +1,3 @@
-
-
 # 1.基本介绍
 ## 消息发送确认，消费确认整体流程图
 ![img](/static/image/RabbitMq消息确认图.jpg)
