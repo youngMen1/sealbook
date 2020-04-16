@@ -40,6 +40,10 @@
 
 ### 解决方案一、消息落库，进行消息状态打标 ![img](/static/image/1305004-20180908100016978-1607725171.jpg)
 
+该解决方案需要对对数据库进行两次io操作，如果数据量很大，将会导致瓶颈的发生，
+
+本流程是首先将业务入库，发送消息前，将发送的消息存入数据库消息状态可设置为0，
+
 # 2.怎么使用
 
 # 3.总结
@@ -51,5 +55,5 @@ Rabbitmq之高级特性——百分百投递消息：
 
 如何保障订单服务把消息成功投递给MQ中间件，以RabbitMQ举例：
 
-https://blog.csdn.net/luoyang\_java/article/details/92797134
+[https://blog.csdn.net/luoyang\_java/article/details/92797134](https://blog.csdn.net/luoyang_java/article/details/92797134)
 
