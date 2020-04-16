@@ -182,7 +182,7 @@ autoAck：是否自动ack，如果不自动ack，需要使用channel.ack、chann
 **channel.basicNack\(delivery.getEnvelope\(\).getDeliveryTag\(\), false, true\);**
 
 ```
-// 拒绝
+// 拒绝一条或几条收到的消息。
 channel.basicNack(delivery.getEnvelope().getDeliveryTag(), false, true);
 deliveryTag:该消息的index
 multiple：是否批量.true:将一次性拒绝所有小于deliveryTag的消息。
