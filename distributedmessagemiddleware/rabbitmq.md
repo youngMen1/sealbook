@@ -189,6 +189,8 @@ multiple：是否批量.true:将一次性拒绝所有小于deliveryTag的消息�
 requeue：被拒绝的是否重新入队列
 ```
 
+## Ack确认机制.jpg
+
 ## 注意:
 
 #### 发送不起作用:
@@ -201,7 +203,7 @@ requeue：被拒绝的是否重新入队列
 
 [https://www.rabbitmq.com/tutorials/tutorial-one-python.html](https://www.rabbitmq.com/tutorials/tutorial-one-python.html)
 
-rabbitmq channel参数详解：https://www.cnblogs.com/Jeely/p/10784172.html
+rabbitmq channel参数详解：[https://www.cnblogs.com/Jeely/p/10784172.html](https://www.cnblogs.com/Jeely/p/10784172.html)
 
 [https://blog.csdn.net/qq\_38762237/article/details/89433506](https://blog.csdn.net/qq_38762237/article/details/89433506)
 
