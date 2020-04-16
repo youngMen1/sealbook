@@ -56,7 +56,7 @@
 
 ### 解决方案二、延迟投递，二次确认，回调检查
 
-rabbitmq延迟投递.jpg
+![img](/static/image/rabbitmq延迟投递.jpg)
 
 # 2.怎么使用
 
