@@ -100,7 +100,7 @@
   * [简介](nosqlshu-ju-ku/jian-jie.md)
   * [mongodb](nosqlshu-ju-ku/mongodb.md)
   * [ElasticSearch](elasticsearch.md)
-    * 相关配置
+    * [相关配置](elasticsearch/xiang-guan-pei-zhi.md)
   * [cassandra](nosqlshu-ju-ku/aa/cassandra.md)
   * [couchDB](nosqlshu-ju-ku/couchdb.md)
   * [redis](nosqlshu-ju-ku/redis.md)
