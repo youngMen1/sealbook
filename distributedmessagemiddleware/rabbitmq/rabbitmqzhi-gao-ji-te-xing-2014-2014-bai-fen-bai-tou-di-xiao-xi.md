@@ -49,3 +49,5 @@
 Rabbitmq之高级特性——百分百投递消息：  
 [https://blog.csdn.net/zuixiaoyao\_001/article/details/82599115](https://blog.csdn.net/zuixiaoyao_001/article/details/82599115)
 
+如何保障订单服务把消息成功投递给MQ中间件，以RabbitMQ举例
+
