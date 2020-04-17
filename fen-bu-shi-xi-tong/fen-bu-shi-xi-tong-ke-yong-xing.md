@@ -110,9 +110,7 @@
 20170426214940585.jpg
 zookeeper服务器集群中的服务器有三种角色：1）Learder服务所有客户端的写请求，并同步变更到Follower和Observer角色的服务器上。其与过半的Follower保持数据的强一致 2）Follower作为Leader服务器的数据备份，其提供Client对于数据的读请求，同时参与Leader的选举过程和过半写成功策略。 3）Observer角色，其同样作为Leader的数据备份，并处理客户端的数据读取请求。 
 ZAB协议-消息广播：消息广播与二阶段协议的最大区别就是，二阶段协议有中断操作或者事务回滚 
-————————————————
-版权声明：本文为CSDN博主「CWeeYii」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/CWeeYii/article/details/70233933
+
 
 # 3.参考
 
