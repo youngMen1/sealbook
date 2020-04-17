@@ -170,6 +170,19 @@ key被随机删除部分
 
 测试代码
 
-  
+```
+@Test
+public void volatileTtlTest() {
+    //flush db
+    redisTemplate.delete(redisTemplate.keys("*"));
+    //1k
+    byte[] bytes = new byte[1024];
+    for (int i = 0; i < 1000; i++) {
+        redisTemplate.opsForValue().set(String.valueOf(i), bytes, i + 1, TimeUnit.MINUTES);
+        System.out.println(i);
+    }
+}
+```
+
 
 
