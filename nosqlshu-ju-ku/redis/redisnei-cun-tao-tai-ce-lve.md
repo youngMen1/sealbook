@@ -168,7 +168,7 @@ key被随机删除部分
 
 8、volatile-ttl，按expire删除key，越早过期的越快删除
 
-测试代码
+**测试代码：**
 
 ```
 @Test
