@@ -107,7 +107,7 @@
 
 ### 2.1.5.ZAB(ZooKeeper Atomic Broadcast) 协议
 **ZAB协议又叫原子广播协议，其类似于二段提交协议，其作为ZooKeeper一致性的核心算法。 **
-
+20170426214940585.jpg
 
 # 3.参考
 
