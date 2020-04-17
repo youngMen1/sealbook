@@ -112,5 +112,9 @@ public void volatileTest() {
 }
 ```
 
+该测试结果是i为前100设置了expire的key被删除了部分，使用volatile-lru重新执行noevicationTest方法，内存不足时也会抛出异常
 
+3、allkeys-lru，使用LRU算法（最近最少使用）删除key
+
+测试代码
 
