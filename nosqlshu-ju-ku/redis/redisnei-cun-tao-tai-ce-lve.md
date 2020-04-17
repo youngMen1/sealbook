@@ -51,3 +51,11 @@ docker run -d -v /usr/local/etc/redis/redis.conf:/usr/local/etc/redis/redis.conf
 
 将redis最大内存调整为1m，修改redis.conf
 
+```
+	
+maxmemory 1048576
+
+```
+
+
+
