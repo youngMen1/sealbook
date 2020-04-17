@@ -6,3 +6,11 @@
 
 首先使用Docker启动redis
 
+```
+	
+docker run -d -v /usr/local/etc/redis/redis.conf:/usr/local/etc/redis/redis.conf -p 6379:6379 --name redis redis redis-server /usr/local/etc/redis/redis.conf
+
+```
+
+
+
