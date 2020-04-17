@@ -8,11 +8,13 @@
 2. 消息超期 \(rabbitmq  Time-To-Live -&gt;messageProperties.setExpiration\(\)\) 
 3. 队列超载
 
-**变成了 “死信” 后    被重新投递（publish）到另一个Exchange   该Exchange 就是DLX     然后该Exchange 根据绑定规则 转发到对应的 队列上  监听该队列就可以重新消费说白了就是没有被消费的消息换个地方重新被消费**
+**变成了 “死信” 后    被重新投递（publish）到另一个Exchange   该Exchange 就是DLX 然后该Exchange 根据绑定规则 转发到对应的 队列上  监听该队列就可以重新消费说白了就是没有被消费的消息换个地方重新被消费**
 
 **生产者--&gt;消息 --&gt;交换机--&gt;队列  --&gt;变成死信--&gt;DLX交换机--&gt;队列--&gt;消费者**
 
 # 2.怎么使用
+
+
 
 # 3.总结
 
