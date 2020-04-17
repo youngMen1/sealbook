@@ -6,7 +6,7 @@ BASE：全称：Basically Available\(基本可用\)，Soft state（软状态）,
 
 ## 1.1.**Base 理论是对 CAP 中一致性和可用性权衡的结果，其来源于对大型互联网分布式实践的总结，是基于 CAP 定理逐步演化而来的。其核心思想是：**
 
-Basically Available\(基本可用\)
+## Basically Available\(基本可用\)
 
 什么是基本可用呢？假设系统，出现了不可预知的故障，但还是能用，相比较正常的系统而言：
 
