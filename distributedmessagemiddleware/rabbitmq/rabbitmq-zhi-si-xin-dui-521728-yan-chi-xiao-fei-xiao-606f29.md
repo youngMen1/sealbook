@@ -115,8 +115,8 @@ redirectBinding\(\) 我们需要给标识的交换机  以及对其指定的rout
         rabbitMqService.sendMessage(user);
         return ServerResponse.success();
     }
-    
-    
+
+
     public void sendMessage(User user) {
         CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
         /**
@@ -136,6 +136,8 @@ redirectBinding\(\) 我们需要给标识的交换机  以及对其指定的rout
         rabbitTemplate.convertAndSend("DL_EXCHANGE", "DL_KEY", JsonUtil.objToStr(user), messagePostProcessor, correlationData);
     }
 ```
+
+# 微信截图\_20200417113502.png
 
 # 3.总结
 
