@@ -16,5 +16,7 @@ BASE：全称：Basically Available\(基本可用\)，Soft state（软状态）,
 
 ## Soft state（软状态） {#3-soft-state（软状态）}
 
+## Eventually consistent（最终一致性）
+
 
 
