@@ -104,7 +104,7 @@
   * [cassandra](nosqlshu-ju-ku/aa/cassandra.md)
   * [couchDB](nosqlshu-ju-ku/couchdb.md)
   * [Redis](nosqlshu-ju-ku/redis.md)
-    * Redis内存淘汰策略
+    * [Redis内存淘汰策略](nosqlshu-ju-ku/redis/redisnei-cun-tao-tai-ce-lve.md)
   * [riak](nosqlshu-ju-ku/riak.md)
   * [membase](nosqlshu-ju-ku/membase.md)
   * [neo4j](nosqlshu-ju-ku/neo4j.md)
