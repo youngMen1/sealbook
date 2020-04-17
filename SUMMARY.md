@@ -103,7 +103,7 @@
     * [相关配置](elasticsearch/xiang-guan-pei-zhi.md)
   * [cassandra](nosqlshu-ju-ku/aa/cassandra.md)
   * [couchDB](nosqlshu-ju-ku/couchdb.md)
-  * [redis](nosqlshu-ju-ku/redis.md)
+  * [Redis](nosqlshu-ju-ku/redis.md)
   * [riak](nosqlshu-ju-ku/riak.md)
   * [membase](nosqlshu-ju-ku/membase.md)
   * [neo4j](nosqlshu-ju-ku/neo4j.md)
