@@ -141,6 +141,8 @@ PS:可以发现Leader和过半写成功Follower服务器数据是强一致的，
 * **同步流程：**在选择出准Leader服务器进程后，需要使得所有Follower同准Leader进程保持数据的一致性。因此准Leader会为每一个Follower服务器准备一个队列，并将那些Follower没有同步的Proposal事务发送到Follower服务器，并紧接着发送一个Commit消息，要求Follower服务器提交事务。当所有的未同步事务都提交Follower本地数据库后，将该Follower加入到Leader的Follower列表中。对于那些没有在Leader服务器上提交的P事务，由于恢复的机器（以前是Leader）的最大ZXID的事务周期小于现阶段Leader(刚崩溃的Leader)的事务ZXID，那么该恢复机器不可能成为新的Leader。在同步准Leader的事务过程中，发现有一个事务在准Leader中不具有，因此要求改服务器回退事务。当有过半的Follower同Leader服务器保持数据的强一致性后，该Leader服务器可以进行消息广播流程。
 * **广播流程：**广播流程同上面的消息广播流程的二段提交协议。
 
+### 2.1.6.AP类型分布式系统
+
 
 # 3.参考
 
