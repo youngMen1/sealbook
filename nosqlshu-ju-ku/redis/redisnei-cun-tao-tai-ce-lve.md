@@ -57,3 +57,10 @@ maxmemory 1048576
 
 修改内存淘汰策略
 
+```
+maxmemory-policy noeviction
+
+```
+
+
+
