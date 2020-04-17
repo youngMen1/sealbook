@@ -122,7 +122,7 @@ Leader接收到过半Follower的ACK消息，则向服务器发送Commit消息，
 
 PS:可以发现Leader和过半写成功Follower服务器数据是强一致的，然而一部分延迟的Follower和Observer与Leader数据不是强一致的，但是Zookeeper提供了sync操作（异步操作），所有的读请求都需要等待sync消息完成后，才会进行读取数据并返回结果。
 
-优点：只需要过半Follower服务器写成功则整个ZooKeeper服务器的写操作完成，不需要等待所有的Follower服务都写成功了才完成写请求。因此提高了写请求的吞吐量。过半写成功保证了在崩溃恢复过程中能够快速的找到一个新的Leader并保持数据的一致性。
+**优点：**只需要过半Follower服务器写成功则整个ZooKeeper服务器的写操作完成，不需要等待所有的Follower服务都写成功了才完成写请求。因此提高了写请求的吞吐量。过半写成功保证了在崩溃恢复过程中能够快速的找到一个新的Leader并保持数据的一致性。
 
 **ZAB协议-崩溃恢复：当Leader服务器与过半的Follower服务器失去联系或者Leader服务器宕机，则整个ZooKeeper集群进入崩溃恢复过程。 **
 
