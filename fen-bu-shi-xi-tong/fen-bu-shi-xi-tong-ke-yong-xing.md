@@ -108,7 +108,7 @@
 ### 2.1.5.ZAB(ZooKeeper Atomic Broadcast) 协议
 **ZAB协议又叫原子广播协议，其类似于二段提交协议，其作为ZooKeeper一致性的核心算法。 **
 ![img](/static/image/20170426214940585.jpg)
-zookeeper服务器集群中的服务器有三种角色：
+**zookeeper服务器集群中的服务器有三种角色：**
 * 1.Learder服务所有客户端的写请求，并同步变更到Follower和Observer角色的服务器上。其与过半的Follower保持数据的强一致 
 * 2.Follower作为Leader服务器的数据备份，其提供Client对于数据的读请求，同时参与Leader的选举过程和过半写成功策略。 
 * 3.Observer角色，其同样作为Leader的数据备份，并处理客户端的数据读取请求。 
