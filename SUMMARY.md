@@ -157,7 +157,7 @@
   * [异步消息补偿](fen-bu-shi-xi-tong/yi-bu-xiao-xi-bu-chang.md)
   * [数据库高并发部署方案](fen-bu-shi-xi-tong/shu-ju-ku-gao-bing-fa-bu-shu-fang-an.md)
   * [分布式事务设计方案](fen-bu-shi-xi-tong/fen-bu-shi-shi-wu-she-ji-fang-an.md)
-  * 分布式理论\(BASE理论\)
+  * [分布式理论\(BASE理论\)](fen-bu-shi-xi-tong/fen-bu-shi-li-8bba28-base-li-8bba29.md)
 * [JVM](jvm.md)
   * [JConsole可视化工具使用](jvm/jconsoleke-shi-hua-gong-ju-shi-yong.md)
   * [Jprofile使用](jvm/jprofile.md)
