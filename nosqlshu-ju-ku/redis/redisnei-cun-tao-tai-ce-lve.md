@@ -65,3 +65,25 @@ maxmemory-policy noeviction
 
 测试代码
 
+```
+@Test
+public void noevicationTest() {
+    //flush db
+    redisTemplate.delete(redisTemplate.keys("*"));
+    //1k
+    byte[] bytes = new byte[1024];
+    int i = 0;
+    while (true) {
+        try {
+            redisTemplate.opsForValue().set(String.valueOf(i), bytes);
+            System.out.println(i++);
+        } catch (Exception e) {
+            e.printStackTrace();
+            break;
+        }
+    }
+}
+```
+
+
+
