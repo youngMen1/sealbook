@@ -116,9 +116,9 @@
 **ZAB协议-消息广播：**消息广播与二阶段协议的最大区别就是，二阶段协议有中断操作或者事务回滚 
 
 ![img](/static/image/20170426215847909.jpg)
-客户端的写请求都会被转发Leader服务器上，其将写请求以Propose事务请求发送到所有的Follower角色服务器，并等待Follower的反馈。
-Follower服务器接收到事务请求，根据事务内容进行执行，并以事务日志的形式（参考数据库的redo和undo事务日志）记录到磁盘，如果事务操作能够正常执行，并且成功记录事务日志后，会向Leader服务器发送ACK消息。如果失败，该Follower则抛弃Leader服务器。
-Leader接收到过半Follower的ACK消息，则向服务器发送Commit消息，Follower接收到Commit消息后，提交事务，完成整个事务。注意：Leader在发送commit消息前以及提交自己的写请求操作。
+* 1.客户端的写请求都会被转发Leader服务器上，其将写请求以Propose事务请求发送到所有的Follower角色服务器，并等待Follower的反馈。
+* 2.Follower服务器接收到事务请求，根据事务内容进行执行，并以事务日志的形式（参考数据库的redo和undo事务日志）记录到磁盘，如果事务操作能够正常执行，并且成功记录事务日志后，会向Leader服务器发送ACK消息。如果失败，该Follower则抛弃Leader服务器。
+* 3.Leader接收到过半Follower的ACK消息，则向服务器发送Commit消息，Follower接收到Commit消息后，提交事务，完成整个事务。注意：Leader在发送commit消息前以及提交自己的写请求操作。
 
 PS:可以发现Leader和过半写成功Follower服务器数据是强一致的，然而一部分延迟的Follower和Observer与Leader数据不是强一致的，但是Zookeeper提供了sync操作（异步操作），所有的读请求都需要等待sync消息完成后，才会进行读取数据并返回结果。
 
