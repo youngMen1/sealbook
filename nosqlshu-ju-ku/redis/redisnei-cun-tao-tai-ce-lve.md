@@ -85,5 +85,15 @@ public void noevicationTest() {
 }
 ```
 
+```
+在执行到i为145的时候抛出了异常，有点费解，value为1k，key顶多就几b，把redis最大内存改为10m，可以到7000多个，不知道还有什么占用了内存。
+
+2、volatile-lru，使用LRU算法删除设置了expire的key 注：redis使用的是一种伪LRU算法，应该是出于性能考虑
+
+LRU（Least recently used，最近最少使用）算法根据数据的历史访问记录来进行淘汰数据，其核心思想是“如果数据最近被访问过，那么将来被访问的几率也更高”。
+
+测试代码
+```
+
 
 
