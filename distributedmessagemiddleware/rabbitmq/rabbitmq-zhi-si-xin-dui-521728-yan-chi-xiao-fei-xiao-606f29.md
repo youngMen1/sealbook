@@ -139,7 +139,7 @@ redirectBinding\(\) 我们需要给标识的交换机  以及对其指定的rout
 
 ![img](/static/image/微信截图\_20200417113526.png)
 
-# 微信截图\_20200417113502.png
+![img](/static/image/微信截图\_20200417113502.png)
 
 
 
