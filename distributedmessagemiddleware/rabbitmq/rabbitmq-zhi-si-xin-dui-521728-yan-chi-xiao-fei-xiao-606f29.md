@@ -14,7 +14,7 @@
 
 # 2.怎么使用
 
-RabbitMqConfig
+## 2.1.RabbitMqConfig配置
 
 ```
 /**
