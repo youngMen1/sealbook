@@ -47,5 +47,7 @@ docker run -d -v /usr/local/etc/redis/redis.conf:/usr/local/etc/redis/redis.conf
 # maxmemory-policy noeviction
 ```
 
+下面对各种策略进行测试
 
+将redis最大内存调整为1m，修改redis.conf
 
