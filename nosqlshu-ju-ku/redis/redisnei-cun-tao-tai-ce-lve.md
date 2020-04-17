@@ -116,7 +116,7 @@ public void volatileTest() {
 
 3、allkeys-lru，使用LRU算法（最近最少使用）删除key
 
-测试代码
+**测试代码：**
 
 ```
 @Test
