@@ -51,25 +51,29 @@ Instrumentation: 在class加载之前，JProfier把相关功能代码写入到�
 
 **A2: 启动模式:**
 
-**Attach mode  **
+**Attach mode  **  
 可直接将本机正在运行的jvm加载JProfiler Agent. 优点是很方便，缺点是一些特性不能支持。如果选择Instrumentation数据采集方式，那么需要花一些额外时间来重写需要分析的class。
 
-**Profile at startup  **
+**Profile at startup  **  
 在被分析的jvm启动时，将指定的JProfiler Agent手动加载到该jvm。JProfiler GUI 将收集信息类型和策略等配置信息通过socket发送给JProfiler Agent，收到这些信息后该jvm才会启动。  
 在被分析的jvm 的启动参数增加下面内容：  
 语法: -agentpath:\[path to jprofilerti library\]  
-【注】: 语法不清楚没关系，JProfiler提供了帮助向导.
-![img](/static/image/af3a9d42a43abf41a676e194dad2524c651b213c.png)
-(图3)
+【注】: 语法不清楚没关系，JProfiler提供了帮助向导.  
+![img](/static/image/af3a9d42a43abf41a676e194dad2524c651b213c.png)  
+\(图3\)
 
-**Prepare for profiling:**
+**Prepare for profiling:**  
 和Profile at startup的主要区别：被分析的jvm不需要收到JProfiler GUI 的相关配置信息就可以启动。
 
-**Offline profiling**
-一般用于适用于不能直接调试线上的场景。Offline profiling需要将信息采集内容和策略(一些Trigger, Trigger请参考文章第五部分)打包成一个配置文件(config.xml)，在线上启动该jvm 加载 JProfiler Agent时，加载该xml。那么JProfiler Agent会根据Trigger的类型会生成不同的信息。例如: heap dump; thread dump; method call record等
-语法:
--agentpath:/home/2080/jprofiler8/bin/linux-x64/libjprofilerti.so=offline,id=151,config=/home/2080/config.xml
-【注】: config.xml中的每一个被分析的jvm的采集信息都有一个id来标识。
-下面是使用了离线模式，并使用了每隔一秒dump heap 的Trigger：
+**Offline profiling**  
+一般用于适用于不能直接调试线上的场景。Offline profiling需要将信息采集内容和策略\(一些Trigger, Trigger请参考文章第五部分\)打包成一个配置文件\(config.xml\)，在线上启动该jvm 加载 JProfiler Agent时，加载该xml。那么JProfiler Agent会根据Trigger的类型会生成不同的信息。例如: heap dump; thread dump; method call record等  
+语法:  
+-agentpath:/home/2080/jprofiler8/bin/linux-x64/libjprofilerti.so=offline,id=151,config=/home/2080/config.xml  
+【注】: config.xml中的每一个被分析的jvm的采集信息都有一个id来标识。  
+下面是使用了离线模式，并使用了每隔一秒dump heap 的Trigger：  
 ![img](/static/image/93ca30653b599d9a8564dd05e3971d8078e9ec16.png)
-## 1.3JProfiler核心概念。
+
+## 1.3.JProfiler核心概念。
+
+
+
