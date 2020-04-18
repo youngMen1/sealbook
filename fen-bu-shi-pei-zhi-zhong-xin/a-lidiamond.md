@@ -179,13 +179,11 @@ diamond-server端保存的配置全都为文本类型，返回给客户端的配
 
 diamond核心原理主要包括server集群的数据同步、client获取server地址、client从server获取数据、client运行时感知server的数据变化，这四部分。
 
-
-### 1.5.1. server集群的数据同步
+### 1.5.1. server集群的数据同步
 
 diamond-server将数据存储在mysql和本地文件中，mysql是一个中心，diamond认为存储在mysql中的数据绝对正确，除此之外，server会将数据存储在本地文件中。
 
-
-**同步数据有两种方式：**
+**同步数据有两种方式：**  
 server写数据时，先将数据写入mysql，然后写入本地文件，写入完成后发送一个HTTP请求给集群中的其他server，其他server收到请求，从mysql中dump刚刚写入的数据至本地文件。
 
 server启动后会启动一个定时任务，定时从mysql中dump所有数据至本地文件。
@@ -194,15 +192,112 @@ server启动后会启动一个定时任务，定时从mysql中dump所有数据�
 
 diamond-client在使用时没有指定server地址的代码，地址获取对用户是透明的。server地址存储在一台具有域名的机器上的HTTP server中，我们称它为地址服务器，diamond-client使用前需要在本地进行正确的域名绑定，启动时它会根据域名绑定，去对应环境的地址服务器上获取diamond-server地址列表。获取的地址列表，会保存在client本地，当出现网络异常，无法从网络获取地址列表时，client会使用本地保存的地址列表。client启动后会启动一个定时任务，定时从HTTP server上获取地址列表并保存在本地，以保证地址是最新的。
 
-### 1.5.3. client从server获取数据
+### 1.5.3. client从server获取数据
+
 client调用getAvailableConfigInfomation\(\)， 即可获取一份最新的可用的配置数据，获取过程实际上是拼接http url，使用http-client调用http method的过程。为了避免短时间内大量的获取数据请求发向server，client端实现了一个带有过期时间的缓存，client将本次获取到的数据保存在缓存中，在过期时间内的所有请求，都返回缓存内的数据，不向server发出请求。
 
-### 1.5.4. client运行时感知server的数据变化
-这是diamond最为核心的一个功能。这个特性是通过比较client和server的数据的MD5值实现的。server在启动时，会将所有数据的MD5加载到内存中（MD5根据某算法得出，保证数据内容不同，MD5不同，MD5存储在mysql中），数据更新时，会更新内存中对应的MD5。client在启动并第一次获取数据后，会将数据的MD5保存在内存中，并且在启动时会启动一个定时任务，定时去server检查数据是否变化。每次检查时，client将MD5传给server，server比较传来的MD5和自身内存中的MD5是否相同，如果相同，说明数据没变，返回一个标示数据不变的字符串给client；如果不同，说明数据变了，返回变化数据的dataId和group给client.  client收到变化数据的dataId和group，再去server请求一次数据，拿回数据后回调监听器。
+### 1.5.4. client运行时感知server的数据变化
+
+这是diamond最为核心的一个功能。这个特性是通过比较client和server的数据的MD5值实现的。server在启动时，会将所有数据的MD5加载到内存中（MD5根据某算法得出，保证数据内容不同，MD5不同，MD5存储在mysql中），数据更新时，会更新内存中对应的MD5。client在启动并第一次获取数据后，会将数据的MD5保存在内存中，并且在启动时会启动一个定时任务，定时去server检查数据是否变化。每次检查时，client将MD5传给server，server比较传来的MD5和自身内存中的MD5是否相同，如果相同，说明数据没变，返回一个标示数据不变的字符串给client；如果不同，说明数据变了，返回变化数据的dataId和group给client.  client收到变化数据的dataId和group，再去server请求一次数据，拿回数据后回调监听器。
 
 ## 1.6.diamond架构
-**diamond服务是一个集群，是一个去除单点的协作集群。如下图所示：**
+
+**diamond服务是一个集群，是一个去除单点的协作集群。如下图所示：**  
 ![img](/static/image/20151224170514769.png)
+
+对该图进行一些说明：
+
+
+
+     a. 作为一个配置中心，diamond的功能分为发布和订阅两部分。因为diamond存放的是持久数据，这些数据的变化频率不会很高，甚至很低，所以发布采用手工的形式，通过diamond后台管理界面发布；订阅是diamond的核心功能，订阅通过diamond-client的API进行。
+
+
+
+     b. diamond服务端采用mysql加本地文件的形式存放配置数据。发布数据时，数据先写到mysql，再写到本地文件；订阅数据时，直接获取本地文件，不查询数据库，这样可以最大程度减少对数据库的压力。
+
+
+
+     c. diamond服务端是一个集群，集群中的每台机器连接同一个mysql，集群之间的数据同步通过两种方式进行，一是每台server定时去mysql dump数据到本地文件，二是某一台server接收发布数据请求，在更新完mysql和本机的本地文件后，发送一个HTTP请求（通知）到集群中的其他几台server，其他server收到通知，去mysql中将刚刚更新的数据dump到本地文件。
+
+
+
+     d. 每一台server前端都有一个nginx，用来做流量控制。
+
+
+
+     e. 图中没有将地址服务器画出，地址服务器是一台有域名的机器，上面运行有一个HTTP server，其中有一个静态文件，存放着diamond服务器的地址列表。客户端启动时，根据自身的域名绑定，连接到地址服务器，取回diamond服务器的地址列表，从中随机选择一台diamond服务器进行连接。
+
+
+
+     4、容灾机制
+
+
+
+     diamond容灾机制涉及到client和server两部分，主要包括以下几个方面：
+
+
+
+     a. server存储数据的方式
+
+
+
+     server存储数据是“数据库 + 本地文件”的方式，集群间的数据同步我们在之前的文章中讲过（请参考专题二的原理部分），client订阅数据时，访问的是本地文件，不查询数据库，这样即使数据库出问题了，仍然不影响client的订阅。
+
+
+
+     b. server是一个集群
+
+
+
+     这是一个基本的容灾机制，集群中的一台server不可用了，client发现后可以自动切换到其他server上进行访问，自动切换在client内部实现。
+
+
+
+     c. client保存snapshot
+
+
+
+     client每次从server获取到数据后，都会将数据保存在本地文件系统，diamond称之为snapshot，即数据快照。当client下次启动发现在超时时间内所有server均不可用（可能是网络故障），它会使用snapshot中的数据快照进行启动。
+
+
+
+     d. client校验MD5
+
+
+
+     client每次从server获取到数据后，都会进行MD5校验（数据保存在response body，MD5保存在response header），以防止因网络故障造成的数据不完整，MD5校验不通过直接抛出异常。
+
+
+
+     e. client与server分离
+
+
+
+     client可以和server完全分离，单独使用，diamond定义了一个“容灾目录”的概念，client在启动时会创建这个目录，每次主动获取数据（即调用getAvailableConfigInfomation\(\)方法），都会优先从“容灾目录”获取数据，如果client按照一个固定的规则，在“容灾目录”下配置了需要的数据，那么client直接获取到数据返回，不再通过网络从diamond-server获取数据。同样的，在每次轮询时，都会优先轮询“容灾目录”，如果发现配置还存在于其中，则不再向server发出轮询请求。 以上的情形， 会持续到“容灾目录”的配置数据被删除为止。
+
+
+
+    根据以上的容灾机制，我们可以总结一下diamond整个系统完全不可用的条件：
+
+
+
+    数据库不可用；
+
+
+
+    所有server均不可用；
+
+
+
+    client主动删除了snapshot；
+
+
+
+    client没有备份配置数据，导致其不能配置"容灾目录"；
+
+
+
+    本人在公司的线上环境仔细分析过，同时满足这四点条件的概率那是相当小！
 
 # 2.怎么使用
 
