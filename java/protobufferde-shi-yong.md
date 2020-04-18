@@ -6,6 +6,16 @@ Protocol Buffers \\(ProtocolBuffer/ protobuf \\)是Google公司开发的一种�
 
 ## 1.2.protobuf相比Xml的优点
 
+•更简单，高效
+
+•跨平台，跨语言
+
+•向下兼容，易升级
+
+•代码自动生成，不用手写
+
+•生成了更容易在编程中使用的数据访问类
+
 ## 1.1.数据交互xml、json、protobuf格式比较
 
 1、json: 一般的web项目中，最流行的主要还是json。因为浏览器对于json数据支持非常好，有很多内建的函数支持。
