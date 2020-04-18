@@ -72,3 +72,4 @@ Instrumentation: 在class加载之前，JProfier把相关功能代码写入到�
 【注】: config.xml中的每一个被分析的jvm的采集信息都有一个id来标识。
 下面是使用了离线模式，并使用了每隔一秒dump heap 的Trigger：
 ![img](/static/image/93ca30653b599d9a8564dd05e3971d8078e9ec16.png)
+## 1.3JProfiler核心概念。
