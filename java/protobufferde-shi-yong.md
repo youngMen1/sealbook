@@ -32,7 +32,7 @@ Protocol Buffers \(ProtocolBuffer/ protobuf \)是Google公司开发的一种数�
 
 3：消息格式升级和兼容性还不错
 
-4：序列化反序列化速度很快，快于Json的处理速速
+4：序列化反序列化速度很快，快于Json的处理速度
 
 结论：
 
