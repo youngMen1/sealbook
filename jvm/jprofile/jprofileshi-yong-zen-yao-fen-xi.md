@@ -208,3 +208,9 @@ public void run() {
 ```
 76f14916d07736bdf51db282045550c83d580fef.png
 (图24)
+六. 最佳实践
+JProfiler都会对一些特殊操作给予提示，这时候最好仔细阅读下说明.
+"Mark Current"功能在某些场景很有效
+Heap walker一般是静态分析在Live memory->Recorder objects的对象信息，这些信息可能会被GC回收掉，导致Heap walker中什么也没有显示出来。这种现象是正常的。
+可以才工具栏中Start Recordings配置一次性收集的信息
+Filter中include和exclude是有顺序的，注意使用下图**左下方**的**“Show Filter Tree”**来验证一下顺序 
