@@ -84,6 +84,20 @@ diamond的可靠是指应用方在任何情况下都可以启动，
 
 完成后，请将数据库的配置信息（IP，用户名，密码）添加到diamond-server工程的src/resources/jdbc.properties文件中的db.url，db.user，db.password属性上面，这里建立的库名，用户名和密码，必须和jdbc.properties中对应的属性相同。
 
+### 1.2.2.tomcat
+
+tomcat是diamond server的运行容器。
+
+tomcat的安装请参考tomcat官方文档，建议使用tomcat7
+
+不需要对tomcat进行任何改动。
+
+### 1.2.3.diamond server
+
+在diamond-server源代码根目录下，执行mvn clean package -Dmaven.test.skip，成功后会在diamond-server/target目录下生成diamond-server.war（如果没有安装maven，请参考maven官方文档进行安装）。
+
+打包完成后，将diamond-server.war放在tomcat的webapps目录下。
+
 # 2.怎么使用
 
 # 3.总结
