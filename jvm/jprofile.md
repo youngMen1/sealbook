@@ -51,6 +51,7 @@ Java剖析工具JProfiler入门使用教程：
 Intellij IDEA集成JProfiler性能分析神器：
 
 [https://blog.csdn.net/wytocsdn/article/details/79258247](https://blog.csdn.net/wytocsdn/article/details/79258247)
+https://blog.csdn.net/qq_22194659/article/details/83829891
 
 JProfiler10 序列号：
 
