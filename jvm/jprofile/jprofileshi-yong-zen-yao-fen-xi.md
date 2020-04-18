@@ -181,3 +181,30 @@ df7c092e85b1ae9db0bd98376b36c24cddff2b8b.png
 第三种和第四种:
 test线程中会不断向事件Event Dispatching Thread提交任务，导致竞争java.awt.EventQueue对象锁。
 提交任务的方式是下面的代码:repaint()和EventQueue.invokeLater 
+
+
+```
+public void run() {
+            Thread me = Thread.currentThread();
+            while (thread == me) {
+                repaint();
+                if (block) {
+                    block(false);
+                }
+                try {
+                    Thread.sleep(10);
+                } catch (Exception e) {
+                    break;
+                }
+                EventQueue.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        onEDTMethod();
+                    }
+                });
+            }
+            thread = null;
+        }
+```
+
+
