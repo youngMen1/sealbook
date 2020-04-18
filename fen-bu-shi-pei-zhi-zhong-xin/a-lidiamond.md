@@ -255,11 +255,15 @@ client没有备份配置数据，导致其不能配置"容灾目录"；
 
 # 3.总结
 
-通过对diamond源码的阅读及架构的分析，可以得出这样一个结论：diamond简单、可靠、易用的特点是相辅相成的，即diamond之所以简单是因为使用的都是一些最常用的技术以及产品，它之所以表现得非常稳定，跟其架构简单是分不开的，当然，稳定的另一个主要原因是它具备一套比较完善的容灾机制。
+通过对diamond源码的阅读及架构的分析，可以得出这样一个结论：
+
+diamond简单、可靠、易用的特点是相辅相成的，即diamond之所以简单是因为使用的都是一些最常用的技术以及产品，它之所以表现得非常稳定，跟其架构简单是分不开的，当然，稳定的另一个主要原因是它具备一套比较完善的容灾机制。
 
 # 4.参考
 
-github上一些项目:https://github.com/takeseem/diamond
+github上一些项目：
+
+[https://github.com/takeseem/diamond](https://github.com/takeseem/diamond)
 
 阿里中间件diamond：
 
