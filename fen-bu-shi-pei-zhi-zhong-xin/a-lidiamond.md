@@ -14,7 +14,7 @@ diamond的可靠是指应用方在任何情况下都可以启动，
 
 对于应用系统而言，diamond为其提供获取配置的服务，应用不仅可以在启动时从diamond获取相关的配置，而且可以在运行中对配置数据的变化进行感知并获取变化后的配置数据。
 
-githup：[http://code.taobao.org/p/diamond/src/](http://code.taobao.org/p/diamond/src/)
+github：[http://code.taobao.org/p/diamond/src/](http://code.taobao.org/p/diamond/src/)
 
 # 2.怎么使用
 
