@@ -59,7 +59,7 @@ windows环境下的安装与使用：
 
 # 3.总结
 
-# 3.1protoc.exe如何使用
+## 3.1protoc.exe如何使用
 
 直接上命令：（datagram.proto 文件和protoc.exe同一目录下，如果不同-I=后面为相应的路径）
 
