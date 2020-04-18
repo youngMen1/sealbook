@@ -39,6 +39,8 @@ Distributed Configuration Management Platform\(分布式配置管理平台\)
 **Disconf的功能特点描述图：**
 ![img](/static/image/20180607093327344.jpg)
 
+## 1.4.disconf的模块架构图
+
 # 4.总结
 
 ### 4.1.DisConf-分布式配置管理平台-简介 {#1disconf-分布式配置管理平台-简介}
