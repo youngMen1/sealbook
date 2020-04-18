@@ -47,6 +47,10 @@ Apollo（阿波罗）是携程框架部门研发的开源配置管理中心，�
 
 # 参考
 
+携程开源配置管理中心Apollo简介
+
+https://blog.csdn.net/anthony\_1223/article/details/81052737
+
 携程Apollo统一配置中心的搭建和使用：
 
 [https://blog.csdn.net/luhong327/article/details/81453001](https://blog.csdn.net/luhong327/article/details/81453001)
