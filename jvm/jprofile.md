@@ -40,7 +40,7 @@ https://www.ej-technologies.com/download/jprofiler/version_92
 ![img](/static/image/微信截图_20200418140344.png)
 
 # 3.总结
-
+由于10.0的版本没有
 
 # 4.参考
 深入浅出JProfiler：
@@ -53,6 +53,11 @@ https://www.evget.com/article/2013/5/9/18900.html
 Intellij IDEA集成JProfiler性能分析神器：
 https://blog.csdn.net/wytocsdn/article/details/79258247
 https://blog.csdn.net/qq_22194659/article/details/83829891
+
+JProfiler9 序列号：
+
+
+https://www.cnblogs.com/yjd_hycf_space/p/7743049.html
 
 JProfiler10 序列号：
 
