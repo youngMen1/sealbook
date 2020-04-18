@@ -97,6 +97,54 @@ MarkSweepCompact上的 0.037（1收集）    老年代使用标记清除整理�
 **下面三个方法分别等待控制台输入、死循环演示、线程锁等待演示：**
 
 
+```
+/**
+  * 等待控制台输入
+  * @throws IOException
+  */
+ public static  void waitRerouceConnection () throws IOException {
+     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+     br.readLine();
+ }
+/**
+ * 线程死循环演示
+ */
+ public static void createBusyThread() {
+     Thread thread = new Thread(new Runnable() {
+         @Override
+         public void run() {
+             while (true)   // 第41行
+                 ;
+         }
+     }, "testBusyThread");
+     thread.start();
+ }
+
+ /**
+  * 线程锁等待演示
+  */
+ public static void createLockThread(final Object lock) {
+     Thread thread = new Thread(new Runnable() {
+         @Override
+         public void run() {
+             synchronized (lock) {
+                 try {
+                     lock.wait();
+                 } catch (InterruptedException e) {
+                     e.printStackTrace();
+                 }
+             }
+         }
+     }, "testLockThread");
+     thread.start();
+ }
+————————————————
+版权声明：本文为CSDN博主「一碗面」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/qq_31156277/java/article/details/80035430
+```
+
+
+
 # 3.怎么使用
 
 # 2.总结
