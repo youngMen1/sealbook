@@ -169,7 +169,9 @@ ManagerListener 是客户端注册的数据监听器， 它的作用是在运行
 
 ### 1.4.3.获取配置数据
 
-String configInfo = manager.getAvailableConfigInfomation\(timeout\);
+```
+String configInfo = manager.getAvailableConfigInfomation(timeout);
+```
 
 diamond-server端保存的配置全都为文本类型，返回给客户端的配置数据为java.lang.String类型，timeout为从网络获取配置数据的超时时间。客户端调用每次调用该方法，都能够保证获取一份最新的可用的配置数据。
 
