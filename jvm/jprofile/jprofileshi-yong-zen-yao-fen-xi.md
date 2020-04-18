@@ -27,4 +27,6 @@ A1. 分析的数据主要来自于下面俩部分
 JVMTI is an event-based system. The profiling agent library can register handler functions for different events. It can then enable or disable selected events
 ```
 
-
+例如: 对象的生命周期，thread的生命周期等信息
+2. 一部分来自于instruments classes(可理解为class的重写,增加JProfiler相关统计功能)
+例如：方法执行时间，次数，方法栈等信息
