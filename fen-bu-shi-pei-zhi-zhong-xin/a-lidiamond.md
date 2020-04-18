@@ -201,7 +201,7 @@ client调用getAvailableConfigInfomation\(\)， 即可获取一份最新的可�
 这是diamond最为核心的一个功能。这个特性是通过比较client和server的数据的MD5值实现的。server在启动时，会将所有数据的MD5加载到内存中（MD5根据某算法得出，保证数据内容不同，MD5不同，MD5存储在mysql中），数据更新时，会更新内存中对应的MD5。client在启动并第一次获取数据后，会将数据的MD5保存在内存中，并且在启动时会启动一个定时任务，定时去server检查数据是否变化。每次检查时，client将MD5传给server，server比较传来的MD5和自身内存中的MD5是否相同，如果相同，说明数据没变，返回一个标示数据不变的字符串给client；如果不同，说明数据变了，返回变化数据的dataId和group给client.  client收到变化数据的dataId和group，再去server请求一次数据，拿回数据后回调监听器。
 
 ## 1.6.diamond架构
-diamond服务是一个集群，是一个去除单点的协作集群。如下图所示：
+**diamond服务是一个集群，是一个去除单点的协作集群。如下图所示：**
 
 # 2.怎么使用
 
