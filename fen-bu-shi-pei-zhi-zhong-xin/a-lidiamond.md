@@ -175,7 +175,11 @@ String configInfo = manager.getAvailableConfigInfomation(timeout);
 
 diamond-server端保存的配置全都为文本类型，返回给客户端的配置数据为java.lang.String类型，timeout为从网络获取配置数据的超时时间。客户端调用每次调用该方法，都能够保证获取一份最新的可用的配置数据。
 
+## 1.5.核心原理
+
 # 2.怎么使用
+
+
 
 # 3.总结
 
