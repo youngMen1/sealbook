@@ -209,7 +209,7 @@ public void run() {
 
 ![img](/static/image/76f14916d07736bdf51db282045550c83d580fef.png)  
 \(图24\)  
-六. 最佳实践  
+## 六. 最佳实践  
 JProfiler都会对一些特殊操作给予提示，这时候最好仔细阅读下说明.  
 "Mark Current"功能在某些场景很有效  
 Heap walker一般是静态分析在Live memory-&gt;Recorder objects的对象信息，这些信息可能会被GC回收掉，导致Heap walker中什么也没有显示出来。这种现象是正常的。  
@@ -217,7 +217,7 @@ Heap walker一般是静态分析在Live memory-&gt;Recorder objects的对象信�
 Filter中include和exclude是有顺序的，注意使用下图**左下方**的**“Show Filter Tree”**来验证一下顺序   
 ![img](/static/image/72bac3b3a3ce644f30f48b7b6eb6c371c7aa5a6f.png)  
  \(图25\)  
-七. 参考文献  
+## 七. 参考文献  
 JProfiler helper: [http://resources.ej-technologies.com/jprofiler/help/doc/index.html](http://resources.ej-technologies.com/jprofiler/help/doc/index.html)  
 JVMTI: [http://docs.oracle.com/javase/7/docs/platform/jvmti/jvmti.html](http://docs.oracle.com/javase/7/docs/platform/jvmti/jvmti.html)
 
