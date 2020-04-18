@@ -10,8 +10,6 @@
 ```
 https://www.ej-technologies.com/download/jprofiler/version_92
 ```
-
-
 右上角可以选择要下载版本 
 # 3.总结
 
