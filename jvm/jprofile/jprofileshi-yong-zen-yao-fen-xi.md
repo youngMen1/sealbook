@@ -101,7 +101,7 @@ b8fef844181952665612a3ae9a23864d8eb0ec01.png
 (图10)
 
 Monitors & locks: 所有线程持有锁的情况以及锁的信息
-72e01bf3f2bdec2f6b05ce156a379ecb913f89e0.png
+![img](/static/image/72e01bf3f2bdec2f6b05ce156a379ecb913f89e0.png)
 (图11)
 
 Telemetries: 包含heap, thread, gc, class等的趋势图(遥测视图)
