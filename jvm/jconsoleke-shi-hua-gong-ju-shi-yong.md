@@ -144,6 +144,47 @@ MarkSweepCompact上的 0.037（1收集）    老年代使用标记清除整理�
 跑不下去的情景。
 
 
+
+```
+package com.jvm;
+
+/**
+ * 线程死锁验证
+ */
+public class JConsoleThreadLock {
+
+    /**
+     * 线程死锁等待演示
+     */
+    static class SynAddRunalbe implements Runnable {
+        int a, b;
+        public SynAddRunalbe(int a, int b) {
+            this.a = a;
+            this.b = b;
+        }
+
+        @Override
+        public void run() {
+            synchronized (Integer.valueOf(a)) {
+                synchronized (Integer.valueOf(b)) {
+                    System.out.println(a + b);
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        for (int i = 0; i < 100; i++) {
+            new Thread(new SynAddRunalbe(1, 2)).start();
+            new Thread(new SynAddRunalbe(2, 1)).start();
+        }
+    }
+
+
+}
+```
+
+
 # 3.怎么使用
 
 # 2.总结
