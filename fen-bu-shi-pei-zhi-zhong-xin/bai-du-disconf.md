@@ -40,6 +40,7 @@ Distributed Configuration Management Platform\(分布式配置管理平台\)
 ![img](/static/image/20180607093327344.jpg)
 
 ## 1.4.disconf的模块架构图
+![img](/static/image/20180607094251283.png)
 
 # 4.总结
 
