@@ -22,3 +22,9 @@ Q2. JProfiler是怎么将这些数据收集并展现的?
 A1. 分析的数据主要来自于下面俩部分
 1. 一部分来自于jvm的分析接口**JVMTI**(JVM Tool Interface) , JDK必须>=1.6
 
+
+```
+JVMTI is an event-based system. The profiling agent library can register handler functions for different events. It can then enable or disable selected events
+```
+
+
