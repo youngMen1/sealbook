@@ -86,3 +86,6 @@ e69504d0b635fae209f5672e0b2a271b5354e87a.png
 
 Live memory: class/class instance的相关信息。 例如对象的个数，大小，对象创建的方法执行栈，对象创建的热点。
 e8a52b590d0f4631058ca328fe0ff691c0d3aa89.png
+(图7)
+
+Heap walker: 对一定时间内收集的内存对像信息进行静态分析，功能强大且使用。包含对象的outgoing reference, incoming reference, biggest object等
