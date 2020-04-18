@@ -74,6 +74,6 @@ Instrumentation: 在class加载之前，JProfier把相关功能代码写入到�
 ![img](/static/image/93ca30653b599d9a8564dd05e3971d8078e9ec16.png)
 
 ## 1.3.JProfiler核心概念。
-
+Filter: 什么class需要被分析。分为包含和不包含两种类型的Filter。
 
 
