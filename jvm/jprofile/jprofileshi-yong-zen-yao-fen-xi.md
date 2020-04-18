@@ -155,3 +155,6 @@ public void start() {
 ```
 正常情况下，如下图
 603df4fd16b151739dbafedc0631fd3036b5fe36.png
+(图20)
+
+勾选了Demo中"Simulate blocking"选项后，如下图(注意看下下图中的状态图标), test线程block状态明显增加了。
