@@ -54,7 +54,7 @@ Instrumentation: 在class加载之前，JProfier把相关功能代码写入到�
 Attach mode  
 可直接将本机正在运行的jvm加载JProfiler Agent. 优点是很方便，缺点是一些特性不能支持。如果选择Instrumentation数据采集方式，那么需要花一些额外时间来重写需要分析的class。
 
-Profile at startup  
+**Profile at startup  **
 在被分析的jvm启动时，将指定的JProfiler Agent手动加载到该jvm。JProfiler GUI 将收集信息类型和策略等配置信息通过socket发送给JProfiler Agent，收到这些信息后该jvm才会启动。  
 在被分析的jvm 的启动参数增加下面内容：  
 语法: -agentpath:\[path to jprofilerti library\]  
