@@ -179,8 +179,6 @@ public class JConsoleThreadLock {
             new Thread(new SynAddRunalbe(2, 1)).start();
         }
     }
-
-
 }
 ```
 
