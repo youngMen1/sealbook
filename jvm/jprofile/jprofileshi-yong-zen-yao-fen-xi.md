@@ -111,3 +111,7 @@ JProfiler 自带的例子如下：模拟了内存泄露和线程阻塞的场景�
 具体源码参考: /jprofiler install path/demo/bezier
 e95ff007af328eb31b4f9fb4d9d888bffdfe1d29.png
 375e6515445717a1bb110738a17e61ee3de1e2aa.png
+(图13 Leak Memory 模拟内存泄露, Simulate blocking 模拟线程间锁的阻塞)
+
+A1. 首先来分析下内存泄露的场景:(勾选图13中 Leak Memory 模拟内存泄露)
+1. 在**Telemetries-> Memory**视图中你会看到大致如下图的场景(在看的过程中可以间隔一段时间去执行Run GC这个功能)：看到下图蓝色区域,老生代在gc后(**波谷**)内存的大小在慢慢的增加(理想情况下，这个值应该是稳定的)
