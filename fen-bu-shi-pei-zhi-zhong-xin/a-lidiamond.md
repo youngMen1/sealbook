@@ -28,6 +28,56 @@ diamond的可靠是指应用方在任何情况下都可以启动，
 
 安装mysql-server的步骤请参考mysql官方文档，安装完毕后，建立数据库，然后建立两张表，建表语句分别如下：
 
+    create table config_info (
+
+    `id` bigint(64) unsigned NOT NULL auto_increment,
+
+    `data_id` varchar(255) NOT NULL default ’ ’,
+
+    `group_id` varchar(128) NOT NULL default ’ ’,
+
+    `content` longtext NOT NULL,
+
+    `md5` varchar(32) NOT NULL default ’ ’,
+
+    `src_ip` varchar(20) default NULL,
+
+    `src_user` varchar(20) default NULL,
+
+    `gmt_create` datetime NOT NULL default ’2010-05-05 00:00:00′,
+
+    `gmt_modified` datetime NOT NULL default ’2010-05-05 00:00:00′,
+
+    PRIMARY KEY  (`id`),
+
+    UNIQUE KEY `uk_config_datagroup` (`data_id`,`group_id`)
+
+    );
+
+    create table group_info (
+
+    `id` bigint(64) unsigned NOT NULL auto_increment,
+
+    `address` varchar(70) NOT NULL default ’ ’,
+
+    `data_id` varchar(255) NOT NULL default ’ ’,
+
+    `group_id` varchar(128) NOT NULL default ’ ’,
+
+    `src_ip` varchar(20) default NULL,
+
+    `src_user` varchar(20) default NULL,
+
+    `gmt_create` datetime NOT NULL default ’2010-05-05 00:00:00′,
+
+    `gmt_modified` datetime NOT NULL default ’2010-05-05 00:00:00′,
+
+    PRIMARY KEY  (`id`),
+
+    UNIQUE KEY `uk_group_address` (`address`,`data_id`,`group_id`)
+
+    );
+
 # 2.怎么使用
 
 # 3.总结
