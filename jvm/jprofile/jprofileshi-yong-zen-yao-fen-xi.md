@@ -207,7 +207,7 @@ public void run() {
         }
 ```
 
-76f14916d07736bdf51db282045550c83d580fef.png  
+![img](/static/image/76f14916d07736bdf51db282045550c83d580fef.png)  
 \(图24\)  
 六. 最佳实践  
 JProfiler都会对一些特殊操作给予提示，这时候最好仔细阅读下说明.  
