@@ -77,11 +77,11 @@ Instrumentation: 在class加载之前，JProfier把相关功能代码写入到�
 Filter: 什么class需要被分析。分为包含和不包含两种类型的Filter。
 c6490044d51af9e36d86c7c59774a26bf68934d8.png
 Profiling Settings: 收据收集的策略:Sampling和 Instrumentation，一些数据采集细节可以自定义.
-267a5a432ded52a220742608122e125f73810db1.png
+![img](/static/image/267a5a432ded52a220742608122e125f73810db1.png)
 (图5)
 
 Triggers: 一般用于**offline**模式，告知JProfiler Agent 什么时候触发什么行为来收集指定信息.
-e69504d0b635fae209f5672e0b2a271b5354e87a.png
+![img](/static/image/e69504d0b635fae209f5672e0b2a271b5354e87a.png)
 (图6)
 
 Live memory: class/class instance的相关信息。 例如对象的个数，大小，对象创建的方法执行栈，对象创建的热点。
