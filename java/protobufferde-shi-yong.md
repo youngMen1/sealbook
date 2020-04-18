@@ -55,6 +55,5 @@ Java中使用Protocol Buffer:
 https://www.cnblogs.com/blythe/articles/8473016.html
 
 protobuf 3.5 java使用介绍:
-
-[https://blog.csdn.net/fangxiaoji/article/details/78826165](https://blog.csdn.net/fangxiaoji/article/details/78826165)
+https://blog.csdn.net/fangxiaoji/article/details/78826165
 
