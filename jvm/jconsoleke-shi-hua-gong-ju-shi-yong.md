@@ -87,7 +87,7 @@ MarkSweepCompact上的 0.037（1收集）    老年代使用标记清除整理�
 [Full GC (System.gc()) [Tenured: 61362K->66352K(68288K), 0.0372192 secs] 67024K->66352K(99008K), [Metaspace: 9535K->9535K(1058816K)], 0.0373411 secs] [Times: user=0.05 sys=0.00, real=0.04 secs]
 ```
 
-## 1.4.线程监控
+## 2.3.线程监控
 
 ```
 如果上面的“内存”页签相当于可视化的jstat命令的话，“线程”页签的功能相当于可视化的jstack命令，
@@ -186,9 +186,9 @@ public class JConsoleThreadLock {
 结果描述：显示了线程Thread-53在等待一个被线程Thread-66持有Integer对象，而点击线程Thread-66则显示它也在等待一个Integer对象，被线程Thread-53持有，这样两个线程就互相卡住，都不存在等到锁释放的希望了  
 **VisualVM（All-in-One Java Troubleshooting Tool）;功能最强大的运行监视和故障处理程序**
 
-# VisualVM介绍
+## 2.4.VisualVM介绍
 
-## 2.1 功能描述
+### 2.4.1.功能描述
 
 显示虚拟机进程以及进程的配置、环境信息（jps、jinfo）。  
 监视应用程序的CPU、GC、堆、方法区\(1.7及以前\)，元空间（JDK1.8及以后）以及线程的信息（jstat、jstack）。  
@@ -196,7 +196,7 @@ dump以及分析堆转储快照（jmap、jhat）。
 方法级的程序运行性能分析，找出被调用最多、运行时间最长的方法。  
 离线程序快照：收集程序的运行时配置、线程dump、内存dump等信息建立一个快照
 
-## 2.2 使用教程
+### 2.4.2 使用教程
 
 如何使用，直接查看官网和本书教程即可。
 
