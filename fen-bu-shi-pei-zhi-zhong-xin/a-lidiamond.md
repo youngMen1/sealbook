@@ -20,6 +20,8 @@ diamond的可靠是指应用方在任何情况下都可以启动，
 
 [http://code.taobao.org/svn/diamond/trunk](http://code.taobao.org/svn/diamond/trunk)
 
+## 1.2.server的搭建
+
 # 2.怎么使用
 
 # 3.总结
