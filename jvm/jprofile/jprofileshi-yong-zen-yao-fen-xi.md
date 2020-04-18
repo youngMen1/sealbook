@@ -119,3 +119,4 @@ c4c3c21a29874988408786f3c62f2953f713594a.png
 (图14)
 
 在 Live memory->Recorded Objects 中点击**record allocation data**按钮，开始统计一段时间内创建的对象信息。执行一次**Run GC**后看看当前对象信息的大小，并点击工具栏中**Mark Current**按钮(其实就是给当前对象数量打个标记。执行一次Run GC，然后再继续观察;执行一次Run GC，然后再继续观察...。最后看看哪些对象在不断GC后，数量还一直上涨的。最后你看到的信息可能和下图类似
+65ae84a68f6d81a46064d55fb88eb658742f3241.png
