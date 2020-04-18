@@ -207,97 +207,84 @@ client调用getAvailableConfigInfomation\(\)， 即可获取一份最新的可�
 
 对该图进行一些说明：
 
+```
+a. 作为一个配置中心，diamond的功能分为发布和订阅两部分。因为diamond存放的是持久数据，这些数据的变化频率不会很高，甚至很低，
+所以发布采用手工的形式，通过diamond后台管理界面发布；订阅是diamond的核心功能，订阅通过diamond-client的API进行。
 
 
-     a. 作为一个配置中心，diamond的功能分为发布和订阅两部分。因为diamond存放的是持久数据，这些数据的变化频率不会很高，甚至很低，所以发布采用手工的形式，通过diamond后台管理界面发布；订阅是diamond的核心功能，订阅通过diamond-client的API进行。
 
+ b. diamond服务端采用mysql加本地文件的形式存放配置数据。发布数据时，数据先写到mysql，再写到本地文件；订阅数据时，
+ 直接获取本地文件，不查询数据库，这样可以最大程度减少对数据库的压力。
 
 
-     b. diamond服务端采用mysql加本地文件的形式存放配置数据。发布数据时，数据先写到mysql，再写到本地文件；订阅数据时，直接获取本地文件，不查询数据库，这样可以最大程度减少对数据库的压力。
 
+ c. diamond服务端是一个集群，集群中的每台机器连接同一个mysql，集群之间的数据同步通过两种方式进行，
+ 一是每台server定时去mysql dump数据到本地文件，二是某一台server接收发布数据请求，在更新完mysql和本机的本地文件后，发送一个HTTP请求（通知）到集群中的其他几台server，其他server收到通知，去mysql中将刚刚更新的数据dump到本地文件。
 
 
-     c. diamond服务端是一个集群，集群中的每台机器连接同一个mysql，集群之间的数据同步通过两种方式进行，一是每台server定时去mysql dump数据到本地文件，二是某一台server接收发布数据请求，在更新完mysql和本机的本地文件后，发送一个HTTP请求（通知）到集群中的其他几台server，其他server收到通知，去mysql中将刚刚更新的数据dump到本地文件。
 
+ d. 每一台server前端都有一个nginx，用来做流量控制。
 
 
-     d. 每一台server前端都有一个nginx，用来做流量控制。
 
+ e. 图中没有将地址服务器画出，地址服务器是一台有域名的机器，上面运行有一个HTTP server，其中有一个静态文件，存放着diamond服务器的地址列表。客户端启动时，根据自身的域名绑定，连接到地址服务器，取回diamond服务器的地址列表，从中随机选择一台diamond服务器进行连接。
 
 
-     e. 图中没有将地址服务器画出，地址服务器是一台有域名的机器，上面运行有一个HTTP server，其中有一个静态文件，存放着diamond服务器的地址列表。客户端启动时，根据自身的域名绑定，连接到地址服务器，取回diamond服务器的地址列表，从中随机选择一台diamond服务器进行连接。
+```
 
+ 4、容灾机制
 
 
-     4、容灾机制
+```
 
+ diamond容灾机制涉及到client和server两部分，主要包括以下几个方面：
 
 
-     diamond容灾机制涉及到client和server两部分，主要包括以下几个方面：
 
+ a. server存储数据的方式
 
 
-     a. server存储数据的方式
 
+ server存储数据是“数据库 + 本地文件”的方式，集群间的数据同步我们在之前的文章中讲过（请参考专题二的原理部分），client订阅数据时，访问的是本地文件，不查询数据库，这样即使数据库出问题了，仍然不影响client的订阅。
 
 
-     server存储数据是“数据库 + 本地文件”的方式，集群间的数据同步我们在之前的文章中讲过（请参考专题二的原理部分），client订阅数据时，访问的是本地文件，不查询数据库，这样即使数据库出问题了，仍然不影响client的订阅。
 
+ b. server是一个集群
 
 
-     b. server是一个集群
 
+ 这是一个基本的容灾机制，集群中的一台server不可用了，client发现后可以自动切换到其他server上进行访问，自动切换在client内部实现。
 
 
-     这是一个基本的容灾机制，集群中的一台server不可用了，client发现后可以自动切换到其他server上进行访问，自动切换在client内部实现。
 
+ c. client保存snapshot
 
 
-     c. client保存snapshot
 
+ client每次从server获取到数据后，都会将数据保存在本地文件系统，diamond称之为snapshot，即数据快照。当client下次启动发现在超时时间内所有server均不可用（可能是网络故障），它会使用snapshot中的数据快照进行启动。
 
 
-     client每次从server获取到数据后，都会将数据保存在本地文件系统，diamond称之为snapshot，即数据快照。当client下次启动发现在超时时间内所有server均不可用（可能是网络故障），它会使用snapshot中的数据快照进行启动。
 
+ d. client校验MD5
 
 
-     d. client校验MD5
 
+ client每次从server获取到数据后，都会进行MD5校验（数据保存在response body，MD5保存在response header），以防止因网络故障造成的数据不完整，MD5校验不通过直接抛出异常。
 
 
-     client每次从server获取到数据后，都会进行MD5校验（数据保存在response body，MD5保存在response header），以防止因网络故障造成的数据不完整，MD5校验不通过直接抛出异常。
+ e. client与server分离
 
+ client可以和server完全分离，单独使用，diamond定义了一个“容灾目录”的概念，client在启动时会创建这个目录，每次主动获取数据（即调用getAvailableConfigInfomation\(\)方法），都会优先从“容灾目录”获取数据，如果client按照一个固定的规则，在“容灾目录”下配置了需要的数据，那么client直接获取到数据返回，不再通过网络从diamond-server获取数据。同样的，在每次轮询时，都会优先轮询“容灾目录”，如果发现配置还存在于其中，则不再向server发出轮询请求。 以上的情形， 会持续到“容灾目录”的配置数据被删除为止。
 
 
-     e. client与server分离
+根据以上的容灾机制，我们可以总结一下diamond整个系统完全不可用的条件：
+数据库不可用；
+所有server均不可用；
+client主动删除了snapshot；
+client没有备份配置数据，导致其不能配置"容灾目录"；
 
-
-
-     client可以和server完全分离，单独使用，diamond定义了一个“容灾目录”的概念，client在启动时会创建这个目录，每次主动获取数据（即调用getAvailableConfigInfomation\(\)方法），都会优先从“容灾目录”获取数据，如果client按照一个固定的规则，在“容灾目录”下配置了需要的数据，那么client直接获取到数据返回，不再通过网络从diamond-server获取数据。同样的，在每次轮询时，都会优先轮询“容灾目录”，如果发现配置还存在于其中，则不再向server发出轮询请求。 以上的情形， 会持续到“容灾目录”的配置数据被删除为止。
-
-
-
-    根据以上的容灾机制，我们可以总结一下diamond整个系统完全不可用的条件：
-
-
-
-    数据库不可用；
-
-
-
-    所有server均不可用；
-
-
-
-    client主动删除了snapshot；
-
-
-
-    client没有备份配置数据，导致其不能配置"容灾目录"；
-
-
-
-    本人在公司的线上环境仔细分析过，同时满足这四点条件的概率那是相当小！
+本人在公司的线上环境仔细分析过，同时满足这四点条件的概率那是相当小！
+```
 
 # 2.怎么使用
 
