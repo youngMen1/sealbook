@@ -13,7 +13,9 @@ Jconsole （Java Monitoring and Management Console），一种基于JMX的可视
 
 ![img](/static/image/20180422221307379)
 ## 1.2.JConsole功能基本介绍
+JConsole 基本包括以下基本功能：概述、内存、线程、类、VM概要、MBean
 
+运行下面的程序、然后使用JConsole进行监控;注意设置虚拟机参数
 
 # 3.怎么使用
 
