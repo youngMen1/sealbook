@@ -130,3 +130,7 @@ a0693872e6fedb18d4ce3b94dea07bef2c35468e.png
 
 点击上图中实例最多的class，右键**Use Selected Instances->Reference->Incoming Reference**.
 发现该Long数据最终是存放在**bezier.BeaierAnim.leakMap**中。
+de60d0d5dcb88017ed0dbda668b921c43bca869a.png
+(图18)
+
+在Allocations tab项中，右键点击其中的某个方法，可查看到具体的源码信息.
