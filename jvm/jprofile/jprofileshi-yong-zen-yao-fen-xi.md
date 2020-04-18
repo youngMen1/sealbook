@@ -9,7 +9,8 @@ JProfiler是由ej-technologies GmbH公司开发的一款性能瓶颈分析工具
 * CPU,Thread,Memory分析功能尤其强大
 * 支持对jdbc,noSql, jsp, servlet, socket等进行分析
 * 支持多种模式\(离线，在线\)的分析
-* f71a75090d48e46eb809001918d37d7cc8d5ec90.png
+* ![img](/static/image/f71a75090d48e46eb809001918d37d7cc8d5ec90.png)
+* 跨平台
 
 
 
