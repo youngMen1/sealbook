@@ -10,7 +10,8 @@
 ```
 https://www.ej-technologies.com/download/jprofiler/version_92
 ```
-右上角可以选择要下载版本 
+右上角可以选择要下载版本：
+微信截图_20200418102046.png 
 # 3.总结
 
 # 
