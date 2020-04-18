@@ -33,7 +33,7 @@ https://www.ej-technologies.com/download/jprofiler/version_92
 
 ![img](/static/image/20180205172603461.png)
 
-# 微信截图\_20200418103015.png
+![img](/static/image/微信截图\_20200418103015.png)
 
 # 3.总结
 
