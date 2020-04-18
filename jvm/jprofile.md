@@ -2,8 +2,6 @@
 
 ## 1.1.环境
 
-# 环境 {#环境}
-
 * JProfiler 17.1.3（IDEA插件）
 * JProfiler 9.2（可执行软件）
 * IntelliJ IDEA 2017.2.5
