@@ -140,3 +140,13 @@ A1. 首先来分析下内存泄露的场景:(勾选图13中 Leak Memory 模拟�
 
 A2. 模拟线程阻塞的场景(勾选图13中Simulate blocking 模拟线程间锁的阻塞)
 为了方便区分线程，我将Demo中的BezierAnim.java的L236的线程命名为test
+
+
+```
+public void start() {
+            thread = new Thread(this, "test");
+            thread.setPriority(Thread.MIN_PRIORITY);
+            thread.start();
+        }
+```
+
