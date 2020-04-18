@@ -40,7 +40,7 @@ https://www.ej-technologies.com/download/jprofiler/version_92
 ![img](/static/image/微信截图_20200418140344.png)
 
 # 3.总结
-由于10.0的版本没有
+由于10.0的版本的序列号不能用,最后还是换成了9.2.1的版本
 
 # 4.参考
 深入浅出JProfiler：
