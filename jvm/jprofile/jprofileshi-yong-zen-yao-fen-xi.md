@@ -40,3 +40,21 @@ A2. 数据收集的原理如图2
 7. JProfiler GUI Socket 将收到的信息返回 JProfiler GUI Render
 8. JProfiler GUI Render 渲染成最终的展示效果
 三. 数据采集方式和启动模式
+A1. JProfier采集方式分为两种：Sampling(样本采集)和Instrumentation
+
+Sampling: 类似于样本统计, 每隔一定时间(5ms)将每个线程栈中方法栈中的信息统计出来。优点是对应用影响小(即使你不配置任何Filter, Filter可参考文章第四部分)，缺点是一些数据/特性不能提供(例如:方法的调用次数)
+
+Instrumentation: 在class加载之前，JProfier把相关功能代码写入到需要分析的class中，对正在运行的jvm有一定影响。优点: 功能强大，但如果需要分析的class多，那么对应用影响较大，一般配合Filter一起使用。所以一般JRE class和framework的class是在Filter中通常会过滤掉。
+
+注: JProfiler本身没有指出数据的采集类型，这里的采集类型是针对方法调用的采集类型 。因为JProfiler的绝大多数核心功能都依赖方法调用采集的数据, 所以可以直接认为是JProfiler的数据采集类型。
+
+A2: 启动模式:
+
+Attach mode
+可直接将本机正在运行的jvm加载JProfiler Agent. 优点是很方便，缺点是一些特性不能支持。如果选择Instrumentation数据采集方式，那么需要花一些额外时间来重写需要分析的class。
+
+Profile at startup
+在被分析的jvm启动时，将指定的JProfiler Agent手动加载到该jvm。JProfiler GUI 将收集信息类型和策略等配置信息通过socket发送给JProfiler Agent，收到这些信息后该jvm才会启动。
+在被分析的jvm 的启动参数增加下面内容：
+语法: -agentpath:[path to jprofilerti library]
+【注】: 语法不清楚没关系，JProfiler提供了帮助向导.
