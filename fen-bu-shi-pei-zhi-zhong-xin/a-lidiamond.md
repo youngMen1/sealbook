@@ -78,6 +78,8 @@ diamond的可靠是指应用方在任何情况下都可以启动，
 
     );
 
+建表完成后，请将数据库的配置信息添加到diamond-server工程的src/resources/jdbc.properties文件中。
+
 # 2.怎么使用
 
 # 3.总结
