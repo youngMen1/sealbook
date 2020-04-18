@@ -138,7 +138,7 @@ A1. 首先来分析下内存泄露的场景:\(勾选图13中 Leak Memory 模拟�
 
 在Allocations tab项中，右键点击其中的某个方法，可查看到具体的源码信息.
 
-ffb374dd45b1cf006f689fa56d2f4fbff3c85d1c.png  
+![img](/static/image/ffb374dd45b1cf006f689fa56d2f4fbff3c85d1c.png)  
 \(图19\)
 
 【注】:到这里问题已经非常清楚了，明白了在图17中为什么哪些实例的数量是一样多，并且为什么内存在fullgc后还是回收不了\(一个old 区的对象leakMap，put的信息也会进入old区, leakMap如回收不掉，那么该map中包含的对象也回收不掉\)。
