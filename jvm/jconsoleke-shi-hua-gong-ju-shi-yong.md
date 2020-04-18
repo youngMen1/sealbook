@@ -73,7 +73,20 @@ copy 上的 0.120s\(3收集\)    新生代使用赋值算法（copy）,0.120s,�
 
 MarkSweepCompact上的 0.037（1收集）    老年代使用标记清除整理，耗时0.037，总共一次
 
-对应的GC日志。
+
+
+对应的GC日志：
+
+```
+[GC (Allocation Failure) [DefNew: 27277K->3392K(30720K), 0.0349173 secs] 27277K->14749K(99008K), 0.0350411 secs] [Times: user=0.03 sys=0.00, real=0.04 secs] 
+
+[GC (Allocation Failure) [DefNew: 30691K->3378K(30720K), 0.0446635 secs] 42049K->39217K(99008K), 0.0447387 secs] [Times: user=0.03 sys=0.01, real=0.04 secs] 
+
+[GC (Allocation Failure) [DefNew: 30679K->3372K(30720K), 0.0408609 secs] 66518K->64734K(99008K), 0.0409604 secs] [Times: user=0.02 sys=0.02, real=0.04 secs] 
+
+[Full GC (System.gc()) [Tenured: 61362K->66352K(68288K), 0.0372192 secs] 67024K->66352K(99008K), [Metaspace: 9535K->9535K(1058816K)], 0.0373411 secs] [Times: user=0.05 sys=0.00, real=0.04 secs]
+
+```
 
 # 3.怎么使用
 
