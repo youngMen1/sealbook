@@ -17,3 +17,5 @@ JProfiler是由ej-technologies GmbH公司开发的一款性能瓶颈分析工具
 Q1. JProfiler既然是一款性能瓶颈分析工具，这些分析的相关数据来自于哪里？  
 Q2. JProfiler是怎么将这些数据收集并展现的?
 
+774e1de366c3dced5bf97ab0cd34471ec9a99537.png
+
