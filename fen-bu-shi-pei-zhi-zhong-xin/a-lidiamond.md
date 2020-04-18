@@ -102,7 +102,7 @@ tomcat的安装请参考tomcat官方文档，建议使用tomcat7
 
 http server用来存放diamond server等地址列表，可以选用任何http server，这里以tomcat为例。一般来讲，http server和diamond server是部署在不同机器上的，这里简单起见，将二者部署在同一个机器下的同一个tomcat的同一个应用中，注意，如果部署在不同的tomcat中，端口号一定是8080，不能修改（所以必须部署在不同的机器上）。在上一步的tomcat的webapps中的diamond-server中建立文件diamond，文件内容是diamond-server的地址列表，一行一个地址，地址为IP，例如：127.0.0.1。完成以上4步后，server端的搭建就完成了。
 
-1.2.5.pushit
+### 1.2.5.pushit
 
 pushit是一个轻量级的消息通知服务组件，用来为diamond做实时通知服务，通知客户端数据的变化，它也是CS的结构，服务端搭建步骤如下：
 
@@ -114,7 +114,7 @@ pushit是一个轻量级的消息通知服务组件，用来为diamond做实时�
 
 进入pushit/bin目录，执行./pushit-startup.sh ../conf/server.properties命令，启动pushit-server
 
-1.2.6.redis
+### 1.2.6.redis
 
 redis用来存放一些跟统计相关的信息。
 
@@ -146,7 +146,7 @@ domain  ip
 
 其中，domain的值与diamond-utils工程下的com.taobao.diamond.common.Constants类中的DEFAULT\_DOMAINNAME和DAILY\_DOMAINNAME的值相同，ip为server搭建第（4）步中的http server地址。
 
-1.4.2.创建订阅者
+### 1.4.2.创建订阅者
 
 ```
 DiamondManager manager = new DefaultDiamondManager(group, dataId, new ManagerListener() {
@@ -159,7 +159,6 @@ DiamondManager manager = new DefaultDiamondManager(group, dataId, new ManagerLis
 
    }
 });
-
 ```
 
 参数的说明：
@@ -168,7 +167,7 @@ group和dataId为String类型，二者结合为diamond-server端保存数据的�
 
 ManagerListener 是客户端注册的数据监听器， 它的作用是在运行中接受变化的配置数据，然后回调receiveConfigInfo\(\)方法，执行客户端处理数据的逻辑。如果要在运行中对变化的配置数据进行处理，就一定要注册ManagerListener
 
-（3）获取配置数据
+### 1.4.3.获取配置数据
 
 String configInfo = manager.getAvailableConfigInfomation\(timeout\);
 
