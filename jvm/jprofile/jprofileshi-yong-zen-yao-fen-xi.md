@@ -125,7 +125,7 @@ A1. 首先来分析下内存泄露的场景:(勾选图13中 Leak Memory 模拟�
 在Heap walker中分析刚才记录的对象信息
 ![img](/static/image/de3a4d18921259d1767bd7ac0c05fe02678b3c26.png)
 (图16)
-a0693872e6fedb18d4ce3b94dea07bef2c35468e.png
+![img](/static/image/a0693872e6fedb18d4ce3b94dea07bef2c35468e.png）
 (图17)
 
 点击上图中实例最多的class，右键**Use Selected Instances->Reference->Incoming Reference**.
