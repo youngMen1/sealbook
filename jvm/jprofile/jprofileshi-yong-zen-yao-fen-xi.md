@@ -167,4 +167,11 @@ e7e80aa09ecca398679da298a4f6291e10030a03.png
 AWT-EventQueue-0 线程持有一个Object的锁，并且处于Waiting状态。
 
 图下方的代码提示出Demo.block方法调用了object.wait方法。这个还是比较容易理解的。
-03ca5479b6b877cc9dc77029cbcb771ef0129e73.png 
+03ca5479b6b877cc9dc77029cbcb771ef0129e73.png
+(图22)
+
+第二种:
+AWT-EventQueue-0占有了bezier.BezierAnim$Demo实例上的锁，而test线程等待该线程释放。
+
+注意下图中下方的源代码, 这种锁的出现原因是Demo的blcok方法在AWT和test线程
+都会被执行，并且该方法是synchronized. 
