@@ -84,12 +84,6 @@ diamond的可靠是指应用方在任何情况下都可以启动，
 
 完成后，请将数据库的配置信息（IP，用户名，密码）添加到diamond-server工程的src/resources/jdbc.properties文件中的db.url，db.user，db.password属性上面，这里建立的库名，用户名和密码，必须和jdbc.properties中对应的属性相同。
 
-————————————————
-
-版权声明：本文为CSDN博主「zh\_winer」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-
-原文链接：https://blog.csdn.net/zh\_winer/article/details/50395024
-
 # 2.怎么使用
 
 # 3.总结
