@@ -19,6 +19,7 @@ Distributed Configuration Management Platform\(分布式配置管理平台\)
 ## 1.3.功能特点
 支持配置（配置项+配置文件）的分布式化管理
 配置发布统一化
+
 **配置发布、更新统一化:**
 
 同一个上线包 无须改动配置 即可在 多个环境中(RD/QA/PRODUCTION) 上线
