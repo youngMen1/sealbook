@@ -153,35 +153,35 @@ public void start() {
             thread.start();
         }
 ```
-正常情况下，如下图
-603df4fd16b151739dbafedc0631fd3036b5fe36.png
-(图20)
 
-勾选了Demo中"Simulate blocking"选项后，如下图(注意看下下图中的状态图标), test线程block状态明显增加了。
-e7e80aa09ecca398679da298a4f6291e10030a03.png
-(图21)
+正常情况下，如下图  
+603df4fd16b151739dbafedc0631fd3036b5fe36.png  
+\(图20\)
 
-在**Monitors & locks->Monitor History**观察了一段时间后，会发现有4种发生锁的情况。
+勾选了Demo中"Simulate blocking"选项后，如下图\(注意看下下图中的状态图标\), test线程block状态明显增加了。  
+e7e80aa09ecca398679da298a4f6291e10030a03.png  
+\(图21\)
 
-第一种:
+在**Monitors & locks-&gt;Monitor History**观察了一段时间后，会发现有4种发生锁的情况。
+
+第一种:  
 AWT-EventQueue-0 线程持有一个Object的锁，并且处于Waiting状态。
 
-图下方的代码提示出Demo.block方法调用了object.wait方法。这个还是比较容易理解的。
-03ca5479b6b877cc9dc77029cbcb771ef0129e73.png
-(图22)
+图下方的代码提示出Demo.block方法调用了object.wait方法。这个还是比较容易理解的。  
+03ca5479b6b877cc9dc77029cbcb771ef0129e73.png  
+\(图22\)
 
-第二种:
+第二种:  
 AWT-EventQueue-0占有了bezier.BezierAnim$Demo实例上的锁，而test线程等待该线程释放。
 
-注意下图中下方的源代码, 这种锁的出现原因是Demo的blcok方法在AWT和test线程
-都会被执行，并且该方法是synchronized.
-df7c092e85b1ae9db0bd98376b36c24cddff2b8b.png
-(图23)
+注意下图中下方的源代码, 这种锁的出现原因是Demo的blcok方法在AWT和test线程  
+都会被执行，并且该方法是synchronized.  
+df7c092e85b1ae9db0bd98376b36c24cddff2b8b.png  
+\(图23\)
 
-第三种和第四种:
-test线程中会不断向事件Event Dispatching Thread提交任务，导致竞争java.awt.EventQueue对象锁。
-提交任务的方式是下面的代码:repaint()和EventQueue.invokeLater 
-
+第三种和第四种:  
+test线程中会不断向事件Event Dispatching Thread提交任务，导致竞争java.awt.EventQueue对象锁。  
+提交任务的方式是下面的代码:repaint\(\)和EventQueue.invokeLater
 
 ```
 public void run() {
@@ -206,19 +206,21 @@ public void run() {
             thread = null;
         }
 ```
-76f14916d07736bdf51db282045550c83d580fef.png
-(图24)
-六. 最佳实践
-JProfiler都会对一些特殊操作给予提示，这时候最好仔细阅读下说明.
-"Mark Current"功能在某些场景很有效
-Heap walker一般是静态分析在Live memory->Recorder objects的对象信息，这些信息可能会被GC回收掉，导致Heap walker中什么也没有显示出来。这种现象是正常的。
-可以才工具栏中Start Recordings配置一次性收集的信息
-Filter中include和exclude是有顺序的，注意使用下图**左下方**的**“Show Filter Tree”**来验证一下顺序 
-72bac3b3a3ce644f30f48b7b6eb6c371c7aa5a6f.png
- (图25)
-七. 参考文献
-JProfiler helper: http://resources.ej-technologies.com/jprofiler/help/doc/index.html
-JVMTI: http://docs.oracle.com/javase/7/docs/platform/jvmti/jvmti.html
 
-如果上面的描述有错误或者不清晰的地方，欢迎斧正。
+76f14916d07736bdf51db282045550c83d580fef.png  
+\(图24\)  
+六. 最佳实践  
+JProfiler都会对一些特殊操作给予提示，这时候最好仔细阅读下说明.  
+"Mark Current"功能在某些场景很有效  
+Heap walker一般是静态分析在Live memory-&gt;Recorder objects的对象信息，这些信息可能会被GC回收掉，导致Heap walker中什么也没有显示出来。这种现象是正常的。  
+可以才工具栏中Start Recordings配置一次性收集的信息  
+Filter中include和exclude是有顺序的，注意使用下图**左下方**的**“Show Filter Tree”**来验证一下顺序   
+!\[img\]\(/static/image/72bac3b3a3ce644f30f48b7b6eb6c371c7aa5a6f.png\)  
+ \(图25\)  
+七. 参考文献  
+JProfiler helper: [http://resources.ej-technologies.com/jprofiler/help/doc/index.html](http://resources.ej-technologies.com/jprofiler/help/doc/index.html)  
+JVMTI: [http://docs.oracle.com/javase/7/docs/platform/jvmti/jvmti.html](http://docs.oracle.com/javase/7/docs/platform/jvmti/jvmti.html)
+
+如果上面的描述有错误或者不清晰的地方，欢迎斧正。  
 另外补充一句:JProfiler是收费的
+
