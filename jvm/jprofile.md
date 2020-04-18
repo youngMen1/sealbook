@@ -48,8 +48,6 @@ https://www.ej-technologies.com/download/jprofiler/version_92
 
 [JProfiler&gt; ERROR: Invalid license key. Aborting.](https://www.cnblogs.com/yang101/p/11316103.html)注册码无效
 
-
-
 # 4.参考
 
 深入浅出JProfiler：
