@@ -49,7 +49,7 @@ Instrumentation: 在class加载之前，JProfier把相关功能代码写入到�
 
 注: JProfiler本身没有指出数据的采集类型，这里的采集类型是针对方法调用的采集类型 。因为JProfiler的绝大多数核心功能都依赖方法调用采集的数据, 所以可以直接认为是JProfiler的数据采集类型。
 
-A2: 启动模式:
+**A2: 启动模式:**
 
 Attach mode  
 可直接将本机正在运行的jvm加载JProfiler Agent. 优点是很方便，缺点是一些特性不能支持。如果选择Instrumentation数据采集方式，那么需要花一些额外时间来重写需要分析的class。
