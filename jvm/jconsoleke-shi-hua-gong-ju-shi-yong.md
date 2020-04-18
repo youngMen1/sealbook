@@ -12,6 +12,7 @@ Jconsole （Java Monitoring and Management Console），一种基于JMX的可视
 * 选择其中一个进程可开始进行监控
 
 ![img](/static/image/20180422221307379)
+## 1.2.JConsole功能基本介绍
 
 # 3.怎么使用
 
