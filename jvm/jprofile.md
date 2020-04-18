@@ -27,7 +27,7 @@ https://www.ej-technologies.com/download/jprofiler/version_92
 
 # 
 
-### 配置IDEA运行环境 {#配置idea运行环境}
+### 2.3.配置IDEA运行环境 {#配置idea运行环境}
 
 # 微信截图\_20200418103133.png
 
