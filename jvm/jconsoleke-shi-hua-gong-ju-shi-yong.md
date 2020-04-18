@@ -2,6 +2,8 @@
 
 Jconsole （Java Monitoring and Management Console），一种基于JMX的可视化监视、管理工具。
 
+
+
 ## 1.1.启动JConsole {#12-启动jconsole}
 
 点击JDK/bin 目录下面的
