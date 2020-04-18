@@ -186,13 +186,13 @@ public class JConsoleThreadLock {
 **VisualVM（All-in-One Java Troubleshooting Tool）;功能最强大的运行监视和故障处理程序**
 
 # VisualVM介绍
-2.1 功能描述
+## 2.1 功能描述
 显示虚拟机进程以及进程的配置、环境信息（jps、jinfo）。
 监视应用程序的CPU、GC、堆、方法区(1.7及以前)，元空间（JDK1.8及以后）以及线程的信息（jstat、jstack）。
 dump以及分析堆转储快照（jmap、jhat）。
 方法级的程序运行性能分析，找出被调用最多、运行时间最长的方法。
 离线程序快照：收集程序的运行时配置、线程dump、内存dump等信息建立一个快照
-2.2 使用教程
+## 2.2 使用教程
 如何使用，直接查看官网和本书教程即可。
 
 # 3.怎么使用
