@@ -25,15 +25,14 @@ https://www.ej-technologies.com/download/jprofiler/version_92
 右上角可以选择要下载版本：  
 ![img](/static/image/微信截图_20200418102046.png)
 
-# 
+![img](/static/image/20180205172603461.png)
 
+![img](/static/image/微信截图\_20200418103015.png)
 ### 2.3.配置IDEA运行环境 {#配置idea运行环境}
 
 ![img](/static/image/微信截图\_20200418103133.png)
 
-![img](/static/image/20180205172603461.png)
 
-![img](/static/image/微信截图\_20200418103015.png)
 
 # 3.总结
 
