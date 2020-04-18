@@ -1,5 +1,7 @@
 # 1.基本介绍
 
+Jconsole （Java Monitoring and Management Console），一种基于JMX的可视化监视、管理工具。
+
 # 3.怎么使用
 
 # 2.总结
