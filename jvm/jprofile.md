@@ -4,7 +4,7 @@
 ## 2.1.下载JProfiler（IDEA）插件
 ![img](/static/image/微信截图\_20200418101304.png)
 重启IDEA看到如下图说明安装成功
-微信截图_20200418101810.png
+![img](/static/image/微信截图_20200418101810.png)
 
 # 3.总结
 
