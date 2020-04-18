@@ -115,7 +115,7 @@ e95ff007af328eb31b4f9fb4d9d888bffdfe1d29.png
 
 A1. 首先来分析下内存泄露的场景:(勾选图13中 Leak Memory 模拟内存泄露)
 1. 在**Telemetries-> Memory**视图中你会看到大致如下图的场景(在看的过程中可以间隔一段时间去执行Run GC这个功能)：看到下图蓝色区域,老生代在gc后(**波谷**)内存的大小在慢慢的增加(理想情况下，这个值应该是稳定的)
-c4c3c21a29874988408786f3c62f2953f713594a.png
+![img](/static/image/c4c3c21a29874988408786f3c62f2953f713594a.png)
 (图14)
 
 在 Live memory->Recorded Objects 中点击**record allocation data**按钮，开始统计一段时间内创建的对象信息。执行一次**Run GC**后看看当前对象信息的大小，并点击工具栏中**Mark Current**按钮(其实就是给当前对象数量打个标记。执行一次Run GC，然后再继续观察;执行一次Run GC，然后再继续观察...。最后看看哪些对象在不断GC后，数量还一直上涨的。最后你看到的信息可能和下图类似
