@@ -159,3 +159,11 @@ public void start() {
 
 勾选了Demo中"Simulate blocking"选项后，如下图(注意看下下图中的状态图标), test线程block状态明显增加了。
 e7e80aa09ecca398679da298a4f6291e10030a03.png
+(图21)
+
+在**Monitors & locks->Monitor History**观察了一段时间后，会发现有4种发生锁的情况。
+
+第一种:
+AWT-EventQueue-0 线程持有一个Object的锁，并且处于Waiting状态。
+
+图下方的代码提示出Demo.block方法调用了object.wait方法。这个还是比较容易理解的。 
