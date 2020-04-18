@@ -39,3 +39,4 @@ A2. 数据收集的原理如图2
 6. 返回给JProfiler GUI Socket.
 7. JProfiler GUI Socket 将收到的信息返回 JProfiler GUI Render
 8. JProfiler GUI Render 渲染成最终的展示效果
+三. 数据采集方式和启动模式
