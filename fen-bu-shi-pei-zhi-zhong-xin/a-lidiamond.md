@@ -202,6 +202,7 @@ client调用getAvailableConfigInfomation\(\)， 即可获取一份最新的可�
 
 ## 1.6.diamond架构
 **diamond服务是一个集群，是一个去除单点的协作集群。如下图所示：**
+![img](/static/image/20151224170514769.png)
 
 # 2.怎么使用
 
