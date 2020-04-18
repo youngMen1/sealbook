@@ -59,17 +59,17 @@ windows环境下的安装与使用：
 
 # 3.总结
 
-# protoc.exe如何使用
+# 3.1protoc.exe如何使用
 
 直接上命令：（datagram.proto 文件和protoc.exe同一目录下，如果不同-I=后面为相应的路径）
 
 ```
 #c++的命令
 protoc.exe -I=. --cpp_out=./  datagram.proto 
- 
+
 #java的命令
 protoc.exe -I=. --java_out=./ datagram.proto
- 
+
 #其他类推
 ```
 
