@@ -51,7 +51,7 @@ Instrumentation: 在class加载之前，JProfier把相关功能代码写入到�
 
 **A2: 启动模式:**
 
-Attach mode  
+**Attach mode  **
 可直接将本机正在运行的jvm加载JProfiler Agent. 优点是很方便，缺点是一些特性不能支持。如果选择Instrumentation数据采集方式，那么需要花一些额外时间来重写需要分析的class。
 
 **Profile at startup  **
