@@ -33,7 +33,7 @@ https://www.ej-technologies.com/download/jprofiler/version_92
 ![img](/static/image/微信截图\_20200418103133.png)
 
 ### 2.4.选择你要分析的项目，点击JProfiler图标启动
-
+微信截图_20200418103627.png
 
 # 3.总结
 
