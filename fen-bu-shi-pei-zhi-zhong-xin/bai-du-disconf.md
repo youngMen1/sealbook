@@ -4,7 +4,7 @@ Disconf是百度的一个分布式配置中心,目前已经开源。而且它是
 
 ### 1.1.DisConf-分布式配置管理平台-简介 {#1disconf-分布式配置管理平台-简介}
 
-github**地址：**
+github地址：
 
 [https://github.com/knightliao/disconf](https://github.com/knightliao/disconf)  
 **文档地址：**
