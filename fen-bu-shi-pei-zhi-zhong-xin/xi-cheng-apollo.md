@@ -16,7 +16,7 @@ namespace \(命名空间\)
 
 同时，
 
-Apollo基于开源模式开发，开源地址：[https://github.com/ctripcorp/apollo](https://github.com/ctripcorp/apollo)
+**Apollo基于开源模式开发，开源地址：**[https://github.com/ctripcorp/apollo](https://github.com/ctripcorp/apollo)
 
 ## 
 
