@@ -45,8 +45,7 @@ https://www.ej-technologies.com/download/jprofiler/version_92
 [https://www.cnblogs.com/jpfss/p/8488111.html](https://www.cnblogs.com/jpfss/p/8488111.html)
 
 Java剖析工具JProfiler入门使用教程：
-
-[https://www.evget.com/article/2013/5/9/18900.html](https://www.evget.com/article/2013/5/9/18900.html)
+https://www.evget.com/article/2013/5/9/18900.html
 
 Intellij IDEA集成JProfiler性能分析神器：
 https://blog.csdn.net/wytocsdn/article/details/79258247
