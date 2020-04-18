@@ -207,7 +207,7 @@ client调用getAvailableConfigInfomation\(\)， 即可获取一份最新的可�
 
 对该图进行一些说明：
 
-```
+
 a. 作为一个配置中心，diamond的功能分为发布和订阅两部分。因为diamond存放的是持久数据，这些数据的变化频率不会很高，甚至很低，
 所以发布采用手工的形式，通过diamond后台管理界面发布；订阅是diamond的核心功能，订阅通过diamond-client的API进行。
 
@@ -222,12 +222,11 @@ a. 作为一个配置中心，diamond的功能分为发布和订阅两部分。�
  e. 图中没有将地址服务器画出，地址服务器是一台有域名的机器，上面运行有一个HTTP server，其中有一个静态文件，存放着diamond服务器的地址列表。客户端启动时，根据自身的域名绑定，连接到地址服务器，取回diamond服务器的地址列表，从中随机选择一台diamond服务器进行连接。
 
 
-```
 
 ### 1.6.1.容灾机制
 
 
-```
+
 
  diamond容灾机制涉及到client和server两部分，主要包括以下几个方面：
 
@@ -250,16 +249,10 @@ a. 作为一个配置中心，diamond的功能分为发布和订阅两部分。�
 
 
  c. client保存snapshot
-
-
-
  client每次从server获取到数据后，都会将数据保存在本地文件系统，diamond称之为snapshot，即数据快照。当client下次启动发现在超时时间内所有server均不可用（可能是网络故障），它会使用snapshot中的数据快照进行启动。
 
 
-
  d. client校验MD5
-
-
 
  client每次从server获取到数据后，都会进行MD5校验（数据保存在response body，MD5保存在response header），以防止因网络故障造成的数据不完整，MD5校验不通过直接抛出异常。
 
@@ -276,7 +269,7 @@ client主动删除了snapshot；
 client没有备份配置数据，导致其不能配置"容灾目录"；
 
 本人在公司的线上环境仔细分析过，同时满足这四点条件的概率那是相当小！
-```
+
 
 # 2.怎么使用
 
