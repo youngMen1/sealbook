@@ -259,6 +259,8 @@ client没有备份配置数据，导致其不能配置"容灾目录"；
 
 # 4.参考
 
+github上一些项目:https://github.com/takeseem/diamond
+
 阿里中间件diamond：
 
 [https://blog.csdn.net/zh\_winer/article/details/50395024](https://blog.csdn.net/zh_winer/article/details/50395024)
