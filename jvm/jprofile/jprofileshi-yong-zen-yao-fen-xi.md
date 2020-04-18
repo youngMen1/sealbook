@@ -59,6 +59,5 @@ Profile at startup
 在被分析的jvm 的启动参数增加下面内容：  
 语法: -agentpath:\[path to jprofilerti library\]  
 【注】: 语法不清楚没关系，JProfiler提供了帮助向导.
-
-af3a9d42a43abf41a676e194dad2524c651b213c.png
+![img](/static/image/af3a9d42a43abf41a676e194dad2524c651b213c.png)
 
