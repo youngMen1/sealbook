@@ -142,7 +142,7 @@ diamond客户端API主要提供了订阅数据的功能.
 
 获取服务端地址对客户端是透明的，客户端仅仅需要在本地进行如下域名绑定即可：
 
-domain  ip
+**domain  ip**
 
 其中，domain的值与diamond-utils工程下的com.taobao.diamond.common.Constants类中的DEFAULT\_DOMAINNAME和DAILY\_DOMAINNAME的值相同，ip为server搭建第（4）步中的http server地址。
 
