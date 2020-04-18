@@ -81,4 +81,4 @@ Profiling Settings: 收据收集的策略:Sampling和 Instrumentation，一些�
 (图5)
 
 Triggers: 一般用于**offline**模式，告知JProfiler Agent 什么时候触发什么行为来收集指定信息.
-
+e69504d0b635fae209f5672e0b2a271b5354e87a.png
