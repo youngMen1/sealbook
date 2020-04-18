@@ -182,6 +182,7 @@ public class JConsoleThreadLock {
 }
 ```
 ![img](/static/image/20180423165405892)
+结果描述：显示了线程Thread-53在等待一个被线程Thread-66持有Integer对象，而点击线程Thread-66则显示它也在等待一个Integer对象，被线程Thread-53持有，这样两个线程就互相卡住，都不存在等到锁释放的希望了
 
 # 3.怎么使用
 
