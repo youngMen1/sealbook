@@ -205,7 +205,7 @@ client调用getAvailableConfigInfomation\(\)， 即可获取一份最新的可�
 **diamond服务是一个集群，是一个去除单点的协作集群。如下图所示：**  
 ![img](/static/image/20151224170514769.png)
 
-对该图进行一些说明：
+**对该图进行一些说明：**
 
 a. 作为一个配置中心，diamond的功能分为发布和订阅两部分。因为diamond存放的是持久数据，这些数据的变化频率不会很高，甚至很低，  
 所以发布采用手工的形式，通过diamond后台管理界面发布；订阅是diamond的核心功能，订阅通过diamond-client的API进行。
