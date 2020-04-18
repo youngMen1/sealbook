@@ -110,7 +110,7 @@ Telemetries: 包含heap, thread, gc, class等的趋势图(遥测视图)
 JProfiler 自带的例子如下：模拟了内存泄露和线程阻塞的场景：
 具体源码参考: /jprofiler install path/demo/bezier
 ![img](/static/image/e95ff007af328eb31b4f9fb4d9d888bffdfe1d29.png)
-375e6515445717a1bb110738a17e61ee3de1e2aa.png
+![img](/static/image/375e6515445717a1bb110738a17e61ee3de1e2aa.png)
 (图13 Leak Memory 模拟内存泄露, Simulate blocking 模拟线程间锁的阻塞)
 
 A1. 首先来分析下内存泄露的场景:(勾选图13中 Leak Memory 模拟内存泄露)
