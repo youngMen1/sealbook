@@ -51,7 +51,7 @@ ProtoBuf是Google开源的一套二进制流网络传输协议，它独立于语
 
 # 4.参考
 
-# [Java中使用Protocol Buffer](https://www.cnblogs.com/blythe/articles/8473016.html)
+[Java中使用Protocol Buffer](https://www.cnblogs.com/blythe/articles/8473016.html)
 
 [https://www.cnblogs.com/blythe/articles/8473016.html](https://www.cnblogs.com/blythe/articles/8473016.html)
 
