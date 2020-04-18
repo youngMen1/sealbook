@@ -75,5 +75,6 @@ Instrumentation: 在class加载之前，JProfier把相关功能代码写入到�
 
 ## 1.3.JProfiler核心概念。
 Filter: 什么class需要被分析。分为包含和不包含两种类型的Filter。
-
+c6490044d51af9e36d86c7c59774a26bf68934d8.png
+Profiling Settings: 收据收集的策略:Sampling和 Instrumentation，一些数据采集细节可以自定义.
 
