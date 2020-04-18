@@ -39,12 +39,16 @@ https://www.ej-technologies.com/download/jprofiler/version_92
 
 ![img](/static/image/微信截图_20200418103627.png)
 
-![img](/static/image/微信截图_20200418140344.png)
-![img](/static/image/微信截图\_20200418140659.png)
+![img](/static/image/微信截图_20200418140344.png)  
+![img](/static/image/微信截图_20200418140659.png)
 
 # 3.总结
 
 由于10.0的版本的序列号不能用,最后还是换成了9.2.1的版本
+
+[JProfiler&gt; ERROR: Invalid license key. Aborting.](https://www.cnblogs.com/yang101/p/11316103.html)注册码无效
+
+
 
 # 4.参考
 
