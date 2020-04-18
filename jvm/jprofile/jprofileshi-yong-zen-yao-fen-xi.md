@@ -134,3 +134,9 @@ de60d0d5dcb88017ed0dbda668b921c43bca869a.png
 (图18)
 
 在Allocations tab项中，右键点击其中的某个方法，可查看到具体的源码信息.
+(图19)
+
+【注】:到这里问题已经非常清楚了，明白了在图17中为什么哪些实例的数量是一样多，并且为什么内存在fullgc后还是回收不了(一个old 区的对象leakMap，put的信息也会进入old区, leakMap如回收不掉，那么该map中包含的对象也回收不掉)。
+
+A2. 模拟线程阻塞的场景(勾选图13中Simulate blocking 模拟线程间锁的阻塞)
+为了方便区分线程，我将Demo中的BezierAnim.java的L236的线程命名为test
