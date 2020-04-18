@@ -52,7 +52,7 @@ windows环境下的安装与使用：
 * protocol编译器
   1. **安装**
      。安装protocol编译器，用来编译.proto文件；
-     1. 下载。路径：https://github.com/google/protobuf/releases。里面有windows版的:protoc-3.6.1.win32.zip。
+     1. 下载。路径：[https://github.com/google/protobuf/releases。里面有windows版的:protoc-3.6.1.win32.zip。](https://github.com/google/protobuf/releases。里面有windows版的:protoc-3.6.1.win32.zip。)
      2. 安装。
         * 下载完解压后，如果不想安装，可直接在cmd窗口进入解压得到的bin目录操作。
         * 安装，把bin目录copy下来，放到操作系统环境变量的path变量后面。
@@ -70,4 +70,6 @@ Java中使用Protocol Buffer:
 
 protobuf 3.5 java使用介绍:  
 [https://blog.csdn.net/fangxiaoji/article/details/78826165](https://blog.csdn.net/fangxiaoji/article/details/78826165)
+
+https://www.cnblogs.com/InformationGod/p/9479919.html
 
