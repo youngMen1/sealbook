@@ -80,7 +80,7 @@ diamond的可靠是指应用方在任何情况下都可以启动，
 
 建表完成后，请将数据库的配置信息添加到diamond-server工程的src/resources/jdbc.properties文件中。
 
-注意:
+**注意:**
 
 完成后，请将数据库的配置信息（IP，用户名，密码）添加到diamond-server工程的src/resources/jdbc.properties文件中的db.url，db.user，db.password属性上面，这里建立的库名，用户名和密码，必须和jdbc.properties中对应的属性相同。
 
