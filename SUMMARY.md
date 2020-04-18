@@ -146,7 +146,7 @@
 * [分布式配置中心](fen-bu-shi-pei-zhi-zhong-xin.md)
   * [阿里的Diamond](fen-bu-shi-pei-zhi-zhong-xin/a-lidiamond.md)
   * [百度的Disconf](fen-bu-shi-pei-zhi-zhong-xin/bai-du-disconf.md)
-    * 百度DisConf-分布式配置管理平台-安装
+    * [百度DisConf-分布式配置管理平台-安装](fen-bu-shi-pei-zhi-zhong-xin/bai-du-disconf/bai-du-disconf-fen-bu-shi-pei-zhi-guan-li-ping-53f0-an-zhuang.md)
   * [携程的Apollo](fen-bu-shi-pei-zhi-zhong-xin/xi-cheng-apollo.md)
   * [分布式配置中心的一般实现思路](fen-bu-shi-pei-zhi-zhong-xin/fen-bu-shi-pei-zhi-zhong-xin-de-yi-ban-shi-xian-si-lu.md)
 * [分布式系统](fen-bu-shi-xi-tong.md)
