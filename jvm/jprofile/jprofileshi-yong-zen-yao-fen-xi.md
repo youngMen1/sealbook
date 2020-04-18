@@ -19,7 +19,7 @@ Q2. JProfiler是怎么将这些数据收集并展现的?
 ![img](/static/image/774e1de366c3dced5bf97ab0cd34471ec9a99537.png)  
 \(图2\)
 
-A1. 分析的数据主要来自于下面俩部分  
+**A1. 分析的数据主要来自于下面俩部分**  
 1. 一部分来自于jvm的分析接口**JVMTI**\(JVM Tool Interface\) , JDK必须&gt;=1.6
 
 ```
