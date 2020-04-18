@@ -17,6 +17,47 @@ JConsole 基本包括以下基本功能：概述、内存、线程、类、VM概
 
 运行下面的程序、然后使用JConsole进行监控;注意设置虚拟机参数
 
+
+```
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ *  设置虚拟机参数：
+ *  -Xms100M -Xms100m -XX:+UseSerialGC -XX:+PrintGCDetails
+ */
+public class JConsoleTool {
+
+    static class OOMObject {
+        public byte[] placeholder = new byte[64 * 1024];
+    }
+
+    public static void fillHeap(int num) throws InterruptedException {
+        Thread.sleep(20000); //先运行程序，在执行监控
+        List<OOMObject> list = new ArrayList<OOMObject>();
+        for (int i = 0; i < num; i++) {
+            // 稍作延时，令监视曲线的变化更加明显
+            Thread.sleep(50);
+            list.add(new OOMObject());
+        }
+        System.gc();
+    }
+
+    public static void main(String[] args) throws Exception {
+        fillHeap(1000);
+        while(true){
+            //让其一直运行着
+        }
+
+    }
+}
+————————————————
+版权声明：本文为CSDN博主「一碗面」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/qq_31156277/java/article/details/80035430
+```
+
+
+
 # 3.怎么使用
 
 # 2.总结
