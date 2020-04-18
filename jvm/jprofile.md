@@ -41,8 +41,9 @@ https://www.ej-technologies.com/download/jprofiler/version_92
 
 
 # 4.参考
+深入浅出JProfiler：
 
-https://www.cnblogs.com/jpfss/p/8488111.html](https://www.cnblogs.com/jpfss/p/8488111.html
+https://yq.aliyun.com/articles/276?spm=a2c4e.11163080.searchblog.18.3e8c2ec1Fko5bM
 
 Java剖析工具JProfiler入门使用教程：
 https://www.evget.com/article/2013/5/9/18900.html
