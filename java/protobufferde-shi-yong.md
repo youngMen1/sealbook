@@ -16,7 +16,7 @@ Protocol Buffers \(ProtocolBuffer/ protobuf \)是Google公司开发的一种数�
 
 * 生成了更容易在编程中使用的数据访问类
 
-## 1.1.数据交互xml、json、protobuf格式比较
+## 1.3.数据交互xml、json、protobuf格式比较
 
 1、json: 一般的web项目中，最流行的主要还是json。因为浏览器对于json数据支持非常好，有很多内建的函数支持。
 
