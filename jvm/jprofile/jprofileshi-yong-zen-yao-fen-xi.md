@@ -30,3 +30,12 @@ JVMTI is an event-based system. The profiling agent library can register handler
 例如: 对象的生命周期，thread的生命周期等信息
 2. 一部分来自于instruments classes(可理解为class的重写,增加JProfiler相关统计功能)
 例如：方法执行时间，次数，方法栈等信息
+A2. 数据收集的原理如图2
+1. 用户在JProfiler GUI中下达监控的指令(一般就是点击某个按钮)
+2. JProfiler GUI JVM 通过socket(默认端口8849)，发送指令给被分析的jvm中的JProfile Agent。
+3. JProfiler Agent(如果不清楚Agent请看文章第三部分"启动模式") 收到指令后，将该指令转换成相关需要监听的事件或者指令,来注册到JVMTI上或者直接让JVMTI去执行某功能(例如dump jvm内存)
+4. JVMTI 根据注册的事件，来收集当前jvm的相关信息。 例如: 线程的生命周期; jvm的生命周期;classes的生命周期;对象实例的生命周期;堆内存的实时信息等等
+5. JProfiler Agent将采集好的信息保存到**内存**中，按照一定规则统计好(如果发送所有数据JProfiler GUI，会对被分析的应用网络产生比较大的影响)
+6. 返回给JProfiler GUI Socket.
+7. JProfiler GUI Socket 将收到的信息返回 JProfiler GUI Render
+8. JProfiler GUI Render 渲染成最终的展示效果
