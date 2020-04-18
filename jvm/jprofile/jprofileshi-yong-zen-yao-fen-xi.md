@@ -130,7 +130,7 @@ A1. 首先来分析下内存泄露的场景:(勾选图13中 Leak Memory 模拟�
 
 点击上图中实例最多的class，右键**Use Selected Instances->Reference->Incoming Reference**.
 发现该Long数据最终是存放在**bezier.BeaierAnim.leakMap**中。
-de60d0d5dcb88017ed0dbda668b921c43bca869a.png
+![img](/static/image/de60d0d5dcb88017ed0dbda668b921c43bca869a.png)
 (图18)
 
 在Allocations tab项中，右键点击其中的某个方法，可查看到具体的源码信息.
