@@ -47,5 +47,7 @@ Intellij IDEA集成JProfiler性能分析神器：
 
 [https://blog.csdn.net/wytocsdn/article/details/79258247](https://blog.csdn.net/wytocsdn/article/details/79258247)
 
-https://blog.csdn.net/laysolitary/article/details/83478363
+JProfiler10 序列号：
+
+[https://blog.csdn.net/laysolitary/article/details/83478363](https://blog.csdn.net/laysolitary/article/details/83478363)
 
