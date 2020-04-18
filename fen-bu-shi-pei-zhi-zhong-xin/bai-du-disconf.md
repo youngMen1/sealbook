@@ -11,8 +11,14 @@ Distributed Configuration Management Platform\(分布式配置管理平台\)
 一个分布式环境中，同类型的服务往往会部署很多实例。这些实例使用了一些配置，为了更好地维护这些配置就产生了配置管理服务。通过这个服务可以轻松地管理成千上百个服务实例的配置问题。专注于各种「分布式系统配置管理」的「通用组件」和「通用平台」, 提供统一的「配置管理服务」
 ![img](/static/image/20180607092944288.png)
 **使用公司：** 百度、滴滴出行、银联、网易、拉勾网、苏宁易购、顺丰科技 等知名互联网公司正在使用!
-
-
+## 1.2.主要目标
+部署极其简单：同一个上线包，无须改动配置，即可在 多个环境中(RD/QA/PRODUCTION) 上线
+部署动态化：更改配置，无需重新打包或重启，即可 实时生效
+统一管理：提供web平台，统一管理 多个环境(RD/QA/PRODUCTION)、多个产品 的所有配置
+核心目标：一个jar包，到处运行
+————————————————
+版权声明：本文为CSDN博主「IT_搬运工」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/fd2025/article/details/80604802
 # 4.总结
 
 ### 4.1.DisConf-分布式配置管理平台-简介 {#1disconf-分布式配置管理平台-简介}
@@ -35,4 +41,7 @@ Distributed Configuration Management Platform\(分布式配置管理平台\)
 Disconf —— 来自百度的分布式配置管理平台：
 
 [https://blog.csdn.net/why\_768/article/details/61419828](https://blog.csdn.net/why_768/article/details/61419828)
+百度DisConf-分布式配置管理平台-简介：
+https://blog.csdn.net/fd2025/article/details/80604802
+
 
