@@ -90,3 +90,6 @@ e8a52b590d0f4631058ca328fe0ff691c0d3aa89.png
 
 Heap walker: 对一定时间内收集的内存对像信息进行静态分析，功能强大且使用。包含对象的outgoing reference, incoming reference, biggest object等
 c85b6b5e6880bab6b7ead4b0a673b8e1575b0158.png
+(图8)
+
+CPU views: CPU消耗的分布及时间(cpu时间或者运行时间); 方法的执行图; 方法的执行统计(最大，最小，平均运行时间等)
