@@ -11,7 +11,7 @@ Jconsole （Java Monitoring and Management Console），一种基于JMX的可视
 * 然后会自动自动搜索本机运行的所有虚拟机进程。
 * 选择其中一个进程可开始进行监控
 
-20180422221307379
+![img](/static/image/20180422221307379)
 
 # 3.怎么使用
 
