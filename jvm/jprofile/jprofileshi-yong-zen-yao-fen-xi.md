@@ -93,11 +93,11 @@ c85b6b5e6880bab6b7ead4b0a673b8e1575b0158.png
 (图8)
 
 CPU views: CPU消耗的分布及时间(cpu时间或者运行时间); 方法的执行图; 方法的执行统计(最大，最小，平均运行时间等)
-31d669359bf4291f61c8ba7436374134936994ba.png
+![img](/static/image/31d669359bf4291f61c8ba7436374134936994ba.png)
 (图9)
 
 Thread: 当前jvm所有线程的运行状态，线程持有锁的状态，可dump线程。
-b8fef844181952665612a3ae9a23864d8eb0ec01.png
+![img](/static/image/b8fef844181952665612a3ae9a23864d8eb0ec01.png)
 (图10)
 
 Monitors & locks: 所有线程持有锁的情况以及锁的信息
