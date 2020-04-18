@@ -32,6 +32,7 @@ Distributed Configuration Management Platform\(分布式配置管理平台\)
 我们追求的是极简的、用户编程体验良好的编程方式。目前支持两种开发模式：
 基于XML配置或者基于注解，即可完成复杂的配置分布式化。
 注：配置项是指某个类里的某个Field字段。
+
 **Disconf的功能特点描述图：**
 ![img](/static/image/20180607093327344.jpg)
 
