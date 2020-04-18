@@ -6,15 +6,13 @@ Apollo（阿波罗）是携程框架部门研发的开源配置管理中心，�
 
 Apollo支持4个维度管理Key-Value格式的配置：
 
-application \(应用\)
+* application \(应用\)
 
-environment \(环境\)
+* environment \(环境\)
 
-cluster \(集群\)
+* cluster \(集群\)
 
-namespace \(命名空间\)
-
-同时，
+* namespace \(命名空间\)
 
 **Apollo基于开源模式开发，开源地址：**[https://github.com/ctripcorp/apollo](https://github.com/ctripcorp/apollo)
 
