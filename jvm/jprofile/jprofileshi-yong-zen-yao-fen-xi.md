@@ -12,37 +12,38 @@ JProfiler是由ej-technologies GmbH公司开发的一款性能瓶颈分析工具
 * ![img](/static/image/f71a75090d48e46eb809001918d37d7cc8d5ec90.png)
 * 跨平台
 
-## 二.数据采集 {#2}
+## 1.1.数据采集 {#2}
 
 Q1. JProfiler既然是一款性能瓶颈分析工具，这些分析的相关数据来自于哪里？  
-Q2. JProfiler是怎么将这些数据收集并展现的?
-![img](/static/image/774e1de366c3dced5bf97ab0cd34471ec9a99537.png)
-(图2)
+Q2. JProfiler是怎么将这些数据收集并展现的?  
+![img](/static/image/774e1de366c3dced5bf97ab0cd34471ec9a99537.png)  
+\(图2\)
 
-A1. 分析的数据主要来自于下面俩部分
-1. 一部分来自于jvm的分析接口**JVMTI**(JVM Tool Interface) , JDK必须>=1.6
-
+A1. 分析的数据主要来自于下面俩部分  
+1. 一部分来自于jvm的分析接口**JVMTI**\(JVM Tool Interface\) , JDK必须&gt;=1.6
 
 ```
 JVMTI is an event-based system. The profiling agent library can register handler functions for different events. It can then enable or disable selected events
 ```
 
-例如: 对象的生命周期，thread的生命周期等信息
-2. 一部分来自于instruments classes(可理解为class的重写,增加JProfiler相关统计功能)
-例如：方法执行时间，次数，方法栈等信息
-A2. 数据收集的原理如图2
-1. 用户在JProfiler GUI中下达监控的指令(一般就是点击某个按钮)
-2. JProfiler GUI JVM 通过socket(默认端口8849)，发送指令给被分析的jvm中的JProfile Agent。
-3. JProfiler Agent(如果不清楚Agent请看文章第三部分"启动模式") 收到指令后，将该指令转换成相关需要监听的事件或者指令,来注册到JVMTI上或者直接让JVMTI去执行某功能(例如dump jvm内存)
-4. JVMTI 根据注册的事件，来收集当前jvm的相关信息。 例如: 线程的生命周期; jvm的生命周期;classes的生命周期;对象实例的生命周期;堆内存的实时信息等等
-5. JProfiler Agent将采集好的信息保存到**内存**中，按照一定规则统计好(如果发送所有数据JProfiler GUI，会对被分析的应用网络产生比较大的影响)
-6. 返回给JProfiler GUI Socket.
-7. JProfiler GUI Socket 将收到的信息返回 JProfiler GUI Render
+例如: 对象的生命周期，thread的生命周期等信息  
+2. 一部分来自于instruments classes\(可理解为class的重写,增加JProfiler相关统计功能\)  
+例如：方法执行时间，次数，方法栈等信息  
+A2. 数据收集的原理如图2  
+1. 用户在JProfiler GUI中下达监控的指令\(一般就是点击某个按钮\)  
+2. JProfiler GUI JVM 通过socket\(默认端口8849\)，发送指令给被分析的jvm中的JProfile Agent。  
+3. JProfiler Agent\(如果不清楚Agent请看文章第三部分"启动模式"\) 收到指令后，将该指令转换成相关需要监听的事件或者指令,来注册到JVMTI上或者直接让JVMTI去执行某功能\(例如dump jvm内存\)  
+4. JVMTI 根据注册的事件，来收集当前jvm的相关信息。 例如: 线程的生命周期; jvm的生命周期;classes的生命周期;对象实例的生命周期;堆内存的实时信息等等  
+5. JProfiler Agent将采集好的信息保存到**内存**中，按照一定规则统计好\(如果发送所有数据JProfiler GUI，会对被分析的应用网络产生比较大的影响\)  
+6. 返回给JProfiler GUI Socket.  
+7. JProfiler GUI Socket 将收到的信息返回 JProfiler GUI Render  
 8. JProfiler GUI Render 渲染成最终的展示效果
-三. 数据采集方式和启动模式
-A1. JProfier采集方式分为两种：Sampling(样本采集)和Instrumentation
 
-Sampling: 类似于样本统计, 每隔一定时间(5ms)将每个线程栈中方法栈中的信息统计出来。优点是对应用影响小(即使你不配置任何Filter, Filter可参考文章第四部分)，缺点是一些数据/特性不能提供(例如:方法的调用次数)
+## 1.2. 数据采集方式和启动模式
+
+##  A1. JProfier采集方式分为两种：Sampling\(样本采集\)和Instrumentation
+
+Sampling: 类似于样本统计, 每隔一定时间\(5ms\)将每个线程栈中方法栈中的信息统计出来。优点是对应用影响小\(即使你不配置任何Filter, Filter可参考文章第四部分\)，缺点是一些数据/特性不能提供\(例如:方法的调用次数\)
 
 Instrumentation: 在class加载之前，JProfier把相关功能代码写入到需要分析的class中，对正在运行的jvm有一定影响。优点: 功能强大，但如果需要分析的class多，那么对应用影响较大，一般配合Filter一起使用。所以一般JRE class和framework的class是在Filter中通常会过滤掉。
 
@@ -50,11 +51,14 @@ Instrumentation: 在class加载之前，JProfier把相关功能代码写入到�
 
 A2: 启动模式:
 
-Attach mode
+Attach mode  
 可直接将本机正在运行的jvm加载JProfiler Agent. 优点是很方便，缺点是一些特性不能支持。如果选择Instrumentation数据采集方式，那么需要花一些额外时间来重写需要分析的class。
 
-Profile at startup
-在被分析的jvm启动时，将指定的JProfiler Agent手动加载到该jvm。JProfiler GUI 将收集信息类型和策略等配置信息通过socket发送给JProfiler Agent，收到这些信息后该jvm才会启动。
-在被分析的jvm 的启动参数增加下面内容：
-语法: -agentpath:[path to jprofilerti library]
+Profile at startup  
+在被分析的jvm启动时，将指定的JProfiler Agent手动加载到该jvm。JProfiler GUI 将收集信息类型和策略等配置信息通过socket发送给JProfiler Agent，收到这些信息后该jvm才会启动。  
+在被分析的jvm 的启动参数增加下面内容：  
+语法: -agentpath:\[path to jprofilerti library\]  
 【注】: 语法不清楚没关系，JProfiler提供了帮助向导.
+
+
+
