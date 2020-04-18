@@ -16,7 +16,7 @@ Distributed Configuration Management Platform\(分布式配置管理平台\)
 * 部署动态化：更改配置，无需重新打包或重启，即可 实时生效
 * 统一管理：提供web平台，统一管理 多个环境(RD/QA/PRODUCTION)、多个产品 的所有配置
 * 核心目标：一个jar包，到处运行
-
+## 1.3.功能特点
 # 4.总结
 
 ### 4.1.DisConf-分布式配置管理平台-简介 {#1disconf-分布式配置管理平台-简介}
