@@ -166,4 +166,5 @@ e7e80aa09ecca398679da298a4f6291e10030a03.png
 第一种:
 AWT-EventQueue-0 线程持有一个Object的锁，并且处于Waiting状态。
 
-图下方的代码提示出Demo.block方法调用了object.wait方法。这个还是比较容易理解的。 
+图下方的代码提示出Demo.block方法调用了object.wait方法。这个还是比较容易理解的。
+03ca5479b6b877cc9dc77029cbcb771ef0129e73.png 
