@@ -109,3 +109,4 @@ Telemetries: 包含heap, thread, gc, class等的趋势图(遥测视图)
 为了方便实践，直接以JProfiler8自带的一个例子来帮助理解上面的相关概念。
 JProfiler 自带的例子如下：模拟了内存泄露和线程阻塞的场景：
 具体源码参考: /jprofiler install path/demo/bezier
+e95ff007af328eb31b4f9fb4d9d888bffdfe1d29.png
