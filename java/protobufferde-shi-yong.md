@@ -4,7 +4,7 @@
 
 Protocol Buffers \\(ProtocolBuffer/ protobuf \\)是Google公司开发的一种数据描述语言，它独立于语言，独立于平台。类似于XML能够将结构化数据序列化，可用于数据存储、通信协议等方面。现阶段支持C++、JAVA、Python等三种编程语言。
 
-2.protobuf相比Xml的优点
+## 1.2.protobuf相比Xml的优点
 
 ————————————————
 
