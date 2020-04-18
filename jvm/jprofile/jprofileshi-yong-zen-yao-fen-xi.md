@@ -174,4 +174,5 @@ AWT-EventQueue-0 线程持有一个Object的锁，并且处于Waiting状态。
 AWT-EventQueue-0占有了bezier.BezierAnim$Demo实例上的锁，而test线程等待该线程释放。
 
 注意下图中下方的源代码, 这种锁的出现原因是Demo的blcok方法在AWT和test线程
-都会被执行，并且该方法是synchronized. 
+都会被执行，并且该方法是synchronized.
+df7c092e85b1ae9db0bd98376b36c24cddff2b8b.png 
