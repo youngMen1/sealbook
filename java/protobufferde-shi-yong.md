@@ -1,5 +1,21 @@
 # 1.什么是Protobuffer
 
+1.Protocol Buffers简介
+
+
+
+    Protocol Buffers \(ProtocolBuffer/ protobuf \)是Google公司开发的一种数据描述语言，它独立于语言，独立于平台。类似于XML能够将结构化数据序列化，可用于数据存储、通信协议等方面。现阶段支持C++、JAVA、Python等三种编程语言。
+
+
+
+2.protobuf相比Xml的优点
+
+————————————————
+
+版权声明：本文为CSDN博主「emeitu」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+
+原文链接：https://blog.csdn.net/emeitu/article/details/60129775
+
 ## 1.1.数据交互xml、json、protobuf格式比较
 
 1、json: 一般的web项目中，最流行的主要还是json。因为浏览器对于json数据支持非常好，有很多内建的函数支持。
