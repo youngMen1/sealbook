@@ -97,3 +97,4 @@ CPU views: CPU消耗的分布及时间(cpu时间或者运行时间); 方法的�
 (图9)
 
 Thread: 当前jvm所有线程的运行状态，线程持有锁的状态，可dump线程。
+b8fef844181952665612a3ae9a23864d8eb0ec01.png
