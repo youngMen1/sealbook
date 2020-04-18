@@ -33,6 +33,8 @@ Distributed Configuration Management Platform\(分布式配置管理平台\)
 基于XML配置或者基于注解，即可完成复杂的配置分布式化。
 注：配置项是指某个类里的某个Field字段。
 
+![img](/static/image/20180607093327344.jpg)
+
 # 4.总结
 
 ### 4.1.DisConf-分布式配置管理平台-简介 {#1disconf-分布式配置管理平台-简介}
