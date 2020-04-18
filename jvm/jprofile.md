@@ -6,7 +6,7 @@
 **重启IDEA看到如下图说明安装成功:**
 ![img](/static/image/微信截图_20200418101810.png)
 ## 2.2.安装JProfiler监控软件
-官方下载地址：
+**官方下载地址：**
 ```
 https://www.ej-technologies.com/download/jprofiler/version_92
 ```
