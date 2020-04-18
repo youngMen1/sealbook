@@ -60,4 +60,14 @@ Profile at startup
 语法: -agentpath:\[path to jprofilerti library\]  
 【注】: 语法不清楚没关系，JProfiler提供了帮助向导.
 ![img](/static/image/af3a9d42a43abf41a676e194dad2524c651b213c.png)
+(图3)
 
+Prepare for profiling:
+和Profile at startup的主要区别：被分析的jvm不需要收到JProfiler GUI 的相关配置信息就可以启动。
+
+Offline profiling
+一般用于适用于不能直接调试线上的场景。Offline profiling需要将信息采集内容和策略(一些Trigger, Trigger请参考文章第五部分)打包成一个配置文件(config.xml)，在线上启动该jvm 加载 JProfiler Agent时，加载该xml。那么JProfiler Agent会根据Trigger的类型会生成不同的信息。例如: heap dump; thread dump; method call record等
+语法:
+-agentpath:/home/2080/jprofiler8/bin/linux-x64/libjprofilerti.so=offline,id=151,config=/home/2080/config.xml
+【注】: config.xml中的每一个被分析的jvm的采集信息都有一个id来标识。
+下面是使用了离线模式，并使用了每隔一秒dump heap 的Trigger：
