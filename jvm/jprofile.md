@@ -4,7 +4,7 @@
 
 * JProfiler 17.1.3（IDEA插件）
 * JProfiler 10.0（可执行软件）
-* IntelliJ IDEA 2019.2.5
+* IntelliJ IDEA 2018.2.4
 
 # 2.怎么使用
 
