@@ -41,7 +41,7 @@ A2. 数据收集的原理如图2
 
 ## 1.2. 数据采集方式和启动模式
 
-A1. JProfier采集方式分为两种：Sampling\(样本采集\)和Instrumentation
+**A1. JProfier采集方式分为两种：**Sampling\(样本采集\)和Instrumentation
 
 Sampling: 类似于样本统计, 每隔一定时间\(5ms\)将每个线程栈中方法栈中的信息统计出来。优点是对应用影响小\(即使你不配置任何Filter, Filter可参考文章第四部分\)，缺点是一些数据/特性不能提供\(例如:方法的调用次数\)
 
