@@ -90,7 +90,7 @@ https://github.com/google/protobuf/releases
         </dependency>
 ```
 
-protoc，编译命令；
+* protoc，编译命令；
 
 * --proto\_path,就是你的proto文件所在目录是哪。我这里是D:\lsh\_download\protoc-3.6.1-win32\bin。
 * --java\_out，标识输出的java文件应该放在哪个目录。这里的 ./ 是指当前目录。
