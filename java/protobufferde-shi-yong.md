@@ -53,7 +53,7 @@ ProtoBuf是Google开源的一套二进制流网络传输协议，它独立于语
 
 
 
-![img](/static/image/微信截图_20200418175606.png)
+
 
 ![img](/static/image/微信截图_20200418181622.png)
 
@@ -79,7 +79,9 @@ https://github.com/google/protobuf/releases
 安装，把bin目录copy下来，放到操作系统环境变量的path变量后面。
 ![img](/static/image/微信截图_20200418175704.png)
 
-然后就可以在cmd中输入protoc,他应该会像配置Java环境那样有一大长串
+然后就可以在cmd中输入protoc,他应该会像配置Java环境那样有一大长串说明安装成功
+![img](/static/image/微信截图_20200418175606.png)
+
 
 
 
