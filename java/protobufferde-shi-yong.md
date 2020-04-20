@@ -66,7 +66,7 @@ https://github.com/google/protobuf/releases
 
 ![img](/static/image/微信截图_20200418175815.png)
 
-2.安装。
+##### 2.2.2.2.安装。
 
 下载完解压后，如果不想安装，可直接在cmd窗口进入解压得到的bin目录操作。
 
