@@ -209,7 +209,7 @@ protoc.exe -I=. --java_out=./ datagram.proto
 
 ![img](/static/image/微信截图_20200418181622.png)
 
-![img](/static/image/微信截图_20200420101353.png)
+
 
 ![img](/static/image/微信截图_20200420102349.png)
 
@@ -220,8 +220,13 @@ protoc.exe --java_out=./ PersonBean.proto
 可以看到，控制台中打印了客户端发送过去的Person消息，这样，一个使用ProtocolBuffer来进行数据发送和接收的java程序就完成了
 
 ## protoc生成的序列化文件报错
+![img](/static/image/微信截图_20200420101353.png)
+
+
 
 出现这个问题是因为生成器的版本和maven版本不一致，改为一致。
+
+
 
 # 4.参考
 
