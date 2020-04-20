@@ -223,6 +223,17 @@ protoc.exe --java_out=./ PersonBean.proto
 
 1.出现这个问题是因为生成器的版本和maven版本不一致，改为一致。
 ![img](/static/image/微信截图_20200420101353.png)
+```
+ <!--生成器的版本和maven版本要一致-->
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+        <!--<version>3.6.0</version>-->
+            <version>3.11.4</version>
+        </dependency>
+```
+
+
 
 
 
