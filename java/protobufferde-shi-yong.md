@@ -92,7 +92,8 @@ https://github.com/google/protobuf/releases
 
 * protoc，编译命令；
 
-* --proto\_path,就是你的proto文件所在目录是哪。我这里是D:\lsh\_download\protoc-3.6.1-win32\bin。
+* --proto\_path,就是你的proto文件所在目录是哪。我这里是D:\protoc-3.11.4-win64\bin。
+
 * --java\_out，标识输出的java文件应该放在哪个目录。这里的 ./ 是指当前目录。
 * protoDemo.proto，就是我们要编译的文件。
 
