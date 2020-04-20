@@ -102,6 +102,8 @@ https://github.com/google/protobuf/releases
 
 ```
 protoc.exe --java_out=./ ProtoDemo.proto
+或者
+protoc --protopath D:\protoc-3.11.4-win64\bin --java_out ./ ProtoDemo.proto
 ```
 
 #### 2.2.2.3.例子
