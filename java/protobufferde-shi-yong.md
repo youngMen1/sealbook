@@ -53,7 +53,7 @@ ProtoBuf是Google开源的一套二进制流网络传输协议，它独立于语
 
 ## 2.2.windows环境下的安装与使用：
 
-#### 2.2.1.protocol编译器安装
+### 2.2.1.protocol编译器安装
 
 **安装protocol编译器，用来编译.proto文件。**
 
@@ -76,7 +76,7 @@ https://github.com/google/protobuf/releases
 然后就可以在cmd中输入protoc,他应该会像配置Java环境那样有一大长串说明安装成功  
 ![img](/static/image/微信截图_20200418175606.png)
 
-# 2.2.2.编译
+### 2.2.2.编译
 
 # 3.总结
 
