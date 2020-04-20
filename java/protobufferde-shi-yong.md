@@ -134,7 +134,7 @@ message demo{
 E:\GdflCompany\github\springboot-code\springboot-protobuf\src\main\java\com\seal\protobuf\msg>protoc.exe --java_out=./ ProtoDemo.proto
 ```
 
-3.得到ProtoDemo
+3.得到ProtoDemo.java文件
 
 # 3.总结
 
