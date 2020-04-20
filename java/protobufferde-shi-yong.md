@@ -136,6 +136,14 @@ E:\GdflCompany\github\springboot-code\springboot-protobuf\src\main\java\com\seal
 
 3.得到ProtoDemo.java文件
 
+4.protobuf API的使用：
+
+* java文件，如上.proto文件得到的.java文件，我的文件名是ProtoDemo.java.
+* 调用API做什么？
+  * 序列化；
+  * 反序列化。
+* 编写序列化和反序列化代码如下：
+
 # 3.总结
 
 下载地址：[https://github.com/google/protobuf/releases](https://github.com/google/protobuf/releases。里面有windows版的:protoc-3.6.1.win32.zip。)
@@ -153,6 +161,8 @@ protoc.exe --java_out=./ PersonBean.proto
 ```
 
 可以看到，控制台中打印了客户端发送过去的Person消息，这样，一个使用ProtocolBuffer来进行数据发送和接收的java程序就完成了
+
+## 
 
 ## 3.1protoc.exe如何使用
 
