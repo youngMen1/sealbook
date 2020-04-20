@@ -126,7 +126,9 @@ message demo{
 
 2.编译
 
-
+```
+E:\GdflCompany\github\springboot-code\springboot-protobuf\src\main\java\com\seal\protobuf\msg>protoc.exe --java_out=./ ProtoDemo.proto
+```
 
 # 3.总结
 
