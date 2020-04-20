@@ -241,8 +241,6 @@ No syntax specified for the proto file: ProtoDemo.proto. Please use 'syntax = "p
 o2";' or 'syntax = "proto3";' to specify a syntax version. (Defaulted to proto2 syntax.)
 ```
 ![img](/static/image/微信截图_20200418181622.png)
-
-
 在使用protobuf生成相应类文件如java文件的时候需要指定proto的版本，这是proto2的描述文件，如果使用proto2的话需要指定：syntax = "proto2";，如果使用proto3的话需要指定：syntax = "proto3";
 
 # 4.参考
