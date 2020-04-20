@@ -108,7 +108,7 @@ protoc --protopath D:\protoc-3.11.4-win64\bin --java_out ./ ProtoDemo.proto
 
 #### 2.2.2.3.例子
 
-新建一个ProtoDemo.proto文件
+1.新建一个ProtoDemo.proto文件
 
 ```
 syntax = "proto2";
@@ -120,9 +120,13 @@ message demo{
     required string name = 2;
     optional string email = 3;
     repeated string friends = 4;
-    
+
 }
 ```
+
+2.编译
+
+
 
 # 3.总结
 
