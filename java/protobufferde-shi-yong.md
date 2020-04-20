@@ -126,7 +126,7 @@ message demo{
 
 2.编译
 
-因为我把protoc.exe文件直接
+因为我把protoc.exe文件直接copy到msg
 
 微信截图\_20200420105437.png
 
