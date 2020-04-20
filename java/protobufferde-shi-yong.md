@@ -236,7 +236,11 @@ protoc.exe --java_out=./ PersonBean.proto
 
 3.3.出现
 
+```
+No syntax specified for the proto file: ProtoDemo.proto. Please use 'syntax = "prot
+o2";' or 'syntax = "proto3";' to specify a syntax version. (Defaulted to proto2 syntax.)
 
+```
 
 # 4.参考
 
