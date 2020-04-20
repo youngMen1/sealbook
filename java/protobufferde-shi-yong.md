@@ -100,9 +100,11 @@ https://github.com/google/protobuf/releases
 
 * ProtoDemo.proto，就是我们要编译的文件。
 
+```
+protoc.exe --java_out=./ ProtoDemo.proto
+```
+
 #### 2.2.2.3.例子
-
-
 
 # 3.总结
 
