@@ -108,6 +108,10 @@ protoc --protopath D:\protoc-3.11.4-win64\bin --java_out ./ ProtoDemo.proto
 
 #### 2.2.2.3.例子
 
+新建一个ProtoDemo.proto文件
+
+
+
 # 3.总结
 
 下载地址：[https://github.com/google/protobuf/releases](https://github.com/google/protobuf/releases。里面有windows版的:protoc-3.6.1.win32.zip。)
