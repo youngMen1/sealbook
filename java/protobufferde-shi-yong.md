@@ -134,6 +134,8 @@ message demo{
 E:\GdflCompany\github\springboot-code\springboot-protobuf\src\main\java\com\seal\protobuf\msg>protoc.exe --java_out=./ ProtoDemo.proto
 ```
 
+3.得到ProtoDemo
+
 # 3.总结
 
 下载地址：[https://github.com/google/protobuf/releases](https://github.com/google/protobuf/releases。里面有windows版的:protoc-3.6.1.win32.zip。)
