@@ -72,6 +72,8 @@ ProtoBuf是Google开源的一套二进制流网络传输协议，它独立于语
 
 下载地址：[https://github.com/google/protobuf/releases](https://github.com/google/protobuf/releases。里面有windows版的:protoc-3.6.1.win32.zip。)
 
+微信截图\_20200420101711.png
+
 ## 3.1protoc.exe如何使用
 
 直接上命令：（datagram.proto 文件和protoc.exe同一目录下，如果不同-I=后面为相应的路径）
