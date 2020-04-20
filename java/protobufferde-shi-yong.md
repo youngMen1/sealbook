@@ -108,7 +108,7 @@ protoc --protopath D:\protoc-3.11.4-win64\bin --java_out ./ ProtoDemo.proto
 
 #### 2.2.2.3.例子
 
-1.新建一个ProtoDemo.proto文件
+**1.新建一个ProtoDemo.proto文件**
 
 ```
 syntax = "proto2";
@@ -124,7 +124,7 @@ message demo{
 }
 ```
 
-2.编译
+**2.编译**
 
 因为我把protoc.exe文件直接copy到msg包下了
 
@@ -209,8 +209,6 @@ protoc.exe -I=. --java_out=./ datagram.proto
 
 ![img](/static/image/微信截图_20200418181622.png)
 
-
-
 ![img](/static/image/微信截图_20200420102349.png)
 
 ```
@@ -221,8 +219,9 @@ protoc.exe --java_out=./ PersonBean.proto
 
 ## protoc生成的序列化文件报错
 
-1.出现这个问题是因为生成器的版本和maven版本不一致，改为一致。
+1.出现这个问题是因为生成器的版本和maven版本不一致，改为一致。  
 ![img](/static/image/微信截图_20200420101353.png)
+
 ```
  <!--生成器的版本和maven版本要一致-->
         <dependency>
@@ -232,11 +231,6 @@ protoc.exe --java_out=./ PersonBean.proto
             <version>3.11.4</version>
         </dependency>
 ```
-
-
-
-
-
 
 # 4.参考
 
