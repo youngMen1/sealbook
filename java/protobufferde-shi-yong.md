@@ -234,13 +234,14 @@ protoc.exe --java_out=./ PersonBean.proto
 
 [\[已解决\] No syntax specified for the proto file : xxx.proto](https://www.cnblogs.com/gifisan/p/5976208.html)
 
-3.3.出现
+## 3.3.出现
 
 ```
 No syntax specified for the proto file: ProtoDemo.proto. Please use 'syntax = "prot
 o2";' or 'syntax = "proto3";' to specify a syntax version. (Defaulted to proto2 syntax.)
-
 ```
+
+在使用protobuf生成相应类文件如java文件的时候需要指定proto的版本，
 
 # 4.参考
 
