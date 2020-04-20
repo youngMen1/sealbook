@@ -84,6 +84,8 @@ ProtoBuf是Google开源的一套二进制流网络传输协议，它独立于语
 protoc.exe --java_out=./ PersonBean.proto
 ```
 
+可以看到，控制台中打印了客户端发送过去的Person消息，这样，一个使用ProtocolBuffer来进行数据发送和接收的java程序就完成了
+
 ## 3.1protoc.exe如何使用
 
 直接上命令：（datagram.proto 文件和protoc.exe同一目录下，如果不同-I=后面为相应的路径）
