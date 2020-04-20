@@ -207,8 +207,6 @@ protoc.exe -I=. --java_out=./ datagram.proto
 
 ![img](/static/image/微信截图_20200420101711.png)
 
-
-
 ![img](/static/image/微信截图_20200420102349.png)
 
 ```
@@ -232,16 +230,17 @@ protoc.exe --java_out=./ PersonBean.proto
         </dependency>
 ```
 
-
-
 ## 3.3.出现[\[已解决\] No syntax specified for the proto file : xxx.proto](#)
 
 ```
 No syntax specified for the proto file: ProtoDemo.proto. Please use 'syntax = "prot
 o2";' or 'syntax = "proto3";' to specify a syntax version. (Defaulted to proto2 syntax.)
 ```
-![img](/static/image/微信截图_20200418181622.png)
+
+![img](/static/image/微信截图_20200418181622.png)  
 在使用protobuf生成相应类文件如java文件的时候需要指定proto的版本，这是proto2的描述文件，如果使用proto2的话需要指定：syntax = "proto2";，如果使用proto3的话需要指定：syntax = "proto3";
+
+## 3.4.**protobuf的常用语法**
 
 # 4.参考
 
