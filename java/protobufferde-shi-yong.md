@@ -110,7 +110,19 @@ protoc --protopath D:\protoc-3.11.4-win64\bin --java_out ./ ProtoDemo.proto
 
 新建一个ProtoDemo.proto文件
 
-
+```
+syntax = "proto2";
+package com.seal.protobuf.msg;
+option java_package = "com.seal.protobuf.msg";
+option java_outer_classname = "ProtoDemo";
+message demo{
+    required int32 id = 1;
+    required string name = 2;
+    optional string email = 3;
+    repeated string friends = 4;
+    
+}
+```
 
 # 3.总结
 
