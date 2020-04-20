@@ -242,6 +242,8 @@ o2";' or 'syntax = "proto3";' to specify a syntax version. (Defaulted to proto2 
 
 ## 3.4.**protobuf的常用语法**
 
+Protocol Buffer类提供的一个关键特性是反射。你可以迭代消息的字段并操纵它们的值，而无需针对任何特定的消息类型编写代码。使用反射的一种非常有用的方法是将Protocol Buffer 转换为其他编码，例如XML或JSON。更高级的反射用法可能是找到两个相同类型的消息之间的差异，或者开发一种“Protocol Buffer的正则表达式”，你可以在其中编写与某些消息内容匹配的表达式。如果你运用自己的想象力，可以将Protocol Buffer应用于比你最初预期更广泛的问题！
+
 | .proto类型 |
 | :--- |
 
@@ -298,5 +300,5 @@ Cannot resolve symbol 'UnusedPrivateParameter'：
 
 Protobuf3语言指南：
 
-https://blog.csdn.net/u011518120/article/details/54604615
+[https://blog.csdn.net/u011518120/article/details/54604615](https://blog.csdn.net/u011518120/article/details/54604615)
 
