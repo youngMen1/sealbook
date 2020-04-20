@@ -221,9 +221,6 @@ protoc.exe --java_out=./ PersonBean.proto
 
 ## protoc生成的序列化文件报错
 ![img](/static/image/微信截图_20200420101353.png)
-
-
-
 出现这个问题是因为生成器的版本和maven版本不一致，改为一致。
 
 
