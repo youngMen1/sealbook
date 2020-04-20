@@ -189,6 +189,18 @@ public class SerialAndDesial {
 
 ## 2.3.protoc.exe如何使用
 
+直接上命令：（datagram.proto 文件和protoc.exe同一目录下，如果不同-I=后面为相应的路径）
+
+```
+#c++的命令
+protoc.exe -I=. --cpp_out=./  datagram.proto 
+
+#java的命令
+protoc.exe -I=. --java_out=./ datagram.proto
+
+#其他类推
+```
+
 # 3.总结
 
 下载地址：[https://github.com/google/protobuf/releases](https://github.com/google/protobuf/releases。里面有windows版的:protoc-3.6.1.win32.zip。)
@@ -211,17 +223,7 @@ protoc.exe --java_out=./ PersonBean.proto
 
 ## 3.1protoc.exe如何使用
 
-直接上命令：（datagram.proto 文件和protoc.exe同一目录下，如果不同-I=后面为相应的路径）
 
-```
-#c++的命令
-protoc.exe -I=. --cpp_out=./  datagram.proto 
-
-#java的命令
-protoc.exe -I=. --java_out=./ datagram.proto
-
-#其他类推
-```
 
 # 4.参考
 
