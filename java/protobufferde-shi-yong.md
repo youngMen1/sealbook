@@ -51,11 +51,11 @@ ProtoBuf是Google开源的一套二进制流网络传输协议，它独立于语
 
 ![img](/static/image/微信截图\_20200418175815.png)
 
-微信截图\_20200418175704.png
+![img](/static/image/微信截图\_20200418175704.png)
 
-微信截图\_20200418175606.png
+![img](/static/image/微信截图\_20200418175606.png)
 
-微信截图\_20200418181622.png
+![img](/static/image/微信截图\_20200418181622.png)
 
 ## 2.2.windows环境下的安装与使用：
 
@@ -72,13 +72,13 @@ ProtoBuf是Google开源的一套二进制流网络传输协议，它独立于语
 
 下载地址：[https://github.com/google/protobuf/releases](https://github.com/google/protobuf/releases。里面有windows版的:protoc-3.6.1.win32.zip。)
 
-微信截图\_20200420101711.png
+![img](/static/image/微信截图\_20200420101711.png)
 
-微信截图\_20200418181622.png
+![img](/static/image/微信截图\_20200418181622.png)
 
-微信截图\_20200420101353.png
+![img](/static/image/微信截图\_20200420101353.png)
 
-微信截图\_20200420102349.png
+![img](/static/image/微信截图\_20200420102349.png)
 
 ```
 protoc.exe --java_out=./ PersonBean.proto
