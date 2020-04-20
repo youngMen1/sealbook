@@ -126,6 +126,10 @@ message demo{
 
 2.编译
 
+因为我把protoc.exe文件直接
+
+微信截图\_20200420105437.png
+
 ```
 E:\GdflCompany\github\springboot-code\springboot-protobuf\src\main\java\com\seal\protobuf\msg>protoc.exe --java_out=./ ProtoDemo.proto
 ```
