@@ -134,9 +134,9 @@ message demo{
 E:\GdflCompany\github\springboot-code\springboot-protobuf\src\main\java\com\seal\protobuf\msg>protoc.exe --java_out=./ ProtoDemo.proto
 ```
 
-3.得到ProtoDemo.java文件
+**3.得到ProtoDemo.java文件**
 
-4.protobuf API的使用：
+**4.protobuf API的使用：**
 
 * java文件，如上.proto文件得到的.java文件，我的文件名是ProtoDemo.java.
 * 调用API做什么？
