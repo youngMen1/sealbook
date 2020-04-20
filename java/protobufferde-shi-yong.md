@@ -120,7 +120,7 @@ Cannot resolve symbol 'UnusedPrivateParameter'：
 
 [https://blog.csdn.net/dataiyangu/article/details/105183040](https://blog.csdn.net/dataiyangu/article/details/105183040)
 
-例子:
+[Java中使用Protocol Buffer](https://www.cnblogs.com/blythe/articles/8473016.html)例子:
 
-https://www.cnblogs.com/blythe/articles/8473016.html
+[https://www.cnblogs.com/blythe/articles/8473016.html](https://www.cnblogs.com/blythe/articles/8473016.html)
 
