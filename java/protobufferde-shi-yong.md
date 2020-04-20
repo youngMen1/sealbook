@@ -129,7 +129,7 @@ message demo{
 
 **2.编译**
 
-因为我把protoc.exe文件直接copy到msg包下了
+**因为我把protoc.exe文件直接copy到msg包下了**
 
 ![img](/static/image/微信截图_20200420105437.png)
 
