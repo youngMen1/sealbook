@@ -232,9 +232,9 @@ protoc.exe --java_out=./ PersonBean.proto
         </dependency>
 ```
 
-[\[已解决\] No syntax specified for the proto file : xxx.proto](https://www.cnblogs.com/gifisan/p/5976208.html)
 
-## 3.3.出现
+
+## 3.3.出现[\[已解决\] No syntax specified for the proto file : xxx.proto](#)
 
 ```
 No syntax specified for the proto file: ProtoDemo.proto. Please use 'syntax = "prot
