@@ -49,7 +49,7 @@ ProtoBuf是Google开源的一套二进制流网络传输协议，它独立于语
 
 ## 2.1安装环境
 
-![img](/static/image/微信截图_20200418175815.png)
+
 
 ![img](/static/image/微信截图_20200418175704.png)
 
@@ -69,6 +69,10 @@ ProtoBuf是Google开源的一套二进制流网络传输协议，它独立于语
 // 里面有windows版的:protoc-3.11.1.win32.zip
 https://github.com/google/protobuf/releases
 ```
+![img](/static/image/微信截图_20200418175815.png)
+
+
+
 
 2.安装。
 
