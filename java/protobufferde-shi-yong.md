@@ -76,6 +76,8 @@ https://github.com/google/protobuf/releases
 然后就可以在cmd中输入protoc,他应该会像配置Java环境那样有一大长串说明安装成功  
 ![img](/static/image/微信截图_20200418175606.png)
 
+# 2.2.2.编译
+
 # 3.总结
 
 下载地址：[https://github.com/google/protobuf/releases](https://github.com/google/protobuf/releases。里面有windows版的:protoc-3.6.1.win32.zip。)
