@@ -116,7 +116,7 @@ ET篇:Google.Protobuf的学习\(二:使用protoc.exe生成自己的类\)
 
 [https://www.pianshen.com/article/3303219954/](https://www.pianshen.com/article/3303219954/)
 
-# Cannot resolve symbol 'UnusedPrivateParameter'
+Cannot resolve symbol 'UnusedPrivateParameter'
 
-https://blog.csdn.net/dataiyangu/article/details/105183040
+[https://blog.csdn.net/dataiyangu/article/details/105183040](https://blog.csdn.net/dataiyangu/article/details/105183040)
 
