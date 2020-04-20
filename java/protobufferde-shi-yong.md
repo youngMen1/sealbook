@@ -219,12 +219,6 @@ protoc.exe --java_out=./ PersonBean.proto
 
 可以看到，控制台中打印了客户端发送过去的Person消息，这样，一个使用ProtocolBuffer来进行数据发送和接收的java程序就完成了
 
-## 
-
-## 3.1protoc.exe如何使用
-
-
-
 # 4.参考
 
 源码:
