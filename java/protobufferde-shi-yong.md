@@ -241,7 +241,7 @@ No syntax specified for the proto file: ProtoDemo.proto. Please use 'syntax = "p
 o2";' or 'syntax = "proto3";' to specify a syntax version. (Defaulted to proto2 syntax.)
 ```
 
-在使用protobuf生成相应类文件如java文件的时候需要指定proto的版本，
+在使用protobuf生成相应类文件如java文件的时候需要指定proto的版本，这是proto2的描述文件，如果使用proto3的话需要指定：syntax = "proto3";，如果使用proto3的话需要指定：syntax = "proto3";
 
 # 4.参考
 
