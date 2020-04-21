@@ -75,6 +75,8 @@ class FactoryA extends Factory{
 
 策略模式通用类图如下:
 
+4.png
+
 # 2.怎么使用
 
 # 3.总结
