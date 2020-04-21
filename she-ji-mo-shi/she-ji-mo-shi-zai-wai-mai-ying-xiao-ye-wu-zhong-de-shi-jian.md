@@ -457,6 +457,80 @@ class Client {
 下面通过代码向大家展示如何实现这一套流程：
 
 
+```
+//定义一个抽象的规则
+public abstract class BasicRule<CORE_ITEM, T extends RuleContext<CORE_ITEM>>{
+    //有两个方法，evaluate用于判断是否经过规则执行，execute用于执行具体的规则内容。
+    public abstract boolean evaluate(T context);
+    public abstract void execute(T context) {
+}
+
+//定义所有的规则具体实现
+//规则1：判断服务可用性
+public class ServiceAvailableRule extends BasicRule<UserPortrait, UserPortraitRuleContext> {
+    @Override
+    public boolean evaluate(UserPortraitRuleContext context) {
+        TakeawayUserPortraitBasicInfo basicInfo = context.getBasicInfo();
+        if (basicInfo.isServiceFail()) {
+              return false;
+        }
+        return true;
+    }
+
+    @Override
+    public void execute(UserPortraitRuleContext context) {}
+
+}
+//规则2：判断当前用户属性是否符合当前资源位投放的用户属性要求
+public class UserGroupRule extends BasicRule<UserPortrait, UserPortraitRuleContext> {
+    @Override
+    public boolean evaluate(UserPortraitRuleContext context) {}
+
+    @Override
+    public void execute(UserPortraitRuleContext context) {
+        UserPortrait userPortraitPO = context.getData();
+        if(userPortraitPO.getUserGroup() == context.getBasicInfo().getUserGroup().code) {
+          context.setValid(true);
+        } else {
+          context.setValid(false);
+        }
+    }
+}
+
+//规则3：判断当前用户是否在投放城市，具体逻辑省略
+public class CityInfoRule extends BasicRule<UserPortrait, UserPortraitRuleContext> {}
+//规则4：根据用户的活跃度进行资源过滤，具体逻辑省略
+public class UserPortraitRule extends BasicRule<UserPortrait, UserPortraitRuleContext> {} 
+
+//我们通过spring将这些规则串起来组成一个一个请求链
+    "serviceAvailableRule" class="com.dianping.takeaway.ServiceAvailableRule"/>
+    "userGroupValidRule" class="com.dianping.takeaway.UserGroupRule"/>
+    "cityInfoValidRule" class="com.dianping.takeaway.CityInfoRule"/>
+    "userPortraitRule" class="com.dianping.takeaway.UserPortraitRule"/>
+
+    "userPortraitRuleChain" value-type="com.dianping.takeaway.Rule">
+        "serviceAvailableRule"/>
+        "userGroupValidRule"/>
+        "cityInfoValidRule"/>
+        "userPortraitRule"/>
+    
+
+//规则执行
+public class DefaultRuleEngine{
+    @Autowired
+    List userPortraitRuleChain;
+
+    public void invokeAll(RuleContext ruleContext) {
+        for(Rule rule : userPortraitRuleChain) {
+            rule.evaluate(ruleContext)
+        }
+    }
+}
+责任链模式最重
+```
+
+
+
 
 # 2.怎么使用
 
