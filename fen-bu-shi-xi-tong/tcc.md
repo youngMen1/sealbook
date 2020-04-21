@@ -48,6 +48,41 @@ TCC 分布式事务框架，比如国内开源的 ByteTCC、Himly、TCC-transact
 ## 3.1.TCC 实现阶段一：Try
 首先，订单服务那儿，它的代码大致来说应该是这样子的：
 
+
+```
+public class OrderService {
+
+    // 库存服务
+    @Autowired
+    private InventoryService inventoryService;
+
+    // 积分服务
+    @Autowired
+    private CreditService creditService;
+
+    // 仓储服务
+    @Autowired
+    private WmsService wmsService;
+
+    // 对这个订单完成支付
+    public void pay(){
+        //对本地的的订单数据库修改订单状态为"已支付"
+        orderDAO.updateStatus(OrderStatus.PAYED);
+
+        //调用库存服务扣减库存
+        inventoryService.reduceStock();
+
+        //调用积分服务增加积分
+        creditService.addCredit();
+
+        //调用仓储服务通知发货
+        wmsService.saleDelivery();
+    }
+}
+```
+
+
+
 # 4.参考
 
 原文：https://www.cnblogs.com/jajian/p/10014145.html
