@@ -385,6 +385,8 @@ public class InviteRewardServiceImpl {
 
 ![img](/static/image/10.png)
 
+为了实现**过滤规则**的解耦，对单个规则值对象的修改封闭，并对规则集合组成的过滤链条开放，我们在资源位过滤的领域服务中引入了责任链模式。
+
 # 2.怎么使用
 
 # 3.总结
