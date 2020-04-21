@@ -15,7 +15,7 @@
 | Spring Cloud Data Flow | 大数据操作工具，作为Spring XD的替代产品，它是一个混合计算模型，结合了流数据与批量数据的处理方式。 |  |
 | Spring Cloud Security | 基于spring security的安全工具包，为你的应用程序添加安全控制。 |  |
 | Spring Cloud Zookeeper | 操作Zookeeper的工具包，用于使用zookeeper方式的服务发现和配置管理。 |  |
-|  |  |  |
+| Spring Cloud Stream |  |  |
 |  |  |  |
 |  |  |  |
 |  |  |  |
