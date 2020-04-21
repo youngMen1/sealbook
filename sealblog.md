@@ -7,7 +7,7 @@
 | Sharding-JDBC | 数据库分库分表中间件 | https://github.com/yinjihuan/sharding-jdbc |
 | MyCAT | 数据库分库分表中间件 | https://github.com/MyCATApache/Mycat-Server |
 | Elasti-Job-Lite | 分布式作业系统 | https://github.com/elasticjob/elastic-job-lite |
-| Elasti-Job-Cloud | 分布式作业系统 | github005 |
+| Elasti-Job-Cloud | 分布式作业系统 | https://github.com/elasticjob/elastic-job-cloud |
 | TCC-Transaction | 分布式事务中间件 | github006 |
 | Eureka | 注册中心 | github007 |
 | Hystrix | 熔断器 | github008 |
