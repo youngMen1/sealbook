@@ -119,7 +119,7 @@ public class OrderService {
 咱们来一起看看下面这张图，结合上面的文字，再来捋一捋整个过程：  
 ![img](/static/image/1162587-20181124231758883-311791121.png)
 
-## ** TCC 实现阶段二：Confirm** {#autoid-3-1-0}
+## ** 3.2.TCC 实现阶段二：Confirm** {#autoid-3-1-0}
 
 # 4.参考
 
