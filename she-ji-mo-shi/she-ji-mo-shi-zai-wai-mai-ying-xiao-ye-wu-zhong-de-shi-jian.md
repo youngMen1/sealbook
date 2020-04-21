@@ -149,6 +149,27 @@ public class FactorRewardStrategyFactory extends StrategyFactory {
 通过工厂模式生产出具体的策略之后，根据我们之前的介绍，很容易就可以想到使用策略模式来执行我们的策略。具体代码如下：
 
 
+```
+public class RewardContext {
+    private RewardStrategy strategy;
+
+    public RewardContext(RewardStrategy strategy) {
+        this.strategy = strategy;
+    }
+
+    public void doStrategy(long userId) { 
+        int rewardMoney = strategy.reward(userId);
+        insertRewardAndSettlement(long userId, int reward) {
+          insertReward(userId, rewardMoney);
+          settlement(userId);
+       }  
+    }
+}
+```
+
+
+
+
 # 2.怎么使用
 
 # 3.总结
