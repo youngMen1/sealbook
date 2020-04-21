@@ -419,17 +419,17 @@ PS：关于 Redis 的数据存储格式、支持的数据结构等基础知识�
 
 ## 4.总结
 
-## 分布式事务框架    
+## 分布式事务框架
 
-_国内主要的开源TCC分布式事务框架包括  框架名称    Github地址                  star数量_
+_国内主要的开源TCC分布式事务框架包括  框架名称    Github地址                     star数量_
 
-_tcc-transaction        _[https://github.com/changmingxie/tcc-transaction](https://github.com/changmingxie/tcc-transaction)_          2446_
+_tcc-transaction        _[https://github.com/changmingxie/tcc-transaction](https://github.com/changmingxie/tcc-transaction)_             2446_
 
-_Hmily                      _[https://github.com/yu199195/hmily](https://github.com/yu199195/hmily)_                                    1381_
+_Hmily                        _[https://github.com/yu199195/hmily](https://github.com/yu199195/hmily)_                                     1381_
 
-_ByteTCC                _[https://github.com/liuyangming/ByteTCC](https://github.com/liuyangming/ByteTCC)_                           1300_
+_ByteTCC                   _[https://github.com/liuyangming/ByteTCC](https://github.com/liuyangming/ByteTCC)_                           1300_
 
-_EasyTransaction    _[_https://github.com/QNJR-GROUP/EasyTransaction_](https://github.com/QNJR-GROUP/EasyTransaction)            _904_
+_EasyTransaction      _[_https://github.com/QNJR-GROUP/EasyTransaction_](https://github.com/QNJR-GROUP/EasyTransaction)             _904_
 
 # 4.参考
 
