@@ -6,7 +6,7 @@
 | Hystrix |  |  |
 | Config |  |  |
 | Gateway |  |  |
-|  |  |  |
+| Bus |  |  |
 |  |  |  |
 |  |  |  |
 
