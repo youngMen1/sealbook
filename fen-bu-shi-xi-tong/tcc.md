@@ -309,6 +309,8 @@ public class OrderServiceConfirm {
 
 只不过 **RocketMQ 为了保证高并发、高可用、高性能**，做了较为复杂的架构实现，非常的优秀。有兴趣的同学，自己可以去查阅 RocketMQ 对分布式事务的支持。
 
+## 3.7.可靠消息最终一致性方案的高可用保障生产实践
+
 # 4.参考
 
 原文：[https://www.cnblogs.com/jajian/p/10014145.html](https://www.cnblogs.com/jajian/p/10014145.html)
