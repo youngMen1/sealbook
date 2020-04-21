@@ -225,6 +225,8 @@ public class OrderServiceConfirm {
 
 ![img](/static/image/1162587-20181124232434414-110430781.png)
 
+4|0最终一致性分布式事务如何保障实际生产中 99.99% 高可用？
+
 # 4.参考
 
 原文：[https://www.cnblogs.com/jajian/p/10014145.html](https://www.cnblogs.com/jajian/p/10014145.html)
