@@ -215,6 +215,68 @@ public class InviteRewardImpl {
 ![img](/static/image/7.png)
 对比策略模式的类型会发现和状态模式的类图很类似，但实际上有很大的区别，具体体现在concrete class上。策略模式通过Context产生唯一一个ConcreteStrategy作用于代码中，而状态模式则是通过context组织多个ConcreteState形成一个状态转换图来实现业务逻辑。接下来，我们通过一段通用代码来解释怎么使用状态模式：
 
+
+```
+//定义一个抽象的状态类
+public abstract class State {
+    Context context;
+    public void setContext(Context context) {
+        this.context = context;
+    }
+    public abstract void handle1();
+    public abstract void handle2();
+}
+//定义状态A
+public class ConcreteStateA extends State {
+    @Override
+    public void handle1() {}  //本状态下必须要处理的事情
+
+    @Override
+    public void handle2() {
+        super.context.setCurrentState(Context.contreteStateB);  //切换到状态B        
+        super.context.handle2();  //执行状态B的任务
+    }
+}
+//定义状态B
+public class ConcreteStateB extends State {
+    @Override
+    public void handle2() {}  //本状态下必须要处理的事情，...
+
+    @Override
+    public void handle1() {
+        super.context.setCurrentState(Context.contreteStateA);  //切换到状态A
+        super.context.handle1();  //执行状态A的任务
+    }
+}
+//定义一个上下文管理环境
+public class Context {
+    public final static ConcreteStateA contreteStateA = new ConcreteStateA();
+    public final static ConcreteStateB contreteStateB = new ConcreteStateB();
+
+    private State CurrentState;
+    public State getCurrentState() {return CurrentState;}
+
+    public void setCurrentState(State currentState) {
+        this.CurrentState = currentState;
+        this.CurrentState.setContext(this);
+    }
+
+    public void handle1() {this.CurrentState.handle1();}
+    public void handle2() {this.CurrentState.handle2();}
+}
+//定义client执行
+public class client {
+    public static void main(String[] args) {
+        Context context = new Context();
+        context.setCurrentState(new ContreteStateA());
+        context.handle1();
+        context.handle2();
+    }
+}
+```
+
+
+
 # 2.怎么使用
 
 # 3.总结
