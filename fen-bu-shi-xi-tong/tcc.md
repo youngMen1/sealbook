@@ -15,7 +15,9 @@ TCC 分布式事务框架，比如国内开源的 ByteTCC、Himly、TCC-transact
 
 这是一系列比较真实的步骤，无论大家有没有做过电商系统，应该都能理解。
 
+## 2|0进一步思考
+
 # 4.参考
 
-原文：[https://www.cnblogs.com/jajian/p/10014145.html](https://www.cnblogs.com/jajian/p/10014145.html)
+原文：https://www.cnblogs.com/jajian/p/10014145.html
 
