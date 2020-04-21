@@ -17,7 +17,7 @@ java -jar sentinel-dashboard-1.6.1.jar
 
 # 2.Linux环境启动
 
-#### Nacos
+#### 2.1.Nacos
 
 linux或mac执行以下命令启动nacos
 
