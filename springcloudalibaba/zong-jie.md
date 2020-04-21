@@ -25,7 +25,7 @@ linux或mac执行以下命令启动nacos
 sh startup.sh -m standalone
 ```
 
-#### Sentinel
+#### 2.2.Sentinel
 
 linux或mac执行以下命令启动Sentinel
 
