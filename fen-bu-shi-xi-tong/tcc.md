@@ -156,7 +156,7 @@ public class OrderServiceConfirm {
 
 同样，给大家来一张图，顺着图一起来看看整个过程：
 
-1162587-20181124232142806-1339085171.png
+![img](/static/image/1162587-20181124232142806-1339085171.png)
 
 ## 3.3.**TCC 实现阶段三：Cancel** {#autoid-3-2-0}
 
