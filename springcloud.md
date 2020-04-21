@@ -19,11 +19,7 @@
 | Spring Cloud CLI | 基于 Spring Boot CLI，可以让你以命令行方式快速建立云组件。 |  |
 | Ribbon | 提供云端负载均衡，有多种负载均衡策略可供选择，可配合服务发现和断路器使用。 |  |
 | Turbine | Turbine是聚合服务器发送事件流数据的一个工具，用来监控集群下hystrix的metrics情况。 |  |
-| Spring Cloud Task
-Spring
-提供云端计划任务管理、任务调度。
-
- Spring Cloud Connectors
+| 
  |  |  |
 |  |  |  |
 
