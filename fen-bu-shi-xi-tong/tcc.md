@@ -241,6 +241,8 @@ public class OrderServiceConfirm {
 ![img](/static/image/1162587-20181124232543507-80796570.png)
 大家看上图，如果不考虑各种高并发、高可用等技术挑战的话，单从“可靠消息”以及“最终一致性”两个角度来考虑，这种分布式事务方案还是比较简单的。
 
+## 3.6.可靠消息最终一致性方案的核心流程
+
 # 4.参考
 
 原文：[https://www.cnblogs.com/jajian/p/10014145.html](https://www.cnblogs.com/jajian/p/10014145.html)
