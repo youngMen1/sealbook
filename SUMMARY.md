@@ -159,7 +159,7 @@
   * [数据库高并发部署方案](fen-bu-shi-xi-tong/shu-ju-ku-gao-bing-fa-bu-shu-fang-an.md)
   * [分布式事务设计方案](fen-bu-shi-xi-tong/fen-bu-shi-shi-wu-she-ji-fang-an.md)
   * [分布式理论\(BASE理论\)](fen-bu-shi-xi-tong/fen-bu-shi-li-8bba28-base-li-8bba29.md)
-  * 高并发下接口幂等性解决方案
+  * [高并发下接口幂等性解决方案](fen-bu-shi-xi-tong/gao-bing-fa-xia-jie-kou-mi-deng-xing-jie-jue-fang-an.md)
 * [JVM](jvm.md)
   * [JConsole可视化工具使用](jvm/jconsoleke-shi-hua-gong-ju-shi-yong.md)
   * [Jprofile使用](jvm/jprofile.md)
