@@ -337,6 +337,8 @@ MQ 一旦完全不可用，就会导致业务系统的各个服务之间无法�
 
 这种情况，就需要针对这套分布式事务方案实现一套高可用保障机制。
 
+基于 KV 存储的队列支持的高可用降级方案
+
 # 4.参考
 
 原文：[https://www.cnblogs.com/jajian/p/10014145.html](https://www.cnblogs.com/jajian/p/10014145.html)
