@@ -395,6 +395,7 @@ public class InviteRewardServiceImpl {
 
 ![img](/static/image/11.png)
 
+我们通过一段比较通用的代码来解释如何使用责任链模式：
 
 
 
