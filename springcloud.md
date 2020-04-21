@@ -10,7 +10,7 @@
 | Admin |  |  |
 | Consul | 封装了Consul操作，consul是一个服务发现与配置工具，与Docker容器可以无缝集成。 |  |
 | Archaius | 配置管理API，包含一系列配置管理API，提供动态类型化属性、线程安全配置操作、轮询框架、回调机制等功能。 |  |
-| Spring Cloud for Cloud Foundry |  |  |
+| Spring Cloud for Cloud Foundry | 通过Oauth2协议绑定服务到CloudFoundry，CloudFoundry是VMware推出的开源PaaS云平台。 |  |
 |  |  |  |
 |  |  |  |
 |  |  |  |
