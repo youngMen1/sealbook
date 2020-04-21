@@ -156,6 +156,8 @@ public class OrderServiceConfirm {
 
 同样，给大家来一张图，顺着图一起来看看整个过程：
 
+1162587-20181124232142806-1339085171.png
+
 # 4.参考
 
 原文：[https://www.cnblogs.com/jajian/p/10014145.html](https://www.cnblogs.com/jajian/p/10014145.html)
