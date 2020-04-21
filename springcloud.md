@@ -16,7 +16,7 @@
 | Spring Cloud Security | 基于spring security的安全工具包，为你的应用程序添加安全控制。 |  |
 | Spring Cloud Zookeeper | 操作Zookeeper的工具包，用于使用zookeeper方式的服务发现和配置管理。 |  |
 | Spring Cloud Stream | 数据流操作开发包，封装了与Redis,Rabbit、Kafka等发送接收消息。 |  |
-| Spring Cloud CLI |  |  |
+| Spring Cloud CLI | 基于 Spring Boot CLI，可以让你以命令行方式快速建立云组件。 |  |
 |  |  |  |
 |  |  |  |
 |  |  |  |
