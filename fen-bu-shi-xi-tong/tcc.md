@@ -1,5 +1,3 @@
-\_\*\*\_TCC 分布式事务框架，比如国内开源的 ByteTCC、Himly、TCC-transaction
-
 # 1.**业务场景介绍**
 
 咱们先来看看业务场景，假设你现在有一个电商系统，里面有一个支付订单的场景。
@@ -421,31 +419,31 @@ PS：关于 Redis 的数据存储格式、支持的数据结构等基础知识�
 
 ## 分布式事务框架
 
-_国内主要的开源TCC分布式事务框架包括  框架名称    Github地址          star数量_
+_国内主要的开源TCC分布式事务框架包括  框架名称    Github地址          star数量_
 
-_  
+_    
 _
 
-_tcc-transaction        https://github.com/changmingxie/tcc-transaction       2446_
+_tcc-transaction        _[https://github.com/changmingxie/tcc-transaction](https://github.com/changmingxie/tcc-transaction)_       2446_
 
-_  
+_    
 _
 
-_Hmily                      https://github.com/yu199195/hmily                             1381_
+_Hmily                      _[https://github.com/yu199195/hmily](https://github.com/yu199195/hmily)_                             1381_
 
-_  
+_    
 _
 
-_ByteTCC                https://github.com/liuyangming/ByteTCC                    1300_
+_ByteTCC                _[https://github.com/liuyangming/ByteTCC](https://github.com/liuyangming/ByteTCC)_                    1300_
 
-_  
+_    
 _
 
-_EasyTransaction    _
+_EasyTransaction    _
 
 [_https://github.com/QNJR-GROUP/EasyTransaction_](https://github.com/QNJR-GROUP/EasyTransaction)
 
-_    904_
+_    904_
 
 # 4.参考
 
