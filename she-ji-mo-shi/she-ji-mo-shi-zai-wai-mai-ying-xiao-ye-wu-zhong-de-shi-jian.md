@@ -546,9 +546,10 @@ public class DefaultRuleEngine{
 
 软件设计模式-百度百科
 
-快速理解-设计模式六大原则
-
-Software design pattern
+快速理解-设计模式六大原则：
+https://www.jianshu.com/p/807bc228dbc2
+Software design pattern：
+https://en.wikipedia.org/wiki/Software_design_pattern
 
 《设计模式之禅》，秦小波，机械工业出版社
 
