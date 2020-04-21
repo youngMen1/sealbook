@@ -365,7 +365,7 @@ public class InviteRewardServiceImpl {
 
 继续举例，点评App的外卖频道中会预留多个资源位为营销使用，向用户展示一些比较精品美味的外卖食品，为了增加用户点外卖的意向。当用户点击点评首页的“美团外卖”入口时，资源位开始加载，会通过一些规则来筛选出合适的展示Banner。
 
-7 \(1\).png
+![img](/static/image/7.png)
 
 
 
