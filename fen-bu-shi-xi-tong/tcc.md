@@ -223,6 +223,8 @@ public class OrderServiceConfirm {
 
 最后，再给大家来一张图，来看看给我们的业务，加上分布式事务之后的整个执行流程：
 
+1162587-20181124232434414-110430781.png
+
 # 4.参考
 
 原文：[https://www.cnblogs.com/jajian/p/10014145.html](https://www.cnblogs.com/jajian/p/10014145.html)
