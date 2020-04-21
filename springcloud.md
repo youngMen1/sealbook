@@ -5,7 +5,7 @@
 | Feign |  |  |
 | Hystrix |  |  |
 | Config |  |  |
-|  |  |  |
+| Gateway |  |  |
 |  |  |  |
 |  |  |  |
 |  |  |  |
