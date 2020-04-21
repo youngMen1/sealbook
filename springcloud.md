@@ -3,7 +3,7 @@
 | Eureka |  |  |
 | Zuul |  |  |
 | Feign |  |  |
-|  |  |  |
+| Hystrix |  |  |
 |  |  |  |
 
 
