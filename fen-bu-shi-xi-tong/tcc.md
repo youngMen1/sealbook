@@ -160,6 +160,28 @@ public class OrderServiceConfirm {
 
 ## 3.3.**TCC 实现阶段三：Cancel** {#autoid-3-2-0}
 
+好，这是比较正常的一种情况，那如果是异常的一种情况呢？
+
+举个例子：在 Try 阶段，比如积分服务吧，它执行出错了，此时会怎么样？
+
+那订单服务内的 TCC 事务框架是可以感知到的，然后它会决定对整个 TCC 分布式事务进行回滚。
+
+也就是说，会执行各个服务的第二个 C 阶段，Cancel 阶段。同样，为了实现这个 Cancel 阶段，各个服务还得加一些代码。
+
+首先订单服务，它得提供一个 OrderServiceCancel 的类，在里面有一个 pay\(\) 接口的 Cancel 逻辑，就是可以将订单的状态设置为“CANCELED”，也就是这个订单的状态是已取消。
+
+库存服务也是同理，可以提供 reduceStock\(\) 的 Cancel 逻辑，就是将冻结库存扣减掉 2，加回到可销售库存里去，98 + 2 = 100。
+
+积分服务也需要提供 addCredit\(\) 接口的 Cancel 逻辑，将预增加积分字段的 10 个积分扣减掉。
+
+仓储服务也需要提供一个 saleDelivery\(\) 接口的 Cancel 逻辑，将销售出库单的状态修改为“CANCELED”设置为已取消。
+
+然后这个时候，订单服务的 TCC 分布式事务框架只要感知到了任何一个服务的 Try 逻辑失败了，就会跟各个服务内的 TCC 分布式事务框架进行通信，然后调用各个服务的 Cancel 逻辑。
+
+大家看看下面的图，直观的感受一下：
+
+
+
 # 4.参考
 
 原文：[https://www.cnblogs.com/jajian/p/10014145.html](https://www.cnblogs.com/jajian/p/10014145.html)
