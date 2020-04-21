@@ -142,6 +142,20 @@ public class OrderServiceConfirm {
 }
 ```
 
+库存服务也是类似的，你可以有一个 InventoryServiceConfirm 类，里面提供一个 reduceStock\(\) 接口的 Confirm 逻辑，这里就是将之前冻结库存字段的 2 个库存扣掉变为 0。
+
+这样的话，可销售库存之前就已经变为 98 了，现在冻结的 2 个库存也没了，那就正式完成了库存的扣减。
+
+积分服务也是类似的，可以在积分服务里提供一个 CreditServiceConfirm 类，里面有一个 addCredit\(\) 接口的 Confirm 逻辑，就是将预增加字段的 10 个积分扣掉，然后加入实际的会员积分字段中，从 1190 变为 1120。
+
+仓储服务也是类似，可以在仓储服务中提供一个 WmsServiceConfirm 类，提供一个 saleDelivery\(\) 接口的 Confirm 逻辑，将销售出库单的状态正式修改为“已创建”，可以供仓储管理人员查看和使用，而不是停留在之前的中间状态“UNKNOWN”了。
+
+好了，上面各种服务的 Confirm 的逻辑都实现好了，一旦订单服务里面的 TCC 分布式事务框架感知到各个服务的 Try 阶段都成功了以后，就会执行各个服务的 Confirm 逻辑。
+
+订单服务内的 TCC 事务框架会负责跟其他各个服务内的 TCC 事务框架进行通信，依次调用各个服务的 Confirm 逻辑。然后，正式完成各个服务的所有业务逻辑的执行。
+
+同样，给大家来一张图，顺着图一起来看看整个过程：
+
 # 4.参考
 
 原文：[https://www.cnblogs.com/jajian/p/10014145.html](https://www.cnblogs.com/jajian/p/10014145.html)
