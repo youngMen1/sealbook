@@ -238,6 +238,8 @@ public class OrderServiceConfirm {
 
 这个时候，就要用上可靠消息最终一致性方案，来实现分布式事务。
 
+1162587-20181124232543507-80796570.png
+
 # 4.参考
 
 原文：[https://www.cnblogs.com/jajian/p/10014145.html](https://www.cnblogs.com/jajian/p/10014145.html)
