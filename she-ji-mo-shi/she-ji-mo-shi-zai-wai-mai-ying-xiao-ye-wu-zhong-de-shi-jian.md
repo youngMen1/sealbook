@@ -110,6 +110,45 @@ public class Context {
 通过上文介绍的返奖业务模型，我们可以看到返奖的主流程就是选择不同的返奖策略的过程，每个返奖策略都包括返奖金额计算、更新用户奖金信息、以及结算这三个步骤。我们可以使用工厂模式生产出不同的策略，同时使用策略模式来进行不同的策略执行。首先确定我们需要生成出n种不同的返奖策略，其编码如下：
 
 
+```
+//抽象策略
+public abstract class RewardStrategy {
+    public abstract void reward(long userId);
+
+    public void insertRewardAndSettlement(long userId, int reward) {} ; //更新用户信息以及结算
+}
+//新用户返奖具体策略A
+public class newUserRewardStrategyA extends RewardStrategy {
+    @Override
+    public void reward(long userId) {}  //具体的计算逻辑，...
+}
+
+//老用户返奖具体策略A
+public class OldUserRewardStrategyA extends RewardStrategy {
+    @Override
+    public void reward(long userId) {}  //具体的计算逻辑，...
+}
+
+//抽象工厂
+public abstract class StrategyFactory<T> {
+    abstract RewardStrategy createStrategy(Class c);
+}
+
+//具体工厂创建具体的策略
+public class FactorRewardStrategyFactory extends StrategyFactory {
+    @Override
+    RewardStrategy createStrategy(Class c) {
+        RewardStrategy product = null;
+        try {
+            product = (RewardStrategy) Class.forName(c.getName()).newInstance();
+        } catch (Exception e) {}
+        return product;
+    }
+}
+```
+
+
+
 # 2.怎么使用
 
 # 3.总结
