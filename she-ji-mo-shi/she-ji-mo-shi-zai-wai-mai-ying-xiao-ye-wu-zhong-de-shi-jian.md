@@ -383,6 +383,8 @@ public class InviteRewardServiceImpl {
 
 过滤规则本身是一个个的值对象，我们通过领域服务的方式，操作这些规则值对象完成资源位的过滤逻辑。下图介绍了资源位在进行用户特征相关规则过滤时的过程：
 
+![img](/static/image/10.png)
+
 # 2.怎么使用
 
 # 3.总结
