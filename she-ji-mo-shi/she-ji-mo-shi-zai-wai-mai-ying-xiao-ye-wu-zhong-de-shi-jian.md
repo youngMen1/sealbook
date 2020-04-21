@@ -213,7 +213,7 @@ public class InviteRewardImpl {
 
 状态模式的通用类图如下图所示：
 ![img](/static/image/7.png)
-
+对比策略模式的类型会发现和状态模式的类图很类似，但实际上有很大的区别，具体体现在concrete class上。策略模式通过Context产生唯一一个ConcreteStrategy作用于代码中，而状态模式则是通过context组织多个ConcreteState形成一个状态转换图来实现业务逻辑。接下来，我们通过一段通用代码来解释怎么使用状态模式：
 
 # 2.怎么使用
 
