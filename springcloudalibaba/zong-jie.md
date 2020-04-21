@@ -8,7 +8,7 @@ windows系统点击startup.cmd就可以启动nacos
 
 ![img](/static/image/微信截图_20200402164441.png)
 
-#### Sentinel
+#### 1.2.Sentinel
 
 ```
 // 在cmd命令窗口
