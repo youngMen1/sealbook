@@ -4,7 +4,7 @@
 | Zuul |  |  |
 | Feign |  |  |
 | Hystrix |  |  |
-|  |  |  |
+| Config |  |  |
 
 
 
