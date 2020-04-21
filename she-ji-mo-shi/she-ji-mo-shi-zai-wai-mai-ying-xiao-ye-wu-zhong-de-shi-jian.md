@@ -213,6 +213,8 @@ public class InviteRewardImpl {
 
 状态模式的通用类图如下图所示：
 
+
+
 # 2.怎么使用
 
 # 3.总结
