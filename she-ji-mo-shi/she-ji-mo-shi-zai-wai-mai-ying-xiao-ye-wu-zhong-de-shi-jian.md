@@ -212,7 +212,7 @@ public class InviteRewardImpl {
 **模式定义**：当一个对象内在状态改变时允许其改变行为，这个对象看起来像改变了其类。
 
 状态模式的通用类图如下图所示：
-
+![img](/static/image/7.png)
 
 
 # 2.怎么使用
