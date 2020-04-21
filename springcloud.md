@@ -8,7 +8,7 @@
 | Gateway |  |  |
 | Bus |  |  |
 | Admin |  |  |
-|  |  |  |
+| Consul |  |  |
 
 
 
