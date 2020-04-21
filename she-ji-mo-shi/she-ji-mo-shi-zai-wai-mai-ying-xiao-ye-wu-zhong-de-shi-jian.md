@@ -367,6 +367,9 @@ public class InviteRewardServiceImpl {
 
 ![img](/static/image/7.png)
 
+**业务建模**
+
+对于投放业务，就是要在这些资源位中展示符合当前用户的资源。其流程如下图所示：
 
 
 
