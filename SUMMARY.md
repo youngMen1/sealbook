@@ -154,7 +154,7 @@
   * [分布式系统可用性](fen-bu-shi-xi-tong/fen-bu-shi-xi-tong-ke-yong-xing.md)
   * [性能优化](fen-bu-shi-xi-tong/xing-neng-you-hua.md)
   * [常用架构模式](fen-bu-shi-xi-tong/chang-yong-jia-gou-mo-shi.md)
-  * [TCC](fen-bu-shi-xi-tong/tcc.md)
+  * [TCC\(TCC分布式事务\)](fen-bu-shi-xi-tong/tcc.md)
   * [异步消息补偿](fen-bu-shi-xi-tong/yi-bu-xiao-xi-bu-chang.md)
   * [数据库高并发部署方案](fen-bu-shi-xi-tong/shu-ju-ku-gao-bing-fa-bu-shu-fang-an.md)
   * [分布式事务设计方案](fen-bu-shi-xi-tong/fen-bu-shi-shi-wu-she-ji-fang-an.md)
