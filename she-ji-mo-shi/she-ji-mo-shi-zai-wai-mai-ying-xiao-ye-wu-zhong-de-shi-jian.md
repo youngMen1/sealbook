@@ -77,6 +77,37 @@ class FactoryA extends Factory{
 
 ![img](/static/image/4.png)
 
+
+```
+//定义一个策略接口
+public interface Strategy {
+    void strategyImplementation();
+}
+
+//具体的策略实现(可以定义多个具体的策略实现)
+public class StrategyA implements Strategy{
+    @Override
+    public void strategyImplementation() {
+        System.out.println("正在执行策略A");
+    }
+}
+
+//封装策略，屏蔽高层模块对策略、算法的直接访问，屏蔽可能存在的策略变化
+public class Context {
+    private Strategy strategy = null;
+
+    public Context(Strategy strategy) {
+        this.strategy = strategy;
+    }
+
+    public void doStrategy() {
+        strategy.strategyImplementation();
+    }
+}
+```
+
+
+
 # 2.怎么使用
 
 # 3.总结
