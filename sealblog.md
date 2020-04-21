@@ -4,7 +4,7 @@
 | :--- | :--- | :--- |
 | Dubbo | 分布式 RPC 服务框架 | https://github.com/apache/dubbo |
 | RocketMQ | 分布式消息队列 | https://github.com/apache/rocketmq |
-| Sharding-JDBC | 数据库分库分表中间件 | github002 |
+| Sharding-JDBC | 数据库分库分表中间件 | https://github.com/yinjihuan/sharding-jdbc |
 | MyCAT | 数据库分库分表中间件 | github003 |
 | Elasti-Job-Lite | 分布式作业系统 | github004 |
 | Elasti-Job-Cloud | 分布式作业系统 | github005 |
