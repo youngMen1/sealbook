@@ -1,10 +1,6 @@
 # 使用Hexo搭建个人Github博客
 
-[2017-05-30](https://blog.yk95.top/2017/05/30/使用Hexo搭建个人Github博客/)
-
 参考网上的文章总算把自己的Github博客搭建出来了，在这把我的搭建步骤分享给大家，后面的内容还包括了配置域名，如已搭建成功了想要使用自己的域名访问博客可以直接跳到配置域名部分。[搭建个人博客-hexo+github详细完整步骤](http://www.jianshu.com/p/189fd945f38f)[零基础免费搭建个人博客-hexo+github](http://blog.csdn.net/jzooo/article/details/46781805)上面两个链接是我所参考的文章，写的也很详细，如果没看懂我的步骤也可以看看上面的。
-
-\#\#
 
 # 一、准备
 
