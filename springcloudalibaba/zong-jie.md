@@ -1,6 +1,6 @@
 # 1.windows环境启动
 
-#### 1.1Nacos
+#### 1.1.Nacos
 
 ```
 windows系统点击startup.cmd就可以启动nacos
