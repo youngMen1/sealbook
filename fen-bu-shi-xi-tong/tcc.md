@@ -435,3 +435,9 @@ _EasyTransaction    _[_https://github.com/QNJR-GROUP/EasyTransaction_](https://g
 
 原文：[https://www.cnblogs.com/jajian/p/10014145.html](https://www.cnblogs.com/jajian/p/10014145.html)
 
+byteTCC框架--SpringCloud整合1：
+
+https://cloud.tencent.com/developer/article/1398069
+
+
+
