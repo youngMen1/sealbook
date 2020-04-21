@@ -43,6 +43,33 @@
 工厂模式通用类图如下:
 ![img](/static/image/3.png)
 我们通过一段较为通用的代码来解释如何使用工厂模式：
+
+
+```
+//抽象的产品
+public abstract class Product {
+    public abstract void method();
+}
+//定义一个具体的产品 (可以定义多个具体的产品)
+class ProductA extends Product {
+    @Override
+    public void method() {}  //具体的执行逻辑
+}
+//抽象的工厂
+abstract class Factory<T> {
+    abstract Product createProduct(Class c);
+}
+//具体的工厂可以生产出相应的产品
+class FactoryA extends Factory{
+    @Override
+    Product createProduct(Class c) {
+        Product product = (Product) Class.forName(c.getName()).newInstance();
+        return product;
+    }
+}
+```
+
+
 #### 模式：策略模式
 
 # 2.怎么使用
