@@ -279,6 +279,86 @@ public class client {
 通过前文对状态模式的简介，我们可以看到当状态之间的转换在不是非常复杂的情况下，通用的状态模式存在大量的与状态无关的动作从而产生大量的无用代码。在我们的实践中，一个状态的下游不会涉及特别多的状态装换，所以我们简化了状态模式。当前的状态只负责当前状态要处理的事情，状态的流转则由第三方类负责。其实践代码如下：
 
 
+```
+//返奖状态执行的上下文
+public class RewardStateContext {
+
+    private RewardState rewardState;
+
+    public void setRewardState(RewardState currentState) {this.rewardState = currentState;}
+    public RewardState getRewardState() {return rewardState;}
+    public void echo(RewardStateContext context, Request request) {
+        rewardState.doReward(context, request);
+    }
+}
+
+public abstract class RewardState {
+    abstract void doReward(RewardStateContext context, Request request);
+}
+
+//待校验状态
+public class OrderCheckState extends RewardState {
+    @Override
+    public void doReward(RewardStateContext context, Request request) {
+        orderCheck(context, request);  //对进来的订单进行校验，判断是否用券，是否满足优惠条件等等
+    }
+}
+
+//待补偿状态
+public class CompensateRewardState extends RewardState {
+    @Override
+    public void doReward(RewardStateContext context, Request request) {
+        compensateReward(context, request);  //返奖失败，需要对用户进行返奖补偿
+    }
+}
+
+//预返奖状态，待返奖状态，成功状态，失败状态(此处逻辑省略)
+//..
+
+public class InviteRewardServiceImpl {
+    public boolean sendRewardForInvtee(long userId, long orderId) {
+        Request request = new Request(userId, orderId);
+        RewardStateContext rewardContext = new RewardStateContext();
+        rewardContext.setRewardState(new OrderCheckState());
+        rewardContext.echo(rewardContext, request);  //开始返奖，订单校验
+        //此处的if-else逻辑只是为了表达状态的转换过程，并非实际的业务逻辑
+        if (rewardContext.isResultFlag()) {  //如果订单校验成功，进入预返奖状态
+            rewardContext.setRewardState(new BeforeRewardCheckState());
+            rewardContext.echo(rewardContext, request);
+        } else {//如果订单校验失败，进入返奖失败流程，...
+            rewardContext.setRewardState(new RewardFailedState());
+            rewardContext.echo(rewardContext, request);
+            return false;
+        }
+        if (rewardContext.isResultFlag()) {//预返奖检查成功，进入待返奖流程，...
+            rewardContext.setRewardState(new SendRewardState());
+            rewardContext.echo(rewardContext, request);
+        } else {  //如果预返奖检查失败，进入返奖失败流程，...
+            rewardContext.setRewardState(new RewardFailedState());
+            rewardContext.echo(rewardContext, request);
+            return false;
+        }
+        if (rewardContext.isResultFlag()) {  //返奖成功，进入返奖结束流程，...
+            rewardContext.setRewardState(new RewardSuccessState());
+            rewardContext.echo(rewardContext, request);
+        } else {  //返奖失败，进入返奖补偿阶段，...
+            rewardContext.setRewardState(new CompensateRewardState());
+            rewardContext.echo(rewardContext, request);
+        }
+        if (rewardContext.isResultFlag()) {  //补偿成功，进入返奖完成阶段，...
+            rewardContext.setRewardState(new RewardSuccessState());
+            rewardContext.echo(rewardContext, request);
+        } else {  //补偿失败，仍然停留在当前态，直至补偿成功（或多次补偿失败后人工介入处理）
+            rewardContext.setRewardState(new CompensateRewardState());
+            rewardContext.echo(rewardContext, request);
+        }
+        return true;
+    }
+}
+```
+
+
+
 # 2.怎么使用
 
 # 3.总结
