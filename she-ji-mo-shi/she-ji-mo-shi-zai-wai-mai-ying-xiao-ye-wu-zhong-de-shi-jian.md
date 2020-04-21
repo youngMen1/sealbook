@@ -146,7 +146,7 @@ public class FactorRewardStrategyFactory extends StrategyFactory {
     }
 }
 ```
-
+通过工厂模式生产出具体的策略之后，根据我们之前的介绍，很容易就可以想到使用策略模式来执行我们的策略。具体代码如下：
 
 
 # 2.怎么使用
