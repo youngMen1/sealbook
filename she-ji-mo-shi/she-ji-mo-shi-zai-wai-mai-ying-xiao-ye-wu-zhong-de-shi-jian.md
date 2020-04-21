@@ -43,8 +43,6 @@
 工厂模式通用类图如下:
 ![img](/static/image/3.png)
 我们通过一段较为通用的代码来解释如何使用工厂模式：
-
-
 ```
 //抽象的产品
 public abstract class Product {
