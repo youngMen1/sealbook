@@ -417,26 +417,28 @@ PS：关于 Redis 的数据存储格式、支持的数据结构等基础知识�
 
 最后再说一句，真要是一些公司涉及到每秒几万几十万的高并发请求，那么对 MQ 的降级方案会设计的更加的复杂，那就远远不是这么简单可以做到的。
 
+## 4.总结
+
 ## 分布式事务框架
 
 _国内主要的开源TCC分布式事务框架包括  框架名称    Github地址          star数量_
 
-_    
+_      
 _
 
 _tcc-transaction        _[https://github.com/changmingxie/tcc-transaction](https://github.com/changmingxie/tcc-transaction)_       2446_
 
-_    
+_      
 _
 
 _Hmily                      _[https://github.com/yu199195/hmily](https://github.com/yu199195/hmily)_                             1381_
 
-_    
+_      
 _
 
 _ByteTCC                _[https://github.com/liuyangming/ByteTCC](https://github.com/liuyangming/ByteTCC)_                    1300_
 
-_    
+_      
 _
 
 _EasyTransaction    _
