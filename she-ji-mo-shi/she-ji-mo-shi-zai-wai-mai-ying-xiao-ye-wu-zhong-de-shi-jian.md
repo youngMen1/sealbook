@@ -371,7 +371,7 @@ public class InviteRewardServiceImpl {
 
 对于投放业务，就是要在这些资源位中展示符合当前用户的资源。其流程如下图所示：
 
-
+![img](/static/image/8.jpg)
 
 
 # 2.怎么使用
