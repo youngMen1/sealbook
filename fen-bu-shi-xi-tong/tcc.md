@@ -133,6 +133,15 @@ public class OrderService {
 
 为了实现这个阶段，你需要在各个服务里再加入一些代码。比如说，订单服务里，你可以加入一个 Confirm 的逻辑，就是正式把订单的状态设置为“已支付”了，大概是类似下面这样子：
 
+```
+public class OrderServiceConfirm {
+
+    public void pay(){
+        orderDao.updateStatus(OrderStatus.PAYED);
+    }
+}
+```
+
 # 4.参考
 
 原文：[https://www.cnblogs.com/jajian/p/10014145.html](https://www.cnblogs.com/jajian/p/10014145.html)
