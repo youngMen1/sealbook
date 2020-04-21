@@ -559,13 +559,8 @@ https://mp.weixin.qq.com/s?__biz=MjM5NjQ5MTI5OA==&mid=2651747236&idx=1&sn=baf670
 美团下一代服务治理系统 OCTO2.0 的探索与实践:
 https://mp.weixin.qq.com/s?__biz=MjM5NjQ5MTI5OA==&mid=2651751158&idx=1&sn=c01a900ae4cef7decf3acfbaad62168f&chksm=bd125bbb8a65d2ad4a896e5ec2dc366be198da09bc04dbfedc397e3821d66ef89d70ed6bc49e&scene=21#wechat_redirect
 
-数据驱动精准化营销在大众点评的实践
+数据驱动精准化营销在大众点评的实践:
+https://mp.weixin.qq.com/s?__biz=MjM5NjQ5MTI5OA==&mid=404261497&idx=1&sn=1c7628e36701d4ceee6f0f651fa7d1d3&chksm=3b0453340c73da223144e7f8825caff3355bb60a95c0e33804f39a9476bd4875b80fc5a259f4&scene=21#wechat_redirect
 
-
-
-
-
-
-
-[https://zyl.me/blog/2162](https://zyl.me/blog/2162)
+原文：https://zyl.me/blog/2162
 
