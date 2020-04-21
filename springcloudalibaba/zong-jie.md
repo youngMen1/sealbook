@@ -36,7 +36,7 @@ java -jar sentinel-dashboard-1.6.1.jar
 ![img](/static/image/微信截图_20200402112417.png)  
 ![img](/static/image/微信截图_20200402164147.png)
 
-# 优秀的开源项目
+# 3.优秀的开源项目
 
 [https://gitee.com/zlt2000/microservices-platform](https://gitee.com/zlt2000/microservices-platform)
 
