@@ -7,7 +7,7 @@
 | Config |  |  |
 | Gateway |  |  |
 | Bus |  |  |
-|  |  |  |
+| Admin |  |  |
 |  |  |  |
 
 
