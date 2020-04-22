@@ -35,7 +35,9 @@ try(FileInputStream fileInputStream1 = new FileInputStream("file.txt")){
     e.printStackTrace();
 }
 ```
+如何判读资源是否真的被关闭了呢，我们手写个Demo：
 
+　　实现AutoCloseable的资源类
 
 
 
