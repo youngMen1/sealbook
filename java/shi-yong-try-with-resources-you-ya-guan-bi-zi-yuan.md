@@ -23,7 +23,9 @@ public static void main(String[] args){
     }
 }
 ```
+可以看到，为了确保资源关闭正常，需要finally中再嵌入finally，try中打开资源越多，finally嵌套越深，可能会导致关闭资源的代码比业务代码还要多。
 
+　　但是使用了try-with-resources语法后，上面的例子可改写为：
 
 
 # 4.参考
