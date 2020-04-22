@@ -141,6 +141,7 @@
   * [集合的特性](java/ji-he-de-te-xing.md)
   * [使用try-with-resources优雅关闭资源](java/shi-yong-try-with-resources-you-ya-guan-bi-zi-yuan.md)
   * 理解正确的日志输出级别
+  * 单元测试 AIR 原则
 * [SpringCloudAlibaba](springcloudalibaba.md)
   * [SpringCloudAlibaba基本介绍](springcloudalibaba/zhu-yi.md)
   * [Nacos](springcloudalibaba/nacos.md)
