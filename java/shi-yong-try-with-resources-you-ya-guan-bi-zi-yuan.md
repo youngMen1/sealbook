@@ -1,4 +1,4 @@
-# 1.[使用try-with-resources优雅关闭资源
+# 1.使用try-with-resources优雅关闭资源
 
 # 4.参考
 
