@@ -139,7 +139,7 @@
   * [ProtoBuffer的使用](java/protobufferde-shi-yong.md)
   * [注解](java/zhu-jie.md)
   * [集合的特性](java/ji-he-de-te-xing.md)
-  * 使用try-with-resources优雅关闭资源
+  * [使用try-with-resources优雅关闭资源](java/shi-yong-try-with-resources-you-ya-guan-bi-zi-yuan.md)
 * [SpringCloudAlibaba](springcloudalibaba.md)
   * [SpringCloudAlibaba基本介绍](springcloudalibaba/zhu-yi.md)
   * [Nacos](springcloudalibaba/nacos.md)
