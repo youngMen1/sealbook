@@ -28,6 +28,17 @@ public static void main(String[] args){
 　　但是使用了try-with-resources语法后，上面的例子可改写为：
 
 
+```
+try(FileInputStream fileInputStream1 = new FileInputStream("file.txt")){
+    fileInputStream1.read();
+} catch (IOException e) {
+    e.printStackTrace();
+}
+```
+
+
+
+
 # 4.参考
 使用try-with-resources优雅关闭资源：
 https://www.cnblogs.com/youtang/p/11441959.html
