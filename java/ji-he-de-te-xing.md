@@ -38,15 +38,15 @@ private transient HashMap<E,Object> map;
 ```
 
 ```
-        Set<String> set = new HashSet<>();
-        set.add("1");
-        set.add("1");
-        set.add("1");
-        set.add("1");
-        // set:[1]
-        // size:1
-        System.out.println("set:" + set.toString());
-        System.out.println("size:" + set.size());
+Set<String> set = new HashSet<>();
+    set.add("1");
+    set.add("1");
+    set.add("1");
+    set.add("1");
+    // set:[1]
+    // size:1
+    System.out.println("set:" + set.toString());
+    System.out.println("size:" + set.size());
 ```
 
 #### 1.1.2.2.TreeSet
