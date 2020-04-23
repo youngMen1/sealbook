@@ -100,7 +100,7 @@ forEach底层其实就是依赖迭代器。很多人喜欢用ForEach因为代码
 for (Object object : set) {
             System.out.println(object);
         }
-        
+
 // jdk8新特性
 set.forEach((x) -> System.out.println(x));
 ```
@@ -110,6 +110,8 @@ set.forEach((x) -> System.out.println(x));
 Map的继承关系：
 
 ![img](/static/image/1685101-20190520015745840-1408257336.png)
+
+微信截图\_20200423170306.png
 
 ### 1.2.1.HashMap
 
