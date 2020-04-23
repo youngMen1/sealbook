@@ -79,12 +79,14 @@ TreeSet有个特点，插入无序内部有序。
         for (String str : treeSet) {
             System.out.println("treeSet:" + str);
         }
-        
+
 treeSet:a
 treeSet:b
 treeSet:c
 treeSet:d
 ```
+
+如果我们自己实现的对象要实现排序 1、 实现Comparable 2、指定排序方式 Comparator
 
 ## 1.2.Map 类集合 K/V
 
