@@ -37,6 +37,16 @@ LinkedList集合数据存储的结构是链表结构。方便元素添加、删�
 private transient HashMap<E,Object> map;
 ```
 
+```
+  Set<String> set = new HashSet<>();
+        set.add("1");
+        set.add("1");
+        // set:[1]
+        // size:1
+        System.out.println("set:" + set.toString());
+        System.out.println("size:" + set.size());
+```
+
 #### 1.1.2.2.TreeSet
 
 ## 1.2.Map 类集合 K/V
