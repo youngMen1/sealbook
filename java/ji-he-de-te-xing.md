@@ -38,7 +38,9 @@ private transient HashMap<E,Object> map;
 ```
 
 ```
-  Set<String> set = new HashSet<>();
+        Set<String> set = new HashSet<>();
+        set.add("1");
+        set.add("1");
         set.add("1");
         set.add("1");
         // set:[1]
