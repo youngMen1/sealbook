@@ -117,6 +117,12 @@ Map的继承关系：
 
 ### 1.2.2.LinkedHashMap
 
+LinkedHashMap是HashMap的子类，使用一个双向链表来维护键值对的顺序（与添加顺序相同），维护的是key的顺序。
+
+存储、查找仍是使用hashCode值来索引，遍历（迭代）才使用链表，就是说遍历时的顺序和添加元素的顺序相同。
+
+因为内部维护了一个链表，所以查找、存储时HashMap性能高于LinkedHashMap，但遍历集合时LinkedHashMap性能较好。
+
 ### 1.2.3.HashTable
 
 ### 1.2.4.TreeMap
