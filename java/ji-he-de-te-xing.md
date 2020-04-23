@@ -129,6 +129,22 @@ LinkedHashMap是HashMap的子类，使用一个双向链表来维护键值对的
 
 ### 1.2.5.Properties
 
+Properties是Hashtable的子类，在处理属性文件时特别方便。Properties的key、value都必须是String。
+
+
+
+Properties类的常用方法：
+
+String getProperty\(String key\)
+
+String getProperty\(String key,String defaultValue\)   key不存在时，把默认的值作为value返回
+
+Object setProperty\(String key,String value\)   设置属性值。相当于Hashtable的put\(\)
+
+void  load\(InputStream is\)   从属性文件（输入流）中加载键值对到Properties对象
+
+void store\(OutputStream os,String info\)   把properties中的键值对写到输出流中（一般是属性文件）。第二个参数是对properties信息的说明。
+
 ### 1.2.6.EnumMap
 
 EnumMap的key都必须是同一个枚举类的实例，元素的排列顺序与枚举类中的顺序保持一致。
