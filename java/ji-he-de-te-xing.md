@@ -64,7 +64,27 @@ TreeSet有个特点，插入无序内部有序。
 
 如果插入数据即不实现Commparable或在插入的时候也不指定排序方式Comparator那么就会报错
 
-注：如果不了解Comparable和Comparator可用参考我写的这篇博客：https://www.cnblogs.com/IT-CPC/p/10903837.html
+注：如果不了解Comparable和Comparator可用参考我写的这篇博客：[https://www.cnblogs.com/IT-CPC/p/10903837.html](https://www.cnblogs.com/IT-CPC/p/10903837.html)
+
+**证明插入无序内部有序**
+
+```
+// 插入无序内部有序
+        Set<String> treeSet = new TreeSet<>();
+        treeSet.add("b");
+        treeSet.add("a");
+        treeSet.add("d");
+        treeSet.add("c");
+
+        for (String str : treeSet) {
+            System.out.println("treeSet:" + str);
+        }
+        
+treeSet:a
+treeSet:b
+treeSet:c
+treeSet:d
+```
 
 ## 1.2.Map 类集合 K/V
 
