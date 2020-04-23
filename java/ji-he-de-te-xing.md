@@ -56,6 +56,16 @@ Set<String> set = new HashSet<>();
 
 #### 1.1.2.2.TreeSet
 
+TreeSet基于TreeMap实现，TreeMap本质就是红黑树。所以TreeSet其实于是基于红黑树的。
+
+TreeSet有个特点，插入无序内部有序。
+
+插入数据实现Comparable接口，通过compareTo方法去比较大小，或者在实力化TreeSet的时候自定义排序Comparator方法。内部的int compare\(T o1, T o2\)比较对象大小。
+
+如果插入数据即不实现Commparable或在插入的时候也不指定排序方式Comparator那么就会报错
+
+注：如果不了解Comparable和Comparator可用参考我写的这篇博客：https://www.cnblogs.com/IT-CPC/p/10903837.html
+
 ## 1.2.Map 类集合 K/V
 
 Map的继承关系：
