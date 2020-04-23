@@ -127,7 +127,9 @@ LinkedHashMap是HashMap的子类，使用一个双向链表来维护键值对的
 
 ### 1.2.4.TreeMap
 
-### 1.2.5.EnumMap
+### 1.2.5.Properties
+
+### 1.2.6.EnumMap
 
 EnumMap的key都必须是同一个枚举类的实例，元素的排列顺序与枚举类中的顺序保持一致。
 
