@@ -37,8 +37,6 @@ LinkedList集合数据存储的结构是链表结构。方便元素添加、删�
 private transient HashMap<E,Object> map;
 ```
 
-
-
 ```
 Set<String> set = new HashSet<>();
         set.add("1");
@@ -71,6 +69,12 @@ Map的继承关系：
 ### 1.2.3.HashTable
 
 ### 1.2.4.TreeMap
+
+
+
+## 参考
+
+https://www.cnblogs.com/IT-CPC/p/10904074.html
 
 
 
