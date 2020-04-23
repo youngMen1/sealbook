@@ -90,9 +90,9 @@ treeSet:d
 
 #### HashSet和TreeSet比较
 
+HashSet 效率要高于TreeSet，因为HashSet采用散列算法快速对集合进行增删改查 时间复杂度更是几乎接近O\(1\)，但内部无序。
 
-
-
+TreeSet 内部有序，可根据指定规则去排序。但效率要比较HashSet低。时间复杂度位O\(log n\)
 
 ## 1.2.Map 类集合 K/V
 
