@@ -15,6 +15,7 @@
 * Set集合，基础自Collection。特征是插入无序，不可指定位置访问。
 
 * Set集合的实现类可说是基于Map集合去写的。通过内部封装Map集合来实现的比如HashSet内部封装了HashMap。
+
 * Set集合的数据库不能重复（== 或 eqauls）的元素
 * Set集合的常用实现类有 HashSet TreeSet
 
@@ -27,6 +28,8 @@ TreeSet
 Map的继承关系：
 
 ![img](/static/image/1685101-20190520015745840-1408257336.png)
+
+### 1.2.1.HashMap
 
 
 
