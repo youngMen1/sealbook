@@ -131,19 +131,28 @@ LinkedHashMap是HashMap的子类，使用一个双向链表来维护键值对的
 
 Properties是Hashtable的子类，在处理属性文件时特别方便。Properties的key、value都必须是String。
 
-
-
 Properties类的常用方法：
 
 String getProperty\(String key\)
 
-String getProperty\(String key,String defaultValue\)   key不存在时，把默认的值作为value返回
+String getProperty\(String key,String defaultValue\)   key不存在时，把默认的值作为value返回
 
-Object setProperty\(String key,String value\)   设置属性值。相当于Hashtable的put\(\)
+Object setProperty\(String key,String value\)   设置属性值。相当于Hashtable的put\(\)
 
-void  load\(InputStream is\)   从属性文件（输入流）中加载键值对到Properties对象
+void  load\(InputStream is\)   从属性文件（输入流）中加载键值对到Properties对象
 
-void store\(OutputStream os,String info\)   把properties中的键值对写到输出流中（一般是属性文件）。第二个参数是对properties信息的说明。
+void store\(OutputStream os,String info\)   把properties中的键值对写到输出流中（一般是属性文件）。第二个参数是对properties信息的说明。
+
+```
+Properties properties=new Properties();
+      properties.setProperty("name","张三");
+      //key、value都必须是String
+      properties.setProperty("age","19");  
+      //输出键值对到属性文件，一行一个键值对。第二个参数是对文件所保存信息的说明，会以注释形式输出到属性文件的首行。a.ini默认在项目的根目录下。
+      properties.store(new FileOutputStream("a.ini"),"student info");
+      //properties中仍有键值对
+      System.out.println(properties);  //{name=张三, age=19}
+```
 
 ### 1.2.6.EnumMap
 
