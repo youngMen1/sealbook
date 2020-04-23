@@ -32,7 +32,7 @@ Map的继承关系：
 
 ### 1.2.1.HashMap
 
-1.2.2.HashTable
+### 1.2.2.HashTable
 
 
 
