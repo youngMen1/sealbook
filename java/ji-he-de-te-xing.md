@@ -127,6 +127,16 @@ LinkedHashMap是HashMap的子类，使用一个双向链表来维护键值对的
 
 ### 1.2.4.TreeMap
 
+TreeMap类是Map接口的子接口SortedMap的实现类，用红黑树来存储元素，保持集合的有序（并不是添加顺序，而是按key的值排列）。
+
+TreeMap的2中排序方式：自然排序（默认）、定制排序。
+
+TreeMap的键值对（其实是key）总是处于有序状态，调用keySet\(\)获取key的Set，再使用toArray\(\)转化为数组，这个数组就是有序的。
+
+```
+
+```
+
 ### 1.2.5.Properties
 
 Properties是Hashtable的子类，在处理属性文件时特别方便。Properties的key、value都必须是String。
