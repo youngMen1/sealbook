@@ -94,6 +94,17 @@ HashSet 效率要高于TreeSet，因为HashSet采用散列算法快速对集合�
 
 TreeSet 内部有序，可根据指定规则去排序。但效率要比较HashSet低。时间复杂度位O\(log n\)
 
+forEach底层其实就是依赖迭代器。很多人喜欢用ForEach因为代码少。
+
+```
+for (Object object : set) {
+            System.out.println(object);
+        }
+        
+// jdk8新特性
+set.forEach((x) -> System.out.println(x));
+```
+
 ## 1.2.Map 类集合 K/V
 
 Map的继承关系：
