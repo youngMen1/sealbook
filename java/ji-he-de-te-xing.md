@@ -34,7 +34,7 @@ Map的继承关系：
 
 ### 1.2.2.LinkedHashMap
 
-### 1.2.2.HashTable
+### 1.2.3.HashTable
 
 
 
