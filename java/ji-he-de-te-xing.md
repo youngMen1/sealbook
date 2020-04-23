@@ -125,6 +125,12 @@ LinkedHashMap是HashMap的子类，使用一个双向链表来维护键值对的
 
 ### 1.2.3.HashTable
 
+Hashtable是线程安全的，key、value的值都不能是null。
+
+因为不必保证线程安全，所以HaspMap性能比Hashtable略高。
+
+Hashtable是很古老的一个类，命名不规范，问题较多。尽量少用Hashtable。即使要创建线程安全的Map，也尽量不要使用Hashtable，可以使用Collections工具类把HashMap变成线程安全的。
+
 ### 1.2.4.TreeMap
 
 TreeMap类是Map接口的子接口SortedMap的实现类，用红黑树来存储元素，保持集合的有序（并不是添加顺序，而是按key的值排列）。
