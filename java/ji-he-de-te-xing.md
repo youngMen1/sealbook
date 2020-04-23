@@ -174,11 +174,17 @@ Properties properties=new Properties();
 
 EnumMap的key都必须是同一个枚举类的实例，元素的排列顺序与枚举类中的顺序保持一致。
 
+因为`HashMap`是一种通过对key计算`hashCode()`，通过空间换时间的方式，直接定位到value所在的内部数组的索引，因此，查找效率非常高。
+
+如果作为key的对象是`enum`类型，那么，还可以使用Java集合库提供的一种`EnumMap`，它在内部以一个非常紧凑的数组存储value，并且根据`enum`类型的key直接定位到内部数组的索引，并不需要计算`hashCode()`，不但效率最高，而且没有额外的空间浪费。
+
+我们以`DayOfWeek`这个枚举类型为例，为它做一个“翻译”功能：
+
 ## 参考
 
 **Set集合详解：**
 
 [https://www.cnblogs.com/IT-CPC/p/10904074.html](https://www.cnblogs.com/IT-CPC/p/10904074.html)
 
-https://www.liaoxuefeng.com/wiki/1252599548343744/1300277678309410
+[https://www.liaoxuefeng.com/wiki/1252599548343744/1300277678309410](https://www.liaoxuefeng.com/wiki/1252599548343744/1300277678309410)
 
