@@ -37,10 +37,8 @@ LinkedList集合数据存储的结构是链表结构。方便元素添加、删�
 private transient HashMap<E,Object> map;
 ```
 
-执行结果是 size:1.
-详细用过Map集合的你很明白这一点。
-如果添加的元素相==或equals HashSet就只会保留其中一个。
-当我们将自己写的类存入set集合时一定要重写 equals和hashCode 
+
+
 ```
 Set<String> set = new HashSet<>();
         set.add("1");
@@ -52,6 +50,11 @@ Set<String> set = new HashSet<>();
         System.out.println("set:" + set.toString());
         System.out.println("size:" + set.size());
 ```
+
+执行结果是 size:1.  
+详细用过Map集合的你很明白这一点。  
+如果添加的元素相==或equals HashSet就只会保留其中一个。  
+当我们将自己写的类存入set集合时一定要重写 equals和hashCode
 
 #### 1.1.2.2.TreeSet
 
