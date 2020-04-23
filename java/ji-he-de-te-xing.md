@@ -140,7 +140,17 @@ TreeMap的2中排序方式：自然排序（默认）、定制排序。
 TreeMap的键值对（其实是key）总是处于有序状态，调用keySet\(\)获取key的Set，再使用toArray\(\)转化为数组，这个数组就是有序的。
 
 ```
-
+   // 大到小
+        // TreeMap<Integer, String> map = new TreeMap<>(Comparator.reverseOrder());、
+        // 小到大
+        TreeMap<Integer, String> map = new TreeMap<>();
+        map.put(3, "val");
+        map.put(2, "val");
+        map.put(1, "val");
+        map.put(5, "val");
+        map.put(4, "val");
+        // {5=val, 4=val, 3=val, 2=val, 1=val}
+        System.out.println(map);
 ```
 
 ### 1.2.5.Properties
