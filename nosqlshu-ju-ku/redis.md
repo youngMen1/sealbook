@@ -12,7 +12,7 @@ lettuce 官网地址：[https://lettuce.io/](https://lettuce.io/)
 
 lettuce git项目地址：[https://github.com/lettuce-io/lettuce-core](https://github.com/lettuce-io/lettuce-core)
 
-概念：
+1.1.1.概念：
 
 Jedis：是Redis的Java实现客户端，提供了比较全面的Redis命令的支持，
 
