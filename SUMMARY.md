@@ -72,7 +72,7 @@
   * [xxl-job](sealblog/xxl-job.md)
   * [elastic-job](elastic-job.md)
   * [yum+mysql](sealblog/yum+mysql.md)
-  * [zookeeper](sealblog/zookeeper.md)
+  * [Zookeeper](sealblog/zookeeper.md)
   * [nexus](sealblog/nexus.md)
   * [maven](sealblog/maven.md)
   * [git](sealblog/git.md)
