@@ -12,7 +12,7 @@ lettuce 官网地址：[https://lettuce.io/](https://lettuce.io/)
 
 lettuce git项目地址：[https://github.com/lettuce-io/lettuce-core](https://github.com/lettuce-io/lettuce-core)
 
-1.1.1.概念：
+### 1.1.1.概念：
 
 Jedis：是Redis的Java实现客户端，提供了比较全面的Redis命令的支持，
 
@@ -20,7 +20,7 @@ Redisson：实现了分布式和可扩展的Java数据结构。
 
 _　　Lettuce：高级Redis客户端，用于线程安全同步，异步和响应使用，支持集群，Sentinel，管道和编码器。_
 
-_优点：_
+_**优点：**_
 
 _　　Jedis：比较全面的提供了Redis的操作特性_
 
@@ -28,7 +28,7 @@ _　　Redisson：促使使用者对Redis的关注分离，提供很多分布式
 
 _　　Lettuce：主要在一些分布式缓存框架上使用比较多_
 
-_可伸缩：_
+_**可伸缩：**_
 
 Jedis：使用阻塞的I/O，且其方法调用都是同步的，程序流需要等到sockets处理完I/O才能执行，不支持异步。Jedis客户端实例不是线程安全的，所以需要通过连接池来使用Jedis。
 
