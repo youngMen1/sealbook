@@ -22,7 +22,7 @@ lettuce git项目地址：[https://github.com/lettuce-io/lettuce-core](https://g
 
 _**优点：**_
 
-_　　Jedis：比较全面的提供了Redis的操作特性_
+_　　**Jedis：**比较全面的提供了Redis的操作特性_
 
 _　　Redisson：促使使用者对Redis的关注分离，提供很多分布式相关操作服务，例如，分布式锁，分布式集合，可通过Redis支持延迟队列_
 
