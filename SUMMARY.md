@@ -106,7 +106,7 @@
   * [couchDB](nosqlshu-ju-ku/couchdb.md)
   * [Redis](nosqlshu-ju-ku/redis.md)
     * [Redis内存淘汰策略](nosqlshu-ju-ku/redis/redisnei-cun-tao-tai-ce-lve.md)
-    * Redis的三个框架：Jedis,Redisson,Lettuce
+    * [Redis的三个框架：Jedis,Redisson,Lettuce](nosqlshu-ju-ku/redis/redisde-san-ge-kuang-jia-ff1a-jedis-redisson-lettuce.md)
     * [Redis分布式锁](nosqlshu-ju-ku/redis/redisfen-bu-shi-suo.md)
   * [riak](nosqlshu-ju-ku/riak.md)
   * [membase](nosqlshu-ju-ku/membase.md)
@@ -146,7 +146,7 @@
   * [理解正确的日志输出级别](java/li-jie-zheng-que-de-ri-zhi-shu-chu-ji-bie.md)
   * [单元测试 AIR 原则](java/dan-yuan-ce-shi-air-yuan-ze.md)
   * 索引的种类
-  * 线程池使用总结
+  * [线程池使用总结](java/xian-cheng-chi-shi-yong-zong-jie.md)
 * [SpringCloudAlibaba](springcloudalibaba.md)
   * [SpringCloudAlibaba基本介绍](springcloudalibaba/zhu-yi.md)
   * [Nacos](springcloudalibaba/nacos.md)
