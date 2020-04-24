@@ -106,7 +106,7 @@
   * [Redis](nosqlshu-ju-ku/redis.md)
     * [Redis内存淘汰策略](nosqlshu-ju-ku/redis/redisnei-cun-tao-tai-ce-lve.md)
     * Redis的三个框架：Jedis,Redisson,Lettuce
-    * Redis分布式锁
+    * [Redis分布式锁](nosqlshu-ju-ku/redis/redisfen-bu-shi-suo.md)
   * [riak](nosqlshu-ju-ku/riak.md)
   * [membase](nosqlshu-ju-ku/membase.md)
   * [neo4j](nosqlshu-ju-ku/neo4j.md)
