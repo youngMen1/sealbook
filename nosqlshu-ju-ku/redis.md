@@ -1,20 +1,18 @@
-Jedis api 在线网址：http://tool.oschina.net/uploads/apidocs/redis/clients/jedis/Jedis.html
+Jedis api 在线网址：[http://tool.oschina.net/uploads/apidocs/redis/clients/jedis/Jedis.html](http://tool.oschina.net/uploads/apidocs/redis/clients/jedis/Jedis.html)
 
-redisson 官网地址：https://redisson.org/
+redisson 官网地址：[https://redisson.org/](https://redisson.org/)
 
-redisson git项目地址：https://github.com/redisson/redisson
+redisson git项目地址：[https://github.com/redisson/redisson](https://github.com/redisson/redisson)
 
-lettuce 官网地址：https://lettuce.io/
+lettuce 官网地址：[https://lettuce.io/](https://lettuce.io/)
 
-lettuce git项目地址：https://github.com/lettuce-io/lettuce-core
-
-
+lettuce git项目地址：[https://github.com/lettuce-io/lettuce-core](https://github.com/lettuce-io/lettuce-core)
 
 概念：
 
-　　Jedis：是Redis的Java实现客户端，提供了比较全面的Redis命令的支持，
+Jedis：是Redis的Java实现客户端，提供了比较全面的Redis命令的支持，
 
-　　Redisson：实现了分布式和可扩展的Java数据结构。
+Redisson：实现了分布式和可扩展的Java数据结构。
 
 _　　Lettuce：高级Redis客户端，用于线程安全同步，异步和响应使用，支持集群，Sentinel，管道和编码器。_
 
@@ -34,9 +32,13 @@ Redisson：基于Netty框架的事件驱动的通信层，其方法调用是异�
 
 _Lettuce：基于Netty框架的事件驱动的通信层，其方法调用是异步的。Lettuce的API是线程安全的，所以可以操作单个Lettuce连接来完成各种操作_
 
-
-
 结论：
 
 _建议使用：Jedis + Redisson_
+
+```
+SpringBoot项目上使用RedisTemplate会好一些，现在SpringBoot2.0默认也是使用Lettuce的
+```
+
+
 
