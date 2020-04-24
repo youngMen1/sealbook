@@ -74,8 +74,8 @@
   * [yum+mysql](sealblog/yum+mysql.md)
   * [Zookeeper](sealblog/zookeeper.md)
     * [D](sealblog/zookeeper/d.md)
+    * [Zookeeper分布式锁](sealblog/zookeeper.md)
     * Zookeeper实现分布式锁
-  * [Zookeeper分布式锁](sealblog/zookeeper.md)
   * [nexus](sealblog/nexus.md)
   * [maven](sealblog/maven.md)
   * [git](sealblog/git.md)
