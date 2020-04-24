@@ -36,7 +36,7 @@ Redisson：基于Netty框架的事件驱动的通信层，其方法调用是异�
 
 _Lettuce：基于Netty框架的事件驱动的通信层，其方法调用是异步的。Lettuce的API是线程安全的，所以可以操作单个Lettuce连接来完成各种操作_
 
-# 结论：
+# 2.结论：
 
 _建议使用：Jedis + Redisson_
 
