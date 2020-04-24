@@ -73,7 +73,8 @@
   * [elastic-job](elastic-job.md)
   * [yum+mysql](sealblog/yum+mysql.md)
   * [Zookeeper](sealblog/zookeeper.md)
-    * D
+    * [D](sealblog/zookeeper/d.md)
+    * Zookeeper实现分布式锁
   * [Zookeeper分布式锁](sealblog/zookeeper.md)
   * [nexus](sealblog/nexus.md)
   * [maven](sealblog/maven.md)
