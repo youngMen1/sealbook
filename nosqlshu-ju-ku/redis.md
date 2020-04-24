@@ -1,3 +1,5 @@
+# [Redis的三个框架：Jedis,Redisson,Lettuce](https://www.cnblogs.com/liyan492/p/9858548.html)
+
 Jedis api 在线网址：[http://tool.oschina.net/uploads/apidocs/redis/clients/jedis/Jedis.html](http://tool.oschina.net/uploads/apidocs/redis/clients/jedis/Jedis.html)
 
 redisson 官网地址：[https://redisson.org/](https://redisson.org/)
@@ -32,11 +34,9 @@ Redisson：基于Netty框架的事件驱动的通信层，其方法调用是异�
 
 _Lettuce：基于Netty框架的事件驱动的通信层，其方法调用是异步的。Lettuce的API是线程安全的，所以可以操作单个Lettuce连接来完成各种操作_
 
-结论：
+# 结论：
 
 _建议使用：Jedis + Redisson_
 
 SpringBoot项目上使用RedisTemplate会好一些，现在SpringBoot2.0默认也是使用Lettuce的
-
-
 
