@@ -2,7 +2,6 @@
 
 # 4.参考
 
-## [分布式锁与实现（二）——基于ZooKeeper实现](https://www.cnblogs.com/liuyang0/p/6800538.html)：
-
-[https://www.cnblogs.com/liuyang0/p/6800538.html](https://www.cnblogs.com/liuyang0/p/6800538.html)
+## 分布式锁与实现（二）——基于ZooKeeper实现：
+https://www.cnblogs.com/liuyang0/p/6800538.html
 
