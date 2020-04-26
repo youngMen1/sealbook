@@ -12,7 +12,7 @@
 
 微信截图\_20200426161704.png
 
-新建一个sdk
+1.2.新建一个sdk
 
 新建项目完成之后，点击file&gt;project structure,然后选中SKDS，切换到Sourcepath选项
 
@@ -20,9 +20,7 @@
 
 微信截图\_20200426161814.png
 
-然后点击file --&gt; Setting --&gt; Build,Execution,Deployment --&gt; Debugger --&gt; Stepping
-
-把Do not step into the classes中的ajva.\*，javax.\*取消勾选，其他的随意, 点击apply。
+1.3.然后点击file --&gt; Setting --&gt; Build,Execution,Deployment --&gt; Debugger --&gt; Stepping把Do not step into the classes中的ajva.\*，javax.\*取消勾选，其他的随意, 点击apply。
 
 微信截图\_20200426161917.png
 
