@@ -12,3 +12,9 @@
 
 微信截图\_20200426161704.png
 
+新建项目完成之后，点击file
+
+&gt;
+
+project structure,然后选中SKDS，切换到Sourcepath选项
+
