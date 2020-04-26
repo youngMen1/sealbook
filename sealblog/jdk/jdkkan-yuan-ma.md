@@ -18,6 +18,10 @@
 
 将原先的src.zip和javafx-src.zip依赖，“-”减号删去，“+”好新建你本地**解压后的src和javafx-src依赖**，之后我们点击apply
 
+之前
+
+微信截图\_20200426162710.png
+
 ![img](/static/image/微信截图_20200426161814.png)
 
 ## 1.4.把Do not step into the classes中的ajva.\*，javax.\*取消勾选
