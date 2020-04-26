@@ -2,7 +2,7 @@
 
 # 1.基本介绍
 
-## **基于ZooKeeper分布式锁的流程** {#基于zookeeper分布式锁的流程}
+## 1.1.**基于ZooKeeper分布式锁的流程** {#基于zookeeper分布式锁的流程}
 
 * 在zookeeper指定节点（locks）下创建临时顺序节点node\_n
 * 获取locks下所有子节点children
