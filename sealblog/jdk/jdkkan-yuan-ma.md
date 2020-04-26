@@ -12,7 +12,7 @@
 
 ![img](/static/image/微信截图_20200426161704.png)
 
-## 1.3.新建一个sdk
+## 1.3.新建一个sdks
 
 新建项目完成之后，点击file&gt;project structure,然后选中SKDS，切换到Sourcepath选项
 
