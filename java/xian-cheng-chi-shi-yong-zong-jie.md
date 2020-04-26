@@ -7,5 +7,7 @@
 java 线程池 使用实例：  
 [https://www.cnblogs.com/GarfieldEr007/p/10230865.html](https://www.cnblogs.com/GarfieldEr007/p/10230865.html)
 
-https://www.jianshu.com/p/7726c70cdc40
+Java线程池详解：
+
+[https://www.jianshu.com/p/7726c70cdc40](https://www.jianshu.com/p/7726c70cdc40)
 
