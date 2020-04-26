@@ -145,7 +145,7 @@
   * [使用try-with-resources优雅关闭资源](java/shi-yong-try-with-resources-you-ya-guan-bi-zi-yuan.md)
   * [理解正确的日志输出级别](java/li-jie-zheng-que-de-ri-zhi-shu-chu-ji-bie.md)
   * [单元测试 AIR 原则](java/dan-yuan-ce-shi-air-yuan-ze.md)
-  * 索引的种类
+  * [索引的种类](java/suo-yin-de-zhong-lei.md)
   * [线程池使用总结](java/xian-cheng-chi-shi-yong-zong-jie.md)
 * [SpringCloudAlibaba](springcloudalibaba.md)
   * [SpringCloudAlibaba基本介绍](springcloudalibaba/zhu-yi.md)
