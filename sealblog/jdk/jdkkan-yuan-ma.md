@@ -16,9 +16,7 @@
 
 新建项目完成之后，点击file&gt;project structure,然后选中SKDS，切换到Sourcepath选项
 
-将原先的src.zip和javafx-src.zip依赖，“-”减号删去，“+”好新建你本地解压后的src和javafx-src依赖，之后我们点击apply
+将原先的src.zip和javafx-src.zip依赖，“-”减号删去，“+”好新建你本地**解压后的src和javafx-src依赖**，之后我们点击apply
 
 微信截图\_20200426161814.png
-
-
 
