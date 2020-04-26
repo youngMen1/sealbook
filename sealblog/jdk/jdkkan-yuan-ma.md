@@ -34,4 +34,5 @@ Debugger --&gt; Stepping把Do not step into the classes中的ajva.\*，javax.\*�
 **源码的注释全部在javafx-src里面**
 
 ![img](/static/image/微信截图\_20200426162007.png)
+![img](/static/image/微信截图_20200426162432.png)
 
