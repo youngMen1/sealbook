@@ -22,9 +22,7 @@
 
 ## 1.4.把Do not step into the classes中的ajva.\*，javax.\*取消勾选
 
-## 然后点击file --&gt; Setting --&gt; Build,Execution,Deployment --&gt;
-
-Debugger --&gt; Stepping把Do not step into the classes中的ajva.\*，javax.\*取消勾选，其他的随意, 点击apply。
+点击file --&gt; Setting --&gt; Build,Execution,Deployment --&gt;Debugger --&gt; Stepping把Do not step into the classes中的ajva.\*，javax.\*取消勾选，其他的随意, 点击apply。
 
 ![img](/static/image/微信截图_20200426161917.png)
 
