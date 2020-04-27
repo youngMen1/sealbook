@@ -83,6 +83,7 @@ public ThreadPoolExecutor(int corePoolSize,
 
 * **int corePoolSize      **该线程池中**核心线程数最大值**
 * **int maximumPoolSize   **该线程池中**线程总数最大值**
+* **long keepAliveTime**
 
 # 2.怎么使用
 
