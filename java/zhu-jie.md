@@ -114,7 +114,19 @@ g: name  指定映射的名称:
 
 **@Query： **自定义查询语句 JPQL
 
-**AspectJ 切面注解中五种通知注解：**@Before、@After、@AfterRunning、@AfterThrowing、@Around
+**AspectJ 切面注解中五种通知注解：要在 Spring 中声明 AspectJ 切面, 只需要在 IOC 容器中将切面声明为 Bean 实例. 当在 Spring IOC 容器中初始化 AspectJ 切面之后, Spring IOC 容器就会为那些与 AspectJ 切面相匹配的 Bean 创建代理。 **
+
+在切面类中需要定义切面方法用于响应响应的目标方法，切面方法即为通知方法，通知方法需要用注解标识，AspectJ 支持 5 种类型的通知注解:
+
+**@Before：**前置通知, 在方法执行之前执行
+
+@After：后置通知, 在方法执行之后执行 。
+
+@AfterRunning：返回通知, 在方法返回结果之后执行
+
+@AfterThrowing：异常通知, 在方法抛出异常之后
+
+@Around：环绕通知, 围绕着方法执行
 
 ## 1.2.**JPA注解**
 
