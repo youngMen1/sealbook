@@ -92,6 +92,12 @@ public ThreadPoolExecutor(int corePoolSize,
 
 * **RejectedExecutionHandler handler **抛出异常专用的，比如上面提到的两个错误发生了，就会由这个handler抛出异常
 
+```
+这玩意儿就是抛出异常专用的，比如上面提到的两个错误发生了，就会由这个handler抛出异常，你不指定他也有个默认的
+
+抛异常能抛出什么花样来？所以这个星期天不管了，一边去，根本用不上
+```
+
 # 2.怎么使用
 
 # 3.参考
