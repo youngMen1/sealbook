@@ -86,8 +86,9 @@ public ThreadPoolExecutor(int corePoolSize,
 * **long keepAliveTime   **该线程池中**非核心线程闲置超时时长**
 * **TimeUnit unit   **keepAliveTime的单位，TimeUnit是一个枚举类型
 * **BlockingQueue&lt;Runnable&gt;workQueue  **该线程池中的任务队列
+* **ThreadFactory threadFactory **创建线程的方式，这是一个接口，你new他的时候需要实现他的`Thread newThread(Runnable r)`
 
-
+  方法
 
 # 2.怎么使用
 
