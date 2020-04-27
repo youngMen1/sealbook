@@ -85,6 +85,24 @@ public ThreadPoolExecutor(int corePoolSize,
 * **int maximumPoolSize   **该线程池中**线程总数最大值**
 * **long keepAliveTime   **该线程池中**非核心线程闲置超时时长**
 * **TimeUnit unit   **keepAliveTime的单位，TimeUnit是一个枚举类型
+
+```
+keepAliveTime的单位，TimeUnit是一个枚举类型，其包括：
+
+NANOSECONDS ： 1微毫秒 = 1微秒 / 1000
+MICROSECONDS ： 1微秒 = 1毫秒 / 1000
+MILLISECONDS ： 1毫秒 = 1秒 /1000
+SECONDS ： 秒
+MINUTES ： 分
+HOURS ： 小时
+DAYS ： 天
+
+作者：LiuZh_
+链接：https://www.jianshu.com/p/210eab345423
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+
 * **BlockingQueue&lt;Runnable&gt;workQueue  **该线程池中的任务队列
 
 ```
@@ -101,7 +119,6 @@ LinkedBlockingQueue：这个队列接收到任务的时候，如果当前线程�
 ArrayBlockingQueue：可以限定队列的长度，接收到任务的时候，如果没有达到corePoolSize的值，则新建线程(核心线程)执行任务，如果达到了，则入队等候，如果队列已满，则新建线程(非核心线程)执行任务，又如果总线程数到了maximumPoolSize，并且队列也满了，则发生错误
 
 DelayQueue：队列内元素必须实现Delayed接口，这就意味着你传进去的任务必须先实现Delayed接口。这个队列接收到任务时，首先先入队，只有达到了指定的延时时间，才会执行任务
-
 ```
 
 * **ThreadFactory threadFactory **创建线程的方式，这是一个接口，你new他的时候需要实现他的`Thread newThread(Runnable r)`
