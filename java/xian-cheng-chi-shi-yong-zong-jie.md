@@ -170,7 +170,7 @@ DelayQueue：队列内元素必须实现Delayed接口，这就意味着你传进
 
 ## 1.3.四种常见的线程池详解
 
-1.3.1.Executors.newCacheThreadPool\(\)
+1.3.1.Executors.newCacheThreadPool\(\)：可缓存线程池，先查看池中有没有以前建立的线程，如果有，就直接使用。如果没有，就建一个新的线程加入池中，缓存型池子通常用于执行一些生存期很短的异步型任务
 
 1.3.2.Executors.newFixedThreadPool\(int n\)：创建一个可重用固定个数的线程池，以共享的无界队列方式来运行这些线程。
 
