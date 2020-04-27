@@ -84,6 +84,22 @@ public ThreadPoolExecutor(int corePoolSize,
 * **int corePoolSize      **该线程池中**核心线程数最大值**
 * **int maximumPoolSize   **该线程池中**线程总数最大值**
 * **long keepAliveTime   **该线程池中**非核心线程闲置超时时长**
+
+```
+该线程池中非核心线程闲置超时时长
+
+一个非核心线程，如果不干活(闲置状态)的时长超过这个参数所设定的时长，就会被销毁掉
+
+如果设置allowCoreThreadTimeOut = true，则会作用于核心线程
+
+作者：LiuZh_
+链接：https://www.jianshu.com/p/210eab345423
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+
+
+
 * **TimeUnit unit   **keepAliveTime的单位，TimeUnit是一个枚举类型
 
 ```
