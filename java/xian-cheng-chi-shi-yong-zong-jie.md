@@ -90,6 +90,8 @@ public ThreadPoolExecutor(int corePoolSize,
 
   方法
 
+* **RejectedExecutionHandler handler**
+
 # 2.怎么使用
 
 # 3.参考
