@@ -83,6 +83,17 @@ public ThreadPoolExecutor(int corePoolSize,
 
 * **int corePoolSize      **该线程池中**核心线程数最大值**
 * **int maximumPoolSize   **该线程池中**线程总数最大值**
+
+```
+该线程池中线程总数最大值
+
+线程总数 = 核心线程数 + 非核心线程数。核心线程在上面解释过了，这里说下非核心线程：
+
+不是核心线程的线程(别激动，把刀放下...)，其实在上面解释过了
+```
+
+
+
 * **long keepAliveTime   **该线程池中**非核心线程闲置超时时长**
 
 ```
