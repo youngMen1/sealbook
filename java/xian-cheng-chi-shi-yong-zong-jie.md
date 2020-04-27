@@ -12,7 +12,8 @@
 
 ![img](/static/image/6024478-88ee7b20f8f45825.webp)
 
-281039482656686.png
+
+![img](/static/image281039482656686.png)
 
 ## 1.2.线程池ThreadPoolExecutor
 
