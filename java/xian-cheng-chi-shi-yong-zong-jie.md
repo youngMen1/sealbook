@@ -161,6 +161,17 @@ DelayQueue：队列内元素必须实现Delayed接口，这就意味着你传进
 
 ## 1.2.2.ThreadPoolExecutor的策略
 
+上面介绍参数的时候其实已经说到了ThreadPoolExecutor执行的策略，这里给总结一下，当一个任务被添加进线程池时：
+
+1. 线程数量未达到corePoolSize，则新建一个线程\(核心线程\)执行任务
+2. 线程数量达到了corePools，则将任务移入队列等待
+3. 队列已满，新建线程\(非核心线程\)执行任务
+4. 队列已满，总线程数又达到了maximumPoolSize，就会由上面那位星期天\(RejectedExecutionHandler\)抛出异常
+
+  
+
+
+  
 
 
 # 2.怎么使用
