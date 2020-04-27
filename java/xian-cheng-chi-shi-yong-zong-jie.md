@@ -81,7 +81,8 @@ public ThreadPoolExecutor(int corePoolSize,
                           RejectedExecutionHandler handler)
 ```
 
-* **int corePoolSize     **该线程池中**核心线程数最大值**
+* **int corePoolSize      **该线程池中**核心线程数最大值**
+* **int maximumPoolSize   **该线程池中**线程总数最大值**
 
 # 2.怎么使用
 
