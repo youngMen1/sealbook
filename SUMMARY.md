@@ -6,6 +6,7 @@
   * [知识拓展](zhi-shi-tuo-zhan.md)
     * [TensorFlow](zhi-shi-tuo-zhan/tensorflow.md)
     * [keras](zhi-shi-tuo-zhan/keras.md)
+  * 英语
 * [IDEA](java.md)
   * [使用帮助](java/shi-yong-bang-zhu.md)
   * [错误](java/cuo-wu.md)
