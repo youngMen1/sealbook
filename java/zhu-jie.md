@@ -114,6 +114,8 @@ g: name  指定映射的名称:
 
 **@Query： **自定义查询语句 JPQL
 
+**AspectJ 切面注解中五种通知注解：**@Before、@After、@AfterRunning、@AfterThrowing、@Around
+
 ## 1.2.**JPA注解**
 
 **@Entity**：@Table\(name=”“\)：表明这是一个实体类。一般用于jpa这两个注解一般一块使用，但是如果表名和实体类名相同的话，@Table可以省略
