@@ -94,13 +94,7 @@ public ThreadPoolExecutor(int corePoolSize,
 
 很好理解吧，正常情况下你不干活我也养你，因为我总有用到你的时候，但有时候特殊情况(比如我自己都养不起了)，那你不干活我就要把你干掉了
 
-作者：LiuZh_
-链接：https://www.jianshu.com/p/210eab345423
-来源：简书
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 ```
-
-
 
 * **int maximumPoolSize   **该线程池中**线程总数最大值**
 
