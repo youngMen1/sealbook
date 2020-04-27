@@ -102,10 +102,6 @@ ArrayBlockingQueue：可以限定队列的长度，接收到任务的时候，�
 
 DelayQueue：队列内元素必须实现Delayed接口，这就意味着你传进去的任务必须先实现Delayed接口。这个队列接收到任务时，首先先入队，只有达到了指定的延时时间，才会执行任务
 
-作者：LiuZh_
-链接：https://www.jianshu.com/p/210eab345423
-来源：简书
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 ```
 
 * **ThreadFactory threadFactory **创建线程的方式，这是一个接口，你new他的时候需要实现他的`Thread newThread(Runnable r)`
