@@ -86,6 +86,28 @@ public ThreadPoolExecutor(int corePoolSize,
 * **long keepAliveTime   **该线程池中**非核心线程闲置超时时长**
 * **TimeUnit unit   **keepAliveTime的单位，TimeUnit是一个枚举类型
 * **BlockingQueue&lt;Runnable&gt;workQueue  **该线程池中的任务队列
+
+```
+该线程池中的任务队列：维护着等待执行的Runnable对象
+
+当所有的核心线程都在干活时，新添加的任务会被添加到这个队列中等待处理，如果队列满了，则新建非核心线程执行任务
+
+常用的workQueue类型：
+
+SynchronousQueue：这个队列接收到任务的时候，会直接提交给线程处理，而不保留它，如果所有线程都在工作怎么办？那就新建一个线程来处理这个任务！所以为了保证不出现<线程数达到了maximumPoolSize而不能新建线程>的错误，使用这个类型队列的时候，maximumPoolSize一般指定成Integer.MAX_VALUE，即无限大
+
+LinkedBlockingQueue：这个队列接收到任务的时候，如果当前线程数小于核心线程数，则新建线程(核心线程)处理任务；如果当前线程数等于核心线程数，则进入队列等待。由于这个队列没有最大值限制，即所有超过核心线程数的任务都将被添加到队列中，这也就导致了maximumPoolSize的设定失效，因为总线程数永远不会超过corePoolSize
+
+ArrayBlockingQueue：可以限定队列的长度，接收到任务的时候，如果没有达到corePoolSize的值，则新建线程(核心线程)执行任务，如果达到了，则入队等候，如果队列已满，则新建线程(非核心线程)执行任务，又如果总线程数到了maximumPoolSize，并且队列也满了，则发生错误
+
+DelayQueue：队列内元素必须实现Delayed接口，这就意味着你传进去的任务必须先实现Delayed接口。这个队列接收到任务时，首先先入队，只有达到了指定的延时时间，才会执行任务
+
+作者：LiuZh_
+链接：https://www.jianshu.com/p/210eab345423
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+
 * **ThreadFactory threadFactory **创建线程的方式，这是一个接口，你new他的时候需要实现他的`Thread newThread(Runnable r)`
 
   方法
