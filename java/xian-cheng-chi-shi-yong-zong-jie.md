@@ -90,7 +90,7 @@ public ThreadPoolExecutor(int corePoolSize,
 
   方法
 
-* **RejectedExecutionHandler handler**
+* **RejectedExecutionHandler handler **抛出异常专用的，比如上面提到的两个错误发生了，就会由这个handler抛出异常
 
 # 2.怎么使用
 
