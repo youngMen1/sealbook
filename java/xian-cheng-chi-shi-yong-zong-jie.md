@@ -17,3 +17,5 @@ Java线程池详解：
 
 [https://www.jianshu.com/p/7726c70cdc40](https://www.jianshu.com/p/7726c70cdc40)
 
+https://blog.csdn.net/weixin\_39352976/article/details/100884832
+
