@@ -93,7 +93,6 @@ public ThreadPoolExecutor(int corePoolSize,
 如果指定ThreadPoolExecutor的allowCoreThreadTimeOut这个属性为true，那么核心线程如果不干活(闲置状态)的话，超过一定时间(时长下面参数决定)，就会被销毁掉
 
 很好理解吧，正常情况下你不干活我也养你，因为我总有用到你的时候，但有时候特殊情况(比如我自己都养不起了)，那你不干活我就要把你干掉了
-
 ```
 
 * **int maximumPoolSize   **该线程池中**线程总数最大值**
@@ -159,6 +158,10 @@ DelayQueue：队列内元素必须实现Delayed接口，这就意味着你传进
 
 抛异常能抛出什么花样来？所以这个星期天不管了，一边去，根本用不上
 ```
+
+## 1.2.2.ThreadPoolExecutor的策略
+
+
 
 # 2.怎么使用
 
