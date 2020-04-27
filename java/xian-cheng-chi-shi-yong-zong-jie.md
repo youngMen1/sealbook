@@ -48,15 +48,14 @@
 ### 1.2.1.ThreadPoolExecutor提供了四个构造函数
 
 ```
-
-//五个参数的构造函数
+// 五个参数的构造函数
 public ThreadPoolExecutor(int corePoolSize,
                           int maximumPoolSize,
                           long keepAliveTime,
                           TimeUnit unit,
                           BlockingQueue<Runnable> workQueue)
 
-//六个参数的构造函数-1
+// 六个参数的构造函数-1
 public ThreadPoolExecutor(int corePoolSize,
                           int maximumPoolSize,
                           long keepAliveTime,
@@ -64,7 +63,7 @@ public ThreadPoolExecutor(int corePoolSize,
                           BlockingQueue<Runnable> workQueue,
                           ThreadFactory threadFactory)
 
-//六个参数的构造函数-2
+// 六个参数的构造函数-2
 public ThreadPoolExecutor(int corePoolSize,
                           int maximumPoolSize,
                           long keepAliveTime,
@@ -72,7 +71,7 @@ public ThreadPoolExecutor(int corePoolSize,
                           BlockingQueue<Runnable> workQueue,
                           RejectedExecutionHandler handler)
 
-//七个参数的构造函数
+// 七个参数的构造函数
 public ThreadPoolExecutor(int corePoolSize,
                           int maximumPoolSize,
                           long keepAliveTime,
@@ -80,7 +79,6 @@ public ThreadPoolExecutor(int corePoolSize,
                           BlockingQueue<Runnable> workQueue,
                           ThreadFactory threadFactory,
                           RejectedExecutionHandler handler)
-
 ```
 
 # 2.怎么使用
