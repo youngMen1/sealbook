@@ -172,6 +172,10 @@ DelayQueue：队列内元素必须实现Delayed接口，这就意味着你传进
 
 1.3.1.Executors.newCacheThreadPool\(\)
 
+1.3.2.Executors.newFixedThreadPool\(int n\)
+
+1.3.3.Executors.newScheduledThreadPool\(int n\)：创建一个定长线程池，支持定时及周期性任务执行
+
 # 2.怎么使用
 
 # 3.参考
