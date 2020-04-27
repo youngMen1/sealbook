@@ -82,6 +82,26 @@ public ThreadPoolExecutor(int corePoolSize,
 ```
 
 * **int corePoolSize      **该线程池中**核心线程数最大值**
+
+```
+核心线程：
+
+线程池新建线程的时候，如果当前线程总数小于corePoolSize，则新建的是核心线程，如果超过corePoolSize，则新建的是非核心线程
+
+核心线程默认情况下会一直存活在线程池中，即使这个核心线程啥也不干(闲置状态)。
+
+如果指定ThreadPoolExecutor的allowCoreThreadTimeOut这个属性为true，那么核心线程如果不干活(闲置状态)的话，超过一定时间(时长下面参数决定)，就会被销毁掉
+
+很好理解吧，正常情况下你不干活我也养你，因为我总有用到你的时候，但有时候特殊情况(比如我自己都养不起了)，那你不干活我就要把你干掉了
+
+作者：LiuZh_
+链接：https://www.jianshu.com/p/210eab345423
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+
+
+
 * **int maximumPoolSize   **该线程池中**线程总数最大值**
 
 ```
@@ -91,8 +111,6 @@ public ThreadPoolExecutor(int corePoolSize,
 
 不是核心线程的线程(别激动，把刀放下...)，其实在上面解释过了
 ```
-
-
 
 * **long keepAliveTime   **该线程池中**非核心线程闲置超时时长**
 
