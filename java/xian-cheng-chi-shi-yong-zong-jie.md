@@ -170,6 +170,8 @@ DelayQueue：队列内元素必须实现Delayed接口，这就意味着你传进
 
 ## 1.3.四种常见的线程池详解
 
+1.3.1.Executors.newCacheThreadPool\(\)
+
 # 2.怎么使用
 
 # 3.参考
