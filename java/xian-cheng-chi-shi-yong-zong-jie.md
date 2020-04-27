@@ -84,7 +84,7 @@ public ThreadPoolExecutor(int corePoolSize,
 * **int corePoolSize      **该线程池中**核心线程数最大值**
 * **int maximumPoolSize   **该线程池中**线程总数最大值**
 * **long keepAliveTime   **该线程池中**非核心线程闲置超时时长**
-* **TimeUnit unit**
+* **TimeUnit unit   **keepAliveTime的单位，TimeUnit是一个枚举类型
 
 # 2.怎么使用
 
