@@ -96,11 +96,6 @@ SECONDS ： 秒
 MINUTES ： 分
 HOURS ： 小时
 DAYS ： 天
-
-作者：LiuZh_
-链接：https://www.jianshu.com/p/210eab345423
-来源：简书
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 ```
 
 * **BlockingQueue&lt;Runnable&gt;workQueue  **该线程池中的任务队列
