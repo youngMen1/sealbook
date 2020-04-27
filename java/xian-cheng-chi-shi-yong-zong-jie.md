@@ -159,7 +159,7 @@ DelayQueue：队列内元素必须实现Delayed接口，这就意味着你传进
 抛异常能抛出什么花样来？所以这个星期天不管了，一边去，根本用不上
 ```
 
-## 1.2.2.ThreadPoolExecutor的策略
+### 1.2.2.ThreadPoolExecutor的策略
 
 上面介绍参数的时候其实已经说到了ThreadPoolExecutor执行的策略，这里给总结一下，当一个任务被添加进线程池时：
 
@@ -168,11 +168,7 @@ DelayQueue：队列内元素必须实现Delayed接口，这就意味着你传进
 3. 队列已满，新建线程\(非核心线程\)执行任务
 4. 队列已满，总线程数又达到了maximumPoolSize，就会由上面那位星期天\(RejectedExecutionHandler\)抛出异常
 
-  
-
-
-  
-
+# 1.3.四种常见的线程池详解
 
 # 2.怎么使用
 
