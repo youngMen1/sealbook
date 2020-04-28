@@ -204,7 +204,7 @@ DelayedWorkQueue：队列内元素必须实现Delayed接口，这就意味着你
 
 * 底层：FinalizableDelegatedExecutorService包装的ThreadPoolExecutor实例，corePoolSize为1；maximumPoolSize为1；keepAliveTime为0L；unit为：TimeUnit.MILLISECONDS；workQueue为：new LinkedBlockingQueue&lt;Runnable&gt;\(\) 无解阻塞队列
 
-微信截图\_20200428114604.png
+![img](/static/image/微信截图\_20200428114604.png)
 
 * 通俗：创建只有一个线程的线程池，且线程的存活时间是无限的；当该线程正繁忙时，对于新任务会进入阻塞队列中\(无界的阻塞队列\)
 
