@@ -192,7 +192,7 @@ DelayedWorkQueue：队列内元素必须实现Delayed接口，这就意味着你
 
 ### 1.3.2.Executors.newFixedThreadPool\(int n\)：创建一个可重用固定个数的线程池，以共享的无界队列方式来运行这些线程。
 
-* 底层：返回ThreadPoolExecutor实例，接收参数为所设定线程数量nThread，corePoolSize为nThread，maximumPoolSize为nThread；keepAliveTime为0L\(不限时\)；unit为：TimeUnit.MILLISECONDS；WorkQueue为：new LinkedBlockingQueue&lt;Runnable&gt;\(\) 无解阻塞队列
+* 底层：返回ThreadPoolExecutor实例，接收参数为所设定线程数量nThread，corePoolSize为nThread，maximumPoolSize为nThread；keepAliveTime为0L\(不限时\)；unit为：TimeUnit.MILLISECONDS；WorkQueue为：new LinkedBlockingQueue&lt;Runnable&gt;\(\) 无解阻塞队列
 
 微信截图\_20200428114543.png
 
@@ -202,7 +202,15 @@ DelayedWorkQueue：队列内元素必须实现Delayed接口，这就意味着你
 
 ### 1.3.3.Executors.newScheduledThreadPool\(int n\)：创建一个定长线程池，支持定时及周期性任务执行
 
+* 底层：FinalizableDelegatedExecutorService包装的ThreadPoolExecutor实例，corePoolSize为1；maximumPoolSize为1；keepAliveTime为0L；unit为：TimeUnit.MILLISECONDS；workQueue为：new LinkedBlockingQueue&lt;Runnable&gt;\(\) 无解阻塞队列
+
 微信截图\_20200428114604.png
+
+* 通俗：创建只有一个线程的线程池，且线程的存活时间是无限的；当该线程正繁忙时，对于新任务会进入阻塞队列中\(无界的阻塞队列\)
+
+* 适用：一个任务一个任务执行的场景
+
+
 
 ### 1.3.4.Executors.newSingleThreadExecutor\(\)：创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺序\(FIFO, LIFO, 优先级\)执行。
 
