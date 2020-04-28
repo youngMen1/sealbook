@@ -214,7 +214,7 @@ DelayedWorkQueue：队列内元素必须实现Delayed接口，这就意味着你
 
 * 底层：创建ScheduledThreadPoolExecutor实例，corePoolSize为传递来的参数，maximumPoolSize为Integer.MAX\_VALUE；keepAliveTime为0；unit为：TimeUnit.NANOSECONDS；workQueue为：new DelayedWorkQueue\(\) 一个按超时时间升序排序的队列
 
-微信截图\_20200428114616.png
+!\[img\]\(/static/image/微信截图\_20200428114616.png\)
 
 * 通俗：创建一个固定大小的线程池，线程池内线程存活时间无限制，线程池可以支持定时及周期性任务执行，如果所有线程均处于繁忙状态，对于新任务会进入DelayedWorkQueue队列中，这是一种按照超时时间排序的队列结构
 
