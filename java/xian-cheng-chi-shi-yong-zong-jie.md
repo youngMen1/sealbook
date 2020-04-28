@@ -202,7 +202,7 @@ DelayedWorkQueue：队列内元素必须实现Delayed接口，这就意味着你
 
 ### 1.3.3.Executors.newScheduledThreadPool\(int n\)：创建一个定长线程池，支持定时及周期性任务执行
 
-* 底层：FinalizableDelegatedExecutorService包装的ThreadPoolExecutor实例，corePoolSize为1；maximumPoolSize为1；keepAliveTime为0L；unit为：TimeUnit.MILLISECONDS；workQueue为：new LinkedBlockingQueue&lt;Runnable&gt;\(\) 无解阻塞队列
+* 底层：FinalizableDelegatedExecutorService包装的ThreadPoolExecutor实例，corePoolSize为1；maximumPoolSize为1；keepAliveTime为0L；unit为：TimeUnit.MILLISECONDS；workQueue为：new LinkedBlockingQueue&lt;Runnable&gt;\(\) 无解阻塞队列
 
 微信截图\_20200428114604.png
 
@@ -210,11 +210,15 @@ DelayedWorkQueue：队列内元素必须实现Delayed接口，这就意味着你
 
 * 适用：一个任务一个任务执行的场景
 
-
-
 ### 1.3.4.Executors.newSingleThreadExecutor\(\)：创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺序\(FIFO, LIFO, 优先级\)执行。
 
+* 底层：创建ScheduledThreadPoolExecutor实例，corePoolSize为传递来的参数，maximumPoolSize为Integer.MAX\_VALUE；keepAliveTime为0；unit为：TimeUnit.NANOSECONDS；workQueue为：new DelayedWorkQueue\(\) 一个按超时时间升序排序的队列
+
 微信截图\_20200428114616.png
+
+* 通俗：创建一个固定大小的线程池，线程池内线程存活时间无限制，线程池可以支持定时及周期性任务执行，如果所有线程均处于繁忙状态，对于新任务会进入DelayedWorkQueue队列中，这是一种按照超时时间排序的队列结构
+
+* 适用：周期性执行任务的场景
 
 # 2.怎么使用
 
