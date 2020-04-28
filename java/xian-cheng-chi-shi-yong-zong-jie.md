@@ -230,18 +230,13 @@ DelayedWorkQueue：队列内元素必须实现Delayed接口，这就意味着你
 
 **handler有四个选择：**
 
-* ThreadPoolExecutor.AbortPolicy\(\)：     抛出java.util.concurrent.RejectedExecutionException异常
+* ThreadPoolExecutor.AbortPolicy\(\)：     抛出java.util.concurrent.RejectedExecutionException异常
 
-* ThreadPoolExecutor.CallerRunsPolicy\(\):     重试添加当前的任务，他会自动重复调用execute\(\)方法
+* ThreadPoolExecutor.CallerRunsPolicy\(\):     重试添加当前的任务，他会自动重复调用execute\(\)方法
 
+* ThreadPoolExecutor.DiscardOldestPolicy\(\):     抛弃旧的任务
 
-
-* ThreadPoolExecutor.DiscardOldestPolicy\(\):     抛弃旧的任务
-
-
-* ThreadPoolExecutor.DiscardPolicy\(\):     抛弃当前的任务
-
-
+* ThreadPoolExecutor.DiscardPolicy\(\):     抛弃当前的任务
 
 ```
 private static final ThreadPoolExecutor THREADPOOL = new ThreadPoolExecutor(2, 4, 3,
@@ -262,6 +257,8 @@ private static final ThreadPoolExecutor THREADPOOL = new ThreadPoolExecutor(2, 4
 * 当线程池中超过corePoolSize线程，空闲时间达到keepAliveTime时，关闭空闲线程
 
 * 当设置allowCoreThreadTimeOut\(true\)时，线程池中corePoolSize线程空闲时间达到keepAliveTime也将关闭
+
+**处理任务的优先级为：**
 
 # 4.参考
 
