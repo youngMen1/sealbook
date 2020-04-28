@@ -260,6 +260,22 @@ private static final ThreadPoolExecutor THREADPOOL = new ThreadPoolExecutor(2, 4
 
 **处理任务的优先级为：**
 
+核心线程corePoolSize、任务队列workQueue、最大线程maximumPoolSize，如果三者都满了，使用handler处理被拒绝的任务。
+
+
+
+    当线程池中的线程数量大于 corePoolSize时，如果某线程空闲时间超过keepAliveTime，线程将被终止。这样，线程池可以动态的调整池中的线程数。
+
+
+
+    unit可选的参数为java.util.concurrent.TimeUnit中的几个静态属性：NANOSECONDS、MICROSECONDS、MILLISECONDS、SECONDS。
+
+
+
+     workQueue常用的是：java.util.concurrent.ArrayBlockingQueue
+
+
+
 # 4.参考
 
 java 线程池 使用实例：  
