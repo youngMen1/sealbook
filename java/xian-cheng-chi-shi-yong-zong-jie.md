@@ -230,24 +230,29 @@ DelayedWorkQueue：队列内元素必须实现Delayed接口，这就意味着你
 
 ```
 
-        
-        
-private static final ThreadPoolExecutor THREADPOOL =  new ThreadPoolExecutor
-(int corePoolSize, int maximumPoolSize,long keepAliveTime, TimeUnit unit,BlockingQueue<Runnable> workQueue,RejectedExecutionHandler handler)
 
 
 // 例子
+private static final ThreadPoolExecutor THREADPOOL = new ThreadPoolExecutor(2, 4, 3,
+        TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(3),
+        new ThreadPoolExecutor.DiscardOldestPolicy());
+        
+        
+private static final ThreadPoolExecutor THREADPOOL =  new ThreadPoolExecutor
+(int corePoolSize, 
+int maximumPoolSize,
+long keepAliveTime, 
+TimeUnit unit,
+BlockingQueue<Runnable> workQueue,
+RejectedExecutionHandler handler)
 
-
-corePoolSize：      线程池维护线程的最少数量 （core : 核心）
-     maximumPoolSize：   线程池维护线程的最大数量 
-     keepAliveTime：     线程池维护线程所允许的空闲时间
-     unit：               线程池维护线程所允许的空闲时间的单位
-     workQueue：          线程池所使用的缓冲队列
-     handler：            线程池对拒绝任务的处理策略
-————————————————
-版权声明：本文为CSDN博主「阳光的亮亮」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/weixin_39352976/java/article/details/100884832
+----------------------------------------------------------------------
+        corePoolSize：      线程池维护线程的最少数量 （core : 核心）
+        maximumPoolSize：   线程池维护线程的最大数量 
+        keepAliveTime：     线程池维护线程所允许的空闲时间
+        unit：               线程池维护线程所允许的空闲时间的单位
+        workQueue：          线程池所使用的缓冲队列
+        handler：            线程池对拒绝任务的处理策略
 ```
 
 ## 3.2.**线程池任务执行流程：**
