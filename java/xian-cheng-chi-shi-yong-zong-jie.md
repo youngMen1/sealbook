@@ -228,9 +228,9 @@ DelayedWorkQueue：队列内元素必须实现Delayed接口，这就意味着你
 
 ### 1.shutdown方法有2个重载：
 
-**void** shutdown\(\) 启动一次顺序关闭，等待执行以前提交的任务完成，但不接受新任务。
+* **void** shutdown\(\) 启动一次顺序关闭，等待执行以前提交的任务完成，但不接受新任务。
 
-List&lt;Runnable&gt; shutdownNow\(\) 试图立即停止所有正在执行的活动任务，暂停处理正在等待的任务，并返回等待执行的任务列表。
+* List&lt;Runnable&gt; shutdownNow\(\) 试图立即停止所有正在执行的活动任务，暂停处理正在等待的任务，并返回等待执行的任务列表。
 
 ### 2.submit 与 execute
 
@@ -238,17 +238,17 @@ List&lt;Runnable&gt; shutdownNow\(\) 试图立即停止所有正在执行的活�
 
 他的返回值是future对象  可以获取执行结果
 
-&lt;T&gt; Future&lt;T&gt; submit\(Callable&lt;T&gt; task\) 提交一个返回值的任务用于执行，返回一个表示任务的未决结果的 Future。
+* &lt;T&gt; Future&lt;T&gt; submit\(Callable&lt;T&gt; task\) 提交一个返回值的任务用于执行，返回一个表示任务的未决结果的 Future。
 
-Future&lt;?&gt; submit\(Runnable task\) 提交一个 Runnable 任务用于执行，并返回一个表示该任务的 Future。
+* Future&lt;?&gt; submit\(Runnable task\) 提交一个 Runnable 任务用于执行，并返回一个表示该任务的 Future。
 
-&lt;T&gt; Future&lt;T&gt; submit\(Runnable task, T result\) 提交一个 Runnable 任务用于执行，并返回一个表示该任务的 Future。
+* &lt;T&gt; Future&lt;T&gt; submit\(Runnable task, T result\) 提交一个 Runnable 任务用于执行，并返回一个表示该任务的 Future。
 
 2.execute是Executor接口的方法
 
 他虽然也可以像submit那样让一个任务执行  但并不能有返回值
 
-void **execute**\([Runnable](mk:@MSITStore:C:\Users\Administrator\Desktop\JDK1.6 API帮助文档.CHM::/java/lang/Runnable.html) command\)
+* void **execute**\([Runnable](mk:@MSITStore:C:\Users\Administrator\Desktop\JDK1.6 API帮助文档.CHM::/java/lang/Runnable.html) command\)
 
 在未来某个时间执行给定的命令。该命令可能在新的线程、已入池的线程或者正调用的线程中执行，这由 Executor 实现决定。
 
