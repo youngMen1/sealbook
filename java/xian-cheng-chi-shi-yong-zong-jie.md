@@ -286,6 +286,8 @@ boolean isCancelled\(\) 如果在任务正常完成前将其取消，则返回 t
 
 boolean isDone\(\) 如果任务已完成，则返回 true。
 
+
+
 # 3.总结
 
 ## 3.1.阿里巴巴手册
