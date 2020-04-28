@@ -144,7 +144,7 @@ LinkedBlockingQueue：这个队列接收到任务的时候，如果当前线程�
 
 ArrayBlockingQueue：可以限定队列的长度，接收到任务的时候，如果没有达到corePoolSize的值，则新建线程(核心线程)执行任务，如果达到了，则入队等候，如果队列已满，则新建线程(非核心线程)执行任务，又如果总线程数到了maximumPoolSize，并且队列也满了，则发生错误
 
-DelayQueue：队列内元素必须实现Delayed接口，这就意味着你传进去的任务必须先实现Delayed接口。这个队列接收到任务时，首先先入队，只有达到了指定的延时时间，才会执行任务
+DelayedWorkQueue：队列内元素必须实现Delayed接口，这就意味着你传进去的任务必须先实现Delayed接口。这个队列接收到任务时，首先先入队，只有达到了指定的延时时间，才会执行任务
 ```
 
 * **ThreadFactory threadFactory **创建线程的方式，这是一个接口，你new他的时候需要实现他的`Thread newThread(Runnable r)`
@@ -178,9 +178,11 @@ DelayQueue：队列内元素必须实现Delayed接口，这就意味着你传进
 
 * 适用：执行很多短期异步的小程序或者负载较轻的服务器
 
-
-
 ### 1.3.2.Executors.newFixedThreadPool\(int n\)：创建一个可重用固定个数的线程池，以共享的无界队列方式来运行这些线程。
+
+* 通俗：创建可容纳固定数量线程的池子，每隔线程的存活时间是无限的，当池子满了就不在添加线程了；如果池中的所有线程均在繁忙状态，对于新任务会进入阻塞队列中\(无界的阻塞队列\)
+
+* 适用：执行长期的任务，性能好很多
 
 ### 1.3.3.Executors.newScheduledThreadPool\(int n\)：创建一个定长线程池，支持定时及周期性任务执行
 
