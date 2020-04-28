@@ -212,7 +212,7 @@ DelayedWorkQueue：队列内元素必须实现Delayed接口，这就意味着你
 
 ### 1.3.4.Executors.newSingleThreadExecutor\(\)：创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺序\(FIFO, LIFO, 优先级\)执行。
 
-* 底层：创建ScheduledThreadPoolExecutor实例，corePoolSize为传递来的参数，maximumPoolSize为Integer.MAX\_VALUE；keepAliveTime为0；unit为：TimeUnit.NANOSECONDS；workQueue为：new DelayedWorkQueue\(\) 一个按超时时间升序排序的队列
+* 底层：创建ScheduledThreadPoolExecutor实例，corePoolSize为传递来的参数，maximumPoolSize为Integer.MAX\_VALUE；keepAliveTime为0；unit为：TimeUnit.NANOSECONDS；workQueue为：new DelayedWorkQueue\(\) 一个按超时时间升序排序的队列
 
 微信截图\_20200428114616.png
 
@@ -222,7 +222,9 @@ DelayedWorkQueue：队列内元素必须实现Delayed接口，这就意味着你
 
 # 2.怎么使用
 
-# 3.参考
+# 3.总结
+
+# 4.参考
 
 java 线程池 使用实例：  
 [https://www.cnblogs.com/GarfieldEr007/p/10230865.html](https://www.cnblogs.com/GarfieldEr007/p/10230865.html)
