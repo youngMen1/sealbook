@@ -204,6 +204,8 @@ DelayedWorkQueue：队列内元素必须实现Delayed接口，这就意味着你
 
 ### 1.3.4.Executors.newSingleThreadExecutor\(\)：创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺序\(FIFO, LIFO, 优先级\)执行。
 
+微信截图\_20200428114616.png
+
 # 2.怎么使用
 
 # 3.参考
