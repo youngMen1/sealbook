@@ -244,15 +244,53 @@ Future&lt;?&gt; submit\(Runnable task\) 提交一个 Runnable 任务用于执行
 
 &lt;T&gt; Future&lt;T&gt; submit\(Runnable task, T result\) 提交一个 Runnable 任务用于执行，并返回一个表示该任务的 Future。
 
-
-
 2.execute是Executor接口的方法
 
-他虽然也可以像submit那样让一个任务执行  但并不能有返回值
+他虽然也可以像submit那样让一个任务执行  但并不能有返回值
 
-void **execute**\([Runnable](mk:@MSITStore:C:\Users\Administrator\Desktop\JDK1.6%20API%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3.CHM::/java/lang/Runnable.html) command\)
+void **execute**\([Runnable](mk:@MSITStore:C:\Users\Administrator\Desktop\JDK1.6 API帮助文档.CHM::/java/lang/Runnable.html) command\)
 
 在未来某个时间执行给定的命令。该命令可能在新的线程、已入池的线程或者正调用的线程中执行，这由 Executor 实现决定。
+
+3.
+
+### Future
+
+Future 表示异步计算的结果。
+
+它提供了检查计算是否完成的方法，以等待计算的完成，并获取计算的结果。
+
+计算完成后只能使用 get 方法来获取结果，如有必要，计算完成前可以阻塞此方法。
+
+取消则由 cancel 方法来执行。还提供了其他方法，以确定任务是正常完成还是被取消了。一旦计算完成，就不能再取消计算。
+
+如果为了可取消性而使用 Future 但又不提供可用的结果，则可以声明 Future&lt;?&gt; 形式类型、并返回 null 作为底层任务的结果。
+
+
+
+Future就是对于具体的Runnable或者Callable任务的执行结果进行取消、查询是否完成、获取结果。
+
+必要时可以通过get方法获取执行结果，该方法会阻塞直到任务返回结果。　
+
+也就是说Future提供了三种功能：
+
+--判断任务是否完成；
+
+--能够中断任务；
+
+--能够获取任务执行结果。
+
+
+
+boolean cancel\(boolean mayInterruptIfRunning\) 试图取消对此任务的执行。
+
+V get\(\) 如有必要，等待计算完成，然后获取其结果。
+
+V get\(long timeout, TimeUnit unit\) 如有必要，最多等待为使计算完成所给定的时间之后，获取其结果（如果结果可用）。
+
+boolean isCancelled\(\) 如果在任务正常完成前将其取消，则返回 true。
+
+boolean isDone\(\) 如果任务已完成，则返回 true。
 
 # 3.总结
 
