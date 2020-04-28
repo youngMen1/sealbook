@@ -252,9 +252,7 @@ void **execute**\([Runnable](mk:@MSITStore:C:\Users\Administrator\Desktop\JDK1.6
 
 在未来某个时间执行给定的命令。该命令可能在新的线程、已入池的线程或者正调用的线程中执行，这由 Executor 实现决定。
 
-3.
-
-### Future
+### 3.Future
 
 Future 表示异步计算的结果。
 
@@ -266,11 +264,9 @@ Future 表示异步计算的结果。
 
 如果为了可取消性而使用 Future 但又不提供可用的结果，则可以声明 Future&lt;?&gt; 形式类型、并返回 null 作为底层任务的结果。
 
-
-
 Future就是对于具体的Runnable或者Callable任务的执行结果进行取消、查询是否完成、获取结果。
 
-必要时可以通过get方法获取执行结果，该方法会阻塞直到任务返回结果。　
+必要时可以通过get方法获取执行结果，该方法会阻塞直到任务返回结果。
 
 也就是说Future提供了三种功能：
 
@@ -279,8 +275,6 @@ Future就是对于具体的Runnable或者Callable任务的执行结果进行取�
 --能够中断任务；
 
 --能够获取任务执行结果。
-
-
 
 boolean cancel\(boolean mayInterruptIfRunning\) 试图取消对此任务的执行。
 
