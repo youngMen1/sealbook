@@ -276,17 +276,15 @@ Future就是对于具体的Runnable或者Callable任务的执行结果进行取�
 
 --能够获取任务执行结果。
 
-boolean cancel\(boolean mayInterruptIfRunning\) 试图取消对此任务的执行。
+* boolean cancel\(boolean mayInterruptIfRunning\) 试图取消对此任务的执行。
 
-V get\(\) 如有必要，等待计算完成，然后获取其结果。
+* V get\(\) 如有必要，等待计算完成，然后获取其结果。
 
-V get\(long timeout, TimeUnit unit\) 如有必要，最多等待为使计算完成所给定的时间之后，获取其结果（如果结果可用）。
+* V get\(long timeout, TimeUnit unit\) 如有必要，最多等待为使计算完成所给定的时间之后，获取其结果（如果结果可用）。
 
-boolean isCancelled\(\) 如果在任务正常完成前将其取消，则返回 true。
+* boolean isCancelled\(\) 如果在任务正常完成前将其取消，则返回 true。
 
-boolean isDone\(\) 如果任务已完成，则返回 true。
-
-
+* boolean isDone\(\) 如果任务已完成，则返回 true。
 
 # 3.总结
 
