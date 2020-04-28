@@ -228,15 +228,7 @@ DelayedWorkQueue：队列内元素必须实现Delayed接口，这就意味着你
 
 阿里巴巴java开发手册》中指出了线程资源必须通过线程池提供，不允许在应用中自行显示的创建线程，这样一方面是线程的创建更加规范，可以合理控制开辟线程的数量；另一方面线程的细节管理交给线程池处理，优化了资源的开销。而线程池不允许使用Executors去创建，而要通过ThreadPoolExecutor方式，这一方面是由于jdk中Executor框架虽然提供了如newFixedThreadPool\(\)、newSingleThreadExecutor\(\)、newCachedThreadPool\(\)等创建线程池的方法，但都有其局限性，不够灵活【消耗内存等】；另外由于前面几种方法内部也是通过ThreadPoolExecutor方式实现，使用ThreadPoolExecutor有助于大家明确线程池的运行规则，创建符合自己的业务场景需要的线程池，避免资源耗尽的风险，所以阿里巴巴java开发规范线程池首选ThreadPoolExcutor。
 
-**handler有四个选择：**
 
-* ThreadPoolExecutor.AbortPolicy\(\)：     抛出java.util.concurrent.RejectedExecutionException异常
-
-* ThreadPoolExecutor.CallerRunsPolicy\(\):     重试添加当前的任务，他会自动重复调用execute\(\)方法
-
-* ThreadPoolExecutor.DiscardOldestPolicy\(\):     抛弃旧的任务
-
-* ThreadPoolExecutor.DiscardPolicy\(\):     抛弃当前的任务
 
 ```
 private static final ThreadPoolExecutor THREADPOOL = new ThreadPoolExecutor(2, 4, 3,
@@ -260,21 +252,23 @@ private static final ThreadPoolExecutor THREADPOOL = new ThreadPoolExecutor(2, 4
 
 **处理任务的优先级为：**
 
-核心线程corePoolSize、任务队列workQueue、最大线程maximumPoolSize，如果三者都满了，使用handler处理被拒绝的任务。
+1.核心线程corePoolSize、任务队列workQueue、最大线程maximumPoolSize，如果三者都满了，使用handler处理被拒绝的任务。
 
+2.当线程池中的线程数量大于 corePoolSize时，如果某线程空闲时间超过keepAliveTime，线程将被终止。这样，线程池可以动态的调整池中的线程数。
 
+3.unit可选的参数为java.util.concurrent.TimeUnit中的几个静态属性：NANOSECONDS、MICROSECONDS、MILLISECONDS、SECONDS。
 
-    当线程池中的线程数量大于 corePoolSize时，如果某线程空闲时间超过keepAliveTime，线程将被终止。这样，线程池可以动态的调整池中的线程数。
+4.workQueue常用的是：java.util.concurrent.ArrayBlockingQueue
 
+5.**handler有四个选择：**
 
+* ThreadPoolExecutor.AbortPolicy\(\)：     抛出java.util.concurrent.RejectedExecutionException异常
 
-    unit可选的参数为java.util.concurrent.TimeUnit中的几个静态属性：NANOSECONDS、MICROSECONDS、MILLISECONDS、SECONDS。
+* ThreadPoolExecutor.CallerRunsPolicy\(\):     重试添加当前的任务，他会自动重复调用execute\(\)方法
 
+* ThreadPoolExecutor.DiscardOldestPolicy\(\):     抛弃旧的任务
 
-
-     workQueue常用的是：java.util.concurrent.ArrayBlockingQueue
-
-
+* ThreadPoolExecutor.DiscardPolicy\(\):     抛弃当前的任务
 
 # 4.参考
 
