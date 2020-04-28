@@ -228,9 +228,21 @@ DelayedWorkQueue：队列内元素必须实现Delayed接口，这就意味着你
 
 ### 1.shutdown方法有2个重载：
 
-**void** shutdown\(\) 启动一次顺序关闭，等待执行以前提交的任务完成，但不接受新任务。
+**void** shutdown\(\) 启动一次顺序关闭，等待执行以前提交的任务完成，但不接受新任务。
 
 List&lt;Runnable&gt; shutdownNow\(\) 试图立即停止所有正在执行的活动任务，暂停处理正在等待的任务，并返回等待执行的任务列表。
+
+### 2.submit 与 execute
+
+3.1 submit是ExecutorService中的方法 用以提交一个任务
+
+他的返回值是future对象  可以获取执行结果
+
+&lt;T&gt; Future&lt;T&gt; submit\(Callable&lt;T&gt; task\) 提交一个返回值的任务用于执行，返回一个表示任务的未决结果的 Future。
+
+Future&lt;?&gt; submit\(Runnable task\) 提交一个 Runnable 任务用于执行，并返回一个表示该任务的 Future。
+
+&lt;T&gt; Future&lt;T&gt; submit\(Runnable task, T result\) 提交一个 Runnable 任务用于执行，并返回一个表示该任务的 Future。
 
 # 3.总结
 
