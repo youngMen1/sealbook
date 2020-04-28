@@ -234,7 +234,7 @@ List&lt;Runnable&gt; shutdownNow\(\) 试图立即停止所有正在执行的活�
 
 ### 2.submit 与 execute
 
-submit是ExecutorService中的方法 用以提交一个任务
+1.submit是ExecutorService中的方法 用以提交一个任务
 
 他的返回值是future对象  可以获取执行结果
 
@@ -243,6 +243,16 @@ submit是ExecutorService中的方法 用以提交一个任务
 Future&lt;?&gt; submit\(Runnable task\) 提交一个 Runnable 任务用于执行，并返回一个表示该任务的 Future。
 
 &lt;T&gt; Future&lt;T&gt; submit\(Runnable task, T result\) 提交一个 Runnable 任务用于执行，并返回一个表示该任务的 Future。
+
+
+
+2.execute是Executor接口的方法
+
+他虽然也可以像submit那样让一个任务执行  但并不能有返回值
+
+void **execute**\([Runnable](mk:@MSITStore:C:\Users\Administrator\Desktop\JDK1.6%20API%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3.CHM::/java/lang/Runnable.html) command\)
+
+在未来某个时间执行给定的命令。该命令可能在新的线程、已入池的线程或者正调用的线程中执行，这由 Executor 实现决定。
 
 # 3.总结
 
