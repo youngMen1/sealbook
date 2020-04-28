@@ -184,7 +184,7 @@ DelayedWorkQueue：队列内元素必须实现Delayed接口，这就意味着你
 
 * 底层：返回ThreadPoolExecutor实例，corePoolSize为0；maximumPoolSize为Integer.MAX\_VALUE；keepAliveTime为60L；unit为TimeUnit.SECONDS；workQueue为SynchronousQueue\(同步队列\)
 
-![img](/static/image/微信截图\_20200428114505.png)
+![img](/static/image/微信截图_20200428114505.png)
 
 * 通俗：当有新任务到来，则插入到SynchronousQueue中，由于SynchronousQueue是同步队列，因此会在池中寻找可用线程来执行，若有可以线程则执行，若没有可用线程则创建一个线程来执行该任务；若池中线程空闲时间超过指定大小，则该线程会被销毁。
 
@@ -194,7 +194,7 @@ DelayedWorkQueue：队列内元素必须实现Delayed接口，这就意味着你
 
 * 底层：返回ThreadPoolExecutor实例，接收参数为所设定线程数量nThread，corePoolSize为nThread，maximumPoolSize为nThread；keepAliveTime为0L\(不限时\)；unit为：TimeUnit.MILLISECONDS；WorkQueue为：new LinkedBlockingQueue&lt;Runnable&gt;\(\) 无解阻塞队列
 
-![img](/static/image/微信截图\_20200428114543.png)
+![img](/static/image/微信截图_20200428114543.png)
 
 * 通俗：创建可容纳固定数量线程的池子，每隔线程的存活时间是无限的，当池子满了就不在添加线程了；如果池中的所有线程均在繁忙状态，对于新任务会进入阻塞队列中\(无界的阻塞队列\)
 
@@ -204,7 +204,7 @@ DelayedWorkQueue：队列内元素必须实现Delayed接口，这就意味着你
 
 * 底层：FinalizableDelegatedExecutorService包装的ThreadPoolExecutor实例，corePoolSize为1；maximumPoolSize为1；keepAliveTime为0L；unit为：TimeUnit.MILLISECONDS；workQueue为：new LinkedBlockingQueue&lt;Runnable&gt;\(\) 无解阻塞队列
 
-![img](/static/image/微信截图\_20200428114604.png)
+![img](/static/image/微信截图_20200428114604.png)
 
 * 通俗：创建只有一个线程的线程池，且线程的存活时间是无限的；当该线程正繁忙时，对于新任务会进入阻塞队列中\(无界的阻塞队列\)
 
@@ -214,7 +214,7 @@ DelayedWorkQueue：队列内元素必须实现Delayed接口，这就意味着你
 
 * 底层：创建ScheduledThreadPoolExecutor实例，corePoolSize为传递来的参数，maximumPoolSize为Integer.MAX\_VALUE；keepAliveTime为0；unit为：TimeUnit.NANOSECONDS；workQueue为：new DelayedWorkQueue\(\) 一个按超时时间升序排序的队列
 
-![img](/static/image/微信截图\_20200428114616.png)
+![img](/static/image/微信截图_20200428114616.png)
 
 * 通俗：创建一个固定大小的线程池，线程池内线程存活时间无限制，线程池可以支持定时及周期性任务执行，如果所有线程均处于繁忙状态，对于新任务会进入DelayedWorkQueue队列中，这是一种按照超时时间排序的队列结构
 
