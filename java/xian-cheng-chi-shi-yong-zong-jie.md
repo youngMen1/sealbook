@@ -224,6 +224,20 @@ DelayedWorkQueue：队列内元素必须实现Delayed接口，这就意味着你
 
 # 3.总结
 
+**线程池任务执行流程：**
+
+* 当线程池小于corePoolSize时，新提交任务将创建一个新线程执行任务，即使此时线程池中存在空闲线程。
+
+* 当线程池达到corePoolSize时，新提交任务将被放入workQueue中，等待线程池中任务调度执行
+
+* 当workQueue已满，且maximumPoolSize&gt;corePoolSize时，新提交任务会创建新线程执行任务
+
+* 当提交任务数超过maximumPoolSize时，新提交任务由RejectedExecutionHandler处理
+
+* 当线程池中超过corePoolSize线程，空闲时间达到keepAliveTime时，关闭空闲线程
+
+* 当设置allowCoreThreadTimeOut\(true\)时，线程池中corePoolSize线程空闲时间达到keepAliveTime也将关闭
+
 # 4.参考
 
 java 线程池 使用实例：  
