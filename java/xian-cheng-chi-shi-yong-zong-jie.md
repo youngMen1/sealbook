@@ -20,7 +20,7 @@
 
 **标记一下比较重要的类：**
 
-| ExecutorService： | 真正的线程池接口。 |
+| ExecutorService | 真正的线程池接口。 |
 | :--- | :--- |
 | ScheduledExecutorService | 能和Timer/TimerTask类似，解决那些需要任务重复执行的问题。 |
 | ThreadPoolExecutor | ExecutorService的默认实现。 |
