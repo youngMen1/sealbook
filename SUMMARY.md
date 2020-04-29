@@ -9,7 +9,7 @@
   * [英语](ying-yu.md)
 * [IDEA](java.md)
   * [使用帮助](java/shi-yong-bang-zhu.md)
-  * [错误](java/cuo-wu.md)
+  * [SpringBoot启动异常](java/cuo-wu.md)
   * [插件](java/cha-jian.md)
     * [lomBok插件](java/cha-jian/lombokcha-jian.md)
     * [cloud Toolkit](java/cha-jian/cloud-toolkit.md)
