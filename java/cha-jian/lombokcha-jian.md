@@ -29,6 +29,5 @@
 @AllArgsConstructor：注解在类上；为类提供一个全参的构造方法  
 @Accessors\(chain = true\) 支持链式调用的:  
 @Builder 建筑者模式
-
 @NonNull自检是否为空值
 
