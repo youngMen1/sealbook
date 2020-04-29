@@ -11,7 +11,7 @@ FindBug 是一款开源的 Java 代码检查工具,遵循 GNU 公共许可协议
 * Experimental：可能受到的恶意攻击,如访问权限修饰符的定义等;
 * Security：安全性
 
-
+## 1.2.BUG 严重级别
 ![img](/static/image/20180720151945178.png)
 1.Of Concren 建议, 如果遵循能更好的完善代码
 
