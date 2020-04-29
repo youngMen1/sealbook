@@ -1,4 +1,4 @@
-# 1.Intellij IDEA运行报Command line is too long解法
+## 1.1.Intellij IDEA运行报Command line is too long解法
 
 ![img](/assets/import.png)
 
