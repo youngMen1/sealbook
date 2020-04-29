@@ -41,7 +41,7 @@ FindBug 是一款开源的 Java 代码检查工具,遵循 GNU 公共许可协议
 
 5. Multithreaded correctness 多线程的正确性
 
-  多线程编程时，可能导致错误的代码，下面列举几个： 
+多线程编程时，可能导致错误的代码，下面列举几个： 
 1）ESync：空的同步块，很难被正确使用。 
 2）MWN：错误使用notify()，可能导致IllegalMonitorStateException异常；或错误的 
 使用wait()。 
@@ -60,7 +60,7 @@ Integer.toString(1) 代替new Integer(1).toString()；方法调用了低效的fl
 
 7. Dodgy 不符合规范的，有潜在危险的
 
-  具有潜在危险的代码，可能运行期产生错误，下面列举几个： 
+具有潜在危险的代码，可能运行期产生错误，下面列举几个： 
 1）CI： 类声明为final但声明了protected的属性。 
 2）DLS：对一个本地变量赋值，但却没有读取该本地变量；本地变量赋值成null，却没有读取该本地变量。 
 3）ICAST： 整型数字相乘结果转化为长整型数字，应该将整型先转化为长整型数字再相乘。 
