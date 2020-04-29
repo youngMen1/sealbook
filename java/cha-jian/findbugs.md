@@ -12,6 +12,7 @@ FindBug 是一款开源的 Java 代码检查工具,遵循 GNU 公共许可协议
 * Security：安全性
 
 
+![img](/static/image/20180720151945178.png)
 1.Of Concren 建议, 如果遵循能更好的完善代码
 
 2.Troubling 不好的, 可能会引发不良后果
@@ -22,7 +23,7 @@ FindBug 是一款开源的 Java 代码检查工具,遵循 GNU 公共许可协议
 
 可以按照严重级别倒序进行修复, 如果时间允许, 可以将 Of Concren 中的问题也一并修复
 
-![img](/static/image/20180720151945178.png)
+
 
 
 
