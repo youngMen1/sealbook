@@ -11,7 +11,7 @@
   * [使用帮助](java/shi-yong-bang-zhu.md)
   * [SpringBoot启动异常](java/cuo-wu.md)
   * [插件](java/cha-jian.md)
-    * [lomBok插件](java/cha-jian/lombokcha-jian.md)
+    * [LomBok插件](java/cha-jian/lombokcha-jian.md)
     * [cloud Toolkit](java/cha-jian/cloud-toolkit.md)
     * [FindBugs的使用](java/cha-jian/findbugs.md)
   * [IDEA 快捷键拆解系列](java/idea-kuai-jie-jian-chai-jie-xi-lie.md)
