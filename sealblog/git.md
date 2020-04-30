@@ -8,7 +8,7 @@
 | git checkout -b new-branch | 开启新分支，为了便于演示，我们将新分支命名为new-branch |
 |  |  |
 
-
+## 2.如何使用？
 
 ## 参考
 
