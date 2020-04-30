@@ -1,15 +1,12 @@
 **1.debug模式**
 
-|  |  |
+\|  \|  \|
 
-|  |  |
+\|  \|  \|
 
-| F9 | resume programe 恢复程序|  
+\| F9 \| resume programe 恢复程序\|
 
-| :--- | :--- |
-
-
-
+\| :--- \| :--- \|
 
 \| Alt+F10 \|show execution point 显示执行断点\|  
 \| F8 \| Step Over 相当于eclipse的f6 跳到下一步\|  
@@ -21,8 +18,9 @@
 \| ctrl+shift+F10 \| 正常运行java类\|  
 \|alt+F8\|debug时选中查看值\|
 
-
-
+|  |  |
+| :--- | :--- |
+|  |  |
 
 **2.多Application启动查看**
 
