@@ -28,7 +28,7 @@
 | Atl+F9 | Run To Cursor 运行到光标处 |
 | ctrl+shift+F9 | debug运行java类 |
 | ctrl+shift+F10 |正常运行java类  |
-| alt+F8 |  |
+| alt+F8 | debug时选中查看值 |
 |  |  |
 |  |  |
 
