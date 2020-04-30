@@ -30,7 +30,9 @@ git pull
 
 3.切换到自己的分支
 
-git checkout xxx\(自己的分支\)
+```
+git checkout xxx(自己的分支)
+```
 
 4.把主分支的代码merge到自己的分支
 
