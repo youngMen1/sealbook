@@ -20,7 +20,7 @@
 
 | F9 | resume programe 恢复程序 |
 | :--- | :--- |
-|  |  |
+| 1 |  |
 
 **2.多Application启动查看**
 
