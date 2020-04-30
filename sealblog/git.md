@@ -46,9 +46,7 @@ git merge master
 git push origin 自己分支名
 ```
 
-
-
-## 参考
+## 3.参考
 
 [http://gitref.justjavac.com/branching/\#merge](http://gitref.justjavac.com/branching/#merge)
 
