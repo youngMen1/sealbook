@@ -42,7 +42,11 @@ git merge master
 
 5.git push推上去ok完成,现在 你自己分支的代码就和主分支的代码一样了
 
+```
 git push origin 自己分支名
+```
+
+
 
 ## 参考
 
