@@ -14,5 +14,7 @@
 
 [http://gitref.justjavac.com/branching/\#merge](http://gitref.justjavac.com/branching/#merge)
 
-https://juejin.im/post/5ea8daa66fb9a04382227c14
+# Git 团队协作开发：
+
+[https://juejin.im/post/5ea8daa66fb9a04382227c14](https://juejin.im/post/5ea8daa66fb9a04382227c14)
 
