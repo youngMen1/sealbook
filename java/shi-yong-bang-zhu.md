@@ -22,7 +22,7 @@
 | :--- | :--- |
 | Alt+F10 | show execution point 显示执行断点 |
 | F8 | Step Over 相当于eclipse的f6 跳到下一步 |
-|  |  |
+| F7 |  |
 |  |  |
 |  |  |
 |  |  |
