@@ -27,7 +27,7 @@
 | Shift+F8 |Step Out  相当于eclipse的f8跳到下一个断点，也相当于eclipse的f7跳出函数  |
 | Atl+F9 | Run To Cursor 运行到光标处 |
 | ctrl+shift+F9 | debug运行java类 |
-| ctrl+shift+F10 |  |
+| ctrl+shift+F10 |正常运行java类  |
 |  |  |
 |  |  |
 |  |  |
