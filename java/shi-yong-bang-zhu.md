@@ -24,7 +24,7 @@
 | F8 | Step Over 相当于eclipse的f6 跳到下一步 |
 | F7 | Step Into 相当于eclipse的f5就是  进入到代码 |
 | Alt+shift+F7 | Force Step Into 这个是强制进入代码 |
-| Shift+F8 |  |
+| Shift+F8 |Step Out  相当于eclipse的f8跳到下一个断点，也相当于eclipse的f7跳出函数  |
 |  |  |
 |  |  |
 |  |  |
