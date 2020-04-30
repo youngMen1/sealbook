@@ -24,7 +24,9 @@ git checkout master
 
 2.使用git pull 把领先的主分支代码pull下来
 
+```
 git pull
+```
 
 3.切换到自己的分支
 
