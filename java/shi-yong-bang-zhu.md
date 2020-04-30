@@ -29,8 +29,7 @@
 | ctrl+shift+F9 | debug运行java类 |
 | ctrl+shift+F10 |正常运行java类  |
 | alt+F8 | debug时选中查看值 |
-|  |  |
-|  |  |
+
 
 **2.多Application启动查看**
 
