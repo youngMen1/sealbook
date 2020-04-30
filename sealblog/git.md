@@ -34,7 +34,7 @@ git pull
 git checkout xxx(自己的分支)
 ```
 
-4.把主分支的代码merge到自己的分支
+4.把主分支的代码合并\(merge\)到自己的分支
 
 ```
 git merge master
