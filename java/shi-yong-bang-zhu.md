@@ -4,7 +4,7 @@
 
 \|  \|  \|
 
-\| F9 \| resume programe 恢复程序\|
+\| \| resume programe 恢复程序\|
 
 \| :--- \| :--- \|
 
@@ -18,7 +18,7 @@
 \| ctrl+shift+F10 \| 正常运行java类\|  
 \|alt+F8\|debug时选中查看值\|
 
-|  |  |
+| F9 |  |
 | :--- | :--- |
 |  |  |
 
