@@ -1,5 +1,6 @@
 **1.debug模式**
 
+
 F9            resume programe 恢复程序
 
 Alt+F10       show execution point 显示执行断点
