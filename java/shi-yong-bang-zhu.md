@@ -1,10 +1,12 @@
 **1.debug模式**
 
 |  |  |
-| :--- | :--- |
+
 |  |  |
 
-\| F9 \| resume programe 恢复程序\|  
+| F9 | resume programe 恢复程序|  
+| :--- | :--- |
+
 \| Alt+F10 \|show execution point 显示执行断点\|  
 \| F8 \| Step Over 相当于eclipse的f6 跳到下一步\|  
 \|F7  \|Step Into 相当于eclipse的f5就是  进入到代码\|  
