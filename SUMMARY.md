@@ -40,6 +40,7 @@
   * [Eureka](springcloud/eureka.md)
     * [Eureka高可用](springcloud/eurekagao-ke-yong.md)
     * [健康检查](springcloud/jian-kang-jian-cha.md)
+    * Eureka源码
   * [zuul](springcloud/zuul.md)
   * [feign](springcloud/feign.md)
   * [hystrix](springcloud/hystrix.md)
