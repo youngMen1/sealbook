@@ -243,12 +243,12 @@ public class EurekaServerAutoConfiguration implements WebMvcConfigurer {
 在这个配置类上面，加入了**@ConditionalOnBean\(EurekaServerMarkerConfiguration.Marker.class\)**，也就是说，类**EurekaServerAutoConfiguration**被注册为**Spring Bean**的前提是在**Spring**容器中存在**EurekaServerMarkerConfiguration.Marker.class**的对象，而这个对象存在的前提是我们在**Spring Boot**启动类中加入了**@EnableEurekaServer**注解。小总结一下就是，在**Spring Boot**启动类上加入了**@EnableEurekaServer**注解以后，就会触发**EurekaServerMarkerConfiguration.Marker.class**被**Spring**实例化为**Spring Bean**，有了这个**Bean**以后，**Spring**就会再实例化**EurekaServerAutoConfiguration**类，而这个类就是配置了**Eureka Server**的相关内容，列举如下：
 
 ```
-**注入EurekaServerConfig—->用于注册中心相关配置信息
+注入EurekaServerConfig—->用于注册中心相关配置信息
 注入EurekaController—->提供注册中心上相关服务信息的展示支持
 注入PeerAwareInstanceRegistry—->提供实例注册支持,例如实例获取、状态更新等相关支持
 注入PeerEurekaNodes—->提供注册中心对等服务间通信支持
 注入EurekaServerContext—->提供初始化注册init服务、初始化PeerEurekaNode节点信息
-注入EurekaServerBootstrap—->用于初始化initEurekaEnvironment/initEurekaServerContext**
+注入EurekaServerBootstrap—->用于初始化initEurekaEnvironment/initEurekaServerContext
 ```
 
 ## 1.2.Eureka Client服务注册行为源码分析
