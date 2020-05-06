@@ -52,6 +52,10 @@ public class EurekaServerMarkerConfiguration {
 
 从这个配置类中暂时无法看到什么具体的内容，我们可以进一步查看类`Marker`在哪些地方被使用了，通过搜索`Marker`，可以发现在类`EurekaServerAutoConfiguration`上的注解中被引用了，具体代码如下所示：
 
+```
+
+```
+
 ## 1.2.Eureka Client服务注册行为源码分析
 
 # 4.参考
