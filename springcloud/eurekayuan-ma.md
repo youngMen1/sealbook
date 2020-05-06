@@ -2,7 +2,7 @@
 
 ## 1.1.Eureka Server服务注册中心源码分析
 
-## 1.2.Eureka Client服务注册行为分析
+## 1.2.Eureka Client服务注册行为源码分析
 
 # 4.参考
 
