@@ -260,42 +260,101 @@ public class EurekaServerAutoConfiguration implements WebMvcConfigurer {
 ```
 @Configuration
 public class EurekaServerInitializerConfiguration
-		implements ServletContextAware, SmartLifecycle, Ordered {
-		
-	// 此处省略部分代码
-	
-	@Override
-	public void start() {
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					//TODO: is this class even needed now?
-					eurekaServerBootstrap.contextInitialized(EurekaServerInitializerConfiguration.this.servletContext);
-					log.info("Started Eureka Server");
+        implements ServletContextAware, SmartLifecycle, Ordered {
 
-					publish(new EurekaRegistryAvailableEvent(getEurekaServerConfig()));
-					EurekaServerInitializerConfiguration.this.running = true;
-					publish(new EurekaServerStartedEvent(getEurekaServerConfig()));
-				}
-				catch (Exception ex) {
-					// Help!
-					log.error("Could not initialize Eureka servlet context", ex);
-				}
-			}
-		}).start();
-	}
+    // 此处省略部分代码
 
-	// 此处省略部分代码
+    @Override
+    public void start() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    //TODO: is this class even needed now?
+                    eurekaServerBootstrap.contextInitialized(EurekaServerInitializerConfiguration.this.servletContext);
+                    log.info("Started Eureka Server");
+
+                    publish(new EurekaRegistryAvailableEvent(getEurekaServerConfig()));
+                    EurekaServerInitializerConfiguration.this.running = true;
+                    publish(new EurekaServerStartedEvent(getEurekaServerConfig()));
+                }
+                catch (Exception ex) {
+                    // Help!
+                    log.error("Could not initialize Eureka servlet context", ex);
+                }
+            }
+        }).start();
+    }
+
+    // 此处省略部分代码
 }
-
 ```
 
-## 
+这个
+
+`start`
+
+方法中开启了一个新的线程，然后进行一些
+
+`Eureka Server`
+
+的初始化工作，比如调用
+
+`eurekaServerBootstrap的contextInitialized`
+
+方法，进入该方法看看：这个
+
+`start`
+
+方法中开启了一个新的线程，然后进行一些
+
+`Eureka Server`
+
+的初始化工作，比如调用
+
+`eurekaServerBootstrap的contextInitialized`
+
+方法，进入该方法看看：这个
+
+`start`
+
+方法中开启了一个新的线程，然后进行一些
+
+`Eureka Server`
+
+的初始化工作，比如调用
+
+`eurekaServerBootstrap的contextInitialized`
+
+方法，进入该方法看看：
 
 ## 
 
-## 1.2.Eureka Client服务注册行为源码分析
+## 1.这个
+
+`start`
+
+方法中开启了一个新的线程，然后进行一些
+
+`Eureka Server`
+
+的初始化工作，比如调用
+
+`eurekaServe`这个
+
+`start`
+
+方法中开启了一个新的线程，然后进行一些
+
+`Eureka Server`
+
+的初始化工作，比如调用
+
+`eurekaServerBootstrap的contextInitialized`
+
+方法，进入该方法看看：`rBootstrap的contextInitialized`
+
+方法，进入该方法看看：2.Eureka Client服务注册行为源码分析
 
 # 4.参考
 
