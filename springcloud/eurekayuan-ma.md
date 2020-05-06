@@ -1,4 +1,6 @@
-# 1.基本介绍
+```
+1.基本介绍
+```
 
 ## 1.1.Eureka Server服务注册中心源码分析
 
@@ -23,8 +25,6 @@ eureka.server.enable-self-preservation=false
 这个配置在工程启动的时候，会被**Spring**容器读取，配置到**EurekaClientConfigBean**中，而这个配置类会被注册成**Spring**的**Bean**以供其他的**Bean**来使用。
 
 我们再进入注解**@EnableEurekaServer**一探究竟，**@EnableEurekaServer**的源码如下：
-
-
 
 ## 1.2.Eureka Client服务注册行为源码分析
 
