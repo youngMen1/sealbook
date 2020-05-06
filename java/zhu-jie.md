@@ -1000,7 +1000,7 @@ public class CommonBootStrap {
 
 # 8.总结
 
-## 20171231162846585.png
+![img](/static/image/20171231162846585.png)
 
 # 9.参考
 
