@@ -253,6 +253,16 @@ public class EurekaServerAutoConfiguration implements WebMvcConfigurer {
 注入EurekaServerBootstrap—->用于初始化initEurekaEnvironment/initEurekaServerContext
 ```
 
+而且，在类**EurekaServerAutoConfiguration**上，我们看见**@Import\(EurekaServerInitializerConfiguration.class\)**，说明实例化类**EurekaServerAutoConfiguration**之前，已经实例化了**EurekaServerInitializerConfiguration**类，从类名可以看出，该类是**Eureka Server**的初始化配置类，我们进入到**EurekaServerInitializerConfiguration**类中一探究竟，发现该类实现了Spring的生命周期接口**SmartLifecycle**，也就是说类**EurekaServerInitializerConfiguration**在被**Spring**实例化过程中的时候会执行一些生命周期方法，比如**Lifecycle**的**start**方法，那么看看**EurekaServerInitializerConfiguration**是如何重写start方法的：
+
+
+
+
+
+## 
+
+## 
+
 ## 1.2.Eureka Client服务注册行为源码分析
 
 # 4.参考
