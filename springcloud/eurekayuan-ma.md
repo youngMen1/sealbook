@@ -294,48 +294,24 @@ public class EurekaServerInitializerConfiguration
 
 ```
 public class EurekaServerBootstrap {
-	public void contextInitialized(ServletContext context) {
-		try {
-			// 初始化Eureka Server环境变量
-			initEurekaEnvironment();
-			// 初始化Eureka Server上下文
-			initEurekaServerContext();
+    public void contextInitialized(ServletContext context) {
+        try {
+            // 初始化Eureka Server环境变量
+            initEurekaEnvironment();
+            // 初始化Eureka Server上下文
+            initEurekaServerContext();
 
-			context.setAttribute(EurekaServerContext.class.getName(), this.serverContext);
-		}
-		catch (Throwable e) {
-			log.error("Cannot bootstrap eureka server :", e);
-			throw new RuntimeException("Cannot bootstrap eureka server :", e);
-		}
-	}
+            context.setAttribute(EurekaServerContext.class.getName(), this.serverContext);
+        }
+        catch (Throwable e) {
+            log.error("Cannot bootstrap eureka server :", e);
+            throw new RuntimeException("Cannot bootstrap eureka server :", e);
+        }
+    }
 }
 ```
 
-## 1.这个
-
-`start`
-
-方法中开启了一个新的线程，然后进行一些
-
-`Eureka Server`
-
-的初始化工作，比如调用
-
-`eurekaServe`这个
-
-`start`
-
-方法中开启了一个新的线程，然后进行一些
-
-`Eureka Server`
-
-的初始化工作，比如调用
-
-`eurekaServerBootstrap的contextInitialized`
-
-方法，进入该方法看看：`rBootstrap的contextInitialized`
-
-方法，进入该方法看看：2.Eureka Client服务注册行为源码分析
+这个方法中主要进行了Eureka的环境初始化和服务初始化，我们进入到initEurekaServerContext方法中来看服务初始化是如何实现的：
 
 # 4.参考
 
