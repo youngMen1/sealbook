@@ -1,7 +1,8 @@
 # 1.基本介绍
 
 ## 1.1.Eureka Server服务注册中心源码分析
-回忆之前我们一起搭建的服务注册中心的项目，我们在服务注册中心的项目中的**application.properties**文件中配置好服务注册中心需要的相关配置，然后在**Spring Boot**的启动类中加了一个注解**@EnableEurekaServer**，然后启动项目就成功启动了服务注册中心，那么到底是如何启动的呢？
+
+回忆之前我们一起搭建的服务注册中心的项目，我们在服务注册中心的项目中的**application.properties**文件中配置好服务注册中心需要的相关配置，然后在**Spring Boot**的启动类中加了一个注解**@EnableEurekaServer**，然后启动项目就成功启动了服务注册中心，那么到底是如何启动的呢？  
 在配置文件中（单节点），我们是如下配置的：
 
 ```
@@ -17,8 +18,14 @@ eureka.client.fetch-registry=false
 eureka.client.service-url.defaultZone=http://${eureka.instance.hostname}:${server.port}/eureka/
 # 关闭自我保护机制，及时剔除无效服务
 eureka.server.enable-self-preservation=false
-
 ```
+
+这个配置在工程启动的时候，会被Spring容器读取，配置到EurekaClientConfigBean中，而这个配置类会被注册成Spring的Bean以供其他的Bean来使用。
+
+我们再进入注解@EnableEurekaServer一探究竟，@EnableEurekaServer的源码如下：
+
+
+
 
 
 
