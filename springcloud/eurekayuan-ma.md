@@ -290,45 +290,26 @@ public class EurekaServerInitializerConfiguration
 }
 ```
 
-这个
+这个`start`方法中开启了一个新的线程，然后进行一些`Eureka Server`的初始化工作，比如调用`eurekaServerBootstrap的contextInitialized`方法，进入该方法看看：这个`start`方法中开启了一个新的线程，然后进行一些`Eureka Server`的初始化工作，比如调用`eurekaServerBootstrap的contextInitialized`方法，进入该方法看看：这个`start`方法中开启了一个新的线程，然后进行一些`Eureka Server`的初始化工作，比如调用`eurekaServerBootstrap的contextInitialized`方法，进入该方法看看：
 
-`start`
+```
+public class EurekaServerBootstrap {
+	public void contextInitialized(ServletContext context) {
+		try {
+			// 初始化Eureka Server环境变量
+			initEurekaEnvironment();
+			// 初始化Eureka Server上下文
+			initEurekaServerContext();
 
-方法中开启了一个新的线程，然后进行一些
-
-`Eureka Server`
-
-的初始化工作，比如调用
-
-`eurekaServerBootstrap的contextInitialized`
-
-方法，进入该方法看看：这个
-
-`start`
-
-方法中开启了一个新的线程，然后进行一些
-
-`Eureka Server`
-
-的初始化工作，比如调用
-
-`eurekaServerBootstrap的contextInitialized`
-
-方法，进入该方法看看：这个
-
-`start`
-
-方法中开启了一个新的线程，然后进行一些
-
-`Eureka Server`
-
-的初始化工作，比如调用
-
-`eurekaServerBootstrap的contextInitialized`
-
-方法，进入该方法看看：
-
-## 
+			context.setAttribute(EurekaServerContext.class.getName(), this.serverContext);
+		}
+		catch (Throwable e) {
+			log.error("Cannot bootstrap eureka server :", e);
+			throw new RuntimeException("Cannot bootstrap eureka server :", e);
+		}
+	}
+}
+```
 
 ## 1.这个
 
