@@ -998,6 +998,10 @@ public class CommonBootStrap {
 
 4.减少复杂配置文件的同时亦能享受到springIoC容器提供的功能
 
+# 8.总结
+
+
+
 ## 8.参考
 
 [https://blog.csdn.net/yitian\_66/article/details/80866571](https://blog.csdn.net/yitian_66/article/details/80866571)
