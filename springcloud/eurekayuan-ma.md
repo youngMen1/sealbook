@@ -36,9 +36,7 @@ public @interface EnableEurekaServer {
 
 从上述注解可以看出，该注解导入了配置类`EurekaServerMarkerConfiguration`，我们在进一步进入到
 
-`EurekaServerMarkerConfiguration`
-
-中，代码如下所示：
+`EurekaServerMarkerConfiguration`中，代码如下所示：
 
 ## 1.2.Eureka Client服务注册行为源码分析
 
