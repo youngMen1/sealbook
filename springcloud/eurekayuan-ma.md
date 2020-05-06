@@ -26,6 +26,10 @@ eureka.server.enable-self-preservation=false
 
 我们再进入注解**@EnableEurekaServer**一探究竟，**@EnableEurekaServer**的源码如下：
 
+```
+
+```
+
 ## 1.2.Eureka Client服务注册行为源码分析
 
 # 4.参考
