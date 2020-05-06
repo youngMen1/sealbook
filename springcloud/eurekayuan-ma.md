@@ -4,6 +4,23 @@
 回忆之前我们一起搭建的服务注册中心的项目，我们在服务注册中心的项目中的**application.properties**文件中配置好服务注册中心需要的相关配置，然后在**Spring Boot**的启动类中加了一个注解**@EnableEurekaServer**，然后启动项目就成功启动了服务注册中心，那么到底是如何启动的呢？
 在配置文件中（单节点），我们是如下配置的：
 
+```
+# 配置端口
+server.port=1111
+# 配置服务注册中心地址
+eureka.instance.hostname=localhost
+# 作为服务注册中心，禁止本应用向自己注册服务
+eureka.client.register-with-eureka=false
+# 作为服务注册中心，禁止本应用向自己检索服务
+eureka.client.fetch-registry=false
+# 设置服务注册中心服务注册地址
+eureka.client.service-url.defaultZone=http://${eureka.instance.hostname}:${server.port}/eureka/
+# 关闭自我保护机制，及时剔除无效服务
+eureka.server.enable-self-preservation=false
+
+```
+
+
 
 
 ## 1.2.Eureka Client服务注册行为源码分析
