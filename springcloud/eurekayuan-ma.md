@@ -249,7 +249,6 @@ public class EurekaServerAutoConfiguration implements WebMvcConfigurer {
 注入PeerEurekaNodes—->提供注册中心对等服务间通信支持
 注入EurekaServerContext—->提供初始化注册init服务、初始化PeerEurekaNode节点信息
 注入EurekaServerBootstrap—->用于初始化initEurekaEnvironment/initEurekaServerContext
-
 ```
 
 ## 1.2.Eureka Client服务注册行为源码分析
