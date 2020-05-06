@@ -313,6 +313,38 @@ public class EurekaServerBootstrap {
 
 这个方法中主要进行了Eureka的环境初始化和服务初始化，我们进入到initEurekaServerContext方法中来看服务初始化是如何实现的：
 
+```
+public class EurekaServerBootstrap {
+	protected void initEurekaServerContext() throws Exception {
+		// For backward compatibility
+		JsonXStream.getInstance().registerConverter(new V1AwareInstanceInfoConverter(),
+				XStream.PRIORITY_VERY_HIGH);
+		XmlXStream.getInstance().registerConverter(new V1AwareInstanceInfoConverter(),
+				XStream.PRIORITY_VERY_HIGH);
+
+		if (isAws(this.applicationInfoManager.getInfo())) {
+			this.awsBinder = new AwsBinderDelegate(this.eurekaServerConfig,
+					this.eurekaClientConfig, this.registry, this.applicationInfoManager);
+			this.awsBinder.start();
+		}
+		// 初始化Eureka Server上下文环境
+		EurekaServerContextHolder.initialize(this.serverContext);
+
+		log.info("Initialized server context");
+
+		// Copy registry from neighboring eureka node
+		int registryCount = this.registry.syncUp();
+		// 期望每30秒接收到一次心跳，1分钟就是2次
+    	// 修改Instance Status状态为up 
+    	// 同时，这里面会开启一个定时任务，用于清理 60秒没有心跳的客户端。自动下线
+		this.registry.openForTraffic(this.applicationInfoManager, registryCount);
+
+		// Register all monitoring statistics.
+		EurekaMonitors.registerAllStats();
+	}
+}
+```
+
 # 4.参考
 
 [https://blog.csdn.net/Lammonpeter/article/details/84330900](https://blog.csdn.net/Lammonpeter/article/details/84330900)
