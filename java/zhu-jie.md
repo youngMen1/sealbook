@@ -128,6 +128,13 @@ g: name  指定映射的名称:
 
 **@Around：**环绕通知, 围绕着方法执行
 
+@Consumes：指定处理请求的提交内容类型（Content-Type），例如application/json,text/html;
+
+  
+
+
+@Produces:指定返回的内容类型，仅当request请求头中的\(Accept\)类型中包含该指定类型才返回；
+
 ## 1.2.**JPA注解**
 
 **@Entity**：@Table\(name=”“\)：表明这是一个实体类。一般用于jpa这两个注解一般一块使用，但是如果表名和实体类名相同的话，@Table可以省略
