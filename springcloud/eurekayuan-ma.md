@@ -345,7 +345,37 @@ public class EurekaServerBootstrap {
 
 在初始化**Eureka Server**上下文环境后，就会继续执行**openForTraffic**方法，这个方法主要是设置了期望每分钟接收到的心跳次数，并将服务实例的状态设置为**UP**，最后又通过方法**postInit**来开启一个定时任务，用于每隔一段时间（默认60秒）将没有续约的服务实例（默认90秒没有续约）清理掉。**openForTraffic**的方法代码如下：
 
-# 
+```
+@Override
+public void openForTraffic(ApplicationInfoManager applicationInfoManager, int count) {
+    // Renewals happen every 30 seconds and for a minute it should be a factor of 2.
+    // 计算每分钟最大续约数
+    this.expectedNumberOfRenewsPerMin = count * 2;
+    // 计算每分钟最小续约数
+    this.numberOfRenewsPerMinThreshold =
+            (int) (this.expectedNumberOfRenewsPerMin * serverConfig.getRenewalPercentThreshold());
+    logger.info("Got {} instances from neighboring DS node", count);
+    logger.info("Renew threshold is: {}", numberOfRenewsPerMinThreshold);
+    this.startupTime = System.currentTimeMillis();
+    if (count > 0) {
+        this.peerInstancesTransferEmptyOnStartup = false;
+    }
+    DataCenterInfo.Name selfName = applicationInfoManager.getInfo().getDataCenterInfo().getName();
+    boolean isAws = Name.Amazon == selfName;
+    if (isAws && serverConfig.shouldPrimeAwsReplicaConnections()) {
+        logger.info("Priming AWS connections for all replicas..");
+        primeAwsReplicas(applicationInfoManager);
+    }
+    logger.info("Changing status to UP");
+    // 修改服务实例的状态为UP
+    applicationInfoManager.setInstanceStatus(InstanceStatus.UP);
+    // 开启定时任务，每隔一段时间（默认60秒）将没有续约的服务实例（默认90秒没有续约）清理掉
+    super.postInit();
+}
+————————————————
+版权声明：本文为CSDN博主「itlemon_」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/Lammonpeter/java/article/details/84330900
+```
 
 # 
 
