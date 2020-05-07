@@ -522,7 +522,43 @@ Eureka Client还需要配置一个Eureka Server的URL列表
 
 在分析类DiscoveryClient完成的具体任务之前，我们首先来回忆一下，我们在配置服务提供者的时候，在配置文件中都配置了eureka.client.service-url.defaultZone属性，而这个属性的值就是告诉服务提供者，该向哪里注册服务，也就是服务注册的地址，该地址比如是[http://peer1:1111/eureka/,http://peer2:1112/eureka/,http://peer3:1113/eureka/，各个地址之间使用逗号隔开，我们在类EndpointUtils中可以找到一个方法名为getServiceUrlsMapFromConfig的方法，代码如下：](http://peer1:1111/eureka/,http://peer2:1112/eureka/,http://peer3:1113/eureka/，各个地址之间使用逗号隔开，我们在类EndpointUtils中可以找到一个方法名为getServiceUrlsMapFromConfig的方法，代码如下：)
 
+```
+public static Map<String, List<String>> getServiceUrlsMapFromConfig(EurekaClientConfig clientConfig, String instanceZone, boolean preferSameZone) {
+    Map<String, List<String>> orderedUrls = new LinkedHashMap<>();
+    String region = getRegion(clientConfig);
+    String[] availZones = clientConfig.getAvailabilityZones(clientConfig.getRegion());
+    if (availZones == null || availZones.length == 0) {
+        availZones = new String[1];
+        availZones[0] = DEFAULT_ZONE;
+    }
+    logger.debug("The availability zone for the given region {} are {}", region, availZones);
+    int myZoneOffset = getZoneOffset(instanceZone, preferSameZone, availZones);
 
+    String zone = availZones[myZoneOffset];
+    List<String> serviceUrls = clientConfig.getEurekaServerServiceUrls(zone);
+    if (serviceUrls != null) {
+        orderedUrls.put(zone, serviceUrls);
+    }
+    int currentOffset = myZoneOffset == (availZones.length - 1) ? 0 : (myZoneOffset + 1);
+    while (currentOffset != myZoneOffset) {
+        zone = availZones[currentOffset];
+        serviceUrls = clientConfig.getEurekaServerServiceUrls(zone);
+        if (serviceUrls != null) {
+            orderedUrls.put(zone, serviceUrls);
+        }
+        if (currentOffset == (availZones.length - 1)) {
+            currentOffset = 0;
+        } else {
+            currentOffset++;
+        }
+    }
+
+    if (orderedUrls.size() < 1) {
+        throw new IllegalArgumentException("DiscoveryClient: invalid serviceUrl specified!");
+    }
+    return orderedUrls;
+}
+```
 
 # 4.参考
 
