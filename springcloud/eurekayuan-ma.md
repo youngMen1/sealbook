@@ -345,16 +345,6 @@ public class EurekaServerBootstrap {
 
 在初始化Eureka Server上下文环境后，就会继续执行openForTraffic方法，这个方法主要是设置了期望每分钟接收到的心跳次数，并将服务实例的状态设置为UP，最后又通过方法postInit来开启一个定时任务，用于每隔一段时间（默认60秒）将没有续约的服务实例（默认90秒没有续约）清理掉。openForTraffic的方法代码如下：
 
-————————————————
-
-版权声明：本文为CSDN博主「itlemon\_」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-
-原文链接：https://blog.csdn.net/Lammonpeter/java/article/details/84330900
-
-
-
-
-
 
 
 # 
@@ -363,5 +353,5 @@ public class EurekaServerBootstrap {
 
 # 4.参考
 
-[https://blog.csdn.net/Lammonpeter/article/details/84330900](https://blog.csdn.net/Lammonpeter/article/details/84330900)
+[https://blog.csdn.net/Lammonpeter/article/details/8433090](https://blog.csdn.net/Lammonpeter/article/details/84330900)
 
