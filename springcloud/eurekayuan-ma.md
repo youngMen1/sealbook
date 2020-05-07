@@ -1017,6 +1017,15 @@ public Response addInstance(InstanceInfo info,
 
 方法继续分析：
 
+```
+@Override
+public void register(final InstanceInfo info, final boolean isReplication) {
+	handleRegistration(info, resolveInstanceLeaseDuration(info), isReplication);
+	super.register(info, isReplication);
+}
+
+```
+
 # 4.参考
 
 [https://blog.csdn.net/Lammonpeter/article/details/8433090](https://blog.csdn.net/Lammonpeter/article/details/84330900)
