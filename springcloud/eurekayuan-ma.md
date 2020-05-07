@@ -582,13 +582,19 @@ public static String getRegion(EurekaClientConfig clientConfig) {
 
 ```
 public String[] getAvailabilityZones(String region) {
-	String value = this.availabilityZones.get(region);
-	if (value == null) {
-		value = DEFAULT_ZONE;
-	}
-	return value.split(",");
+    String value = this.availabilityZones.get(region);
+    if (value == null) {
+        value = DEFAULT_ZONE;
+    }
+    return value.split(",");
 }
 ```
+
+上述方法中第一行代码是从Region中获取Zone，availabilityZones是EurekaClientConfigBean的一个Map成员变量，如果我们没有为Region特别配置eureka.client.availablity-zones属性，那么zone将采用默认值，默认值是defaultZone，这就是我们一开始配置eureka.client.service-url.defaultZone的由来，由此可见，一个Region对应多个Zone，也就是说一个微服务应用可以向多个服务注册地址注册。在获取了Region和Zone的信息之后，才开始真正地加载Eureka Server的具体地址，它根据传入的参数按照一定的算法确定加载位于哪一个Zone配置的serviceUrls，代码如下：
+
+
+
+
 
 # 4.参考
 
