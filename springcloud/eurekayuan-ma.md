@@ -942,6 +942,67 @@ boolean register() throws Throwable {
 
 ## 1.3.Eureka Server服务注册中心接收注册行为分析
 
+客户端向服务端发起注册请求之后，服务端是如何处理的呢？通过源码的分析，可以发现，客户端和服务端的交互都是通过REST请求发起的，而在服务端，包com.netflix.eureka.resources下定义了许多处理REST请求的类，对于接收客户端的注册信息，可以发现在类ApplicationResource下有一个addInstance方法，专门用来处理注册请求的，我们一起来分析这个方法：
+
+```
+/**
+ * Registers information about a particular instance for an
+ * {@link com.netflix.discovery.shared.Application}.
+ *
+ * @param info
+ *            {@link InstanceInfo} information of the instance.
+ * @param isReplication
+ *            a header parameter containing information whether this is
+ *            replicated from other nodes.
+ */
+@POST
+@Consumes({"application/json", "application/xml"})
+public Response addInstance(InstanceInfo info,
+                            @HeaderParam(PeerEurekaNode.HEADER_REPLICATION) String isReplication) {
+    logger.debug("Registering instance {} (replication={})", info.getId(), isReplication);
+    // validate that the instanceinfo contains all the necessary required fields
+    if (isBlank(info.getId())) {
+        return Response.status(400).entity("Missing instanceId").build();
+    } else if (isBlank(info.getHostName())) {
+        return Response.status(400).entity("Missing hostname").build();
+    } else if (isBlank(info.getIPAddr())) {
+        return Response.status(400).entity("Missing ip address").build();
+    } else if (isBlank(info.getAppName())) {
+        return Response.status(400).entity("Missing appName").build();
+    } else if (!appName.equals(info.getAppName())) {
+        return Response.status(400).entity("Mismatched appName, expecting " + appName + " but was " + info.getAppName()).build();
+    } else if (info.getDataCenterInfo() == null) {
+        return Response.status(400).entity("Missing dataCenterInfo").build();
+    } else if (info.getDataCenterInfo().getName() == null) {
+        return Response.status(400).entity("Missing dataCenterInfo Name").build();
+    }
+
+    // handle cases where clients may be registering with bad DataCenterInfo with missing data
+    DataCenterInfo dataCenterInfo = info.getDataCenterInfo();
+    if (dataCenterInfo instanceof UniqueIdentifier) {
+        String dataCenterInfoId = ((UniqueIdentifier) dataCenterInfo).getId();
+        if (isBlank(dataCenterInfoId)) {
+            boolean experimental = "true".equalsIgnoreCase(serverConfig.getExperimental("registration.validation.dataCenterInfoId"));
+            if (experimental) {
+                String entity = "DataCenterInfo of type " + dataCenterInfo.getClass() + " must contain a valid id";
+                return Response.status(400).entity(entity).build();
+            } else if (dataCenterInfo instanceof AmazonInfo) {
+                AmazonInfo amazonInfo = (AmazonInfo) dataCenterInfo;
+                String effectiveId = amazonInfo.get(AmazonInfo.MetaDataKey.instanceId);
+                if (effectiveId == null) {
+                    amazonInfo.getMetadata().put(AmazonInfo.MetaDataKey.instanceId.getName(), info.getId());
+                }
+            } else {
+                logger.warn("Registering DataCenterInfo of type {} without an appropriate id", dataCenterInfo.getClass());
+            }
+        }
+    }
+
+    registry.register(info, "true".equals(isReplication));
+    return Response.status(204).build();  // 204 to be backwards compatible
+}
+```
+
 # 4.参考
 
 [https://blog.csdn.net/Lammonpeter/article/details/8433090](https://blog.csdn.net/Lammonpeter/article/details/84330900)
