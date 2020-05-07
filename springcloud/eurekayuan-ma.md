@@ -869,7 +869,53 @@ boolean renew() {
 
 续约的操作完成之后，就开始了服务实例的复制工作，紧接着通过服务实例管理器ApplicationInfoManager来创建一个服务实例状态监听器，用于监听服务实例的状态，并进入到onDemandUpdate中进行注册，方法onDemandUpdate的代码如下：
 
+```
+public boolean onDemandUpdate() {
+    if (rateLimiter.acquire(burstSize, allowedRatePerMinute)) {
+        if (!scheduler.isShutdown()) {
+            scheduler.submit(new Runnable() {
+                @Override
+                public void run() {
+                    logger.debug("Executing on-demand update of local InstanceInfo");
 
+                    Future latestPeriodic = scheduledPeriodicRef.get();
+                    if (latestPeriodic != null && !latestPeriodic.isDone()) {
+                        logger.debug("Canceling the latest scheduled update, it will be rescheduled at the end of on demand update");
+                        latestPeriodic.cancel(false);
+                    }
+
+                    InstanceInfoReplicator.this.run();
+                }
+            });
+            return true;
+        } else {
+            logger.warn("Ignoring onDemand update due to stopped scheduler");
+            return false;
+        }
+    } else {
+        logger.warn("Ignoring onDemand update due to rate limiter");
+        return false;
+    }
+}
+
+public void run() {
+    try {
+        discoveryClient.refreshInstanceInfo();
+
+        Long dirtyTimestamp = instanceInfo.isDirtyWithTime();
+        if (dirtyTimestamp != null) {
+            discoveryClient.register();
+            instanceInfo.unsetIsDirty(dirtyTimestamp);
+        }
+    } catch (Throwable t) {
+        logger.warn("There was a problem with the instance info replicator", t);
+    } finally {
+        Future next = scheduler.schedule(this, replicationIntervalSeconds, TimeUnit.SECONDS);
+        scheduledPeriodicRef.set(next);
+    }
+}
+
+```
 
 # 4.参考
 
