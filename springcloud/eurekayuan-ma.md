@@ -343,9 +343,7 @@ public class EurekaServerBootstrap {
 }
 ```
 
-在初始化Eureka Server上下文环境后，就会继续执行openForTraffic方法，这个方法主要是设置了期望每分钟接收到的心跳次数，并将服务实例的状态设置为UP，最后又通过方法postInit来开启一个定时任务，用于每隔一段时间（默认60秒）将没有续约的服务实例（默认90秒没有续约）清理掉。openForTraffic的方法代码如下：
-
-
+在初始化**Eureka Server**上下文环境后，就会继续执行**openForTraffic**方法，这个方法主要是设置了期望每分钟接收到的心跳次数，并将服务实例的状态设置为**UP**，最后又通过方法**postInit**来开启一个定时任务，用于每隔一段时间（默认60秒）将没有续约的服务实例（默认90秒没有续约）清理掉。**openForTraffic**的方法代码如下：
 
 # 
 
