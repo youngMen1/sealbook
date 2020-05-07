@@ -374,7 +374,26 @@ public void openForTraffic(ApplicationInfoManager applicationInfoManager, int co
 }
 ```
 
-# 
+`postInit`方法开启了一个新的定时任务，代码如下：
+
+```
+protected void postInit() {
+    renewsLastMin.start();
+    if (evictionTaskRef.get() != null) {
+        evictionTaskRef.get().cancel();
+    }
+    evictionTaskRef.set(new EvictionTask());
+    evictionTimer.schedule(evictionTaskRef.get(),
+            serverConfig.getEvictionIntervalTimerInMs(),
+            serverConfig.getEvictionIntervalTimerInMs());
+}
+```
+
+
+
+
+
+
 
 # 4.参考
 
