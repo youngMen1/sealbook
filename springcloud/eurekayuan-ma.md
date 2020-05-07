@@ -616,7 +616,7 @@ DiscoveryClient(ApplicationInfoManager applicationInfoManager, EurekaClientConfi
         this.healthCheckHandlerProvider = null;
         this.preRegistrationHandler = null;
     }
-    
+
     this.applicationInfoManager = applicationInfoManager;
     InstanceInfo myInfo = applicationInfoManager.getInfo();
 
@@ -756,14 +756,83 @@ DiscoveryClient(ApplicationInfoManager applicationInfoManager, EurekaClientConfi
     logger.info("Discovery Client initialized at timestamp {} with initial instances count: {}",
             initTimestampMs, this.getApplications().size());
 }
-
 ```
 
-整个构造方法里，一开始进行了各种参数的设置，而真正地注册行为是在
+整个构造方法里，一开始进行了各种参数的设置，而真正地注册行为是在`initScheduledTasks`方法里实现的，我们一起来看看注册行为是如何实现的：
 
-`initScheduledTasks`
+```
+private void initScheduledTasks() {
+    if (clientConfig.shouldFetchRegistry()) {
+        // registry cache refresh timer
+        int registryFetchIntervalSeconds = clientConfig.getRegistryFetchIntervalSeconds();
+        int expBackOffBound = clientConfig.getCacheRefreshExecutorExponentialBackOffBound();
+        scheduler.schedule(
+                new TimedSupervisorTask(
+                        "cacheRefresh",
+                        scheduler,
+                        cacheRefreshExecutor,
+                        registryFetchIntervalSeconds,
+                        TimeUnit.SECONDS,
+                        expBackOffBound,
+                        new CacheRefreshThread()
+                ),
+                registryFetchIntervalSeconds, TimeUnit.SECONDS);
+    }
 
-方法里实现的，我们一起来看看注册行为是如何实现的：
+    if (clientConfig.shouldRegisterWithEureka()) {
+        int renewalIntervalInSecs = instanceInfo.getLeaseInfo().getRenewalIntervalInSecs();
+        int expBackOffBound = clientConfig.getHeartbeatExecutorExponentialBackOffBound();
+        logger.info("Starting heartbeat executor: " + "renew interval is: {}", renewalIntervalInSecs);
+
+        // Heartbeat timer
+        scheduler.schedule(
+                new TimedSupervisorTask(
+                        "heartbeat",
+                        scheduler,
+                        heartbeatExecutor,
+                        renewalIntervalInSecs,
+                        TimeUnit.SECONDS,
+                        expBackOffBound,
+                        new HeartbeatThread()
+                ),
+                renewalIntervalInSecs, TimeUnit.SECONDS);
+
+        // InstanceInfo replicator
+        instanceInfoReplicator = new InstanceInfoReplicator(
+                this,
+                instanceInfo,
+                clientConfig.getInstanceInfoReplicationIntervalSeconds(),
+                2); // burstSize
+
+        statusChangeListener = new ApplicationInfoManager.StatusChangeListener() {
+            @Override
+            public String getId() {
+                return "statusChangeListener";
+            }
+
+            @Override
+            public void notify(StatusChangeEvent statusChangeEvent) {
+                if (InstanceStatus.DOWN == statusChangeEvent.getStatus() ||
+                        InstanceStatus.DOWN == statusChangeEvent.getPreviousStatus()) {
+                    // log at warn level if DOWN was involved
+                    logger.warn("Saw local status change event {}", statusChangeEvent);
+                } else {
+                    logger.info("Saw local status change event {}", statusChangeEvent);
+                }
+                instanceInfoReplicator.onDemandUpdate();
+            }
+        };
+
+        if (clientConfig.shouldOnDemandUpdateStatusChange()) {
+            applicationInfoManager.registerStatusChangeListener(statusChangeListener);
+        }
+
+        instanceInfoReplicator.start(clientConfig.getInitialInstanceInfoReplicationIntervalSeconds());
+    } else {
+        logger.info("Not registering with Eureka server per configuration");
+    }
+}
+```
 
 # 4.参考
 
