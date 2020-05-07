@@ -1015,6 +1015,8 @@ public void register(final InstanceInfo info, final boolean isReplication) {
 }
 ```
 
+方法体中第一行代码中调用了publishEvent方法，将注册事件传播出去，然后继续调用com.netflix.eureka.registry包下的AbstractInstanceRegistry抽象类的register方法进行注册：
+
 # 4.参考
 
 [https://blog.csdn.net/Lammonpeter/article/details/8433090](https://blog.csdn.net/Lammonpeter/article/details/84330900)
