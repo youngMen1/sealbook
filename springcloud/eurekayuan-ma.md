@@ -576,16 +576,19 @@ public static String getRegion(EurekaClientConfig clientConfig) {
         region = region.trim().toLowerCase();
         return region;
     }
-
 ```
 
 从方法的注释上可以知道，一个微服务应用只可以属于一个Region，方法体中的第一行代码就是从EurekaClientConfigBean类中来读取Region，而EurekaClientConfigBean中getRegion方法返回的值就是需要我们配置的，在配置文件中，对应的属性是eureka.client.region，如果我们每月配置，那么将使用默认的Region，默认DEFAULT\_REGION为default。在方法getServiceUrlsMapFromConfig中，还加载了getAvailabilityZones方法，方法代码如下所示：
 
-
-
-
-
-
+```
+public String[] getAvailabilityZones(String region) {
+	String value = this.availabilityZones.get(region);
+	if (value == null) {
+		value = DEFAULT_ZONE;
+	}
+	return value.split(",");
+}
+```
 
 # 4.参考
 
