@@ -372,9 +372,6 @@ public void openForTraffic(ApplicationInfoManager applicationInfoManager, int co
     // 开启定时任务，每隔一段时间（默认60秒）将没有续约的服务实例（默认90秒没有续约）清理掉
     super.postInit();
 }
-————————————————
-版权声明：本文为CSDN博主「itlemon_」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/Lammonpeter/java/article/details/84330900
 ```
 
 # 
