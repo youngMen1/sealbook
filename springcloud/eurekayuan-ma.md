@@ -1017,6 +1017,97 @@ public void register(final InstanceInfo info, final boolean isReplication) {
 
 方法体中第一行代码中调用了publishEvent方法，将注册事件传播出去，然后继续调用com.netflix.eureka.registry包下的AbstractInstanceRegistry抽象类的register方法进行注册：
 
+```
+/**
+ * Registers a new instance with a given duration.
+ *
+ * @see com.netflix.eureka.lease.LeaseManager#register(java.lang.Object, int, boolean)
+ */
+public void register(InstanceInfo registrant, int leaseDuration, boolean isReplication) {
+    try {
+        read.lock();
+        Map<String, Lease<InstanceInfo>> gMap = registry.get(registrant.getAppName());
+        REGISTER.increment(isReplication);
+        if (gMap == null) {
+            final ConcurrentHashMap<String, Lease<InstanceInfo>> gNewMap = new ConcurrentHashMap<String, Lease<InstanceInfo>>();
+            gMap = registry.putIfAbsent(registrant.getAppName(), gNewMap);
+            if (gMap == null) {
+                gMap = gNewMap;
+            }
+        }
+        Lease<InstanceInfo> existingLease = gMap.get(registrant.getId());
+        // Retain the last dirty timestamp without overwriting it, if there is already a lease
+        if (existingLease != null && (existingLease.getHolder() != null)) {
+            Long existingLastDirtyTimestamp = existingLease.getHolder().getLastDirtyTimestamp();
+            Long registrationLastDirtyTimestamp = registrant.getLastDirtyTimestamp();
+            logger.debug("Existing lease found (existing={}, provided={}", existingLastDirtyTimestamp, registrationLastDirtyTimestamp);
+
+            // this is a > instead of a >= because if the timestamps are equal, we still take the remote transmitted
+            // InstanceInfo instead of the server local copy.
+            if (existingLastDirtyTimestamp > registrationLastDirtyTimestamp) {
+                logger.warn("There is an existing lease and the existing lease's dirty timestamp {} is greater" +
+                        " than the one that is being registered {}", existingLastDirtyTimestamp, registrationLastDirtyTimestamp);
+                logger.warn("Using the existing instanceInfo instead of the new instanceInfo as the registrant");
+                registrant = existingLease.getHolder();
+            }
+        } else {
+            // The lease does not exist and hence it is a new registration
+            synchronized (lock) {
+                if (this.expectedNumberOfRenewsPerMin > 0) {
+                    // Since the client wants to cancel it, reduce the threshold
+                    // (1
+                    // for 30 seconds, 2 for a minute)
+                    this.expectedNumberOfRenewsPerMin = this.expectedNumberOfRenewsPerMin + 2;
+                    this.numberOfRenewsPerMinThreshold =
+                            (int) (this.expectedNumberOfRenewsPerMin * serverConfig.getRenewalPercentThreshold());
+                }
+            }
+            logger.debug("No previous lease information found; it is new registration");
+        }
+        Lease<InstanceInfo> lease = new Lease<InstanceInfo>(registrant, leaseDuration);
+        if (existingLease != null) {
+            lease.setServiceUpTimestamp(existingLease.getServiceUpTimestamp());
+        }
+        gMap.put(registrant.getId(), lease);
+        synchronized (recentRegisteredQueue) {
+            recentRegisteredQueue.add(new Pair<Long, String>(
+                    System.currentTimeMillis(),
+                    registrant.getAppName() + "(" + registrant.getId() + ")"));
+        }
+        // This is where the initial state transfer of overridden status happens
+        if (!InstanceStatus.UNKNOWN.equals(registrant.getOverriddenStatus())) {
+            logger.debug("Found overridden status {} for instance {}. Checking to see if needs to be add to the "
+                            + "overrides", registrant.getOverriddenStatus(), registrant.getId());
+            if (!overriddenInstanceStatusMap.containsKey(registrant.getId())) {
+                logger.info("Not found overridden id {} and hence adding it", registrant.getId());
+                overriddenInstanceStatusMap.put(registrant.getId(), registrant.getOverriddenStatus());
+            }
+        }
+        InstanceStatus overriddenStatusFromMap = overriddenInstanceStatusMap.get(registrant.getId());
+        if (overriddenStatusFromMap != null) {
+            logger.info("Storing overridden status {} from map", overriddenStatusFromMap);
+            registrant.setOverriddenStatus(overriddenStatusFromMap);
+        }
+
+        // Set the status based on the overridden status rules
+        InstanceStatus overriddenInstanceStatus = getOverriddenInstanceStatus(registrant, existingLease, isReplication);
+        registrant.setStatusWithoutDirty(overriddenInstanceStatus);
+
+        // If the lease is registered with UP status, set lease service up timestamp
+        if (InstanceStatus.UP.equals(registrant.getStatus())) {
+            lease.serviceUp();
+        }
+        registrant.setActionType(ActionType.ADDED);
+        recentlyChangedQueue.add(new RecentlyChangedItem(lease));
+        registrant.setLastUpdatedTimestamp();
+        invalidateCache(registrant.getAppName(), registrant.getVIPAddress(), registrant.getSecureVipAddress());
+        logger.info("Registered instance {}/{} with status {} (replication={})",
+                registrant.getAppName(), registrant.getId(), registrant.getStatus(), isReplication);
+    } finally {
+        read.unlock();
+    }
+```
+
 # 4.参考
 
 [https://blog.csdn.net/Lammonpeter/article/details/8433090](https://blog.csdn.net/Lammonpeter/article/details/84330900)
