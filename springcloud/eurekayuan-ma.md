@@ -914,8 +914,9 @@ public void run() {
         scheduledPeriodicRef.set(next);
     }
 }
-
 ```
+
+服务实例的注册行为是在方法`register`中执行的，进入到`register`方法中，代码如下：
 
 # 4.参考
 
