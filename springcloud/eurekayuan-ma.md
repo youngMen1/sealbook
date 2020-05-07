@@ -834,6 +834,18 @@ private void initScheduledTasks() {
 }
 ```
 
+这段代码中有两个主要的if代码块，第一个if代码块是决定是否从Eureka Server来获取注册信息，判断条件clientConfig.shouldFetchRegistry\(\)是需要我们自己的在配置文件中通过属性eureka.client.fetch-registry=true进行配置的，默认为true，也就是说服务会从Eureka Server拉取注册信息，且默认间隔为30秒，每30秒执行一次定时任务，用于刷新所获取的注册信息。
+
+第二个if代码块是决定是否将服务注册到服务注册中心的，也是我们本次要探讨的主要内容。判断条件clientConfig.shouldRegisterWithEureka\(\)表示是否向Eureka Server注册自己，你是否还记得，我们在搭建单节点服务注册中心的时候，我们搭建的那个Eureka Server设置了属性eureka.client.register-with-eureka=false，意思就是说禁止Eureka Server把自己当做一个普通服务注册到自身，而这个属性默认值也是为true，也就是说我们在注册的服务的时候，无需配置这个属性，就可以将服务注册到服务注册中心。分析第二个if代码块，代码块中一开始就设置了一个定时任务，这个定时任务就是按照指定的时间间隔向Eureka Server发送心跳，告诉服务注册中心“我还活着”，对于发送心跳的时间间隔，我们一开始就讨论过，默认是30秒，这也就是为什么按照默认来说，一分钟理应发送两次心跳了，这个心跳间隔我们可以在配置文件中进行配置，配置属性为eureka.instance.lease-renewal-interval-in-seconds=30，对于默认90秒内没有发送心跳的服务，将会被服务在服务注册中心剔除，剔除时间间隔可以通过属性eureka.instance.lease-expiration-duration-in-seconds=90来进行配置。而整个服务的续约逻辑也很简单，在定时任务中有一个代码片段new HeartbeatThread\(\)，然后开启了一个新的线程实现续约服务，就是通过发送REST请求来实现的，具体代码如下：
+
+
+
+
+
+# 
+
+# 
+
 # 4.参考
 
 [https://blog.csdn.net/Lammonpeter/article/details/8433090](https://blog.csdn.net/Lammonpeter/article/details/84330900)
