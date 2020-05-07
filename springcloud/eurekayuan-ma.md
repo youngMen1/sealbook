@@ -430,7 +430,7 @@ Setting initial instance status as: STARTING
 
 第一行日志告诉我们，服务提供者实例的状态被标注为“正在启动”。
 
-第二行日志告诉我们，在默认的名为“**us-east-1**”的**Region**中初始化**Eureka**客户端，**Region**的名称是可以配置的，可以通过**eureka.client.region**来配置，如果没有配置它，那么默认的Region就是**us-east-1**。这里顺便多说一句，一个微服务应用只可以注册到一个Region中，也就是说一个微服务应用对应一个Region，一个Region对应多个Zone，是否还记得，我们在配置集群的Eureka Server服务注册中心的时候，都设置了**eureka.client.service-url.defaultZone**这个值，就是为了告诉服务提供者者或者集群内的其他Eureka Server，可以向这个Zone注册，并且defaultZone的值是使用逗号隔开的，也就是说我们的服务可以同时向多个Zone注册。由此可见，一个服务可以同时注册到一个Region中的多个Zone的。如果需要自己指定Zone，可以通过eureka.client.availability-zones来指定。关于Region和Zone请看下面的源码：
+第二行日志告诉我们，在默认的名为“**us-east-1**”的**Region**中初始化**Eureka**客户端，**Region**的名称是可以配置的，可以通过**eureka.client.region**来配置，如果没有配置它，那么默认的Region就是**us-east-1**。这里顺便多说一句，一个微服务应用只可以注册到一个Region中，也就是说一个微服务应用对应一个Region，一个Region对应多个Zone，是否还记得，我们在配置集群的**Eureka Server**服务注册中心的时候，都设置了**eureka.client.service-url.defaultZone**这个值，就是为了告诉服务提供者者或者集群内的其他**Eureka Server**，可以向这个Zone注册，并且defaultZone的值是使用逗号隔开的，也就是说我们的服务可以同时向多个Zone注册。由此可见，一个服务可以同时注册到一个Region中的多个Zone的。如果需要自己指定Zone，可以通过eureka.client.availability-zones来指定。关于Region和Zone请看下面的源码：
 
 # 
 
