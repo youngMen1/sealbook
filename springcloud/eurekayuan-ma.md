@@ -504,32 +504,21 @@ public String[] getAvailabilityZones(String region) {
  * @author Spencer Gibb
  *
  */
-————————————————
-版权声明：本文为CSDN博主「itlemon_」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/Lammonpeter/java/article/details/84330900
 ```
 
 这个类用于帮助与Eureka Server相互协作。
 
-
-
 Eureka Client负责下面的任务：
 
-- 向Eureka Server注册服务实例
+* 向Eureka Server注册服务实例
 
-- 向Eureka Server服务续约
+* 向Eureka Server服务续约
 
-- 当服务关闭期间，向Eureka Server取消租约
+* 当服务关闭期间，向Eureka Server取消租约
 
-- 查询Eureka Server中的服务实例列表
-
-
+* 查询Eureka Server中的服务实例列表
 
 Eureka Client还需要配置一个Eureka Server的URL列表
-
-
-
-
 
 # 4.参考
 
