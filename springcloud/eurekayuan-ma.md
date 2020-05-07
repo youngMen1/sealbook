@@ -562,6 +562,31 @@ public static Map<String, List<String>> getServiceUrlsMapFromConfig(EurekaClient
 
 该方法就是从我们配置的`Zone`中读取注册地址，并组成一个`List`，最后将这个`List`存储到`Map`集合中，在读取过程中，它首先加载的是`getRegion`方法，这个方法读取了一个`Region`返回，进入到`getRegion`方法中：
 
+```
+/**
+ * Get the region that this particular instance is in.
+ *
+ * @return - The region in which the particular instance belongs to.
+ */
+public static String getRegion(EurekaClientConfig clientConfig) {
+        String region = clientConfig.getRegion();
+        if (region == null) {
+            region = DEFAULT_REGION;
+        }
+        region = region.trim().toLowerCase();
+        return region;
+    }
+
+```
+
+从方法的注释上可以知道，一个微服务应用只可以属于一个Region，方法体中的第一行代码就是从EurekaClientConfigBean类中来读取Region，而EurekaClientConfigBean中getRegion方法返回的值就是需要我们配置的，在配置文件中，对应的属性是eureka.client.region，如果我们每月配置，那么将使用默认的Region，默认DEFAULT\_REGION为default。在方法getServiceUrlsMapFromConfig中，还加载了getAvailabilityZones方法，方法代码如下所示：
+
+
+
+
+
+
+
 # 4.参考
 
 [https://blog.csdn.net/Lammonpeter/article/details/8433090](https://blog.csdn.net/Lammonpeter/article/details/84330900)
