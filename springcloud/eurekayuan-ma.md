@@ -560,37 +560,7 @@ public static Map<String, List<String>> getServiceUrlsMapFromConfig(EurekaClient
 }
 ```
 
-该方法就是从我们配置的
-
-`Zone`
-
-中读取注册地址，并组成一个
-
-`List`
-
-，最后将这个
-
-`List`
-
-存储到
-
-`Map`
-
-集合中，在读取过程中，它首先加载的是
-
-`getRegion`
-
-方法，这个方法读取了一个
-
-`Region`
-
-返回，进入到
-
-`getRegion`
-
-方法中：
-
-
+该方法就是从我们配置的`Zone`中读取注册地址，并组成一个`List`，最后将这个`List`存储到`Map`集合中，在读取过程中，它首先加载的是`getRegion`方法，这个方法读取了一个`Region`返回，进入到`getRegion`方法中：
 
 # 4.参考
 
