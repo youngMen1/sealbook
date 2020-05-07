@@ -432,6 +432,20 @@ Setting initial instance status as: STARTING
 
 第二行日志告诉我们，在默认的名为“**us-east-1**”的**Region**中初始化**Eureka**客户端，**Region**的名称是可以配置的，可以通过**eureka.client.region**来配置，如果没有配置它，那么默认的**Region**就是**us-east-1**。这里顺便多说一句，一个微服务应用只可以注册到一个Region中，也就是说一个微服务应用对应一个**Region**，一个**Region**对应多个**Zone**，是否还记得，我们在配置集群的**Eureka Server**服务注册中心的时候，都设置了**eureka.client.service-url.defaultZone**这个值，就是为了告诉服务提供者者或者集群内的其他**Eureka Server**，可以向这个Zone注册，并且defaultZone的值是使用逗号隔开的，也就是说我们的服务可以同时向多个Zone注册。由此可见，一个服务可以同时注册到一个Region中的多个Zone的。如果需要自己指定Zone，可以通过eureka.client.availability-zones来指定。关于Region和Zone请看下面的源码：
 
+```
+public static String getRegion(EurekaClientConfig clientConfig) {
+    String region = clientConfig.getRegion();
+    if (region == null) {
+        region = DEFAULT_REGION;
+    }
+    region = region.trim().toLowerCase();
+    return region;
+}
+————————————————
+版权声明：本文为CSDN博主「itlemon_」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/Lammonpeter/java/article/details/84330900
+```
+
 # 
 
 # 4.参考
