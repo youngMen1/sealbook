@@ -596,8 +596,13 @@ public String[] getAvailabilityZones(String region) {
 int myZoneOffset = getZoneOffset(instanceZone, preferSameZone, availZones);
 String zone = availZones[myZoneOffset];
 List<String> serviceUrls = clientConfig.getEurekaServerServiceUrls(zone);
-
 ```
+
+当我们在微服务应用中使用Ribbon来实现服务调用时，对于Zone的设置可以在负载均衡时实现区域亲和特性：Ribbon的默认策略会优先访问同客户端处于一个Zone中的服务实例，只有当同一个Zone中没有可用的服务实例的时候才会去访问其他Zone中的实例。利用亲和性这一特性，我们就可以有效地设计出针对区域性故障的容错集群。
+
+从本小节一开始，我们就分析了Spring Cloud Eureka是对Netflix Eureka的封装，com.netflix.discovery包下的DiscoveryClient才是真正实现服务的注册与发现。我们一起来看看它的构造方法：
+
+
 
 # 4.参考
 
