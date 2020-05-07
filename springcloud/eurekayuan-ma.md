@@ -475,7 +475,7 @@ public String[] getAvailabilityZones(String region) {
 
 该接口继承了LookupService接口，且有一个实现类DiscoveryClient，接口EurekaClient和LookupService都在com.netflix.discovery包下，他们都定义了针对Eureka的服务发现的抽象方法，而EurekaClient的实现类DiscoveryClient则实现了这些抽象方法，所以说，类DiscoveryClient是真正实现发现服务的类。结合以上的文字，下面展示接口与类的关系图如下所示：
 
-20181211200740761.jpg
+![img](/static/image/20181211200740761.jpg)
 
 我们进入到DiscoveryClient类中查看源码，首先看到的是它的类注释如下所示：
 
