@@ -424,8 +424,19 @@ Setting initial instance status as: STARTING
 2018-12-01 15:37:18.647  INFO 31948 --- [  restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 13226
 2018-12-01 15:37:18.654  INFO 31948 --- [  restartedMain] ringCloudEurekaProducerClientApplication : Started SpringCloudEurekaProducerClientApplication in 5.537 seconds (JVM running for 7.0)
 2018-12-01 15:42:18.402  INFO 31948 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-
 ```
+
+从日志中我们可以读取到许多信息:
+
+
+
+第一行日志告诉我们，服务提供者实例的状态被标注为“正在启动”。
+
+第二行日志告诉我们，在默认的名为“us-east-1”的Region中初始化Eureka客户端，Region的名称是可以配置的，可以通过eureka.client.region来配置，如果没有配置它，那么默认的Region就是us-east-1。这里顺便多说一句，一个微服务应用只可以注册到一个Region中，也就是说一个微服务应用对应一个Region，一个Region对应多个Zone，是否还记得，我们在配置集群的Eureka Server服务注册中心的时候，都设置了eureka.client.service-url.defaultZone这个值，就是为了告诉服务提供者者或者集群内的其他Eureka Server，可以向这个Zone注册，并且defaultZone的值是使用逗号隔开的，也就是说我们的服务可以同时向多个Zone注册。由此可见，一个服务可以同时注册到一个Region中的多个Zone的。如果需要自己指定Zone，可以通过eureka.client.availability-zones来指定。关于Region和Zone请看下面的源码：
+
+
+
+# 
 
 # 4.参考
 
