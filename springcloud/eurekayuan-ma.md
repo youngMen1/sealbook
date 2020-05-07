@@ -477,7 +477,59 @@ public String[] getAvailabilityZones(String region) {
 
 20181211200740761.jpg
 
-# 
+我们进入到DiscoveryClient类中查看源码，首先看到的是它的类注释如下所示：
+
+```
+/**
+ * The class that is instrumental for interactions with <tt>Eureka Server</tt>.
+ *
+ * <p>
+ * <tt>Eureka Client</tt> is responsible for a) <em>Registering</em> the
+ * instance with <tt>Eureka Server</tt> b) <em>Renewal</em>of the lease with
+ * <tt>Eureka Server</tt> c) <em>Cancellation</em> of the lease from
+ * <tt>Eureka Server</tt> during shutdown
+ * <p>
+ * d) <em>Querying</em> the list of services/instances registered with
+ * <tt>Eureka Server</tt>
+ * <p>
+ *
+ * <p>
+ * <tt>Eureka Client</tt> needs a configured list of <tt>Eureka Server</tt>
+ * {@link java.net.URL}s to talk to.These {@link java.net.URL}s are typically amazon elastic eips
+ * which do not change. All of the functions defined above fail-over to other
+ * {@link java.net.URL}s specified in the list in the case of failure.
+ * </p>
+ *
+ * @author Karthik Ranganathan, Greg Kim
+ * @author Spencer Gibb
+ *
+ */
+————————————————
+版权声明：本文为CSDN博主「itlemon_」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/Lammonpeter/java/article/details/84330900
+```
+
+这个类用于帮助与Eureka Server相互协作。
+
+
+
+Eureka Client负责下面的任务：
+
+- 向Eureka Server注册服务实例
+
+- 向Eureka Server服务续约
+
+- 当服务关闭期间，向Eureka Server取消租约
+
+- 查询Eureka Server中的服务实例列表
+
+
+
+Eureka Client还需要配置一个Eureka Server的URL列表
+
+
+
+
 
 # 4.参考
 
