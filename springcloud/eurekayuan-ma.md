@@ -288,7 +288,7 @@ public class EurekaServerInitializerConfiguration
 }
 ```
 
-这个`start`方法中开启了一个新的线程，然后进行一些`Eureka Server`的初始化工作，比如调用`eurekaServerBootstrap的contextInitialized`方法，进入该方法看看：这个`start`方法中开启了一个新的线程，然后进行一些`Eureka Server`的初始化工作，比如调用`eurekaServerBootstrap的contextInitialized`方法，进入该方法看看：这个`start`方法中开启了一个新的线程，然后进行一些`Eureka Server`的初始化工作，比如调用`eurekaServerBootstrap的contextInitialized`方法，进入该方法看看：
+这个**`start`**方法中开启了一个新的线程，然后进行一些**`Eureka Server`**的初始化工作，比如调用**`eurekaServerBootstrap`**`的`**`contextInitialized`**方法，进入该方法看看：这个`start`方法中开启了一个新的线程，然后进行一些**`Eureka Server`**的初始化工作，比如调用**`eurekaServerBootstrap`**`的contextInitialized`方法，进入该方法看看：这个`start`方法中开启了一个新的线程，然后进行一些**`Eureka Server`**的初始化工作比如调用**`eurekaServerBootstrap`**`的`**`contextInitialized`**方法，进入该方法看看：
 
 ```
 public class EurekaServerBootstrap {
