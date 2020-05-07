@@ -253,9 +253,7 @@ public class EurekaServerAutoConfiguration implements WebMvcConfigurer {
 注入EurekaServerBootstrap—->用于初始化initEurekaEnvironment/initEurekaServerContext
 ```
 
-而且，在类**EurekaServerAutoConfiguration**上，我们看见**@Import\(EurekaServerInitializerConfiguration.class\)**，说明实例化类**EurekaServerAutoConfiguration**之前，已经实例化了**EurekaServerInitializerConfiguration**类，
-
-从类名可以看出，该类是**Eureka Server**的初始化配置类，我们进入到**EurekaServerInitializerConfiguration**类中一探究竟，发现该类实现了**Spring**的生命周期接口**SmartLifecycle**，也就是说类**EurekaServerInitializerConfiguration**在被**Spring**实例化过程中的时候会执行一些生命周期方法，比如**Lifecycle**的**start**方法，那么看看**EurekaServerInitializerConfiguration**是如何重写**start**方法的：
+而且，在类**EurekaServerAutoConfiguration**上，我们看见**@Import\(EurekaServerInitializerConfiguration.class\)**，说明实例化类**EurekaServerAutoConfiguration**之前，已经实例化了**EurekaServerInitializerConfiguration**类，从类名可以看出，该类是**Eureka Server**的初始化配置类，我们进入到**EurekaServerInitializerConfiguration**类中一探究竟，发现该类实现了**Spring**的生命周期接口**SmartLifecycle**，也就是说类**EurekaServerInitializerConfiguration**在被**Spring**实例化过程中的时候会执行一些生命周期方法，比如**Lifecycle**的**start**方法，那么看看**EurekaServerInitializerConfiguration**是如何重写**start**方法的：
 
 ```
 @Configuration
@@ -315,33 +313,33 @@ public class EurekaServerBootstrap {
 
 ```
 public class EurekaServerBootstrap {
-	protected void initEurekaServerContext() throws Exception {
-		// For backward compatibility
-		JsonXStream.getInstance().registerConverter(new V1AwareInstanceInfoConverter(),
-				XStream.PRIORITY_VERY_HIGH);
-		XmlXStream.getInstance().registerConverter(new V1AwareInstanceInfoConverter(),
-				XStream.PRIORITY_VERY_HIGH);
+    protected void initEurekaServerContext() throws Exception {
+        // For backward compatibility
+        JsonXStream.getInstance().registerConverter(new V1AwareInstanceInfoConverter(),
+                XStream.PRIORITY_VERY_HIGH);
+        XmlXStream.getInstance().registerConverter(new V1AwareInstanceInfoConverter(),
+                XStream.PRIORITY_VERY_HIGH);
 
-		if (isAws(this.applicationInfoManager.getInfo())) {
-			this.awsBinder = new AwsBinderDelegate(this.eurekaServerConfig,
-					this.eurekaClientConfig, this.registry, this.applicationInfoManager);
-			this.awsBinder.start();
-		}
-		// 初始化Eureka Server上下文环境
-		EurekaServerContextHolder.initialize(this.serverContext);
+        if (isAws(this.applicationInfoManager.getInfo())) {
+            this.awsBinder = new AwsBinderDelegate(this.eurekaServerConfig,
+                    this.eurekaClientConfig, this.registry, this.applicationInfoManager);
+            this.awsBinder.start();
+        }
+        // 初始化Eureka Server上下文环境
+        EurekaServerContextHolder.initialize(this.serverContext);
 
-		log.info("Initialized server context");
+        log.info("Initialized server context");
 
-		// Copy registry from neighboring eureka node
-		int registryCount = this.registry.syncUp();
-		// 期望每30秒接收到一次心跳，1分钟就是2次
-    	// 修改Instance Status状态为up 
-    	// 同时，这里面会开启一个定时任务，用于清理 60秒没有心跳的客户端。自动下线
-		this.registry.openForTraffic(this.applicationInfoManager, registryCount);
+        // Copy registry from neighboring eureka node
+        int registryCount = this.registry.syncUp();
+        // 期望每30秒接收到一次心跳，1分钟就是2次
+        // 修改Instance Status状态为up 
+        // 同时，这里面会开启一个定时任务，用于清理 60秒没有心跳的客户端。自动下线
+        this.registry.openForTraffic(this.applicationInfoManager, registryCount);
 
-		// Register all monitoring statistics.
-		EurekaMonitors.registerAllStats();
-	}
+        // Register all monitoring statistics.
+        EurekaMonitors.registerAllStats();
+    }
 }
 ```
 
