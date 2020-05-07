@@ -918,6 +918,26 @@ public void run() {
 
 服务实例的注册行为是在方法`register`中执行的，进入到`register`方法中，代码如下：
 
+```
+/**
+ * Register with the eureka service by making the appropriate REST call.
+ */
+boolean register() throws Throwable {
+    logger.info(PREFIX + "{}: registering service...", appPathIdentifier);
+    EurekaHttpResponse<Void> httpResponse;
+    try {
+        httpResponse = eurekaTransport.registrationClient.register(instanceInfo);
+    } catch (Exception e) {
+        logger.warn(PREFIX + "{} - registration failed {}", appPathIdentifier, e.getMessage(), e);
+        throw e;
+    }
+    if (logger.isInfoEnabled()) {
+        logger.info(PREFIX + "{} - registration status: {}", appPathIdentifier, httpResponse.getStatusCode());
+    }
+    return httpResponse.getStatusCode() == 204;
+}
+```
+
 # 4.参考
 
 [https://blog.csdn.net/Lammonpeter/article/details/8433090](https://blog.csdn.net/Lammonpeter/article/details/84330900)
