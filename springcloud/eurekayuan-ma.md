@@ -1003,27 +1003,16 @@ public Response addInstance(InstanceInfo info,
 }
 ```
 
-在接收服务实例注册的时候，首先要经过一系列的数据校验，通过校验以后调用
+在接收服务实例注册的时候，首先要经过一系列的数据校验，通过校验以后调用`PeerAwareInstanceRegistry`的实现类对象的
 
-`PeerAwareInstanceRegistry`
-
-的实现类对象的
-
-`register`
-
-方法对服务进行注册，进入到
-
-`register`
-
-方法继续分析：
+`register`方法对服务进行注册，进入到`register`方法继续分析：
 
 ```
 @Override
 public void register(final InstanceInfo info, final boolean isReplication) {
-	handleRegistration(info, resolveInstanceLeaseDuration(info), isReplication);
-	super.register(info, isReplication);
+    handleRegistration(info, resolveInstanceLeaseDuration(info), isReplication);
+    super.register(info, isReplication);
 }
-
 ```
 
 # 4.参考
