@@ -1,4 +1,4 @@
-#1.BigDecimal compareTo比较大小
+# 1.BigDecimal compareTo比较大小
 
 ```
 BigDecimal b1 = new BigDecimal(0.1);
@@ -10,18 +10,26 @@ c=0表示b1等于b2
 c=-1表示b1小于b2
 ```
 
-#2.BigDecimal加减乘除计算
+# 2.BigDecimal加减乘除计算
 
 // 尽量用字符串的形式初始化  
-BigDecimal num1 = new BigDecimal("0.005");  
-BigDecimal num2 = new BigDecimal("1000000");
-##2.1. 加法 add()函数
-BigDecimal result1 = num1.add(num2);
-##2.2. 减法subtract()函数
-BigDecimal result2 = num1.subtract(num2);
-##2.3. 乘法multiply()函数
+BigDecimal num1 = new BigDecimal\("0.005"\);  
+BigDecimal num2 = new BigDecimal\("1000000"\);
+
+## 2.1. 加法 add\(\)函数
+
+BigDecimal result1 = num1.add\(num2\);
+
+## 2.2. 减法subtract\(\)函数
+
+BigDecimal result2 = num1.subtract\(num2\);
+
+## 2.3. 乘法multiply\(\)函数
+
 BigDecimal result3 = num1.multiply\(num2\);
-##2.4. 除法divide()函数(BigDecimal divisor 除数，int scale 精确小数位，int roundingMode 舍入模式)
+
+## 2.4. 除法divide\(\)函数\(BigDecimal divisor 除数，int scale 精确小数位，int roundingMode 舍入模式\)
+
 * BigDecimal result5 = num2.divide\(num1,20,BigDecimal.ROUND\_HALF\_UP\);
 * 1.可以看到舍入模式有很多种BigDecimal.ROUND\_XXXX\_XXX, 具体都是什么意思呢?
   ![img](/static/image/2018091611573630.png)
@@ -40,7 +48,7 @@ BigDecimal result3 = num1.multiply\(num2\);
 
 无条件进1，1.01 -&gt;1.1
 
-### 2、ROUND_DOWN
+### 2、ROUND\_DOWN
 
 接近零的舍入模式。
 
@@ -50,7 +58,7 @@ BigDecimal result3 = num1.multiply\(num2\);
 
 无条件舍弃，1.09 -&gt; 1.0
 
-### 3、ROUND_CEILING
+### 3、ROUND\_CEILING
 
 接近正无穷大的舍入模式。
 
@@ -62,7 +70,7 @@ BigDecimal result3 = num1.multiply\(num2\);
 
 向正无穷方向舍弃，1.01  -&gt; 1.1
 
-### 4、ROUND_FLOOR
+### 4、ROUND\_FLOOR
 
 接近负无穷大的舍入模式。
 
@@ -92,7 +100,7 @@ BigDecimal result3 = num1.multiply\(num2\);
 
 五舍六入，即舍弃部分大于等于6才会进1
 
-### 7、ROUND_HALF_EVEN
+### 7、ROUND\_HALF\_EVEN
 
 向“最接近的”数字舍入，如果与两个相邻数字的距离相等，则向相邻的偶数舍入。
 
@@ -113,16 +121,19 @@ BigDecimal result3 = num1.multiply\(num2\);
 当舍弃部分的左边是奇数时，表现同ROUND\_HALF\_UP（四舍五入）  
 当舍弃部分的左边是偶数时，表现同ROUND\_HALF\_DOWN（五舍六入
 
-### 8、ROUND_UNNECESSARY
+### 8、ROUND\_UNNECESSARY
 
 断言请求的操作具有精确的结果，因此不需要舍入。
 
 Assert操作，证明计算是准确的，不需要round  
 System.out.println\(new BigDecimal\(1.25\).setScale\(1, BigDecimal.ROUND\_HALF\_UP\).setScale\(1, BigDecimal.ROUND\_UNNECESSARY\)\);
 
-## 绝对值abs()函数
- BigDecimal result4 = num3.abs\(\);
-#3.注意
+## 绝对值abs\(\)函数
+
+BigDecimal result4 = num3.abs\(\);
+
+# 3.注意
+
 * 1.System.out.println\(\)中的数字默认是double类型的，double类型小数计算不精准。
 * 2.使用BigDecimal类构造方法传入double类型时，计算的结果也是不精确的！
   因为不是所有的浮点数都能够被精确的表示成一个double 类型值，有些浮点数值不能够被精确的表示成 double 类型值，因此它会被表示成与它最接近的 double 类型的值。必须改用传入String的构造方法。这一点在BigDecimal类的构造方法注释中有说明。
