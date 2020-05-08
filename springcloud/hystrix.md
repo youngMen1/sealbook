@@ -22,6 +22,12 @@ Netflix开源了Hystrix组件，实现了断路器模式，SpringCloud对这一�
 
 ## 2.2.Feign中使用断路器
 
+Feign是自带断路器的，在D版本的Spring Cloud之后，它没有默认打开。需要在配置文件中配置打开它，在配置文件加以下代码：
+
+```
+feign.hystrix.enabled=true
+```
+
 # 3.参考
 
 [https://blog.csdn.net/forezp/article/details/81040990](https://blog.csdn.net/forezp/article/details/81040990)
