@@ -14,7 +14,7 @@ Netflix开源了Hystrix组件，实现了断路器模式，SpringCloud对这一�
 
 断路打开后，可用避免连锁故障，fallback方法可以直接返回一个固定值。
 
----
+# 2.参考
 
 [https://blog.csdn.net/forezp/article/details/81040990](https://blog.csdn.net/forezp/article/details/81040990)
 
