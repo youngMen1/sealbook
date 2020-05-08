@@ -50,7 +50,7 @@ public class SchedualServiceHiHystric implements SchedualServiceHi {
 }
 ```
 
-启动四servcie-feign工程，浏览器打开http://localhost:8765/hi?name=forezp,注意此时service-hi工程没有启动，网页显示：
+启动四servcie-feign工程，浏览器打开[http://localhost:8765/hi?name=forezp,注意此时service-hi工程没有启动，网页显示：](http://localhost:8765/hi?name=forezp,注意此时service-hi工程没有启动，网页显示：)
 
 ```
 sorry forezp
@@ -63,6 +63,8 @@ hi forezp,i am from port:8762
 ```
 
 # 3.参考
+
+断路器（Hystrix）\(Finchley版本\)：
 
 [https://blog.csdn.net/forezp/article/details/81040990](https://blog.csdn.net/forezp/article/details/81040990)
 
