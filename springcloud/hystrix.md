@@ -68,5 +68,7 @@ hi forezp,i am from port:8762
 
 [https://blog.csdn.net/forezp/article/details/81040990](https://blog.csdn.net/forezp/article/details/81040990)
 
-https://www.fangzhipeng.com/springcloud/2018/08/31/trans-hystrix1.html
+Hystrix文档翻译：
+
+[https://www.fangzhipeng.com/springcloud/2018/08/31/trans-hystrix1.html](https://www.fangzhipeng.com/springcloud/2018/08/31/trans-hystrix1.html)
 
