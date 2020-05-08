@@ -28,6 +28,28 @@ Feign是自带断路器的，在D版本的Spring Cloud之后，它没有默认�
 feign.hystrix.enabled=true
 ```
 
+基于service-feign工程进行改造，只需要在FeignClient的SchedualServiceHi接口的注解中加上fallback的指定类就行了：
+
+```
+@FeignClient(value = "service-hi",fallback = SchedualServiceHiHystric.class)
+public interface SchedualServiceHi {
+    @RequestMapping(value = "/hi",method = RequestMethod.GET)
+    String sayHiFromClientOne(@RequestParam(value = "name") String name);
+}
+```
+
+SchedualServiceHiHystric需要实现SchedualServiceHi 接口，并注入到Ioc容器中，代码如下：
+
+```
+@Component
+public class SchedualServiceHiHystric implements SchedualServiceHi {
+    @Override
+    public String sayHiFromClientOne(String name) {
+        return "sorry "+name;
+    }
+}
+```
+
 # 3.参考
 
 [https://blog.csdn.net/forezp/article/details/81040990](https://blog.csdn.net/forezp/article/details/81040990)
