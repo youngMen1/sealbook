@@ -126,9 +126,15 @@ java -jarjar包的完整路径
 zcat information-rest-ms.log.2020-05-07.0.gz
 ```
 
- 
+如果有需要进行过滤的需求，可以使用下面的方式实现：
 
----
+```
+zcat information-rest-ms.log.2020-05-07.0.gz  | grep -a -C30 7494560570
+```
+
+
+
+
 
 ## 参考:
 
