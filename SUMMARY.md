@@ -48,7 +48,7 @@
   * [Hystrix](springcloud/hystrix.md)
     * [Spring Cloud Hystrix部分源码分析](springcloud/hystrix/spring-cloud-hystrixbu-fen-yuan-ma-fen-xi.md)
   * [config](springcloud/config.md)
-  * [bus](springcloud/bus.md)
+  * [Bus](springcloud/bus.md)
   * [Consul](springcloud/consul.md)
   * [Gateway](springcloud/spring-cloud-gateway.md)
     * [Spring Cloud Gateway之Predict篇](springcloud/spring-cloud-gateway/spring-cloud-gateway-zhi-predict-pian.md)
