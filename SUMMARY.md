@@ -47,7 +47,7 @@
     * [Spring Cloud Feign部分源码分析](springcloud/feign/spring-cloud-feignbu-fen-yuan-ma-fen-xi.md)
   * [Hystrix](springcloud/hystrix.md)
     * [Spring Cloud Hystrix部分源码分析](springcloud/hystrix/spring-cloud-hystrixbu-fen-yuan-ma-fen-xi.md)
-  * [config](springcloud/config.md)
+  * [Config](springcloud/config.md)
   * [Bus](springcloud/bus.md)
   * [Consul](springcloud/consul.md)
   * [Gateway](springcloud/spring-cloud-gateway.md)
