@@ -92,7 +92,7 @@ BigDecimal result3 = num1.multiply\(num2\);
 
 五舍六入，即舍弃部分大于等于6才会进1
 
-### 7、ROUND\_HALF\_EVEN
+### 7、ROUND_HALF_EVEN
 
 向“最接近的”数字舍入，如果与两个相邻数字的距离相等，则向相邻的偶数舍入。
 
@@ -113,16 +113,15 @@ BigDecimal result3 = num1.multiply\(num2\);
 当舍弃部分的左边是奇数时，表现同ROUND\_HALF\_UP（四舍五入）  
 当舍弃部分的左边是偶数时，表现同ROUND\_HALF\_DOWN（五舍六入
 
-### 8、ROUND\_UNNECESSARY
+### 8、ROUND_UNNECESSARY
 
 断言请求的操作具有精确的结果，因此不需要舍入。
 
 Assert操作，证明计算是准确的，不需要round  
 System.out.println\(new BigDecimal\(1.25\).setScale\(1, BigDecimal.ROUND\_HALF\_UP\).setScale\(1, BigDecimal.ROUND\_UNNECESSARY\)\);
 
-## 绝对值abs\(\)函数
-
-* BigDecimal result4 = num3.abs\(\);
+## 绝对值abs()函数
+ BigDecimal result4 = num3.abs\(\);
 #3.注意
 * 1.System.out.println\(\)中的数字默认是double类型的，double类型小数计算不精准。
 * 2.使用BigDecimal类构造方法传入double类型时，计算的结果也是不精确的！
