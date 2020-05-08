@@ -63,7 +63,7 @@ private void registerDefaultConfiguration(AnnotationMetadata metadata,
 </dependency>
 ```
 
-## 总结
+# 2.总结
 
 总到来说，Feign的源码实现的过程如下：
 
