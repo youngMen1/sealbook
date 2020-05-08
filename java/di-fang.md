@@ -40,7 +40,7 @@ BigDecimal result3 = num1.multiply\(num2\);
 
 无条件进1，1.01 -&gt;1.1
 
-### 2、ROUND\_DOWN
+### 2、ROUND_DOWN
 
 接近零的舍入模式。
 
@@ -50,7 +50,7 @@ BigDecimal result3 = num1.multiply\(num2\);
 
 无条件舍弃，1.09 -&gt; 1.0
 
-### 3、ROUND\_CEILING
+### 3、ROUND_CEILING
 
 接近正无穷大的舍入模式。
 
@@ -62,7 +62,7 @@ BigDecimal result3 = num1.multiply\(num2\);
 
 向正无穷方向舍弃，1.01  -&gt; 1.1
 
-### 4、ROUND\_FLOOR
+### 4、ROUND_FLOOR
 
 接近负无穷大的舍入模式。
 
