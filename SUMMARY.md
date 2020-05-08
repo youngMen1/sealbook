@@ -44,7 +44,7 @@
     * [Eureka源码分析](springcloud/eurekayuan-ma.md)
   * [zuul](springcloud/zuul.md)
   * [feign](springcloud/feign.md)
-  * [hystrix](springcloud/hystrix.md)
+  * [Hystrix](springcloud/hystrix.md)
   * [config](springcloud/config.md)
   * [bus](springcloud/bus.md)
   * [Consul](springcloud/consul.md)
