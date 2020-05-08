@@ -13,7 +13,8 @@
 ```
 public List<User> listUser(){
     List<User> userList = userListRepostity.selectByExample(new UserExample());
-    if(CollectionUtils.isEmpty(userList)){//spring util工具类
+    // spring util工具类
+    if(CollectionUtils.isEmpty(userList)){
       return null;
     }
     return userList;
