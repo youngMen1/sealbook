@@ -1,4 +1,4 @@
-## BigDecimal compareTo比较大小
+#1.BigDecimal compareTo比较大小
 
 ```
 BigDecimal b1 = new BigDecimal(0.1);
@@ -10,7 +10,7 @@ c=0表示b1等于b2
 c=-1表示b1小于b2
 ```
 
-## BigDecimal加减乘除计算
+#2.BigDecimal加减乘除计算
 
 // 尽量用字符串的形式初始化  
 BigDecimal num1 = new BigDecimal\("0.005"\);  
