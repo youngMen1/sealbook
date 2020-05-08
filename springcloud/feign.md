@@ -26,7 +26,7 @@ spring cloud中discovery service有许多种实现（eureka、consul、zookeeper
 
 如果是其他的注册中心，那么推荐使用@EnableDiscoveryClient。
 
-## 二、Feign的工作原理
+## 1.2.Feign的工作原理
 
 feign是一个伪客户端，即它不做任何的请求处理。Feign通过处理注解生成request，从而实现简化HTTP API开发的目的，即开发人员可以使用注解的方式定制request api模板，在发送http request请求之前，feign通过处理注解的方式替换掉request模板中的参数，这种实现方式显得更为直接、可理解。
 
