@@ -16,7 +16,7 @@ Netflix开源了Hystrix组件，实现了断路器模式，SpringCloud对这一�
 
 # 2.怎么使用
 
-
+### Feign中使用断路器
 
 # 3.参考
 
