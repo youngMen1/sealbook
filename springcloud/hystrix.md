@@ -39,7 +39,7 @@ Netflix开源了Hystrix组件，实现了断路器模式，SpringCloud对这一�
 
 当您使用Hystrix包装每个底层依赖项时，上图所示的体系结构如下图所示。 每个依赖关系彼此隔离，在延迟发生时可以饱和的资源受到限制，迅速执行fallback的逻辑，该逻辑决定了在依赖关系中发生任何类型的故障时会做出什么响应：
 
-soa-4-isolation-640.png
+![](/static/image/soa-4-isolation-640.png)
 
 # 2.怎么使用
 
