@@ -13,3 +13,5 @@
 ![](/static/image/微信图片_20200509100841.jpg)
 ## 1.6.大-O 复杂度曲线
 ![](/static/image/微信图片_20200509100909.jpg)
+# 2.参考
+https://www.bigocheatsheet.com/
