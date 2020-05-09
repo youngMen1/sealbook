@@ -19,8 +19,7 @@
 ![img](/static/image/20180508125937326.png)
 # 4.参考
 
-PowerDesigner数据建模的简单使用\(设计表\)：
-
-[https://blog.csdn.net/qq\_38200548/article/details/80238083](https://blog.csdn.net/qq_38200548/article/details/80238083)
+PowerDesigner数据建模的简单使用(设计表)：
+https://blog.csdn.net/qq_38200548/article/details/80238083
 
 
