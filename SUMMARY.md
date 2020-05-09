@@ -157,7 +157,7 @@
   * [索引的种类](java/suo-yin-de-zhong-lei.md)
   * [线程池使用总结](java/xian-cheng-chi-shi-yong-zong-jie.md)
   * [Bug记录](java/bugji-lu.md)
-  * 算法复杂度速查表
+  * [算法复杂度速查表](java/suan-fa-fu-za-du-su-cha-biao.md)
 * [SpringCloudAlibaba](springcloudalibaba.md)
   * [SpringCloudAlibaba基本介绍](springcloudalibaba/zhu-yi.md)
   * [Nacos](springcloudalibaba/nacos.md)
