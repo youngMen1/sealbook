@@ -73,6 +73,24 @@ Ctrl + Alt + 右方向键 前进到上一个操作的地方
 
 ## 2.5.Ctrl + Shift
 
+Ctrl + Shift + F 根据输入内容查找整个项目 或 指定目录内文件
+
+Ctrl + Shift + R 根据输入内容替换对应内容，范围为整个项目 或 指定目录内文件
+
+Ctrl + Shift + J 自动将下一行合并到当前行末尾
+
+Ctrl + Shift + Z 取消撤销
+
+Ctrl + Shift + W 递进式取消选择代码块。可选中光标所在的单词或段落，连续按会在原有选中的基础上再扩展取消选中范围
+
+Ctrl + Shift + N 通过文件名定位 / 打开文件 / 目录，打开目录需要在输入的内容后面多加一个正斜杠
+
+Ctrl + Shift + U 对选中的代码进行大 / 小写轮流转换
+
+Ctrl + Shift + / 代码块注释
+
+Ctrl + Shift + Enter 自动结束代码，行末自动添加分号
+
 ## 3**.多Application启动查看**
 
 找到.idea文件下的workspace.xml，并找到RunDashboard
