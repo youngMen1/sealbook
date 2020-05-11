@@ -13,7 +13,13 @@
 | alt+F8 | debug时选中查看值 |
 | ctrl+N | 快速查找某个类 |
 
-## **2.多Application启动查看**
+## 2.IDEA常用快捷键
+
+Ctrl
+
+Ctrl + F 在当前文件进行文本查找Ctrl + R 在当前文件进行文本替换Ctrl + Z 撤销Ctrl + Y 删除光标所在行 或 删除选中的行Ctrl + D 复制光标所在行 或 复制选择内容，并把复制内容插入光标位置下面Ctrl + W 递进式选择代码块。可选中光标所在的单词或段落，连续按会在原有选中的基础上再扩展选中范围Ctrl + E 显示最近打开的文件记录列表Ctrl + Space 基础代码补全，默认在 Windows 系统上被输入法占用
+
+## 3**.多Application启动查看**
 
 找到.idea文件下的workspace.xml，并找到RunDashboard
 
