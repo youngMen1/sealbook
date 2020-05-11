@@ -13,7 +13,6 @@ FindBug 是一款开源的 Java 代码检查工具,遵循 GNU 公共许可协议
 * Experimental：可能受到的恶意攻击,如访问权限修饰符的定义等;
 * Security：安全性
 
-
 1. Bad practice 坏的实践
 
 ```
@@ -24,28 +23,33 @@ FindBug 是一款开源的 Java 代码检查工具,遵循 GNU 公共许可协议
 3）方法终止或不处理异常，一般情况下，异常应该被处理或报告，或被方法抛出。
 ```
 
-2. Correctness 一般的正确性问题
+1. Correctness 一般的正确性问题
 
 ```
   可能导致错误的代码，下面列举几个： 
-1）空指针被引用；在方法的异常路径里，空指针被引用；方法没有检查参数是否null；null值产生并被引用；null值产生并在方法的异常路径被引用；传给方法一个声明为@NonNull的null参数；方法的返回值声明为@NonNull实际是null。 
-2）类定义了hashcode()方法，但实际上并未覆盖父类Object的hashCode()；类定义了tostring()方法，但实际上并未覆盖父类Object的toString()；很明显的方法和构造器混淆；方法名容易混淆。 
+1）空指针被引用；在方法的异常路径里，空指针被引用；方法没有检查参数是否null；null值产生并被引用；
+null值产生并在方法的异常路径被引用；传给方法一个声明为@NonNull的null参数；方法的返回值声明为@NonNull实际是null。 
+2）类定义了hashcode()方法，但实际上并未覆盖父类Object的hashCode()；类定义了tostring()方法，
+但实际上并未覆盖父类Object的toString()；很明显的方法和构造器混淆；方法名容易混淆。 
 3）方法尝试访问一个Prepared Statement的0索引；方法尝试访问一个ResultSet的0索引。 
 4）所有的write都把属性置成null，这样所有的读取都是null，这样这个属性是否有必要存在；或属性从没有被write。
 ```
-3. Internationalization 国际化
+
+1. Internationalization 国际化
 
 ```
   当对字符串使用upper或lowercase方法，如果是国际的字符串，可能会不恰当的转换。
 ```
-4. Malicious code vulnerability 恶意代码 
+
+1. Malicious code vulnerability 恶意代码 
 
 ```
   如果代码公开，可能受到恶意攻击的代码，下面列举几个： 
 1）一个类的finalize()应该是protected，而不是public的。 
 2）属性是可变的数组；属性是可变的Hashtable；属性应该是package protected的。
 ```
-5. Multithreaded correctness 多线程的正确性
+
+1. Multithreaded correctness 多线程的正确性
 
 ```
 多线程编程时，可能导致错误的代码，下面列举几个： 
@@ -56,7 +60,7 @@ FindBug 是一款开源的 Java 代码检查工具,遵循 GNU 公共许可协议
 4）构造器调用了Thread.start()，当该类被继承可能会导致错误。
 ```
 
-6. Performance 性能问题
+1. Performance 性能问题
 
 ```
   可能导致性能不佳的代码，下面列举几个： 
@@ -67,7 +71,8 @@ Integer.toString(1) 代替new Integer(1).toString()；方法调用了低效的fl
 4）UrF：如果一个属性从没有被read，考虑从类中去掉。 
 5）UuF：如果一个属性从没有被使用，考虑从类中去掉。
 ```
-7. Dodgy 不符合规范的，有潜在危险的
+
+1. Dodgy 不符合规范的，有潜在危险的
 
 ```
 具有潜在危险的代码，可能运行期产生错误，下面列举几个： 
