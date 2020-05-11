@@ -43,6 +43,16 @@ Alt + Insert  代码自动生成，如生成对象的 set / get 方法等。建�
 
 ## 2.3.Shift
 
+Shift + F3 在查找模式下，查找匹配上一个
+
+Shift + F6 对文件 / 文件夹 重命名
+
+Shift + Tab 取消缩进
+
+Shift + End 选中光标到当前行尾位置
+
+Shift + Home 选中光标到当前行头位置
+
 ## 3**.多Application启动查看**
 
 找到.idea文件下的workspace.xml，并找到RunDashboard
