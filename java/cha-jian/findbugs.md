@@ -19,7 +19,8 @@ FindBug 是一款开源的 Java 代码检查工具,遵循 GNU 公共许可协议
 ```
   一些不好的实践，下面列举几个： 
 1）类定义了equals()，却没有hashCode()；。 
-2）Statement 的execute方法调用了非常量的字符串；或Prepared Statement是由一个非常量的字符串产生。 
+2）Statement 的execute方法调用了非常量的字符串；或Prepared Statement是
+由一个非常量的字符串产生。 
 3）方法终止或不处理异常，一般情况下，异常应该被处理或报告，或被方法抛出。
 ```
 
@@ -32,30 +33,21 @@ FindBug 是一款开源的 Java 代码检查工具,遵循 GNU 公共许可协议
 3）方法尝试访问一个Prepared Statement的0索引；方法尝试访问一个ResultSet的0索引。 
 4）所有的write都把属性置成null，这样所有的读取都是null，这样这个属性是否有必要存在；或属性从没有被write。
 ```
-
-
 3. Internationalization 国际化
+
 ```
-
-
   当对字符串使用upper或lowercase方法，如果是国际的字符串，可能会不恰当的转换。
 ```
-
-
 4. Malicious code vulnerability 恶意代码 
+
 ```
-
-
   如果代码公开，可能受到恶意攻击的代码，下面列举几个： 
 1）一个类的finalize()应该是protected，而不是public的。 
 2）属性是可变的数组；属性是可变的Hashtable；属性应该是package protected的。
 ```
-
-
 5. Multithreaded correctness 多线程的正确性
+
 ```
-
-
 多线程编程时，可能导致错误的代码，下面列举几个： 
 1）ESync：空的同步块，很难被正确使用。 
 2）MWN：错误使用notify()，可能导致IllegalMonitorStateException异常；或错误的 
@@ -64,11 +56,9 @@ FindBug 是一款开源的 Java 代码检查工具,遵循 GNU 公共许可协议
 4）构造器调用了Thread.start()，当该类被继承可能会导致错误。
 ```
 
-
 6. Performance 性能问题
+
 ```
-
-
   可能导致性能不佳的代码，下面列举几个： 
 1）DM：方法调用了低效的Boolean的构造器，而应该用Boolean.valueOf(…)；用类似 
 Integer.toString(1) 代替new Integer(1).toString()；方法调用了低效的float的构造器，应该用静态的valueOf方法。 
