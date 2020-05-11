@@ -51,19 +51,19 @@ Lombok能通过注解的方式，在编译时自动为属性生成构造器、ge
 
 在这个里面找到你想生成的表，然后右键，就会出现如下所示的截面。
 
-14226414-9426d5d10eb698cb.webp
+![img](/static/image/14226414-9426d5d10eb698cb.webp)
 
 点击1所示的位置，选择你要将生成的代码放入哪个文件夹中，选择完以后点击OK即可。
 
-14226414-440d8fa96585bdaf.webp
+![img](/static/image/14226414-440d8fa96585bdaf.webp)
 
 勾选你需要生成的代码，点击OK。
 
-14226414-c16f4257fc98b322.webp
+![img](/static/image/14226414-c16f4257fc98b322.webp)
 
 这样的话就完成了代码的生成了，生成的代码如下图所示：
 
-14226414-ca23bdf4c68cf497.webp
+![img](/static/image/14226414-ca23bdf4c68cf497.webp)
 
 
 
