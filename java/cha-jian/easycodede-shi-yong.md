@@ -41,6 +41,8 @@ Lombok能通过注解的方式，在编译时自动为属性生成构造器、ge
 
 按照如下图所示进行操作：
 
+14226414-791374ad79eb0f53.webp
+
 # 参考
 
 [https://mp.weixin.qq.com/s/hLodJvBucYiz6BLrk0P5gQ](https://mp.weixin.qq.com/s/hLodJvBucYiz6BLrk0P5gQ)
