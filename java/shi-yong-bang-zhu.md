@@ -55,6 +55,22 @@ Shift + Home 选中光标到当前行头位置
 
 ## 2.4.Ctrl + Alt
 
+Ctrl + Alt + L 格式化代码，可以对当前文件和整个包目录使用
+
+Ctrl + Alt + O 优化导入的类，可以对当前文件和整个包目录使用
+
+Ctrl + Alt + H 调用层次
+
+Ctrl + Alt + S 打开 IntelliJ IDEA 系统设置
+
+Ctrl + Alt + F7 显示使用的地方。寻找被该类或是变量被调用的地方，用弹出框的方式找出来
+
+Ctrl + Alt + Space 类名自动完成
+
+Ctrl + Alt + 左方向键 退回到上一个操作的地方
+
+Ctrl + Alt + 右方向键 前进到上一个操作的地方
+
 ## 3**.多Application启动查看**
 
 找到.idea文件下的workspace.xml，并找到RunDashboard
