@@ -53,6 +53,8 @@ Lombok能通过注解的方式，在编译时自动为属性生成构造器、ge
 
 14226414-9426d5d10eb698cb.webp
 
+点击1所示的位置，选择你要将生成的代码放入哪个文件夹中，选择完以后点击OK即可。
+
 # 参考
 
 [https://mp.weixin.qq.com/s/hLodJvBucYiz6BLrk0P5gQ](https://mp.weixin.qq.com/s/hLodJvBucYiz6BLrk0P5gQ)
