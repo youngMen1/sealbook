@@ -4,6 +4,8 @@ Easycode是idea的一个插件，可以直接对数据的表生成entity,control
 
 # 2.怎么使用
 
+## 2.1.安装\(EasyCode\)
+
 # 参考
 
 [https://mp.weixin.qq.com/s/hLodJvBucYiz6BLrk0P5gQ](https://mp.weixin.qq.com/s/hLodJvBucYiz6BLrk0P5gQ)
