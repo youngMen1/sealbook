@@ -13,9 +13,7 @@ FindBug 是一款开源的 Java 代码检查工具,遵循 GNU 公共许可协议
 * Experimental：可能受到的恶意攻击,如访问权限修饰符的定义等;
 * Security：安全性
 
-
-
-Bad practice 坏的实践
+1.Bad practice 坏的实践
 
 ```
 一些不好的实践，下面列举几个： 
@@ -25,7 +23,7 @@ Bad practice 坏的实践
 3）方法终止或不处理异常，一般情况下，异常应该被处理或报告，或被方法抛出。
 ```
 
-1. Correctness 一般的正确性问题
+2.Correctness 一般的正确性问题
 
 ```
 可能导致错误的代码，下面列举几个： 
