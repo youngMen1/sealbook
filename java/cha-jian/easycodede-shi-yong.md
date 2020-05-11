@@ -14,7 +14,7 @@ Easycode是idea的一个插件，可以直接对数据的表生成entity,control
 
 Lombok能通过注解的方式，在编译时自动为属性生成构造器、getter/setter、equals、hashcode、toString方法。出现的神奇就是在源码中没有getter和setter方法，但是在编译生成的字节码文件中有getter和setter方法。
 
-## 2.2.在IDEA配置连接数据库
+## 2.3.在IDEA配置连接数据库
 
 # 参考
 
