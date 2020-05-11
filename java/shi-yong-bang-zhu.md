@@ -71,6 +71,8 @@ Ctrl + Alt + 左方向键 退回到上一个操作的地方
 
 Ctrl + Alt + 右方向键 前进到上一个操作的地方
 
+## 2.5.Ctrl + Shift
+
 ## 3**.多Application启动查看**
 
 找到.idea文件下的workspace.xml，并找到RunDashboard
