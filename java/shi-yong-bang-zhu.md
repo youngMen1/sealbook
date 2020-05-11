@@ -91,6 +91,12 @@ Ctrl + Shift + / 代码块注释
 
 Ctrl + Shift + Enter 自动结束代码，行末自动添加分号
 
+## 2.6.其他
+
+F2 跳转到下一个高亮错误 或 警告位置
+
+连按两次Shift 弹出 Search Everywhere 弹出层
+
 ## 3**.多Application启动查看**
 
 找到.idea文件下的workspace.xml，并找到RunDashboard
