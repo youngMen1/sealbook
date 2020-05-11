@@ -13,10 +13,10 @@ FindBug 是一款开源的 Java 代码检查工具,遵循 GNU 公共许可协议
 * Experimental：可能受到的恶意攻击,如访问权限修饰符的定义等;
 * Security：安全性
 
-1. Bad practice 坏的实践
+* Bad practice 坏的实践
 
 ```
-  一些不好的实践，下面列举几个： 
+一些不好的实践，下面列举几个： 
 1）类定义了equals()，却没有hashCode()；。 
 2）Statement 的execute方法调用了非常量的字符串；或Prepared Statement是
 由一个非常量的字符串产生。 
@@ -26,7 +26,7 @@ FindBug 是一款开源的 Java 代码检查工具,遵循 GNU 公共许可协议
 1. Correctness 一般的正确性问题
 
 ```
-  可能导致错误的代码，下面列举几个： 
+可能导致错误的代码，下面列举几个： 
 1）空指针被引用；在方法的异常路径里，空指针被引用；方法没有检查参数是否null；null值产生并被引用；
 null值产生并在方法的异常路径被引用；传给方法一个声明为@NonNull的null参数；方法的返回值声明为@NonNull实际是null。 
 2）类定义了hashcode()方法，但实际上并未覆盖父类Object的hashCode()；类定义了tostring()方法，
@@ -38,13 +38,13 @@ null值产生并在方法的异常路径被引用；传给方法一个声明为@
 1. Internationalization 国际化
 
 ```
-  当对字符串使用upper或lowercase方法，如果是国际的字符串，可能会不恰当的转换。
+当对字符串使用upper或lowercase方法，如果是国际的字符串，可能会不恰当的转换。
 ```
 
 1. Malicious code vulnerability 恶意代码 
 
 ```
-  如果代码公开，可能受到恶意攻击的代码，下面列举几个： 
+如果代码公开，可能受到恶意攻击的代码，下面列举几个： 
 1）一个类的finalize()应该是protected，而不是public的。 
 2）属性是可变的数组；属性是可变的Hashtable；属性应该是package protected的。
 ```
@@ -63,7 +63,7 @@ null值产生并在方法的异常路径被引用；传给方法一个声明为@
 1. Performance 性能问题
 
 ```
-  可能导致性能不佳的代码，下面列举几个： 
+可能导致性能不佳的代码，下面列举几个： 
 1）DM：方法调用了低效的Boolean的构造器，而应该用Boolean.valueOf(…)；用类似 
 Integer.toString(1) 代替new Integer(1).toString()；方法调用了低效的float的构造器，应该用静态的valueOf方法。 
 2）SIC：如果一个内部类想在更广泛的地方被引用，它应该声明为static。 
