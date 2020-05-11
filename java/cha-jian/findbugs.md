@@ -35,7 +35,7 @@ null值产生并在方法的异常路径被引用；传给方法一个声明为@
 4）所有的write都把属性置成null，这样所有的读取都是null，这样这个属性是否有必要存在；或属性从没有被write。
 ```
 
-1. Internationalization 国际化
+3.Internationalization 国际化
 
 ```
 当对字符串使用upper或lowercase方法，如果是国际的字符串，可能会不恰当的转换。
