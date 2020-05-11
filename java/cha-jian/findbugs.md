@@ -41,7 +41,7 @@ null值产生并在方法的异常路径被引用；传给方法一个声明为@
 当对字符串使用upper或lowercase方法，如果是国际的字符串，可能会不恰当的转换。
 ```
 
-4.Malicious code vulnerability 恶意代码 
+4.Malicious code vulnerability 恶意代码
 
 ```
 如果代码公开，可能受到恶意攻击的代码，下面列举几个： 
@@ -49,7 +49,7 @@ null值产生并在方法的异常路径被引用；传给方法一个声明为@
 2）属性是可变的数组；属性是可变的Hashtable；属性应该是package protected的。
 ```
 
-1. Multithreaded correctness 多线程的正确性
+5.Multithreaded correctness 多线程的正确性
 
 ```
 多线程编程时，可能导致错误的代码，下面列举几个： 
