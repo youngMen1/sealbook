@@ -6,7 +6,7 @@ Easycode是idea的一个插件，可以直接对数据的表生成entity,control
 
 ## 2.1.安装\(EasyCode\)
 
-微信截图\_20200511093251.png
+![img](/static/image/微信截图\_20200511093251.png)
 
 我这里的话是已经那装好了。
 
