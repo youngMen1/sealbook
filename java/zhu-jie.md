@@ -1032,15 +1032,13 @@ public class CommonBootStrap {
 @Range\(min=10000,max=50000,message="range.bean.wage"\)  
 private BigDecimal wage;
 
-
-
-
-
 @Valid 递归的对关联对象进行校验, 如果关联对象是个集合或者数组,那么对其中的元素进行递归校验,如果是一个map,则对其中的值部分进行校验.\(是否进行递归验证\)  
 @CreditCardNumber信用卡验证  
 @Email  验证是否是邮件地址，如果为null,不进行验证，算通过验证。  
 @ScriptAssert\(lang= ,script=, alias=\)  
 @URL\(protocol=,host=, port=,regexp=, flags=\)
+
+# [@Transient](https://www.cnblogs.com/ydymz/p/8464187.html)
 
 # 7.注解优势
 
