@@ -53,6 +53,8 @@ Shift + End 选中光标到当前行尾位置
 
 Shift + Home 选中光标到当前行头位置
 
+## 2.4.Ctrl + Alt
+
 ## 3**.多Application启动查看**
 
 找到.idea文件下的workspace.xml，并找到RunDashboard
