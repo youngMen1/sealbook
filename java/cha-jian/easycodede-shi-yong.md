@@ -33,6 +33,13 @@ Lombok能通过注解的方式，在编译时自动为属性生成构造器、ge
 
 ## 2.3.在IDEA配置连接数据库
 
+在这个之前，新建一个Springboot项目，这个应该是比较简单的。
+
+建好SpringBoot项目之后，如下图所示，找到这个Database
+
+  
+
+
 # 参考
 
 [https://mp.weixin.qq.com/s/hLodJvBucYiz6BLrk0P5gQ](https://mp.weixin.qq.com/s/hLodJvBucYiz6BLrk0P5gQ)
