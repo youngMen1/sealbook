@@ -40,7 +40,8 @@
 2.线程并发数量过多，抢占系统资源从而导致阻塞
 
 ```
-我们知道线程能共享系统资源，如果同时执行的线程过多，就有可能导致系统资源不足而产生阻塞的情况运用线程池能有效的控制线程最大并发数，避免以上的问题
+我们知道线程能共享系统资源，如果同时执行的线程过多，就有可能导致系统资源不足而产生阻塞的情况运用线程池能有效的控制线程最大并发数，
+避免以上的问题
 ```
 
 3.对线程进行一些简单的管理
@@ -222,7 +223,7 @@ DelayedWorkQueue：队列内元素必须实现Delayed接口，这就意味着你
 
 # 2.怎么使用
 
-**源码：https://github.com/youngMen1/springboot-code/tree/master/springboot-threadpool**
+**源码：**[https://github.com/youngMen1/springboot-code/tree/master/springboot-threadpool](https://github.com/youngMen1/springboot-code/tree/master/springboot-threadpool)
 
 ## 2.1.常用方法
 
