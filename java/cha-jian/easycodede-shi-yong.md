@@ -49,6 +49,8 @@ Lombok能通过注解的方式，在编译时自动为属性生成构造器、ge
 
 ## 2.4.开始生成代码
 
+在这个里面找到你想生成的表，然后右键，就会出现如下所示的截面。
+
 # 参考
 
 [https://mp.weixin.qq.com/s/hLodJvBucYiz6BLrk0P5gQ](https://mp.weixin.qq.com/s/hLodJvBucYiz6BLrk0P5gQ)
