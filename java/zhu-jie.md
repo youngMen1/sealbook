@@ -988,6 +988,10 @@ public class CommonBootStrap {
 
 **@PreConstruct：**被@PreConstruct修饰的方法会在服务器卸载Servlet的时候运行，并且只会被服务器调用一次，类似于Servlet的destroy\(\)方法。被@PreConstruct修饰的方法会在destroy\(\)方法之后运行，在Servlet被彻底卸载之前
 
+#### 5.JSR303定义的校验类型
+
+
+
 # 7.注解优势
 
 1.采用纯java代码，不在需要配置繁杂的xml文件
