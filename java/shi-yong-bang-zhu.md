@@ -35,6 +35,12 @@ Ctrl + Space 基础代码补全，默认在 Windows 系统上被输入法占用
 
 ## 2.2.Alt
 
+Alt + F8  在 Debug 的状态下，选中对象，弹出可输入计算表达式调试框，查看该输入内容的调试结果
+
+Alt + Enter  IntelliJ IDEA 根据光标所在问题，提供快速修复选择，光标放在的位置不同提示的结果也不同
+
+Alt + Insert  代码自动生成，如生成对象的 set / get 方法等。建议用lombak插件
+
 ## 2.3.Shift
 
 ## 3**.多Application启动查看**
