@@ -43,6 +43,8 @@ Lombok能通过注解的方式，在编译时自动为属性生成构造器、ge
 
 14226414-791374ad79eb0f53.webp
 
+然后填写数据库名字，用户名，密码。点击OK即可。这样的话，IDEA连接数据库就完事了
+
 # 参考
 
 [https://mp.weixin.qq.com/s/hLodJvBucYiz6BLrk0P5gQ](https://mp.weixin.qq.com/s/hLodJvBucYiz6BLrk0P5gQ)
