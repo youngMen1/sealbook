@@ -1,4 +1,4 @@
-**1.debug模式**
+## **1.Debug模式**
 
 | F9 | resume programe 恢复程序 |
 | :--- | :--- |
@@ -11,9 +11,9 @@
 | ctrl+shift+F9 | debug运行java类 |
 | ctrl+shift+F10 | 正常运行java类 |
 | alt+F8 | debug时选中查看值 |
-|ctrl+N  |快速查找某个类  |
+| ctrl+N | 快速查找某个类 |
 
-**2.多Application启动查看**
+## **2.多Application启动查看**
 
 找到.idea文件下的workspace.xml，并找到RunDashboard
 
