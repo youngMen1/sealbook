@@ -298,6 +298,8 @@ System.out.println("*********"+template.opsForValue().get("appendTest",0,5));
 
 ## 2.2.Redis的List数据结构
 
+**这边我们把RedisTemplate序列化方式改回之前的**
+
 # 3.参考
 
 [https://www.jianshu.com/p/7bf5dc61ca06](https://www.jianshu.com/p/7bf5dc61ca06)
