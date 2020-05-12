@@ -587,6 +587,18 @@ template.opsForList().rightPopAndLeftPush("list","rightPopAndLeftPush");
 使用：用法与rightPopAndLeftPush(K sourceKey, K destinationKey)一样
 ```
 
+## 2.3.Redis的Hash数据机构
+
+Redis的散列可以让用户将多个键值对存储到一个Redis键里面。  
+ public interface HashOperations&lt;H,HK,HV&gt;  
+ HashOperations提供一系列方法操作hash：
+
+  
+
+
+  
+
+
 # 3.参考
 
 [https://www.jianshu.com/p/7bf5dc61ca06](https://www.jianshu.com/p/7bf5dc61ca06)
