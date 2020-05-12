@@ -142,9 +142,7 @@ set void set\(K key, V value, long timeout, TimeUnit unit\);
 true
 ```
 
-multiSet void multiSet\(Map&lt;? extends K, ? extends V&gt; m\);为多个键分别设置它们的值
-
-
+* multiSet void multiSet\(Map&lt;? extends K, ? extends V&gt; m\); 为多个键分别设置它们的值
 
 # 3.参考
 
