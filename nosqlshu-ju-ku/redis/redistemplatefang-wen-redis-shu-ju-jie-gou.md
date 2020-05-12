@@ -181,7 +181,11 @@ false
 
 * get V get\(Object key\);
 
-# 
+```
+使用：template.opsForValue().set("key","hello world");
+        System.out.println("***************"+template.opsForValue().get("key"));
+结果：***************hello world
+```
 
 # 3.参考
 
