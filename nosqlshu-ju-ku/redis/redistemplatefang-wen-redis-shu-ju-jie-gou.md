@@ -104,6 +104,17 @@ RedisSerializer<String> stringSerializer = new StringRedisSerializer();
         template.setHashValueSerializer(stringSerializer );
 ```
 
+public interface ValueOperations&lt;K,V&gt;  
+ Redis operations for simple \(or in Redis terminology 'string'\) values.  
+ ValueOperations可以对String数据结构进行操作：
+
+* set void set\(K key, V value\);
+
+  
+
+
+
+
 # 3.参考
 
 [https://www.jianshu.com/p/7bf5dc61ca06](https://www.jianshu.com/p/7bf5dc61ca06)
