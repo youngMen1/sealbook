@@ -190,14 +190,26 @@ false
 getAndSet V getAndSet\(K key, V value\);
 
 ```
-
+使用：template.opsForValue().set("getSetTest","test");
+        System.out.println(template.opsForValue().getAndSet("getSetTest","test2"));
+结果：test
 ```
 
 * multiGet List&lt;V&gt; multiGet\(Collection&lt;K&gt; keys\);
    为多个键分别取出它们的值
 
 ```
-
+使用：Map<String,String> maps = new HashMap<String, String>();
+        maps.put("multi1","multi1");
+        maps.put("multi2","multi2");
+        maps.put("multi3","multi3");
+        template.opsForValue().multiSet(maps);
+        List<String> keys = new ArrayList<String>();
+        keys.add("multi1");
+        keys.add("multi2");
+        keys.add("multi3");
+        System.out.println(template.opsForValue().multiGet(keys));
+结果：[multi1, multi2, multi3]
 ```
 
 * increment Long increment\(K key, long delta\);
@@ -215,52 +227,46 @@ getAndSet V getAndSet\(K key, V value\);
 ```
 
 * append Integer append\(K key, String value\);
- 
-   如果key已经存在并且是一个字符串，则该命令将该值追加到字符串的末尾。如果键不存在，则它被创建并设置为空字符串，因此APPEND在这种特殊情况下将类似于SET。
+
+  如果key已经存在并且是一个字符串，则该命令将该值追加到字符串的末尾。如果键不存在，则它被创建并设置为空字符串，因此APPEND在这种特殊情况下将类似于SET。
 
 ```
 
 ```
 
 * get String get\(K key, long start, long end\);
- 
-   截取key所对应的value字符串
+
+  截取key所对应的value字符串
 
 ```
 
 ```
 
 * size Long size\(K key\);
- 
-   返回key所对应的value值得长度
+
+  返回key所对应的value值得长度
 
 ```
 
 ```
 
 * setBit Boolean setBit\(K key, long offset, boolean value\);
- 
-   对 key 所储存的字符串值，设置或清除指定偏移量上的位\(bit\)
- 
-   key键对应的值value对应的ascii码,在offset的位置\(从左向右数\)变为value
+
+  对 key 所储存的字符串值，设置或清除指定偏移量上的位\(bit\)
+
+  key键对应的值value对应的ascii码,在offset的位置\(从左向右数\)变为value
 
 ```
 
 ```
 
 * getBit Boolean getBit\(K key, long offset\);
- 
-   获取键对应值的ascii码的在offset处位值
+
+  获取键对应值的ascii码的在offset处位值
 
 ```
 
 ```
-
-  
-
-
-  
-
 
 # 3.参考
 
