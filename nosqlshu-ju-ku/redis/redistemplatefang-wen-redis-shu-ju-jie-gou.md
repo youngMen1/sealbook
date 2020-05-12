@@ -753,6 +753,25 @@ kkk:kkk
 
 ## 2.4.Redis的Set数据结构
 
+Redis的Set是string类型的无序集合。集合成员是唯一的，这就意味着集合中不能出现重复的数据。  
+ Redis 中 集合是通过哈希表实现的，所以添加，删除，查找的复杂度都是O\(1\)。  
+ public interface SetOperations&lt;K,V&gt;  
+ SetOperations提供了对无序集合的一系列操作：
+
+* Long add\(K key, V... values\);
+ 
+   无序集合中添加元素，返回添加个数
+ 
+   也可以直接在add里面添加多个值 如：template.opsForSet\(\).add\("setTest","aaa","bbb"\)
+
+  
+
+
+  
+
+
+
+
 # 3.参考
 
 [https://www.jianshu.com/p/7bf5dc61ca06](https://www.jianshu.com/p/7bf5dc61ca06)
