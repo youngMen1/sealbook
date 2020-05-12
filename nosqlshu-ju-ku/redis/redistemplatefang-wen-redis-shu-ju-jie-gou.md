@@ -328,7 +328,11 @@ public interface ListOperations&lt;K,V&gt;
 * void trim\(K key, long start, long end\);
 
 ```
-
+使用：System.out.println(template.opsForList().range("list",0,-1));
+template.opsForList().trim("list",1,-1);//裁剪第一个元素
+System.out.println(template.opsForList().range("list",0,-1));
+结果:[c#, c++, python, java, c#, c#]
+[c++, python, java, c#, c#]
 ```
 
 * Long size\(K key\);
