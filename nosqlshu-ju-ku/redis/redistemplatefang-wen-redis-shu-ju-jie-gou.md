@@ -144,6 +144,20 @@ true
 
 * multiSet void multiSet\(Map&lt;? extends K, ? extends V&gt; m\); 为多个键分别设置它们的值
 
+```
+使用：Map<String,String> maps = new HashMap<String, String>();
+        maps.put("multi1","multi1");
+        maps.put("multi2","multi2");
+        maps.put("multi3","multi3");
+        template.opsForValue().multiSet(maps);
+        List<String> keys = new ArrayList<String>();
+        keys.add("multi1");
+        keys.add("multi2");
+        keys.add("multi3");
+        System.out.println(template.opsForValue().multiGet(keys));
+结果：[multi1, multi2, multi3]
+```
+
 # 3.参考
 
 [https://www.jianshu.com/p/7bf5dc61ca06](https://www.jianshu.com/p/7bf5dc61ca06)
