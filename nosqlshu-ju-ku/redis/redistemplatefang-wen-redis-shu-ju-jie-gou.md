@@ -216,14 +216,18 @@ getAndSet V getAndSet\(K key, V value\);
    支持整数
 
 ```
-
+使用：template.opsForValue().increment("increlong",1);
+        System.out.println("***************"+template.opsForValue().get("increlong"));
+结果：***************1
 ```
 
 * increment Double increment\(K key, double delta\);
    也支持浮点数
 
 ```
-
+使用：template.opsForValue().increment("increlong",1.2);
+        System.out.println("***************"+template.opsForValue().get("increlong"));
+结果：***************2.2
 ```
 
 * append Integer append\(K key, String value\);
@@ -231,7 +235,12 @@ getAndSet V getAndSet\(K key, V value\);
   如果key已经存在并且是一个字符串，则该命令将该值追加到字符串的末尾。如果键不存在，则它被创建并设置为空字符串，因此APPEND在这种特殊情况下将类似于SET。
 
 ```
-
+使用：template.opsForValue().append("appendTest","Hello");
+        System.out.println(template.opsForValue().get("appendTest"));
+        template.opsForValue().append("appendTest","world");
+        System.out.println(template.opsForValue().get("appendTest"));
+结果：Hello
+        Helloworld
 ```
 
 * get String get\(K key, long start, long end\);
