@@ -386,7 +386,17 @@ System.out.println(template.opsForList().range("list",0,-1));
 * Long leftPushIfPresent\(K key, V value\);
 
 ```
-
+使用：System.out.println(template.opsForList().leftPushIfPresent("leftPushIfPresent","aa"));
+        System.out.println(template.opsForList().leftPushIfPresent("leftPushIfPresent","bb"));
+==========分割线===========
+System.out.println(template.opsForList().leftPush("leftPushIfPresent","aa"));
+        System.out.println(template.opsForList().leftPushIfPresent("leftPushIfPresent","bb"));
+结果:
+0
+0
+==========分割线===========
+1
+2
 ```
 
 * Long leftPush\(K key, V pivot, V value\);
@@ -394,7 +404,9 @@ System.out.println(template.opsForList().range("list",0,-1));
   把value值放到key对应列表中pivot值的左面，如果pivot值存在的话
 
 ```
-
+使用：template.opsForList().leftPush("list","java","oc");
+        System.out.print(template.opsForList().range("list",0,-1));
+结果：[c++, python, oc, java, c#, c#]
 ```
 
 * Long rightPush\(K key, V value\);
@@ -402,19 +414,34 @@ System.out.println(template.opsForList().range("list",0,-1));
   将所有指定的值插入存储在键的列表的头部。如果键不存在，则在执行推送操作之前将其创建为空列表。（从右边插入）
 
 ```
-
+使用：template.opsForList().rightPush("listRight","java");
+        template.opsForList().rightPush("listRight","python");
+        template.opsForList().rightPush("listRight","c++");
+结果:
+1
+2
+3
 ```
 
 * Long rightPushAll\(K key, V... values\);
 
 ```
-
+使用：String[] stringarrays = new String[]{"1","2","3"};
+        template.opsForList().rightPushAll("listarrayright",stringarrays);
+        System.out.println(template.opsForList().range("listarrayright",0,-1));
+结果:[1, 2, 3]
 ```
 
 * Long rightPushAll\(K key, Collection&lt;V&gt;values\);
 
 ```
-
+使用：List<Object> strings = new ArrayList<Object>();
+        strings.add("1");
+        strings.add("2");
+        strings.add("3");
+        template.opsForList().rightPushAll("listcollectionright", strings);
+        System.out.println(template.opsForList().range("listcollectionright",0,-1));
+结果:[1, 2, 3]
 ```
 
 * Long rightPushIfPresent\(K key, V value\);
@@ -422,12 +449,29 @@ System.out.println(template.opsForList().range("list",0,-1));
   只有存在key对应的列表才能将这个value值插入到key所对应的列表中
 
 ```
-
+使用：System.out.println(template.opsForList().rightPushIfPresent("rightPushIfPresent","aa"));
+        System.out.println(template.opsForList().rightPushIfPresent("rightPushIfPresent","bb"));
+        System.out.println("==========分割线===========");
+        System.out.println(template.opsForList().rightPush("rightPushIfPresent","aa"));
+        System.out.println(template.opsForList().rightPushIfPresent("rightPushIfPresent","bb"));
+结果:0
+0
+==========分割线===========
+1
+2
 ```
 
 * Long rightPush\(K key, V pivot, V value\);
 
   把value值放到key对应列表中pivot值的右面，如果pivot值存在的话
+
+```
+使用：System.out.println(template.opsForList().range("listRight",0,-1));
+        template.opsForList().rightPush("listRight","python","oc");
+        System.out.println(template.opsForList().range("listRight",0,-1));
+结果:[java, python, c++]
+[java, python, oc, c++]
+```
 
 # 3.参考
 
