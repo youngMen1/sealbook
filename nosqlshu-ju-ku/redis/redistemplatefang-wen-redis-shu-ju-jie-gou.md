@@ -759,16 +759,16 @@ Redis的Set是string类型的无序集合。集合成员是唯一的，这就意
  SetOperations提供了对无序集合的一系列操作：
 
 * Long add\(K key, V... values\);
- 
-   无序集合中添加元素，返回添加个数
- 
-   也可以直接在add里面添加多个值 如：template.opsForSet\(\).add\("setTest","aaa","bbb"\)
 
-  
+  无序集合中添加元素，返回添加个数
 
+  也可以直接在add里面添加多个值 如：template.opsForSet\(\).add\("setTest","aaa","bbb"\)
 
-  
-
+```
+使用：String[] strarrays = new String[]{"strarr1","sgtarr2"};
+        System.out.println(template.opsForSet().add("setTest", strarrays));
+结果：2
+```
 
 
 
