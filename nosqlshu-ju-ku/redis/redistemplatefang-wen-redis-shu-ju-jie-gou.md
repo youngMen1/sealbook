@@ -142,7 +142,9 @@ set void set\(K key, V value, long timeout, TimeUnit unit\);
 true
 ```
 
-* multiSet void multiSet\(Map&lt;? extends K, ? extends V&gt; m\); 为多个键分别设置它们的值
+* multiSet void multiSet\(Map&lt;? extends K, ? extends V&gt; m\);
+
+ 为多个键分别设置它们的值
 
 ```
 使用：Map<String,String> maps = new HashMap<String, String>();
@@ -158,7 +160,9 @@ true
 结果：[multi1, multi2, multi3]
 ```
 
-* multiSetIfAbsent Boolean multiSetIfAbsent\(Map&lt;? extends K, ? extends V&gt;m\);为多个键分别设置它们的值，如果存在则返回false，不存在返回true
+* multiSetIfAbsent Boolean multiSetIfAbsent\(Map&lt;? extends K, ? extends V&gt;m\);
+
+为多个键分别设置它们的值，如果存在则返回false，不存在返回true
 
 ```
 使用：Map<String,String> maps = new HashMap<String, String>();
@@ -173,10 +177,7 @@ true
         System.out.println(template.opsForValue().multiSetIfAbsent(maps2));
 结果：true
 false
-
 ```
-
-
 
 # 
 
