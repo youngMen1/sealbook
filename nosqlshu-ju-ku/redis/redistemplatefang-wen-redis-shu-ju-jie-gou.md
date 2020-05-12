@@ -313,6 +313,24 @@ RedisTemplate<String, Object> template = new RedisTemplate<String, Object>();
         template.setHashValueSerializer(jackson2JsonRedisSerializer);
 ```
 
+public interface ListOperations&lt;K,V&gt;  
+ Redis列表是简单的字符串列表，按照插入顺序排序。你可以添加一个元素导列表的头部（左边）或者尾部（右边）  
+ ListOperations专门操作list列表：
+
+* List&lt;V&gt;range\(K key, long start, long end\);
+   返回存储在键中的列表的指定元素。偏移开始和停止是基于零的索引，其中0是列表的第一个元素（列表的头部），1是下一个元素
+
+```
+使用：System.out.println(template.opsForList().range("list",0,-1));
+结果:[c#, c++, python, java, c#, c#]
+```
+
+  
+
+
+  
+
+
 # 3.参考
 
 [https://www.jianshu.com/p/7bf5dc61ca06](https://www.jianshu.com/p/7bf5dc61ca06)
