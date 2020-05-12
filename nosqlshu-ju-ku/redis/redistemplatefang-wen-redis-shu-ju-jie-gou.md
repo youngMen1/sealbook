@@ -484,41 +484,24 @@ System.out.println(template.opsForList().leftPush("leftPushIfPresent","aa"));
 ```
 
 * Long remove\(K key, long count, Object value\);
- 
+
   从存储在键中的列表中删除等于值的元素的第一个计数事件。
 
-  
+计数参数以下列方式影响操作：
 
+count
 
-   计数参数以下列方式影响操作：
+&gt;
 
-  
+0：删除等于从头到尾移动的值的元素。
 
+count
 
-   count
+&lt;
 
-  &gt;
+0：删除等于从尾到头移动的值的元素。
 
-   0：删除等于从头到尾移动的值的元素。
-
-  
-
-
-   count 
-
-  &lt;
-
-  0：删除等于从尾到头移动的值的元素。
-
-  
-
-
-   count = 0：删除等于value的所有元素。
-
-  
-
-
-  
+count = 0：删除等于value的所有元素。
 
 ```
 使用：System.out.println(template.opsForList().range("listRight",0,-1));
@@ -529,66 +512,65 @@ System.out.println(template.opsForList().leftPush("leftPushIfPresent","aa"));
 ```
 
 * V index\(K key, long index\);
- 
-   根据下表获取列表中的值，下标是从0开始的
+
+  根据下表获取列表中的值，下标是从0开始的
 
 ```
-
+使用：System.out.println(template.opsForList().range("listRight",0,-1));
+System.out.println(template.opsForList().index("listRight",2));
+结果:[java, oc, c++]
+c++
 ```
 
 * V leftPop\(K key\);
- 
-   弹出最左边的元素，弹出之后该值在列表中将不复存在
+
+  弹出最左边的元素，弹出之后该值在列表中将不复存在
 
 ```
-
+使用：System.out.println(template.opsForList().range("list",0,-1));
+        System.out.println(template.opsForList().leftPop("list"));
+        System.out.println(template.opsForList().range("list",0,-1));
+结果:
+[c++, python, oc, java, c#, c#]
+c++
+[python, oc, java, c#, c#]
 ```
 
 * V leftPop\(K key, long timeout, TimeUnit unit\);
- 
-   移出并获取列表的第一个元素， 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。
+
+  移出并获取列表的第一个元素， 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。
 
 ```
 使用：用法与 leftPop(K key);一样
-
 ```
 
 * V rightPop\(K key\);
- 
-   弹出最右边的元素，弹出之后该值在列表中将不复存在
+
+  弹出最右边的元素，弹出之后该值在列表中将不复存在
 
 ```
-
+使用：用法与 leftPop(K key);一样
 ```
 
 * V rightPop\(K key, long timeout, TimeUnit unit\);
- 
-   移出并获取列表的最后一个元素， 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。
+
+  移出并获取列表的最后一个元素， 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。
 
 ```
 使用：用法与 rightPop(K key);一样
-
 ```
 
 * V rightPopAndLeftPush\(K sourceKey, K destinationKey\);
- 
-   用于移除列表的最后一个元素，并将该元素添加到另一个列表并返回。
+
+  用于移除列表的最后一个元素，并将该元素添加到另一个列表并返回。
 
 ```
 
 ```
 
 * V rightPopAndLeftPush\(K sourceKey, K destinationKey, long timeout, TimeUnit unit\);
- 
-   用于移除列表的最后一个元素，并将该元素添加到另一个列表并返回，如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。
 
-  
-
-
-  
-
-
-
+  用于移除列表的最后一个元素，并将该元素添加到另一个列表并返回，如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。
 
 # 3.参考
 
