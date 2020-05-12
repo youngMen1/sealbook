@@ -94,7 +94,15 @@ public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisC
 
 **Redis的String数据结构 （推荐使用StringRedisTemplate）**
 
-**注意：如果使用RedisTemplate需要更改序列化方式**
+**注意：如果使用RedisTemplate需要更改序列化方式：**
+
+```
+RedisSerializer<String> stringSerializer = new StringRedisSerializer();
+        template.setKeySerializer(stringSerializer );
+        template.setValueSerializer(stringSerializer );
+        template.setHashKeySerializer(stringSerializer );
+        template.setHashValueSerializer(stringSerializer );
+```
 
 # 3.参考
 
