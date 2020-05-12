@@ -899,8 +899,8 @@ setTest2:[ccc, aaa]
 ```
 
 * Set&lt;V&gt;union\(K key, Collection&lt;K&gt;otherKeys\);
- 
-   key无序集合与多个otherKey无序集合的并集
+
+  key无序集合与多个otherKey无序集合的并集
 
 ```
 使用：System.out.println("setTest:" + template.opsForSet().members("setTest"));
@@ -917,8 +917,8 @@ setTest3:[xxx, ccc, aaa]
 ```
 
 * Long unionAndStore\(K key, K otherKey, K destKey\);
- 
-   key无序集合与otherkey无序集合的并集存储到destKey无序集合中
+
+  key无序集合与otherkey无序集合的并集存储到destKey无序集合中
 
 ```
 使用：System.out.println("setTest:" + template.opsForSet().members("setTest"));
@@ -932,8 +932,8 @@ unionAndStoreTest1:[ccc, aaa, ddd, bbb]
 ```
 
 * Long unionAndStore\(K key, Collection&lt;K&gt;otherKeys, K destKey\);
- 
-   key无序集合与多个otherkey无序集合的并集存储到destKey无序集合中
+
+  key无序集合与多个otherkey无序集合的并集存储到destKey无序集合中
 
 ```
 使用：System.out.println("setTest:" + template.opsForSet().members("setTest"));
@@ -952,8 +952,8 @@ unionAndStoreTest2:[ddd, xxx, bbb, aaa, ccc]
 ```
 
 * Set&lt;V&gt;difference\(K key, K otherKey\);
- 
-   key无序集合与otherKey无序集合的差集
+
+  key无序集合与otherKey无序集合的差集
 
 ```
 使用：System.out.println("setTest:" + template.opsForSet().members("setTest"));
@@ -964,7 +964,10 @@ setTest2:[ccc, aaa]
 [bbb, ddd]
 ```
 
-  
+
+
+
+
 
 
 # 3.参考
