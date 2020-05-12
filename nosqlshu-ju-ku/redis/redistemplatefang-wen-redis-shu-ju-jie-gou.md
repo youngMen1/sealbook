@@ -598,151 +598,149 @@ Redis的散列可以让用户将多个键值对存储到一个Redis键里面。
         //template.opsForHash().putAll("redisHash1",testMap);
 ```
 
-Long delete\(H key, Object... hashKeys\);
+* Long delete\(H key, Object... hashKeys\);
 
 ```
-
+使用：System.out.println(template.opsForHash().delete("redisHash","name"));
+        System.out.println(template.opsForHash().entries("redisHash"));
+结果：1
+{class=6, age=28.1}
 ```
 
 * Boolean hasKey\(H key, Object hashKey\);
- 
-   确定哈希hashKey是否存在
+
+  确定哈希hashKey是否存在
 
 ```
-
+使用：System.out.println(template.opsForHash().hasKey("redisHash","age"));
+        System.out.println(template.opsForHash().hasKey("redisHash","ttt"));
+结果：true
+false
 ```
 
 * HV get\(H key, Object hashKey\);
- 
-   从键中的哈希获取给定hashKey的值
+
+  从键中的哈希获取给定hashKey的值
 
 ```
-
+使用：System.out.println(template.opsForHash().get("redisHash","age"));
+结果：26
 ```
 
-* List
-  &lt;
-  HV
-  &gt;
-   multiGet\(H key, Collection
-  &lt;
-  HK
-  &gt;
-   hashKeys\);
- 
-   从哈希中获取给定hashKey的值
+* List&lt;HV&gt;multiGet\(H key, Collection&lt;HK&gt;hashKeys\);
+
+  从哈希中获取给定hashKey的值
 
 ```
-
+使用：List<Object> kes = new ArrayList<Object>();
+        kes.add("name");
+        kes.add("age");
+        System.out.println(template.opsForHash().multiGet("redisHash",kes));
+结果：[jack, 28.1]
 ```
 
 * Long increment\(H key, HK hashKey, long delta\);
- 
-   通过给定的delta增加散列hashKey的值（整型）
+
+  通过给定的delta增加散列hashKey的值（整型）
 
 ```
 
 ```
 
 * Double increment\(H key, HK hashKey, double delta\);
- 
-   通过给定的delta增加散列hashKey的值（浮点数）
+
+  通过给定的delta增加散列hashKey的值（浮点数）
 
 ```
 
 ```
 
-* Set
-  &lt;
-  HK
-  &gt;
+* Set  
+  &lt;  
+  HK  
+  &gt;  
    keys\(H key\);
- 
-   获取key所对应的散列表的key
+
+  获取key所对应的散列表的key
 
 ```
 
 ```
 
 * Long size\(H key\);
- 
-   获取key所对应的散列表的大小个数
+
+  获取key所对应的散列表的大小个数
 
 ```
 
 ```
 
-* void putAll\(H key, Map
-  &lt;
-  ? extends HK, ? extends HV
-  &gt;
+* void putAll\(H key, Map  
+  &lt;  
+  ? extends HK, ? extends HV  
+  &gt;  
    m\);
- 
-   使用m中提供的多个散列字段设置到key对应的散列表中
+
+  使用m中提供的多个散列字段设置到key对应的散列表中
 
 ```
 
 ```
 
 * void put\(H key, HK hashKey, HV value\);
- 
-   设置散列hashKey的值
+
+  设置散列hashKey的值
 
 ```
 
 ```
 
 * Boolean putIfAbsent\(H key, HK hashKey, HV value\);
- 
-   仅当hashKey不存在时才设置散列hashKey的值。
+
+  仅当hashKey不存在时才设置散列hashKey的值。
 
 ```
 
 ```
 
-* List
-  &lt;
-  HV
-  &gt;
+* List  
+  &lt;  
+  HV  
+  &gt;  
    values\(H key\);
- 
-   获取整个哈希存储的值根据密钥
+
+  获取整个哈希存储的值根据密钥
 
 ```
 
 ```
 
-* Map
-  &lt;
-  HK, HV
-  &gt;
+* Map  
+  &lt;  
+  HK, HV  
+  &gt;  
    entries\(H key\);
- 
-   获取整个哈希存储根据密钥
+
+  获取整个哈希存储根据密钥
 
 ```
 
 ```
 
-* Cursor
-  &lt;
-  Map.Entry
-  &lt;
-  HK, HV
-  &gt;
-  &gt;
+* Cursor  
+  &lt;  
+  Map.Entry  
+  &lt;  
+  HK, HV  
+  &gt;  
+  &gt;  
    scan\(H key, ScanOptions options\);
- 
-   使用Cursor在key的hash中迭代，相当于迭代器。
+
+  使用Cursor在key的hash中迭代，相当于迭代器。
 
 ```
 
 ```
-
-  
-
-
-
 
 # 3.参考
 
