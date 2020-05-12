@@ -40,48 +40,28 @@ Type Parameters:
  K
 
 * the Redis key type against which the template works \(usually a String\)
- 
-   模板中的Redis key的类型（通常为String）如：RedisTemplate
-  &lt;
-  String, Object
+
+  模板中的Redis key的类型（通常为String）如：RedisTemplate  
+  &lt;  
+  String, Object  
   &gt;
- 
-   注意：
-  **如果没特殊情况，切勿定义成RedisTemplate**
-  **&lt;**
-  **Object, Object**
-  **&gt;**
+
+  注意：  
+  **如果没特殊情况，切勿定义成RedisTemplate**  
+  **&lt;**  
+  **Object, Object**  
+  **&gt;**  
   ，否则根据里氏替换原则，使用的时候会造成类型错误 。
- 
-   V
+
+  V
+
 * the Redis value type against which the template works
- 
-   模板中的Redis value的类型
+
+  模板中的Redis value的类型
 
 ### RedisTemplate中定义了对5种数据结构操作
 
-  
 
-
-  
-
-
-作者：DreamerRzc
-
-  
-
-
-链接：https://www.jianshu.com/p/7bf5dc61ca06
-
-  
-
-
-来源：简书
-
-  
-
-
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 # 
 
