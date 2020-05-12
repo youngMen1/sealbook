@@ -61,7 +61,13 @@ Type Parameters:
 
 ### RedisTemplate中定义了对5种数据结构操作
 
-
+```
+redisTemplate.opsForValue();//操作字符串
+redisTemplate.opsForHash();//操作hash
+redisTemplate.opsForList();//操作list
+redisTemplate.opsForSet();//操作set
+redisTemplate.opsForZSet();//操作有序set
+```
 
 # 
 
