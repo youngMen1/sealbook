@@ -28,6 +28,14 @@ spring 封装了 RedisTemplate 对象来进行对redis的各种操作，它支�
 
 **RedisTemplate在spring代码中的结构如下：**
 
+```
+org.springframework.data.redis.core
+Class RedisTemplate<K,V>
+java.lang.Object
+    org.springframework.data.redis.core.RedisAccessor
+        org.springframework.data.redis.core.RedisTemplate<K,V>
+```
+
 # 3.参考
 
 [https://www.jianshu.com/p/7bf5dc61ca06](https://www.jianshu.com/p/7bf5dc61ca06)
