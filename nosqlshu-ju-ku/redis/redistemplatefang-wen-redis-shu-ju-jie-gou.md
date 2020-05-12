@@ -1106,10 +1106,15 @@ Redis 有序集合和无序集合一样也是string类型元素的集合,且不�
 结果：[zset-1, zset-2, zset-3, zset-4, zset-5, zset-6]
 ```
 
-Long remove\(K key, Object... values\);
+* Long remove\(K key, Object... values\);
 
 ```
-
+使用：System.out.println(template.opsForZSet().range("zset1",0,-1));
+        System.out.println(template.opsForZSet().remove("zset1","zset-6"));
+        System.out.println(template.opsForZSet().range("zset1",0,-1));
+结果：[zset-1, zset-2, zset-3, zset-4, zset-5, zset-6]
+1
+[zset-1, zset-2, zset-3, zset-4, zset-5]
 ```
 
 * Double incrementScore\(K key, V value, double delta\);
