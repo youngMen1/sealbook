@@ -964,8 +964,72 @@ setTest2:[ccc, aaa]
 [bbb, ddd]
 ```
 
+* Set&lt;V&gt; difference\(K key, Collection&lt;K&gt; otherKeys\);
+
+key无序集合与多个otherKey无序集合的差集
+
+```
+使用：System.out.println("setTest:" + template.opsForSet().members("setTest"));
+        System.out.println("setTest2:" + template.opsForSet().members("setTest2"));
+        System.out.println("setTest3:" + template.opsForSet().members("setTest3"));
+        List<String> strlist = new ArrayList<String>();
+        strlist.add("setTest2");
+        strlist.add("setTest3");
+        System.out.println(template.opsForSet().difference("setTest",strlist));
+结果：setTest:[ddd, bbb, aaa, ccc]
+setTest2:[ccc, aaa]
+setTest3:[xxx, ccc, aaa]
+[bbb, ddd]
+```
+
+Long differenceAndStore\(K key, K otherKey, K destKey\);
+
+key无序集合与otherkey无序集合的差集存储到destKey无序集合中
+
+```
+使用：System.out.println("setTest:" + template.opsForSet().members("setTest"));
+        System.out.println("setTest2:" + template.opsForSet().members("setTest2"));
+        System.out.println(template.opsForSet().differenceAndStore("setTest","setTest2","differenceAndStore1"));
+        System.out.println("differenceAndStore1:" + template.opsForSet().members("differenceAndStore1"));
+结果：setTest:[ddd, bbb, aaa, ccc]
+setTest2:[ccc, aaa]
+2
+differenceAndStore1:[bbb, ddd]
+```
+
+* Long differenceAndStore\(K key, Collection&lt;K&gt;otherKeys, K destKey\);
+ 
+   key无序集合与多个otherkey无序集合的差集存储到destKey无序集合中
+
+```
+使用：System.out.println("setTest:" + template.opsForSet().members("setTest"));
+        System.out.println("setTest2:" + template.opsForSet().members("setTest2"));
+        System.out.println("setTest3:" + template.opsForSet().members("setTest3"));
+        List<String> strlist = new ArrayList<String>();
+        strlist.add("setTest2");
+        strlist.add("setTest3");
+        System.out.println(template.opsForSet().differenceAndStore("setTest",strlist,"differenceAndStore2"));
+        System.out.println("differenceAndStore2:" + template.opsForSet().members("differenceAndStore2"));
+结果：setTest:[ddd, bbb, aaa, ccc]
+setTest2:[ccc, aaa]
+setTest3:[xxx, ccc, aaa]
+2
+differenceAndStore2:[bbb, ddd]
+```
 
 
+
+* Set&lt;V&gt;members\(K key\);
+ 
+   返回集合中的所有成员
+
+```
+
+使用：System.out.println(template.opsForSet().members("setTest"));
+结果：[ddd, bbb, aaa, ccc]
+```
+
+  
 
 
 
