@@ -340,7 +340,8 @@ System.out.println(template.opsForList().range("list",0,-1));
   返回存储在键中的列表的长度。如果键不存在，则将其解释为空列表，并返回0。当key存储的值不是列表时返回错误。
 
 ```
-
+使用：System.out.println(template.opsForList().size("list"));
+结果:6
 ```
 
 * Long leftPush\(K key, V value\);
@@ -348,7 +349,13 @@ System.out.println(template.opsForList().range("list",0,-1));
   将所有指定的值插入存储在键的列表的头部。如果键不存在，则在执行推送操作之前将其创建为空列表。（从左边插入）
 
 ```
-
+使用：template.opsForList().leftPush("list","java");
+        template.opsForList().leftPush("list","python");
+        template.opsForList().leftPush("list","c++");
+结果:返回的结果为推送操作后的列表的长度
+1
+2
+3
 ```
 
 * Long leftPushAll\(K key, V... values\);
@@ -356,7 +363,10 @@ System.out.println(template.opsForList().range("list",0,-1));
   批量把一个数组插入到列表中
 
 ```
-
+使用：String[] stringarrays = new String[]{"1","2","3"};
+        template.opsForList().leftPushAll("listarray",stringarrays);
+        System.out.println(template.opsForList().range("listarray",0,-1));
+结果:[3, 2, 1]
 ```
 
 * Long leftPushAll\(K key, Collection&lt;V&gt; values\);
