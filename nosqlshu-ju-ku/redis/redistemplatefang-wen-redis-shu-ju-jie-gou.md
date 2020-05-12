@@ -144,7 +144,7 @@ true
 
 * multiSet void multiSet\(Map&lt;? extends K, ? extends V&gt; m\);
 
- 为多个键分别设置它们的值
+  为多个键分别设置它们的值
 
 ```
 使用：Map<String,String> maps = new HashMap<String, String>();
@@ -179,7 +179,7 @@ true
 false
 ```
 
-# 
+* get V get\(Object key\);
 
 # 
 
