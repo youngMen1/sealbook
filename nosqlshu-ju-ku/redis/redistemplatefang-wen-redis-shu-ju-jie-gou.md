@@ -70,6 +70,8 @@ redisTemplate.opsForZSet();//操作有序set
 
   RedisTemplate默认采用的是JDK的序列化策略，保存的key和value都是采用此策略序列化保存的。
 
+* #### **Redis的String数据结构 （推荐使用StringRedisTemplate）**
+
 **RedisTemplate配置如下：**
 
 ```
@@ -92,7 +94,7 @@ public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisC
 }
 ```
 
-#### **Redis的String数据结构 （推荐使用StringRedisTemplate）**
+#### 
 
 **注意：如果使用RedisTemplate需要更改序列化方式：**
 
