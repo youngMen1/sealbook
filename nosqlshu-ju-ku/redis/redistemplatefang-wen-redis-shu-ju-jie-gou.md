@@ -772,7 +772,7 @@ Redis的Set是string类型的无序集合。集合成员是唯一的，这就意
 
 * Long remove\(K key, Object... values\);
 
-移除集合中一个或多个成员
+移除集合中一个或多个成员
 
 ```
 使用：String[] strarrays = new String[]{"strarr1","sgtarr2"};
@@ -780,6 +780,133 @@ System.out.println(template.opsForSet().remove("setTest",strarrays));
 结果：2
 ```
 
+* V pop\(K key\);
+
+移除并返回集合中的一个随机元素
+
+```
+使用：System.out.println(template.opsForSet().pop("setTest"));
+System.out.println(template.opsForSet().members("setTest"));
+结果：bbb
+[aaa, ccc]
+```
+
+* Boolean move\(K key, V value, K destKey\);
+
+```
+使用：String[] strarrays = new String[]{"strarr1","sgtarr2"};
+System.out.println(template.opsForSet().remove("setTest",strarrays));
+结果：2
+```
+
+* Long size\(K key\);
+ 
+   无序集合的大小长度
+
+```
+使用：System.out.println(template.opsForSet().size("setTest"));
+结果：1
+```
+
+* Boolean isMember\(K key, Object o\);
+ 
+   判断 member 元素是否是集合 key 的成员
+
+```
+使用：System.out.println(template.opsForSet().isMember("setTest","ccc"));
+        System.out.println(template.opsForSet().isMember("setTest","asd"));
+结果：true
+false
+```
+
+
+
+* Set
+  &lt;
+  V
+  &gt;
+   intersect\(K key, K otherKey\);
+ 
+   key对应的无序集合与otherKey对应的无序集合求交集
+
+```
+使用：System.out.println(template.opsForSet().members("setTest"));
+        System.out.println(template.opsForSet().members("setTest2"));
+        System.out.println(template.opsForSet().intersect("setTest","setTest2"));
+结果：[aaa, ccc]
+[aaa]
+[aaa]
+```
+
+* Set
+  &lt;
+  V
+  &gt;
+   intersect\(K key, Collection
+  &lt;
+  K
+  &gt;
+   otherKeys\);
+ 
+   key对应的无序集合与多个otherKey对应的无序集合求交集
+
+```
+使用：System.out.println(template.opsForSet().members("setTest"));
+        System.out.println(template.opsForSet().members("setTest2"));
+        System.out.println(template.opsForSet().members("setTest3"));
+        List<String> strlist = new ArrayList<String>();
+        strlist.add("setTest2");
+        strlist.add("setTest3");
+        System.out.println(template.opsForSet().intersect("setTest",strlist));
+结果：[aaa, ccc]
+[aaa]
+[ccc, aaa]
+[aaa]
+```
+
+* Long intersectAndStore\(K key, K otherKey, K destKey\);
+ 
+   key无序集合与otherkey无序集合的交集存储到destKey无序集合中
+
+```
+使用：System.out.println("setTest:" + template.opsForSet().members("setTest"));
+System.out.println("setTest2:" + template.opsForSet().members("setTest2"));
+System.out.println(template.opsForSet().intersectAndStore("setTest","setTest2","destKey1"));
+System.out.println(template.opsForSet().members("destKey1"));
+结果：setTest:[ddd, bbb, aaa, ccc]
+setTest2:[ccc, aaa]
+2
+[aaa, ccc]
+```
+
+* Long intersectAndStore\(K key, Collection
+  &lt;
+  K
+  &gt;
+   otherKeys, K destKey\);
+ 
+   key对应的无序集合与多个otherKey对应的无序集合求交集存储到destKey无序集合中
+
+```
+使用：System.out.println("setTest:" + template.opsForSet().members("setTest"));
+        System.out.println("setTest2:" + template.opsForSet().members("setTest2"));
+        System.out.println("setTest3:" + template.opsForSet().members("setTest3"));
+        List<String> strlist = new ArrayList<String>();
+        strlist.add("setTest2");
+        strlist.add("setTest3");
+        System.out.println(template.opsForSet().intersectAndStore("setTest",strlist,"destKey2"));
+        System.out.println(template.opsForSet().members("destKey2"));
+结果：setTest:[ddd, bbb, aaa, ccc]
+setTest2:[ccc, aaa]
+setTest3:[ccc, aaa]
+2
+[aaa, ccc]
+```
+
+  
+
+
+  
 
 
 # 3.参考
