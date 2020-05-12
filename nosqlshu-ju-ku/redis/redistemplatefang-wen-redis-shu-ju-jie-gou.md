@@ -110,10 +110,10 @@ public interface ValueOperations&lt;K,V&gt;
 
 * set void set\(K key, V value\);
 
-  
-
-
-
+```
+使用：redisTemplate.opsForValue().set("name","tom");
+结果：redisTemplate.opsForValue().get("name")  输出结果为tom
+```
 
 # 3.参考
 
