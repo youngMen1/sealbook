@@ -8,10 +8,6 @@ Redis 可以存储键与5种不同数据结构类型之间的映射，这5种数
 
 下面来对这5种数据结构类型作简单的介绍：
 
-Redis 可以存储键与5种不同数据结构类型之间的映射，这5种数据结构类型分别为String（字符串）、List（列表）、Set（集合）、Hash（散列）和 Zset（有序集合）。
-
-下面来对这5种数据结构类型作简单的介绍：
-
 | 结构类型 | 结构存储的值 | 结构的读写能力 |
 | :--- | :--- | :--- |
 | String | 可以是字符串、整数或者浮点数 | 对整个字符串或者字符串的其中一部分执行操作；对象和浮点数执行自增\(increment\)或者自减\(decrement\) |
@@ -41,16 +37,9 @@ Type Parameters:
 
 * the Redis key type against which the template works \(usually a String\)
 
-  模板中的Redis key的类型（通常为String）如：RedisTemplate  
-  &lt;  
-  String, Object  
-  &gt;
+  模板中的Redis key的类型（通常为String）如：RedisTemplate&lt;String, Object&gt;
 
-  注意：  
-  **如果没特殊情况，切勿定义成RedisTemplate**  
-  **&lt;**  
-  **Object, Object**  
-  **&gt;**  
+  注意：**如果没特殊情况，切勿定义成RedisTemplate&lt;Object, Object&gt;**  
   ，否则根据里氏替换原则，使用的时候会造成类型错误 。
 
   V
