@@ -274,7 +274,15 @@ System.out.println("*********"+template.opsForValue().get("appendTest",0,5));
   key键对应的值value对应的ascii码,在offset的位置\(从左向右数\)变为value
 
 ```
-
+使用：template.opsForValue().set("bitTest","a");
+        // 'a' 的ASCII码是 97。转换为二进制是：01100001
+        // 'b' 的ASCII码是 98  转换为二进制是：01100010
+        // 'c' 的ASCII码是 99  转换为二进制是：01100011
+        //因为二进制只有0和1，在setbit中true为1，false为0，因此我要变为'b'的话第六位设置为1，第七位设置为0
+        template.opsForValue().setBit("bitTest",6, true);
+        template.opsForValue().setBit("bitTest",7, false);
+        System.out.println(template.opsForValue().get("bitTest"));
+结果：b
 ```
 
 * getBit Boolean getBit\(K key, long offset\);
@@ -282,7 +290,8 @@ System.out.println("*********"+template.opsForValue().get("appendTest",0,5));
   获取键对应值的ascii码的在offset处位值
 
 ```
-
+使用：System.out.println(template.opsForValue().getBit("bitTest",7));
+结果：false
 ```
 
 # 3.参考
