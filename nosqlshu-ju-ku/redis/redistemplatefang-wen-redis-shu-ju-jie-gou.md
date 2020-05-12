@@ -549,7 +549,12 @@ c++
   弹出最右边的元素，弹出之后该值在列表中将不复存在
 
 ```
-使用：用法与 leftPop(K key);一样
+使用： System.out.println(template.opsForList().range("list",0,-1));
+        System.out.println(template.opsForList().rightPop("list"));
+        System.out.println(template.opsForList().range("list",0,-1));
+结果:[python, oc, java, c#, c#]
+c#
+[python, oc, java, c#]
 ```
 
 * V rightPop\(K key, long timeout, TimeUnit unit\);
@@ -565,12 +570,22 @@ c++
   用于移除列表的最后一个元素，并将该元素添加到另一个列表并返回。
 
 ```
-
+使用：System.out.println(template.opsForList().range("list",0,-1));
+template.opsForList().rightPopAndLeftPush("list","rightPopAndLeftPush");
+    System.out.println(template.opsForList().range("list",0,-1));
+    System.out.println(template.opsForList().range("rightPopAndLeftPush",0,-1));
+结果:[oc, java,c#]
+[oc, java]
+[c#]
 ```
 
 * V rightPopAndLeftPush\(K sourceKey, K destinationKey, long timeout, TimeUnit unit\);
 
   用于移除列表的最后一个元素，并将该元素添加到另一个列表并返回，如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。
+
+```
+使用：用法与rightPopAndLeftPush(K sourceKey, K destinationKey)一样
+```
 
 # 3.参考
 
