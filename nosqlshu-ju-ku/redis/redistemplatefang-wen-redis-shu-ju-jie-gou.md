@@ -982,7 +982,7 @@ setTest3:[xxx, ccc, aaa]
 [bbb, ddd]
 ```
 
-Long differenceAndStore\(K key, K otherKey, K destKey\);
+* Long differenceAndStore\(K key, K otherKey, K destKey\);
 
 key无序集合与otherkey无序集合的差集存储到destKey无序集合中
 
@@ -998,8 +998,8 @@ differenceAndStore1:[bbb, ddd]
 ```
 
 * Long differenceAndStore\(K key, Collection&lt;K&gt;otherKeys, K destKey\);
- 
-   key无序集合与多个otherkey无序集合的差集存储到destKey无序集合中
+
+  key无序集合与多个otherkey无序集合的差集存储到destKey无序集合中
 
 ```
 使用：System.out.println("setTest:" + template.opsForSet().members("setTest"));
@@ -1017,21 +1017,68 @@ setTest3:[xxx, ccc, aaa]
 differenceAndStore2:[bbb, ddd]
 ```
 
-
-
 * Set&lt;V&gt;members\(K key\);
- 
-   返回集合中的所有成员
+
+  返回集合中的所有成员
 
 ```
-
 使用：System.out.println(template.opsForSet().members("setTest"));
 结果：[ddd, bbb, aaa, ccc]
+```
+
+* V randomMember\(K key\);
+
+随机获取key无序集合中的一个元素
+
+```
+使用：System.out.println("setTest:" + template.opsForSet().members("setTest"));
+        System.out.println("setTestrandomMember:" + template.opsForSet().randomMember("setTest"));
+        System.out.println("setTestrandomMember:" + template.opsForSet().randomMember("setTest"));
+        System.out.println("setTestrandomMember:" + template.opsForSet().randomMember("setTest"));
+        System.out.println("setTestrandomMember:" + template.opsForSet().randomMember("setTest"));
+结果：setTest:[ddd, bbb, aaa, ccc]
+setTestrandomMember:aaa
+setTestrandomMember:bbb
+setTestrandomMember:aaa
+setTestrandomMember:ddd
+```
+
+* Set&lt;V&gt; distinctRandomMembers\(K key, long count\);
+
+获取多个key无序集合中的元素（去重），count表示个数
+
+```
+使用：System.out.println("randomMembers:" + template.opsForSet().distinctRandomMembers("setTest",5));
+结果：randomMembers:[aaa, bbb, ddd, ccc]
+```
+
+* List&lt;V&gt; randomMembers\(K key, long count\);
+
+获取多个key无序集合中的元素，count表示个数
+
+```
+使用：System.out.println("randomMembers:" + template.opsForSet().randomMembers("setTest",5));
+结果：randomMembers:[ccc, ddd, ddd, ddd, aaa]
+```
+
+* Cursor&lt;V&gt; scan\(K key, ScanOptions options\);
+   遍历set
+
+```
+使用： Cursor<Object> curosr = template.opsForSet().scan("setTest", ScanOptions.NONE);
+        while(curosr.hasNext()){
+            System.out.println(curosr.next());
+        }
+结果：ddd
+bbb
+aaa
+ccc
 ```
 
   
 
 
+  
 
 
 # 3.参考
