@@ -363,6 +363,16 @@ public interface ListOperations&lt;K,V&gt;
 
   批量把一个集合插入到列表中
 
+```
+使用：List<Object> strings = new ArrayList<Object>();
+        strings.add("1");
+        strings.add("2");
+        strings.add("3");
+        template.opsForList().leftPushAll("listcollection4", strings);
+        System.out.println(template.opsForList().range("listcollection4",0,-1));
+结果:[3, 2, 1]
+```
+
 # 3.参考
 
 [https://www.jianshu.com/p/7bf5dc61ca06](https://www.jianshu.com/p/7bf5dc61ca06)
