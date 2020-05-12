@@ -296,7 +296,7 @@ System.out.println("*********"+template.opsForValue().get("appendTest",0,5));
 结果：false
 ```
 
-# Redis的List数据结构
+## 2.2.Redis的List数据结构
 
 # 3.参考
 
