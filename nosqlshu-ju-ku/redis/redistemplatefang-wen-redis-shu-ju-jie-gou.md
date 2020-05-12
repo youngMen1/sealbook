@@ -325,10 +325,6 @@ public interface ListOperations&lt;K,V&gt;
 结果:[c#, c++, python, java, c#, c#]
 ```
 
-  
-
-
-  
 
 
 # 3.参考
