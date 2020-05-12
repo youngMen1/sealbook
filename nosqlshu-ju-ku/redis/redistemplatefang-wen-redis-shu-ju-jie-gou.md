@@ -325,6 +325,50 @@ public interface ListOperations&lt;K,V&gt;
 结果:[c#, c++, python, java, c#, c#]
 ```
 
+void trim\(K key, long start, long end\);
+
+```
+
+```
+
+* Long size\(K key\);
+ 
+   返回存储在键中的列表的长度。如果键不存在，则将其解释为空列表，并返回0。当key存储的值不是列表时返回错误。
+
+```
+
+```
+
+* Long leftPush\(K key, V value\);
+ 
+   将所有指定的值插入存储在键的列表的头部。如果键不存在，则在执行推送操作之前将其创建为空列表。（从左边插入）
+
+```
+
+```
+
+* Long leftPushAll\(K key, V... values\);
+ 
+   批量把一个数组插入到列表中
+
+```
+
+```
+
+* Long leftPushAll\(K key, Collection
+  &lt;
+  V
+  &gt;
+   values\);
+ 
+   批量把一个集合插入到列表中
+
+  
+
+
+  
+
+
 
 
 # 3.参考
