@@ -248,7 +248,13 @@ getAndSet V getAndSet\(K key, V value\);
   截取key所对应的value字符串
 
 ```
-
+使用：appendTest对应的value为Helloworld
+System.out.println("*********"+template.opsForValue().get("appendTest",0,5));
+结果：*********Hellow
+使用：System.out.println("*********"+template.opsForValue().get("appendTest",0,-1));
+结果：*********Helloworld
+使用：System.out.println("*********"+template.opsForValue().get("appendTest",-3,-1));
+结果：*********rld
 ```
 
 * size Long size\(K key\);
@@ -256,7 +262,9 @@ getAndSet V getAndSet\(K key, V value\);
   返回key所对应的value值得长度
 
 ```
-
+使用：template.opsForValue().set("key","hello world");
+    System.out.println("***************"+template.opsForValue().size("key"));
+结果：***************11
 ```
 
 * setBit Boolean setBit\(K key, long offset, boolean value\);
