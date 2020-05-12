@@ -22,6 +22,10 @@ Redis 5种数据结构的概念大致介绍到这边，下面将结合Spring封�
 
 # RedisTemplate介绍
 
+spring 封装了 RedisTemplate 对象来进行对redis的各种操作，它支持所有的 redis 原生的 api。
+
+**RedisTemplate在spring代码中的结构如下：**
+
 # 3.参考
 
 [https://www.jianshu.com/p/7bf5dc61ca06](https://www.jianshu.com/p/7bf5dc61ca06)
