@@ -1028,7 +1028,7 @@ differenceAndStore2:[bbb, ddd]
 
 * V randomMember\(K key\);
 
-随机获取key无序集合中的一个元素
+随机获取key无序集合中的一个元素
 
 ```
 使用：System.out.println("setTest:" + template.opsForSet().members("setTest"));
@@ -1074,6 +1074,18 @@ bbb
 aaa
 ccc
 ```
+
+# Redis的ZSet数据结构
+
+Redis 有序集合和无序集合一样也是string类型元素的集合,且不允许重复的成员。  
+ 不同的是每个元素都会关联一个double类型的分数。redis正是通过分数来为集合中的成员进行从小到大的排序。  
+ 有序集合的成员是唯一的,但分数\(score\)却可以重复。  
+ public interface ZSetOperations&lt;K,V&gt;  
+ ZSetOperations提供了一系列方法对有序集合进行操作：
+
+* Boolean add\(K key, V value, double score\);
+ 
+   新增一个有序集合，存在的话为false，不存在的话为true
 
   
 
