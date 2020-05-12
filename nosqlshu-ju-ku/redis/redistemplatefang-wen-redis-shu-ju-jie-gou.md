@@ -585,6 +585,19 @@ Redis的散列可以让用户将多个键值对存储到一个Redis键里面。
  public interface HashOperations&lt;H,HK,HV&gt;  
  HashOperations提供一系列方法操作hash：
 
+```
+初始数据:
+//template.opsForHash().put("redisHash","name","tom");
+        //template.opsForHash().put("redisHash","age",26);
+        //template.opsForHash().put("redisHash","class","6");
+
+//Map<String,Object> testMap = new HashMap();
+        //testMap.put("name","jack");
+        //testMap.put("age",27);
+        //testMap.put("class","1");
+        //template.opsForHash().putAll("redisHash1",testMap);
+```
+
 # 3.参考
 
 [https://www.jianshu.com/p/7bf5dc61ca06](https://www.jianshu.com/p/7bf5dc61ca06)
