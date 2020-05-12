@@ -644,7 +644,10 @@ false
   通过给定的delta增加散列hashKey的值（整型）
 
 ```
-
+使用：System.out.println(template.opsForHash().get("redisHash","age"));
+    System.out.println(template.opsForHash().increment("redisHash","age",1));
+结果：26
+27
 ```
 
 * Double increment\(H key, HK hashKey, double delta\);
@@ -652,19 +655,20 @@ false
   通过给定的delta增加散列hashKey的值（浮点数）
 
 ```
-
+使用：System.out.println(template.opsForHash().get("redisHash","age"));
+    System.out.println(template.opsForHash().increment("redisHash","age",1.1));
+结果：27
+28.1
 ```
 
-* Set  
-  &lt;  
-  HK  
-  &gt;  
-   keys\(H key\);
+* Set&lt;HK&gt;keys\(H key\);
 
   获取key所对应的散列表的key
 
 ```
-
+使用：System.out.println(template.opsForHash().keys("redisHash1"));
+//redisHash1所对应的散列表为{class=1, name=jack, age=27}
+结果：[name, class, age]
 ```
 
 * Long size\(H key\);
@@ -672,19 +676,23 @@ false
   获取key所对应的散列表的大小个数
 
 ```
-
+使用：System.out.println(template.opsForHash().size("redisHash1"));
+//redisHash1所对应的散列表为{class=1, name=jack, age=27}
+结果：3
 ```
 
-* void putAll\(H key, Map  
-  &lt;  
-  ? extends HK, ? extends HV  
-  &gt;  
-   m\);
+* void putAll\(H key, Map&lt;? extends HK, ? extends HV&gt;m\);
 
   使用m中提供的多个散列字段设置到key对应的散列表中
 
 ```
-
+使用：Map<String,Object> testMap = new HashMap();
+        testMap.put("name","jack");
+        testMap.put("age",27);
+        testMap.put("class","1");
+        template.opsForHash().putAll("redisHash1",testMap);
+        System.out.println(template.opsForHash().entries("redisHash1"));
+结果：{class=1, name=jack, age=27}
 ```
 
 * void put\(H key, HK hashKey, HV value\);
@@ -692,7 +700,11 @@ false
   设置散列hashKey的值
 
 ```
-
+使用：template.opsForHash().put("redisHash","name","tom");
+        template.opsForHash().put("redisHash","age",26);
+        template.opsForHash().put("redisHash","class","6");
+System.out.println(template.opsForHash().entries("redisHash"));
+结果：{age=26, class=6, name=tom}
 ```
 
 * Boolean putIfAbsent\(H key, HK hashKey, HV value\);
@@ -700,47 +712,46 @@ false
   仅当hashKey不存在时才设置散列hashKey的值。
 
 ```
-
+使用：System.out.println(template.opsForHash().putIfAbsent("redisHash","age",30));
+System.out.println(template.opsForHash().putIfAbsent("redisHash","kkk","kkk"));
+结果：false
+true
 ```
 
-* List  
-  &lt;  
-  HV  
-  &gt;  
-   values\(H key\);
+* List&lt;HV&gt;values\(H key\);
 
   获取整个哈希存储的值根据密钥
 
 ```
-
+使用：System.out.println(template.opsForHash().values("redisHash"));
+结果：[tom, 26, 6]
 ```
 
-* Map  
-  &lt;  
-  HK, HV  
-  &gt;  
-   entries\(H key\);
+* Map&lt;HK, HV&gt;entries\(H key\);
 
   获取整个哈希存储根据密钥
 
 ```
-
+使用：System.out.println(template.opsForHash().entries("redisHash"));
+结果：{age=26, class=6, name=tom}
 ```
 
-* Cursor  
-  &lt;  
-  Map.Entry  
-  &lt;  
-  HK, HV  
-  &gt;  
-  &gt;  
-   scan\(H key, ScanOptions options\);
+* Cursor&lt;Map.Entry&lt;HK, HV&gt;&gt;scan\(H key, ScanOptions options\);
 
   使用Cursor在key的hash中迭代，相当于迭代器。
 
 ```
-
+使用：Cursor<Map.Entry<Object, Object>> curosr = template.opsForHash().scan("redisHash", ScanOptions.ScanOptions.NONE);
+        while(curosr.hasNext()){
+            Map.Entry<Object, Object> entry = curosr.next();
+            System.out.println(entry.getKey()+":"+entry.getValue());
+        }
+结果：age:28.1
+class:6
+kkk:kkk
 ```
+
+## 2.4.Redis的Set数据结构
 
 # 3.参考
 
