@@ -383,6 +383,64 @@ System.out.println(template.opsForList().range("list",0,-1));
 结果:[3, 2, 1]
 ```
 
+* Long leftPushIfPresent\(K key, V value\);
+
+```
+
+```
+
+* Long leftPush\(K key, V pivot, V value\);
+ 
+   把value值放到key对应列表中pivot值的左面，如果pivot值存在的话
+
+```
+
+```
+
+* Long rightPush\(K key, V value\);
+ 
+   将所有指定的值插入存储在键的列表的头部。如果键不存在，则在执行推送操作之前将其创建为空列表。（从右边插入）
+
+```
+
+```
+
+* Long rightPushAll\(K key, V... values\);
+
+```
+
+```
+
+* Long rightPushAll\(K key, Collection
+  &lt;
+  V
+  &gt;
+   values\);
+
+```
+
+```
+
+* Long rightPushIfPresent\(K key, V value\);
+ 
+   只有存在key对应的列表才能将这个value值插入到key所对应的列表中
+
+```
+
+```
+
+* Long rightPush\(K key, V pivot, V value\);
+ 
+   把value值放到key对应列表中pivot值的右面，如果pivot值存在的话
+
+  
+
+
+  
+
+
+
+
 # 3.参考
 
 [https://www.jianshu.com/p/7bf5dc61ca06](https://www.jianshu.com/p/7bf5dc61ca06)
