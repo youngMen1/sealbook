@@ -60,6 +60,26 @@ redisTemplate.opsForZSet();//操作有序set
 
 ## 1.3.StringRedisTemplate与RedisTemplate
 
+两者的关系是StringRedisTemplate继承RedisTemplate。
+
+* 两者的数据是不共通的；也就是说StringRedisTemplate只能管理StringRedisTemplate里面的数据，RedisTemplate只能管理RedisTemplate中的数据。
+
+* SDR默认采用的序列化策略有两种，一种是String的序列化策略，一种是JDK的序列化策略。
+
+  StringRedisTemplate默认采用的是String的序列化策略，保存的key和value都是采用此策略序列化保存的。
+
+  RedisTemplate默认采用的是JDK的序列化策略，保存的key和value都是采用此策略序列化保存的。
+
+**RedisTemplate配置如下：**
+
+  
+
+
+  
+
+
+
+
 # 
 
 # 3.参考
