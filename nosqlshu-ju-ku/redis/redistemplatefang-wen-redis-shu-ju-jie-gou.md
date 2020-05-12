@@ -1084,8 +1084,233 @@ Redis 有序集合和无序集合一样也是string类型元素的集合,且不�
  ZSetOperations提供了一系列方法对有序集合进行操作：
 
 * Boolean add\(K key, V value, double score\);
+
+  新增一个有序集合，存在的话为false，不存在的话为true
+
+```
+使用：System.out.println(template.opsForZSet().add("zset1","zset-1",1.0));
+结果：true
+```
+
+* Long add\(K key, Set&lt;TypedTuple&lt;V&gt;&gt; tuples\);  新增一个有序集合
+
+```
+使用：ZSetOperations.TypedTuple<Object> objectTypedTuple1 = new DefaultTypedTuple<Object>("zset-5",9.6);
+        ZSetOperations.TypedTuple<Object> objectTypedTuple2 = new DefaultTypedTuple<Object>("zset-6",9.9);
+        Set<ZSetOperations.TypedTuple<Object>> tuples = new HashSet<ZSetOperations.TypedTuple<Object>>();
+        tuples.add(objectTypedTuple1);
+        tuples.add(objectTypedTuple2);
+        System.out.println(template.opsForZSet().add("zset1",tuples));
+        System.out.println(template.opsForZSet().range("zset1",0,-1));
+结果：[zset-1, zset-2, zset-3, zset-4, zset-5, zset-6]
+```
+
+Long remove\(K key, Object... values\);
+
+```
+使用：System.out.
+println
+(
+template.
+opsForZSet
+(
+)
+.
+range
+(
+"zset1"
+,
+0
+,
+-1
+)
+)
+;
+
+        System.out.
+println
+(
+template.
+opsForZSet
+(
+)
+.
+remove
+(
+"zset1"
+,
+"zset-6"
+)
+)
+;
+
+        System.out.
+println
+(
+template.
+opsForZSet
+(
+)
+.
+range
+(
+"zset1"
+,
+0
+,
+-1
+)
+)
+;
+
+结果：[zset-1
+,
+ zset-2
+,
+ zset-3
+,
+ zset-4
+,
+ zset-5
+,
+ zset-6]
+1
+[zset-1
+,
+ zset-2
+,
+ zset-3
+,
+ zset-4
+,
+ zset-5]
+
+```
+
+* Double incrementScore\(K key, V value, double delta\);
  
-   新增一个有序集合，存在的话为false，不存在的话为true
+   增加元素的score值，并返回增加后的值
+
+```
+使用：System
+.
+out
+.
+println
+(
+template
+.
+opsForZSet
+(
+)
+.
+incrementScore
+(
+"zset1"
+,
+"zset-1"
+,
+1.1
+)
+)
+;
+//原为1.1
+
+结果：
+2.2
+```
+
+* Long rank\(K key, Object o\);
+ 
+   返回有序集中指定成员的排名，其中有序集成员按分数值递增\(从小到大\)顺序排列
+
+```
+使用：System
+.
+out
+.
+println
+(
+template
+.
+opsForZSet
+(
+)
+.
+range
+(
+"zset1"
+,
+0
+,
+-
+1
+)
+)
+;
+
+        System
+.
+out
+.
+println
+(
+template
+.
+opsForZSet
+(
+)
+.
+rank
+(
+"zset1"
+,
+"zset-2"
+)
+)
+;
+
+结果：
+[
+zset
+-
+2
+,
+ zset
+-
+1
+,
+ zset
+-
+3
+,
+ zset
+-
+4
+,
+ zset
+-
+5
+]
+0
+//表明排名第一
+```
+
+* Long reverseRank\(K key, Object o\);
+ 
+   返回有序集中指定成员的排名，其中有序集成员按分数值递减\(从大到小\)顺序排列
+
+```
+
+```
+
+* Set
+  &lt;
+  V
+  &gt;
+   range\(K key, long start, long end\);
+ 
+   通过索引区间返回有序集合成指定区间内的成员，其中有序集成员按分数值递增\(从小到大\)顺序排列
 
   
 
