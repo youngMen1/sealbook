@@ -300,6 +300,19 @@ System.out.println("*********"+template.opsForValue().get("appendTest",0,5));
 
 **这边我们把RedisTemplate序列化方式改回之前的**
 
+```
+Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<Object>(Object.class);
+        ObjectMapper om = new ObjectMapper();
+        om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
+        om.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
+        jackson2JsonRedisSerializer.setObjectMapper(om);
+RedisTemplate<String, Object> template = new RedisTemplate<String, Object>();
+       template.setKeySerializer(jackson2JsonRedisSerializer);
+        template.setValueSerializer(jackson2JsonRedisSerializer);
+        template.setHashKeySerializer(jackson2JsonRedisSerializer);
+        template.setHashValueSerializer(jackson2JsonRedisSerializer);
+```
+
 # 3.参考
 
 [https://www.jianshu.com/p/7bf5dc61ca06](https://www.jianshu.com/p/7bf5dc61ca06)
