@@ -489,17 +489,9 @@ System.out.println(template.opsForList().leftPush("leftPushIfPresent","aa"));
 
 计数参数以下列方式影响操作：
 
-count
+count&gt;0：删除等于从头到尾移动的值的元素。
 
-&gt;
-
-0：删除等于从头到尾移动的值的元素。
-
-count
-
-&lt;
-
-0：删除等于从尾到头移动的值的元素。
+count&lt;0：删除等于从尾到头移动的值的元素。
 
 count = 0：删除等于value的所有元素。
 
@@ -592,12 +584,6 @@ template.opsForList().rightPopAndLeftPush("list","rightPopAndLeftPush");
 Redis的散列可以让用户将多个键值对存储到一个Redis键里面。  
  public interface HashOperations&lt;H,HK,HV&gt;  
  HashOperations提供一系列方法操作hash：
-
-  
-
-
-  
-
 
 # 3.参考
 
