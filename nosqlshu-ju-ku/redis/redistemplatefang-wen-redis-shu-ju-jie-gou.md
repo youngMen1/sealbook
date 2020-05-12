@@ -770,6 +770,16 @@ Redis的Set是string类型的无序集合。集合成员是唯一的，这就意
 结果：2
 ```
 
+* Long remove\(K key, Object... values\);
+
+移除集合中一个或多个成员
+
+```
+使用：String[] strarrays = new String[]{"strarr1","sgtarr2"};
+System.out.println(template.opsForSet().remove("setTest",strarrays));
+结果：2
+```
+
 
 
 # 3.参考
