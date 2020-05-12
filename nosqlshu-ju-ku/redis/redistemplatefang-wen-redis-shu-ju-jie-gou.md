@@ -58,7 +58,7 @@ redisTemplate.opsForSet();//操作set
 redisTemplate.opsForZSet();//操作有序set
 ```
 
-## StringRedisTemplate与RedisTemplate
+## 1.3.StringRedisTemplate与RedisTemplate
 
 # 
 
