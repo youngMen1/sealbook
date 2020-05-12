@@ -355,11 +355,7 @@ public interface ListOperations&lt;K,V&gt;
 
 ```
 
-* Long leftPushAll\(K key, Collection  
-  &lt;  
-  V  
-  &gt;  
-   values\);
+* Long leftPushAll\(K key, Collection&lt;V&gt; values\);
 
   批量把一个集合插入到列表中
 
