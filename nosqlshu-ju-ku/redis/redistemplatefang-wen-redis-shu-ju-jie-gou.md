@@ -115,6 +115,189 @@ public interface ValueOperations&lt;K,V&gt;
 结果：redisTemplate.opsForValue().get("name")  输出结果为tom
 ```
 
+set void set\(K key, V value, long timeout, TimeUnit unit\);
+
+```
+使用：redisTemplate
+.
+opsForValue
+(
+)
+.
+set
+(
+"name"
+,
+"tom"
+,
+10
+,
+ TimeUnit
+.
+SECONDS
+)
+;
+
+结果：redisTemplate
+.
+opsForValue
+(
+)
+.
+get
+(
+"name"
+)
+由于设置的是
+10
+秒失效，十秒之内查询有结果，十秒之后返回为
+null
+```
+
+* set void set\(K key, V value, long offset\);
+ 
+   该方法是用 value 参数覆写\(overwrite\)给定 key 所储存的字符串值，从偏移量 offset 开始
+
+```
+使用：
+template
+.
+opsForValue
+(
+)
+.
+set
+(
+"key"
+,
+"hello world"
+)
+;
+template
+.
+opsForValue
+(
+)
+.
+set
+(
+"key"
+,
+"redis"
+,
+6
+)
+;
+
+        System
+.
+out
+.
+println
+(
+"***************"
++
+template
+.
+opsForValue
+(
+)
+.
+get
+(
+"key"
+)
+)
+;
+
+结果：
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+hello redis
+
+```
+
+* setIfAbsent Boolean setIfAbsent\(K key, V value\);
+
+```
+使用：System
+.
+out
+.
+println
+(
+template
+.
+opsForValue
+(
+)
+.
+setIfAbsent
+(
+"multi1"
+,
+"multi1"
+)
+)
+;
+//false  multi1之前已经存在
+
+        System
+.
+out
+.
+println
+(
+template
+.
+opsForValue
+(
+)
+.
+setIfAbsent
+(
+"multi111"
+,
+"multi111"
+)
+)
+;
+//true  multi111之前不存在
+
+结果：
+false
+true
+```
+
+* multiSet void multiSet\(Map
+  &lt;
+  ? extends K, ? extends V
+  &gt;
+   m\);
+ 
+   为多个键分别设置它们的值
+
+  
+
+
+  
+
+
+
+
 # 3.参考
 
 [https://www.jianshu.com/p/7bf5dc61ca06](https://www.jianshu.com/p/7bf5dc61ca06)
