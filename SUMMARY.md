@@ -190,4 +190,5 @@
     * [Jprofile使用怎么分析](jvm/jprofile/jprofileshi-yong-zen-yao-fen-xi.md)
 * [设计模式实践](she-ji-mo-shi.md)
   * [设计模式在外卖营销业务中的实践](she-ji-mo-shi/she-ji-mo-shi-zai-wai-mai-ying-xiao-ye-wu-zhong-de-shi-jian.md)
+* 各种业务场景解决方案
 
