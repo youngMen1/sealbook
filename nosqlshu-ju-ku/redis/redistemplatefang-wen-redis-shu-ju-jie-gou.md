@@ -1253,7 +1253,9 @@ value:zset-1score:2.2
 value:zset-2score:1.2
 ```
 
-* Set&lt;V&gt; reverseRangeByScore\(K key, double min, double max\);
+* ```
+  Set<V> reverseRangeByScore(K key, double min, double max);
+  ```
 
 ```
 使用：与rangeByScore调用方法一样，其中有序集成员按分数值递减(从大到小)顺序排列
@@ -1297,7 +1299,40 @@ value:zset-2score:1.2
 结果：6
 ```
 
+* Long zCard\(K key\);
 
+获取有序集合的成员数
+
+```
+使用：System.out.println(template.opsForZSet().zCard("zset1"));
+结果：6
+```
+
+* Double score\(K key, Object o\);
+
+获取指定成员的score值
+
+```
+使用：System.out.println(template.opsForZSet().score("zset1","zset-1"));
+结果：2.2
+```
+
+* Long removeRangeByScore\(K key, double min, double max\);
+
+根据指定的score值得范围来移除成员
+
+```
+使用：//System.out.println(template.opsForZSet().add("zset2","zset-1",1.1));
+        //System.out.println(template.opsForZSet().add("zset2","zset-2",1.2));
+        //System.out.println(template.opsForZSet().add("zset2","zset-3",2.3));
+        //System.out.println(template.opsForZSet().add("zset2","zset-4",6.6));
+System.out.println(template.opsForZSet().range("zset2",0,-1));
+System.out.println(template.opsForZSet().removeRangeByScore("zset2",2,3));
+    System.out.println(template.opsForZSet().range("zset2",0,-1));
+结果：[zset-1, zset-2, zset-3,zset-4]
+1
+[zset-1, zset-2, zset-4]
+```
 
 # 3.参考
 
