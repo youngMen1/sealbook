@@ -1336,7 +1336,7 @@ System.out.println(template.opsForZSet().removeRangeByScore("zset2",2,3));
 
 * Long unionAndStore\(K key, K otherKey, K destKey\);
 
-计算给定的一个有序集的并集，并存储在新的 destKey中，key相同的话会把score值相加
+计算给定的一个有序集的并集，并存储在新的 destKey中，key相同的话会把score值相加
 
 ```
 使用：System.out.println(template.opsForZSet().add("zzset1","zset-1",1.0));
@@ -1428,7 +1428,7 @@ value:zset-4score:12.0
 
 * Long intersectAndStore\(K key, Collection&lt;K&gt; otherKeys, K destKey\);
 
-计算给定的一个或多个有序集的交集并将结果集存储在新的有序集合 key 中
+计算给定的一个或多个有序集的交集并将结果集存储在新的有序集合 key 中
 
 ```
 使用：List<String> stringList = new ArrayList<String>();
@@ -1449,7 +1449,35 @@ value:zset-3score:9.0
 value:zset-4score:18.0
 ```
 
-3.参考
+* Cursor&lt;TypedTuple&lt;V&gt;&gt; scan\(K key, ScanOptions options\);
+
+遍历zset
+
+```
+使用： Cursor<ZSetOperations.TypedTuple<Object>> cursor = template.opsForZSet().scan("zzset1", ScanOptions.NONE);
+        while (cursor.hasNext()){
+            ZSetOperations.TypedTuple<Object> item = cursor.next();
+            System.out.println(item.getValue() + ":" + item.getScore());
+        }
+结果：zset-1:1.0
+zset-2:2.0
+zset-3:3.0
+zset-4:6.0
+```
+
+注：TimeUnit是java.util.concurrent包下面的一个类，表示给定单元粒度的时间段常用的颗粒度
+
+TimeUnit.DAYS //天
+
+TimeUnit.HOURS //小时
+
+TimeUnit.MINUTES //分钟
+
+TimeUnit.SECONDS //秒
+
+TimeUnit.MILLISECONDS //毫秒
+
+# 3.参考
 
 [https://www.jianshu.com/p/7bf5dc61ca06](https://www.jianshu.com/p/7bf5dc61ca06)
 
