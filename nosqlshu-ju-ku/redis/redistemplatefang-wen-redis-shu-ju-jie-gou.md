@@ -1159,7 +1159,7 @@ Redis 有序集合和无序集合一样也是string类型元素的集合,且不�
 
 * Set&lt;TypedTuple&lt;V&gt;&gt; rangeWithScores\(K key, long start, long end\);
 
- 通过索引区间返回有序集合成指定区间内的成员对象，其中有序集成员按分数值递增\(从小到大\)顺序排列
+  通过索引区间返回有序集合成指定区间内的成员对象，其中有序集成员按分数值递增\(从小到大\)顺序排列
 
 ```
 使用：Set<ZSetOperations.TypedTuple<Object>> tuples = template.opsForZSet().rangeWithScores("zset1",0,-1);
@@ -1176,47 +1176,57 @@ value:zset-4score:6.6
 value:zset-5score:9.6
 ```
 
-
-
-```
+* Set&lt;V&gt; rangeByScore\(K key, double min, double max\);  通过分数返回有序集合指定区间内的成员，其中有序集成员按分数值递增\(从小到大\)顺序排列
 
 ```
+使用：System.out.println(template.opsForZSet().rangeByScore("zset1",0,5));
+结果：[zset-2, zset-1, zset-3]
+```
+
+
+
+
 
 * Set&lt;TypedTuple&lt;V&gt;&gt;  rangeByScoreWithScores\(K key, double min, double max\);
    通过分数返回有序集合指定区间内的成员对象，其中有序集成员按分数值递增\(从小到大\)顺序排列
 
 ```
-
+使用：Set<ZSetOperations.TypedTuple<Object>> tuples = template.opsForZSet().rangeByScoreWithScores("zset1",0,5);
+        Iterator<ZSetOperations.TypedTuple<Object>> iterator = tuples.iterator();
+        while (iterator.hasNext())
+        {
+            ZSetOperations.TypedTuple<Object> typedTuple = iterator.next();
+            System.out.println("value:" + typedTuple.getValue() + "score:" + typedTuple.getScore());
+        }
+结果：value:zset-2score:1.2
+value:zset-1score:2.2
+value:zset-3score:2.3
 ```
 
 * Set&lt;V&gt;  rangeByScore\(K key, double min, double max, long offset, long count\);
    通过分数返回有序集合指定区间内的成员，并在索引范围内，其中有序集成员按分数值递增\(从小到大\)顺序排列
 
 ```
-
+使用： System.out.println(template.opsForZSet().rangeByScore("zset1",0,5));
+    System.out.println(template.opsForZSet().rangeByScore("zset1",0,5,1,2));
+结果：[zset-2, zset-1, zset-3]
+[zset-1, zset-3]
 ```
 
 * Set&lt;TypedTuple&lt;V&gt;&gt; rangeByScoreWithScores\(K key, double min, double max, long offset, long count\);
    通过分数返回有序集合指定区间内的成员对象，并在索引范围内，其中有序集成员按分数值递增\(从小到大\)顺序排列
 
 ```
-
+使用：Set<ZSetOperations.TypedTuple<Object>> tuples = template.opsForZSet().rangeByScoreWithScores("zset1",0,5,1,2);
+        Iterator<ZSetOperations.TypedTuple<Object>> iterator = tuples.iterator();
+        while (iterator.hasNext())
+        {
+            ZSetOperations.TypedTuple<Object> typedTuple = iterator.next();
+            System.out.println("value:" + typedTuple.getValue() + "score:" + typedTuple.getScore());
+        }
+结果：value:zset-1score:2.2
+value:zset-3score:2.3
 ```
-
-  
-
-
-  
-
-
-  
-
-
-
-
-
-
-
 
 # 3.参考
 
