@@ -1176,16 +1176,13 @@ value:zset-4score:6.6
 value:zset-5score:9.6
 ```
 
-* Set&lt;V&gt; rangeByScore\(K key, double min, double max\);  通过分数返回有序集合指定区间内的成员，其中有序集成员按分数值递增\(从小到大\)顺序排列
+* Set&lt;V&gt; rangeByScore\(K key, double min, double max\);
+  通过分数返回有序集合指定区间内的成员，其中有序集成员按分数值递增\(从小到大\)顺序排列
 
 ```
 使用：System.out.println(template.opsForZSet().rangeByScore("zset1",0,5));
 结果：[zset-2, zset-1, zset-3]
 ```
-
-
-
-
 
 * Set&lt;TypedTuple&lt;V&gt;&gt;  rangeByScoreWithScores\(K key, double min, double max\);
    通过分数返回有序集合指定区间内的成员对象，其中有序集成员按分数值递增\(从小到大\)顺序排列
@@ -1226,6 +1223,40 @@ value:zset-3score:2.3
         }
 结果：value:zset-1score:2.2
 value:zset-3score:2.3
+```
+
+* Set&lt;V&gt; reverseRange\(K key, long start, long end\);
+
+通过索引区间返回有序集合成指定区间内的成员，其中有序集成员按分数值递减\(从大到小\)顺序排列
+
+```
+使用：System.out.println(template.opsForZSet().reverseRange("zset1",0,-1));
+结果：[zset-5, zset-4, zset-3, zset-1, zset-2]
+```
+
+* Set&lt;TypedTuple&lt;V&gt;&gt; reverseRangeWithScores\(K key, long start, long end\);
+
+通过索引区间返回有序集合成指定区间内的成员对象，其中有序集成员按分数值递减\(从大到小\)顺序排列
+
+```
+使用：Set<ZSetOperations.TypedTuple<Object>> tuples = template.opsForZSet().reverseRangeWithScores("zset1",0,-1);
+        Iterator<ZSetOperations.TypedTuple<Object>> iterator = tuples.iterator();
+        while (iterator.hasNext())
+        {
+            ZSetOperations.TypedTuple<Object> typedTuple = iterator.next();
+            System.out.println("value:" + typedTuple.getValue() + "score:" + typedTuple.getScore());
+        }
+结果：value:zset-5score:9.6
+value:zset-4score:6.6
+value:zset-3score:2.3
+value:zset-1score:2.2
+value:zset-2score:1.2
+```
+
+* Set&lt;V&gt; reverseRangeByScore\(K key, double min, double max\);
+
+```
+使用：与rangeByScore调用方法一样，其中有序集成员按分数值递减(从大到小)顺序排列
 ```
 
 # 3.参考
