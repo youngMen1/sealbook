@@ -1236,7 +1236,7 @@ value:zset-3score:2.3
 
 * Set&lt;TypedTuple&lt;V&gt;&gt; reverseRangeWithScores\(K key, long start, long end\);
 
-通过索引区间返回有序集合成指定区间内的成员对象，其中有序集成员按分数值递减\(从大到小\)顺序排列
+通过索引区间返回有序集合成指定区间内的成员对象，其中有序集成员按分数值递减\(从大到小\)顺序排列
 
 ```
 使用：Set<ZSetOperations.TypedTuple<Object>> tuples = template.opsForZSet().reverseRangeWithScores("zset1",0,-1);
@@ -1253,10 +1253,39 @@ value:zset-1score:2.2
 value:zset-2score:1.2
 ```
 
-* Set&lt;V&gt; reverseRangeByScore\(K key, double min, double max\);
+* Set&lt;V&gt; reverseRangeByScore\(K key, double min, double max\);
 
 ```
 使用：与rangeByScore调用方法一样，其中有序集成员按分数值递减(从大到小)顺序排列
+```
+
+* Set&lt;TypedTuple&lt;V&gt;&gt; reverseRangeByScoreWithScores\(K key, double min, double max\);
+
+```
+使用：与rangeByScoreWithScores调用方法一样，其中有序集成员按分数值递减(从大到小)顺序排列
+```
+
+* Set&lt;V&gt; reverseRangeByScore\(K key, double min, double max, long offset, long count\);
+
+```
+使用：与rangeByScore调用方法一样，其中有序集成员按分数值递减(从大到小)顺序排列
+```
+
+* Set&lt;TypedTuple&lt;V&gt;&gt; reverseRangeByScoreWithScores\(K key, double min, double max, long offset, long count\);
+
+```
+使用：与rangeByScoreWithScores调用方法一样，其中有序集成员按分数值递减(从大到小)顺序排列
+```
+
+* Long count\(K key, double min, double max\);
+
+通过分数返回有序集合指定区间内的成员个数
+
+```
+使用：System.out.println(template.opsForZSet().rangeByScore("zset1",0,5));
+        System.out.println(template.opsForZSet().count("zset1",0,5));
+结果：[zset-2, zset-1, zset-3]
+3
 ```
 
 # 3.参考
