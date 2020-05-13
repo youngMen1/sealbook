@@ -1288,6 +1288,15 @@ value:zset-2score:1.2
 3
 ```
 
+* Long size\(K key\);
+
+获取有序集合的成员数，内部调用的就是zCard方法
+
+```
+使用：System.out.println(template.opsForZSet().size("zset1"));
+结果：6
+```
+
 # 3.参考
 
 [https://www.jianshu.com/p/7bf5dc61ca06](https://www.jianshu.com/p/7bf5dc61ca06)
