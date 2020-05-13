@@ -1465,19 +1465,22 @@ zset-3:3.0
 zset-4:6.0
 ```
 
-注：TimeUnit是java.util.concurrent包下面的一个类，表示给定单元粒度的时间段常用的颗粒度
+注：TimeUnit是java.util.concurrent包下面的一个类，表示给定单元粒度的时间段  
+常用的颗粒度
 
 TimeUnit.DAYS //天
 
-TimeUnit.HOURS //小时
+TimeUnit.HOURS //小时
 
 TimeUnit.MINUTES //分钟
 
 TimeUnit.SECONDS //秒
 
-TimeUnit.MILLISECONDS //毫秒
+TimeUnit.MILLISECONDS //毫秒
 
 # 3.参考
+
+如何使用RedisTemplate访问Redis数据结构：
 
 [https://www.jianshu.com/p/7bf5dc61ca06](https://www.jianshu.com/p/7bf5dc61ca06)
 
