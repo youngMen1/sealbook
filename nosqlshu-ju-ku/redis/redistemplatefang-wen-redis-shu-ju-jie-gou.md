@@ -1122,7 +1122,8 @@ Redis 有序集合和无序集合一样也是string类型元素的集合,且不�
   增加元素的score值，并返回增加后的值
 
 ```
-
+使用：System.out.println(template.opsForZSet().incrementScore("zset1","zset-1",1.1));  //原为1.1
+结果：2.2
 ```
 
 * Long rank\(K key, Object o\);
