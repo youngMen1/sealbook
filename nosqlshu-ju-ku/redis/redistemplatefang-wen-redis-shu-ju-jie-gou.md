@@ -1131,7 +1131,10 @@ Redis 有序集合和无序集合一样也是string类型元素的集合,且不�
   返回有序集中指定成员的排名，其中有序集成员按分数值递增\(从小到大\)顺序排列
 
 ```
-
+使用：System.out.println(template.opsForZSet().range("zset1",0,-1));
+        System.out.println(template.opsForZSet().rank("zset1","zset-2"));
+结果：[zset-2, zset-1, zset-3, zset-4, zset-5]
+0   //表明排名第一
 ```
 
 * Long reverseRank\(K key, Object o\);
@@ -1139,7 +1142,10 @@ Redis 有序集合和无序集合一样也是string类型元素的集合,且不�
   返回有序集中指定成员的排名，其中有序集成员按分数值递减\(从大到小\)顺序排列
 
 ```
-
+使用：System.out.println(template.opsForZSet().range("zset1",0,-1));
+        System.out.println(template.opsForZSet().reverseRank("zset1","zset-2"));
+结果：[zset-2, zset-1, zset-3, zset-4, zset-5]
+4 //递减之后排到第五位去了
 ```
 
 * Set&lt;V&gt;range\(K key, long start, long end\);
@@ -1147,7 +1153,8 @@ Redis 有序集合和无序集合一样也是string类型元素的集合,且不�
   通过索引区间返回有序集合成指定区间内的成员，其中有序集成员按分数值递增\(从小到大\)顺序排列
 
 ```
-
+使用：System.out.println(template.opsForZSet().range("zset1",0,-1));
+结果：[zset-2, zset-1, zset-3, zset-4, zset-5]
 ```
 
 # 3.参考
