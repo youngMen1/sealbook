@@ -1319,7 +1319,7 @@ value:zset-2score:1.2
 
 * Long removeRangeByScore\(K key, double min, double max\);
 
-根据指定的score值得范围来移除成员
+根据指定的score值得范围来移除成员
 
 ```
 使用：//System.out.println(template.opsForZSet().add("zset2","zset-1",1.1));
@@ -1334,7 +1334,122 @@ System.out.println(template.opsForZSet().removeRangeByScore("zset2",2,3));
 [zset-1, zset-2, zset-4]
 ```
 
-# 3.参考
+* Long unionAndStore\(K key, K otherKey, K destKey\);
+
+计算给定的一个有序集的并集，并存储在新的 destKey中，key相同的话会把score值相加
+
+```
+使用：System.out.println(template.opsForZSet().add("zzset1","zset-1",1.0));
+        System.out.println(template.opsForZSet().add("zzset1","zset-2",2.0));
+        System.out.println(template.opsForZSet().add("zzset1","zset-3",3.0));
+        System.out.println(template.opsForZSet().add("zzset1","zset-4",6.0));
+
+        System.out.println(template.opsForZSet().add("zzset2","zset-1",1.0));
+        System.out.println(template.opsForZSet().add("zzset2","zset-2",2.0));
+        System.out.println(template.opsForZSet().add("zzset2","zset-3",3.0));
+        System.out.println(template.opsForZSet().add("zzset2","zset-4",6.0));
+        System.out.println(template.opsForZSet().add("zzset2","zset-5",7.0));
+        System.out.println(template.opsForZSet().unionAndStore("zzset1","zzset2","destZset11"));
+
+        Set<ZSetOperations.TypedTuple<Object>> tuples = template.opsForZSet().rangeWithScores("destZset11",0,-1);
+        Iterator<ZSetOperations.TypedTuple<Object>> iterator = tuples.iterator();
+        while (iterator.hasNext())
+        {
+            ZSetOperations.TypedTuple<Object> typedTuple = iterator.next();
+            System.out.println("value:" + typedTuple.getValue() + "score:" + typedTuple.getScore());
+        }
+结果：value:zset-1score:2.0
+value:zset-2score:4.0
+value:zset-3score:6.0
+value:zset-5score:7.0
+value:zset-4score:12.0
+```
+
+* Long unionAndStore\(K key, Collection&lt;K&gt; otherKeys, K destKey\);
+
+计算给定的多个有序集的并集，并存储在新的 destKey中
+
+```
+使用：//System.out.println(template.opsForZSet().add("zzset1","zset-1",1.0));
+        //System.out.println(template.opsForZSet().add("zzset1","zset-2",2.0));
+        //System.out.println(template.opsForZSet().add("zzset1","zset-3",3.0));
+        //System.out.println(template.opsForZSet().add("zzset1","zset-4",6.0));
+        //
+        //System.out.println(template.opsForZSet().add("zzset2","zset-1",1.0));
+        //System.out.println(template.opsForZSet().add("zzset2","zset-2",2.0));
+        //System.out.println(template.opsForZSet().add("zzset2","zset-3",3.0));
+        //System.out.println(template.opsForZSet().add("zzset2","zset-4",6.0));
+        //System.out.println(template.opsForZSet().add("zzset2","zset-5",7.0));
+
+        System.out.println(template.opsForZSet().add("zzset3","zset-1",1.0));
+        System.out.println(template.opsForZSet().add("zzset3","zset-2",2.0));
+        System.out.println(template.opsForZSet().add("zzset3","zset-3",3.0));
+        System.out.println(template.opsForZSet().add("zzset3","zset-4",6.0));
+        System.out.println(template.opsForZSet().add("zzset3","zset-5",7.0));
+
+        List<String> stringList = new ArrayList<String>();
+        stringList.add("zzset2");
+        stringList.add("zzset3");
+        System.out.println(template.opsForZSet().unionAndStore("zzset1",stringList,"destZset22"));
+
+        Set<ZSetOperations.TypedTuple<Object>> tuples = template.opsForZSet().rangeWithScores("destZset22",0,-1);
+        Iterator<ZSetOperations.TypedTuple<Object>> iterator = tuples.iterator();
+        while (iterator.hasNext())
+        {
+            ZSetOperations.TypedTuple<Object> typedTuple = iterator.next();
+            System.out.println("value:" + typedTuple.getValue() + "score:" + typedTuple.getScore());
+        }
+结果：value:zset-1score:3.0
+value:zset-2score:6.0
+value:zset-3score:9.0
+value:zset-5score:14.0
+value:zset-4score:18.0
+```
+
+* Long intersectAndStore\(K key, K otherKey, K destKey\);
+
+计算给定的一个或多个有序集的交集并将结果集存储在新的有序集合 key 中
+
+```
+使用：System.out.println(template.opsForZSet().intersectAndStore("zzset1","zzset2","destZset33"));
+
+        Set<ZSetOperations.TypedTuple<Object>> tuples = template.opsForZSet().rangeWithScores("destZset33",0,-1);
+        Iterator<ZSetOperations.TypedTuple<Object>> iterator = tuples.iterator();
+        while (iterator.hasNext())
+        {
+            ZSetOperations.TypedTuple<Object> typedTuple = iterator.next();
+            System.out.println("value:" + typedTuple.getValue() + "score:" + typedTuple.getScore());
+        }
+结果：value:zset-1score:2.0
+value:zset-2score:4.0
+value:zset-3score:6.0
+value:zset-4score:12.0
+```
+
+* Long intersectAndStore\(K key, Collection&lt;K&gt; otherKeys, K destKey\);
+
+计算给定的一个或多个有序集的交集并将结果集存储在新的有序集合 key 中
+
+```
+使用：List<String> stringList = new ArrayList<String>();
+        stringList.add("zzset2");
+        stringList.add("zzset3");
+        System.out.println(template.opsForZSet().intersectAndStore("zzset1",stringList,"destZset44"));
+
+        Set<ZSetOperations.TypedTuple<Object>> tuples = template.opsForZSet().rangeWithScores("destZset44",0,-1);
+        Iterator<ZSetOperations.TypedTuple<Object>> iterator = tuples.iterator();
+        while (iterator.hasNext())
+        {
+            ZSetOperations.TypedTuple<Object> typedTuple = iterator.next();
+            System.out.println("value:" + typedTuple.getValue() + "score:" + typedTuple.getScore());
+        }
+结果：value:zset-1score:3.0
+value:zset-2score:6.0
+value:zset-3score:9.0
+value:zset-4score:18.0
+```
+
+3.参考
 
 [https://www.jianshu.com/p/7bf5dc61ca06](https://www.jianshu.com/p/7bf5dc61ca06)
 
