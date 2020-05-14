@@ -191,5 +191,5 @@
 * [设计模式实践](she-ji-mo-shi.md)
   * [设计模式在外卖营销业务中的实践](she-ji-mo-shi/she-ji-mo-shi-zai-wai-mai-ying-xiao-ye-wu-zhong-de-shi-jian.md)
 * [各种业务场景解决方案](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an.md)
-  * [机票搜索](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/ji-piao-sou-suo.md)
+  * [Utech-机票搜索](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/ji-piao-sou-suo.md)
 
