@@ -134,6 +134,10 @@ zcat information-rest-ms.log.2020-05-07.0.gz
 zcat information-rest-ms.log.2020-05-07.0.gz  | grep -a -C30 7494560570
 ```
 
+**根据关键字或日期查找日志:**
+
+
+
 ## 参考:
 
 [https://mp.weixin.qq.com/s/fmhBcMugMhNlBu\_PEhAk2A](https://mp.weixin.qq.com/s/fmhBcMugMhNlBu_PEhAk2A)
