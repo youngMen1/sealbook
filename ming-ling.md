@@ -126,6 +126,7 @@ java -jar  jar包的完整路径
 
 ```
 zcat information-rest-ms.log.2020-05-07.0.gz
+zcat gpush-sms.log.2020-05-14.0.gz
 ```
 
 如果有需要进行过滤的需求，可以使用下面的方式实现：
@@ -147,8 +148,6 @@ zcat information-rest-ms.log.2020-05-07.0.gz  | grep -a -C30 7494560570
 ```
 cat goods-service.log|grep '调用vip-service服务验证是否为会员'
 cat gpush-sms.log|grep '短信发送失败'
-
-  
 ```
 
 检索日志，并显示该条日志的前后N（10）行记录：cat 日志文件 \| grep -n -B10 -A10 "关键字"
