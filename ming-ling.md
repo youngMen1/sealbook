@@ -136,9 +136,63 @@ zcat information-rest-ms.log.2020-05-07.0.gz  | grep -a -C30 7494560570
 
 **根据关键字或日期查找日志:**
 
+1.VI:单个文件可以使用vi或vim编辑器打开日志文件，使用编辑器里的查找功能。在查看模式下，符号/后面跟关键字向下查找，符号?后面跟关键字向上查找，按n查找下一个，按N查找上一个。
+
+
+
+2.grep命令：cat 1.log \| grep key  可以写为： grep key 1.log 
+
+
+
+根据字符串查询日志中关键词出现的位置：cat -n 日志文件\| grep 'keyword'
+
+
+
+例：cat -n 1.log \| grep 'keyword'
+
+
+
+检索日志，并显示该条日志的前后N（10）行记录：cat 日志文件 \| grep -n -B10 -A10 "关键字"
+
+
+
+3.查看某段时间内的日志： sed -n '/起始时间/,/结束时间/p' 日志文件，
+
+
+
+   查看某段时间内的关键字日志：sed -n '/起始时间/,/结束时间/p' 日志文件\| grep ‘keyword’
+
+
+
+例：sed -n ‘/2018-06-21 14:30:20/,/2018-06-21 16:12:00/p’ catalina.out \| grep ‘keyword’
+
+
+
+4.
+
+
+
+tail  -n  10  日志文件   查询日志尾部最后10行的日志;
+
+
+
+tail -n +10 日志文件    查询10行之后的所有日志;
+
+
+
+head -n 10  日志文件  查询日志文件中的头10行日志;
+
+
+
+head -n -10  日志文件  查询日志文件除了最后10行的其他所有日志;
+
+
+
 微信截图\_20200515163815.png
 
 ## 参考:
+
+原文链接：https://blog.csdn.net/lch\_2016/article/details/81334993
 
 [https://mp.weixin.qq.com/s/fmhBcMugMhNlBu\_PEhAk2A](https://mp.weixin.qq.com/s/fmhBcMugMhNlBu_PEhAk2A)
 
