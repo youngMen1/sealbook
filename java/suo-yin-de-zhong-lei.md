@@ -138,7 +138,7 @@ RTREE在mysql很少使用，仅支持geometry数据类型，支持该类型的�
 
 # 参考
 
-# Mysql几种索引类型
+Mysql几种索引类型
 
 [https://blog.csdn.net/dyllove98/article/details/9631303/](https://blog.csdn.net/dyllove98/article/details/9631303/)
 
