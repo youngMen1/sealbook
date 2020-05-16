@@ -67,6 +67,8 @@ public class AsyncTaskExecutorConfiguration implements AsyncConfigurer {
 }
 ```
 
+此时TaskExecutor对象已经被注入Spring中，接下来就可以通过Autowired来使用。
+
 ## 2.2.使用TaskExecutor
 
 ## 2.3.使用Async
