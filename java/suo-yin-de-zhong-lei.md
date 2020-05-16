@@ -44,7 +44,7 @@ RTREE在MySQL很少使用，仅支持geometry数据类型，支持该类型的�
 
 ### Normal: {#normal}
 
-这是最基本的索引
+表示普通索引
 
 ### Unique: {#unique}
 
