@@ -38,6 +38,8 @@
 
 ## 2.2.使用TaskExecutor
 
+## 2.3.使用Async
+
 ## 3.参考
 
 Spring基础学习-任务执行（TaskExecutor及Async）：
