@@ -19,6 +19,7 @@
 其他针对BoneCP缺陷的优化。
 
 ```
+spring:
   datasource:
     name: ai
     url: ${MYSQL.URL:jdbc:mysql://192.168.1.28:3306/gdfl_ai?allowMultiQueries=true&useSSL=false}
@@ -30,7 +31,6 @@
     hikari:
       max-lifetime: 120000 #一个连接的生命时长（毫秒），超时而且没被使用则被释放（retired），缺省:30分钟，建议设置比数据库超时时长少30秒以上
       maximum-pool-size: 25 #连接池中允许的最大连接数。缺省值：10；推荐的公式：((core_count * 2) + effective_spindle_count)
-
 ```
 
 ## 参考
