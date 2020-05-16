@@ -22,7 +22,7 @@
 spring:
   datasource:
     name: ai
-    url: ${MYSQL.URL:jdbc:mysql://192.168.1.28:3306/gdfl_ai?allowMultiQueries=true&useSSL=false}
+    url: ${MYSQL.URL:jdbc:mysql://192.168.1.28:3306/xxxx_xxx?allowMultiQueries=true&useSSL=false}
     username: ${MYSQL.USERNAME:root}
     password: ${MYSQL.PASSWORD:Gdfl@123456}
     # 使用hikari数据源
