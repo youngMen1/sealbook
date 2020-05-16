@@ -36,32 +36,34 @@
 
 ## 2.1.注册TaskExecutor
 
+通过spring Boot工程进行演示；在配置类中注册Bean：
+
 ```
 @Configuration
 @EnableAsync
 @EnableScheduling
 public class AsyncTaskExecutorConfiguration implements AsyncConfigurer {
-	private final Logger log = LoggerFactory.getLogger(getClass());
-	@Resource
-	private PaascloudProperties paascloudProperties;
+    private final Logger log = LoggerFactory.getLogger(getClass());
+    @Resource
+    private PaascloudProperties paascloudProperties;
 
-	@Override
-	@Bean(name = "taskExecutor")
-	public Executor getAsyncExecutor() {
-		log.debug("Creating Async Task Executor");
-		ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
-		executor.setCorePoolSize(paascloudProperties.getTask().getCorePoolSize());
-		executor.setMaxPoolSize(paascloudProperties.getTask().getMaxPoolSize());
-		executor.setQueueCapacity(paascloudProperties.getTask().getQueueCapacity());
-		executor.setKeepAliveSeconds(paascloudProperties.getTask().getKeepAliveSeconds());
-		executor.setThreadNamePrefix(paascloudProperties.getTask().getThreadNamePrefix());
-		return new ExceptionHandlingAsyncTaskExecutor(executor);
-	}
+    @Override
+    @Bean(name = "taskExecutor")
+    public Executor getAsyncExecutor() {
+        log.debug("Creating Async Task Executor");
+        ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+        executor.setCorePoolSize(paascloudProperties.getTask().getCorePoolSize());
+        executor.setMaxPoolSize(paascloudProperties.getTask().getMaxPoolSize());
+        executor.setQueueCapacity(paascloudProperties.getTask().getQueueCapacity());
+        executor.setKeepAliveSeconds(paascloudProperties.getTask().getKeepAliveSeconds());
+        executor.setThreadNamePrefix(paascloudProperties.getTask().getThreadNamePrefix());
+        return new ExceptionHandlingAsyncTaskExecutor(executor);
+    }
 
-	@Override
-	public AsyncUncaughtExceptionHandler getAsyncUncaughtExceptionHandler() {
-		return new SimpleAsyncUncaughtExceptionHandler();
-	}
+    @Override
+    public AsyncUncaughtExceptionHandler getAsyncUncaughtExceptionHandler() {
+        return new SimpleAsyncUncaughtExceptionHandler();
+    }
 }
 ```
 
