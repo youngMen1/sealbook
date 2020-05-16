@@ -69,7 +69,7 @@ Repeatable\(可重复\)
 * 单元测试代码不需要维护，一年半载后，那么单元测试几乎处于废弃状态
 * 单元测试与线上故障没有辩证关系，好的单元测试能够最大限度地规避线上故障
 
-https://blog.csdn.net/qq\_40741855/article/details/104258776
+# 参考
 
-
+[https://blog.csdn.net/qq\_40741855/article/details/104258776](https://blog.csdn.net/qq_40741855/article/details/104258776)
 
