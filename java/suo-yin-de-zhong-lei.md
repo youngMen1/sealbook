@@ -92,6 +92,12 @@ BTREE在MyISAM里的形式和Innodb稍有不同
 
 而在MyISAM里，主键和其他的并没有太大区别。不过和Innodb不太一样的地方是在MyISAM里，leaf node里存放的不是主键的信息，而是指向数据文件里的对应数据行的信息.
 
+**RTREE**
+
+RTREE在mysql很少使用，仅支持geometry数据类型，支持该类型的存储引擎只有MyISAM、BDb、InnoDb、NDb、Archive几种。
+
+相对于BTREE，RTREE的优势在于范围查找.
+
 ## 1.4.索引的创建方式
 
 索引的创建方式
