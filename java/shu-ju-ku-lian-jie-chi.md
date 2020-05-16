@@ -8,8 +8,6 @@
 
 ## 1.1.HiKariCP
 
-
-
 字节码精简 ：优化代码，直到编译后的字节码最少，这样，CPU缓存可以加载更多的程序代码；
 
 优化代理和拦截器 ：减少代码，例如HikariCP的Statement proxy只有100行代码，只有BoneCP的十分之一；
@@ -20,11 +18,7 @@
 
 其他针对BoneCP缺陷的优化。
 
-————————————————
 
-版权声明：本文为CSDN博主「anonySuperziy」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-
-原文链接：https://blog.csdn.net/qq\_17085463/article/details/90486515
 
 ## 参考
 
