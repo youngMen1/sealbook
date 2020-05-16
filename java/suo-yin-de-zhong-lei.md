@@ -56,79 +56,41 @@ RTREE在MySQL很少使用，仅支持geometry数据类型，支持该类型的�
 
 ## btree索引和hash索引的区别 {#btree索引和hash索引的区别}
 
-
-
-## 1.4.
+## 1.4.索引的创建方式
 
 索引的创建方式
 
 \(1\)主键索引的创建方式：
 
-
-
 方式1：ALTER TABLE \`table\_name\` ADD PRIMARY KEY \( \`column\` \)
 
-
-
-比如：ALTER TABLE users ADD PRIMARY KEY \( id \)
-
-
+比如：ALTER TABLE users ADD PRIMARY KEY \( id \)
 
 方式2：创建表的时候指定主键
 
-
-
 \(2\)唯一索引的创建方式
 
+方式1：ALTER TABLE \`table\_name\` ADD UNIQUE  \[indexName\] \(\`column\`\)
 
-
-方式1：ALTER TABLE \`table\_name\` ADD UNIQUE  \[indexName\] \(\`column\`\)
-
-
-
-比如：ALTER TABLE users ADD UNIQUE \( id \)
-
-
+比如：ALTER TABLE users ADD UNIQUE \( id \)
 
 方式2：CREATE UNIQUE INDEX index\_name ON table\_name \(column\_name\)
 
-
-
 比如：CREATE UNIQUE INDEX index\_users ON users\(id\)
-
-
 
 \(3\)普通索引的创建方式
 
-
-
 方式1：ALTER TABLE \`table\_name\` ADD INDEX index\_name \( \`column\` \)
 
-
-
-比如：ALTER TABLE users ADD INDEX index\_users\( id \)
-
-
+比如：ALTER TABLE users ADD INDEX index\_users\( id \)
 
 方式2：CREATE INDEX index\_name ON table\_name \(column\_name\)
 
-
-
-比如：CREATE INDEX index\_users ON users \(column\_name\)
-
-
+比如：CREATE INDEX index\_users ON users \(column\_name\)
 
 \(4\)全文索引的创建方式
 
-
-
 方式1：ALTER TABLE \`table\_name\` ADD FULLTEXT \( \`column\` \)
 
-
-
 比如：ALTER TABLE users ADD FULLTEXT \( id \)
-
-
-
-
 
