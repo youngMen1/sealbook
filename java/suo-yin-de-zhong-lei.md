@@ -162,6 +162,10 @@ MySQL查询只使用一个索引，因此如果where子句中已经使用了索�
 
 复制代码 代码如下:
 
+```
+select * from users where YEAR(adddate)<2007;
+```
+
 select \* from users where YEAR\(adddate\)
 
 &lt;
