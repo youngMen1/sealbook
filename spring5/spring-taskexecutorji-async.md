@@ -6,7 +6,33 @@
 
 在这种情况下，我们可以直接使用concurrent包中的线程池来处理，也可以使用其它的方案如Quartz等组件中的线程池来解决；为适配这些不同的方案，Spring引入了TaskExecutor接口作为顶层接口，并提供了几种不同的实现来满足不同的场景。
 
-## 1.1.Spring包含了以下TaskExecutor的实现：　
+## 1.1.Spring包含了以下TaskExecutor的实现：
+
+ThreadPoolTaskExecutor 
+
+它是最经常使用的一个，提供了一些Bean属性用于配置java.util.concurrent.ThreadPoolExecutor并且将其包装到TaskExecutor对象中。如果需要适配java.util.concurrent.Executor，请使用ConcurrentTaskExecutor。
+
+SimpleAsyncTaskExecutor 
+
+线程不会重用，每次调用时都会重新启动一个新的线程；但它有一个最大同时执行的线程数的限制；
+
+SyncTaskExecutor 
+
+同步的执行任务，任务的执行是在主线程中，不会启动新的线程来执行提交的任务。主要使用在没有必要使用多线程的情况，如较为简单的测试用例。
+
+ConcurrentTaskExecutor 
+
+它用于适配java.util.concurrent.Executor， 一般情况下请使用ThreadPoolTaskExecutor，如果hreadPoolTaskExecutor不够灵活时可以考虑采用ConcurrentTaskExecutor。
+
+SimpleThreadPoolTaskExecutor 
+
+它是Quartz中SimpleThreadPool的一个实现，用于监听Spring生命周期回调事件。它主要使用在需要一个线程池来被Quartz和非Quartz中的对象同时共享使用的情况。
+
+WorkManagerTaskExecutor 
+
+它实现了CommonJ中的WorkManager接口，是在Spring中使用CommonJ的WorkManager时的核心类。
+
+
 
 # 2.怎么使用
 
