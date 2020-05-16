@@ -136,3 +136,9 @@ RTREE在mysql很少使用，仅支持geometry数据类型，支持该类型的�
 
 比如：ALTER TABLE users ADD FULLTEXT \( id \)
 
+# 参考
+
+
+
+
+
