@@ -18,6 +18,11 @@
 
 其他针对BoneCP缺陷的优化。
 
+HiKari在springboot2.0上默认使用无需配置
+
+  
+
+
 ```
 spring:
   datasource:
