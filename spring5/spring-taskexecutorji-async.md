@@ -81,17 +81,19 @@ private TaskExecutor taskExecutor;
 ```
 @Resource
 private TaskExecutor taskExecutor;
-	public Wrapper exception(Exception e) {
-	log.info("保存全局异常信息 ex={}", e.getMessage(), e);
-	taskExecutor.execute(() -> {
-		GlobalExceptionLogDto globalExceptionLogDto = new GlobalExceptionLogDto().getGlobalExceptionLogDto(e, profile, applicationName);
-		mdcExceptionLogFeignApi.saveAndSendExceptionLog(globalExceptionLogDto);
-	});
-	return WrapMapper.error();
+    public Wrapper exception(Exception e) {
+    log.info("保存全局异常信息 ex={}", e.getMessage(), e);
+    taskExecutor.execute(() -> {
+        GlobalExceptionLogDto globalExceptionLogDto = new GlobalExceptionLogDto().getGlobalExceptionLogDto(e, profile, applicationName);
+        mdcExceptionLogFeignApi.saveAndSendExceptionLog(globalExceptionLogDto);
+    });
+    return WrapMapper.error();
 }
 ```
 
 ## 2.3.使用Async
+
+Async注解用于表示方法需要异步调用，Async注解也可用于类上，当用于类上时，相当于给所有的方法都默认加上了Async注解。
 
 ## 2.4.添加EnableAsync
 
