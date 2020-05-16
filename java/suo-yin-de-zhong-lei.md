@@ -40,7 +40,7 @@ RTREE在MySQL很少使用，仅支持geometry数据类型，支持该类型的�
 
 # 1.3.Mysql索引类型Normal,Unique,Full Text区别及索引方法Btree,Hash的区别
 
-索引方法（索引内部使用的算法）
+##### 索引方法（索引内部使用的算法）
 
 ### Normal: {#normal}
 
