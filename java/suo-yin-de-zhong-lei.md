@@ -138,7 +138,7 @@ RTREE在mysql很少使用，仅支持geometry数据类型，支持该类型的�
 
 比如：ALTER TABLE users ADD FULLTEXT \( id \)
 
-**三、使用索引的注意事项**
+## 1.5.**使用索引的注意事项**
 
 使用索引时，有以下一些技巧和注意事项：
 
@@ -160,10 +160,7 @@ MySQL查询只使用一个索引，因此如果where子句中已经使用了索�
 
 5.不要在列上进行运算
 
-复制代码 代码如下:
-
-  
-
+复制代码 代码如下:
 
 select \* from users where YEAR\(adddate\)
 
@@ -173,7 +170,7 @@ select \* from users where YEAR\(adddate\)
 
 将在每个行上进行运算，这将导致索引失效而进行全表扫描，因此我们可以改成:
 
-复制代码 代码如下:
+复制代码 代码如下:
 
 select \* from users where adddate
 
