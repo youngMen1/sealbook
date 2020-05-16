@@ -117,6 +117,8 @@ public class AsyncService {
 
 ## 2.4.添加EnableAsync
 
+@EnableAsync来开启异步的支持
+
 # 3.参考
 
 Spring基础学习-任务执行（TaskExecutor及Async）：
