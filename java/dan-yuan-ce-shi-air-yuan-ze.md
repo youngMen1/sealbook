@@ -1,3 +1,5 @@
+# 单元测试 AIR 原则
+
 **好的单元测试必须遵守 AIR 原则，即 Automatic\(自动化\)、Independent\(独立性\)、Repeatable\(可重复\)。**
 
 Automatic\(自动化\)
