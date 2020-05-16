@@ -36,6 +36,8 @@
 
 ## 2.1.注册TaskExecutor
 
+注解@EnableAsync就可以使用多线程，@Async加在线程任务的方法上（需要异步执行的任务），定义一个线程任务，通过spring提供的ThreadPoolTaskExecutor就可以使用线程池
+
 通过spring Boot工程进行演示；在配置类中注册Bean：
 
 ```
