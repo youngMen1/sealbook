@@ -44,6 +44,8 @@ RTREE在MySQL很少使用，仅支持geometry数据类型，支持该类型的�
 
 ### Normal: {#normal}
 
+这是最基本的索引
+
 ### Unique: {#unique}
 
 表示唯一的，不允许重复的索引，如果该字段信息保证不会重复。例如身份证号用作索引时，可设置为unique。
