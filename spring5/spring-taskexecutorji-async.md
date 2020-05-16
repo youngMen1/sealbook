@@ -78,6 +78,19 @@ private TaskExecutor taskExecutor;
 
 ## 2.2.使用TaskExecutor
 
+```
+@Resource
+private TaskExecutor taskExecutor;
+	public Wrapper exception(Exception e) {
+	log.info("保存全局异常信息 ex={}", e.getMessage(), e);
+	taskExecutor.execute(() -> {
+		GlobalExceptionLogDto globalExceptionLogDto = new GlobalExceptionLogDto().getGlobalExceptionLogDto(e, profile, applicationName);
+		mdcExceptionLogFeignApi.saveAndSendExceptionLog(globalExceptionLogDto);
+	});
+	return WrapMapper.error();
+}
+```
+
 ## 2.3.使用Async
 
 ## 2.4.添加EnableAsync
