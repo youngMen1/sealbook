@@ -6,7 +6,7 @@
 
 20190523193131986.png
 
-## 1.1.HiKariCP
+## 1.1.HiKariCP数据库连接池
 
 * 字节码精简 ：优化代码，直到编译后的字节码最少，这样，CPU缓存可以加载更多的程序代码；
 
@@ -36,6 +36,8 @@ spring:
       # 连接池中允许的最大连接数。缺省值：10；推荐的公式：((core_count * 2) + effective_spindle_count)
       maximum-pool-size: 25
 ```
+
+## 1.2.Druid数据库连接池
 
 ## 参考
 
