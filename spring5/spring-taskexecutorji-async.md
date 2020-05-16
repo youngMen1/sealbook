@@ -95,6 +95,29 @@ private TaskExecutor taskExecutor;
 
 Async注解用于表示方法需要异步调用，Async注解也可用于类上，当用于类上时，相当于给所有的方法都默认加上了Async注解。
 
+```
+@Service
+public class AsyncService {
+    private static final Logger logger = LoggerFactory.getLogger(AsyncService.class);
+
+    @Async
+    public void testNoRespNoParamAsync() {
+        logger.info("AsyncService begins to execute!");
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            logger.error("AsyncService was interrupted!", e);
+            return;
+        }
+
+        logger.info("AsyncService execution completed!");
+    }
+}
+————————————————
+版权声明：本文为CSDN博主「icarusliu81」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/icarusliu/article/details/79528810
+```
+
 ## 2.4.添加EnableAsync
 
 # 3.参考
