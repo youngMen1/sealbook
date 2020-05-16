@@ -36,6 +36,35 @@
 
 ## 2.1.注册TaskExecutor
 
+```
+@Configuration
+@EnableAsync
+@EnableScheduling
+public class AsyncTaskExecutorConfiguration implements AsyncConfigurer {
+	private final Logger log = LoggerFactory.getLogger(getClass());
+	@Resource
+	private PaascloudProperties paascloudProperties;
+
+	@Override
+	@Bean(name = "taskExecutor")
+	public Executor getAsyncExecutor() {
+		log.debug("Creating Async Task Executor");
+		ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+		executor.setCorePoolSize(paascloudProperties.getTask().getCorePoolSize());
+		executor.setMaxPoolSize(paascloudProperties.getTask().getMaxPoolSize());
+		executor.setQueueCapacity(paascloudProperties.getTask().getQueueCapacity());
+		executor.setKeepAliveSeconds(paascloudProperties.getTask().getKeepAliveSeconds());
+		executor.setThreadNamePrefix(paascloudProperties.getTask().getThreadNamePrefix());
+		return new ExceptionHandlingAsyncTaskExecutor(executor);
+	}
+
+	@Override
+	public AsyncUncaughtExceptionHandler getAsyncUncaughtExceptionHandler() {
+		return new SimpleAsyncUncaughtExceptionHandler();
+	}
+}
+```
+
 ## 2.2.使用TaskExecutor
 
 ## 2.3.使用Async
