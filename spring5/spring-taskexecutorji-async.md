@@ -71,7 +71,7 @@ public class AsyncTaskExecutorConfiguration implements AsyncConfigurer {
 
 ```
 @Autowired
-    private TaskExecutor taskExecutor;
+private TaskExecutor taskExecutor;
 ```
 
 ## 2.2.使用TaskExecutor
