@@ -20,3 +20,7 @@ BTREE索引就是一种将索引值按一定的算法，存入一个树形的数
 4.RTREE  
 RTREE在MySQL很少使用，仅支持geometry数据类型，支持该类型的存储引擎只有MyISAM、BDb、InnoDb、NDb、Archive几种。
 
+### 索引种类
+
+
+
