@@ -166,23 +166,9 @@ MySQL查询只使用一个索引，因此如果where子句中已经使用了索�
 select * from users where YEAR(adddate)<2007;
 ```
 
-select \* from users where YEAR\(adddate\)
-
-&lt;
-
-2007;
-
-将在每个行上进行运算，这将导致索引失效而进行全表扫描，因此我们可以改成:
-
-复制代码 代码如下:
-
-select \* from users where adddate
-
-&lt;
-
-‘2007-01-01';
-
-6.不使用NOT IN和&lt;&gt;操作
+```
+select * from users where adddate<‘2007-01-01';
+```
 
 # 参考
 
