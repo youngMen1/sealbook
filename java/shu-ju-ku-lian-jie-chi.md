@@ -14,7 +14,7 @@
 
 * 自定义数组类型（FastStatementList）代替ArrayList ：避免每次get\(\)调用都要进行range check，避免调用remove\(\)时的从头到尾的扫描；
 
-* 自定义集合类型（ConcurrentBag ：提高并发读写的效率；
+* 自定义集合类型（ConcurrentBag ：提高并发读写的效率）；
 
 * 其他针对BoneCP缺陷的优化。
 
@@ -81,7 +81,7 @@ Druid集合了开源和商业数据库连接池的优秀特性，并结合阿里
       filters: stat
 ```
 
-![](/static/image/微信截图\_20200516102621.png)
+![](/static/image/微信截图_20200516102621.png)
 
 ## 参考
 
