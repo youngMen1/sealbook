@@ -174,15 +174,9 @@ select * from users where YEAR(adddate)<2007;
 select * from users where adddate<‘2007-01-01';
 ```
 
-6.不使用NOT IN和
+6.不使用NOT IN和&lt;&gt;操作
 
-&lt;
-
-&gt;
-
-操作
-
-# 参考
+# 3.参考
 
 Mysql几种索引类型:
 
