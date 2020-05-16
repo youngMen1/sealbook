@@ -54,7 +54,7 @@ RTREE在MySQL很少使用，仅支持geometry数据类型，支持该类型的�
 
 表示全文搜索的索引，仅可用于 MyISAM 表。 FULLTEXT 用于搜索很长一篇文章的时候，效果最好。用在比较短的文本，切记对于大容量的数据表，生成全文索引是一个非常消耗时间非常消耗硬盘空间的做法。
 
-## Btree索引、Hash索引、**Rtree索引**的区别 {#btree索引和hash索引的区别}
+## 1.4.Btree索引、Hash索引、**Rtree索引**的区别 {#btree索引和hash索引的区别}
 
 **HASH**
 
