@@ -196,8 +196,8 @@
   * [设计模式在外卖营销业务中的实践](she-ji-mo-shi/she-ji-mo-shi-zai-wai-mai-ying-xiao-ye-wu-zhong-de-shi-jian.md)
 * [各种业务场景解决方案](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an.md)
   * [Utech-机票搜索](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/ji-piao-sou-suo.md)
-  * 支付系统
-  * 订单服务
-  * 在线旅游\(OTA\)
-  * 生鲜平台
+  * [支付系统](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/zhi-fu-xi-tong.md)
+  * [订单服务](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/ding-dan-fu-wu.md)
+  * [在线旅游\(OTA\)](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/zai-xian-lv-6e3828-ota.md)
+  * [生鲜平台](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/sheng-xian-ping-tai.md)
 
