@@ -199,5 +199,5 @@
   * [支付系统](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/zhi-fu-xi-tong.md)
   * [订单服务](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/ding-dan-fu-wu.md)
   * [在线旅游\(OTA\)](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/zai-xian-lv-6e3828-ota.md)
-  * [生鲜平台](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/sheng-xian-ping-tai.md)
+  * [生鲜电商平台](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/sheng-xian-ping-tai.md)
 
