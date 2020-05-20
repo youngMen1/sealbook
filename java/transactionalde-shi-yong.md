@@ -59,6 +59,8 @@ public Long addBook(Book book) {
 
 2.**方法内自调用导致的事务不生效**
 
+**如下几种情况：**
+
 # 2.参考
 
 @Transactional的使用：
