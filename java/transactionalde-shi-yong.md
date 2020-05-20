@@ -22,12 +22,6 @@ spring 在启动的时候会去解析生成相关的bean，这时候会查看拥
 
 @Transactional注解只能在抛出RuntimeException或者Error时才会触发事务的回滚，常见的非RuntimeException是不会触发事务的回滚的。但是我们平时做业务处理时，需要捕获异常，所以可以手动抛出RuntimeException异常或者添加rollbackFor = Exception.class\(也可以指定相应异常\)
 
-————————————————
-
-版权声明：本文为CSDN博主「唐万言」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-
-原文链接：https://blog.csdn.net/u013929527/article/details/102596243
-
 
 
 # 2.参考
