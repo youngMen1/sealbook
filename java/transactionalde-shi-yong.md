@@ -174,7 +174,7 @@ public Long add(Book book){
 
 **如果你加了 try catch语句且不抛出异常，就相当于把异常吞了，这样当然没法触发事务，所以事务不会回滚；**
 
-数据库引擎要支持事务，如果是mysql，注意表要使用支持事务的引擎，比如innodb，如果是myisam，事务是不起作用的。
+**数据库引擎要支持事务，如果是mysql，注意表要使用支持事务的引擎，比如innodb，如果是myisam，事务是不起作用的。**
 
 ## 1.4.@EnableTransactionManagement开启事务
 
