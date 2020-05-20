@@ -180,9 +180,22 @@ public Long add(Book book){
 
 ## 1.4.@EnableTransactionManagement开启事务
 
-@EnableTransactionManagement
+在启动类上加上@EnableTransactionManagement// 开启注解事务管理，等同于xml配置文件中的&lt;tx:annotation-driven /&gt;
 
-// 开启注解事务管理，等同于xml配置文件中的&lt;tx:annotation-driven /&gt;
+```
+// 开启注解事务管理
+@EnableTransactionManagement
+@SpringBootApplication(scanBasePackages = {"com.gdfl.*"})
+public class InformationServiceApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(InformationServiceApplication.class, args);
+    }
+
+}
+```
+
+
 
 # 2.参考
 
