@@ -53,8 +53,11 @@ public Long addBook(Book book) {
     }
     return result;
 }
-
 ```
+
+1.**只有public修饰的方法才会生效**
+
+2.**方法内自调用导致的事务不生效**
 
 # 2.参考
 
