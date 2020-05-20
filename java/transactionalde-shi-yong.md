@@ -176,6 +176,8 @@ public Long add(Book book){
 
 **数据库引擎要支持事务，如果是mysql，注意表要使用支持事务的引擎，比如innodb，如果是myisam，事务是不起作用的。**
 
+**检查你的方法是不是public的。@Transactional注解只能应用到public可见度的方法上，如果应用在protected、private或者package可见度的方法上，也不会报错，不过事务设置不会起作用。**
+
 ## 1.4.@EnableTransactionManagement开启事务
 
 @EnableTransactionManagement
