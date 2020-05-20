@@ -20,7 +20,7 @@ spring 在启动的时候会去解析生成相关的bean，这时候会查看拥
 
 真正的数据库层的事务提交和回滚是通过binlog或者redo log实现的。
 
-###  1.1.1.事务管理的方式： {#事务管理的方式}
+### 1.1.1.事务管理的方式： {#事务管理的方式}
 
 * Spring（Spring Framework 提供对事务管理的抽象接口） 支持两种事务管理方式：
 
@@ -183,4 +183,6 @@ public Long add(Book book){
 @Transactional的使用：
 
 [https://blog.csdn.net/u013929527/article/details/102596243](https://blog.csdn.net/u013929527/article/details/102596243)
+
+https://www.cnblogs.com/codingmengmeng/p/12111392.html
 
