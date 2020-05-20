@@ -24,7 +24,9 @@ spring 在启动的时候会去解析生成相关的bean，这时候会查看拥
 
 ### rollbackFor、rollbackForClassName、noRollbackFor、noRollbackForClassName
 
-rollbackFor、rollbackForClassName用于设置那些异常需要回滚；noRollbackFor、noRollbackForClassName用于设置那些异常不需要回滚。他们就是在设置事务的回滚规则。
+rollbackFor、rollbackForClassName用于设置那些异常需要回滚；
+
+noRollbackFor、noRollbackForClassName用于设置那些异常不需要回滚。他们就是在设置事务的回滚规则。
 
 ## 1.2.@Transactional使用注意点
 
