@@ -184,5 +184,7 @@ public Long add(Book book){
 
 [https://blog.csdn.net/u013929527/article/details/102596243](https://blog.csdn.net/u013929527/article/details/102596243)
 
-https://www.cnblogs.com/codingmengmeng/p/12111392.html
+[@Transactional 注解不生效原因](https://www.cnblogs.com/codingmengmeng/p/12111392.html)
+
+[https://www.cnblogs.com/codingmengmeng/p/12111392.html](https://www.cnblogs.com/codingmengmeng/p/12111392.html)
 
