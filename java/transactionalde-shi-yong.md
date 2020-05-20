@@ -157,6 +157,16 @@ public Long add(Book book){
 
 ## 1.3.@EnableTransactionManagement开启事务
 
+@EnableTransactionManagement
+
+// 开启注解事务管理，等同于xml配置文件中的 
+
+&lt;
+
+tx:annotation-driven /
+
+&gt;
+
 # 2.参考
 
 @Transactional的使用：
