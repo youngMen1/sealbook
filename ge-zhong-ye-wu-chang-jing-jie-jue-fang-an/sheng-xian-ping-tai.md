@@ -14,5 +14,7 @@
 
 # 2.参考
 
-https://www.cnblogs.com/jurendage/p/11304927.html
+[Java生鲜电商平台](https://www.cnblogs.com/jurendage/p/11304927.html)：
+
+[https://www.cnblogs.com/jurendage/p/11304927.html](https://www.cnblogs.com/jurendage/p/11304927.html)
 
