@@ -61,6 +61,91 @@ public Long addBook(Book book) {
 
 **如下几种情况：**
 
+```
+/*
+* 情况一：都有事务注解，异常在子方法出现，事务生效
+*/
+@Override
+@Transactional
+public Long addBook(Book book) {
+    Long result = add(book);
+    return result;
+}
+
+@Transactional
+public Long add(Book book){
+    Long result =  bookDao.addBook(book);
+    int i = 1/0;
+    return result;
+}
+
+/*
+* 情况二：都有事务注解，异常在主方法出现，事务生效
+*/
+@Override
+@Transactional
+public Long addBook(Book book) {
+    Long result = add(book);
+    int i = 1/0;
+    return result;
+}
+
+@Transactional
+public Long add(Book book){
+    Long result =  bookDao.addBook(book);
+    return result;
+}
+
+/*
+* 情况三：只有主方法有事务注解，异常在子方法出现，事务生效
+*/
+@Override
+@Transactional
+public Long addBook(Book book) {
+    Long result = add(book);
+    return result;
+}
+
+public Long add(Book book){
+    Long result =  bookDao.addBook(book);
+    int i = 1/0;
+    return result;
+}
+
+/*
+* 情况四：只有主方法有事务注解，异常在主方法出现，事务生效
+*/
+@Override
+@Transactional
+public Long addBook(Book book) {
+    Long result = add(book);
+    int i = 1/0;
+    return result;
+}
+
+public Long add(Book book){
+    Long result =  bookDao.addBook(book);
+    return result;
+}
+
+/*
+* 情况五：只有子方法有事务注解，异常在子方法出现，事务不生效
+*/
+@Override
+public Long addBook(Book book) {
+    Long result = add(book);
+    return result;
+}
+
+@Transactional
+public Long add(Book book){
+    Long result =  bookDao.addBook(book);
+    int i = 1/0;
+    return result;
+}
+
+```
+
 # 2.参考
 
 @Transactional的使用：
