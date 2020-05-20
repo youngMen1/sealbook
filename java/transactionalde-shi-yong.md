@@ -155,6 +155,8 @@ public Long add(Book book){
 
 **如果你加了 try catch语句且不抛出异常，就相当于把异常吞了，这样当然没法触发事务，所以事务不会回滚；**
 
+## 1.3.@EnableTransactionManagement开启事务
+
 # 2.参考
 
 @Transactional的使用：
