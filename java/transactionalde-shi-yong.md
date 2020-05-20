@@ -20,6 +20,20 @@ spring 在启动的时候会去解析生成相关的bean，这时候会查看拥
 
 真正的数据库层的事务提交和回滚是通过binlog或者redo log实现的。
 
+1.1.1.
+
+### rollbackFor、rollbackForClassName、noRollbackFor、noRollbackForClassName
+
+rollbackFor、rollbackForClassName用于设置那些异常需要回滚；noRollbackFor、noRollbackForClassName用于设置那些异常不需要回滚。他们就是在设置事务的回滚规则。
+
+  
+
+
+  
+
+
+
+
 ## 1.2.@Transactional使用注意点
 
 @Transactional注解只能在抛出RuntimeException或者Error时才会触发事务的回滚，常见的非RuntimeException是不会触发事务的回滚的。但是我们平时做业务处理时，需要捕获异常，所以可以手动抛出RuntimeException异常或者添加rollbackFor = Exception.class\(也可以指定相应异常\)
