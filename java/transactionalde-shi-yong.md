@@ -18,6 +18,8 @@ spring 在启动的时候会去解析生成相关的bean，这时候会查看拥
 
 真正的数据库层的事务提交和回滚是通过binlog或者redo log实现的。
 
+## 1.2.@Transactional使用注意点
+
 # 2.参考
 
 @Transactional的使用：
