@@ -164,6 +164,8 @@ public Long add(Book book){
 }
 ```
 
+## 1.3.事务不生效
+
 **结论：**
 
 **当无事务方法调用有事务的方法时事务不会生效，**
@@ -172,7 +174,7 @@ public Long add(Book book){
 
 **如果你加了 try catch语句且不抛出异常，就相当于把异常吞了，这样当然没法触发事务，所以事务不会回滚；**
 
-## 1.3.@EnableTransactionManagement开启事务
+## 1.4.@EnableTransactionManagement开启事务
 
 @EnableTransactionManagement
 
