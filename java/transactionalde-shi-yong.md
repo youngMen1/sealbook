@@ -22,7 +22,39 @@ spring 在启动的时候会去解析生成相关的bean，这时候会查看拥
 
 @Transactional注解只能在抛出RuntimeException或者Error时才会触发事务的回滚，常见的非RuntimeException是不会触发事务的回滚的。但是我们平时做业务处理时，需要捕获异常，所以可以手动抛出RuntimeException异常或者添加rollbackFor = Exception.class\(也可以指定相应异常\)
 
+```
+/*
+ * 捕获异常时，要想使事务生效，需要手动抛出RuntimeException异常或者添加rollbackFor = Exception.class
+*/
+@Override
+@Transactional
+public Long addBook(Book book) {
+    Long result = null;
+    try {
+        result = bookDao.addBook(book);
+        int i = 1/0;
+    } catch (Exception e) {
+        e.printStackTrace();
+        throw new RuntimeException();
+    }
+    return result;
+}
 
+@Override
+@Transactional(rollbackFor = Exception.class)
+public Long addBook(Book book) {
+    Long result = null;
+    try {
+        result = bookDao.addBook(book);
+        int i = 1/0;
+    } catch (Exception e) {
+        e.printStackTrace();
+        throw e;
+    }
+    return result;
+}
+
+```
 
 # 2.参考
 
