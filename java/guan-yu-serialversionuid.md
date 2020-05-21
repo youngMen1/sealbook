@@ -8,7 +8,7 @@
 
 # 参考
 
-为什么阿里巴巴禁止开发人员修改serialVersionUID 字段的值
+为什么阿里巴巴禁止开发人员修改serialVersionUID 字段的值:
 
 [https://developer.aliyun.com/article/756734?utm\_content=g\_1000126238](https://developer.aliyun.com/article/756734?utm_content=g_1000126238)
 
