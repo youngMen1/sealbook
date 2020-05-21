@@ -195,8 +195,6 @@ public class InformationServiceApplication {
 }
 ```
 
-
-
 # 2.参考
 
 @Transactional的使用：
