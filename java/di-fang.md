@@ -38,7 +38,7 @@ BigDecimal result3 = num1.multiply\(num2\);
 
 ## 2.5.**小数位截取**setScale
 
-小数位截取.jpg
+![](/static/image/小数位截取.jpg)
 
 
 
