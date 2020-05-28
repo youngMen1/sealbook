@@ -36,6 +36,12 @@ BigDecimal result3 = num1.multiply\(num2\);
 * 计算1÷3的结果（最后一种ROUND\_UNNECESSARY在结果为无限小数的情况下会报错）
   ![img](/static/image/2018091611592867.png)
 
+## 2.5.**小数位截取**setScale
+
+小数位截取.jpg
+
+
+
 ## 八种舍入模式解释如下
 
 ### 1、ROUND\_UP
