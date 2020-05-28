@@ -40,8 +40,6 @@ BigDecimal result3 = num1.multiply\(num2\);
 
 ![](/static/image/小数位截取.jpg)
 
-
-
 ## 八种舍入模式解释如下
 
 ### 1、ROUND\_UP
