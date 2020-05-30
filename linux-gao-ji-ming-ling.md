@@ -30,7 +30,15 @@ find / -name *.conf -type f -print | xargs tar cjf test.tar.gz
 
 **比如说我们想把数据库的导出操作后台运行，并且将命令的操作输出记录到文件**，那么我们可以这么做：
 
+```
+nohup mysqldump -uroot -pxxxxx —all-databases > ./alldatabases.sql &（xxxxx是密码）
+```
 
+当然如果你不想密码明文，你还可以这么做：
+
+```
+nohup mysqldump -uroot -pxxxxx —all-databases > ./alldatabases.sql （后面不加&符号）
+```
 
 # 参考
 
