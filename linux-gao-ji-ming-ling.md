@@ -18,6 +18,14 @@
 
 ![](/static/image/640.webp)
 
+xargs 后面不仅仅可以加文件分类的命令，你还可以加其他的很多命令，比如说实在一点的tar命令，**你可以使用find命令配合tar命令，将指定路径的特殊文件使用find命令找出来，然后配合tar命令将找出的文件直接打包**，命令如下：
+
+```
+find / -name *.conf -type f -print | xargs tar cjf test.tar.gz
+```
+
+
+
 
 
 # 参考
