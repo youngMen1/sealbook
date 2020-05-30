@@ -24,8 +24,11 @@ xargs 后面不仅仅可以加文件分类的命令，你还可以加其他的�
 find / -name *.conf -type f -print | xargs tar cjf test.tar.gz
 ```
 
+## 1.2.**命令或脚本后台运行**
 
 
+
+  
 
 
 # 参考
