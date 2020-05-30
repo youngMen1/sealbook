@@ -117,7 +117,7 @@ ping api.jpush.cn | awk ‘{ print $0”    “ strftime(“%Y-%m-%d %H:%M:%S”
 netstat -nat |awk ‘{print $6}’|sort|uniq -c|sort -rn
 ```
 
-查看tcp连接状态.webp
+![](/static/image/查看tcp连接状态.webp)
 
 ## 1.9.**查找80端口请求数最高的前20个IP**
 
@@ -127,7 +127,7 @@ netstat -nat |awk ‘{print $6}’|sort|uniq -c|sort -rn
 netstat -anlp|grep 80|grep tcp|awk '{print $5}'|awk -F: '{print $1}'|sort|uniq -c|sort -nr|head -n20
 ```
 
-查找80端口请求数最高的前20个IP.webp
+![](/static/image/查找80端口请求数最高的前20个IP.webp)
 
 ## 1.10.**ssh实现端口转发**
 
