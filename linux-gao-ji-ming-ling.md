@@ -16,7 +16,7 @@
 
 输出结果如下所示：
 
-![](/static/image/640(1).webp)
+![](/static/image/640.webp)
 
 
 
