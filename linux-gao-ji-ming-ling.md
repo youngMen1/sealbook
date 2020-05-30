@@ -52,7 +52,7 @@ nohup mysqldump -uroot -pxxxxx —all-databases > ./alldatabases.sql （后面�
 ps -aux | sort -rnk 4 | head -20
 ```
 
-微信图片\_20200530112307.png
+![](/static/image/微信图片_20200530112307.png)
 
 输出的第4列就是内存的耗用百分比。最后一列就是相对应的进程。
 
