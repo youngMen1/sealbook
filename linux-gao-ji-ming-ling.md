@@ -64,7 +64,7 @@ ps -aux | sort -rnk 4 | head -20
 ps -aux | sort -rnk 3 | head -20
 ```
 
-微信截图\_20200530112611.png
+![](/static/image/微信截图_20200530112611.png)
 
 # 2.参考
 
