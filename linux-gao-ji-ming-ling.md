@@ -89,7 +89,7 @@ multitail工具支持文本的高亮显示，内容过滤以及更多你可能�
 multitail -e "Accepted" /var/log/secure -l "ping baidu.com"
 ```
 
-multitail.webp
+![](/static/image/multitail.webp)
 
 # 2.参考
 
