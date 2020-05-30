@@ -109,7 +109,15 @@ ping api.jpush.cn | awk ‘{ print $0”    “ strftime(“%Y-%m-%d %H:%M:%S”
 
 ![](/static/image/持续ping并将结果记录到日志ping命令.webp)
 
+## 1.8.**查看tcp连接状态**
 
+**指定查看80端口的tcp连接状态，有利于分析连接是否释放，或者攻击时进行状态分析。**
+
+```
+netstat -nat |awk ‘{print $6}’|sort|uniq -c|sort -rn
+```
+
+查看tcp连接状态.webp
 
 # 2.参考
 
