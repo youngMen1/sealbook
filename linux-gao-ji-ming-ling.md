@@ -91,6 +91,12 @@ multitail -e "Accepted" /var/log/secure -l "ping baidu.com"
 
 ![](/static/image/multitail.webp)
 
+是很方便？如果平时我们想查看两个日志之间的关联性，可以观察日志输出是否有触发等。如果分开两个终端可能来回进行切换有点浪费时间，这个multitail工具查看未尝不是一个好方法。
+
+## 1.7.**持续ping并将结果记录到日志**
+
+##  
+
 # 2.参考
 
 [https://mp.weixin.qq.com/s?\_\_biz=MzA4Nzg5Nzc5OA==∣=2651668001&idx=1&sn=5c147bba570c9a53862b6e3020d0f421&chksm=8bcbfd88bcbc749eb0cdd1f024dafc1fc51d6d0f233ca590d0c803b8fa2880ede75e9fb9dc83&scene=21\#wechat\_redirect](https://mp.weixin.qq.com/s?__biz=MzA4Nzg5Nzc5OA==&mid=2651668001&idx=1&sn=5c147bba570c9a53862b6e3020d0f421&chksm=8bcbfd88bcbc749eb0cdd1f024dafc1fc51d6d0f233ca590d0c803b8fa2880ede75e9fb9dc83&scene=21#wechat_redirect)
