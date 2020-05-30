@@ -139,6 +139,10 @@ zcat information-rest-ms.log.2020-05-07.0.gz  | grep -a -C30 7494560570
 
 1.VI:单个文件可以使用vi或vim编辑器打开日志文件，使用编辑器里的查找功能。在查看模式下，符号/后面跟关键字向下查找，符号?后面跟关键字向上查找，按n查找下一个，按N查找上一个。
 
+```
+vim gpush-sms.log
+```
+
 2.grep命令：cat 1.log \| grep key  可以写为： grep key 1.log
 
 根据字符串查询日志中关键词出现的位置：cat -n 日志文件\| grep 'keyword'
