@@ -90,6 +90,8 @@ vi / vim是Linux上最常用的文本编辑器而且功能非常强大。只有�
 
 ![](https://mmbiz.qpic.cn/mmbiz_png/YrLz7nDONjFfwIxuqgHaxR6TVoWwicBCiapsRoicnGDROYs7K2Nby9K0cPTQwvicia5pg58pPFRbeYQX23bUriaP9c3Q/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
+:q! 不保存退出
+
 #### 4.2 定位命令
 
 ![](https://mmbiz.qpic.cn/mmbiz_png/YrLz7nDONjFfwIxuqgHaxR6TVoWwicBCiaW9ubIw2eADU27yyNHrgc3qUnjicHWCGV13iaCAcaegLtEXlujR2gyz4w/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
