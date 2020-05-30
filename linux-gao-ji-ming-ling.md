@@ -76,9 +76,8 @@ ps -aux | sort -rnk 3 | head -20
 
 ```
 wget ftp://ftp.is.co.za/mirror/ftp.rpmforge.net/redhat/el6/en/x86_64/dag/RPMS/multitail-5.2.9-1.el6.rf.x86_64.rpm
+yum -y localinstall multitail-5.2.9-1.el6.rf.x86_64.rpm
 ```
-
-
 
 # 2.参考
 
