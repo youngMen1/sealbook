@@ -64,6 +64,7 @@
   * [命令](ming-ling.md)
   * [利用nohup后台运行jar文件包程序](li-yong-nohup-hou-tai-yun-xing-jar-wen-jian-bao-cheng-xu.md)
   * [服务部署](fu-wu-bu-shu.md)
+  *  Linux 高级命令
 * [WeChat](wechat.md)
   * [普通红包](wechat/pu-tong-hong-bao.md)
   * [微信公众号](wechat/wei-xin-gong-zhong-hao.md)
