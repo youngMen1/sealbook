@@ -127,7 +127,10 @@ netstat -nat |awk ‘{print $6}’|sort|uniq -c|sort -rn
 netstat -anlp|grep 80|grep tcp|awk '{print $5}'|awk -F: '{print $1}'|sort|uniq -c|sort -nr|head -n20
 ```
 
-查找80端口请求数最高的前20个IP.webp  
+查找80端口请求数最高的前20个IP.webp
+
+## 1.10.**ssh实现端口转发**
+
 
 
 # 2.参考
