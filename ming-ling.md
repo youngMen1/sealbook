@@ -162,7 +162,9 @@ cat gpush-sms.log|grep '短信发送失败'
 
 查看某段时间内的关键字日志：sed -n '/起始时间/,/结束时间/p' 日志文件\| grep ‘keyword’
 
-例：sed -n ‘/2018-06-21 14:30:20/,/2018-06-21 16:12:00/p’ catalina.out \| grep ‘keyword’
+```
+例：sed -n ‘/2018-06-21 14:30:20/,/2018-06-21 16:12:00/p’ catalina.out | grep ‘keyword’
+```
 
 4.
 
