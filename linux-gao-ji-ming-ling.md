@@ -68,6 +68,18 @@ ps -aux | sort -rnk 3 | head -20
 
 我想大家应该也发现了，sort 命令后的3、4其实就是代表着第3列进行排序、第4列进行排序。
 
+## 1.6.**同时查看多个日志或数据文件**
+
+**在日常工作中，我们查看日志文件的方式可能是使用tail命令在一个个的终端查看日志文件，一个终端就看一个日志文件。包括我在内也是，但是有时候也会觉得这种方式略显麻烦，其实有个工具叫做multitail可以在同一个终端同时查看多个日志文件。**
+
+**首先安装multitail：**
+
+```
+wget ftp://ftp.is.co.za/mirror/ftp.rpmforge.net/redhat/el6/en/x86_64/dag/RPMS/multitail-5.2.9-1.el6.rf.x86_64.rpm
+```
+
+
+
 # 2.参考
 
 [https://mp.weixin.qq.com/s?\_\_biz=MzA4Nzg5Nzc5OA==∣=2651668001&idx=1&sn=5c147bba570c9a53862b6e3020d0f421&chksm=8bcbfd88bcbc749eb0cdd1f024dafc1fc51d6d0f233ca590d0c803b8fa2880ede75e9fb9dc83&scene=21\#wechat\_redirect](https://mp.weixin.qq.com/s?__biz=MzA4Nzg5Nzc5OA==&mid=2651668001&idx=1&sn=5c147bba570c9a53862b6e3020d0f421&chksm=8bcbfd88bcbc749eb0cdd1f024dafc1fc51d6d0f233ca590d0c803b8fa2880ede75e9fb9dc83&scene=21#wechat_redirect)
