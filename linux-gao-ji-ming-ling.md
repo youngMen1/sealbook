@@ -106,6 +106,7 @@ multitail -e "Accepted" /var/log/secure -l "ping baidu.com"
 ```
 ping api.jpush.cn | awk ‘{ print $0”    “ strftime(“%Y-%m-%d %H:%M:%S”,systime()) } ‘ >> /tmp/jiguang.log &
 ```
+![](/static/image/持续ping并将结果记录到日志ping命令.webp)
 
 ## 
 
