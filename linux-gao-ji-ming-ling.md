@@ -79,6 +79,16 @@ wget ftp://ftp.is.co.za/mirror/ftp.rpmforge.net/redhat/el6/en/x86_64/dag/RPMS/mu
 yum -y localinstall multitail-5.2.9-1.el6.rf.x86_64.rpm
 ```
 
+multitail工具支持文本的高亮显示，内容过滤以及更多你可能需要的功能。
+
+如下就来一个有用的例子：  
+此时我们既想查看secure的日志指定过滤关键字输出，又想查看实时的网络ping情况：  
+命令如下：
+
+```
+
+```
+
 # 2.参考
 
 [https://mp.weixin.qq.com/s?\_\_biz=MzA4Nzg5Nzc5OA==∣=2651668001&idx=1&sn=5c147bba570c9a53862b6e3020d0f421&chksm=8bcbfd88bcbc749eb0cdd1f024dafc1fc51d6d0f233ca590d0c803b8fa2880ede75e9fb9dc83&scene=21\#wechat\_redirect](https://mp.weixin.qq.com/s?__biz=MzA4Nzg5Nzc5OA==&mid=2651668001&idx=1&sn=5c147bba570c9a53862b6e3020d0f421&chksm=8bcbfd88bcbc749eb0cdd1f024dafc1fc51d6d0f233ca590d0c803b8fa2880ede75e9fb9dc83&scene=21#wechat_redirect)
