@@ -200,7 +200,7 @@
   * [支付系统](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/zhi-fu-xi-tong.md)
   * [订单服务](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/ding-dan-fu-wu.md)
   * [在线旅游\(OTA\)](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/zai-xian-lv-6e3828-ota.md)
-    * Utech-酒店搜索
+    * [Utech-酒店搜索](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/utechjiu-dian-sou-suo.md)
     * [Utech-机票搜索](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/ji-piao-sou-suo.md)
   * [生鲜电商平台](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/sheng-xian-ping-tai.md)
     * [Java生鲜电商平台-优惠券系统的架构设计与源码解析](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/sheng-xian-ping-tai/javasheng-xian-dian-shang-ping-53f0-you-hui-quan-xi-tong-de-jia-gou-she-ji-yu-yuan-ma-jie-xi.md)
