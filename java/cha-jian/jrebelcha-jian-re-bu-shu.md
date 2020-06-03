@@ -18,11 +18,7 @@ JRebel是一款Java虚拟机插件，它使得我们能在不进行重部署的�
  4、install  
  5、安装好之后需要restart IDEA
 
-  
-
-
-  
-
+15645795-22ac925b9c130d7b.webp
 
 # 2.参考
 
