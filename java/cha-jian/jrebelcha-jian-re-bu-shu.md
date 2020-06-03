@@ -14,5 +14,9 @@ JRebel 激活码 2020 亲测可用：
 
 [https://www.guidgen.com/](https://www.guidgen.com/)
 
+```
+https://jrebel.qekang.com/738b776f-6cc9-4ac5-9574-960a057392db
+```
+
 
 
