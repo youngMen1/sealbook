@@ -31,7 +31,7 @@ JRebel并非免费的插件，需要激活之后才能使用。
 ![](/static/image/15645795-b1d7d1c6194267e9.webp)
 操作方法就是点击Work offile 按钮即可:
 ![](/static/image/15645795-0359063b8432381a.webp)
-说明：
+# 2.总结
 
 如果出现激活过期的情况下 , 可以重新生成一下GUID , 替换原来的GUID即可 .
 在线生成GUID地址:
@@ -41,7 +41,7 @@ http://www.ofmonkey.com/transfer/guid
 
 
 
-# 2.参考
+# 3.参考
 
 IDEA JRebel插件热部署 史上最全：
 
