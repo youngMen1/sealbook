@@ -96,7 +96,6 @@
   * [mongodb](mongo.md)
   * [nginx](sealblog/nginx.md)
   * [SourceTree](sealblog/sourcetree.md)
-  * [idea实现docker镜像部署](sealblog/ideabu-shu-docker.md)
 * [分布式消息中间件](distributedmessagemiddleware.md)
   * [简介](distributedmessagemiddleware/jian-jie.md)
   * [RabbitMq](distributedmessagemiddleware/rabbitmq.md)
