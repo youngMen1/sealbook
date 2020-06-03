@@ -28,7 +28,7 @@ JRebel并非免费的插件，需要激活之后才能使用。
 
 在IDEA中一次点击 File->Settings->JRebel 并找到激活界面(因为我的已经激活了，点击change liense进入的激活界面)
 ![](/static/image/15645795-beb15f99ca65f1b9.webp)
-
+15645795-b1d7d1c6194267e9.webp
 
 # 2.参考
 
