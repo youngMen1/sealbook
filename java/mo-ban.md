@@ -1,26 +1,10 @@
+
+
 ```
 /**
-```
-
-```
-
-
-*
-@author
-fengzhiqiang
-
-
-*
-@date-time
-${
-DATE
-}
-${
-TIME
-}
-
-
-**/
+ * @author fengzhiqiang
+ * @date-time ${DATE} ${TIME}
+ **/
 ```
 
 
