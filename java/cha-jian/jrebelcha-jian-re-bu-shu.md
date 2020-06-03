@@ -1,6 +1,6 @@
 # 1.JRebel插件热部署
 
-
+包含：介绍jrebel、idea安装jrebel插件、激活jrebel\(非免费，需要免费激活使用\)、测试jrebel本地tomcat热部署、及解决jrebel插件不起作用
 
 # 2.参考
 
