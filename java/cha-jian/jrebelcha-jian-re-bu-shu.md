@@ -12,5 +12,7 @@ JRebel 激活码 2020 亲测可用：
 
 #### 生成 GUID 的网址 {#b3_solo_h4_0}
 
-https://www.guidgen.com/
+[https://www.guidgen.com/](https://www.guidgen.com/)
+
+
 
