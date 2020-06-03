@@ -35,7 +35,9 @@ JRebel并非免费的插件，需要激活之后才能使用。
 
 如果出现激活过期的情况下 , 可以重新生成一下GUID , 替换原来的GUID即可 .
 在线生成GUID地址:
+```
 http://www.ofmonkey.com/transfer/guid
+```
 手动热部署：每次更改代码，不需要重启tomcat
 
 编译代码
