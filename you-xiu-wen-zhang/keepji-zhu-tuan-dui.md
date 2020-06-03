@@ -14,6 +14,14 @@ Keep iOS 基本架构模型设计如下所示
 
 ![](/static/image/微信图片_20200603141750.jpg)
 
+上图模型从下到上依次分为 Core, Service, Business 三层：
+
+* Core 层主要包含网络请求、基础通用模块、数据存储以及第三方服务模块，这些模块接口直接提供给上层服务。
+
+* Service 层包含了各种包装好的服务给业务层调用，比如本地日志系统、统计埋点以及第三方服务的封装等等。这一层承上启下，连接了 Core 层和 Business 层。
+
+* Business \(SU/TC/RT\) 的解耦以 KEPMedium 模块作为共同依赖组件，其核心实现是采用 Runtime 利用反射 Class 动态调用达到解耦的效果。 需要特别指出的是，由于项目庞大，在 Business 中首先需要将具体业务细化为子业务模块，比如图示的 Timeline 模块和 Live 模块；然后子业务内部再划分 MVC/MVVM ，但业务相关的工具类需要单独抽出；另外， Core 层和 Service 层的部分模块被要求放到私有仓库中，用 Carthage 作为Framework 为日后 Keep 其他 App 提供基础依赖。
+
 # 参考
 
 keep技术团队:
