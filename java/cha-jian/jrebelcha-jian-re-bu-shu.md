@@ -21,6 +21,14 @@ JRebel是一款Java虚拟机插件，它使得我们能在不进行重部署的�
 ![](/static/image/15645795-22ac925b9c130d7b.webp)
 
 ## 1.3.激活JRebel
+JRebel并非免费的插件，需要激活之后才能使用。
+
+最新激活url地址 : http://139.199.89.239:1008/b8fdf475-b9f7-4146-b426-6e1bb5a17a16
+下面的框中输入邮箱地址 , 可随意填 test@123.com. 然后点击右下角的激活按钮即可
+
+在IDEA中一次点击 File->Settings->JRebel 并找到激活界面(因为我的已经激活了，点击change liense进入的激活界面)
+
+
 
 # 2.参考
 
