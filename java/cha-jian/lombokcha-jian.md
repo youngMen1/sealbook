@@ -1,4 +1,4 @@
-# 注解使用
+# 1.注解使用
 
 @Getter and @Setter
 
@@ -18,7 +18,7 @@
 
 主要使用前两个注解，这样就不需要自己写构造方法，代码简洁规范。
 
-### 常用注解 {#常用注解}
+### 2.常用注解 {#常用注解}
 
 @Data ：注解在类上；提供类所有属性的 getting 和 setting 方法，此外还提供了equals、canEqual、hashCode、toString 方法  
 @Setter：注解在属性上；为属性提供 setting 方法  
@@ -31,7 +31,7 @@
 @Builder 建筑者模式  
 @NonNull自检是否为空值
 
-# 总结
+# 3.总结
 
 **要修改方法修饰符可以设置AccessLevel的值：**
 
