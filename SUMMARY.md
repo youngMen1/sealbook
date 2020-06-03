@@ -17,7 +17,7 @@
     * [cloud Toolkit](java/cha-jian/cloud-toolkit.md)
     * [FindBugs的使用](java/cha-jian/findbugs.md)
     * [EasyCode的使用](java/cha-jian/easycodede-shi-yong.md)
-    * JRebel插件热部署
+    * [JRebel插件热部署](java/cha-jian/jrebelcha-jian-re-bu-shu.md)
   * [IDEA 快捷键拆解系列](java/idea-kuai-jie-jian-chai-jie-xi-lie.md)
     * [IDEA 快捷键拆解系列（一）](java/idea-kuai-jie-jian-chai-jie-xi-lie/idea-kuai-jie-jian-chai-jie-xi-lie-ff08-yi-ff09.md)
     * [IDEA 快捷键拆解系列（二）：File 篇](java/idea-kuai-jie-jian-chai-jie-xi-lie/idea-kuai-jie-jian-chai-jie-xi-lie-ff08-er-ff09-ff1a-file-pian.md)
