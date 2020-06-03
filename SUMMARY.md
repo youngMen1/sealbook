@@ -43,6 +43,7 @@
     * [IDEA 快捷键拆解系列（十八）：Live Templates 篇](java/idea-kuai-jie-jian-chai-jie-xi-lie/idea-kuai-jie-jian-chai-jie-xi-lie-ff08-shi-ba-ff09-ff1a-live-templates-pian.md)
     * [IDEA 快捷键拆解系列（十九）：Postfix 篇](java/idea-kuai-jie-jian-chai-jie-xi-lie/idea-kuai-jie-jian-chaijie-xi-lie-ff08-shi-jiu-ff09-ff1a-postfix-pian.md)
     * [IDEA 快捷键拆解系列（后记）](java/idea-kuai-jie-jian-chai-jie-xi-lie/idea-kuai-jie-jian-chai-jie-xi-lie-ff08-hou-ji-ff09.md)
+  * 模板
 * [Mybatis](mybatis.md)
   * [错误](mybatis/cuo-wu.md)
 * [SpringCloud](springcloud.md)
