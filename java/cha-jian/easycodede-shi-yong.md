@@ -6,7 +6,7 @@ Easycode是idea的一个插件，可以直接对数据的表生成entity,control
 
 ## 2.1.安装\(EasyCode\)
 
-![img](/static/image/微信截图\_20200511093251.png)
+![img](/static/image/微信截图_20200511093251.png)
 
 我这里的话是已经那装好了。
 
@@ -65,9 +65,7 @@ Lombok能通过注解的方式，在编译时自动为属性生成构造器、ge
 
 ![img](/static/image/14226414-ca23bdf4c68cf497.webp)
 
-
-
-# 参考
+# 3.参考
 
 [https://mp.weixin.qq.com/s/hLodJvBucYiz6BLrk0P5gQ](https://mp.weixin.qq.com/s/hLodJvBucYiz6BLrk0P5gQ)
 
