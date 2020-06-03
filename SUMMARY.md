@@ -14,7 +14,7 @@
   * [SpringBoot启动异常](java/cuo-wu.md)
   * [插件](java/cha-jian.md)
     * [LomBok插件](java/cha-jian/lombokcha-jian.md)
-    * [Cloud Toolkit](java/cha-jian/cloud-toolkit.md)
+    * [Cloud Toolkit插件](java/cha-jian/cloud-toolkit.md)
     * [FindBugs插件的使用](java/cha-jian/findbugs.md)
     * [EasyCode插件的使用](java/cha-jian/easycodede-shi-yong.md)
     * [JRebel插件热部署](java/cha-jian/jrebelcha-jian-re-bu-shu.md)
