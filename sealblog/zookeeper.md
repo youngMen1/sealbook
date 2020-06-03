@@ -1,4 +1,4 @@
-[https://www.cnblogs.com/javajetty/p/9954685.html](https://www.cnblogs.com/javajetty/p/9954685.html)
+
 
 # Zookeeper-3.4.14
 
@@ -104,6 +104,10 @@ export JAVA_HOME=/usr
 JMX enabled by default  
 Using config: /home/work/soft/zookeeper-3.4.14/bin/../conf/zoo.cfg  
 Mode: standalone
+
+# 参考
+
+[https://www.cnblogs.com/javajetty/p/9954685.html](#)
 
 [https://www.cnblogs.com/abc-begin/p/8206727.html](https://www.cnblogs.com/abc-begin/p/8206727.html)
 
