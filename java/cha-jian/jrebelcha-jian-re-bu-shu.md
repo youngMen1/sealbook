@@ -1,6 +1,6 @@
-# JRebel插件热部署
+# 1.JRebel插件热部署
 
-# 参考
+# 2.参考
 
 IDEA JRebel插件热部署 史上最全：
 
