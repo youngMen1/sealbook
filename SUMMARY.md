@@ -44,6 +44,7 @@
     * [IDEA 快捷键拆解系列（十九）：Postfix 篇](java/idea-kuai-jie-jian-chai-jie-xi-lie/idea-kuai-jie-jian-chaijie-xi-lie-ff08-shi-jiu-ff09-ff1a-postfix-pian.md)
     * [IDEA 快捷键拆解系列（后记）](java/idea-kuai-jie-jian-chai-jie-xi-lie/idea-kuai-jie-jian-chai-jie-xi-lie-ff08-hou-ji-ff09.md)
   * [IDEA模板](java/mo-ban.md)
+  * 免费申请IntelliJ IDEA商业版License指南
 * [Mybatis](mybatis.md)
   * [错误](mybatis/cuo-wu.md)
 * [SpringCloud](springcloud.md)
