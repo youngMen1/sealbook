@@ -213,6 +213,6 @@
   * [生鲜电商平台](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/sheng-xian-ping-tai.md)
     * [Java生鲜电商平台-优惠券系统的架构设计与源码解析](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/sheng-xian-ping-tai/javasheng-xian-dian-shang-ping-53f0-you-hui-quan-xi-tong-de-jia-gou-she-ji-yu-yuan-ma-jie-xi.md)
 * [历任公司](li-ren-gong-si.md)
-  * 古德菲力健康科技有限公司
+  * [古德菲力健康科技有限公司](li-ren-gong-si/gu-de-fei-li-jian-kang-ke-ji-you-xian-gong-si.md)
   * 优利科技有限公司
 
