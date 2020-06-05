@@ -8,7 +8,7 @@
 
 itliusir：[https://cloud.tencent.com/developer/user/1650787](https://cloud.tencent.com/developer/user/1650787)
 
-宇道源码:[http://www.iocoder.cn/categories/Spring-Cloud-Gateway/](http://www.iocoder.cn/categories/Spring-Cloud-Gateway/)
+芋道源码:[http://www.iocoder.cn/categories/Spring-Cloud-Gateway/](http://www.iocoder.cn/categories/Spring-Cloud-Gateway/)
 
-林祥纤：https://blog.csdn.net/linxingliang/article/details/103438875
+林祥纤：[https://blog.csdn.net/linxingliang/article/details/103438875](https://blog.csdn.net/linxingliang/article/details/103438875)
 
