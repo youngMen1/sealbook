@@ -139,7 +139,7 @@
   * [Spring TaskExecutor及Async](spring5/spring-taskexecutorji-async.md)
 * [关系型数据库](guan-xi-xing-shu-ju-ku.md)
   * [Mysql](guan-xi-xing-shu-ju-ku/mysql.md)
-    * 一千行 MySQL 学习笔记
+    * [一千行 MySQL 学习笔记](guan-xi-xing-shu-ju-ku/mysql/yi-qian-xing-mysql-xue-xi-bi-ji.md)
   * [postgreSQL](guan-xi-xing-shu-ju-ku/postgresql.md)
   * [sqLite](guan-xi-xing-shu-ju-ku/sqlite.md)
 * [GoogleGuava](google-guava.md)
