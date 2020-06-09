@@ -36,7 +36,7 @@ yml在线格式转换工具（properties）：[https://www.toyaml.com/index1.htm
 
 免费的图片和视频：[https://www.pexels.com/zh-cn/](https://www.pexels.com/zh-cn/)
 
-[**Discuz**](http://www.discuz.net/)：https://www.discuz.net/library/library/database/uc/uc\_index.htm
+Discuz论坛：https://www.discuz.net/library/library/database/uc/uc\_index.htm
 
 # 阿里开源技术
 
