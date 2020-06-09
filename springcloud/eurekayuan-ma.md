@@ -453,15 +453,15 @@ public String[] getAvailabilityZones(String region) {
 }
 ```
 
-* 日志中getting all instance registry info from the eureka server表示服务在注册的过程中也会向服务注册中心获取其他服务实例的信息列表。
+* **日志中getting all instance registry info from the eureka server表示服务在注册的过程中也会向服务注册中心获取其他服务实例的信息列表。**
 
-* 日志中Starting heartbeat executor: renew interval is: 30表示以默认的30秒作为间隔向服务注册中心发起心跳请求，告诉服务注册中心“我还活着”。
+* **日志中Starting heartbeat executor: renew interval is: 30表示以默认的30秒作为间隔向服务注册中心发起心跳请求，告诉服务注册中心“我还活着”。**
 
-* 日志中Discovery Client initialized at timestamp 1543649838546 with initial instances count: 1表示在时间戳1543649838546的时候，服务成功初始化完成。
+* **日志中Discovery Client initialized at timestamp 1543649838546 with initial instances count: 1表示在时间戳1543649838546的时候，服务成功初始化完成。**
 
-* 日志中DiscoveryClient\_PRODUCER-SERVICE/producer-service:-1612568227: registering service...表示开始将服务注册到服务注册中心。
+* **日志中DiscoveryClient\_PRODUCER-SERVICE/producer-service:-1612568227: registering service...表示开始将服务注册到服务注册中心。**
 
-* 日志中DiscoveryClient\_PRODUCER-SERVICE/producer-service:-1612568227 - registration status: 204表示服务注册完成，完成的状态标志为204。
+* **日志中DiscoveryClient\_PRODUCER-SERVICE/producer-service:-1612568227 - registration status: 204表示服务注册完成，完成的状态标志为204。**
 
 接下来，我们进入到源码中，借助源代码来分析一下服务注册到服务注册中心的流程。在分析之前，我们有必要搞清楚Spring Cloud是如何集成Eureka的，
 
