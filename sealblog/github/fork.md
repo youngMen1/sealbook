@@ -9,7 +9,7 @@
 4、push项目之前建分支，别人的项目（master分支）肯定不允许你push。
 
 ```
-  idea操作：右键&gt;Git&gt;Repository&gt;Branched，新建分支，然后就可以push了。git命令行操作也一样。
+idea操作：右键>Git>Repository>Branched，新建分支，然后就可以push了。git命令行操作也一样。
 ```
 
 5、登录github，切换Branch就可以看到自己提交的代码了，如下：
@@ -26,5 +26,5 @@
 
 Github上Fork别人代码后，提交自己的修改
 
-https://blog.csdn.net/u012435142/article/details/89491388
+[https://blog.csdn.net/u012435142/article/details/89491388](https://blog.csdn.net/u012435142/article/details/89491388)
 
