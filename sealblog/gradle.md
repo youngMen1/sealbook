@@ -1,8 +1,8 @@
 # 1.基本介绍
 
-# 2.参考
+# 2.Idea中使用gradle
 
-https://www.cnblogs.com/liangzs/p/8855834.html
+# 3.参考
 
-
+[https://www.cnblogs.com/liangzs/p/8855834.html](https://www.cnblogs.com/liangzs/p/8855834.html)
 
