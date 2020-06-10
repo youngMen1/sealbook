@@ -55,6 +55,8 @@
 
 # 2.参考
 
+Java消息队列总结只需一篇解决ActiveMQ、RabbitMQ、ZeroMQ、Kafka
+
 [https://blog.csdn.net/qq\_33814088/article/details/82816829](https://blog.csdn.net/qq_33814088/article/details/82816829)
 
 消息中间件Kafka和RabbitMQ最强评测
