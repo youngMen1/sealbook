@@ -102,7 +102,7 @@
   * [mongodb](mongo.md)
   * [nginx](sealblog/nginx.md)
   * [SourceTree](sealblog/sourcetree.md)
-  * Gradle
+  * [Gradle](sealblog/gradle.md)
 * [分布式消息中间件](distributedmessagemiddleware.md)
   * [简介](distributedmessagemiddleware/jian-jie.md)
   * [RabbitMq](distributedmessagemiddleware/rabbitmq.md)
