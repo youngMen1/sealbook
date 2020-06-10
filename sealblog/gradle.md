@@ -43,6 +43,10 @@ DSL与通用编程语言的区别：
 
 gradle[下载地址](https://services.gradle.org/distributions/)：`https://services.gradle.org/distributions/`
 
+# 2.2.配置gradle环境变量
+
+
+
 # 3.参考
 
 [https://www.cnblogs.com/liangzs/p/8855834.html](https://www.cnblogs.com/liangzs/p/8855834.html)
