@@ -8,11 +8,13 @@
 
 4、push项目之前建分支，别人的项目（master分支）肯定不允许你push。
 
-      idea操作：右键&gt;Git&gt;Repository&gt;Branched，新建分支，然后就可以push了。git命令行操作也一样。
+```
+  idea操作：右键&gt;Git&gt;Repository&gt;Branched，新建分支，然后就可以push了。git命令行操作也一样。
+```
 
 5、登录github，切换Branch就可以看到自己提交的代码了，如下：
 
 1016606-20180718164031573-443056465.png
 
-
+6、如果需要把修改内容提交给你fork的原项目，在自己分支上点 pull request，等待合并
 
