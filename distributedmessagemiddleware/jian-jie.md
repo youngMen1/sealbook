@@ -115,6 +115,8 @@ Storm集群：与OtherApp处于同一级别，采用拉的方式消费队列中�
 
 15376146574102d34955ea8.jpg
 
+### 1.4.1.综合选择RabbitMq
+
 # 2.参考
 
 Java消息队列总结只需一篇解决ActiveMQ、RabbitMQ、ZeroMQ、Kafka
