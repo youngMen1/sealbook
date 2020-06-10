@@ -48,25 +48,3 @@
 2.可以缓解短时间内高流量压垮应用
 ![](/static/image/1537614657665718a785581.jpg)
 用户的请求，服务器接收后，首先写入消息队列。假如消息队列长度超过最大数量，则直接抛弃用户请求或跳转到错误页面。
-
-秒杀业务根据消息队列中的请求信息，再做后续处理
-### 1.2.4.日志处理 {#6}
-
-### 1.2.5.消息通讯 {#7}
-
-## 1.3.消息中间件示例 {#8}
-
-# 2.参考:
-
-Java消息队列总结只需一篇解决ActiveMQ、RabbitMQ、ZeroMQ、Kafka
-
-[https://yq.aliyun.com/articles/661488?spm=a2c4e.11153940.0.0.59e644d2Q1YNVY](https://yq.aliyun.com/articles/661488?spm=a2c4e.11153940.0.0.59e644d2Q1YNVY)
-
-消息中间件ActiveMQ、RabbitMQ、RocketMQ、ZeroMQ、Kafka如何选型？
-
-[https://yq.aliyun.com/articles/619292?spm=a2c4e.11153940.0.0.219638b0RfjjN2](https://yq.aliyun.com/articles/619292?spm=a2c4e.11153940.0.0.219638b0RfjjN2)
-
-RabbitMQ和Kafka成熟度评测
-
-[https://mp.weixin.qq.com/s/2Esqohw8L30Yvw4Dmr53nA?](https://mp.weixin.qq.com/s/2Esqohw8L30Yvw4Dmr53nA?)
-
