@@ -2,6 +2,8 @@
 
 ## 消息队列概述 {#1}
 
+## 消息队列应用场景 {#2}
+
 # 2.参考:
 
 Java消息队列总结只需一篇解决ActiveMQ、RabbitMQ、ZeroMQ、Kafka
