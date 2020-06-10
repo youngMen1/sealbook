@@ -16,3 +16,5 @@ Java消息队列总结只需一篇解决ActiveMQ、RabbitMQ、ZeroMQ、Kafka
 
 RabbitMQ和Kafka
 
+https://mp.weixin.qq.com/s/2Esqohw8L30Yvw4Dmr53nA?
+
