@@ -1,4 +1,4 @@
-## NoSQL 数据库分类 {#10}
+# 1.NoSQL 数据库分类 {#10}
 
 | 类型 | 部分代表 | 特点 |
 | :---: | :---: | :---: |
@@ -9,7 +9,7 @@
 | 对象存储 | db4o/Versant | 通过类似面向对象语言的语法操作数据库，通过对象的方式存取数据。 |
 | xml数据库 | BerKeley DB XML/BaseX | 高效的存储xml数据，并支持xml的内部查询 |
 
-参考:
+# 2.参考:
 
 [https://yq.aliyun.com/articles/523620?spm=5176.10695662.1996646101.searchclickresult.327d3527aTDmrc](https://yq.aliyun.com/articles/523620?spm=5176.10695662.1996646101.searchclickresult.327d3527aTDmrc)
 
