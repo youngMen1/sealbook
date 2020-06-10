@@ -143,6 +143,8 @@ RabbitMQ 在有大量消息堆积的情况下性能会下降，Kafka不会。毕
 
 总的来说，RabbitMQ 和 Kafka 都是十分优秀的分布式的消息代理服务，只要合理部署，不作，基本上可以满足生产条件下的任何需求。
 
+
+
 # 2.参考
 
 Java消息队列总结只需一篇解决ActiveMQ、RabbitMQ、ZeroMQ、Kafka
