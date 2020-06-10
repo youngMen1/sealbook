@@ -142,7 +142,7 @@
     * [一千行 MySQL 学习笔记](guan-xi-xing-shu-ju-ku/mysql/yi-qian-xing-mysql-xue-xi-bi-ji.md)
   * [postgreSQL](guan-xi-xing-shu-ju-ku/postgresql.md)
   * [sqLite](guan-xi-xing-shu-ju-ku/sqlite.md)
-  * TiDB\(开源分布式关系型数据库\)
+  * [TiDB\(开源分布式关系型数据库\)](guan-xi-xing-shu-ju-ku/tidbkai-yuan-fen-bu-shi-guan-xi-xing-shu-ju-5e9329.md)
 * [GoogleGuava](google-guava.md)
   * [基本工具 \[Basic utilities\]](google-guava/ji-ben-gong-ju-basic-utilities.md)
   * [集合\[Collections\]](google-guava/ji-54085b-collections.md)
