@@ -47,5 +47,7 @@ gradle[下载地址](https://services.gradle.org/distributions/)：`https://serv
 
 # 3.参考
 
+idea中使用gradle：
+
 [https://www.cnblogs.com/liangzs/p/8855834.html](https://www.cnblogs.com/liangzs/p/8855834.html)
 
