@@ -95,7 +95,7 @@
     * [Zookeeper实现分布式锁](sealblog/zookeeper/zookeepershi-xian-fen-bu-shi-suo.md)
   * [nexus](sealblog/nexus.md)
   * [maven](sealblog/maven.md)
-  * [git](sealblog/git.md)
+  * [Git](sealblog/git.md)
   * [redis](sealblog/redis.md)
   * [JDK](sealblog/jdk.md)
     * [JDK看源码](sealblog/jdk/jdkkan-yuan-ma.md)
