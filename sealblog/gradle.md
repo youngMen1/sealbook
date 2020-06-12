@@ -65,7 +65,7 @@ D:\utils\gradle-5.6.4
 %GRADLE_HOME%\bin;
 ```
 
-# 2.3.测试
+## 2.3.测试
 
 在cmd命令里输入`gradle -v`如果能打出版本号，说明环境配置完毕。
 
@@ -74,6 +74,26 @@ D:\utils\gradle-5.6.4
 ## 2.4.Idea配置
 
 微信截图\_20200612102904.png
+
+## 2.5.构建命令
+
+清理命令
+
+```
+gradle clean
+```
+
+构建打包命令
+
+```
+gradle clean build
+```
+
+编译时跳过测试，使用`-x`,`-x`参数用来排除不需要执行的任务
+
+```
+gradle clean build -x test
+```
 
 # 3.参考
 
