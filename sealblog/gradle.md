@@ -27,6 +27,7 @@ DSL与通用编程语言的区别：
 1. 一种更加敏捷的编程语言
 2. 入门非常的容易，且功能非常的强大
 3. 既可以作为编程语言也可以作为脚本语言
+
 # 2.Idea中使用gradle
 ## 2.1.gradle下载
 gradle[下载地址](https://services.gradle.org/distributions/)：`https://services.gradle.org/distributions/`
