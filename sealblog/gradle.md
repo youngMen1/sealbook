@@ -59,17 +59,15 @@ D:\utils\gradle-5.6.4
 D:\utils\gradle-5.6.4
 ```
 
-
-
 ,找到path变量，后面添加
 
-`%GRADLE_HOME%\bin;`
-
-。
-
+```
+%GRADLE_HOME%\bin;
 ```
 
-```
+
+
+
 
 # 3.参考
 
