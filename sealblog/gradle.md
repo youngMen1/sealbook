@@ -71,6 +71,10 @@ D:\utils\gradle-5.6.4
 
 微信截图\_20200612102824.png
 
+## 2.4.Idea配置
+
+
+
 # 3.参考
 
 idea中使用gradle：
