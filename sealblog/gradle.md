@@ -38,7 +38,7 @@ gradle[下载地址](https://services.gradle.org/distributions/)：`https://serv
 D:\utils\gradle-5.6.4
 ```
 ## 2.2.在IDEA里gradle配置和使用
-打开环境配置，新建系统环境“GRADLE\_HOME”,值为
+打开环境配置，新建系统环境“GRADLE_HOME”,值为
 ```
 D:\utils\gradle-5.6.4
 ```
