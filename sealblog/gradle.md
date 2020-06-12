@@ -43,9 +43,33 @@ DSL与通用编程语言的区别：
 
 gradle[下载地址](https://services.gradle.org/distributions/)：`https://services.gradle.org/distributions/`
 
+解压到
+
+微信截图\_20200612102610.png
+
+```
+D:\utils\gradle-5.6.4
+```
+
 ## 2.2.在IDEA里gradle配置和使用
 
+打开环境配置，新建系统环境“GRADLE\_HOME”,值为
 
+```
+D:\utils\gradle-5.6.4
+```
+
+
+
+,找到path变量，后面添加
+
+`%GRADLE_HOME%\bin;`
+
+。
+
+```
+
+```
 
 # 3.参考
 
