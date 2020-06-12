@@ -45,7 +45,7 @@ gradle[下载地址](https://services.gradle.org/distributions/)：`https://serv
 
 解压到
 
-微信截图\_20200612102610.png
+![](/static/image/微信截图_20200612102610.png)
 
 ```
 D:\utils\gradle-5.6.4
