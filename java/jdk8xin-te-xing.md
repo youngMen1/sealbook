@@ -14,7 +14,11 @@ Java处理日期、日历和时间的不足之处：将 java.util.Date 设定为
 
 新API还引入了 ZoneOffSet 和 ZoneId 类，使得解决时区问题更为简便。解析、格式化时间的 DateTimeFormatter类也全部重新设计。
 
-# 2.参考
+# 2.实战
+
+在教程中我们将通过一些简单的实例来学习如何使用新API，因为只有在实际的项目中用到，才是学习新知识以及新技术最快的方式。
+
+# 3.参考
 
 Java8新特性之日期处理：  
 [https://segmentfault.com/a/1190000012922933](https://segmentfault.com/a/1190000012922933)
