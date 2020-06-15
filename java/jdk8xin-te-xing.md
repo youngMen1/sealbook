@@ -12,7 +12,12 @@ Java处理日期、日历和时间的不足之处：将 java.util.Date 设定为
 
 ## 1.2.关键类 {#item-2}
 
+新API还引入了 ZoneOffSet 和 ZoneId 类，使得解决时区问题更为简便。解析、格式化时间的 DateTimeFormatter
 
+  
+
+
+类也全部重新设计。
 
 # 2.参考
 
