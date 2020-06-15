@@ -106,7 +106,7 @@
     * [错误日志](sealblog/gradle/cuo-wu-ri-zhi.md)
   * [Github](sealblog/github.md)
     * [Fork](sealblog/github/fork.md)
-  * Percona\(pt-kill\)
+  * [Percona\(pt-kill\)](sealblog/perconapt-kill.md)
 * [分布式消息中间件](distributedmessagemiddleware.md)
   * [简介](distributedmessagemiddleware/jian-jie.md)
   * [RabbitMq](distributedmessagemiddleware/rabbitmq.md)
