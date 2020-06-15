@@ -2,7 +2,7 @@
 
 ## 1.1.索引类型
 
-Mysql目前主要有以下几种索引类型：FULLTEXT，HASH，BTREE，RTREE。
+**Mysql目前主要有以下几种索引类型：FULLTEXT，HASH，BTREE，RTREE。**
 
 1.FULLTEXT  
 即为全文索引，目前只有MyISAM引擎支持。其可以在CREATE TABLE ，ALTER TABLE ，CREATE INDEX 使用，不过目前只有 CHAR、VARCHAR ，TEXT 列上可以创建全文索引。
