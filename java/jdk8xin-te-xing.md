@@ -58,6 +58,16 @@ Java处理日期、日历和时间的不足之处：将 java.util.Date 设定为
 
 
 
+1.提供了javax.time.ZoneId 获取时区。
+
+2.提供了LocalDate和LocalTime类。
+
+3.Java 8 的所有日期和时间API都是不可变类并且线程安全，而现有的Date和Calendar API中的java.util.Date和SimpleDateFormat是非线程安全的。
+
+4.主包是 java.time,包含了表示日期、时间、时间间隔的一些类。里面有两个子包java.time.format用于格式化， java.time.temporal用于更底层的操作。
+
+5.时区代表了地球上某个区域内普遍使用的标准时间。每个时区都有一个代号，格式通常由区域/城市构成（Asia/Tokyo），在加上与格林威治或 UTC的时差。例如：东京的时差是+09:00。
+
 # 4.参考
 
 Java8新特性之日期处理：  
