@@ -87,7 +87,7 @@ public void noevicationTest() {
 
 在执行到i为145的时候抛出了异常，有点费解，value为1k，key顶多就几b，把redis最大内存改为10m，可以到7000多个，不知道还有什么占用了内存。
 
-## 2、volatile-lru，使用LRU算法删除设置了expire的key 
+## 2、volatile-lru，使用LRU算法删除设置了expire的key
 
 ## 注：redis使用的是一种伪LRU算法，应该是出于性能考虑
 
@@ -142,7 +142,9 @@ public void allkeysTest() throws InterruptedException {
 
 i为前100设置了expire的key被删除了部分，去掉sleep的话i为后100的key也被删除部分。
 
-## 4、volatile-lfu，使用LFU算法删除设置了expire的key 注：使用的也是一种伪LFU算法
+## 4、volatile-lfu，使用LFU算法删除设置了expire的key 
+
+## 注：使用的也是一种伪LFU算法
 
 LFU（Least Frequently Used）算法根据数据的历史访问频率来淘汰数据，其核心思想是“如果数据过去被访问多次，那么将来被访问的频率也更高”。
 
