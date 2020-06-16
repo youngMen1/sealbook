@@ -61,6 +61,7 @@ AtomicInteger 提供了自增/自减的两个场景方法，一个返回旧值�
    // 返回对象o的offset地址处的值，并将该值原子性地增加delta
     @HotSpotIntrinsicCandidate
     public final int getAndAddInt(Object o, long offset, int delta) {
+    
         int v;
 
         do {
