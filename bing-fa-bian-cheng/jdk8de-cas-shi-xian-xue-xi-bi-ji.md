@@ -10,7 +10,7 @@
 
 CAS全称为compare and swap，是原子操作的一种，可用于在多线程编程中实现不被打断的数据交换操作，从而避免多线程同时改写某一数据时由于执行顺序不确定性以及中断的不可预知性产生的数据不一致问题。 该操作通过将内存中的值与指定数据进行比较，当数值一样时将内存中的数据替换为新的值。
 
-# 2.**CAS的实现**
+## 1.3.**CAS的实现**
 
 接下来我们去看CAS在java中的实现，[sun.misc.Unsafe](http://hg.openjdk.java.net/jdk8/jdk8/jdk/file/687fd7c7986d/src/share/classes/sun/misc/Unsafe.java)提供了compareAndSwap系列函数。
 
@@ -50,19 +50,21 @@ CAS全称为compare and swap，是原子操作的一种，可用于在多线程�
 ```
 // linux(int 类型)
 inline jint Atomic::cmpxchg(jint exchange_value, volatile jint* dest, jint compare_value) {
-  	int mp = os::is_MP();
-  	__asm__ volatile (LOCK_IF_MP(%4) "cmpxchgl %1,(%3)"
+      int mp = os::is_MP();
+      __asm__ volatile (LOCK_IF_MP(%4) "cmpxchgl %1,(%3)"
                     : "=a" (exchange_value)
                     : "r" (exchange_value), "a" (compare_value), "r" (dest), "r" (mp)
                     : "cc", "memory");
-  	return exchange_value;
+      return exchange_value;
 }
 
 // windows(int 类型)
 inline jint Atomic::cmpxchg(jint exchange_value, volatile jint* dest, jint compare_value) {
- 		return (*os::atomic_cmpxchg_func)(exchange_value, dest, compare_value);
+         return (*os::atomic_cmpxchg_func)(exchange_value, dest, compare_value);
 }
 ```
+
+# **CAS在Java中的使用** {#CAS%E5%9C%A8Java%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8}
 
 # 3.总结
 
