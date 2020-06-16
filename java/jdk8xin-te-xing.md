@@ -349,12 +349,27 @@ This year is Leap year
 
 ### 15.计算两个日期之间的天数和月数 {#item-3-15}
 
-有一个常见日期操作是计算两个日期之间的天数、周数或月数。在Java 8中可以用java.time.Period类来做计算。下面这个例子中，我们计算了当天和将来某一天之间的月数。
+有一个常见日期操作是计算两个日期之间的天数、周数或月数。在Java 8中可以用java.time.Period类来做计算。下面这个例子中，我们计算了当天和将来某一天之间的月数。下面的例子：现在是6月份，距离到8月份，中间相隔1月,多少天
 
-  
+```
+ /**
+     * 计算两个日期之间的天数和月数
+     */
+    public static void calcDateDays() {
+        LocalDate today = LocalDate.now();
 
+        LocalDate java8Release = LocalDate.of(2020, Month.AUGUST, 14);
 
-下面的例子：现在是一月份，距离到五月份，中间相隔3月
+        Period periodToNextJavaRelease = Period.between(today, java8Release);
+
+        System.out.println("相差月数 : "
+                + periodToNextJavaRelease.getMonths() + "相差天数:" + periodToNextJavaRelease.getDays());
+    }
+```
+
+```
+相差月数 : 1相差天数:29
+```
 
 ### 16.包含时差信息的日期和时间 {#item-3-16}
 
