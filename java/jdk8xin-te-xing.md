@@ -187,6 +187,23 @@ Time after 2 hours : 11:55:36.397
 
 可以用同样的方法增加1个月、1年、1小时、1分钟甚至一个世纪，更多选项可以查看Java 8 API中的ChronoUnit类。
 
+```
+   /**
+     * 如何计算一周后的日期
+     */
+    public static void nextWeek(){
+        LocalDate today = LocalDate.now();
+        // 使用变量赋值
+        LocalDate nextWeek = today.plus(1, ChronoUnit.WEEKS);
+        System.out.println("Today is : " + today);
+        System.out.println("Date after 1 week : " + nextWeek);
+    }
+```
+
+```
+Date after 1 week : 2020-06-23
+```
+
 ### 9.计算一年前或一年后的日期 {#item-3-9}
 
 ### 10.使用Java 8的Clock时钟类 {#item-3-10}
