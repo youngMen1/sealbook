@@ -37,3 +37,10 @@ public final int getAndIncrement() {
 
 可以看出，该方法实际上是调用了unsafe实例的getAndAddInt方法，unsafe实例的获取时通过UnSafe类的静态方法getUnsafe获取：
 
+```
+private static final jdk.internal.misc.Unsafe U = jdk.internal.misc.Unsafe.getUnsafe();
+
+```
+
+
+
