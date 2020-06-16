@@ -11,7 +11,6 @@
 这几个类的使用方法也是基本一样的，以AtomicReference为例，来说明这些类的基本用法。下面是一个demo
 
 ```
-
 public class AtomicTest {
 
     /**
