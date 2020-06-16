@@ -28,6 +28,18 @@ Java处理日期、日历和时间的不足之处：将 java.util.Date 设定为
 
 Java 8 中的`LocalDate`用于表示当天日期。和 java.util.Date不同，它只有日期，不包含时间。当你仅需要表示日期时就用这个类。
 
+```
+// 获取今天的日期
+public void getCurrentDate(){
+    LocalDate today = LocalDate.now();
+    System.out.println("Today's Local date : " + today);
+
+    // 这个是作为对比
+    Date date = new Date();
+    System.out.println(date);
+}
+```
+
 ### 2. 获取年、月、日信息 {#item-3-2}
 
 ### 3.处理特定日期 {#item-3-3}
