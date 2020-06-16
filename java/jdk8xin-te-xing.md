@@ -256,7 +256,28 @@ defaultClock : SystemClock[Asia/Shanghai]
 LocalDate 类有两类方法`isBefore()`和`isAfter()`用于比较日期。调用`isBefore()`方法时，如果给定日期小于当前日期则返回 true。
 
 ```
+   /**
+     * 如何用Java判断日期是早于还是晚于另一个日期
+     */
+    public static void isBeforeOrIsAfter(){
+        LocalDate today = LocalDate.now();
 
+        LocalDate tomorrow = LocalDate.of(2018, 1, 29);
+        if(tomorrow.isAfter(today)){
+            System.out.println("Tomorrow comes after today");
+        }
+
+        // 减去一天
+        LocalDate yesterday = today.minus(1, ChronoUnit.DAYS);
+
+        if(yesterday.isBefore(today)){
+            System.out.println("Yesterday is day before today");
+        }
+    }
+```
+
+```
+Yesterday is day before today
 ```
 
 ### 12.处理时区 {#item-3-12}
