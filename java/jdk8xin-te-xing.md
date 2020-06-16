@@ -140,22 +140,7 @@ Java中如何检查这些节日或其它周期性事件呢？答案就是`MonthD
 ```
 
 ```
- /**
-     * 处理周期性的日期
-     */
-    public static void cycleDate(){
-        LocalDate today = LocalDate.now();
-        LocalDate dateOfBirth = LocalDate.of(2020, 06, 16);
-
-        MonthDay birthday = MonthDay.of(dateOfBirth.getMonth(), dateOfBirth.getDayOfMonth());
-        MonthDay currentMonthDay = MonthDay.from(today);
-
-        if(currentMonthDay.equals(birthday)){
-            System.out.println("Many Many happy returns of the day !!");
-        }else{
-            System.out.println("Sorry, today is not your birthday");
-        }
-    }
+Many Many happy returns of the day !!
 ```
 
 ### 6.获取当前时间 {#item-3-6}
