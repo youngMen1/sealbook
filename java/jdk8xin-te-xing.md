@@ -282,6 +282,27 @@ Yesterday is day before today
 
 ### 12.处理时区 {#item-3-12}
 
+Java 8不仅分离了日期和时间，也把时区分离出来了。现在有一系列单独的类如 ZoneId 来处理特定时区，ZoneDateTime 类来表示某时区下的时间。
+
+```
+   /**
+     * 获取特定时区下面的时间
+     */
+    public static void getZoneTime(){
+        //设置时区
+        ZoneId america = ZoneId.of("America/New_York");
+
+        LocalDateTime localtDateAndTime = LocalDateTime.now();
+
+        ZonedDateTime dateAndTimeInNewYork  = ZonedDateTime.of(localtDateAndTime, america );
+        System.out.println("现在的日期和时间在特定的时区 : " + dateAndTimeInNewYork);
+    }
+```
+
+```
+
+```
+
 ### 13.如何体现出固定日期 {#item-3-13}
 
 ### 14.检查闰年 {#item-3-14}
