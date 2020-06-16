@@ -69,9 +69,11 @@ AtomicLong的实现原理和AtomicInteger一致，只不过一个针对的是lon
 
 ```
     // 如果当前值为expectedValue，则将其原子地更新为newValue，返回值表示是否更新成功
-    public final boolean compareAndSet(boolean expectedValue, boolean newValue) {
-        return VALUE.compareAndSet(this, (expectedValue ? 1 : 0), (newValue ? 1 : 0));
-    }
+ public final boolean compareAndSet(boolean expect, boolean update) {
+    int e = expect ? 1 : 0;
+    int u = update ? 1 : 0;
+    return unsafe.compareAndSwapInt(this, valueOffset, e, u);
+}
 ```
 
 
