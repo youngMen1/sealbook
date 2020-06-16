@@ -1,6 +1,6 @@
 # 1.Atomic字段类型源码学习
 
-如果需要更新对象的某个字段，并在多线程的情况下，能够保证线程安全，atomic同样也提供了相应的原子操作类：
+如果需要更新对象的某个字段，并在多线程的情况下，能够保证线程安全，Atomic同样也提供了相应的原子操作类：
 
 1. AtomicIntegeFieldUpdater：原子更新整型字段类；
 2. AtomicLongFieldUpdater：原子更新长整型字段类；
@@ -12,6 +12,4 @@
 2. 更新类的属性必须使用`public volatile`进行修饰；
 
 这几个类提供的方法基本一致，以AtomicIntegerFieldUpdater为例来看看具体的使用：
-
-
 
