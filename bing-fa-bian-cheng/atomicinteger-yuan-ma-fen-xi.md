@@ -62,17 +62,21 @@ AtomicInteger 提供了自增/自减的两个场景方法，一个返回旧值�
     @HotSpotIntrinsicCandidate
     public final int getAndAddInt(Object o, long offset, int delta) {
         int v;
-        
+
         do {
             // 获取对象o中offset地址处对应的int型字段的值，支持volatile语义
             v = getIntVolatile(o, offset);
-            
+
             // 拿期望值v与对象o的offset地址处的当前值比较，如果两个值相等，将当前值更新为v + delta，并返回true，否则返回false
         } while (!weakCompareAndSetInt(o, offset, v, v + delta));
-        
+
         return v;
     }
 ```
 
+回到
 
+**TOP 问题1 2**
+
+可以看到实际是采用 CAS + 自旋来实现线程安全的自增
 
