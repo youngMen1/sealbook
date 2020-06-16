@@ -61,6 +61,7 @@ AtomicInteger 提供了自增/自减的两个场景方法，一个返回旧值�
 public final int getAndAddInt(Object var1, long var2, int var4) {
     int var5;
     do {
+    // 获取对象o中offset地址处对应的int型字段的值，支持volatile语义
         var5 = this.getIntVolatile(var1, var2);
     } while(!this.compareAndSwapInt(var1, var2, var5, var5 + var4));
 
