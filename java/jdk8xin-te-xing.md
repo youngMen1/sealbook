@@ -132,7 +132,7 @@ Java中如何检查这些节日或其它周期性事件呢？答案就是`MonthD
         MonthDay currentMonthDay = MonthDay.from(today);
 
         if(currentMonthDay.equals(birthday)){
-            System.out.println("Many Many happy returns of the day !!");
+            System.out.println("Many Many happy returns of the day!");
         }else{
             System.out.println("Sorry, today is not your birthday");
         }
@@ -140,7 +140,7 @@ Java中如何检查这些节日或其它周期性事件呢？答案就是`MonthD
 ```
 
 ```
-Many Many happy returns of the day !!
+Many Many happy returns of the day !
 ```
 
 ### 6.获取当前时间 {#item-3-6}
@@ -173,12 +173,12 @@ Java 8 提供了更好的 plusHours\(\) 方法替换 add\(\) ，并且是兼容�
         LocalTime time = LocalTime.now();
         // 增加两小时
         LocalTime newTime = time.plusHours(2);
-        System.out.println("Time after 2 hours : " +  newTime);
+        System.out.println("2小时后的时间 : " +  newTime);
     }
 ```
 
 ```
-Time after 2 hours : 11:55:36.397
+2小时后的时间 : 11:55:36.397
 ```
 
 ### 8.如何计算一个星期之后的日期 {#item-3-8}
@@ -195,13 +195,13 @@ Time after 2 hours : 11:55:36.397
         LocalDate today = LocalDate.now();
         // 使用变量赋值
         LocalDate nextWeek = today.plus(1, ChronoUnit.WEEKS);
-        System.out.println("Today is : " + today);
-        System.out.println("Date after 1 week : " + nextWeek);
+        System.out.println("今天是 : " + today);
+        System.out.println("1周后的日期 : " + nextWeek);
     }
 ```
 
 ```
-Date after 1 week : 2020-06-23
+1周后的日期 : 2020-06-23
 ```
 
 ### 9.计算一年前或一年后的日期 {#item-3-9}
