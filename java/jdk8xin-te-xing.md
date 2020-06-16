@@ -352,7 +352,7 @@ This year is Leap year
 有一个常见日期操作是计算两个日期之间的天数、周数或月数。在Java 8中可以用java.time.Period类来做计算。下面这个例子中，我们计算了当天和将来某一天之间的月数。下面的例子：现在是6月份，距离到8月份，中间相隔1月,多少天
 
 ```
- /**
+   /**
      * 计算两个日期之间的天数和月数
      */
     public static void calcDateDays() {
@@ -372,6 +372,16 @@ This year is Leap year
 ```
 
 ### 16.包含时差信息的日期和时间 {#item-3-16}
+
+ZoneOffset类用来表示时区，举例来说印度与GMT或UTC标准时区相差+05:30，可以通过ZoneOffset.of\(\)静态方法来 获取对应的时区。一旦得到了时差就可以通过传入LocalDateTime和ZoneOffset来创建一个OffSetDateTime对象。
+
+```
+
+```
+
+```
+Date and Time with timezone offset in Java : 2018-02-14T19:30+05:30
+```
 
 ### 17.获取当前的时间戳 {#item-3-17}
 
