@@ -75,7 +75,7 @@ public final boolean compareAndSet(boolean expect, boolean update) {
     return unsafe.compareAndSwapInt(this, valueOffset, e, u);
 }
 
-// jdk8优化三元符了
+// jdk8优化三元运算符了
 
 // 如果当前值为expectedValue，则将其原子地更新为newValue，返回值表示是否更新成功
  public final boolean compareAndSet(boolean expectedValue, boolean newValue) {
