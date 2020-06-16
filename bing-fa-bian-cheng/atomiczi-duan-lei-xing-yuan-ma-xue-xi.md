@@ -3,7 +3,10 @@
 ## 1.1.基本数据类型
 
 ```
-
+// 对目标类中volatile修饰的名为fieldName的vclass类型的引用字段进行原子操作
+public abstract class AtomicReferenceFieldUpdater<T, V> {
+......
+}
 ```
 
 如果需要更新对象的某个字段，并在多线程的情况下，能够保证线程安全，Atomic同样也提供了相应的原子操作类：
