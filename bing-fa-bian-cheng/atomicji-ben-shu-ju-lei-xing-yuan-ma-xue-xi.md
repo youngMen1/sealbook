@@ -18,11 +18,10 @@ Atomic包提高原子更新基本类型的工具类，主要有这些：
 2. incrementAndGet\(\) ：以原子的方式将实例中的原值进行加1操作，并返回最终相加后的结果；
 3. getAndSet\(int newValue\)：将实例中的值更新为新值，并返回旧值；
 4. getAndIncrement\(\)：以原子的方式将实例中的原值加1，返回的是自增前的旧值；
-5. 还有一些方法，可以查看API，不再赘述。
+
+还有一些方法，可以查看API，不再赘述。
 
 # 2.怎么使用
 
 为了能够弄懂AtomicInteger的实现原理，以getAndIncrement方法为例，来看下源码：
-
-
 
