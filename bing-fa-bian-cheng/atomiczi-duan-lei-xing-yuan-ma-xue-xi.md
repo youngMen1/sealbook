@@ -23,7 +23,38 @@ public abstract class AtomicReferenceFieldUpdater<T, V> {
 这几个类提供的方法基本一致，以AtomicIntegerFieldUpdater为例来看看具体的使用：
 
 ```
+public class AtomicTest {
 
+    private static AtomicIntegerFieldUpdater updater = AtomicIntegerFieldUpdater.newUpdater(User.class,"age");
+    public static void main(String[] args) {
+        User user = new User("a", 1);
+        int oldValue = updater.getAndAdd(user, 5);
+        System.out.println(oldValue);
+        System.out.println(updater.get(user));
+    }
+
+    static class User {
+        private String userName;
+        public volatile int age;
+
+        public User(String userName, int age) {
+            this.userName = userName;
+            this.age = age;
+        }
+
+        @Override
+        public String toString() {
+            return "User{" +
+                    "userName='" + userName + '\'' +
+                    ", age=" + age +
+                    '}';
+        }
+    }
+} 
+
+输出结果：
+1
+6
 ```
 
 
