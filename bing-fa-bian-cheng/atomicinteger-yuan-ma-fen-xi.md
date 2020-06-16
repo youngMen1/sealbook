@@ -34,7 +34,24 @@ private volatile int value;
 
 ## 1.3. 自增 & 自减 {#2.-%E8%87%AA%E5%A2%9E-&-%E8%87%AA%E5%87%8F}
 
-
+```
+// 获取 & 自增
+public final int getAndIncrement() {
+    return unsafe.getAndAddInt(this, valueOffset, 1);
+}
+// 自增 & 获取
+public final int incrementAndGet() {
+    return unsafe.getAndAddInt(this, valueOffset, 1) + 1;
+}
+// 获取 & 自减
+public final int getAndDecrement() {
+    return unsafe.getAndAddInt(this, valueOffset, -1);
+}
+// 自减 & 获取
+public final int decrementAndGet() {
+    return unsafe.getAndAddInt(this, valueOffset, -1) - 1;
+}
+```
 
 
 
