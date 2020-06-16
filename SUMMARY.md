@@ -159,6 +159,7 @@
   * [锁](bing-fa-bian-cheng/suo.md)
   * [JDK8的CAS实现学习笔记](bing-fa-bian-cheng/jdk8de-cas-shi-xian-xue-xi-bi-ji.md)
   * [Atomic基本数据类型源码学习](bing-fa-bian-cheng/atomicji-ben-shu-ju-lei-xing-yuan-ma-xue-xi.md)
+  * [AtomicInteger 源码分析](bing-fa-bian-cheng/atomicinteger-yuan-ma-fen-xi.md)
 * [SpringBoot](springbootzhu-jie-yan-zheng-can-shu.md)
   * [日期转换注解](springbootzhu-jie-yan-zheng-can-shu/spring.md)
   * [SpringBoot注解验证参数](springbootzhu-jie-yan-zheng-can-shu/springbootzhu-jie-yan-zheng-can-shu.md)
