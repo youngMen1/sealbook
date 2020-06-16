@@ -75,7 +75,8 @@ public class AtomicTest {
 AtomicLong的实现原理和AtomicInteger一致，只不过一个针对的是long变量，一个针对的是int变量。而boolean变量的更新类AtomicBoolean类是怎样实现更新的呢?核心方法是`compareAndSet`方法，其源码如下：
 
 ```
-之前是这样写的
+// 之前是这样写的
+
 public final boolean compareAndSet(boolean expect, boolean update) {
     int e = expect ? 1 : 0;
     int u = update ? 1 : 0;
