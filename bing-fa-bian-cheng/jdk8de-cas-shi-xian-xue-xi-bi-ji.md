@@ -12,6 +12,8 @@ CAS全称为compare and swap，是原子操作的一种，可用于在多线程�
 
 # 2.**CAS的实现**
 
+接下来我们去看CAS在java中的实现，[sun.misc.Unsafe](http://hg.openjdk.java.net/jdk8/jdk8/jdk/file/687fd7c7986d/src/share/classes/sun/misc/Unsafe.java)提供了compareAndSwap系列函数。
+
 # 3.总结
 
 ## 什么是CAS操作
