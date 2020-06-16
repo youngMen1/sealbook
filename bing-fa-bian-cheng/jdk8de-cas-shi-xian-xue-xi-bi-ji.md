@@ -70,6 +70,10 @@ inline jint Atomic::cmpxchg(jint exchange_value, volatile jint* dest, jint compa
 
 如代码所示，compareAndSwapXx方法会根据第二个参数”偏移量”去拿偏移量这么多的属性的值和第三个参数对比，如果相同则将该属性值替换为第四个参数。该偏移量是指某个字段相对Java对象的起始位置的偏移量，可以通过unsafe.objectFieldOffset\(param\)去获取对应属性的偏移量。
 
+```
+
+```
+
 # 3.总结
 
 ## 什么是CAS操作
