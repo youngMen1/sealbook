@@ -37,3 +37,5 @@ public class AtomicTest {
 
 通过getAndAdd方法将位置为1的元素加5，从结果可以看出索引为1的元素变成了7，该方法返回的也是相加之前的数为2。
 
+
+
