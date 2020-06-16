@@ -82,12 +82,12 @@ Year : 2020  Month : 6  day : 16 t
      */
     public static void handleSpecilDate(){
         LocalDate dateOfBirth = LocalDate.of(2018, 01, 21);
-        System.out.println("The specil date is : " + dateOfBirth);
+        System.out.println("特殊日期是 : " + dateOfBirth);
     }
 ```
 
 ```
-The specil date is : 2018-01-21
+特殊日期是 : 2018-01-21
 ```
 
 ### 4.判断两个日期是否相等 {#item-3-4}
