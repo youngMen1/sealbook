@@ -39,7 +39,7 @@ private volatile int value;
 public final int getAndIncrement() {
     return unsafe.getAndAddInt(this, valueOffset, 1);
 }
-// 自增 & 获取
+// 自增 & 获取 原子地递增，并返回新值
 public final int incrementAndGet() {
     return unsafe.getAndAddInt(this, valueOffset, 1) + 1;
 }
