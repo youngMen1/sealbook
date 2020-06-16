@@ -12,6 +12,13 @@ Java处理日期、日历和时间的不足之处：将 java.util.Date 设定为
 
 ## 1.2.关键类 {#item-2}
 
+* Instant：瞬时实例。
+
+* LocalDate：本地日期，不包含具体时间 例如：2014-01-14 可以用来记录生日、纪念日、加盟日等。
+* LocalTime：本地时间，不包含日期。
+* LocalDateTime：组合了日期和时间，但不包含时差和时区信息。
+* ZonedDateTime：最完整的日期时间，包含时区和相对UTC或格林威治的时差。
+
 新API还引入了 ZoneOffSet 和 ZoneId 类，使得解决时区问题更为简便。解析、格式化时间的 DateTimeFormatter类也全部重新设计。
 
 # 2.实战
