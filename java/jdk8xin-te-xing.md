@@ -97,6 +97,20 @@ The specil date is : 2018-01-21
 下面这个例子会帮助你用Java 8的方式去解决，`LocalDate`重载了equal方法。注意，如果比较的日期是字符型的，需要先解析成日期对象再作判断。
 
 ```
+   /**
+     * 判断两个日期是否相等
+     */
+    public static void compareDate(){
+        LocalDate today = LocalDate.now();
+        LocalDate date1 = LocalDate.of(2020, 06, 16);
+
+        if(date1.equals(today)){
+            System.out.printf("TODAY %s and DATE1 %s are same date %n", today, date1);
+        }
+    }
+```
+
+```
 TODAY 2020-06-16 and DATE1 2020-06-16 are same date
 ```
 
