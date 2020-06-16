@@ -206,19 +206,26 @@ Date after 1 week : 2020-06-23
 
 ### 9.计算一年前或一年后的日期 {#item-3-9}
 
-接着上面的例子中我们通过
+接着上面的例子中我们通过`LocalDate`的`plus()`方法增加天数、周数或月数，这个例子我们利用`minus()`方法计算一年前的日期。
 
-`LocalDate`
+```
+   /**
+     * 计算一年前或一年后的日期
+     */
+    public static void minusDate(){
+        LocalDate today = LocalDate.now();
+        LocalDate previousYear = today.minus(1, ChronoUnit.YEARS);
+        System.out.println("Date before 1 year : " + previousYear);
 
-的
+        LocalDate nextYear = today.plus(1, ChronoUnit.YEARS);
+        System.out.println("Date after 1 year : " + nextYear);
+    }
+```
 
-`plus()`
-
-方法增加天数、周数或月数，这个例子我们利用
-
-`minus()`
-
-方法计算一年前的日期。
+```
+Date before 1 year : 2019-06-16
+Date after 1 year : 2021-06-16
+```
 
 ### 10.使用Java 8的Clock时钟类 {#item-3-10}
 
