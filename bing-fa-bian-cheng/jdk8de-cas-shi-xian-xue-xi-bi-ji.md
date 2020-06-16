@@ -47,6 +47,23 @@ CAS全称为compare and swap，是原子操作的一种，可用于在多线程�
 
 [atomic\_windows\_x86.inline.hpp](http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/87ee5ee27509/src/os_cpu/windows_x86/vm/atomic_windows_x86.inline.hpp)
 
+```
+// linux(int 类型)
+inline jint Atomic::cmpxchg(jint exchange_value, volatile jint* dest, jint compare_value) {
+  	int mp = os::is_MP();
+  	__asm__ volatile (LOCK_IF_MP(%4) "cmpxchgl %1,(%3)"
+                    : "=a" (exchange_value)
+                    : "r" (exchange_value), "a" (compare_value), "r" (dest), "r" (mp)
+                    : "cc", "memory");
+  	return exchange_value;
+}
+
+// windows(int 类型)
+inline jint Atomic::cmpxchg(jint exchange_value, volatile jint* dest, jint compare_value) {
+ 		return (*os::atomic_cmpxchg_func)(exchange_value, dest, compare_value);
+}
+```
+
 # 3.总结
 
 ## 什么是CAS操作
