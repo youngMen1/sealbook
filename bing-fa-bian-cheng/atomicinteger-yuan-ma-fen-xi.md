@@ -58,6 +58,7 @@ AtomicInteger 提供了自增/自减的两个场景方法，一个返回旧值�
 实际都是通过Unsafe 的 getAndAddInt 方法来实现的，可以看到实际上 getAndAddInt 就是一个 cas + 自旋操作来实现。
 
 ```
+// 返回对象o的offset地址处的值，并将该值原子性地增加delta
 public final int getAndAddInt(Object var1, long var2, int var4) {
     int var5;
     do {
