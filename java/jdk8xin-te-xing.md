@@ -37,7 +37,13 @@ public void getCurrentDate(){
     // 这个是作为对比
     Date date = new Date();
     System.out.println(date);
+    
 }
+```
+
+```
+获取今天的日期:2020-06-16
+Tue Jun 16 09:34:35 CST 2020
 ```
 
 上面的代码创建了当天的日期，不含时间信息。打印出的日期格式非常友好，不像 Date类 打印出一堆没有格式化的信息。
