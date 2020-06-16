@@ -43,7 +43,7 @@ public final int getAndIncrement() {
 public final int incrementAndGet() {
     return unsafe.getAndAddInt(this, valueOffset, 1) + 1;
 }
-// 获取 & 自减
+// 获取 & 自减 原子地递减，并返回旧值
 public final int getAndDecrement() {
     return unsafe.getAndAddInt(this, valueOffset, -1);
 }
