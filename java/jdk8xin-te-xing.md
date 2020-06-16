@@ -18,7 +18,7 @@ Java处理日期、日历和时间的不足之处：将 java.util.Date 设定为
 * LocalDateTime：组合了日期和时间，但不包含时差和时区信息。
 * ZonedDateTime：最完整的日期时间，包含时区和相对UTC或格林威治的时差。
 
-新API还引入了 ZoneOffSet 和 ZoneId 类，使得解决时区问题更为简便。解析、格式化时间的 DateTimeFormatter类也全部重新设计。
+新API还引入了 ZoneOffSet 和 ZoneId 类，使得解决时区问题更为简便。解析、格式化时间的**DateTimeFormatter类**也全部重新设计。
 
 # 2.实战
 
@@ -38,7 +38,6 @@ public void getCurrentDate(){
     Date date = new Date();
     System.out.println(date);
 }
-
 ```
 
 上面的代码创建了当天的日期，不含时间信息。打印出的日期格式非常友好，不像 Date类 打印出一堆没有格式化的信息。
