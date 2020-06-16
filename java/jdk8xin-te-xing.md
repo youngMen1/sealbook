@@ -422,7 +422,7 @@ Java 8引入了全新的日期时间格式工具，线程安全而且使用方�
     public static void formateDate(){
         String dayAfterTommorrow = "20180210";
         LocalDate formatted = LocalDate.parse(dayAfterTommorrow, DateTimeFormatter.BASIC_ISO_DATE);
-        System.out.printf("从字符串生成的日期 %s is %s %n", dayAfterTommorrow, formatted);
+        System.out.printf("Date generated from String %s is %s %n", dayAfterTommorrow, formatted);
     }
 ```
 
