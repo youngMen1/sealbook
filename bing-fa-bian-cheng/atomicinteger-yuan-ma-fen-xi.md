@@ -53,5 +53,7 @@ public final int decrementAndGet() {
 }
 ```
 
+AtomicInteger 提供了自增/自减的两个场景方法，一个返回旧值，一个返回新增/自减后的。
 
+实际都是通过Unsafe 的 getAndAddInt 方法来实现的，可以看到实际上 getAndAddInt 就是一个 cas + 自旋操作来实现。
 
