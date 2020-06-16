@@ -175,7 +175,6 @@ Java 8 提供了更好的 plusHours\(\) 方法替换 add\(\) ，并且是兼容�
         LocalTime newTime = time.plusHours(2);
         System.out.println("Time after 2 hours : " +  newTime);
     }
-
 ```
 
 ```
@@ -183,6 +182,10 @@ Time after 2 hours : 11:55:36.397
 ```
 
 ### 8.如何计算一个星期之后的日期 {#item-3-8}
+
+和上个例子计算两小时以后的时间类似，这个例子会计算一周后的日期。LocalDate日期不包含时间信息，它的plus\(\)方法用来增加天、周、月，ChronoUnit类声明了这些时间单位。由于LocalDate也是不变类型，返回后一定要用变量赋值。
+
+可以用同样的方法增加1个月、1年、1小时、1分钟甚至一个世纪，更多选项可以查看Java 8 API中的ChronoUnit类。
 
 ### 9.计算一年前或一年后的日期 {#item-3-9}
 
