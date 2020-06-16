@@ -118,27 +118,26 @@ TODAY 2020-06-16 and DATE1 2020-06-16 are same date
 
 Java 中另一个日期时间的处理就是检查类似生日、纪念日、法定假日（国庆以及春节）、或者每个月固定时间发送邮件给客户 这些周期性事件。
 
-  
+Java中如何检查这些节日或其它周期性事件呢？答案就是`MonthDay`类。这个类组合了月份和日，去掉了年，这意味着你可以用它判断每年都会发生事件。和这个类相似的还有一个`YearMonth`类。这些类也都是不可变并且线程安全的值类型。下面我们通过`MonthDay`来检查周期性事件：
 
+```
+   /**
+     * 处理周期性的日期
+     */
+    public static void cycleDate(){
+        LocalDate today = LocalDate.now();
+        LocalDate dateOfBirth = LocalDate.of(2020, 06, 16);
 
-Java中如何检查这些节日或其它周期性事件呢？答案就是
+        MonthDay birthday = MonthDay.of(dateOfBirth.getMonth(), dateOfBirth.getDayOfMonth());
+        MonthDay currentMonthDay = MonthDay.from(today);
 
-`MonthDay`
-
-类。这个类组合了月份和日，去掉了年，这意味着你可以用它判断每年都会发生事件。
-
-  
-
-
-和这个类相似的还有一个
-
-`YearMonth`
-
-类。这些类也都是不可变并且线程安全的值类型。下面我们通过
-
-`MonthDay`
-
-来检查周期性事件：
+        if(currentMonthDay.equals(birthday)){
+            System.out.println("Many Many happy returns of the day !!");
+        }else{
+            System.out.println("Sorry, today is not your birthday");
+        }
+    }
+```
 
 ### 6.获取当前时间 {#item-3-6}
 
