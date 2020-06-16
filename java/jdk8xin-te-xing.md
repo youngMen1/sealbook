@@ -53,7 +53,7 @@ Date获取今天的日期:Tue Jun 16 09:37:46 CST 2020
 `LocalDate`提供了获取年、月、日的快捷方法，其实例还包含很多其它的日期属性。通过调用这些方法就可以很方便的得到需要的日期信息，不用像以前一样需要依赖java.util.Calendar类了。
 
 ```
-   /**
+    /**
      * 获取年、月、日信息
      */
     public static void getDetailDate(){
@@ -97,7 +97,7 @@ The specil date is : 2018-01-21
 下面这个例子会帮助你用Java 8的方式去解决，`LocalDate`重载了equal方法。注意，如果比较的日期是字符型的，需要先解析成日期对象再作判断。
 
 ```
-   /**
+    /**
      * 判断两个日期是否相等
      */
     public static void compareDate(){
@@ -121,7 +121,7 @@ Java 中另一个日期时间的处理就是检查类似生日、纪念日、法
 Java中如何检查这些节日或其它周期性事件呢？答案就是`MonthDay`类。这个类组合了月份和日，去掉了年，这意味着你可以用它判断每年都会发生事件。和这个类相似的还有一个`YearMonth`类。这些类也都是不可变并且线程安全的值类型。下面我们通过`MonthDay`来检查周期性事件：
 
 ```
-   /**
+    /**
      * 处理周期性的日期
      */
     public static void cycleDate(){
@@ -148,7 +148,7 @@ Many Many happy returns of the day !!
 与 获取日期 例子很像，获取时间使用的是`LocalTime`类，一个只有时间没有日期的LocalDate近亲。可以调用静态工厂方法now\(\)来获取当前时间。默认的格式是`hh:mm:ss:nnn`。
 
 ```
-   /**
+    /**
      * 获取当前时间
      */
     public static void getCurrentTime(){
@@ -188,7 +188,7 @@ Time after 2 hours : 11:55:36.397
 可以用同样的方法增加1个月、1年、1小时、1分钟甚至一个世纪，更多选项可以查看Java 8 API中的ChronoUnit类。
 
 ```
-   /**
+    /**
      * 如何计算一周后的日期
      */
     public static void nextWeek(){
@@ -209,7 +209,7 @@ Date after 1 week : 2020-06-23
 接着上面的例子中我们通过`LocalDate`的`plus()`方法增加天数、周数或月数，这个例子我们利用`minus()`方法计算一年前的日期。
 
 ```
-   /**
+    /**
      * 计算一年前或一年后的日期
      */
     public static void minusDate(){
@@ -232,7 +232,7 @@ Date after 1 year : 2021-06-16
 Java 8增加了一个 Clock 时钟类用于获取当时的时间戳，或当前时区下的日期时间信息。以前用到System.currentTimeInMillis\(\) 和 TimeZone.getDefault\(\) 的地方都可用Clock替换。
 
 ```
-   /**
+    /**
      * Java 8的Clock时钟类
      */
     public static void clock(){
@@ -256,7 +256,7 @@ defaultClock : SystemClock[Asia/Shanghai]
 LocalDate 类有两类方法`isBefore()`和`isAfter()`用于比较日期。调用`isBefore()`方法时，如果给定日期小于当前日期则返回 true。
 
 ```
-   /**
+    /**
      * 如何用Java判断日期是早于还是晚于另一个日期
      */
     public static void isBeforeOrIsAfter(){
@@ -285,7 +285,7 @@ Yesterday is day before today
 Java 8不仅分离了日期和时间，也把时区分离出来了。现在有一系列单独的类如 ZoneId 来处理特定时区，ZoneDateTime 类来表示某时区下的时间。
 
 ```
-   /**
+    /**
      * 获取特定时区下面的时间
      */
     public static void getZoneTime(){
@@ -308,7 +308,7 @@ Java 8不仅分离了日期和时间，也把时区分离出来了。现在有�
 例如：表示信用卡到期这类固定日期。与 MonthDay 检查重复事件的例子相似，`YearMonth`是另一个组合类，用于表示信用卡到期日、FD到期日、期货期权到期日等。还可以用这个类得到 当月共有多少天，YearMonth 实例的`lengthOfMonth()`方法可以返回当月的天数，在判断2月有28天还是29天时非常有用。
 
 ```
-   /**
+    /**
      * 使用 YearMonth类处理特定的日期
      */
     public static void checkCardExpiry(){
@@ -330,7 +330,7 @@ Your credit card expires on 2028-02
 LocalDate类有一个很实用的方法`isLeapYear()`判断该实例是否是一个闰年，如果你还是想重新发明轮子，这有一个代码示例，纯Java逻辑编写的判断闰年的程序。
 
 ```
-   /**
+    /**
      * 检查闰年
      */
     public static void isLeapYear(){
@@ -352,7 +352,7 @@ This year is Leap year
 有一个常见日期操作是计算两个日期之间的天数、周数或月数。在Java 8中可以用java.time.Period类来做计算。下面这个例子中，我们计算了当天和将来某一天之间的月数。下面的例子：现在是6月份，距离到8月份，中间相隔1个月,多少天
 
 ```
-   /**
+    /**
      * 计算两个日期之间的天数和月数
      */
     public static void calcDateDays() {
@@ -376,7 +376,7 @@ This year is Leap year
 ZoneOffset类用来表示时区，举例来说印度与GMT或UTC标准时区相差+05:30，可以通过ZoneOffset.of\(\)静态方法来 获取对应的时区。一旦得到了时差就可以通过传入LocalDateTime和ZoneOffset来创建一个OffSetDateTime对象。
 
 ```
-/**
+    /**
      * 包含时差信息的日期和时间
      */
     public static void zoneOffset(){
@@ -396,7 +396,7 @@ Date and Time with timezone offset in Java : 2018-02-14T19:30+05:30
 Instant类有一个静态工厂方法now\(\)会返回当前的时间戳，如下所示：
 
 ```
-   /**
+    /**
      * 获取当前的时间戳
      */
     public static void getTimestamp(){
@@ -415,8 +415,6 @@ Java 8引入了全新的日期时间格式工具，线程安全而且使用方�
 
 下面这个例子使用了BASIC\_ISO\_DATE格式化工具将2018年2月10日格式化成20180210。
 
-
-
 ```
     /**
      * 使用预定义的格式化工具去解析或格式化日期
@@ -428,13 +426,11 @@ Java 8引入了全新的日期时间格式工具，线程安全而且使用方�
     }
 ```
 
-
-
 ```
 Date generated from String 20180210 is 2018-02
 ```
 
-# 3
+# 3.总结
 
 1.提供了javax.time.ZoneId 获取时区。
 
