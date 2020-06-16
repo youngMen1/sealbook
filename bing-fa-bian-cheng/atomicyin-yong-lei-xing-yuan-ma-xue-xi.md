@@ -19,7 +19,6 @@ public class AtomicTest {
     private static AtomicReference<User> reference = new AtomicReference<>();
 
     public static void main(String[] args) {
-
         // 引用类型
         User user1 = new User("a", 1);
         reference.set(user1);
