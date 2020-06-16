@@ -242,16 +242,18 @@ Java 8增加了一个 Clock 时钟类用于获取当时的时间戳，或当前�
 
         // 根据系统时钟区域返回时间
         Clock defaultClock = Clock.systemDefaultZone();
-        System.out.println("Clock : " + clock);
+        System.out.println("defaultClock  : " + defaultClock );
     }
 ```
 
 ```
 Clock : SystemClock[Z]
-Clock : SystemClock[Z]
+defaultClock : SystemClock[Asia/Shanghai]
 ```
 
 ### 11.判断日期是早于还是晚于另一个日期 {#item-3-11}
+
+
 
 ### 12.处理时区 {#item-3-12}
 
