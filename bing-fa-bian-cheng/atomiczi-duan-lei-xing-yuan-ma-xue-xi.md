@@ -50,7 +50,7 @@ public class AtomicTest {
                     '}';
         }
     }
-} 
+}
 
 输出结果：
 1
