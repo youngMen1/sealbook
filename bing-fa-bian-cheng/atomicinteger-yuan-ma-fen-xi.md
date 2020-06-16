@@ -58,18 +58,20 @@ AtomicInteger 提供了自增/自减的两个场景方法，一个返回旧值�
 实际都是通过Unsafe 的 getAndAddInt 方法来实现的，可以看到实际上 getAndAddInt 就是一个 cas + 自旋操作来实现。
 
 ```
-// 返回对象var1的offset地址处的值，并将该值原子性地增加delta
-public final int getAndAddInt(Object var1, long var2, int var4) {
-    int var5;
-    do {
-       // 获取对象var1中offset地址处对应的int型字段的值，支持volatile语义
-        var5 = this.getIntVolatile(var1, var2);
+   // 返回对象o的offset地址处的值，并将该值原子性地增加delta
+    @HotSpotIntrinsicCandidate
+    public final int getAndAddInt(Object o, long offset, int delta) {
+        int v;
         
-    // 拿期望值v与对象o的offset地址处的当前值比较，如果两个值相等，将当前值更新为v + delta，并返回true，否则返回false
-    } while(!this.compareAndSwapInt(var1, var2, var5, var5 + var4));
-
-    return var5;
-}
+        do {
+            // 获取对象o中offset地址处对应的int型字段的值，支持volatile语义
+            v = getIntVolatile(o, offset);
+            
+            // 拿期望值v与对象o的offset地址处的当前值比较，如果两个值相等，将当前值更新为v + delta，并返回true，否则返回false
+        } while (!weakCompareAndSetInt(o, offset, v, v + delta));
+        
+        return v;
+    }
 ```
 
 
