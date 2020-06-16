@@ -144,10 +144,10 @@ public class UnsafeTest {
 
 ```
 public class TestOffset {
-	public static void main(String[] args) {
-		out.println(VM.current().details());
-		out.println(ClassLayout.parseClass(Throwable.class).toPrintable());
-	}
+    public static void main(String[] args) {
+        out.println(VM.current().details());
+        out.println(ClassLayout.parseClass(Throwable.class).toPrintable());
+    }
 }
 ```
 
@@ -184,4 +184,8 @@ Space losses: 4 bytes internal + 0 bytes external = 4 bytes total
 CAS比较交换的过程可以通俗的理解为CAS\(V,O,N\)，包含三个值分别为：V 内存地址存放的实际值；O 预期的值（旧值）；N 更新的新值。当V和O相同时，也就是说旧值和内存中实际的值相同表明该值没有被其他线程更改过，即该旧值O就是目前来说最新的值了，自然而然可以将新值N赋值给V。反之，V和O不相同，表明该值已经被其他线程改过了则该旧值O不是最新版本的值了，所以不能将新值N赋给V，返回V即可。当多个线程使用CAS操作一个变量是，只有一个线程会成功，并成功更新，其余会失败。失败的线程会重新尝试，当然也可以选择挂起线程
 
 CAS的实现需要硬件指令集的支撑，在JDK1.5后虚拟机才可以使用处理器提供的CMPXCHG指令实现。
+
+# **CAS存在的ABA问题** {#CAS%E5%AD%98%E5%9C%A8%E7%9A%84ABA%E9%97%AE%E9%A2%98}
+
+CAS普遍存在的一个问题就是ABA问题，即是当线程一将变量A修改为B，之后又修改为A，线程二去对比A发现没变化就会判断出错。目前很多都是使用加上版本号来解决，加个version字段，每次修改就++，每次判断时候多判断下版本号是否变化来确定某变量是否被修改。
 
