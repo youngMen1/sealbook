@@ -329,6 +329,24 @@ Your credit card expires on 2028-02
 
 LocalDate类有一个很实用的方法`isLeapYear()`判断该实例是否是一个闰年，如果你还是想重新发明轮子，这有一个代码示例，纯Java逻辑编写的判断闰年的程序。
 
+```
+/**
+     * 检查闰年
+     */
+    public static void isLeapYear(){
+        LocalDate today = LocalDate.now();
+        if(today.isLeapYear()){
+            System.out.println("This year is Leap year");
+        }else {
+            System.out.println("2018 is not a Leap year");
+        }
+    }
+```
+
+```
+This year is Leap year
+```
+
 ### 15.计算两个日期之间的天数和月数 {#item-3-15}
 
 ### 16.包含时差信息的日期和时间 {#item-3-16}
