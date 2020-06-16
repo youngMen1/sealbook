@@ -16,3 +16,5 @@ Atomic包下提供能原子更新数组中元素的类有：
 
 可以看出，AtomicIntegerArray与AtomicInteger的方法基本一致，只不过在AtomicIntegerArray的方法中会多一个指定数组索引位i。下面举一个简单的例子：
 
+
+
