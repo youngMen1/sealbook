@@ -125,8 +125,11 @@ public class UnsafeTest {
         String strParam2;
     }
 }
-
 ```
+
+顺便介绍个查看对象的属性位置分布的一个小工具：
+
+[jol](http://openjdk.java.net/projects/code-tools/jol/)
 
 # 3.总结
 
