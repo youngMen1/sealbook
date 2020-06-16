@@ -32,3 +32,9 @@ private volatile int value;
 
 可以看到 value 是采用 volatile 修饰的，并通过 Unsafe 类获取 value 的偏移量，方便后续使用 CAS 操作
 
+## 1.3. 自增 & 自减 {#2.-%E8%87%AA%E5%A2%9E-&-%E8%87%AA%E5%87%8F}
+
+
+
+
+
