@@ -418,6 +418,19 @@ Java 8引入了全新的日期时间格式工具，线程安全而且使用方�
 
 
 ```
+    /**
+     * 使用预定义的格式化工具去解析或格式化日期
+     */
+    public static void formateDate(){
+        String dayAfterTommorrow = "20180210";
+        LocalDate formatted = LocalDate.parse(dayAfterTommorrow, DateTimeFormatter.BASIC_ISO_DATE);
+        System.out.printf("从字符串生成的日期 %s is %s %n", dayAfterTommorrow, formatted);
+    }
+```
+
+
+
+```
 Date generated from String 20180210 is 2018-02
 ```
 
