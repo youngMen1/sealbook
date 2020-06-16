@@ -159,7 +159,7 @@
   * [锁](bing-fa-bian-cheng/suo.md)
   * [JDK8的CAS实现学习笔记](bing-fa-bian-cheng/jdk8de-cas-shi-xian-xue-xi-bi-ji.md)
   * [Atomic数据类型类源码学习](bing-fa-bian-cheng/atomicji-ben-shu-ju-lei-xing-yuan-ma-xue-xi.md)
-  * [AtomicInteger 源码分析](bing-fa-bian-cheng/atomicinteger-yuan-ma-fen-xi.md)
+  * [AtomicInteger源码分析](bing-fa-bian-cheng/atomicinteger-yuan-ma-fen-xi.md)
   * [Atomic数组数据类型源码学习](bing-fa-bian-cheng/atomicshu-zu-lei-xing-shu-ju-lei-xing-yuan-ma-xue-xi.md)
   * [Atomic引用类型源码学习](bing-fa-bian-cheng/atomicyin-yong-lei-xing-yuan-ma-xue-xi.md)
   * [Atomic字段类型源码学习](bing-fa-bian-cheng/atomiczi-duan-lei-xing-yuan-ma-xue-xi.md)
