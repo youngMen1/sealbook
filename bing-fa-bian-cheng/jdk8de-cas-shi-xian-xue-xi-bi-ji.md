@@ -43,11 +43,7 @@ CAS全称为compare and swap，是原子操作的一种，可用于在多线程�
                                                   long x);
 ```
 
-可以看到native发现这是一个本地方法调用，可以去查看对应的OpenJDK中调用代码
-
-[atomic\_linux\_x86.inline.hpp](http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/87ee5ee27509/src/os_cpu/linux_x86/vm/atomic_linux_x86.inline.hpp)
-
-/
+可以看到native发现这是一个本地方法调用，可以去查看对应的OpenJDK中调用代码[atomic\_linux\_x86.inline.hpp](http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/87ee5ee27509/src/os_cpu/linux_x86/vm/atomic_linux_x86.inline.hpp)/
 
 [atomic\_windows\_x86.inline.hpp](http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/87ee5ee27509/src/os_cpu/windows_x86/vm/atomic_windows_x86.inline.hpp)
 
