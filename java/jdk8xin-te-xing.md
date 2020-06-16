@@ -336,15 +336,15 @@ LocalDate类有一个很实用的方法`isLeapYear()`判断该实例是否是一
     public static void isLeapYear(){
         LocalDate today = LocalDate.now();
         if(today.isLeapYear()){
-            System.out.println("This year is Leap year");
+            System.out.println("今年（2020）是闰年");
         }else {
-            System.out.println("2018 is not a Leap year");
+            System.out.println("今年（2020）不是闰年");
         }
     }
 ```
 
 ```
-This year is Leap year
+今年（2020）是闰年
 ```
 
 ### 15.计算两个日期之间的天数和月数 {#item-3-15}
