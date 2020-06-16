@@ -127,9 +127,51 @@ public class UnsafeTest {
 }
 ```
 
-顺便介绍个查看对象的属性位置分布的一个小工具：
+顺便介绍个查看对象的属性位置分布的一个小工具：[jol](http://openjdk.java.net/projects/code-tools/jol/)
 
-[jol](http://openjdk.java.net/projects/code-tools/jol/)
+首先引用jol-core包
+
+```
+<!-- https://mvnrepository.com/artifact/org.openjdk.jol/jol-core -->
+<dependency>
+    <groupId>org.openjdk.jol</groupId>
+    <artifactId>jol-core</artifactId>
+    <version>0.9</version>
+</dependency>
+```
+
+然后在项目里简单使用下：
+
+```
+public class TestOffset {
+	public static void main(String[] args) {
+		out.println(VM.current().details());
+		out.println(ClassLayout.parseClass(Throwable.class).toPrintable());
+	}
+}
+```
+
+结果如下，根据偏移量界面化的显示属性分布的位置：
+
+```
+# Running 64-bit HotSpot VM.
+# Using compressed oop with 3-bit shift.
+# Using compressed klass with 3-bit shift.
+# Objects are 8 bytes aligned.
+# Field sizes by type: 4, 1, 1, 2, 2, 4, 4, 8, 8 [bytes]
+# Array element sizes: 4, 1, 1, 2, 2, 4, 4, 8, 8 [bytes]
+
+java.lang.Throwable object internals:
+ OFFSET  SIZE                            TYPE DESCRIPTION                               VALUE
+      0    12                                 (object header)                           N/A
+     12     4                                 (alignment/padding gap)                  
+     16     4                java.lang.String Throwable.detailMessage                   N/A
+     20     4             java.lang.Throwable Throwable.cause                           N/A
+     24     4   java.lang.StackTraceElement[] Throwable.stackTrace                      N/A
+     28     4                  java.util.List Throwable.suppressedExceptions            N/A
+Instance size: 32 bytes
+Space losses: 4 bytes internal + 0 bytes external = 4 bytes total
+```
 
 # 3.总结
 
