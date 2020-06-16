@@ -38,7 +38,10 @@ public void getCurrentDate(){
     Date date = new Date();
     System.out.println(date);
 }
+
 ```
+
+上面的代码创建了当天的日期，不含时间信息。打印出的日期格式非常友好，不像 Date类 打印出一堆没有格式化的信息。
 
 ### 2. 获取年、月、日信息 {#item-3-2}
 
