@@ -52,6 +52,24 @@ Date获取今天的日期:Tue Jun 16 09:37:46 CST 2020
 
 `LocalDate`提供了获取年、月、日的快捷方法，其实例还包含很多其它的日期属性。通过调用这些方法就可以很方便的得到需要的日期信息，不用像以前一样需要依赖java.util.Calendar类了。
 
+```
+/**
+     * 获取年、月、日信息
+     */
+    public static void getDetailDate(){
+        LocalDate today = LocalDate.now();
+        int year = today.getYear();
+        int month = today.getMonthValue();
+        int day = today.getDayOfMonth();
+
+        System.out.printf("Year : %d  Month : %d  day : %d t %n", year, month, day);
+    }
+```
+
+```
+Year : 2020  Month : 6  day : 16 t
+```
+
 ### 3.处理特定日期 {#item-3-3}
 
 ### 4.判断两个日期是否相等 {#item-3-4}
