@@ -30,5 +30,5 @@ static {
 private volatile int value;
 ```
 
-
+可以看到 value 是采用 volatile 修饰的，并通过 Unsafe 类获取 value 的偏移量，方便后续使用 CAS 操作
 
