@@ -1,6 +1,6 @@
 # 1.Atomic数组数据类型源码学习
 
-atomic包下提供能原子更新数组中元素的类有：
+Atomic包下提供能原子更新数组中元素的类有：
 
 1. AtomicIntegerArray：原子更新整型数组中的元素；
 2. AtomicLongArray：原子更新长整型数组中的元素；
