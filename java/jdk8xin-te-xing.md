@@ -253,19 +253,11 @@ defaultClock : SystemClock[Asia/Shanghai]
 
 ### 11.判断日期是早于还是晚于另一个日期 {#item-3-11}
 
-LocalDate 类有两类方法
+LocalDate 类有两类方法`isBefore()`和`isAfter()`用于比较日期。调用`isBefore()`方法时，如果给定日期小于当前日期则返回 true。
 
-`isBefore()`
+```
 
-和
-
-`isAfter()`
-
-用于比较日期。调用
-
-`isBefore()`
-
-方法时，如果给定日期小于当前日期则返回 true。
+```
 
 ### 12.处理时区 {#item-3-12}
 
