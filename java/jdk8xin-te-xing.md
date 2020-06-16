@@ -393,6 +393,22 @@ Date and Time with timezone offset in Java : 2018-02-14T19:30+05:30
 
 ### 17.获取当前的时间戳 {#item-3-17}
 
+Instant类有一个静态工厂方法now\(\)会返回当前的时间戳，如下所示：
+
+```
+   /**
+     * 获取当前的时间戳
+     */
+    public static void getTimestamp(){
+        Instant timestamp = Instant.now();
+        System.out.println("What is value of this instant " + timestamp);
+    }
+```
+
+```
+What is value of this instant 2020-06-16T02:18:58.246Z
+```
+
 ### 18.使用预定义的格式化工具去解析或格式化日期 {#item-3-18}
 
 # 3.总结
