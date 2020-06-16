@@ -51,5 +51,5 @@ User{userName='a', age=1}
 User{userName='b', age=2}
 ```
 
-
+首先将对象User1用AtomicReference进行封装，然后调用getAndSet方法，从结果可以看出，该方法会原子更新引用的user对象，变为`User{userName='b', age=2}`，返回的是原来的user对象User`{userName='a', age=1}`。
 
