@@ -147,6 +147,14 @@ Many Many happy returns of the day !!
 
 与 获取日期 例子很像，获取时间使用的是`LocalTime`类，一个只有时间没有日期的LocalDate近亲。可以调用静态工厂方法now\(\)来获取当前时间。默认的格式是`hh:mm:ss:nnn`。
 
+```
+
+```
+
+```
+local time now : 09:53:39.208
+```
+
 ### 7.在现有的时间上增加小时 {#item-3-7}
 
 ### 8.如何计算一个星期之后的日期 {#item-3-8}
