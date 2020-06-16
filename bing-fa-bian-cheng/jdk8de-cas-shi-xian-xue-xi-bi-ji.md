@@ -66,7 +66,9 @@ inline jint Atomic::cmpxchg(jint exchange_value, volatile jint* dest, jint compa
 }
 ```
 
-# **CAS在Java中的使用** {#CAS%E5%9C%A8Java%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8}
+# 2.**CAS在Java中的使用** {#CAS%E5%9C%A8Java%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8}
+
+
 
 # 3.总结
 
