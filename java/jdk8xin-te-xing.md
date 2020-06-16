@@ -232,7 +232,23 @@ Date after 1 year : 2021-06-16
 Java 8增加了一个 Clock 时钟类用于获取当时的时间戳，或当前时区下的日期时间信息。以前用到System.currentTimeInMillis\(\) 和 TimeZone.getDefault\(\) 的地方都可用Clock替换。
 
 ```
+   /**
+     * Java 8的Clock时钟类
+     */
+    public static void clock(){
+        // 根据系统时间返回当前时间并设置为UTC。
+        Clock clock = Clock.systemUTC();
+        System.out.println("Clock : " + clock);
 
+        // 根据系统时钟区域返回时间
+        Clock defaultClock = Clock.systemDefaultZone();
+        System.out.println("Clock : " + clock);
+    }
+```
+
+```
+Clock : SystemClock[Z]
+Clock : SystemClock[Z]
 ```
 
 ### 11.判断日期是早于还是晚于另一个日期 {#item-3-11}
