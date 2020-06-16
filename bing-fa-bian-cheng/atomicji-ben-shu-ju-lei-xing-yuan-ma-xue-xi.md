@@ -50,7 +50,7 @@ Unsafe类在sun.misc包下，Unsafer类提供了一些底层操作，atomic包�
  * @date-time 2020/6/16 16:51
  **/
 public class AtomicTest {
-    
+
     private static AtomicInteger atomicInteger = new AtomicInteger(1);
 
     public static void main(String[] args) {
@@ -58,6 +58,9 @@ public class AtomicTest {
         System.out.println(atomicInteger.get());
     }
 }
+输出结果：
+1
+2
 ```
 
 
