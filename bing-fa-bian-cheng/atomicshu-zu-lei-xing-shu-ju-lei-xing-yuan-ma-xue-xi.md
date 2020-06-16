@@ -2,6 +2,13 @@
 
 ## 1.1.基本介绍
 
+```
+// Integer类型数组（原子性）
+public class AtomicIntegerArray implements Serializable {
+...............
+}
+```
+
 Atomic包下提供能原子更新数组中元素的类有：
 
 1. AtomicIntegerArray：原子更新整型数组中的元素；
@@ -36,6 +43,4 @@ public class AtomicTest {
 ```
 
 通过getAndAdd方法将位置为1的元素加5，从结果可以看出索引为1的元素变成了7，该方法返回的也是相加之前的数为2。
-
-
 
