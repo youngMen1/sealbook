@@ -165,6 +165,23 @@ local time now : 09:53:39.208
 
 Java 8 提供了更好的 plusHours\(\) 方法替换 add\(\) ，并且是兼容的。注意，这些方法返回一个全新的LocalTime实例，由于其不可变性，返回后一定要用变量赋值。
 
+```
+    /**
+     * 增加小时
+     */
+    public static void plusHours(){
+        LocalTime time = LocalTime.now();
+        // 增加两小时
+        LocalTime newTime = time.plusHours(2);
+        System.out.println("Time after 2 hours : " +  newTime);
+    }
+
+```
+
+```
+Time after 2 hours : 11:55:36.397
+```
+
 ### 8.如何计算一个星期之后的日期 {#item-3-8}
 
 ### 9.计算一年前或一年后的日期 {#item-3-9}
