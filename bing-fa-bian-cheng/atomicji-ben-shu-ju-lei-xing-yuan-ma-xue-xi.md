@@ -74,5 +74,5 @@ AtomicLong的实现原理和AtomicInteger一致，只不过一个针对的是lon
     }
 ```
 
-
+可以看出，compareAndSet方法的实际上也是先转换成0,1的整型变量，然后是通过针对int型变量的原子更新方法compareAndSwapInt来实现的。可以看出atomic包中只提供了对boolean,int ,long这三种基本类型的原子更新的方法，参考对boolean更新的方式，原子更新char,doule,float也可以采用类似的思路进行实现。
 
