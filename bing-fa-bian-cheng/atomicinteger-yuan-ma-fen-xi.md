@@ -5,5 +5,7 @@
 1. AtomicInteger 是怎么做到线程安全的
 2. AtomicInteger 是怎么实现自增的
 
+## 1.2.基本介绍
+
 
 
