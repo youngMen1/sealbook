@@ -9,5 +9,12 @@
 
 AtomicInteger 扩展了 Number，适用于基于数字的处理，并提供了如原子递增等，适合一些计数场景
 
+```
+// Integer类型（原子性）
+public class AtomicInteger extends Number implements Serializable {
+.........
+}
+```
+
 
 
