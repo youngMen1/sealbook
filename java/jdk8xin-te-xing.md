@@ -218,13 +218,13 @@ Java 8 提供了更好的 plusHours\(\) 方法替换 add\(\) ，并且是兼容�
         System.out.println("1年之前的日期 : " + previousYear);
 
         LocalDate nextYear = today.plus(1, ChronoUnit.YEARS);
-        System.out.println("Date after 1 year : " + nextYear);
+        System.out.println("1年之后的日期 : " + nextYear);
     }
 ```
 
 ```
 1年之前的日期 : 2019-06-16
-Date after 1 year : 2021-06-16
+1年之后的日期 : 2021-06-16
 ```
 
 ### 10.使用Java 8的Clock时钟类 {#item-3-10}
