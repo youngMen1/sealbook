@@ -31,7 +31,7 @@ Atomic包提高原子更新基本类型的工具类，主要有这些：
 private static final jdk.internal.misc.Unsafe U = jdk.internal.misc.Unsafe.getUnsafe();
 
 public final int getAndIncrement() {
-    return unsafe.getAndAddInt(this, valueOffset, 1);
+    return U.getAndAddInt(this, valueOffset, 1);
 }
 ```
 
