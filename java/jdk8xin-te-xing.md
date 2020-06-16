@@ -148,7 +148,13 @@ Many Many happy returns of the day !!
 与 获取日期 例子很像，获取时间使用的是`LocalTime`类，一个只有时间没有日期的LocalDate近亲。可以调用静态工厂方法now\(\)来获取当前时间。默认的格式是`hh:mm:ss:nnn`。
 
 ```
-
+   /**
+     * 获取当前时间
+     */
+    public static void getCurrentTime(){
+        LocalTime time = LocalTime.now();
+        System.out.println("local time now : " + time);
+    }
 ```
 
 ```
