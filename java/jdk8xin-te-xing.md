@@ -308,19 +308,21 @@ Java 8不仅分离了日期和时间，也把时区分离出来了。现在有�
 例如：表示信用卡到期这类固定日期。与 MonthDay 检查重复事件的例子相似，`YearMonth`是另一个组合类，用于表示信用卡到期日、FD到期日、期货期权到期日等。还可以用这个类得到 当月共有多少天，YearMonth 实例的`lengthOfMonth()`方法可以返回当月的天数，在判断2月有28天还是29天时非常有用。
 
 ```
-//使用 YearMonth类处理特定的日期
-public void checkCardExpiry(){
-    YearMonth currentYearMonth = YearMonth.now();
-    System.out.printf("Days in month year %s: %d%n", currentYearMonth, currentYearMonth.lengthOfMonth());
-        
-    YearMonth creditCardExpiry = YearMonth.of(2028, Month.FEBRUARY);
-    System.out.printf("Your credit card expires on %s %n", creditCardExpiry);
-}
+   /**
+     * 使用 YearMonth类处理特定的日期
+     */
+    public static void checkCardExpiry(){
+        YearMonth currentYearMonth = YearMonth.now();
+        System.out.printf("Days in month year %s: %d%n", currentYearMonth, currentYearMonth.lengthOfMonth());
+
+        YearMonth creditCardExpiry = YearMonth.of(2028, Month.FEBRUARY);
+        System.out.printf("Your credit card expires on %s %n", creditCardExpiry);
+    }
 ```
 
 ```
 Days in month year 2020-06: 30
-Your credit card expires on 2028-02 
+Your credit card expires on 2028-02
 ```
 
 ### 14.检查闰年 {#item-3-14}
