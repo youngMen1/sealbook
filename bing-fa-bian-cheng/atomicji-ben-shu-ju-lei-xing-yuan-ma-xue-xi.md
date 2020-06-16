@@ -25,3 +25,15 @@ Atomic包提高原子更新基本类型的工具类，主要有这些：
 
 为了能够弄懂AtomicInteger的实现原理，以getAndIncrement方法为例，来看下源码：
 
+```
+// This class intended to be implemented using VarHandles, but there are unresolved cyclic startup dependencies.
+
+private static final jdk.internal.misc.Unsafe U = jdk.internal.misc.Unsafe.getUnsafe();
+
+public final int getAndIncrement() {
+    return unsafe.getAndAddInt(this, valueOffset, 1);
+}
+```
+
+
+
