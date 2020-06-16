@@ -43,5 +43,22 @@ private static final jdk.internal.misc.Unsafe U = jdk.internal.misc.Unsafe.getUn
 
 Unsafe类在sun.misc包下，Unsafer类提供了一些底层操作，atomic包下的原子操作类的也主要是通过Unsafe类提供的compareAndSwapInt，compareAndSwapLong等一系列提供CAS操作的方法来进行实现。下面用一个简单的例子来说明AtomicInteger的用法：
 
+```
+/**
+ * Atomic基本数据类型
+ * @author fengzhiqiang
+ * @date-time 2020/6/16 16:51
+ **/
+public class AtomicTest {
+    
+    private static AtomicInteger atomicInteger = new AtomicInteger(1);
+
+    public static void main(String[] args) {
+        System.out.println(atomicInteger.getAndIncrement());
+        System.out.println(atomicInteger.get());
+    }
+}
+```
+
 
 
