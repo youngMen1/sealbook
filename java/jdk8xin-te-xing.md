@@ -53,7 +53,7 @@ Date获取今天的日期:Tue Jun 16 09:37:46 CST 2020
 `LocalDate`提供了获取年、月、日的快捷方法，其实例还包含很多其它的日期属性。通过调用这些方法就可以很方便的得到需要的日期信息，不用像以前一样需要依赖java.util.Calendar类了。
 
 ```
-/**
+   /**
      * 获取年、月、日信息
      */
     public static void getDetailDate(){
