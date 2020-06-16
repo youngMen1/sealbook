@@ -12,5 +12,5 @@ Atomic包下提供能原子更新数组中元素的类有：
 2. getAndIncrement\(int i\)：以原子更新的方式将数组中索引为i的元素自增加1；
 3. compareAndSet\(int i, int expect, int update\)：将数组中索引为i的位置的元素进行更新
 
-
+可以看出，AtomicIntegerArray与AtomicInteger的方法基本一致，只不过在AtomicIntegerArray的方法中会多一个指定数组索引位i。下面举一个简单的例子：
 
