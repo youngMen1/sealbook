@@ -376,7 +376,15 @@ This year is Leap year
 ZoneOffset类用来表示时区，举例来说印度与GMT或UTC标准时区相差+05:30，可以通过ZoneOffset.of\(\)静态方法来 获取对应的时区。一旦得到了时差就可以通过传入LocalDateTime和ZoneOffset来创建一个OffSetDateTime对象。
 
 ```
-
+/**
+     * 包含时差信息的日期和时间
+     */
+    public static void zoneOffset(){
+        LocalDateTime datetime = LocalDateTime.of(2018, Month.FEBRUARY, 14, 19, 30);
+        ZoneOffset offset = ZoneOffset.of("+05:30");
+        OffsetDateTime date = OffsetDateTime.of(datetime, offset);
+        System.out.println("Date and Time with timezone offset in Java : " + date);
+    }
 ```
 
 ```
