@@ -35,7 +35,7 @@ private volatile int value;
 ## 1.3. 自增 & 自减 {#2.-%E8%87%AA%E5%A2%9E-&-%E8%87%AA%E5%87%8F}
 
 ```
-// 获取 & 自增
+// 获取 & 自增 原子地递增，并返回旧值
 public final int getAndIncrement() {
     return unsafe.getAndAddInt(this, valueOffset, 1);
 }
@@ -61,7 +61,7 @@ AtomicInteger 提供了自增/自减的两个场景方法，一个返回旧值�
    // 返回对象o的offset地址处的值，并将该值原子性地增加delta
     @HotSpotIntrinsicCandidate
     public final int getAndAddInt(Object o, long offset, int delta) {
-    
+
         int v;
 
         do {
