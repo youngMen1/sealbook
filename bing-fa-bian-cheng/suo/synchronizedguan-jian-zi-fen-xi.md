@@ -97,7 +97,64 @@ Thread-0输出:  9
 
 #### **下面我们在原有的代码上添加**`synchronized`**关键字看看效果如何**
 
+```
 
+/**
+ * Synchronized关键字源码分析
+ *
+ * @author fengzhiqiang
+ * @date-time 2020/6/17 10:38
+ **/
+public class SynchronizedTest {
 
+    /**
+     * 加了synchronized输出的结果是有顺序的
+     * @param thread
+     */
+    public synchronized void insert(Thread thread) {
+        for (int i = 0; i < 10; i++) {
+            System.out.println(thread.getName() + "输出:  " + i);
+        }
+    }
 
+    /**
+     * 未加synchronized输出的结果是没有顺序的
+     * @param thread
+     */
+//    public void insert(Thread thread) {
+//        for (int i = 0; i < 10; i++) {
+//            System.out.println(thread.getName() + "输出:  " + i);
+//        }
+//    }
+
+    public static void main(String[] args) {
+        final SynchronizedTest sychor = new SynchronizedTest();
+        Thread t1 = new Thread() {
+            @Override
+            public void run() {
+                sychor.insert(Thread.currentThread());
+            }
+
+            ;
+        };
+        Thread t2 = new Thread() {
+            @Override
+            public void run() {
+                sychor.insert(Thread.currentThread());
+            }
+
+            ;
+        };
+        t1.start();
+        t2.start();
+    }
+}
+
+```
+
+结果：
+
+```
+
+```
 
