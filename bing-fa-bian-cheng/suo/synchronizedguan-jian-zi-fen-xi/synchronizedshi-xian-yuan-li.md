@@ -45,6 +45,23 @@ public class SynchronizedDemo {
 该图可以看出，任意线程对Object的访问，首先要获得Object的监视器，如果获取失败，该线程就进入同步状态，线程状态变为BLOCKED，当Object的监视器占有者释放后，在同步队列中得线程就会有机会重新获取该监视器。
 
 ## 1.2.synchronized的happens-before关系
+在上一篇文章中讨论过[happens-before](https://juejin.im/post/5ae6d309518825673123fd0e)规则，抱着学以致用的原则我们现在来看一看Synchronized的happens-before规则，即监视器锁规则：对同一个监视器的解锁，happens-before于对该监视器的加锁。继续来看代码：
+
+	public class MonitorDemo {
+	    private int a = 0;
+	
+	    public synchronized void writer() {     // 1
+	        a++;                                // 2
+	    }                                       // 3
+	
+	    public synchronized void reader() {    // 4
+	        int i = a;                         // 5
+	    }                                      // 6
+	}
+
+该代码的happens-before关系如图所示：
+synchronized的happens-before关系.png
+
 
 
 
