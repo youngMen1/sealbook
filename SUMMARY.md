@@ -169,7 +169,7 @@
     * [CountDownLatch源码分析](bing-fa-bian-cheng/bing-fa-gong-ju-lei/countdownlatchyuan-ma-fen-xi.md)
   * [锁](bing-fa-bian-cheng/suo.md)
     * [Synchronized关键字分析](bing-fa-bian-cheng/suo/synchronizedguan-jian-zi-fen-xi.md)
-      * Synchronized实现原理
+      * [Synchronized实现原理](bing-fa-bian-cheng/suo/synchronizedguan-jian-zi-fen-xi/synchronizedshi-xian-yuan-li.md)
     * [Lock源码分析](bing-fa-bian-cheng/suo/lockyuan-ma-fen-xi.md)
     * [ReentrantLock源码分析](bing-fa-bian-cheng/suo/reentrantlock.md)
     * [ReentrantReadWriteLock源码分析](bing-fa-bian-cheng/suo/reentrantreadwritelockyuan-ma-fen-xi.md)
