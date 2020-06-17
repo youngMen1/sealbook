@@ -50,6 +50,26 @@ AQS基本框架如下图所示：
 **AQS维护了一个volatile语义\(支持多线程下的可见性\)的共享资源变量state和一个FIFO线程等待队列\(多线程竞争state被阻塞时会进入此队列\)。**
 
 ```
+private volatile int state;
+
+// 具有内存读可见性语义
+protected final int getState() {
+    return state;
+}
+
+// 具有内存写可见性语义
+protected final void setState(int newState) {
+    state = newState;
+}
+
+// 具有内存读/写可见性语义
+protected final boolean compareAndSetState(int expect, int update) {
+    // See below for intrinsics setup to support this
+    return unsafe.compareAndSwapInt(this, stateOffset, expect, update);
+}
+```
+
+```
 注释：最重要的就是搞清楚state和FIFO线程等待队列是怎么来实现这个同步器的框架
 ```
 
