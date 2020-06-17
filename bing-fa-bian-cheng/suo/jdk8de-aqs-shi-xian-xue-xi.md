@@ -176,6 +176,7 @@ static final class Node {
 AQS将大部分的同步逻辑均已经实现好，继承的自定义同步器只需要实现state的获取\(acquire\)和释放\(release\)的逻辑代码就可以，主要包括下面方法：
 
 * tryAcquire\(int\)：独占方式。尝试获取资源，成功则返回true，失败则返回false。
+
 * tryRelease\(int\)：独占方式。尝试释放资源，成功则返回true，失败则返回false。
 * tryAcquireShared\(int\)：共享方式。尝试获取资源。负数表示失败；0表示成功，但没有剩余可用资源；正数表示成功，且有剩余资源。
 * tryReleaseShared\(int\)：共享方式。尝试释放资源，如果释放后允许唤醒后续等待结点返回true，否则返回false。
