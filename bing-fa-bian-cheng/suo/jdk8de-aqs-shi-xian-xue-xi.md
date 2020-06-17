@@ -69,10 +69,6 @@ protected final boolean compareAndSetState(int expect, int update) {
 }
 ```
 
-```
-注释：最重要的就是搞清楚state和FIFO线程等待队列是怎么来实现这个同步器的框架
-```
-
 ### CLH队列\(FIFO\)
 
 AQS是通过内部类Node来实现FIFO队列的，源代码解析如下：
