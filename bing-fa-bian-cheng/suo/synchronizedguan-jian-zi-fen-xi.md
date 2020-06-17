@@ -66,11 +66,7 @@ public class SynchronizedTest {
         t2.start();
     }
 }
-```
-
 结果：
-
-```
 Thread-1输出:  0
 Thread-1输出:  1
 Thread-1输出:  2
@@ -150,11 +146,7 @@ public class SynchronizedTest {
         t2.start();
     }
 }
-```
-
 结果：
-
-```
 Thread-1输出:  0
 Thread-1输出:  1
 Thread-1输出:  2
