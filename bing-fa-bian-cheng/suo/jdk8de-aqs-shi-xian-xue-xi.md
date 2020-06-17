@@ -20,15 +20,14 @@ public abstract class AbstractQueuedSynchronizer extends AbstractOwnableSynchron
 
 AQS是一个同步器，设计模式是模板模式。
 
-  
-
-
 核心数据结构：双向链表 + state\(锁状态\)
 
-  
-
-
 底层操作：CAS
+![](/static/image/微信截图_20200617174450.png)
+
+
+
+
 
 ![](/static/image/10431632-7d2aa48b9b217bbe.webp)
 
@@ -38,7 +37,7 @@ AQS是一个同步器，设计模式是模板模式。
 注释：最重要的就是搞清楚state和FIFO线程等待队列是怎么来实现这个同步器的框架
 ```
 
-![](/static/image/微信截图_20200617174450.png)
+
 
 ### CLH队列\(FIFO\)
 
