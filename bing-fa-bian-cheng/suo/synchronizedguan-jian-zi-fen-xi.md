@@ -14,3 +14,7 @@
 
 ![](/static/image/synchronized的使用场景.png)
 
+# 2.怎么使用
+
+
+
