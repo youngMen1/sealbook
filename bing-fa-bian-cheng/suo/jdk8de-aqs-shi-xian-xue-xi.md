@@ -24,7 +24,7 @@ AQS是一个同步器，设计模式是模板模式。
 
 底层操作：CAS
 
-### AbstractQueuedSynchronizer是什么样子  
+### AbstractQueuedSynchronizer  
 ![](/static/image/微信截图_20200617174450.png)
 
 ![](/static/image/10431632-7d2aa48b9b217bbe.webp)
