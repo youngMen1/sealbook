@@ -22,7 +22,7 @@ public abstract class AbstractQueuedSynchronizer extends AbstractOwnableSynchron
 
 **注释：**最重要的就是搞清楚**state和FIFO线程等待队列是怎么来实现这个同步器的框架**
 
-![](/static/image/微信截图_20200617171801.png)
+![](/static/image/微信截图_20200617174450.png)
 
 ### CLH队列\(FIFO\)
 
