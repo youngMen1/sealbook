@@ -2,9 +2,9 @@
 
 ## 1.1.带着问题学习？
 
-1.Synchronized怎么使用的
+1.synchronized怎么使用的
 
-2.Synchronized底层是怎样实现的
+2.synchronized底层是怎样实现的
 
 ## 1.2.基本介绍
 
