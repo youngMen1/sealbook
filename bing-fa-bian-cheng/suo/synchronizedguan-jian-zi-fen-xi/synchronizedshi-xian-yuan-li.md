@@ -44,3 +44,7 @@ public class SynchronizedDemo {
 
 该图可以看出，任意线程对Object的访问，首先要获得Object的监视器，如果获取失败，该线程就进入同步状态，线程状态变为BLOCKED，当Object的监视器占有者释放后，在同步队列中得线程就会有机会重新获取该监视器。
 
+## 1.2.synchronized的happens-before关系
+
+
+
