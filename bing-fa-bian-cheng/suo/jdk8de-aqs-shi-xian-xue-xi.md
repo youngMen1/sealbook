@@ -69,7 +69,7 @@ protected final boolean compareAndSetState(int expect, int update) {
 }
 ```
 
-AQS中的int类型的state值，就是通过CAS（乐观锁）去修改state的值。lock的基本操作还是通过乐观锁来实现的。
+AQS中的int类型的state值，**ReentrantLock\(\)**就是通过CAS（乐观锁）去修改state的值。lock的基本操作还是通过乐观锁来实现的。
 
 ### CLH队列\(FIFO\)
 
