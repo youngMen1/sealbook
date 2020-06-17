@@ -22,12 +22,10 @@ AQS是一个同步器，设计模式是模板模式。
 
 核心数据结构：双向链表 + state\(锁状态\)
 
-底层操作：CAS  
+底层操作：CAS
+
+### AbstractQueuedSynchronizer是什么样子  
 ![](/static/image/微信截图_20200617174450.png)
-
-
-
-
 
 ![](/static/image/10431632-7d2aa48b9b217bbe.webp)
 
@@ -40,6 +38,8 @@ AQS是一个同步器，设计模式是模板模式。
 ### CLH队列\(FIFO\)
 
 AQS是通过内部类Node来实现FIFO队列的，源代码解析如下：
+
+
 
 ### 资源的共享方式分为2种
 
