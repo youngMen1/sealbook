@@ -4,7 +4,7 @@
 
 1.synchronized怎么使用的
 
-2.synchronized底层是怎样实现了吗
+2.synchronized底层是怎样实现的
 
 ## 1.2.基本介绍
 
