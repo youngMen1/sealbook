@@ -113,17 +113,6 @@ public class SynchronizedTest {
             System.out.println(thread.getName() + "输出:  " + i);
         }
     }
-
-    /**
-     * 未加synchronized输出的结果是没有顺序的
-     * @param thread
-     */
-//    public void insert(Thread thread) {
-//        for (int i = 0; i < 10; i++) {
-//            System.out.println(thread.getName() + "输出:  " + i);
-//        }
-//    }
-
     public static void main(String[] args) {
         final SynchronizedTest sychor = new SynchronizedTest();
         Thread t1 = new Thread() {
