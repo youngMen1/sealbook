@@ -21,3 +21,9 @@ public class SynchronizedDemo {
 
 上面的代码中有一个同步代码块，**锁住的是类对象**，并且还有一个同步静态方法，锁住的依然是该类的类对象。编译之后，切换到SynchronizedDemo.class的同级目录之后，然后用**javap -v SynchronizedDemo.class**查看字节码文件：
 
+```
+synchronizedDemo.class.png
+```
+
+
+
