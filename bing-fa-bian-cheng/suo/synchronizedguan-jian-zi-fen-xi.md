@@ -227,6 +227,28 @@ public class SynchronizedTest {
         }
     }
 }
+
+结果：
+Thread-1输出:  0
+Thread-1输出:  1
+Thread-1输出:  2
+Thread-1输出:  3
+Thread-1输出:  4
+Thread-1输出:  5
+Thread-1输出:  6
+Thread-1输出:  7
+Thread-1输出:  8
+Thread-1输出:  9
+Thread-0输出:  0
+Thread-0输出:  1
+Thread-0输出:  2
+Thread-0输出:  3
+Thread-0输出:  4
+Thread-0输出:  5
+Thread-0输出:  6
+Thread-0输出:  7
+Thread-0输出:  8
+Thread-0输出:  9
 ```
 
 
