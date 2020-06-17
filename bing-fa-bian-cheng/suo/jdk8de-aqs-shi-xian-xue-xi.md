@@ -23,6 +23,9 @@ AQS是一个同步器，设计模式是模板模式。
 核心数据结构：双向链表 + state\(锁状态\)
 
 底层操作：CAS
+![](/static/image/10431632-7d2aa48b9b217bbe.webp)
+
+
 
 ### AbstractQueuedSynchronizer类
 
@@ -44,7 +47,7 @@ AQS是一个同步器，设计模式是模板模式。
 
 上述3种方式均是原子操作，其中compareAndSetState\(\)的实现依赖于Unsafe的compareAndSwapInt\(\)方法。
 
-![](/static/image/10431632-7d2aa48b9b217bbe.webp)
+
 
 **AQS维护了一个volatile语义\(支持多线程下的可见性\)的共享资源变量state和一个FIFO线程等待队列\(多线程竞争state被阻塞时会进入此队列\)。**
 
@@ -53,6 +56,8 @@ AQS是一个同步器，设计模式是模板模式。
 ```
 
 ### CLH队列\(FIFO\)
+
+
 
 AQS是通过内部类Node来实现FIFO队列的，源代码解析如下：
 
