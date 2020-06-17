@@ -69,6 +69,24 @@ protected final boolean compareAndSetState(int expect, int update) {
 }
 ```
 
+AQS中的int类型的state值，这里就是通过CAS（乐观锁）去修改state的值。lock的基本操作还是通过乐观锁来实现的。  
+ 获取锁通过CAS，那么没有获取到锁，等待获取锁是如何实现的？我们可以看一下else分支的逻辑，acquire方法：
+
+1. tryAcquire：会尝试再次通过CAS获取一次锁。
+2. addWaiter：通过自旋CAS，将当前线程加入上面锁的双向链表（等待队列）中。
+3. acquireQueued：通过自旋，判断当前队列节点是否可以获取锁。
+
+可以看到，当当前线程到头部的时候，尝试CAS更新锁状态，如果更新成功表示该等待线程获取成功。从头部移除。  
+ 基本可以确认，释放锁就是对AQS中的状态值State进行修改。同时更新下一个链表中的线程等待节点。
+
+  
+
+
+  
+
+
+
+
 ### CLH队列\(FIFO\)
 
 AQS是通过内部类Node来实现FIFO队列的，源代码解析如下：
@@ -157,6 +175,8 @@ static final class Node {
 需要注意的是，他们的变量都被"`transient`和`volatile`修饰。
 
 ### 资源的共享方式分为2种
+
+
 
 # 2.总结
 
