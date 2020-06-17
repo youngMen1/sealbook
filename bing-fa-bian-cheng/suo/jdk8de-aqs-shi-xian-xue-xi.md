@@ -20,6 +20,8 @@ public abstract class AbstractQueuedSynchronizer extends AbstractOwnableSynchron
 
 AQS维护了一个volatile语义\(支持多线程下的可见性\)的共享资源变量state和一个FIFO线程等待队列\(多线程竞争state被阻塞时会进入此队列\)。
 
+AQS维护了一个volatile语义\(支持多线程下的可见性\)的共享资源变量state和一个FIFO线程等待队列\(多线程竞争state被阻塞时会进入此队列\)。
+
 微信截图\_20200617171801.png
 
 ### CLH队列\(FIFO\)
