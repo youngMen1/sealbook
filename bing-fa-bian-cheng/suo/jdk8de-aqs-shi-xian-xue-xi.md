@@ -160,7 +160,7 @@ static final class Node {
 
 需要注意的是，他们的变量都被"`transient`和`volatile`修饰。
 
-可以看到，waitStatus非负的时候，表征不可用，正数代表处于等待状态，所以waitStatus只需要检查其正负符号即可，不用太多关注特定值。
+还可以看到，waitStatus非负的时候，表征不可用，正数代表处于等待状态，所以waitStatus只需要检查其正负符号即可，不用太多关注特定值。
 
 ### 资源的共享方式分为2种
 
