@@ -33,7 +33,7 @@ public interface Lock {
     // 响应中断的获取锁
     void lockInterruptibly() throws InterruptedException;
 
-    // 尝试非阻塞的获取锁，true为获取到锁，false为没有获取到锁
+    // 尝试非阻塞的获取锁，true为获取到锁，false为没有获取到锁 申请锁，只申请一次，失败后不再尝试
     boolean tryLock();
 
     // 超时获取锁，以下情况会返回：时间内获取到了锁，时间内被中断，时间到了没有获取到锁
