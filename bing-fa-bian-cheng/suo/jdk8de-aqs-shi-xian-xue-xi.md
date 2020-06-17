@@ -40,6 +40,8 @@ AQS是一个同步器，设计模式是模板模式。
 * setState\(int newState\)
 * compareAndSetState\(int expect, int update\)
 
+重入锁计数/许可证数量，在不同的锁中，使用方式有所不同
+
 上述3种方式均是原子操作，其中compareAndSetState\(\)的实现依赖于Unsafe的compareAndSwapInt\(\)方法。
 
 ![](/static/image/10431632-7d2aa48b9b217bbe.webp)
