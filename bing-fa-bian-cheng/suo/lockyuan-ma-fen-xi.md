@@ -42,7 +42,7 @@ public interface Lock {
     // 释放锁
     void unlock();
 
-    // 创建一个condition条件对象接口，用于更精细地指导线程的同步行为
+    // 创建一个condition，条件对象接口，用于更精细地指导线程的同步行为
     Condition newCondition();
 }
 ```
