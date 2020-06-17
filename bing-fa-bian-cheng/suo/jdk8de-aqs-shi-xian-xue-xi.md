@@ -186,6 +186,8 @@ AQS需要子类复写的方法均没有声明为abstract，目的是避免子类
 
 # 2.总结
 
+AQS指的是AbstractQueuedSynchronizer
+
 J.U.C是基于AQS实现的，AQS是一个同步器，设计模式是模板模式。
 
 核心数据结构：双向链表 + state\(锁状态\)
