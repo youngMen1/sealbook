@@ -126,16 +126,18 @@ static final class Node {
 ```
     private transient volatile Node head;   // 【|同步队列|】的头结点
     private transient volatile Node tail;   // 【|同步队列|】的尾结点
-    
-    
-    
+
+
+
     // 前继节点
     volatile Node prev;
     // 后继节点
     volatile Node next;
 ```
 
-需要注意的是
+最后我们可以发现锁的存储结构就两个东西:"双向链表" + "waitStatus的int类型状态"。
+
+需要注意的是，他们的变量都被"`transient`和`volatile`修饰。
 
 ### 资源的共享方式分为2种
 
