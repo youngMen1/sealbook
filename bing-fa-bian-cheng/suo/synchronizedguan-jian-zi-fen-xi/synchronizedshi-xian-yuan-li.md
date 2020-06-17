@@ -60,7 +60,7 @@ public class SynchronizedDemo {
 	}
 
 该代码的happens-before关系如图所示：
-synchronized的happens-before关系.png
+![](/static/image/synchronized的happens-before关系.png)
 
 
 在图中每一个箭头连接的两个节点就代表之间的happens-before关系，黑色的是通过程序顺序规则推导出来，红色的为监视器锁规则推导而出：**线程A释放锁happens-before线程B加锁**，蓝色的则是通过程序顺序规则和监视器锁规则推测出来happens-befor关系，通过传递性规则进一步推导的happens-before关系。现在我们来重点关注2 happens-before 5，通过这个关系我们可以得出什么？
@@ -74,11 +74,9 @@ synchronized的happens-before关系.png
 
 废话不多说依旧先上图。
 
-![线程A写共享变量](https://user-gold-cdn.xitu.io/2018/4/30/16315cef21fd3ad8?w=557&h=440&f=png&s=10816)
-
+![](/static/image/线程A写共享变量.png)
 
 从上图可以看出，线程A会首先先从主内存中读取共享变量a=0的值然后将该变量拷贝到自己的本地内存，进行加一操作后，再将该值刷新到主内存，整个过程即为线程A 加锁-->执行临界区代码-->释放锁相对应的内存语义。
-
 
 
 ![](/static/image/线程B读共享变量.png)
