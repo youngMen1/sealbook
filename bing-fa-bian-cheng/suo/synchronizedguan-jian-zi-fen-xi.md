@@ -68,7 +68,7 @@ public class SynchronizedTest {
 }
 ```
 
-结果
+结果：
 
 ```
 Thread-1输出:  0
