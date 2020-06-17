@@ -123,6 +123,16 @@ static final class Node {
 }
 ```
 
+```
+    // 前继节点
+    volatile Node prev;
+    // 后继节点
+    volatile Node next;
+
+```
+
+从// 前继节点
+
 ### 资源的共享方式分为2种
 
 # 2.总结
