@@ -4,6 +4,8 @@
 
 ## synchronized缺陷 {#synchronized%E7%BC%BA%E9%99%B7}
 
+前面我们说过synchronized的线程释放锁的情况有两种:
+
 ## Lock
 
 Lock接口中定义了对锁的各种操作
