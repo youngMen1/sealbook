@@ -25,14 +25,26 @@ AQS是一个同步器，设计模式是模板模式。
 底层操作：CAS
 
 ### AbstractQueuedSynchronizer类
+
 ![](/static/image/微信截图_20200617174450.png)
+
 ### Node类
+
 ![](/static/image/441222012158451512152485.webp)
 
 ### state
+
+首先说一下共享资源变量state，它是int数据类型的，其访问方式有3种：
+
+* getState\(\)
+* setState\(int newState\)
+* compareAndSetState\(int expect, int update\)
+
+上述3种方式均是原子操作，其中compareAndSetState\(\)的实现依赖于Unsafe的compareAndSwapInt\(\)方法。
+
 ![](/static/image/10431632-7d2aa48b9b217bbe.webp)
 
-**AQS维护了一个volatile语义(支持多线程下的可见性)的共享资源变量state和一个FIFO线程等待队列(多线程竞争state被阻塞时会进入此队列)。**
+**AQS维护了一个volatile语义\(支持多线程下的可见性\)的共享资源变量state和一个FIFO线程等待队列\(多线程竞争state被阻塞时会进入此队列\)。**
 
 ```
 注释：最重要的就是搞清楚state和FIFO线程等待队列是怎么来实现这个同步器的框架
@@ -42,10 +54,9 @@ AQS是一个同步器，设计模式是模板模式。
 
 AQS是通过内部类Node来实现FIFO队列的，源代码解析如下：
 
-
 ```
 static final class Node {
-    
+
     // 表明节点在共享模式下等待的标记
     static final Node SHARED = new Node();
     // 表明节点在独占模式下等待的标记
@@ -68,7 +79,7 @@ static final class Node {
      *   0: None of the above
      */
     volatile int waitStatus;
-    
+
     // 前继节点
     volatile Node prev;
     // 后继节点
@@ -91,7 +102,7 @@ static final class Node {
         else
             return p;
     }
-    
+
     // Shared模式下的Node构造函数
     Node() {  
     }
@@ -101,19 +112,14 @@ static final class Node {
         this.nextWaiter = mode;
         this.thread = thread;
     }
-    
+
     // 用于Condition
     Node(Thread thread, int waitStatus) {
         this.waitStatus = waitStatus;
         this.thread = thread;
     }
 }
-
 ```
-
-
-
-
 
 ### 资源的共享方式分为2种
 
