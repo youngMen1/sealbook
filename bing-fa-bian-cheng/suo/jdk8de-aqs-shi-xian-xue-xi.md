@@ -2,6 +2,9 @@
 
 ## 1.1.带着问题学习
 
+1.AQS是什么鬼东西  
+2.AQS是怎么实现的
+
 ```
 // 同步队列，是一个带头结点的双向链表，用于实现锁的语义
 public abstract class AbstractQueuedSynchronizer extends AbstractOwnableSynchronizer implements Serializable {
