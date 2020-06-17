@@ -292,7 +292,43 @@ public class SynchronizedTest2 {
 * 上面我们已经说过一个对象有一把锁，线程同步方法和线程同步块实际获得的是对象的锁，因此线程同步块的括号中填入的是this，我们都知道this在一个类中的含义，**一个类也有唯一的一把锁**，我们前面说的是使用对象调用成员方法，现在如果我们要调用类中的静态方法，那么我们可以使用线程同步方法或者同步块获得类中的唯一一把锁，那么对于多个线程同时调用同一个类中的静态方法就可以实现控制了,代码如下:
 
 ```
+/**
+ * @author fengzhiqiang
+ * @date-time 2020/6/17 14:14
+ **/
+public class SynchronizedTest3 {
+    // 静态方法
+    public static synchronized void insert(Thread thread) {
+        for (int i = 0; i < 10; i++) {
+            System.out.println(thread.getName() + "输出     " + i);
+        }
+    }
 
+    public static void main(String[] args) {
+        //第一个线
+        Thread t1 = new Thread() {
+            @Override
+            public void run() {
+                SynchronizedTest3.insert(Thread.currentThread());
+                //直接使用类调用静态方法
+            }
+
+            ;
+        };
+        //第二个线程
+        Thread t2 = new Thread() {
+            @Override
+            public void run() {
+                SynchronizedTest3.insert(Thread.currentThread());
+                //直接使用类调用静态方法
+            }
+
+            ;
+        };
+        t1.start();
+        t2.start();
+    }
+}
 ```
 
 ## 为静态方法或者静态方法中的代码块加上同步锁 {#%E4%B8%BA%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E6%88%96%E8%80%85%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%A0%81%E5%9D%97%E5%8A%A0%E4%B8%8A%E5%90%8C%E6%AD%A5%E9%94%81}
