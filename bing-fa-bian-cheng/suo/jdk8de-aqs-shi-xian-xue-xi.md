@@ -43,6 +43,77 @@ AQS是一个同步器，设计模式是模板模式。
 AQS是通过内部类Node来实现FIFO队列的，源代码解析如下：
 
 
+```
+static final class Node {
+    
+    // 表明节点在共享模式下等待的标记
+    static final Node SHARED = new Node();
+    // 表明节点在独占模式下等待的标记
+    static final Node EXCLUSIVE = null;
+
+    // 表征等待线程已取消的
+    static final int CANCELLED =  1;
+    // 表征需要唤醒后续线程
+    static final int SIGNAL    = -1;
+    // 表征线程正在等待触发条件(condition)
+    static final int CONDITION = -2;
+    // 表征下一个acquireShared应无条件传播
+    static final int PROPAGATE = -3;
+
+    /**
+     *   SIGNAL: 当前节点释放state或者取消后，将通知后续节点竞争state。
+     *   CANCELLED: 线程因timeout和interrupt而放弃竞争state，当前节点将与state彻底拜拜
+     *   CONDITION: 表征当前节点处于条件队列中，它将不能用作同步队列节点，直到其waitStatus被重置为0
+     *   PROPAGATE: 表征下一个acquireShared应无条件传播
+     *   0: None of the above
+     */
+    volatile int waitStatus;
+    
+    // 前继节点
+    volatile Node prev;
+    // 后继节点
+    volatile Node next;
+    // 持有的线程
+    volatile Thread thread;
+    // 链接下一个等待条件触发的节点
+    Node nextWaiter;
+
+    // 返回节点是否处于Shared状态下
+    final boolean isShared() {
+        return nextWaiter == SHARED;
+    }
+
+    // 返回前继节点
+    final Node predecessor() throws NullPointerException {
+        Node p = prev;
+        if (p == null)
+            throw new NullPointerException();
+        else
+            return p;
+    }
+    
+    // Shared模式下的Node构造函数
+    Node() {  
+    }
+
+    // 用于addWaiter
+    Node(Thread thread, Node mode) {  
+        this.nextWaiter = mode;
+        this.thread = thread;
+    }
+    
+    // 用于Condition
+    Node(Thread thread, int waitStatus) {
+        this.waitStatus = waitStatus;
+        this.thread = thread;
+    }
+}
+
+```
+
+
+
+
 
 ### 资源的共享方式分为2种
 
