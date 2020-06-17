@@ -196,7 +196,7 @@ AQS指的是AbstractQueuedSynchronizer
 
 # 3.参考
 
-# 浅谈Java的AQS
+浅谈Java的AQS：
 
 [https://www.jianshu.com/p/0f876ead2846](https://www.jianshu.com/p/0f876ead2846)
 
