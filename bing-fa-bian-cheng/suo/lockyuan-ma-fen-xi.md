@@ -4,3 +4,28 @@
 
 Lock接口中定义了对锁的各种操作
 
+```
+public interface Lock {
+
+    //不响应中断的获取锁
+    void lock();
+
+    //响应中断的获取锁
+    void lockInterruptibly() throws InterruptedException;
+
+    //尝试非阻塞的获取锁，true为获取到锁，false为没有获取到锁
+    boolean tryLock();
+
+    //超时获取锁，以下情况会返回：时间内获取到了锁，时间内被中断，时间到了没有获取到锁
+    boolean tryLock(long time, TimeUnit unit) throws InterruptedException;
+
+    //释放锁
+    void unlock();
+
+    //创建一个condition
+    Condition newCondition();
+}
+```
+
+
+
