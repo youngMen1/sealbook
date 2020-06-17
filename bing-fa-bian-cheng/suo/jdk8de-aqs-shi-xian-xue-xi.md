@@ -164,7 +164,7 @@ static final class Node {
 
 ### 资源的共享方式分为2种
 
-独占式\(Exclusive\)
+* 独占式\(Exclusive\)
 
 只有单个线程能够成功获取资源并执行，如ReentrantLock。
 
@@ -183,14 +183,6 @@ AQS将大部分的同步逻辑均已经实现好，继承的自定义同步器�
 AQS需要子类复写的方法均没有声明为abstract，目的是避免子类需要强制性覆写多个方法，因为一般自定义同步器要么是独占方法，要么是共享方法，只需实现tryAcquire-tryRelease、tryAcquireShared-tryReleaseShared中的一种即可。
 
 当然，AQS也支持子类同时实现独占和共享两种模式，如ReentrantReadWriteLock。
-
-  
-
-
-  
-
-
-
 
 # 2.总结
 
