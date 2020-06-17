@@ -165,23 +165,17 @@ static final class Node {
 
 ### 资源的共享方式分为2种
 
-* 独占式\(Exclusive\)
+#### 独占式\(Exclusive\)
 
 只有单个线程能够成功获取资源并执行，如ReentrantLock。
 
-* 共享式\(Shared\)
+TODO 
+
+#### 共享式\(Shared\)
 
 多个线程可成功获取资源并执行，如Semaphore/CountDownLatch等。
 
-AQS将大部分的同步逻辑均已经实现好，继承的自定义同步器只需要实现state的获取\(acquire\)和释放\(release\)的逻辑代码就可以，主要包括下面方法：
-
-* tryAcquire\(int\)：独占方式。尝试获取资源，成功则返回true，失败则返回false。
-
-* tryRelease\(int\)：独占方式。尝试释放资源，成功则返回true，失败则返回false。
-
-* tryAcquireShared\(int\)：共享方式。尝试获取资源。负数表示失败；0表示成功，但没有剩余可用资源；正数表示成功，且有剩余资源。
-* tryReleaseShared\(int\)：共享方式。尝试释放资源，如果释放后允许唤醒后续等待结点返回true，否则返回false。
-* isHeldExclusively\(\)：该线程是否正在独占资源。只有用到condition才需要去实现它。
+TODO 
 
 AQS需要子类复写的方法均没有声明为abstract，目的是避免子类需要强制性覆写多个方法，因为一般自定义同步器要么是独占方法，要么是共享方法，只需实现tryAcquire-tryRelease、tryAcquireShared-tryReleaseShared中的一种即可。
 
