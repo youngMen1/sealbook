@@ -12,5 +12,5 @@
 
 根据Synchronized用的位置可以有这些使用场景：
 
-synchronized的使用场景.png
+![](/static/image/synchronized的使用场景.png)
 
