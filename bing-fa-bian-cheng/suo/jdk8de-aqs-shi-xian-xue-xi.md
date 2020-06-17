@@ -16,7 +16,7 @@ public abstract class AbstractQueuedSynchronizer extends AbstractOwnableSynchron
 
 所谓AQS，指的是**AbstractQueuedSynchronizer**，它提供了一种实现**阻塞锁和一系列依赖FIFO等待队列的同步器的框架**，**ReentrantLock、Semaphore、CountDownLatch、CyclicBarrier等并发类均是基于AQS来实现的**，具体用法是通过继承AQS实现其模板方法，然后将子类作为同步组件的内部类。
 
-注释：后面学习**ReentrantLock、Semaphore、CountDownLatch、CyclicBarrier的时候会看到均是基于AQS来实现的**
+注释：后面学习**ReentrantLock、Semaphore、CountDownLatch、CyclicBarrier的时候会看到均是基于AQS来实现的这里不做拓展。**
 
 ## 1.3.基本框架
 
