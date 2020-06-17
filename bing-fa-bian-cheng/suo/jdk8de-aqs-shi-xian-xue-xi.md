@@ -24,11 +24,14 @@ AQS是一个同步器，设计模式是模板模式。
 
 底层操作：CAS
 
+**AQS维护了一个volatile语义\(支持多线程下的可见性\)的共享资源变量state和一个FIFO线程等待队列\(多线程竞争state被阻塞时会进入此队列\)。**
+
 ### AbstractQueuedSynchronizer类
 ![](/static/image/微信截图_20200617174450.png)
 ### Node类
 ![](/static/image/441222012158451512152485.webp)
 
+### state
 ![](/static/image/10431632-7d2aa48b9b217bbe.webp)
 
 **AQS维护了一个volatile语义\(支持多线程下的可见性\)的共享资源变量state和一个FIFO线程等待队列\(多线程竞争state被阻塞时会进入此队列\)。**
