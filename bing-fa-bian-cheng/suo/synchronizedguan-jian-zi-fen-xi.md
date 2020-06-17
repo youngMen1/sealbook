@@ -20,6 +20,8 @@
 
 ### 1.3.1.对象锁（monitor）机制
 
+### 1.3.2.synchronized的happens-before关系
+
 # 2.怎么使用
 
 
