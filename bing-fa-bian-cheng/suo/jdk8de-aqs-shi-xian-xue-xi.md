@@ -11,3 +11,5 @@ public abstract class AbstractQueuedSynchronizer extends AbstractOwnableSynchron
 
 10431632-7d2aa48b9b217bbe.webp
 
+AQS维护了一个volatile语义\(支持多线程下的可见性\)的共享资源变量state和一个FIFO线程等待队列\(多线程竞争state被阻塞时会进入此队列\)。
+
