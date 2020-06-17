@@ -22,8 +22,6 @@
 
 查看API可知，Lock是一个接口，因此是不可以直接创建对象的，但是我们可以利用其实现的类来创建对象，这个先不着急，我们先看看Lock类到底实现了什么方法,具体的实现我们将会在介绍其实现的类的时候再详细的讲解
 
-
-
 Lock接口中定义了对锁的各种操作
 
 ```
@@ -44,7 +42,7 @@ public interface Lock {
     // 释放锁
     void unlock();
 
-    // 创建一个condition
+    // 创建一个condition条件对象接口，用于更精细地指导线程的同步行为
     Condition newCondition();
 }
 ```
