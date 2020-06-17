@@ -26,6 +26,8 @@ public abstract class AbstractQueuedSynchronizer extends AbstractOwnableSynchron
 
 ### CLH队列\(FIFO\)
 
+### 资源的共享方式分为2种
+
 # 2.总结
 
 J.U.C是基于AQS实现的，AQS是一个同步器，设计模式是模板模式。
