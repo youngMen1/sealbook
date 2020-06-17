@@ -124,14 +124,18 @@ static final class Node {
 ```
 
 ```
+    private transient volatile Node head;   // 【|同步队列|】的头结点
+    private transient volatile Node tail;   // 【|同步队列|】的尾结点
+    
+    
+    
     // 前继节点
     volatile Node prev;
     // 后继节点
     volatile Node next;
-
 ```
 
-从// 前继节点
+需要注意的是
 
 ### 资源的共享方式分为2种
 
