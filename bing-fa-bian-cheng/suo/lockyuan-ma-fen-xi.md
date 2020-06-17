@@ -4,7 +4,7 @@
 
 ## synchronized缺陷 {#synchronized%E7%BC%BA%E9%99%B7}
 
-前面我们说过synchronized的线程释放锁的情况有两种:
+前面我们说过synchronized的线程释放锁的情况有两种：
 
 1.代码块或者同步方法执行完毕
 
