@@ -287,5 +287,5 @@ public class SynchronizedTest2 {
 }
 ```
 
-
+从上面的结果可知，此时线程同步块根本不起作用，因为他们调用的是**不同对象**的insert方法，获得锁是不一样的
 
