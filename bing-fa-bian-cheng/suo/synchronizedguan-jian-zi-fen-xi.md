@@ -22,6 +22,8 @@
 
 ### 1.3.2.synchronized的happens-before关系
 
+### 1.3.3.锁获取和锁释放的内存语义
+
 # 2.怎么使用
 
 下面举一个例子说明synchronized关键字的使用
