@@ -181,5 +181,53 @@ Thread-0输出:  9
 
 ### 线程同步块
 
+当然上面的我们使用的是线程同步方法，我们可以使用线程同步块，这两个相比线程同步块更加灵活，只需要将需要同步的代码放在同步块中即可，代码如下；
+
+```
+/**
+ * Synchronized关键字源码分析
+ *
+ * @author fengzhiqiang
+ * @date-time 2020/6/17 10:38
+ **/
+public class SynchronizedTest {
+
+    public static void main(String[] args) {
+        final SynchronizedTest sychor = new SynchronizedTest();
+        Thread t1 = new Thread() {
+            @Override
+            public void run() {
+                sychor.insert3(Thread.currentThread());
+            }
+
+            ;
+        };
+        Thread t2 = new Thread() {
+            @Override
+            public void run() {
+                sychor.insert3(Thread.currentThread());
+            }
+
+            ;
+        };
+        t1.start();
+        t2.start();
+    }
+
+    /**
+     * 线程同步块
+     *
+     * @param thread
+     */
+    public void insert3(Thread thread) {
+        synchronized (this) {
+            for (int i = 0; i < 10; i++) {
+                System.out.println(thread.getName() + "输出:  " + i);
+            }
+        }
+    }
+}
+```
+
 
 
