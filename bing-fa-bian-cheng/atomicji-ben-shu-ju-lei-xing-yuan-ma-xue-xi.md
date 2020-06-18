@@ -1,4 +1,4 @@
-# 1.Atomic数据类型类源码学习
+# 1.Atomic数据类型源码学习
 
 ## 1.1.基本介绍
 
@@ -76,7 +76,7 @@ AtomicLong的实现原理和AtomicInteger一致，只不过一个针对的是lon
 
 而boolean变量的更新类AtomicBoolean类是怎样实现更新的呢?
 
- 核心方法是`compareAndSet`方法，其源码如下：
+核心方法是`compareAndSet`方法，其源码如下：
 
 ```
 // 之前是这样写的
