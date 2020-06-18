@@ -208,7 +208,7 @@ acquire\(\)方法至少执行一次tryAcquire\(arg\)，若返回true，则acquir
 
 否则进入acquireQueued\(addWaiter\(Node.EXCLUSIVE\), arg\)方法。
 
-* acquireQueued\(final Node node, int arg\) 
+* acquireQueued\(final Node node, int arg\)  当node进入排队后再次尝试申请锁，如果还是失败，则可能进入阻塞
 
 TODO
 
