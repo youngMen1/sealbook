@@ -17,17 +17,20 @@ public class AtomicInteger extends Number implements Serializable {
 ```
 
 ```
-private static final Unsafe unsafe = Unsafe.getUnsafe();
-private static final long valueOffset;
+   // 设置为使用Unsafe.compareAndSwapInt进行更新
+    private static final Unsafe unsafe = Unsafe.getUnsafe();
+    // 存储字段value在JVM中的偏移地址
 
-static {
-    try {
-        valueOffset = unsafe.objectFieldOffset
-            (AtomicInteger.class.getDeclaredField("value"));
-    } catch (Exception ex) { throw new Error(ex); }
-}
+    private static final long valueOffset;
 
-private volatile int value;
+    static {
+        try {
+            valueOffset = unsafe.objectFieldOffset
+                (AtomicInteger.class.getDeclaredField("value"));
+        } catch (Exception ex) { throw new Error(ex); }
+    }
+
+    private volatile int value;
 ```
 
 可以看到 value 是采用 volatile 修饰的，并通过 Unsafe 类获取 value 的偏移量，方便后续使用 CAS 操作
