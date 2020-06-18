@@ -169,54 +169,15 @@ static final class Node {
 
 只有单个线程能够成功获取资源并执行，如ReentrantLock。
 
-* acquire\(int\)  获取/释放资源过程，其入口方法为:
-
-```
- // 申请独占锁，允许阻塞带有中断标记的线程（会先将其标记清除）
-    public final void acquire(int arg) {
-        // 尝试申请独占锁
-        if(!tryAcquire(arg)){
-            /*
-             * 如果当前线程没有申请到独占锁，则需要去排队
-             * 注：线程被封装到Node中去排队
-             */
-
-            // 向【|同步队列|】添加一个[独占模式Node](持有争锁线程)作为排队者
-            Node node = addWaiter(Node.EXCLUSIVE);
-
-            // 当node进入排队后再次尝试申请锁，如果还是失败，则可能进入阻塞
-            if(acquireQueued(node, arg)){
-                // 如果线程解除阻塞时拥有中断标记，此处要进行设置
-                selfInterrupt();
-            }
-        }
-    }
-```
-
-tryAcquire\(arg\)为线程获取资源的方法函数，在AQS中定义如下：
-
-```
-// 申请一次独占锁，具体的行为模式由子类实现
-protected boolean tryAcquire(int arg) {
-throw new UnsupportedOperationException();
-}
-```
-
-很明显，该方法是空方法，且由protected修饰，说明该方法需要由子类即自定义同步器来实现。
-
-acquire\(\)方法至少执行一次tryAcquire\(arg\)，若返回true，则acquire直接返回，
-
-否则进入acquireQueued\(addWaiter\(Node.EXCLUSIVE\), arg\)方法。
+* acquire\(int\)  申请独占锁，允许阻塞带有中断标记的线程（会先将其标记清除）
 
 * acquireQueued\(final Node node, int arg\)  当node进入排队后再次尝试申请锁，如果还是失败，则可能进入阻塞
-
-TODO
 
 #### 共享式\(Shared\)
 
 多个线程可成功获取资源并执行，如Semaphore/CountDownLatch等。
 
-TODO
+
 
 AQS需要子类复写的方法均没有声明为abstract，目的是避免子类需要强制性覆写多个方法，因为一般自定义同步器要么是独占方法，要么是共享方法，只需实现tryAcquire-tryRelease、tryAcquireShared-tryReleaseShared中的一种即可。
 
