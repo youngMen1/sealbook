@@ -145,5 +145,6 @@ class属性指定输出策略，通常有两种，控制台输出和文件输出
 ```
 ## 1.3.异步日志输出原理
 从logback框架下的Logger.info方法开始追踪。一路的方法调用路径如下图所示：
-16c7704a7f9efca8
+![](/static/image/16c7704a7f9efca8)
+异步输出日志中最关键的就是配置文件中ch.qos.logback.classic包下AsyncAppenderBase类中的append方法，查看该方法的源码:
 
