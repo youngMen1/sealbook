@@ -171,7 +171,7 @@ static final class Node {
 
 获取资源
 
-* acquire\(int\)  申请独占锁，允许阻塞带有中断标记的线程（会先将其标记清除）
+* public final void acquire\(int arg\)  申请独占锁，允许阻塞带有中断标记的线程（会先将其标记清除）
 
 * final boolean acquireQueued\(final Node node, int arg\) 当node进入排队后再次尝试申请锁，如果还是失败，则可能进入阻塞
 
