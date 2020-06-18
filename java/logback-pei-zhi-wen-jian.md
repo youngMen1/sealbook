@@ -148,3 +148,27 @@ class属性指定输出策略，通常有两种，控制台输出和文件输出
 ![](/static/image/16c7704a7f9efca8)
 异步输出日志中最关键的就是配置文件中ch.qos.logback.classic包下AsyncAppenderBase类中的append方法，查看该方法的源码:
 
+
+```
+protected void append(E eventObject) {
+        if(!this.isQueueBelowDiscardingThreshold() || !this.isDiscardable(eventObject)) {
+            this.preprocess(eventObject);
+            this.put(eventObject);
+        }
+    }
+```
+通过队列情况判断是否需要丢弃日志，不丢弃的话将它放到阻塞队列中，通过查看代码，这个阻塞队列为ArrayBlockingQueueu，默认大小为256，可以通过配置文件进行修改。Logger.info(...)到append(...)就结束了，只做了将日志塞入到阻塞队列的事，然后继续执行Logger.info(...)下面的语句了。
+在AsyncAppenderBase类中定义了一个Worker线程，run方法中的关键部分代码如下:
+
+
+```
+E e = parent.blockingQueue.take();
+aai.appendLoopOnAppenders(e);
+```
+从阻塞队列中取出一个日志，并调用AppenderAttachableImpl类中的appendLoopOnAppenders方法维护一个Append列表。Worker线程中调用方法过程主要如下图：
+![](/static/image/16c7704a7fb3c3c7)
+最主要的两个方法就是encode和write方法，前一个法方会根据配置文件中encode指定的方式转化为字节码，后一个方法将转化成的字节码写入到文件中去。所以写文件是通过新起一个线程去完成的，主线程将日志扔到阻塞队列中，然后又去做其他事情了。 
+
+
+
+
