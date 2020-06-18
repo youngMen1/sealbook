@@ -187,7 +187,7 @@ static final class Node {
 获取资源
 
 * public final void acquireShared\(int arg\) 申请共享锁，若获取成功则直接返回，若失败，则进入等待队列，执行自旋获取资源
-* public final boolean releaseShared\(int arg\) 释放锁
+* public final boolean releaseShared\(int arg\) 释放锁，并唤醒排队的结点
 
 AQS需要子类复写的方法均没有声明为abstract，目的是避免子类需要强制性覆写多个方法，因为一般自定义同步器要么是独占方法，要么是共享方法，只需实现tryAcquire-tryRelease、tryAcquireShared-tryReleaseShared中的一种即可。
 
