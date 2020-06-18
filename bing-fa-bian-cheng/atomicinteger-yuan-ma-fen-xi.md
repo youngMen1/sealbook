@@ -30,6 +30,7 @@ public class AtomicInteger extends Number implements Serializable {
                 (AtomicInteger.class.getDeclaredField("value"));
         } catch (Exception ex) { throw new Error(ex); }
     }
+    
     // 构造原子变量，其值初始化为initialValue
     private volatile int value;
 ```
