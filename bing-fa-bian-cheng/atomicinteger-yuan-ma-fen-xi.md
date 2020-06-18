@@ -79,7 +79,7 @@ AtomicInteger 提供了自增/自减的两个场景方法，一个返回旧值�
     // 获取对象o中offset地址处对应的int型字段的值
     @HotSpotIntrinsicCandidate
     public native int getIntVolatile(Object o, long offset);
-    
+
     // 拿期望值expected与对象o的offset地址处的当前值比较，如果两个值相等，将当前值更新为x
     @HotSpotIntrinsicCandidate
     public final boolean weakCompareAndSetInt(Object o, long offset, int expected, int x) {
@@ -87,5 +87,5 @@ AtomicInteger 提供了自增/自减的两个场景方法，一个返回旧值�
     }
 ```
 
-回到**TOP 问题1,2**可以看到实际是采用 CAS + 自旋\(死循环\)来实现线程安全的自增
+回到** 问题1,2**可以看到实际是采用 CAS + 自旋\(死循环\)来实现线程安全的自增。
 
