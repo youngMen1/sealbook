@@ -121,6 +121,8 @@ SpringBoot工程自带logback和slf4j的依赖，所以重点放在编写配置�
         <maxHistory>30</maxHistory>
     </rollingPolicy>
 </appender>
+
+
 <!-- 异步输出 -->
 <appender name="ASYNC-INFO" class="ch.qos.logback.classic.AsyncAppender">
     <!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 -->
@@ -146,7 +148,6 @@ SpringBoot工程自带logback和slf4j的依赖，所以重点放在编写配置�
     <appender-ref ref="ASYNC-ERROR"/>
 </root>
 </configuration>
-
 ```
 
 ## 1.3.异步日志输出原理
