@@ -158,7 +158,7 @@
 * [并发编程](bing-fa-bian-cheng.md)
   * [Java并发体系](bing-fa-bian-cheng/javabing-fa-ti-xi.md)
   * [Atomic原子操作类](bing-fa-bian-cheng/atomic.md)
-    * [Atomic基本数据类型类源码学习](bing-fa-bian-cheng/atomicji-ben-shu-ju-lei-xing-yuan-ma-xue-xi.md)
+    * [Atomic基本数据类型源码学习](bing-fa-bian-cheng/atomicji-ben-shu-ju-lei-xing-yuan-ma-xue-xi.md)
     * [JDK8的CAS实现学习笔记](bing-fa-bian-cheng/jdk8de-cas-shi-xian-xue-xi-bi-ji.md)
     * [AtomicInteger源码分析](bing-fa-bian-cheng/atomicinteger-yuan-ma-fen-xi.md)
     * [Atomic引用类型源码学习](bing-fa-bian-cheng/atomicyin-yong-lei-xing-yuan-ma-xue-xi.md)
