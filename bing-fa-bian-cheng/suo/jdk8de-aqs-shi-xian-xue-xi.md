@@ -191,14 +191,24 @@ static final class Node {
             }
         }
     }
-    
-    
-    // tryAcquire(arg)为线程获取资源的方法函数，在AQS中定义如下：
-    // 申请一次独占锁，具体的行为模式由子类实现
-    protected boolean tryAcquire(int arg) {
-        throw new UnsupportedOperationException();
-    }
 ```
+
+tryAcquire\(arg\)为线程获取资源的方法函数，在AQS中定义如下：
+
+```
+// 申请一次独占锁，具体的行为模式由子类实现
+protected boolean tryAcquire(int arg) {
+throw new UnsupportedOperationException();
+}
+```
+
+很明显，该方法是空方法，且由protected修饰，说明该方法需要由子类即自定义同步器来实现。
+
+acquire\(\)方法至少执行一次tryAcquire\(arg\)，若返回true，则acquire直接返回，
+
+否则进入acquireQueued\(addWaiter\(Node.EXCLUSIVE\), arg\)方法。
+
+* acquireQueued\(final Node node, int arg\) 
 
 TODO
 
