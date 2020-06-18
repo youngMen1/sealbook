@@ -159,7 +159,7 @@ static final class Node {
     volatile Node next;
 ```
 
-最后我们可以发现锁的存储结构就两个东西:"**双向链表**" + "**waitStatus的int类型状态**"。
+最后我们可以发现锁的存储结构就两个东西:"**双向链表**" + "state\(锁状态\)"。
 
 需要注意的是，他们的变量都被"`transient`和`volatile`修饰。
 
