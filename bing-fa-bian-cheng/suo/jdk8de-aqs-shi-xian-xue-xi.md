@@ -157,9 +157,9 @@ static final class Node {
     volatile Node next;
 ```
 
-最后我们可以发现锁的存储结构就两个东西:"双向链表" + "waitStatus的int类型状态"。
+最后我们可以发现锁的存储结构就两个东西:"**双向链表**" + "**waitStatus的int类型状态**"。
 
-需要注意的是，他们的变量都被"`transient`和`volatile`修饰。
+需要注意的是，他们的变量都被"**`transient`**和**`volatile`**修饰。
 
 还可以看到，waitStatus非负的时候，表征不可用，正数代表处于等待状态，所以waitStatus只需要检查其正负符号即可，不用太多关注特定值。
 
@@ -169,13 +169,13 @@ static final class Node {
 
 只有单个线程能够成功获取资源并执行，如ReentrantLock。
 
-TODO 
+TODO
 
 #### 共享式\(Shared\)
 
 多个线程可成功获取资源并执行，如Semaphore/CountDownLatch等。
 
-TODO 
+TODO
 
 AQS需要子类复写的方法均没有声明为abstract，目的是避免子类需要强制性覆写多个方法，因为一般自定义同步器要么是独占方法，要么是共享方法，只需实现tryAcquire-tryRelease、tryAcquireShared-tryReleaseShared中的一种即可。
 
