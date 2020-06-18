@@ -193,6 +193,8 @@ AQS需要子类复写的方法均没有声明为abstract，目的是避免子类
 
 当然，AQS也支持子类同时实现独占和共享两种模式，如ReentrantReadWriteLock。
 
+在acquire\(\)和acquireShared\(\)方法中，线程在阻塞过程中均是忽略中断的。
+
 # 2.总结
 
 AQS指的是AbstractQueuedSynchronizer
