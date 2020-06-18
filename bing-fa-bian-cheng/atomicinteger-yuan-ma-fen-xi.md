@@ -19,10 +19,10 @@ public class AtomicInteger extends Number implements Serializable {
 ```
     // 设置为使用Unsafe.compareAndSwapInt进行更新
     private static final Unsafe unsafe = Unsafe.getUnsafe();
-
+    
     // 存储字段value在JVM中的偏移地址
     private static final long valueOffset;
-
+    
     static {
         try {
            // 存储字段value在JVM中的偏移地址
