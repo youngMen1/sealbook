@@ -178,6 +178,7 @@ static final class Node {
 释放资源
 
 * release\(int arg\) 释放锁，如果锁已被完全释放，则唤醒后续的阻塞线程。返回值表示本次操作后锁是否自由
+* tryRelease\(int\)
 
 #### 共享式\(Shared\)
 
