@@ -7,7 +7,7 @@
 
 ## 1.2.基本介绍
 
-在并发编程中，Doug Lea大师为我们提供了大量实用，高性能的工具类，Doug Lea，concurrent 包的作者。
+在并发编程中，Doug Lea大师为我们提供了大量实用，高性能的工具类，Doug Lea，concurrent 包的作者，编程不识Doug Lea，写尽java也枉然
 
 ```
 // 同步队列，是一个带头结点的双向链表，用于实现锁的语义
