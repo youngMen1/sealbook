@@ -169,15 +169,19 @@ static final class Node {
 
 只有单个线程能够成功获取资源并执行，如ReentrantLock。
 
+获取资源
+
 * acquire\(int\)  申请独占锁，允许阻塞带有中断标记的线程（会先将其标记清除）
 
 * acquireQueued\(final Node node, int arg\)  当node进入排队后再次尝试申请锁，如果还是失败，则可能进入阻塞
 
+释放资源
+
+* release\(int arg\) 释放锁，如果锁已被完全释放，则唤醒后续的阻塞线程。返回值表示本次操作后锁是否自由
+
 #### 共享式\(Shared\)
 
 多个线程可成功获取资源并执行，如Semaphore/CountDownLatch等。
-
-
 
 AQS需要子类复写的方法均没有声明为abstract，目的是避免子类需要强制性覆写多个方法，因为一般自定义同步器要么是独占方法，要么是共享方法，只需实现tryAcquire-tryRelease、tryAcquireShared-tryReleaseShared中的一种即可。
 
