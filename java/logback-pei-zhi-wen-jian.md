@@ -168,6 +168,15 @@ aai.appendLoopOnAppenders(e);
 从阻塞队列中取出一个日志，并调用AppenderAttachableImpl类中的appendLoopOnAppenders方法维护一个Append列表。Worker线程中调用方法过程主要如下图：
 ![](/static/image/16c7704a7fb3c3c7)
 最主要的两个方法就是encode和write方法，前一个法方会根据配置文件中encode指定的方式转化为字节码，后一个方法将转化成的字节码写入到文件中去。所以写文件是通过新起一个线程去完成的，主线程将日志扔到阻塞队列中，然后又去做其他事情了。 
+# 3.总结
+Logback配置文件这么写，TPS提高10倍：
+```
+https://juejin.im/post/5d4d61326fb9a06aff5e5ff5
+https://github.com/TiantianUpup/springboot-log
+```
+
+
+
 
 
 
