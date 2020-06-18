@@ -207,6 +207,12 @@ AQS指的是AbstractQueuedSynchronizer
 
 # 3.参考
 
+非常感谢康建伟分享的jdk源码笔记
+
+```
+https://github.com/kangjianwei/LearningJDK
+```
+
 浅谈Java的AQS：
 
 [https://www.jianshu.com/p/0f876ead2846](https://www.jianshu.com/p/0f876ead2846)
