@@ -180,16 +180,23 @@ static final class Node {
              * 如果当前线程没有申请到独占锁，则需要去排队
              * 注：线程被封装到Node中去排队
              */
-            
+
             // 向【|同步队列|】添加一个[独占模式Node](持有争锁线程)作为排队者
             Node node = addWaiter(Node.EXCLUSIVE);
-            
+
             // 当node进入排队后再次尝试申请锁，如果还是失败，则可能进入阻塞
             if(acquireQueued(node, arg)){
                 // 如果线程解除阻塞时拥有中断标记，此处要进行设置
                 selfInterrupt();
             }
         }
+    }
+    
+    
+    // tryAcquire(arg)为线程获取资源的方法函数，在AQS中定义如下：
+    // 申请一次独占锁，具体的行为模式由子类实现
+    protected boolean tryAcquire(int arg) {
+        throw new UnsupportedOperationException();
     }
 ```
 
