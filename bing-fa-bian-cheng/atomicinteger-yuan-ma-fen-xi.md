@@ -1,4 +1,4 @@
-# 1.AtomicInteger 源码分析
+# 1.AtomicInteger 源码学习
 
 ## 1.1.带着问题学习 {#TOP-%E5%B8%A6%E7%9D%80%E9%97%AE%E9%A2%98%E7%9C%8B%E6%BA%90%E7%A0%81}
 
