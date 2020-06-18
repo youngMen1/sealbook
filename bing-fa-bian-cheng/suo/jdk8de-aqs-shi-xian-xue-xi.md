@@ -159,7 +159,7 @@ static final class Node {
 
 最后我们可以发现锁的存储结构就两个东西:"**双向链表**" + "**waitStatus的int类型状态**"。
 
-需要注意的是，他们的变量都被"**`transient`**和**`volatile`**修饰。
+需要注意的是，他们的变量都被"`transient`和`volatile`修饰。
 
 还可以看到，waitStatus非负的时候，表征不可用，正数代表处于等待状态，所以waitStatus只需要检查其正负符号即可，不用太多关注特定值。
 
@@ -168,6 +168,30 @@ static final class Node {
 #### 独占式\(Exclusive\)
 
 只有单个线程能够成功获取资源并执行，如ReentrantLock。
+
+* acquire\(int\)  获取/释放资源过程，其入口方法为:
+
+```
+ // 申请独占锁，允许阻塞带有中断标记的线程（会先将其标记清除）
+    public final void acquire(int arg) {
+        // 尝试申请独占锁
+        if(!tryAcquire(arg)){
+            /*
+             * 如果当前线程没有申请到独占锁，则需要去排队
+             * 注：线程被封装到Node中去排队
+             */
+            
+            // 向【|同步队列|】添加一个[独占模式Node](持有争锁线程)作为排队者
+            Node node = addWaiter(Node.EXCLUSIVE);
+            
+            // 当node进入排队后再次尝试申请锁，如果还是失败，则可能进入阻塞
+            if(acquireQueued(node, arg)){
+                // 如果线程解除阻塞时拥有中断标记，此处要进行设置
+                selfInterrupt();
+            }
+        }
+    }
+```
 
 TODO
 
