@@ -177,7 +177,7 @@ static final class Node {
 
 释放资源
 
-* release\(int arg\) 释放锁，如果锁已被完全释放，则唤醒后续的阻塞线程。返回值表示本次操作后锁是否自由
+* public final boolean release\(int arg\)释放锁，如果锁已被完全释放，则唤醒后续的阻塞线程。返回值表示本次操作后锁是否自由
 * public final boolean release\(int arg\)  该方法尝试释放指定量的资源,释放一次锁，返回值表示同步锁是否处于自由状态（无线程持有）
 
 #### 共享式\(Shared\)
