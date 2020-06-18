@@ -173,11 +173,11 @@ static final class Node {
 
 * acquire\(int\)  申请独占锁，允许阻塞带有中断标记的线程（会先将其标记清除）
 
-* acquireQueued\(final Node node, int arg\)  当node进入排队后再次尝试申请锁，如果还是失败，则可能进入阻塞
+* final boolean acquireQueued\(final Node node, int arg\) 当node进入排队后再次尝试申请锁，如果还是失败，则可能进入阻塞
 
 释放资源
 
-* public final boolean release\(int arg\)释放锁，如果锁已被完全释放，则唤醒后续的阻塞线程。返回值表示本次操作后锁是否自由
+* public final boolean release\(int arg\)  释放锁，如果锁已被完全释放，则唤醒后续的阻塞线程。返回值表示本次操作后锁是否自由
 * public final boolean release\(int arg\)  该方法尝试释放指定量的资源,释放一次锁，返回值表示同步锁是否处于自由状态（无线程持有）
 
 #### 共享式\(Shared\)
