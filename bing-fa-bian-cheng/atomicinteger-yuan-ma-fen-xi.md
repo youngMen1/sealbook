@@ -91,7 +91,7 @@ AtomicInteger 提供了自增/自减的两个场景方法，一个返回旧值�
 
 # 2.总结
 
-
+AtomicInteger 采用 CAS + 自旋\(死循环\)来实现线程安全的自增。
 
 
 
