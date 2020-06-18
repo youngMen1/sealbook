@@ -57,24 +57,14 @@ SpringBoot工程自带logback和slf4j的依赖，所以重点放在编写配置�
 ```
 ### 部分标签说明
 <root>标签，必填标签，用来指定最基础的日志输出级别
-
-<appender-ref>标签，添加append
-
-
+* <appender-ref>标签，添加append
 <append>标签，通过使用该标签指定日志的收集策略
-
 name属性指定appender命名
 class属性指定输出策略，通常有两种，控制台输出和文件输出，文件输出就是将日志进行一个持久化。ConsoleAppender将日志输出到控制台
-
-
 <filter>标签，通过使用该标签指定过滤策略
-
 <level>标签指定过滤的类型
-
-
 <encoder>标签，使用该标签下的<pattern>标签指定日志输出格式
 <rollingPolicy>标签指定收集策略，比如基于时间进行收集
-
 <fileNamePattern>标签指定生成日志保存地址
 通过这样配置已经实现了分类分天手机日志的目标了
 
