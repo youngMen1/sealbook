@@ -29,15 +29,15 @@ AQS是一个同步器，设计模式是模板模式。
 AQS基本框架如下图所示：  
 ![](/static/image/10431632-7d2aa48b9b217bbe.webp)
 
-### AbstractQueuedSynchronizer类
+### 1.3.1AbstractQueuedSynchronizer类
 
 ![](/static/image/微信截图_20200617174450.png)
 
-### Node内部类
+### 1.3.2.Node内部类
 
 ![](/static/image/441222012158451512152485.webp)
 
-### state
+### 1.3.4.state
 
 首先说一下共享资源变量state，它是int数据类型的，其访问方式有3种：
 
@@ -74,7 +74,7 @@ protected final boolean compareAndSetState(int expect, int update) {
 
 AQS中的int类型的state值，各种锁就是通过CAS（乐观锁）去修改state的值。lock的基本操作还是通过乐观锁来实现的。
 
-### CLH队列\(FIFO\)
+### 1.3.5.CLH队列\(FIFO\)
 
 AQS是通过内部类Node来实现FIFO队列的，源代码解析如下：
 
@@ -163,7 +163,7 @@ static final class Node {
 
 还可以看到，waitStatus非负的时候，表征不可用，正数代表处于等待状态，所以waitStatus只需要检查其正负符号即可，不用太多关注特定值。
 
-### 资源的共享方式分为2种（后面细讲）
+### 1.3.6.资源的共享方式分为2种（后面细讲）
 
 #### 独占式\(Exclusive\)
 
@@ -172,10 +172,6 @@ static final class Node {
 获取资源
 
 * public final void acquire\(int arg\)  申请独占锁，允许阻塞带有中断标记的线程（会先将其标记清除）
-
-* final boolean acquireQueued\(final Node node, int arg\) 当node进入排队后再次尝试申请锁，如果还是失败，则可能进入阻塞
-
-释放资源
 
 * public final boolean release\(int arg\)  释放锁，如果锁已被完全释放，则唤醒后续的阻塞线程。返回值表示本次操作后锁是否自由
 
