@@ -17,10 +17,9 @@ public class AtomicInteger extends Number implements Serializable {
 ```
 
 ```
-    
     // 设置为使用Unsafe.compareAndSwapInt进行更新
     private static final Unsafe unsafe = Unsafe.getUnsafe();
-    
+
     // 存储字段value在JVM中的偏移地址
     private static final long valueOffset;
 
@@ -31,7 +30,7 @@ public class AtomicInteger extends Number implements Serializable {
                 (AtomicInteger.class.getDeclaredField("value"));
         } catch (Exception ex) { throw new Error(ex); }
     }
-
+    // 构造原子变量，其值初始化为initialValue
     private volatile int value;
 ```
 
