@@ -7,5 +7,7 @@
  **/
 ```
 
+# 2.[IDEA换行CRLF, LF, CR的解释和默认设置](https://www.cnblogs.com/huzixia/p/10392735.html)
+
 
 
