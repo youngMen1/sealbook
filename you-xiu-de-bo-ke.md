@@ -14,5 +14,7 @@ itliusir：[https://cloud.tencent.com/developer/user/1650787](https://cloud.tenc
 
 程序员DD：[http://blog.didispace.com/?utm\_term=yunai](http://blog.didispace.com/?utm_term=yunai)
 
-java技术栈：http://www.javastack.cn
+java技术栈：[http://www.javastack.cn](http://www.javastack.cn)
+
+拍拍贷：http://techblog.ppdai.com
 
