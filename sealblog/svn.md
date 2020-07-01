@@ -37,5 +37,11 @@
 
 4．填写SVN URL和版本号信息：
 6975614-214e0ad9b0865bd3.webp
+“URL to merge from”下拉框选择需要合并分支或主干，在例子中，选择的是分支v1.0；在“revision range to merge”文本框选择具体需要合并的SVN版本号，可通过“show log”按钮查看有哪些版本号。可选择具体的版本号，也可以选择一个区间的版本号，如4-7，表示从SVN版本号4-7的全部合并。如选择区间版本号，需按住shift键。输入各项信息后，再点“next”。
+
+作者：小翼_b998
+链接：https://www.jianshu.com/p/0adec34d84b0
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 # 2.参考
 SVN merge 三种方式：https://www.cnblogs.com/zhoug2020/p/5743334.html
