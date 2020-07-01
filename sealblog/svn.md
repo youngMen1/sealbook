@@ -56,6 +56,12 @@
 
 ![](/static/image/6975614-7f70b45de77d1274.webp)
 
+8．处理冲突
+
+合并后有冲突时，弹出的对话框如下图，注意此时“resolved”按钮是灰色：
+
+![](/static/image/6975614-849020f7e19033cf.webp)
+
 点“edit conflict”按钮，将打开SVN的合并对话框，让开发者进行手工合并：
 ![](/static/image/6975614-d80b092b25d350eb.webp)
 点“resolved”按钮，至此，当前的冲突已解决；SVN会继续合并后面的版本。
