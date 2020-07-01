@@ -1,6 +1,6 @@
 # 1.利用SVN合并代码（merge）
 
-## 1.1.[**SVN merge 三种方式**](https://link.jianshu.com?t=http://www.cnblogs.com/zhoug2020/p/5743334.html)**   **
+## 1.1.SVN merge 三种方式
 
 1、Merge a range of revisions（合并一个范围的版本）
 
