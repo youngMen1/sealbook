@@ -87,7 +87,7 @@
 
 
 
-# 2.参考
+# 3.参考
 SVN merge 三种方式：https://www.cnblogs.com/zhoug2020/p/5743334.html
 如何利用SVN合并代码：https://www.jianshu.com/p/0adec34d84b0
 
