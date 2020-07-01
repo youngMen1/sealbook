@@ -32,5 +32,6 @@
 
 6975614-8a1663c371d3c628.webp
 3．选择合并类型：
+6975614-69d44e59d81a075a.webp
 # 2.参考
 SVN merge 三种方式：https://www.cnblogs.com/zhoug2020/p/5743334.html
