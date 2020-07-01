@@ -36,11 +36,11 @@
 根据合并类型进行选择，这里的例子中是选择第一个类型，然后再点“Next”按钮。
 
 4．填写SVN URL和版本号信息：
-6975614-214e0ad9b0865bd3.webp
+![](/static/image/6975614-214e0ad9b0865bd3.webp)
 “URL to merge from”下拉框选择需要合并分支或主干，在例子中，选择的是分支v1.0；在“revision range to merge”文本框选择具体需要合并的SVN版本号，可通过“show log”按钮查看有哪些版本号。可选择具体的版本号，也可以选择一个区间的版本号，如4-7，表示从SVN版本号4-7的全部合并。如选择区间版本号，需按住shift键。输入各项信息后，再点“next”。
 
 点“edit conflict”按钮，将打开SVN的合并对话框，让开发者进行手工合并：
-6975614-d80b092b25d350eb.webp
+![](/static/image/6975614-d80b092b25d350eb.webp)
 点“resolved”按钮，至此，当前的冲突已解决；SVN会继续合并后面的版本。
 
 9．提交代码
