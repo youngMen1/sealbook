@@ -33,5 +33,9 @@
 6975614-8a1663c371d3c628.webp
 3．选择合并类型：
 6975614-69d44e59d81a075a.webp
+根据合并类型进行选择，这里的例子中是选择第一个类型，然后再点“Next”按钮。
+
+4．填写SVN URL和版本号信息：
+6975614-214e0ad9b0865bd3.webp
 # 2.参考
 SVN merge 三种方式：https://www.cnblogs.com/zhoug2020/p/5743334.html
