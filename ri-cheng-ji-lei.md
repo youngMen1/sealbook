@@ -40,7 +40,7 @@ Discuz论坛：[https://www.discuz.net/library/library/database/uc/uc\_index.htm
 
 阿里云去年上线了一款项目初始化工具\(可以生成demo\)：[https://start.aliyun.com/](https://start.aliyun.com/)
 
-微信图片\_20200702101829.jpg
+![](/static/image/微信图片_20200702101829.jpg)
 
 # 阿里开源技术
 
