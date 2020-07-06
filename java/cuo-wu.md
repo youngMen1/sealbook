@@ -10,4 +10,5 @@
 ## 1.2.SpringBoot启动异常
 
 ![](/assets/springboot启动异常.png)
+# Mysql异常
 
