@@ -17,12 +17,9 @@
 ```
 message from server: "Host '192.168.1.28' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'"
 ```
-原因：
-
+**原因：**
 同一个ip在短时间内产生太多（超过mysql数据库max_connection_errors的最大值）中断的数据库连接而导致的阻塞；
-解决方法：
-
-
+**解决方法：**
 ```
 1、提高允许的max_connect_errors数量（这种方法不彻底，后期还可能导致异常出现）：
 
