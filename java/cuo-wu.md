@@ -1,4 +1,5 @@
 # 1.Springboot启动异常总结
+
 ## 1.1.Intellij IDEA运行报Command line is too long解法
 
 ![img](/assets/import.png)
@@ -10,17 +11,19 @@
 ## 1.2.SpringBoot启动异常
 
 ![](/assets/springboot启动异常.png)
+
 # 2.Mysql异常
 ## 2.1.MySql Host is blocked because of many connection errors 解决方法
-
 ![](/static/image/微信截图_20200706141311.png)
 
 ```
 message from server: "Host '192.168.1.28' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'"
 ```
-**原因：**
-同一个ip在短时间内产生太多（超过mysql数据库max_connection_errors的最大值）中断的数据库连接而导致的阻塞；
+
+**原因：**  
+同一个ip在短时间内产生太多（超过mysql数据库max\_connection\_errors的最大值）中断的数据库连接而导致的阻塞；  
 **解决方法：**
+
 ```
 1、提高允许的max_connect_errors数量（这种方法不彻底，后期还可能导致异常出现）：
 
