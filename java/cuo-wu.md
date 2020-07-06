@@ -11,7 +11,7 @@
 
 ![](/assets/springboot启动异常.png)
 # Mysql异常
-
+微信截图_20200706141311.png
 
 ```
 message from server: "Host '192.168.1.28' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'"
