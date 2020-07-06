@@ -12,7 +12,8 @@
 ![](/assets/springboot启动异常.png)
 # 2.Mysql异常
 2.1.MySql Host is blocked because of many connection errors 解决方法
-微信截图_20200706141311.png
+
+![](/static/image/微信截图_20200706141311.png)
 
 ```
 message from server: "Host '192.168.1.28' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'"
