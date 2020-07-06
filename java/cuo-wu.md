@@ -11,6 +11,7 @@
 
 ![](/assets/springboot启动异常.png)
 # Mysql异常
+2.1.MySql Host is blocked because of many connection errors 解决方法
 微信截图_20200706141311.png
 
 ```
