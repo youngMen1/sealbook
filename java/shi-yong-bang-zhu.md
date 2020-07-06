@@ -106,7 +106,7 @@ F2 跳转到下一个高亮错误 或 警告位置
       <set>
         <option value="SpringBootApplicationConfigurationType" />
       </set>
-    </option>
+ </option>
 ```
 
 
