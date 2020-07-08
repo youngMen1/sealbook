@@ -1025,7 +1025,7 @@ public class CommonBootStrap {
 
 ##### 5.7.1.数存在精度
 
-@Digits            验证 Number 和 String 的构成是否合法  
+@Digits            验证 Number 和 String 的构成是否合法\(@Digits\(integer = 6, fraction = 2, message = "金额保证小数点后两位"\)\)  
 @Digits\(integer=,fraction=\)        验证字符串是否是符合指定格式的数字，interger指定整数精度，fraction指定小数精度。
 
 @Range\(min=, max=\)    验证注解的元素值在最小值和最大值之间  
