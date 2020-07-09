@@ -5,8 +5,6 @@
 ## 1.1.面试资料
 # 本书用来记录日程学习到的知识，道阻且长，行则将至。
 
-
-
 # 2.怎么打开
 
 下载GitBook Editor（书籍编辑器）打开，下载地址：[http://www.pc6.com/softview/SoftView_368608.html](http://www.pc6.com/softview/SoftView_368608.html)
@@ -23,7 +21,7 @@
 
 ---
 
-## 1.编写规范
+# 2.编写规范
 
 ## 1.1.是什么？(基本介绍)
 
