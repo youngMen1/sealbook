@@ -13,7 +13,9 @@
 ![](/assets/springboot启动异常.png)
 
 # 2.Mysql异常
+
 ## 2.1.MySql Host is blocked because of many connection errors 解决方法
+
 ![](/static/image/微信截图_20200706141311.png)
 
 ```
@@ -53,5 +55,5 @@ mysql> flush hosts;
 grant all privileges on *.* to 'wang'@'%' identified by 'MyNewPass4!';
 ```
 
-
+## 3.springboot报错说 Failed to parse multipart servlet request; nested exception is java.io.IOException
 
