@@ -55,7 +55,7 @@ mysql> flush hosts;
 grant all privileges on *.* to 'wang'@'%' identified by 'MyNewPass4!';
 ```
 
-## 3.springboot报错说 Failed to parse multipart servlet request; nested exception is java.io.IOException
+## 3.Springboot报错说 Failed to parse multipart servlet request; nested exception is java.io.IOException
 **原因**
 1.该异常是如何产生的
 
