@@ -29,5 +29,11 @@ request.putQueryParameter("RegionId", "cn-shengzheng");
 
 本地运行发送短信功能正常，一旦部署到阿里云，就出现如下错误：（请求超时）
 
-com.aliyuncs.exceptions.ClientException: SDK.ServerUnreachable : Server unreachable: java.net.ConnectException: Connection timed out \(Connection timed out\) 
+com.aliyuncs.exceptions.ClientException: SDK.ServerUnreachable : Server unreachable: java.net.ConnectException: Connection timed out \(Connection timed out\)
+
+**解决方案**
+
+经多次尝试，该问题得以解决：
+
+https://help.aliyun.com/document\_detail/68360.html?spm=a2c4g.11186623.6.699.1c0137edsk3wUh
 
