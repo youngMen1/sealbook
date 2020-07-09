@@ -64,10 +64,7 @@ grant all privileges on *.* to 'wang'@'%' identified by 'MyNewPass4!';
 **解决方案**
 1.重启你的项目就可以了（我采用的这种）
 2.在application.yml文件中设置multipart location ，并重启项目
-
-
 ```
-
 spring:
   http:
     multipart:
