@@ -204,7 +204,8 @@
   * [Java8新特性之日期处理](java/jdk8xin-te-xing.md)
   * [Logback 配置文件](java/logback-pei-zhi-wen-jian.md)
   * [Mybatis知识总结](java/mybatiszhi-shi-zong-jie.md)
-  * MySQL知识总结
+  * [MySQL知识总结](java/mysqlzhi-shi-zong-jie.md)
+    * mysql查询今天、昨天、本周、本月、上一月 、今年数据
 * [SpringCloudAlibaba](springcloudalibaba.md)
   * [SpringCloudAlibaba基本介绍](springcloudalibaba/zhu-yi.md)
   * [Nacos](springcloudalibaba/nacos.md)
