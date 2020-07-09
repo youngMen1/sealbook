@@ -56,18 +56,22 @@ grant all privileges on *.* to 'wang'@'%' identified by 'MyNewPass4!';
 ```
 
 ## 3.Springboot报错说 Failed to parse multipart servlet request; nested exception is java.io.IOException
-**原因**
+
+**原因:**  
 1.该异常是如何产生的
 
-我是通过gentman，发送一个post请求，导致该异常的。从上面的异常信息来看，是因为该目录[/tmp/tomcat.1428942566812653608.8090/work/Tomcat/localhost/ROOT]，不存在导致的。
+我是通过gentman，发送一个post请求，导致该异常的。从上面的异常信息来看，是因为该目录\[/tmp/tomcat.1428942566812653608.8090/work/Tomcat/localhost/ROOT\]，不存在导致的。
 
-**解决方案**
-1.重启你的项目就可以了（我采用的这种）
+**解决方案:**  
+1.重启你的项目就可以了（我采用的这种）  
 2.在application.yml文件中设置multipart location ，并重启项目
+
 ```
 spring:
   http:
     multipart:
       location: /data/upload_tmp
 ```
+
+
 
