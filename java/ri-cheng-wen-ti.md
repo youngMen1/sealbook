@@ -43,3 +43,13 @@ dysmsapi-vpc.cn-shenzhen.aliyuncs.com
 
 2.修改代码如下：
 
+```
+CommonRequest request = new CommonRequest();
+// 设置区域为对应的内网地址
+request.setDomain(“dysmsapi-vpc.cn-shenzhen.aliyuncs.com”);
+// 改为深圳
+request.putQueryParameter("RegionId", "cn-shanghai");
+```
+
+
+
