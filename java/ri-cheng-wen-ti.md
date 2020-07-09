@@ -33,11 +33,13 @@ com.aliyuncs.exceptions.ClientException: SDK.ServerUnreachable : Server unreacha
 
 **解决方案**
 
-经多次尝试，该问题得以解决：
+1.经多次尝试，该问题得以解决：
 
 [https://help.aliyun.com/document\_detail/68360.html?spm=a2c4g.11186623.6.699.1c0137edsk3wUh](https://help.aliyun.com/document_detail/68360.html?spm=a2c4g.11186623.6.699.1c0137edsk3wUh)
 
 **如我的服务区域是深圳，我就选择上海的内网IP：**
 
 dysmsapi-vpc.cn-shenzhen.aliyuncs.com
+
+2.修改代码如下：
 
