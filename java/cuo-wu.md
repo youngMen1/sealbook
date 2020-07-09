@@ -62,3 +62,4 @@ grant all privileges on *.* to 'wang'@'%' identified by 'MyNewPass4!';
 我是通过gentman，发送一个post请求，导致该异常的。从上面的异常信息来看，是因为该目录[/tmp/tomcat.1428942566812653608.8090/work/Tomcat/localhost/ROOT]，不存在导致的。
 
 **解决方案**
+1.重启你的项目就可以了（我采用的这种）
