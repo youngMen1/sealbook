@@ -203,6 +203,7 @@
   * [@Transactional的使用](java/transactionalde-shi-yong.md)
   * [Java8新特性之日期处理](java/jdk8xin-te-xing.md)
   * [Logback 配置文件](java/logback-pei-zhi-wen-jian.md)
+  * Mybatis知识总结
 * [SpringCloudAlibaba](springcloudalibaba.md)
   * [SpringCloudAlibaba基本介绍](springcloudalibaba/zhu-yi.md)
   * [Nacos](springcloudalibaba/nacos.md)
