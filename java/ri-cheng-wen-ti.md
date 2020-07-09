@@ -10,7 +10,7 @@
 <dependency>
     <groupId>com.aliyun</groupId>
     <artifactId>aliyun-java-sdk-core</artifactId>
-    <version>4.1.0</version>
+    <version>4.3.8</version>
 </dependency>
 <dependency>
     <groupId>com.aliyun</groupId>
