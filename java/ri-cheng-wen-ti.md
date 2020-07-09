@@ -25,10 +25,9 @@
 CommonRequest request = new CommonRequest();
 request.setDomain(“dysmsapi.aliyuncs.com”);
 request.putQueryParameter("RegionId", "cn-shengzheng");
-
-
-
 ```
 
+本地运行发送短信功能正常，一旦部署到阿里云，就出现如下错误：（请求超时）
 
+com.aliyuncs.exceptions.ClientException: SDK.ServerUnreachable : Server unreachable: java.net.ConnectException: Connection timed out \(Connection timed out\) 
 
