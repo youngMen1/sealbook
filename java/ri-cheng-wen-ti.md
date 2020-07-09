@@ -24,7 +24,10 @@
 // 代码部分（关键的部分）
 CommonRequest request = new CommonRequest();
 request.setDomain(“dysmsapi.aliyuncs.com”);
-request.putQueryParameter("RegionId", "cn-hangzhou");
+request.putQueryParameter("RegionId", "cn-shengzheng");
+
+
+
 ```
 
 
