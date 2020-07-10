@@ -71,6 +71,20 @@ java -jar xxl-job-admin-2.1.1-SNAPSHOT.jar   或者  用idea工具打开启动xx
 因为我是xxl-job2.0.0以上版本配置的版本
 
 ```
+         /**
+         * #xxl-job 2.0.0以下版本配置文件
+         */
+//        XxlJobExecutor xxlJobExecutor = new XxlJobExecutor();
+//        xxlJobExecutor.setAdminAddresses(adminAddresses);
+//        xxlJobExecutor.setAppName(appName);
+//        xxlJobExecutor.setIp(ip);
+//        xxlJobExecutor.setPort(port);
+//        xxlJobExecutor.setAccessToken(accessToken);
+//        xxlJobExecutor.setLogPath(logPath);
+//        xxlJobExecutor.setLogRetentionDays(logRetentionDays);
+//        return xxlJobExecutor;
+         
+         
          2.0.0以上版本配置的版本
         /**
          * #xxl-job 2.0.0以上版本配置
@@ -88,22 +102,4 @@ java -jar xxl-job-admin-2.1.1-SNAPSHOT.jar   或者  用idea工具打开启动xx
 ![](/assets/微信截图_20190715112021.png)
 
 ![](/assets/微信截图_20190715112615.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
