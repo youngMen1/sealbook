@@ -20,8 +20,10 @@
     cache:
       channel:
         size: 5
-    publisher-confirms: true #发布者消息确认
-    publisher-returns: true  #发布者消息回调
+    # 发布者消息确认
+    publisher-confirms: true 
+    # 发布者消息回调
+    publisher-returns: true  
     template:
       retry:
         enabled: true
