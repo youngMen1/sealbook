@@ -169,6 +169,6 @@ autoAck：是否自动ack，如果不自动ack，需要使用channel.ack、chann
     String basicConsume(String queue, boolean autoAck, Consumer callback) throws IOException;
 ```
 
-### 1.1.7.chanel.exchangeBind()channel.queueBind(queueName, EXCHANGE_NAME, bindingKey);1.1.
+### 1.1.8.chanel.exchangeBind()channel.queueBind(queueName, EXCHANGE_NAME, bindingKey);1.1.
 用于通过绑定bindingKey将queue到Exchange，之后便可以进行消息接收
  
