@@ -117,6 +117,11 @@ spring:
 
 ## 3.调用第三方接口自动实现补偿机制
 
+我们知道了，RabbitMQ在消费者消费发生异常时，会自动进行补偿机制，所以我们（消费者）在调用第三方接口时，可以根据返回结果判断是否成功：
+
+* 成功：正常消费
+* 失败：手动抛处一个异常，这时RabbitMQ自动给我们做重试 (补偿)。
+
 # 3.参考
 
 参考课程:[https://coding.imooc.com/class/262.html](https://links.jianshu.com/go?to=https%3A%2F%2Fcoding.imooc.com%2Fclass%2F262.html)
