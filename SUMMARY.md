@@ -115,7 +115,7 @@
     * [Rabbitmq 之死信队列\(延迟消费消息\)](distributedmessagemiddleware/rabbitmq/rabbitmq-zhi-si-xin-dui-521728-yan-chi-xiao-fei-xiao-606f29.md)
     * [相关配置](distributedmessagemiddleware/rabbitmq/xiang-guan-pei-zhi.md)
     * [Rabbitmq Channel参数详解](distributedmessagemiddleware/rabbitmq/rabbitmq-channelcan-shu-xiang-jie.md)
-    * RabbitMQ解决消息幂等性问题
+    * [RabbitMQ解决消息幂等性问题](distributedmessagemiddleware/rabbitmq/rabbitmqjie-jue-xiao-xi-mi-deng-xing-wen-ti.md)
   * [metaMq](sealblog/metamq.md)
   * [kafka](sealblog/kafka.md)
   * [activityMq](activitymq.md)
