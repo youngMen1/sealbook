@@ -84,7 +84,7 @@ deliveryTag:该消息的index
 multiple：是否批量.true:将一次性ack所有小于deliveryTag的消息。
 
 ```
-/**
+   /**
      * Acknowledge one or several received
      * messages. Supply the deliveryTag from the {@link com.rabbitmq.client.AMQP.Basic.GetOk}
      * or {@link com.rabbitmq.client.AMQP.Basic.Deliver} method
