@@ -82,6 +82,35 @@ SET 1893505609317740 1466849127 EX 300 NX
 配置：
 
 
+```
+spring:
+  rabbitmq:
+    # 连接地址
+    host: 127.0.0.1
+    # 端口号
+    port: 5672
+    # 账号
+    username: guest
+    # 密码
+    password: guest
+    # 地址(类似于数据库的概念)
+    virtual-host: /admin_vhost
+    # 消费者监听相关配置
+    listener:
+      simple:
+        retry:
+          # 开启消费者(程序出现异常)重试机制，默认开启并一直重试
+          enabled: true
+          # 最大重试次数
+          max-attempts: 5
+          # 重试间隔时间(毫秒)
+          initial-interval: 3000
+
+```
+
+
+
+
 # 3.参考
 
 参考课程:[https://coding.imooc.com/class/262.html](https://links.jianshu.com/go?to=https%3A%2F%2Fcoding.imooc.com%2Fclass%2F262.html)
