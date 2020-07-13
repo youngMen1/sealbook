@@ -148,4 +148,6 @@ requeue：被拒绝的是否重新入队列
 ```
 ### 1.1.7.channel.basicConsume(QUEUE_NAME, true, consumer);
 
+autoAck：是否自动ack，如果不自动ack，需要使用channel.ack、channel.nack、channel.basicReject 进行消息应答
+
 
