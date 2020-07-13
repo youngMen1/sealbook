@@ -31,7 +31,6 @@
     publisher-returns: true  
     template:
       retry:
-        
         enabled: true
         # 最大重试次数
         max-attempts: 3
