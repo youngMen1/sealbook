@@ -103,6 +103,29 @@ deliveryTag:该消息的index
 multiple：是否批量.true:将一次性拒绝所有小于deliveryTag的消息。
 requeue：被拒绝的是否重新入队列
 
+
+
+```
+/**
+     * Reject one or several received messages.
+     *
+     * Supply the <code>deliveryTag</code> from the {@link com.rabbitmq.client.AMQP.Basic.GetOk}
+     * or {@link com.rabbitmq.client.AMQP.Basic.GetOk} method containing the message to be rejected.
+     * @see com.rabbitmq.client.AMQP.Basic.Nack
+     * @param deliveryTag the tag from the received {@link com.rabbitmq.client.AMQP.Basic.GetOk} or {@link com.rabbitmq.client.AMQP.Basic.Deliver}
+     * @param multiple true to reject all messages up to and including
+     * the supplied delivery tag; false to reject just the supplied
+     * delivery tag.
+     * @param requeue true if the rejected message(s) should be requeued rather
+     * than discarded/dead-lettered
+     * @throws java.io.IOException if an error is encountered
+     */
+    void basicNack(long deliveryTag, boolean multiple, boolean requeue)
+            throws IOException;
+```
+
+
+
 ### 1.1.6.channel.basicReject(delivery.getEnvelope().getDeliveryTag(), false);
 
 deliveryTag:该消息的index
