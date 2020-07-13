@@ -103,4 +103,8 @@ deliveryTag:该消息的index
 multiple：是否批量.true:将一次性拒绝所有小于deliveryTag的消息。
 requeue：被拒绝的是否重新入队列
 
+### 1.5 channel.basicReject(delivery.getEnvelope().getDeliveryTag(), false);
+
+deliveryTag:该消息的index
+requeue：被拒绝的是否重新入队列
 
