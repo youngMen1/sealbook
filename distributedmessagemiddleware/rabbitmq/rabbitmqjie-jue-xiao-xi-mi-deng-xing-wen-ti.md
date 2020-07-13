@@ -129,6 +129,67 @@ spring:
 面试题：MQ中消费者如何保证幂等性问题，不被重复消费？
 2019061023554173.png
 
+伪代码：
+生产者核心代码:
+
+请求头设置消息id（messageId）
+
+
+
+```
+@Component
+public class FanoutProducer {
+	@Autowired
+	private AmqpTemplate amqpTemplate;
+
+	public void send(String queueName) {
+		String msg = "my_fanout_msg:" + System.currentTimeMillis();
+		//请求头设置消息id（messageId）
+		Message message = MessageBuilder.withBody(msg.getBytes()).setContentType(MessageProperties.CONTENT_TYPE_JSON)
+				.setContentEncoding("utf-8").setMessageId(UUID.randomUUID() + "").build();
+		System.out.println(msg + ":" + msg);
+		amqpTemplate.convertAndSend(queueName, message);
+	}
+}
+
+```
+
+消费者核心代码：
+
+
+```
+@RabbitListener(queues = "fanout_email_queue")
+	public void process(Message message) throws Exception {
+		// 获取消息Id
+		String messageId = message.getMessageProperties().getMessageId();
+		String msg = new String(message.getBody(), "UTF-8");
+		//② 判断唯一Id是否被消费，消息消费成功后将id和状态保存在日志表中，我们从（①步骤）表中获取并判断messageId的状态即可
+		//从redis中获取messageId的value
+		String value = redisUtils.get(messageId)+"";
+		if(value.equals("1") ){ //表示已经消费
+			return; //结束
+		}
+		System.out.println("邮件消费者获取生产者消息" + "messageId:" + messageId + ",消息内容:" + msg);
+		JSONObject jsonObject = JSONObject.parseObject(msg);
+		// 获取email参数
+		String email = jsonObject.getString("email");
+		// 请求地址
+		String emailUrl = "http://127.0.0.1:8083/sendEmail?email=" + email;
+		JSONObject result = HttpClientUtils.httpGet(emailUrl);
+		if (result == null) {
+			// 因为网络原因,造成无法访问,继续重试
+			throw new Exception("调用接口失败!");
+		}
+		System.out.println("执行结束....");
+		//① 执行到这里已经消费成功，我们可以修改messageId的状态，并存入日志表(可以存到redis中，key为消息Id、value为状态)
+	}
+
+
+```
+
+## 5.SpringBoot整合RabbitMQ应答模式(ACK)
+
+1.修改配置simple下添加 **acknowledge-mode: manual：**
 
 # 3.参考
 
