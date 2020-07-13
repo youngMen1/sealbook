@@ -80,4 +80,6 @@ BasicProperties ：需要注意的是BasicProperties.deliveryMode，0:不持久�
             throws IOException;
 ```
 ### 1.1.4.channel.basicAck();
+deliveryTag:该消息的index
+multiple：是否批量.true:将一次性ack所有小于deliveryTag的消息。
 
