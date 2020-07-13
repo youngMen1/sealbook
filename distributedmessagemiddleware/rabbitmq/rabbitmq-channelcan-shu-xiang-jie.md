@@ -29,7 +29,6 @@ prefetchCount：会告诉RabbitMQ不要同时给一个消费者推送多于N个�
 global：true\false 是否将上面设置应用于channel，简单点说，就是上面限制是channel级别的还是consumer级别
 备注：据说prefetchSize 和global这两项，rabbitmq没有实现，暂且不研究
 
-
 ```
 /**
      * Request specific "quality of service" settings.
