@@ -1,1 +1,1 @@
-# 1.rabbitmq channel参数详解
+# 1.Rabbitmq channel参数详解
