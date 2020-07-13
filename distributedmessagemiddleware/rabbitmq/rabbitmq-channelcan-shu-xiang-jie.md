@@ -195,4 +195,24 @@ exclusive ：是否为当前连接的专用队列，在连接断开后，会自�
 autodelete：当没有任何消费者使用时，自动删除该队列。this means that the queue will be deleted when there are no more processes consuming messages from it.
 
 
+```
+/**
+     * Declare a queue
+     * @see com.rabbitmq.client.AMQP.Queue.Declare
+     * @see com.rabbitmq.client.AMQP.Queue.DeclareOk
+     * @param queue the name of the queue
+     * @param durable true if we are declaring a durable queue (the queue will survive a server restart)
+     * @param exclusive true if we are declaring an exclusive queue (restricted to this connection)
+     * @param autoDelete true if we are declaring an autodelete queue (server will delete it when no longer in use)
+     * @param arguments other properties (construction arguments) for the queue
+     * @return a declaration-confirm method to indicate the queue was successfully declared
+     * @throws java.io.IOException if an error is encountered
+     */
+    Queue.DeclareOk queueDeclare(String queue, boolean durable, boolean exclusive, boolean autoDelete,
+                                 Map<String, Object> arguments) throws IOException;
+```
+
+
+
+
  
