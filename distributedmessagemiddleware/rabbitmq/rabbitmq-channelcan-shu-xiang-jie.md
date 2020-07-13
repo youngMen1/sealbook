@@ -55,3 +55,30 @@ immediate：true：如果exchange在将消息route到queue(s)时发现对应的q
 BasicProperties ：需要注意的是BasicProperties.deliveryMode，0:不持久化 1：持久化 这里指的是消息的持久化，配合channel(durable=true),queue(durable)可以实现，即使服务器宕机，消息仍然保留
 简单来说：mandatory标志告诉服务器至少将该消息route到一个队列中，否则将消息返还给生产者；immediate标志告诉服务器如果该消息关联的queue上有消费者，则马上将消息投递给它，如果所有queue都没有消费者，直接把消息返还给生产者，不用将消息入队列等待消费者了。
 
+
+```
+/**
+     * Publish a message.
+     *
+     * Publishing to a non-existent exchange will result in a channel-level
+     * protocol exception, which closes the channel.
+     *
+     * Invocations of <code>Channel#basicPublish</code> will eventually block if a
+     * <a href="http://www.rabbitmq.com/alarms.html">resource-driven alarm</a> is in effect.
+     *
+     * @see com.rabbitmq.client.AMQP.Basic.Publish
+     * @see <a href="http://www.rabbitmq.com/alarms.html">Resource-driven alarms</a>.
+     * @param exchange the exchange to publish the message to
+     * @param routingKey the routing key
+     * @param mandatory true if the 'mandatory' flag is to be set
+     * @param immediate true if the 'immediate' flag is to be
+     * set. Note that the RabbitMQ server does not support this flag.
+     * @param props other properties for the message - routing headers etc
+     * @param body the message body
+     * @throws java.io.IOException if an error is encountered
+     */
+    void basicPublish(String exchange, String routingKey, boolean mandatory, boolean immediate, BasicProperties props, byte[] body)
+            throws IOException;
+```
+
+
