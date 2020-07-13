@@ -29,3 +29,24 @@ prefetchCount：会告诉RabbitMQ不要同时给一个消费者推送多于N个�
 global：true\false 是否将上面设置应用于channel，简单点说，就是上面限制是channel级别的还是consumer级别
 备注：据说prefetchSize 和global这两项，rabbitmq没有实现，暂且不研究
 
+
+```
+/**
+     * Request specific "quality of service" settings.
+     *
+     * These settings impose limits on the amount of data the server
+     * will deliver to consumers before requiring acknowledgements.
+     * Thus they provide a means of consumer-initiated flow control.
+     * @see com.rabbitmq.client.AMQP.Basic.Qos
+     * @param prefetchSize maximum amount of content (measured in
+     * octets) that the server will deliver, 0 if unlimited
+     * @param prefetchCount maximum number of messages that the server
+     * will deliver, 0 if unlimited
+     * @param global true if the settings should be applied to the
+     * entire channel rather than each consumer
+     * @throws java.io.IOException if an error is encountered
+     */
+    void basicQos(int prefetchSize, int prefetchCount, boolean global) throws IOException;
+```
+
+
