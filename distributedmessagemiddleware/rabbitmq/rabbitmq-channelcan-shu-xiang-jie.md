@@ -56,7 +56,7 @@ BasicProperties ：需要注意的是BasicProperties.deliveryMode，0:不持久�
 简单来说：mandatory标志告诉服务器至少将该消息route到一个队列中，否则将消息返还给生产者；immediate标志告诉服务器如果该消息关联的queue上有消费者，则马上将消息投递给它，如果所有queue都没有消费者，直接把消息返还给生产者，不用将消息入队列等待消费者了。
 
 ```
-/**
+   /**
      * Publish a message.
      *
      * Publishing to a non-existent exchange will result in a channel-level
