@@ -83,7 +83,6 @@ BasicProperties ：需要注意的是BasicProperties.deliveryMode，0:不持久�
 deliveryTag:该消息的index
 multiple：是否批量.true:将一次性ack所有小于deliveryTag的消息。
 
-
 ```
 /**
      * Acknowledge one or several received
