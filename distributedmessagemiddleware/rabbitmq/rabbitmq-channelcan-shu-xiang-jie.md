@@ -98,6 +98,6 @@ multiple：是否批量.true:将一次性ack所有小于deliveryTag的消息。
      */
     void basicAck(long deliveryTag, boolean multiple) throws IOException;
 ```
-1.1.5.channel.basicNack(delivery.getEnvelope().getDeliveryTag(), false, true);
+### 1.1.5.channel.basicNack(delivery.getEnvelope().getDeliveryTag(), false, true);
 
 
