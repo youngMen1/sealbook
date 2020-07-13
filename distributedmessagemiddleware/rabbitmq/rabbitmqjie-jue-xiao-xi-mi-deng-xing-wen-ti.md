@@ -24,8 +24,8 @@ UPDATE T_REPS SET COUNT = COUNT -1，VERSION = VERSION + 1 WHERE VERSION = 1
 
 业界主流的幂等性操作：
 
-#### 1.唯一ID + 指纹码机制，利用数据库主键去重
-#### 2.利用Redis的原子性去实现
+##### 1.唯一ID + 指纹码机制，利用数据库主键去重
+##### 2.利用Redis的原子性去实现
 
 
 # RabbitMQ解决消息幂等性问题
