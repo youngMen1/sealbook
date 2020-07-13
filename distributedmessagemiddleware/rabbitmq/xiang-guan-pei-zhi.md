@@ -13,6 +13,7 @@
         # 设置手动确认
         acknowledge-mode: manual 
         retry:
+          # 开启消费者(程序出现异常)重试机制，默认开启并一直重试
           enabled: true 
           # 最大重试次数
           max-attempts: 3 
@@ -30,7 +31,7 @@
     publisher-returns: true  
     template:
       retry:
-        # 开启消费者(程序出现异常)重试机制，默认开启并一直重试
+        
         enabled: true
         # 最大重试次数
         max-attempts: 3
