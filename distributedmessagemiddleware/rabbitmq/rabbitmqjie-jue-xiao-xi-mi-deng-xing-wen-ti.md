@@ -66,6 +66,8 @@ SET 1893505609317740 1466849127 EX 300 NX
 
 # 2.RabbitMQ解决消息幂等性问题
 
+关于MQ消费者的幂等性问题，在于MQ的重试机制，因为网络原因或客户端延迟消费导致重复消费。使用MQ重试机制需要注意的事项以及如何解决消费者幂等性问题以下将逐一讲解。
+
 # 3.参考
 
 参考课程:[https://coding.imooc.com/class/262.html](https://links.jianshu.com/go?to=https%3A%2F%2Fcoding.imooc.com%2Fclass%2F262.html)
