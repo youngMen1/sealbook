@@ -79,5 +79,5 @@ BasicProperties ：需要注意的是BasicProperties.deliveryMode，0:不持久�
     void basicPublish(String exchange, String routingKey, boolean mandatory, boolean immediate, BasicProperties props, byte[] body)
             throws IOException;
 ```
-
+### 1.1.4.channel.basicAck();
 
