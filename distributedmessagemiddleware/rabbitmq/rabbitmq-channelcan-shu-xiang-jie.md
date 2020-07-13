@@ -169,5 +169,4 @@ autoAck：是否自动ack，如果不自动ack，需要使用channel.ack、chann
     String basicConsume(String queue, boolean autoAck, Consumer callback) throws IOException;
 ```
 
-chanel.exchangeBind()
-
+### chanel.exchangeBind()
