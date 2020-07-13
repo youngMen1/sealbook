@@ -16,6 +16,10 @@ UPDATE T_REPS SET COUNT = COUNT -1，VERSION = VERSION + 1 WHERE VERSION = 1
 
 
 ## 消费端-幂等性保障
+### 什么情况下会出现重复消费？
+
+
+
 
 # RabbitMQ解决消息幂等性问题
 
