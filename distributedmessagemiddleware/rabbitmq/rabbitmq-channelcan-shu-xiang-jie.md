@@ -188,5 +188,7 @@ autoAck：是否自动ack，如果不自动ack，需要使用channel.ack、chann
     Exchange.BindOk exchangeBind(String destination, String source, String routingKey) throws IOException;
 ```
 
+### 1.1.9.channel.queueDeclare(QUEUE_NAME, false, false, false, null);
+
 
  
