@@ -24,5 +24,8 @@ autoDelete:true、false.true:当已经没有消费者时，服务器是否可以
                                        Map<String, Object> arguments) throws IOException;
 ```
 ### 1.1.2.chanel.basicQos()
-
+prefetchSize：0 
+prefetchCount：会告诉RabbitMQ不要同时给一个消费者推送多于N个消息，即一旦有N个消息还没有ack，则该consumer将block掉，直到有消息ack
+global：true\false 是否将上面设置应用于channel，简单点说，就是上面限制是channel级别的还是consumer级别
+备注：据说prefetchSize 和global这两项，rabbitmq没有实现，暂且不研究
 
