@@ -47,5 +47,5 @@ global：true\false 是否将上面设置应用于channel，简单点说，就�
      */
     void basicQos(int prefetchSize, int prefetchCount, boolean global) throws IOException;
 ```
-
+### 1.1.3.channel.basicPublish()
 
