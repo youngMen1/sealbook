@@ -107,7 +107,7 @@ spring:
           initial-interval: 3000
 
 ```
-
+## 2.如何合理选择重试机制？
 
 
 
