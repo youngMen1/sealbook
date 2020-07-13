@@ -114,7 +114,7 @@
     * [Rabbitmq-高级特性之百分百投递消息](distributedmessagemiddleware/rabbitmq/rabbitmqzhi-gao-ji-te-xing-2014-2014-bai-fen-bai-tou-di-xiao-xi.md)
     * [Rabbitmq 之死信队列\(延迟消费消息\)](distributedmessagemiddleware/rabbitmq/rabbitmq-zhi-si-xin-dui-521728-yan-chi-xiao-fei-xiao-606f29.md)
     * [相关配置](distributedmessagemiddleware/rabbitmq/xiang-guan-pei-zhi.md)
-    * Rabbitmq Channel参数详解
+    * [Rabbitmq Channel参数详解](distributedmessagemiddleware/rabbitmq/rabbitmq-channelcan-shu-xiang-jie.md)
   * [metaMq](sealblog/metamq.md)
   * [kafka](sealblog/kafka.md)
   * [activityMq](activitymq.md)
