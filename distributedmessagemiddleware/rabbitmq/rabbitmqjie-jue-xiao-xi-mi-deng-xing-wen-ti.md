@@ -122,6 +122,14 @@ spring:
 * 成功：正常消费
 * 失败：手动抛处一个异常，这时RabbitMQ自动给我们做重试 (补偿)。
 
+## 4.如何解决消费者幂等性问题，防止重复消费 (**MQ重试机制需要注意的问题**)
+
+产生原因:网络延迟传输中，消费者出现异常或者消费者延迟消费，会造成进行MQ重试补偿，在重试过程中，可能会造成重复消费。
+
+面试题：MQ中消费者如何保证幂等性问题，不被重复消费？
+2019061023554173.png
+
+
 # 3.参考
 
 参考课程:[https://coding.imooc.com/class/262.html](https://links.jianshu.com/go?to=https%3A%2F%2Fcoding.imooc.com%2Fclass%2F262.html)
