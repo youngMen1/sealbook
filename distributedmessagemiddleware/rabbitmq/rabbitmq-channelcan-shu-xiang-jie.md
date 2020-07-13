@@ -83,3 +83,22 @@ BasicProperties ：需要注意的是BasicProperties.deliveryMode，0:不持久�
 deliveryTag:该消息的index
 multiple：是否批量.true:将一次性ack所有小于deliveryTag的消息。
 
+
+```
+/**
+     * Acknowledge one or several received
+     * messages. Supply the deliveryTag from the {@link com.rabbitmq.client.AMQP.Basic.GetOk}
+     * or {@link com.rabbitmq.client.AMQP.Basic.Deliver} method
+     * containing the received message being acknowledged.
+     * @see com.rabbitmq.client.AMQP.Basic.Ack
+     * @param deliveryTag the tag from the received {@link com.rabbitmq.client.AMQP.Basic.GetOk} or {@link com.rabbitmq.client.AMQP.Basic.Deliver}
+     * @param multiple true to acknowledge all messages up to and
+     * including the supplied delivery tag; false to acknowledge just
+     * the supplied delivery tag.
+     * @throws java.io.IOException if an error is encountered
+     */
+    void basicAck(long deliveryTag, boolean multiple) throws IOException;
+```
+
+
+
