@@ -25,8 +25,10 @@
     template:
       retry:
         enabled: true
+        # 最大重试次数
         max-attempts: 3
-        initial-interval: 1000ms #尝试时间间隔
+        # 重试间隔时间(毫秒)
+        initial-interval: 1000ms
     virtual-host: /
 ```
 
