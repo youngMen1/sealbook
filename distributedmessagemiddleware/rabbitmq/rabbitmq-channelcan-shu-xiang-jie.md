@@ -172,4 +172,22 @@ autoAck：是否自动ack，如果不自动ack，需要使用channel.ack、chann
 ### 1.1.8.chanel.exchangeBind()channel.queueBind(queueName, EXCHANGE_NAME, bindingKey);1.1.
 
 用于通过绑定bindingKey将queue到Exchange，之后便可以进行消息接收
+
+
+
+```
+/**
+     * Bind an exchange to an exchange, with no extra arguments.
+     * @see com.rabbitmq.client.AMQP.Exchange.Bind
+     * @see com.rabbitmq.client.AMQP.Exchange.BindOk
+     * @param destination the name of the exchange to which messages flow across the binding
+     * @param source the name of the exchange from which messages flow across the binding
+     * @param routingKey the routine key to use for the binding
+     * @return a binding-confirm method if the binding was successfully created
+     * @throws java.io.IOException if an error is encountered
+     */
+    Exchange.BindOk exchangeBind(String destination, String source, String routingKey) throws IOException;
+```
+
+
  
