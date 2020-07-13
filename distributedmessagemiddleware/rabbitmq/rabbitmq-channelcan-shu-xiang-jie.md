@@ -23,6 +23,6 @@ autoDelete:true、false.true:当已经没有消费者时，服务器是否可以
     Exchange.DeclareOk exchangeDeclare(String exchange, String type, boolean durable, boolean autoDelete,
                                        Map<String, Object> arguments) throws IOException;
 ```
-
+### chanel.basicQos()
 
 
