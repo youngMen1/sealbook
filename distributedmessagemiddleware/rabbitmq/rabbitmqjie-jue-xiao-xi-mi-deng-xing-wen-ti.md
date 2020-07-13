@@ -74,11 +74,13 @@ SET 1893505609317740 1466849127 EX 300 NX
 
 使用`重试机制`，RabbitMQ默认开启重试机制。
 
-**实现原理：**
-@RabbitHandler注解 底层使用Aop拦截，如果程序(消费者)没有抛出异常，自动提交事务
+**实现原理：**  
+@RabbitHandler注解 底层使用Aop拦截，如果程序\(消费者\)没有抛出异常，自动提交事务  
 如果Aop使用异常通知拦截获取到异常后，自动实现补偿机制，消息缓存在RabbitMQ服务器端
-**注意：**
-默认会一直重试到消费者不抛异常为止，这样显然不好。我们需要修改重试机制策略，如间隔3s重试一次)
+
+  
+**注意：**  
+默认会一直重试到消费者不抛异常为止，这样显然不好。我们需要修改重试机制策略，如间隔3s重试一次\)
 
 配置：
 
@@ -105,93 +107,86 @@ spring:
           max-attempts: 5
           # 重试间隔时间(毫秒)
           initial-interval: 3000
-
 ```
+
 ## 2.如何合理选择重试机制？
+
 情况1: 消费者获取到消息后，调用第三方接口，但接口暂时无法访问，是否需要重试? **需要重试，可能是因为网络原因短暂不能访问**
 
 情况2: 消费者获取到消息后，抛出数据转换异常，是否需要重试? **不需要重试,因为属于程序bug需要重新发布版本**
 
-
-总结：对于情况2，如果消费者代码抛出异常是需要发布新版本才能解决的问题，那么不需要重试，重试也无济于事。**应该采用日志记录+定时任务job进行健康检查+人工进行补偿**
+总结：对于情况2，如果消费者代码抛出异常是需要发布新版本才能解决的问题，那么不需要重试，重试也无济于事。**应该采用日志记录+定时任务job进行健康检查+人工进行补偿  
+**
 
 ## 3.调用第三方接口自动实现补偿机制
 
 我们知道了，RabbitMQ在消费者消费发生异常时，会自动进行补偿机制，所以我们（消费者）在调用第三方接口时，可以根据返回结果判断是否成功：
 
 * 成功：正常消费
-* 失败：手动抛处一个异常，这时RabbitMQ自动给我们做重试 (补偿)。
+* 失败：手动抛处一个异常，这时RabbitMQ自动给我们做重试 \(补偿\)。
 
-## 4.如何解决消费者幂等性问题，防止重复消费 (**MQ重试机制需要注意的问题**)
+## 4.如何解决消费者幂等性问题，防止重复消费 \(**MQ重试机制需要注意的问题**\)
 
 产生原因:网络延迟传输中，消费者出现异常或者消费者延迟消费，会造成进行MQ重试补偿，在重试过程中，可能会造成重复消费。
 
-面试题：MQ中消费者如何保证幂等性问题，不被重复消费？
+面试题：MQ中消费者如何保证幂等性问题，不被重复消费？  
 ![](/static/image/2019061023554173.png)
 
-伪代码：
+伪代码：  
 生产者核心代码:
 
 请求头设置消息id（messageId）
 
-
-
 ```
 @Component
 public class FanoutProducer {
-	@Autowired
-	private AmqpTemplate amqpTemplate;
+    @Autowired
+    private AmqpTemplate amqpTemplate;
 
-	public void send(String queueName) {
-		String msg = "my_fanout_msg:" + System.currentTimeMillis();
-		//请求头设置消息id（messageId）
-		Message message = MessageBuilder.withBody(msg.getBytes()).setContentType(MessageProperties.CONTENT_TYPE_JSON)
-				.setContentEncoding("utf-8").setMessageId(UUID.randomUUID() + "").build();
-		System.out.println(msg + ":" + msg);
-		amqpTemplate.convertAndSend(queueName, message);
-	}
+    public void send(String queueName) {
+        String msg = "my_fanout_msg:" + System.currentTimeMillis();
+        //请求头设置消息id（messageId）
+        Message message = MessageBuilder.withBody(msg.getBytes()).setContentType(MessageProperties.CONTENT_TYPE_JSON)
+                .setContentEncoding("utf-8").setMessageId(UUID.randomUUID() + "").build();
+        System.out.println(msg + ":" + msg);
+        amqpTemplate.convertAndSend(queueName, message);
+    }
 }
-
 ```
 
 消费者核心代码：
 
-
 ```
 @RabbitListener(queues = "fanout_email_queue")
-	public void process(Message message) throws Exception {
-		// 获取消息Id
-		String messageId = message.getMessageProperties().getMessageId();
-		String msg = new String(message.getBody(), "UTF-8");
-		//② 判断唯一Id是否被消费，消息消费成功后将id和状态保存在日志表中，我们从（①步骤）表中获取并判断messageId的状态即可
-		//从redis中获取messageId的value
-		String value = redisUtils.get(messageId)+"";
-		if(value.equals("1") ){ //表示已经消费
-			return; //结束
-		}
-		System.out.println("邮件消费者获取生产者消息" + "messageId:" + messageId + ",消息内容:" + msg);
-		JSONObject jsonObject = JSONObject.parseObject(msg);
-		// 获取email参数
-		String email = jsonObject.getString("email");
-		// 请求地址
-		String emailUrl = "http://127.0.0.1:8083/sendEmail?email=" + email;
-		JSONObject result = HttpClientUtils.httpGet(emailUrl);
-		if (result == null) {
-			// 因为网络原因,造成无法访问,继续重试
-			throw new Exception("调用接口失败!");
-		}
-		System.out.println("执行结束....");
-		//① 执行到这里已经消费成功，我们可以修改messageId的状态，并存入日志表(可以存到redis中，key为消息Id、value为状态)
-	}
-
-
+    public void process(Message message) throws Exception {
+        // 获取消息Id
+        String messageId = message.getMessageProperties().getMessageId();
+        String msg = new String(message.getBody(), "UTF-8");
+        //② 判断唯一Id是否被消费，消息消费成功后将id和状态保存在日志表中，我们从（①步骤）表中获取并判断messageId的状态即可
+        //从redis中获取messageId的value
+        String value = redisUtils.get(messageId)+"";
+        if(value.equals("1") ){ //表示已经消费
+            return; //结束
+        }
+        System.out.println("邮件消费者获取生产者消息" + "messageId:" + messageId + ",消息内容:" + msg);
+        JSONObject jsonObject = JSONObject.parseObject(msg);
+        // 获取email参数
+        String email = jsonObject.getString("email");
+        // 请求地址
+        String emailUrl = "http://127.0.0.1:8083/sendEmail?email=" + email;
+        JSONObject result = HttpClientUtils.httpGet(emailUrl);
+        if (result == null) {
+            // 因为网络原因,造成无法访问,继续重试
+            throw new Exception("调用接口失败!");
+        }
+        System.out.println("执行结束....");
+        //① 执行到这里已经消费成功，我们可以修改messageId的状态，并存入日志表(可以存到redis中，key为消息Id、value为状态)
+    }
 ```
 
-## 5.SpringBoot整合RabbitMQ应答模式(ACK)
+## 5.SpringBoot整合RabbitMQ应答模式\(ACK\)
 
 1.修改配置simple下添加 **acknowledge-mode: manual：**
-
-
 
 ```
 spring:
@@ -218,37 +213,31 @@ spring:
           initial-interval: 3000
         # 开启手动ack
         acknowledge-mode: manual
-
 ```
+
 2.消费者增加代码:
+
 ```
 Long deliveryTag = (Long) headers.get(AmqpHeaders.DELIVERY_TAG); 手动ack
 channel.basicAck(deliveryTag, false);手动签收
 ```
 
-
-
 ```
 // 邮件队列
 @Component
 public class FanoutEamilConsumer {
-	@RabbitListener(queues = "fanout_email_queue")
-	public void process(Message message, @Headers Map<String, Object> headers, Channel channel) throws Exception {
-		System.out
-				.println(Thread.currentThread().getName() + ",邮件消费者获取生产者消息msg:" + new String(message.getBody(), "UTF-8")
-						+ ",messageId:" + message.getMessageProperties().getMessageId());
-		// 手动ack
-		Long deliveryTag = (Long) headers.get(AmqpHeaders.DELIVERY_TAG);
-		// 手动签收
-		channel.basicAck(deliveryTag, false);
-	}
+    @RabbitListener(queues = "fanout_email_queue")
+    public void process(Message message, @Headers Map<String, Object> headers, Channel channel) throws Exception {
+        System.out
+                .println(Thread.currentThread().getName() + ",邮件消费者获取生产者消息msg:" + new String(message.getBody(), "UTF-8")
+                        + ",messageId:" + message.getMessageProperties().getMessageId());
+        // 手动ack
+        Long deliveryTag = (Long) headers.get(AmqpHeaders.DELIVERY_TAG);
+        // 手动签收
+        channel.basicAck(deliveryTag, false);
+    }
 }
-
-
 ```
-
-
-
 
 # 3.参考
 
