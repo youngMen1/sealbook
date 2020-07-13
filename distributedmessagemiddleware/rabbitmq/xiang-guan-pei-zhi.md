@@ -10,12 +10,16 @@
       simple:
         concurrency: 5
         max-concurrency: 20
-        acknowledge-mode: manual #设置手动确认
+        # 设置手动确认
+        acknowledge-mode: manual 
         retry:
-          enabled: true
-          max-attempts: 3 #最大重试次数
-          initial-interval: 1000ms #重试时间间隔
-        default-requeue-rejected: false #重试失败后是否回队
+          enabled: true 
+          # 最大重试次数
+          max-attempts: 3 
+          # 重试时间间隔
+          initial-interval: 1000ms 
+          # 重试失败后是否回队
+        default-requeue-rejected: false 
     connection-timeout: 5000ms
     cache:
       channel:
