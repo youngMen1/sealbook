@@ -174,7 +174,6 @@ autoAck：是否自动ack，如果不自动ack，需要使用channel.ack、chann
 用于通过绑定bindingKey将queue到Exchange，之后便可以进行消息接收
 
 
-
 ```
 /**
      * Bind an exchange to an exchange, with no extra arguments.
