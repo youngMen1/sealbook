@@ -1,5 +1,5 @@
 
-# RabbitMQ高级特性--幂等性概念
+# 1.RabbitMQ高级特性--幂等性概念
 
 ## 幂等性是什么？
 简单来说就是用户对于同一操作发起的一次请求或者多次请求的结果是一致的。
@@ -25,7 +25,7 @@ UPDATE T_REPS SET COUNT = COUNT -1，VERSION = VERSION + 1 WHERE VERSION = 1
 ##### 2.利用Redis的原子性去实现
 
 
-# RabbitMQ解决消息幂等性问题
+# 2.RabbitMQ解决消息幂等性问题
 
 
 
