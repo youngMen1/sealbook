@@ -110,3 +110,19 @@ requeue：被拒绝的是否重新入队列
 
 channel.basicNack 与 channel.basicReject 的区别在于basicNack可以拒绝多条消息，而basicReject一次只能拒绝一条消息
 
+
+```
+/**
+     * Reject a message. Supply the deliveryTag from the {@link com.rabbitmq.client.AMQP.Basic.GetOk}
+     * or {@link com.rabbitmq.client.AMQP.Basic.Deliver} method
+     * containing the received message being rejected.
+     * @see com.rabbitmq.client.AMQP.Basic.Reject
+     * @param deliveryTag the tag from the received {@link com.rabbitmq.client.AMQP.Basic.GetOk} or {@link com.rabbitmq.client.AMQP.Basic.Deliver}
+     * @param requeue true if the rejected message should be requeued rather than discarded/dead-lettered
+     * @throws java.io.IOException if an error is encountered
+     */
+    void basicReject(long deliveryTag, boolean requeue) throws IOException;
+```
+
+
+
