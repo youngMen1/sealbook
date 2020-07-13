@@ -190,5 +190,9 @@ autoAck：是否自动ack，如果不自动ack，需要使用channel.ack、chann
 
 ### 1.1.9.channel.queueDeclare(QUEUE_NAME, false, false, false, null);
 
+durable：true、false true：在服务器重启时，能够存活
+exclusive ：是否为当前连接的专用队列，在连接断开后，会自动删除该队列，生产环境中应该很少用到吧。
+autodelete：当没有任何消费者使用时，自动删除该队列。this means that the queue will be deleted when there are no more processes consuming messages from it.
+
 
  
