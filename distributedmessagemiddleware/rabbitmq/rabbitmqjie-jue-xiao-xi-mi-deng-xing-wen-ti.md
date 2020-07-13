@@ -14,6 +14,8 @@ UPDATE T_REPS SET COUNT = COUNT -1，VERSION = VERSION + 1 WHERE VERSION = 1
 * 如果执行更新时有其他人先更新了这张表的数据，那么这个条件就不生效了，也就不会执行操作了，通过这种乐观锁的机制来保障幂等性。
 
 
+
+
 ## 消费端-幂等性保障
 
 # RabbitMQ解决消息幂等性问题
