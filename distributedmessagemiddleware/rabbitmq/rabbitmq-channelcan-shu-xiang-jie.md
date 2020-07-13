@@ -99,5 +99,8 @@ multiple：是否批量.true:将一次性ack所有小于deliveryTag的消息。
     void basicAck(long deliveryTag, boolean multiple) throws IOException;
 ```
 ### 1.1.5.channel.basicNack(delivery.getEnvelope().getDeliveryTag(), false, true);
+deliveryTag:该消息的index
+multiple：是否批量.true:将一次性拒绝所有小于deliveryTag的消息。
+requeue：被拒绝的是否重新入队列
 
 
