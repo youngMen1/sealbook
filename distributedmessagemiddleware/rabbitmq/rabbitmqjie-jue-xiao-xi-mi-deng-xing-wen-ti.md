@@ -24,6 +24,9 @@ UPDATE T_REPS SET COUNT = COUNT -1，VERSION = VERSION + 1 WHERE VERSION = 1
 ##### 1.唯一ID + 指纹码机制，利用数据库主键去重
 ##### 2.利用Redis的原子性去实现
 
+#### 唯一ID + 指纹码机制，利用数据库主键去重
+#### 利用Redis的原子性去实现
+
 
 # 2.RabbitMQ解决消息幂等性问题
 
