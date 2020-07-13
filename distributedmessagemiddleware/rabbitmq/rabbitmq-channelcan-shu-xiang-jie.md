@@ -170,3 +170,6 @@ autoAck：是否自动ack，如果不自动ack，需要使用channel.ack、chann
 ```
 
 ### chanel.exchangeBind()
+channel.queueBind(queueName, EXCHANGE_NAME, bindingKey);
+用于通过绑定bindingKey将queue到Exchange，之后便可以进行消息接收
+ 
