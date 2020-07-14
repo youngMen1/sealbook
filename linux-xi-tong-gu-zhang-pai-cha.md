@@ -493,5 +493,26 @@ perf script > out.stacks2
 ./FlameGraph/difffolded.pl out.folded1 out.folded2 | ./FlameGraph/flamegraph.pl > diff2.svg
 ```
 
+DEMO：
+
+
+
+```
+cd quick_location
+
+//抓取代码修改前的profile 1文件
+perf record -F 99 -p pid -g -- sleep 30
+perf script > out.stacks1
+
+//抓取代码修改后的profile 2文件
+perf record -F 99 -p pid -g -- sleep 30
+perf script > out.stacks2
+
+//生成差分火焰图:
+./FlameGraph/stackcollapse-perf.pl ../out.stacks1 > out.folded1
+./FlameGraph/stackcollapse-perf.pl ../out.stacks2 > out.folded2
+./FlameGraph/difffolded.pl out.folded1 out.folded2 | ./FlameGraph/flamegraph.pl > diff2.svg
+```
+
 
 
