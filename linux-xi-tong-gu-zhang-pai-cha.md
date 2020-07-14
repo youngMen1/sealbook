@@ -129,7 +129,7 @@ perf top -p pid -e cpu-clock
 | valgrind | 分析程序性能及程序中的内存泄露错误 |
 
   
-说明：
+#### 说明：
 
 free,vmstat,top,pidstat,pmap只能统计内存信息以及进程的内存使用情况。
 valgrind可以分析内存泄漏问题。
