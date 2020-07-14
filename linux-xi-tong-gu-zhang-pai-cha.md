@@ -133,7 +133,16 @@ perf top -p pid -e cpu-clock
 | valgrind | 分析程序性能及程序中的内存泄露错误 |
 
   
+说明：
 
+free,vmstat,top,pidstat,pmap只能统计内存信息以及进程的内存使用情况。
+valgrind可以分析内存泄漏问题。
+dtrace动态跟踪。需要对内核函数有很深入的了解，通过D语言编写脚本完成跟踪。
+
+作者：Lucien_168
+链接：https://www.jianshu.com/p/0bbac570fa4c
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
   
 
