@@ -475,7 +475,23 @@ python -m SimpleHTTPServer 8088
 
 使用方式：
 
-作者：Lucien_168
-链接：https://www.jianshu.com/p/0bbac570fa4c
-来源：简书
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+```
+cd quick_location
+
+//抓取代码修改前的profile 1文件
+perf record -F 99 -p pid -g -- sleep 30
+perf script > out.stacks1
+
+//抓取代码修改后的profile 2文件
+perf record -F 99 -p pid -g -- sleep 30
+perf script > out.stacks2
+
+//生成差分火焰图:
+./FlameGraph/stackcollapse-perf.pl ../out.stacks1 > out.folded1
+./FlameGraph/stackcollapse-perf.pl ../out.stacks2 > out.folded2
+./FlameGraph/difffolded.pl out.folded1 out.folded2 | ./FlameGraph/flamegraph.pl > diff2.svg
+```
+
+
+
