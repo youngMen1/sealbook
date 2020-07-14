@@ -419,6 +419,6 @@ int main(void)
 }
 ```
 DEMO火焰图：
-2099201-72ebe37255c3495d.webp
+![](/static/image/2099201-72ebe37255c3495d.webp)
 
 ### 1.6.4.2.off-CPU
