@@ -80,3 +80,22 @@ b. off-CPU：等待下一轮上CPU，或者等待I/O、锁、换页等等，其�
 ### 1.2.3.使用方式
 
 
+```
+//查看系统cpu使用情况
+top
+
+//查看所有cpu核信息
+mpstat -P ALL 1
+
+//查看cpu使用情况以及平均负载
+vmstat 1
+
+//进程cpu的统计信息
+pidstat -u 1 -p pid
+
+//跟踪进程内部函数级cpu使用情况
+perf top -p pid -e cpu-clock
+```
+
+
+
