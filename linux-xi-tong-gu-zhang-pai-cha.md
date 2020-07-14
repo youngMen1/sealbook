@@ -334,6 +334,7 @@ dmesg
 火焰图就是看顶层的哪个函数占据的宽度最大。只要有”平顶”（plateaus），就表示该函数可能存在性能问题。颜色没有特殊含义，因为火焰图表示的是 CPU 的繁忙程度，所以一般选择暖色调。
 
 常见的火焰图类型有[On-CPU](https://links.jianshu.com/go?to=http%3A%2F%2Fwww.brendangregg.com%2FFlameGraphs%2Fcpuflamegraphs.html)、[Off-CPU](https://links.jianshu.com/go?to=http%3A%2F%2Fwww.brendangregg.com%2FFlameGraphs%2Foffcpuflamegraphs.html)、[Memory](https://links.jianshu.com/go?to=http%3A%2F%2Fwww.brendangregg.com%2FFlameGraphs%2Fmemoryflamegraphs.html)、[Hot/Cold](https://links.jianshu.com/go?to=http%3A%2F%2Fwww.brendangregg.com%2FFlameGraphs%2Fhotcoldflamegraphs.html)、[Differential](https://links.jianshu.com/go?to=http%3A%2F%2Fwww.brendangregg.com%2Fblog%2F2014-11-09%2Fdifferential-flame-graphs.html)等等。
+## 1.6.2.安装依赖库
 
   
 
