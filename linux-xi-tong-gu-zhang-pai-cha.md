@@ -136,7 +136,29 @@ valgrind可以分析内存泄漏问题。
 dtrace动态跟踪。需要对内核函数有很深入的了解，通过D语言编写脚本完成跟踪。
 
 ### 2.2.3.使用方式
-  
+
+
+```
+//查看系统内存使用情况
+free -m
+
+//虚拟内存统计信息
+vmstat 1
+
+//查看系统内存情况
+top
+
+//1s采集周期，获取内存的统计信息
+pidstat -p pid -r 1
+
+//查看进程的内存映像信息
+pmap -d pid
+
+//检测程序内存问题
+valgrind --tool=memcheck --leak-check=full --log-file=./log.txt  ./程序名
+```
+
+
 
 
 
