@@ -304,7 +304,6 @@ Load 就是对计算机干活多少的度量（WikiPedia：the system Load is a 
 
 ### 2.5.3.使用方式
 
-
 ```
 //查看负载情况
 uptime
@@ -322,7 +321,25 @@ strace -T -e epoll_wait -p pid
 //查看内核日志信息
 dmesg
 ```
+
 ## 2.6.火焰图
+
+## 2.6.1.说明
+
+[火焰图（Flame Graph](https://links.jianshu.com/go?to=http%3A%2F%2Fwww.brendangregg.com%2Fflamegraphs.html)是 Bredan Gregg 创建的一种性能分析图表，因为它的样子近似 ?而得名。  
+ 火焰图主要是用来展示 CPU的调用栈。  
+ y 轴表示调用栈，每一层都是一个函数。调用栈越深，火焰就越高，顶部就是正在执行的函数，下方都是它的父函数。  
+ x 轴表示抽样数，如果一个函数在 x 轴占据的宽度越宽，就表示它被抽到的次数多，即执行的时间长。注意，x 轴不代表时间，而是所有的调用栈合并后，按字母顺序排列的。
+
+火焰图就是看顶层的哪个函数占据的宽度最大。只要有”平顶”（plateaus），就表示该函数可能存在性能问题。颜色没有特殊含义，因为火焰图表示的是 CPU 的繁忙程度，所以一般选择暖色调。
+
+常见的火焰图类型有[On-CPU](https://links.jianshu.com/go?to=http%3A%2F%2Fwww.brendangregg.com%2FFlameGraphs%2Fcpuflamegraphs.html)、[Off-CPU](https://links.jianshu.com/go?to=http%3A%2F%2Fwww.brendangregg.com%2FFlameGraphs%2Foffcpuflamegraphs.html)、[Memory](https://links.jianshu.com/go?to=http%3A%2F%2Fwww.brendangregg.com%2FFlameGraphs%2Fmemoryflamegraphs.html)、[Hot/Cold](https://links.jianshu.com/go?to=http%3A%2F%2Fwww.brendangregg.com%2FFlameGraphs%2Fhotcoldflamegraphs.html)、[Differential](https://links.jianshu.com/go?to=http%3A%2F%2Fwww.brendangregg.com%2Fblog%2F2014-11-09%2Fdifferential-flame-graphs.html)等等。
+
+  
+
+
+  
+
 
 
 
