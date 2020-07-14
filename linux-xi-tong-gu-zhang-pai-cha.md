@@ -117,7 +117,7 @@ perf top -p pid -e cpu-clock
 
 ### 2.2.2.分析工具
 
-| 工具  | 描述 |
+| 工具 | 描述 |
 | :--- | :--- |
 | free | 缓存容量统计信息 |
 | vmstat | 虚拟内存统计信息 |
@@ -128,15 +128,13 @@ perf top -p pid -e cpu-clock
 | dtrace | 动态跟踪 |
 | valgrind | 分析程序性能及程序中的内存泄露错误 |
 
-  
 #### 说明：
 
-free,vmstat,top,pidstat,pmap只能统计内存信息以及进程的内存使用情况。
-valgrind可以分析内存泄漏问题。
+free,vmstat,top,pidstat,pmap只能统计内存信息以及进程的内存使用情况。  
+valgrind可以分析内存泄漏问题。  
 dtrace动态跟踪。需要对内核函数有很深入的了解，通过D语言编写脚本完成跟踪。
 
 ### 2.2.3.使用方式
-
 
 ```
 //查看系统内存使用情况
@@ -177,6 +175,17 @@ valgrind --tool=memcheck --leak-check=full --log-file=./log.txt  ./程序名
 * noop调用策略
 
 ### 2.3.2.分析工具
+
+| 工具 |
+| :--- |
+
+
+|  | 描述 |
+| :--- | :--- |
+| iostat | 磁盘详细统计信息 |
+| iotop | 按进程查看磁盘IO的使用情况 |
+| pidstat | 按进程查看磁盘IO的使用情况 |
+| perf | 动态跟踪工具 |
 
 
 
