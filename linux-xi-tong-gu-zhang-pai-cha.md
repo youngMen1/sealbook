@@ -248,6 +248,7 @@ perf report
 | sar -n SOCK | 查询网络以及tcp，udp状态信息 |
 | :--- | :--- |
 
+
 ### 2.4.3.使用方式
 
 ```
@@ -284,10 +285,26 @@ tcpdump -i eth1 host 192.168.1.1 and port 80
 //抓包以流为单位显示数据内容
 tcpflow -cp host 192.168.1.1
 ```
+
 ## 2.5.系统负载
+
 ### 2.5.1.说明
+
 Load 就是对计算机干活多少的度量（WikiPedia：the system Load is a measure of the amount of work that a compute system is doing）简单的说是进程队列的长度。Load Average 就是一段时间（1分钟、5分钟、15分钟）内平均Load。
+
 ### 2.5.2.分析工具
+
+| 工具 |
+| :--- |
+
+
+|  | 描述 |
+| :--- | :--- |
+| top | 查看系统负载情况 |
+| uptime | 查看系统负载情况 |
+| strace | 统计跟踪内核态信息 |
+| vmstat | 查看负载情况 |
+| dmesg | 查看内核日志信息 |
 
 
 
