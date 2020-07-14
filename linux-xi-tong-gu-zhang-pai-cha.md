@@ -305,4 +305,24 @@ Load 就是对计算机干活多少的度量（WikiPedia：the system Load is a 
 ### 2.5.3.使用方式
 
 
+```
+//查看负载情况
+uptime
+
+top
+
+vmstat
+
+//统计系统调用耗时情况
+strace -c -p pid
+
+//跟踪指定的系统操作例如epoll_wait
+strace -T -e epoll_wait -p pid
+
+//查看内核日志信息
+dmesg
+```
+
+
+
 
