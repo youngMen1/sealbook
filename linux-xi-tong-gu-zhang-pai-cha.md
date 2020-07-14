@@ -96,5 +96,6 @@ pidstat -u 1 -p pid
 perf top -p pid -e cpu-clock
 ```
 
+## 1.2.2.内存
 
 
