@@ -250,4 +250,40 @@ perf report
 
 ### 2.4.3.使用方式
 
+```
+//显示网络统计信息
+netstat -s
+
+//显示当前UDP连接状况
+netstat -nu
+
+//显示UDP端口号的使用情况
+netstat -apu
+
+//统计机器中网络连接各个状态个数
+netstat -a | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}'
+
+//显示TCP连接
+ss -t -a
+
+//显示sockets摘要信息
+ss -s
+
+//显示所有udp sockets
+ss -u -a
+
+//tcp,etcp状态
+sar -n TCP,ETCP 1
+
+//查看网络IO
+sar -n DEV 1
+
+//抓包以包为单位进行输出
+tcpdump -i eth1 host 192.168.1.1 and port 80 
+
+//抓包以流为单位显示数据内容
+tcpflow -cp host 192.168.1.1
+```
+
+
 
