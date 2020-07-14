@@ -77,5 +77,6 @@ b. off-CPU：等待下一轮上CPU，或者等待I/O、锁、换页等等，其�
 * uptime,vmstat,mpstat,top,pidstat只能查询到cpu及负载的的使用情况。
 * perf可以跟着到进程内部具体函数耗时情况，并且可以指定内核函数进行统计，指哪打哪。
 
+### 使用方式
 
 
