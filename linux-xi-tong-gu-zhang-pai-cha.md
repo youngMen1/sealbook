@@ -322,7 +322,7 @@ strace -T -e epoll_wait -p pid
 //查看内核日志信息
 dmesg
 ```
-
+## 2.6.火焰图
 
 
 
