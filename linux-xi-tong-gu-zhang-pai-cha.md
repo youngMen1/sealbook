@@ -166,15 +166,15 @@ valgrind --tool=memcheck --leak-check=full --log-file=./log.txt  ./程序名
 
 在理解磁盘IO之前，同样我们需要理解一些概念，例如：
 
-文件系统
-VFS
-文件系统缓存
-页缓存page cache
-缓冲区高速缓存buffer cache
-目录缓存
-inode
-inode缓存
-noop调用策略
+* 文件系统
+* VFS
+* 文件系统缓存
+* 页缓存page cache
+* 缓冲区高速缓存buffer cache
+* 目录缓存
+* inode
+* inode缓存
+* noop调用策略
 
 
 
