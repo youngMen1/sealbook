@@ -176,7 +176,7 @@ valgrind --tool=memcheck --leak-check=full --log-file=./log.txt  ./程序名
 * inode缓存
 * noop调用策略
 
-
+### 2.3.2.分析工具
 
 
 
