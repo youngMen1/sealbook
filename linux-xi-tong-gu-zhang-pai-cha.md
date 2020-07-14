@@ -198,7 +198,7 @@ pidstat -d 1 -p  pid
 
 //查看系统IO的请求，比如可以在发现系统IO异常时，可以使用该命令进行调查，就能指定到底是什么原因导致的IO异常
 perf record -e block:block_rq_issue -ag
-^C
+
 perf report
 ```
 
