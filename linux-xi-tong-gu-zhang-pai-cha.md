@@ -514,5 +514,7 @@ perf script > out.stacks2
 ./FlameGraph/difffolded.pl out.folded1 out.folded2 | ./FlameGraph/flamegraph.pl > diff2.svg
 ```
 
+DEMO红蓝差分火焰图：
+2099201-3cbcc2cde6ebb681.webp
 
-
+## 1.6.7.案例分析
