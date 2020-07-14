@@ -426,7 +426,23 @@ cpu过低，利用率不高。等待下一轮CPU，或者等待I/O、锁、换�
 
 
 ```
-使用方式：
+// off-CPU user
+sh ngx_off_cpu_u.sh pid
+
+//进入结果目录
+cd ngx_off_cpu_u
+
+//off-CPU kernel
+sh ngx_off_cpu_k.sh pid
+
+//进入结果目录
+cd ngx_off_cpu_k
+
+//开一个临时端口8088
+python -m SimpleHTTPServer 8088
+
+//打开浏览器输入地址
+127.0.0.1:8088/pid.svg
 ```
 
 
