@@ -176,16 +176,12 @@ valgrind --tool=memcheck --leak-check=full --log-file=./log.txt  ./程序名
 
 ### 2.3.2.分析工具
 
-| 工具 |
-| :--- |
-
-
-|  | 描述 |
+| 工具  | 描述 |
 | :--- | :--- |
 | iostat | 磁盘详细统计信息 |
 | iotop | 按进程查看磁盘IO的使用情况 |
 | pidstat | 按进程查看磁盘IO的使用情况 |
 | perf | 动态跟踪工具 |
 
-
+使用方式
 
