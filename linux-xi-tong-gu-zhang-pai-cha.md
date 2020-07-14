@@ -362,5 +362,28 @@ cpu占用过高，或者使用率提不上来，你能快速定位到代码的�
   
 ### 1.6.4.1.on-CPU
 cpu占用过高，执行中的时间通常又分为用户态时间user和系统态时间sys。
+使用方式：
+
+
+```
+//on-CPU user
+sh ngx_on_cpu_u.sh pid
+
+//进入结果目录
+cd ngx_on_cpu_u
+
+//on-CPU kernel
+sh ngx_on_cpu_k.sh pid
+
+//进入结果目录
+cd ngx_on_cpu_k
+
+//开一个临时端口8088
+python -m SimpleHTTPServer 8088
+
+//打开浏览器输入地址
+127.0.0.1:8088/pid.svg
+```
+
 
 
