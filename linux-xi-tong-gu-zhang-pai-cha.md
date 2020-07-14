@@ -350,7 +350,14 @@ debuginfo-install --enablerepo=debuginfo search kernel
 debuginfo-install --enablerepo=debuginfo  search glibc
 ```
 
+## 1.6.3.安装
 
+
+
+```
+git clone https://github.com/lidaohang/quick_location.git
+cd quick_location
+```
 
 
   
