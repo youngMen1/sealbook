@@ -185,3 +185,22 @@ valgrind --tool=memcheck --leak-check=full --log-file=./log.txt  ./程序名
 
 ### 2.3.3.使用方式
 
+
+```
+//查看系统io信息
+iotop
+
+//统计io详细信息
+iostat -d -x -k 1 10
+
+//查看进程级io的信息
+pidstat -d 1 -p  pid
+
+//查看系统IO的请求，比如可以在发现系统IO异常时，可以使用该命令进行调查，就能指定到底是什么原因导致的IO异常
+perf record -e block:block_rq_issue -ag
+^C
+perf report
+```
+
+
+
