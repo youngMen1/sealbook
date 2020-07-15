@@ -215,6 +215,17 @@ public static boolean openUserFile(String path) throws FileNotFoundException {
 
 
 
+```
+Integer[] range ={1,2,3};
+//Horrible abuse of exceptions.Don't ever do this!
+try {
+  int i=0;
+  println(range[i++].intValue());
+} catch (ArrayIndexOutOfBoundsException e) {}
+```
+
+
+
 
 
 
