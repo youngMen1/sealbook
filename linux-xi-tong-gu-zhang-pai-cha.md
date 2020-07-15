@@ -544,5 +544,8 @@ DEMO红蓝差分火焰图：
 **a.通过top观察系统指标:**
 top
 2099201-c2743be8a91ed053.webp
+结论：
+
+发现nginx worker cpu比较高
 
 
