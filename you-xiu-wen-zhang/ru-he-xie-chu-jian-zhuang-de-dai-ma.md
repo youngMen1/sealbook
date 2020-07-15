@@ -194,6 +194,19 @@ public static void openPasswd() throws FileNotFoundException {
 
 
 
+```
+public static boolean openUserFile(String path) throws FileNotFoundException {
+        File f = new File(path);
+        if (!f.exists()) {
+            return false;
+        }
+        FileInputStream fs = new FileInputStream(path);
+        return true;
+    }
+```
+
+
+
 
 
 
