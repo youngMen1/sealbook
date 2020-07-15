@@ -37,3 +37,24 @@ public void doSomething(DomainA a) {
 }
 ```
 上边的嵌套判断的代码我相信很多人都见过或者写过，这样做虽然做到了基本的防御式编程，但是也把丑陋引了进来。《Java 开发手册》中建议我们碰到这样的情况使用卫语句的方式处理。什么是卫语句？我们给出个例子来说明什么是卫语句。
+
+
+```
+public void doSomething(DomainA a) {
+    if (a == null) {
+        return ; //log some errorA
+    }
+    if (a.getB() == null) {
+        return ; //log some errorB
+    }
+    if (!(a.getB().getC instanceof DomainC)) {
+        return ;//log some errorC
+    }
+    assignAction;
+    otherAction;
+    doSomethingA();
+    doSomethingB();
+    doSomthingC();
+}
+```
+
