@@ -206,6 +206,11 @@ public static boolean openUserFile(String path) throws FileNotFoundException {
 ```
 
 
+在文件存在的情况下读取文件失败，Surprise！
+
+再啰嗦一遍，是不是异常情况关键在于它是不是给我们一记 Surprise！，这就是本节开头检查每一个错误是一种良好的实践想要表达的。
+
+使用异常来控制正常流程的反面例子我就偷懒借用一下《Effective Java Second Edition》里的例子来说明好了。
 
 
 
