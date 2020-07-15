@@ -146,4 +146,5 @@ Assert.isTrue(crParam.validate(),()-> new SysException("参数验证失败-" + C
 ——《The pragmatic Programmer》
 ```
 
+## 处理错误时的关键选择
 
