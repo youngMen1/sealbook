@@ -534,3 +534,4 @@ DEMO红蓝差分火焰图：
 通过上图发现nginx的响应时间有增加可能跟nginx自身有关系或者跟后端upstream响应时间有关系。
 
 **c.分析nginx upstream响应时间：**
+2099201-5439b4727ac1baf2.webp
