@@ -70,5 +70,7 @@ public List<DemoResult> demo(DemoParam dParam) {
     return demoResult;
 }
 ```
+在这个示例中，方法的第一句话就是对验证器的调用，以获得当前参数是否合法。
 
+在参数对象中实现验证接口，为字段配置验证注解，如果需要组合验证复写 validate0 方法。这样就把合法性验证逻辑封装到了对象中。
 
