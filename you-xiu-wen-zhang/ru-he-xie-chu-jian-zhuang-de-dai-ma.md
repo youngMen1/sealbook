@@ -262,4 +262,5 @@ Java 一共提供了三类可抛出结构 (throwable)，受检异常、非受检
 
 这个显而易见的建议同时适用于受检异常和非受检异常。
 
+## DRY (Don't Repeat Yourself)
 
