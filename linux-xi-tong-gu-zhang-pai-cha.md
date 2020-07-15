@@ -560,3 +560,6 @@ perf top -p pid
 发现主要开销在free,malloc,json解析上面
 
 
+### 1.6.7.4.火焰图分析cpu
+
+
