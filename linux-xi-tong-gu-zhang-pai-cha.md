@@ -555,6 +555,8 @@ top
 perf top -p pid
 ```
 2099201-c590b2ae4a0b2813.webp
+结论：
 
+发现主要开销在free,malloc,json解析上面
 
 
