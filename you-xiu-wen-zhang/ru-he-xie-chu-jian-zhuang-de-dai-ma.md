@@ -96,5 +96,5 @@ public class DemoParam extends BaseDO implements ValidateSubject {
     }
 }
 ```
-
+## 使用断言
 
