@@ -539,3 +539,5 @@ DEMO红蓝差分火焰图：
 结论：
 
 通过上图发现nginx upstream 响应时间有增加，目前猜测可能后端upstream响应时间拖住nginx，导致nginx出现请求流量异常。
+
+### 1.6.7.3.分析系统cpu情况
