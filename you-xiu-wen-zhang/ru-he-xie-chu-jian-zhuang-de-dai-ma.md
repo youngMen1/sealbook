@@ -183,6 +183,14 @@ Assert.isTrue(crParam.validate(),()-> new SysException("参数验证失败-" + C
 
 
 
+```
+public static void openPasswd() throws FileNotFoundException {
+        FileInputStream fs = new FileInputStream("/etc/passwd");
+    }
+```
+
+
+
 
 
 
