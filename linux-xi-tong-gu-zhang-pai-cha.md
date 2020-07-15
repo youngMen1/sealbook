@@ -548,4 +548,13 @@ top
 
 发现nginx worker cpu比较高
 
+**b.分析nginx进程内部cpu情况:**
+
+
+```
+perf top -p pid
+```
+
+
+
 
