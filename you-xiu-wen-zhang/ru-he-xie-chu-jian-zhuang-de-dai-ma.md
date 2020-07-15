@@ -189,7 +189,7 @@ public static void openPasswd() throws FileNotFoundException {
     }
 ```
 
-
+读取"/etc/passwd"失败，Surprise！
 
 
 
