@@ -60,3 +60,15 @@ public void doSomething(DomainA a) {
 方法中的条件逻辑使人难以看清正常的分支执行路径，所谓的卫语句的做法就是将复杂的嵌套表达式拆分成多个表达式，我们使用卫语句表现所有特殊情况。
 ## 使用验证器 (validator)
 验证器是我在开发中的一种实践，将合法性检查与 OOP 结合是一种非常奇妙的体验。
+
+
+```
+public List<DemoResult> demo(DemoParam dParam) {
+    Assert.isTrue(dParam.validate(),()-> new SysException("参数验证失败-" + DemoParam.class.getSimpleName() +"验证失败：" + dParam));
+    DemoResult demoResult = doBiz();
+    doSomething();
+    return demoResult;
+}
+```
+
+
