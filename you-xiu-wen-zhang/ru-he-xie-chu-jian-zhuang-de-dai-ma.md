@@ -132,4 +132,10 @@ public class Assert extends org.springframework.util.Assert {
 ```
 
 
+```
+Assert.isTrue(crParam.validate(),()-> new SysException("参数验证失败-" + Calculate.class.getSimpleName() +"验证失败：" + crParam));
+```
+
+
+
 
