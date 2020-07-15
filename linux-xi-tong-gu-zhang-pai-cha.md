@@ -535,3 +535,7 @@ DEMO红蓝差分火焰图：
 
 **c.分析nginx upstream响应时间：**
 2099201-5439b4727ac1baf2.webp
+
+结论：
+
+通过上图发现nginx upstream 响应时间有增加，目前猜测可能后端upstream响应时间拖住nginx，导致nginx出现请求流量异常。
