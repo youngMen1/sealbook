@@ -19,3 +19,21 @@ DRY,Don't Repeat Yourself. 不要重复你自己。我们都知道重复的危�
 
 ## 使用卫语句
 对于非法输入的检查我们通常会使用 if…else 去做判断，但往往在判断过程中由于参数对象的层次结构会一层一层展开判断。
+
+
+```
+public void doSomething(DomainA a) {
+  if (a != null) {
+        assignAction;
+    if (a.getB() != null) {
+      otherAction;
+      if (a.getB().getC() instanceof DomainC) {
+        doSomethingB();
+        doSomethingA();
+        doSomthingC();
+      }
+    }
+  }
+}
+```
+
