@@ -112,3 +112,10 @@ while (iter.next() != null) {
 }
 ```
 
+
+```
+必须执行的代码也不能放入断言，因为生产环境很可能是关闭 Java 断言的。因此我更喜欢使用 Spring 提供的 Assert 工具，这个工具提供的断言只会返回 IllegalStateException，如果需要这个异常不能满足我们的业务需求，我们可以重新创建一个 Assert 类并继承 org.springframework.util.Assert，在新类中新增断言方法以支持自定义异常的传入。
+
+```
+
+
