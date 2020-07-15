@@ -74,3 +74,27 @@ public List<DemoResult> demo(DemoParam dParam) {
 
 在参数对象中实现验证接口，为字段配置验证注解，如果需要组合验证复写 validate0 方法。这样就把合法性验证逻辑封装到了对象中。
 
+
+```
+public class DemoParam extends BaseDO implements ValidateSubject {
+    @ValidateString(strMaxLength = 128)
+    private String aString;
+    @ValidateObject(require = true)
+    private List<SubjectDO> bList;
+    @ValidateString(require = true,strMaxLength = 128)
+    private String cString;
+    @ValidateLong(require = true)
+    private Long dLong;
+    @Override
+    public boolean validate0(ValidateSubject validateSubject) throws ValidateException {
+        if (validateSubject instanceof DemoParam) {
+            DemoParam param = (DemoParam)validateSubject;
+            return StringUtils.isNotBlank(param.getAString())
+                   && SubjectDO.allValidate(param.getBList());
+        }
+        return false;
+    }
+}
+```
+
+
