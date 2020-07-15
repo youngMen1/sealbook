@@ -561,7 +561,22 @@ perf top -p pid
 
 
 ### 1.6.7.4.火焰图分析cpu
-**
-a.生成用户态cpu火焰图:**
+**a.生成用户态cpu火焰图:**
+
+
+```
+//on-CPU user
+sh ngx_on_cpu_u.sh pid
+
+//进入结果目录
+cd ngx_on_cpu_u
+
+//开一个临时端口8088
+python -m SimpleHTTPServer 8088
+
+//打开浏览器输入地址
+127.0.0.1:8088/pid.svg
+```
+
 
 
