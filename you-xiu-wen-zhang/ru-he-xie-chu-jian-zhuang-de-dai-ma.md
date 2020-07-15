@@ -212,9 +212,6 @@ public static boolean openUserFile(String path) throws FileNotFoundException {
 
 使用异常来控制正常流程的反面例子我就偷懒借用一下《Effective Java Second Edition》里的例子来说明好了。
 
-
-
-
 ```
 Integer[] range ={1,2,3};
 //Horrible abuse of exceptions.Don't ever do this!
