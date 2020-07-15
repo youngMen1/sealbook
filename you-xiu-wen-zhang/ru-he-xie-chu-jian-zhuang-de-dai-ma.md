@@ -147,4 +147,7 @@ Assert.isTrue(crParam.validate(),()-> new SysException("参数验证失败-" + C
 ```
 
 ## 处理错误时的关键选择
+防御式编程会预设错误处理。
+
+在错误发生后的后续流程上通常会有两种选择，终止程序和继续运行。
 
