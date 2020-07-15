@@ -139,3 +139,11 @@ Assert.isTrue(crParam.validate(),()-> new SysException("参数验证失败-" + C
 有人认为断言仅是一种调试工具，一旦代码发布后就应该关闭断言，因为断言会增加一些开销（微小的 CPU 时间）。所以在很多工程实践中断言确实是关闭的，也有不少大 V 有过这样的建议。Dndrew Hunt 和 David Thomas 反对这样的说法，在他们书里有一个比喻我认为很形象。
 
 
+
+```
+在你把程序交付使用时关闭断言就像是因为你曾经成功过，就不用保护网取走钢丝。
+
+——《The pragmatic Programmer》
+```
+
+
