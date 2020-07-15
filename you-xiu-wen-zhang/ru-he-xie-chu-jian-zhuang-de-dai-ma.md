@@ -102,3 +102,13 @@ public class DemoParam extends BaseDO implements ValidateSubject {
 使用断言的重要原则就是，断言不能有副作用，也绝不能把必须执行的代码放入断言。
 
 断言不能有副作用，如果我每年增加错误检查代码却制造了新的错误，那是一件令人尴尬的事情。举一个反面例子：
+
+
+```
+while (iter.next() != null) {
+    assert(iter.next()!=null);
+    Object next = iter.next();
+    //...
+}
+```
+
