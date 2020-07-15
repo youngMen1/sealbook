@@ -580,3 +580,7 @@ python -m SimpleHTTPServer 8088
 
 2099201-2a1389aa4a3eae6d.webp
 
+结论：
+
+发现代码里面有频繁的解析json操作，并且发现这个json库性能不高，占用cpu挺高。
+
