@@ -291,7 +291,7 @@ CP 大法，禁止！
 
 PS：感受一下程序员的冷幽默。违背 DRY 原则的代码，程序员称之为 WET 的，可以理解为 Write Everything Twice（任何东西写两遍），We Enjoying Typing（我们享受敲键盘）或 Waste Everyone’s Time（浪费所有人的时间）。
 
-关于 DRY 原则的争论
+### 关于 DRY 原则的争论
 
 DRY 原则提出以来一直以来都存在着一些争议和讨论，有粉也有黑。如果有一个百分比，对于这条原则我会选择 95% 服从。
 
