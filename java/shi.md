@@ -42,6 +42,8 @@ public List<User> listUser(){
 
 ## 参考:
 
+## Java:如何更优雅的处理空值？ {#activity-name}
+
 [https://mp.weixin.qq.com/s/SX1puW0KSuCcwi4MI5jLGg](https://mp.weixin.qq.com/s/SX1puW0KSuCcwi4MI5jLGg)
 
 java8新特性，optional类，还在 if（obj==null）？太low了！
