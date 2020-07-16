@@ -43,19 +43,28 @@ public List<User> listUser(){
 ## 2.空指针判定
 
 ```
+空指针判定
+```
+
+```
+
+```
+
+```
 // 空指针判定
 if(null == str) { 
     return 0;
 }
 return str.length();
 ```
+
 **采用optional**
 
 ```
 return Optional.ofNullable(str).map(String::length).orElse(0);
 ```
-**再来个复杂点的**
 
+**再来个复杂点的**
 
 ```
 public String isCheckUser(User user) {
@@ -73,8 +82,8 @@ public String isCheckUser(User user) {
         }
     }
 ```
-**使用optional类**
 
+**使用optional类**
 
 ```
 public String isCheckUser(User user){
@@ -84,9 +93,6 @@ public String isCheckUser(User user){
                 .orElse("用户为空");
 }
 ```
-
-
-
 
 # 2.参考:
 
