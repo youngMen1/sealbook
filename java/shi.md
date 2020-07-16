@@ -53,7 +53,7 @@ return str.length();
 
 
 ```
-
+return Optional.ofNullable(str).map(String::length).orElse(0);
 ```
 
 
