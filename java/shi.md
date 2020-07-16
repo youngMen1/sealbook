@@ -57,6 +57,25 @@ return Optional.ofNullable(str).map(String::length).orElse(0);
 **再来个复杂点的**
 
 
+```
+public String isCheckUser(User user) {
+
+        if (null != user) {
+            // 获取角色
+            if (null != user.getRole()) {
+                // 获取管理员权限
+                if (null != user.getRole().getPermission()) {
+                    return "获取管理员权限";
+                }
+            }
+        } else {
+            return "用户为空";
+        }
+    }
+```
+
+
+
 
 # 2.参考:
 
