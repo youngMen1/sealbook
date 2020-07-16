@@ -54,7 +54,7 @@ return str.length();
 ```
 return Optional.ofNullable(str).map(String::length).orElse(0);
 ```
-
+**再来个复杂点的**
 
 
 
