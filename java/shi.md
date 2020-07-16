@@ -42,6 +42,15 @@ public List<User> listUser(){
 
 ## 2.空指针判定
 
+```
+// 空指针判定
+
+if(null == str) { 
+    return 0;
+}
+return str.length();
+```
+
 # 2.参考:
 
 Java:如何更优雅的处理空值？
