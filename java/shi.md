@@ -42,7 +42,7 @@ public List<User> listUser(){
 
 ## 参考:
 
-## Java:如何更优雅的处理空值？ {#activity-name}
+Java:如何更优雅的处理空值？
 
 [https://mp.weixin.qq.com/s/SX1puW0KSuCcwi4MI5jLGg](https://mp.weixin.qq.com/s/SX1puW0KSuCcwi4MI5jLGg)
 
