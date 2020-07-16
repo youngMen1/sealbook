@@ -49,8 +49,7 @@ if(null == str) {
 }
 return str.length();
 ```
-采用optional
-
+**采用optional**
 
 ```
 return Optional.ofNullable(str).map(String::length).orElse(0);
