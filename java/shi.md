@@ -76,6 +76,17 @@ public String isCheckUser(User user) {
 **使用optional类**
 
 
+```
+public String isCheckUser(User user){
+    return Optional.ofNullable(user)
+                .map(u -> u.getRole)
+                .map(p -> p.getPermission())
+                .orElse("用户为空");
+}
+```
+
+
+
 
 # 2.参考:
 
