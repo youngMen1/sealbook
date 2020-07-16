@@ -16,5 +16,7 @@ itliusir：[https://cloud.tencent.com/developer/user/1650787](https://cloud.tenc
 
 java技术栈：[http://www.javastack.cn](http://www.javastack.cn)
 
-拍拍贷：http://techblog.ppdai.com
+拍拍贷：[http://techblog.ppdai.com](http://techblog.ppdai.com)
+
+小马哥：https://mercyblitz.github.io/
 
