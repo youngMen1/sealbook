@@ -50,6 +50,10 @@ if(null == str) {
 return str.length();
 ```
 
+```
+采用optional
+```
+
 # 2.参考:
 
 Java:如何更优雅的处理空值？
