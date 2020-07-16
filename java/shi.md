@@ -44,7 +44,6 @@ public List<User> listUser(){
 
 ```
 // 空指针判定
-
 if(null == str) { 
     return 0;
 }
