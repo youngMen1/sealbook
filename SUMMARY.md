@@ -131,7 +131,7 @@
   * SkyWalking
   * Zipkin
   * Pinpoint
-  * Cat
+  * [Cat](fen-bu-shi-zhui-zong-xi-tong/cat.md)
   * [Jaeger](fen-bu-shi-zhui-zong-xi-tong/jaeger.md)
 * [分布式配置中心](fen-bu-shi-pei-zhi-zhong-xin.md)
   * [阿里的Diamond](fen-bu-shi-pei-zhi-zhong-xin/a-lidiamond.md)
