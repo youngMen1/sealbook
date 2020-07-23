@@ -18,5 +18,7 @@ java技术栈：[http://www.javastack.cn](http://www.javastack.cn)
 
 拍拍贷：[http://techblog.ppdai.com](http://techblog.ppdai.com)
 
-小马哥：https://mercyblitz.github.io/
+小马哥：[https://mercyblitz.github.io/](https://mercyblitz.github.io/)
+
+[IntelliJ IDEA 中有什么让你相见恨晚的技巧？](https://www.zhihu.com/question/300830746/answer/672248406)
 
