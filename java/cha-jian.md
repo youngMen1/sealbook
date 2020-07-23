@@ -5,7 +5,7 @@
 | GenerateAllSetter | 自动生成get/set方法 |
 | FindBugs plugin | 规范扫描 |
 | Translation | 翻译插件\(ctrl+shift+y翻译，ctrl+shift+s切换翻译源\) |
-| mavenHelper | maven帮助 |
+| MavenHelper | maven帮助 |
 | mybatis-log-plugin | sql语句日志\(mybatis log日志\) |
 | grepConsole | console输出的日志 |
 | gsonFormat | json对象转对象 |
