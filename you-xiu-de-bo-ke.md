@@ -20,5 +20,5 @@ java技术栈：[http://www.javastack.cn](http://www.javastack.cn)
 
 小马哥：[https://mercyblitz.github.io/](https://mercyblitz.github.io/)
 
-https://github.com/xiaoxiunique/tool-tips
+IDEA 从入门到精通：`https://github.com/xiaoxiunique/tool-tips`
 
