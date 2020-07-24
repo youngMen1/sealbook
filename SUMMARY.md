@@ -14,6 +14,8 @@
     * [Owner意识](you-xiu-wen-zhang/owneryi-shi.md)
     * [工作经验分享](you-xiu-wen-zhang/gong-zuo-jing-yan-fen-xiang.md)
     * [如何写出健壮的代码](you-xiu-wen-zhang/ru-he-xie-chu-jian-zhuang-de-dai-ma.md)
+* [踩坑日记](cai-keng-ri-ji-2.md)
+  * [异常日记](yi-chang-ri-zhi/cai-keng-ri-ji.md)
 * [IDEA](java.md)
   * [使用帮助](java/shi-yong-bang-zhu.md)
     * [IDEA解决提交冲突的问题](java/shi-yong-bang-zhu/ideajie-jue-ti-jiao-chong-tu-de-wen-ti.md)
@@ -258,6 +260,4 @@
 * [历任公司](li-ren-gong-si.md)
   * [古德菲力健康科技有限公司](li-ren-gong-si/gu-de-fei-li-jian-kang-ke-ji-you-xian-gong-si.md)
   * [优利科技有限公司](li-ren-gong-si/you-li-ke-ji-you-xian-gong-si.md)
-* [踩坑日记](cai-keng-ri-ji-2.md)
-  * [异常日记](yi-chang-ri-zhi/cai-keng-ri-ji.md)
 
