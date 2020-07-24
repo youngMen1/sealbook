@@ -260,5 +260,6 @@
   * [优利科技有限公司](li-ren-gong-si/you-li-ke-ji-you-xian-gong-si.md)
 * [异常日志](yi-chang-ri-zhi.md)
   * [踩坑日记](yi-chang-ri-zhi/cai-keng-ri-ji.md)
-* 踩坑日记2
+* [踩坑日记2](cai-keng-ri-ji-2.md)
+  * 异常日志
 
