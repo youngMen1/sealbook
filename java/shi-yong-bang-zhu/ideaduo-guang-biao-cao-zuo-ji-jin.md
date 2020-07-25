@@ -11,3 +11,4 @@ idea_alt_mouse_move.4b63774f.gif
 ### 行尾添加光标
 idea_alt_mouse_end.eede73d0.gif
 ### 在指定位置添加光标操作
+idea_alt_shift_click.04cadc11.gif
