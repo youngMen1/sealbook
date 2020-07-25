@@ -12,7 +12,7 @@
 | git checkout -b new-branch | 开启新分支，为了便于演示，我们将新分支命名为new-branch |
 | git remote -v | 查看GIT项目是从GIT的哪个分支上拉下来的命令 |
 | git stash | 把本地当前改动暂存起来，此时master分支就恢复到了上次拉取时的状态 |
-| git stash pop | 把本地当前改动暂存起来，此时master分支就恢复到了上次拉取时的状态 |
+| git stash pop | 将改动pop到自己当前的分支 |
 
 
 
