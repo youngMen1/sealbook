@@ -14,3 +14,4 @@ idea_alt_mouse_end.eede73d0.gif
 idea_alt_shift_click.04cadc11.gif
 
 ## 1.2.格式批量调整
+image-20200518225214627.851b7a0b.png
