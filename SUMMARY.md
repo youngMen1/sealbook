@@ -20,6 +20,7 @@
 * [IDEA](java.md)
   * [使用帮助](java/shi-yong-bang-zhu.md)
     * [IDEA解决提交冲突的问题](java/shi-yong-bang-zhu/ideajie-jue-ti-jiao-chong-tu-de-wen-ti.md)
+    * IDEA多光标操作集锦
   * [IDEA插件](java/cha-jian.md)
     * [LomBok插件](java/cha-jian/lombokcha-jian.md)
     * [Cloud Toolkit插件](java/cha-jian/cloud-toolkit.md)
