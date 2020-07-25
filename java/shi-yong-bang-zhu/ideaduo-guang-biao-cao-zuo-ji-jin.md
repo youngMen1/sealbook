@@ -8,3 +8,4 @@
 ![](/static/image/idea_alt_shift_ctrl_j.c1b6d800.gif)
 ### 数列光标
 idea_alt_mouse_move.4b63774f.gif
+### 行尾添加光标
