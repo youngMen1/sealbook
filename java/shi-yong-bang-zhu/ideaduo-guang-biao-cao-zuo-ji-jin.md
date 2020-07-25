@@ -7,3 +7,4 @@
 ### 在所有的相同的内容后添加光标，一步到位
 ![](/static/image/idea_alt_shift_ctrl_j.c1b6d800.gif)
 ### 数列光标
+idea_alt_mouse_move.4b63774f.gif
