@@ -55,7 +55,7 @@
   * [免费申请IntelliJ IDEA商业版License指南](java/mian-fei-shen-qing-intellij-idea-shang-ye-ban-license-zhi-nan.md)
 * [Mybatis](mybatis.md)
   * [错误](mybatis/cuo-wu.md)
-  * Mybatis类型判空
+  * [Mybatis类型判空](mybatis/mybatislei-xing-pan-kong.md)
 * [SpringCloud](springcloud.md)
   * [Eureka](springcloud/eureka.md)
     * [Eureka高可用](springcloud/eurekagao-ke-yong.md)
