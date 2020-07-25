@@ -3,8 +3,8 @@
 ## int/Integer类型的参数为空判断
 
 ```
-<if test="staging != null and staging != ''">
-    staging = #{staging},
+<if test="orderStatus!= null and orderStatus != ''">
+    order_status= #{orderStatus},
 </if>
 ```
 
