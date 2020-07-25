@@ -11,7 +11,7 @@
 | git branch | 查看当前使用分支\(结果列表中前面标\*号的表示当前使用分支\) |
 | git checkout -b new-branch | 开启新分支，为了便于演示，我们将新分支命名为new-branch |
 | git remote -v | 查看GIT项目是从GIT的哪个分支上拉下来的命令 |
-| git stash |  |
+| git stash | 把本地当前改动暂存起来，此时master分支就恢复到了上次拉取时的状态 |
 
 ## 2.如何使用？
 
