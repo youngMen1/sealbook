@@ -8,7 +8,7 @@
 
 ## 安装
 
-![](/static/image/image-20200714124809715.9ea8177c.png
+![](/static/image/image-20200714124809715.9ea8177c.png)
 
 ## 使用
 
