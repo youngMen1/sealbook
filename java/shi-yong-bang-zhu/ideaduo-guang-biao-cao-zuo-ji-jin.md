@@ -25,11 +25,17 @@
 ## 1.2.格式批量调整
 
 ![](/static/image/image-20200518225214627.851b7a0b.png)
-### 将上访左侧的代码批量变为右侧代码  
+
+### 将上访左侧的代码批量变为右侧代码
+
 `ctrl + alt + enter 将光标移动到当前行的上一行`  
 ![](/static/image/idea_modify_comment.b79ff3f4.gif)
 
 ## 1.3.批量添加 Swagger 属性注释
+
+```
+ctrl + alt + shift + j
+```
 
 ![](/static/image/image-20200518231043105.40a0708b.png)  
 将上图左侧只有注释的类，添加上 swagger 信息  
