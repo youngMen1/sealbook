@@ -12,7 +12,7 @@
 
 ```
 <if test="userName != null and userName != ''">
-   userName = #{userName}
+   user_name = #{userName}
 </if>
 ```
 
