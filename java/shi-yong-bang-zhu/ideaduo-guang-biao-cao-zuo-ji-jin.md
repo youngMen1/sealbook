@@ -24,3 +24,6 @@ image-20200518231043105.40a0708b.png
 idea_modify_comment_swagger.f4a3c5ab.gif
 
 ## 1.4.在多个相同结构 Json 中提取某字段信息
+image-20200518232431922.6f188470.png
+
+## 1.5.提取左侧 Json 中所有的 role 字段
