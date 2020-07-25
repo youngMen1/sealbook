@@ -2,6 +2,8 @@
 
 ![](/static/image/1_uUpzVOpdFw5V-tJ_YvgFmA.26e56be6.png)
 
+[Git Flow Integration](https://plugins.jetbrains.com/plugin/7315-git-flow-integration)
+
 ## 插件作用
 
 集成 Git Flow让我们更加专注在 开发 这件事上。
