@@ -21,3 +21,4 @@ idea_modify_comment.b79ff3f4.gif
 ## 1.3.批量添加 Swagger 属性注释
 image-20200518231043105.40a0708b.png
 将上图左侧只有注释的类，添加上 swagger 信息
+idea_modify_comment_swagger.f4a3c5ab.gif
