@@ -16,3 +16,5 @@ idea_alt_shift_click.04cadc11.gif
 ## 1.2.格式批量调整
 image-20200518225214627.851b7a0b.png
 将上访左侧的代码批量变为右侧代码
+`ctrl + alt + enter 将光标移动到当前行的上一行`
+idea_modify_comment.b79ff3f4.gif
