@@ -1,5 +1,7 @@
 # 1.Zookeeper-3.4.14
 
+下载地址：`https://archive.apache.org/dist/zookeeper/zookeeper-3.4.14/`
+
 ## 1.1.创建安装目录、并下载安装包
 
 ```
