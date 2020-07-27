@@ -103,6 +103,21 @@ JMX enabled by default
 Using config: /home/work/soft/zookeeper-3.4.14/bin/../conf/zoo.cfg  
 Mode: standalone
 
+
+
+还可能是因为防火墙没有关闭。关闭防火墙：
+
+\#查看防火墙状态
+
+   service iptables status 
+
+  \#关闭防火墙  
+   service iptables stop  
+  \#查看防火墙开机启动状态  
+   chkconfig iptables --list  
+  \#关闭防火墙开机启动  
+   chkconfig iptables off
+
 # 参考
 
 [https://www.cnblogs.com/javajetty/p/9954685.html](#)
