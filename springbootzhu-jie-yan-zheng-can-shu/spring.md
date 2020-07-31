@@ -10,7 +10,7 @@
 
 ## 作用
 
-@DatetimeFormat是将String转换成Date，一般前台给后台传值时用
+@DateTimeFormat是将String转换成Date，一般前台给后台传值时用
 
 @JsonFormat\(pattern="yyyy-MM-dd"\) 将Date转换成String 一般后台传值给前台时
 
