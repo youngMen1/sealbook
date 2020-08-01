@@ -33,10 +33,7 @@ Date date = new Date(2019 - 1900, 11, 31, 11, 12, 13);
 
 使用 Calendar 改造之后，初始化时年参数直接使用当前年即可，不过月需要注意是从 0 到 11。当然，你也可以直接使用 Calendar.DECEMBER 来初始化月份，更不容易犯错。为了说明时区的问题，我分别使用当前时区和纽约时区初始化了两次相同的日期：
 
-
-
 ```
-
 Calendar calendar = Calendar.getInstance();
 calendar.set(2019, 11, 31, 11, 12, 13);
 System.out.println(calendar.getTime());
@@ -46,10 +43,7 @@ System.out.println(calendar2.getTime());
 ```
 输出显示了两个时间，说明时区产生了作用。但，我们更习惯年 / 月 / 日 时: 分: 秒这样的日期时间格式，对现在输出的日期格式还不满意：
 
-
-
 ```
-
 Tue Dec 31 11:12:13 CST 2019
 Wed Jan 01 00:12:13 CST 2020
 ```
