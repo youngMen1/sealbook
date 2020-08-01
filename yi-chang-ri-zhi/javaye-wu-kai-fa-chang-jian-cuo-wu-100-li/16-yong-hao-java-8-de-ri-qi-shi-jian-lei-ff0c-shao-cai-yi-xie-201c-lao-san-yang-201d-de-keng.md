@@ -507,4 +507,15 @@ System.out.println(Period.between(specifyDate, today));
 System.out.println(ChronoUnit.DAYS.between(specifyDate, today));
 ```
 
+可以使用 ChronoUnit.DAYS.between 解决这个问题：
+
+```
+
+//计算日期差
+11
+P2M11D
+72
+```
+
+
 
