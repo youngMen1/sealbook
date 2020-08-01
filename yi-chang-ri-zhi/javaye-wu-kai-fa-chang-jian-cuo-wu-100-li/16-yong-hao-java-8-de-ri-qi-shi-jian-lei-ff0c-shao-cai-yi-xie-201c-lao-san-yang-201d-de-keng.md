@@ -432,3 +432,20 @@ System.out.println(LocalDate.now()
 
 * 使用 TemporalAdjusters.lastInMonth(DayOfWeek.FRIDAY) 得到本月最后一个周五。
 
+
+```
+System.out.println("//本月的第一天");
+System.out.println(LocalDate.now().with(TemporalAdjusters.firstDayOfMonth()));
+
+System.out.println("//今年的程序员日");
+System.out.println(LocalDate.now().with(TemporalAdjusters.firstDayOfYear()).plusDays(255));
+
+System.out.println("//今天之前的一个周六");
+System.out.println(LocalDate.now().with(TemporalAdjusters.previous(DayOfWeek.SATURDAY)));
+
+System.out.println("//本月最后一个工作日");
+System.out.println(LocalDate.now().with(TemporalAdjusters.lastInMonth(DayOfWeek.FRIDAY)));
+```
+
+
+
