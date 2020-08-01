@@ -113,6 +113,6 @@ System.out.println(new SimpleDateFormat("[yyyy-MM-dd HH:mm:ss Z]").format(date))
 TimeZone.setDefault(TimeZone.getTimeZone("America/New_York"));
 System.out.println(new SimpleDateFormat("[yyyy-MM-dd HH:mm:ss Z]").format(date));
 ```
-
+输出如下，我当前时区的 Offset（时差）是 +8 小时，对于 -5 小时的纽约，晚上 10 点对应早上 9 点：
 
 
