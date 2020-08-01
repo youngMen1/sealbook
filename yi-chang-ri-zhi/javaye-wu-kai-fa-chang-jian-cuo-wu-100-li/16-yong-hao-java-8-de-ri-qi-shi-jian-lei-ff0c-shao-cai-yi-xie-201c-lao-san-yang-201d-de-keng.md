@@ -344,3 +344,15 @@ System.out.println("result:" + dateTimeFormatter.parse(dt));
 
 输出日志如下：
 
+
+
+```
+
+2020/1/2 12:34:56.789
+Exception in thread "main" java.time.format.DateTimeParseException: Text '20160901' could not be parsed at index 0
+  at java.time.format.DateTimeFormatter.parseResolved0(DateTimeFormatter.java:1949)
+  at java.time.format.DateTimeFormatter.parse(DateTimeFormatter.java:1777)
+  at org.geekbang.time.commonmistakes.datetime.dateformat.CommonMistakesApplication.better(CommonMistakesApplication.java:80)
+  at org.geekbang.time.commonmistakes.datetime.dateformat.CommonMistakesApplication.main(CommonMistakesApplication.java:41)
+```
+
