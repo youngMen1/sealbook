@@ -60,4 +60,4 @@ Wed Jan 01 00:12:13 CST 2020
 System.out.println(new Date(0));
 System.out.println(TimeZone.getDefault().getID() + ":" + TimeZone.getDefault().getRawOffset()/3600000);
 ```
-
+我得到的是 1970 年 1 月 1 日 8 点。因为我机器当前的时区是中国上海，相比 UTC 时差 +8 小时：
