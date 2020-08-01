@@ -100,3 +100,19 @@ Fri Jan 03 11:00:00 CST 2020:1578020400000
 **第二类问题是**，格式化后出现的错乱，即同一个 Date，在不同的时区下格式化得到不同的时间表示。比如，在我的当前时区和纽约时区格式化 2020-01-02 22:00:00：
 
 
+
+```
+
+String stringDate = "2020-01-02 22:00:00";
+SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//同一Date
+Date date = inputFormat.parse(stringDate);
+//默认时区格式化输出：
+System.out.println(new SimpleDateFormat("[yyyy-MM-dd HH:mm:ss Z]").format(date));
+//纽约时区格式化输出
+TimeZone.setDefault(TimeZone.getTimeZone("America/New_York"));
+System.out.println(new SimpleDateFormat("[yyyy-MM-dd HH:mm:ss Z]").format(date));
+```
+
+
+
