@@ -311,3 +311,24 @@ result:Mon Jan 01 00:00:00 CST 2091
 ```
 对于 SimpleDateFormat 的这三个坑，我们使用 Java 8 中的 DateTimeFormatter 就可以避过去。首先，使用 DateTimeFormatterBuilder 来定义格式化字符串，不用去记忆使用大写的 Y 还是小写的 Y，大写的 M 还是小写的 m：
 
+
+```
+
+private static DateTimeFormatter dateTimeFormatter = new DateTimeFormatterBuilder()
+        .appendValue(ChronoField.YEAR) //年
+        .appendLiteral("/")
+        .appendValue(ChronoField.MONTH_OF_YEAR) //月
+        .appendLiteral("/")
+        .appendValue(ChronoField.DAY_OF_MONTH) //日
+        .appendLiteral(" ")
+        .appendValue(ChronoField.HOUR_OF_DAY) //时
+        .appendLiteral(":")
+        .appendValue(ChronoField.MINUTE_OF_HOUR) //分
+        .appendLiteral(":")
+        .appendValue(ChronoField.SECOND_OF_MINUTE) //秒
+        .appendLiteral(".")
+        .appendValue(ChronoField.MILLI_OF_SECOND) //毫秒
+        .toFormatter();
+```
+
+
