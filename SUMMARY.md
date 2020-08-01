@@ -17,6 +17,7 @@
 * [踩坑日记](cai-keng-ri-ji-2.md)
   * [异常日记](yi-chang-ri-zhi/cai-keng-ri-ji.md)
   * [SpringBoot启动异常](java/cuo-wu.md)
+  * Java业务开发常见错误100例
 * [IDEA](java.md)
   * [使用帮助](java/shi-yong-bang-zhu.md)
     * [IDEA解决提交冲突的问题](java/shi-yong-bang-zhu/ideajie-jue-ti-jiao-chong-tu-de-wen-ti.md)
