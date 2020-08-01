@@ -403,4 +403,4 @@ c.add(Calendar.DAY_OF_MONTH, 30);
 System.out.println(c.getTime());
 ```
 
-并且，对日期时间做计算操作，Java 8 日期时间 API 会比 Calendar 功能强大很多。
+并且，**对日期时间做计算操作，Java 8 日期时间 API 会比 Calendar 功能强大很多。**
