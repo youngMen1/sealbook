@@ -424,3 +424,5 @@ System.out.println(LocalDate.now()
 ```
 第二，还可以通过 with 方法进行快捷时间调节，比如：
 
+使用 TemporalAdjusters.firstDayOfMonth 得到当前月的第一天；
+
