@@ -62,11 +62,10 @@ System.out.println(TimeZone.getDefault().getID() + ":" + TimeZone.getDefault().g
 ```
 我得到的是 1970 年 1 月 1 日 8 点。因为我机器当前的时区是中国上海，相比 UTC 时差 +8 小时：
 
-
 ```
-
 Thu Jan 01 08:00:00 CST 1970
 Asia/Shanghai:8
 ```
+对于国际化（世界各国的人都在使用）的项目，处理好时间和时区问题首先就是要正确保存日期时间。这里有两种保存方式：
 
 
