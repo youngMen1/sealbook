@@ -295,3 +295,12 @@ private static ThreadLocal<SimpleDateFormat> threadSafeSimpleDateFormat = Thread
 第二个坑是，**当需要解析的字符串和格式不匹配的时候，SimpleDateFormat 表现得很宽容，还是能得到结果。**比如，我们期望使用 yyyyMM 来解析 20160901 字符串：
 
 
+```
+
+String dateString = "20160901";
+SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMM");
+System.out.println("result:" + dateFormat.parse(dateString));
+```
+
+
+
