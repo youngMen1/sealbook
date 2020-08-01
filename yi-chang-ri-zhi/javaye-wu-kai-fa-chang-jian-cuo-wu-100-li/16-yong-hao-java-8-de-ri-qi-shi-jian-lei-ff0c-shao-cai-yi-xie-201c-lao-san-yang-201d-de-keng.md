@@ -539,5 +539,5 @@ Date in = new Date();
 LocalDateTime ldt = LocalDateTime.ofInstant(in.toInstant(), ZoneId.systemDefault());
 Date out = Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant());
 ```
-
+很多同学说使用新 API 很麻烦，还需要考虑时区的概念，一点都不简洁。但我通过这篇文章要和你说的是，并不是因为 API 需要设计得这么繁琐，而是 UTC 时间要变为当地时间，必须考虑时区。
 
