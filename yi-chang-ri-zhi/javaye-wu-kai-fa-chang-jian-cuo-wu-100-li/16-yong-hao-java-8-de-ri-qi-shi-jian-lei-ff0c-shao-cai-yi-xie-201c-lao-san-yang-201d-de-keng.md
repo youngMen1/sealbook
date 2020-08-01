@@ -406,3 +406,15 @@ System.out.println(c.getTime());
 并且，**对日期时间做计算操作，Java 8 日期时间 API 会比 Calendar 功能强大很多。**
 
 第一，可以使用各种 minus 和 plus 方法直接对日期进行加减操作，比如如下代码实现了减一天和加一天，以及减一个月和加一个月：
+
+
+```
+
+System.out.println("//测试操作日期");
+System.out.println(LocalDate.now()
+        .minus(Period.ofDays(1))
+        .plus(1, ChronoUnit.DAYS)
+        .minusMonths(1)
+        .plus(Period.ofMonths(1)));
+```
+
