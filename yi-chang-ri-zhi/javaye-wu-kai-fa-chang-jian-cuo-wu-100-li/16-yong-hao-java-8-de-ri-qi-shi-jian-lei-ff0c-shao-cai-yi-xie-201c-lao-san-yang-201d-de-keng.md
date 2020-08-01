@@ -245,3 +245,5 @@ SimpleDateFormat 的作用是定义解析和格式化日期时间的模式。这
 
 SimpleDateFormat 继承了 DateFormat，DateFormat 有一个字段 Calendar；
 
+SimpleDateFormat 的 parse 方法调用 CalendarBuilder 的 establish 方法，来构建 Calendar；
+
