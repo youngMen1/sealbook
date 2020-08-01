@@ -388,9 +388,7 @@ System.out.println(nextMonth);
 ```
 这样就可以得到正确结果了：
 
-
 ```
-
 Sat Feb 01 14:17:41 CST 2020
 Mon Mar 02 14:17:41 CST 2020
 ```
@@ -409,7 +407,6 @@ System.out.println(c.getTime());
 
 
 ```
-
 System.out.println("//测试操作日期");
 System.out.println(LocalDate.now()
         .minus(Period.ofDays(1))
@@ -417,9 +414,8 @@ System.out.println(LocalDate.now()
         .minusMonths(1)
         .plus(Period.ofMonths(1)));
 ```
+
 可以得到：
-
-
 
 ```
 
