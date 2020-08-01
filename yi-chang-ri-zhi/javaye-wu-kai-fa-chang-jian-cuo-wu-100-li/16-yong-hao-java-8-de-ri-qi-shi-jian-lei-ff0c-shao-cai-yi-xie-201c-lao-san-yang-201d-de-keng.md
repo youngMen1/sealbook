@@ -284,5 +284,5 @@ class CalendarBuilder {
     }
 }
 ```
-
+format 方法也类似，你可以自己分析。因此只能在同一个线程复用 SimpleDateFormat，比较好的解决方式是，通过 ThreadLocal 来存放 SimpleDateFormat：
 
