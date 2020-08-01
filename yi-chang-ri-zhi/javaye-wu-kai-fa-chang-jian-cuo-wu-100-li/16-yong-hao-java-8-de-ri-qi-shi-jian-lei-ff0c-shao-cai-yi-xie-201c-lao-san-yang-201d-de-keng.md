@@ -361,3 +361,15 @@ Exception in thread "main" java.time.format.DateTimeParseException: Text '201609
 ## 日期时间的计算
 
 关于日期时间的计算，我先和你说一个常踩的坑。有些同学喜欢直接使用时间戳进行时间计算，比如希望得到当前时间之后 30 天的时间，会这么写代码：直接把 new Date().getTime 方法得到的时间戳加 30 天对应的毫秒数，也就是 30 天 *1000 毫秒 *3600 秒 *24 小时：
+
+
+
+```
+
+Date today = new Date();
+Date nextMonth = new Date(today.getTime() + 30 * 1000 * 60 * 60 * 24);
+System.out.println(today);
+System.out.println(nextMonth);
+```
+
+
