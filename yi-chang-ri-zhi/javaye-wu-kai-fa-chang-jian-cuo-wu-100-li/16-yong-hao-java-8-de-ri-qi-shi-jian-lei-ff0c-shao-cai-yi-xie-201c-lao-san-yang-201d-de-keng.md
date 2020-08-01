@@ -329,3 +329,18 @@ private static DateTimeFormatter dateTimeFormatter = new DateTimeFormatterBuilde
 ```
 其次，DateTimeFormatter 是线程安全的，可以定义为 static 使用；最后，DateTimeFormatter 的解析比较严格，需要解析的字符串和格式不匹配时，会直接报错，而不会把 0901 解析为月份。我们测试一下：
 
+
+```
+
+//使用刚才定义的DateTimeFormatterBuilder构建的DateTimeFormatter来解析这个时间
+LocalDateTime localDateTime = LocalDateTime.parse("2020/1/2 12:34:56.789", dateTimeFormatter);
+//解析成功
+System.out.println(localDateTime.format(dateTimeFormatter));
+//使用yyyyMM格式解析20160901是否可以成功呢？
+String dt = "20160901";
+DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyyMM");
+System.out.println("result:" + dateTimeFormatter.parse(dt));
+```
+
+
+
