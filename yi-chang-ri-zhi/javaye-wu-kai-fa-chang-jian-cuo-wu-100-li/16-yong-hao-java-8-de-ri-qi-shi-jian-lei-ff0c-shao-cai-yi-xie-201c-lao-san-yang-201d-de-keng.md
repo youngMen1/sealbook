@@ -373,7 +373,19 @@ System.out.println(nextMonth);
 ```
 得到的日期居然比当前日期还要早，根本不是晚 30 天的时间：
 
-
+```
 Sat Feb 01 14:17:41 CST 2020
 Sun Jan 12 21:14:54 CST 2020
+```
+
+出现这个问题，其实是因为 int 发生了溢出。修复方式就是把 30 改为 30L，让其成为一个 long：
+
+```
+Date today = new Date();
+Date nextMonth = new Date(today.getTime() + 30L * 1000 * 60 * 60 * 24);
+System.out.println(today);
+System.out.println(nextMonth);
+```
+
+
 
