@@ -487,4 +487,9 @@ public static Boolean isFamilyBirthday(TemporalAccessor date) {
 ```
 然后，使用 query 方法查询是否匹配条件：
 
+```
+System.out.println("//查询是否是今天要举办生日");
+System.out.println(LocalDate.now().query(CommonMistakesApplication::isFamilyBirthday));
+```
+使用 Java 8 操作和计算日期时间虽然方便，但计算两个日期差时可能会踩坑：**Java 8 中有一个专门的类 Period 定义了日期间隔，通过 Period.between 得到了两个 LocalDate 的差，返回的是两个日期差几年零几月零几天。如果希望得知两个日期之间差几天，直接调用 Period 的 getDays() 方法得到的只是最后的“零几天”，而不是算总的间隔天数。**
 
