@@ -371,5 +371,5 @@ Date nextMonth = new Date(today.getTime() + 30 * 1000 * 60 * 60 * 24);
 System.out.println(today);
 System.out.println(nextMonth);
 ```
-
+得到的日期居然比当前日期还要早，根本不是晚 30 天的时间：
 
