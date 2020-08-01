@@ -32,3 +32,17 @@ Date date = new Date(2019 - 1900, 11, 31, 11, 12, 13);
 你说的没错，但更重要的问题是，当有国际化需求时，需要使用 Calendar 类来初始化时间。
 
 使用 Calendar 改造之后，初始化时年参数直接使用当前年即可，不过月需要注意是从 0 到 11。当然，你也可以直接使用 Calendar.DECEMBER 来初始化月份，更不容易犯错。为了说明时区的问题，我分别使用当前时区和纽约时区初始化了两次相同的日期：
+
+
+
+```
+
+Calendar calendar = Calendar.getInstance();
+calendar.set(2019, 11, 31, 11, 12, 13);
+System.out.println(calendar.getTime());
+Calendar calendar2 = Calendar.getInstance(TimeZone.getTimeZone("America/New_York"));
+calendar2.set(2019, Calendar.DECEMBER, 31, 11, 12, 13);
+System.out.println(calendar2.getTime());
+```
+
+
