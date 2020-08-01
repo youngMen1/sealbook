@@ -493,3 +493,4 @@ System.out.println(LocalDate.now().query(CommonMistakesApplication::isFamilyBirt
 ```
 使用 Java 8 操作和计算日期时间虽然方便，但计算两个日期差时可能会踩坑：**Java 8 中有一个专门的类 Period 定义了日期间隔，通过 Period.between 得到了两个 LocalDate 的差，返回的是两个日期差几年零几月零几天。如果希望得知两个日期之间差几天，直接调用 Period 的 getDays() 方法得到的只是最后的“零几天”，而不是算总的间隔天数。**
 
+比如，计算 2019 年 12 月 12 日和 2019 年 10 月 1 日的日期间隔，很明显日期差是 2 个月零 11 天，但获取 getDays 方法得到的结果只是 11 天，而不是 72 天：
