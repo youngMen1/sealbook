@@ -200,4 +200,20 @@ https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
 
 如果把区域改为法国：
 
+```
+Locale.setDefault(Locale.FRANCE);
+```
+
+那么 week yeay 就还是 2019 年，因为一周的第一天从周一开始算，2020 年的第一周是 2019 年 12 月 30 日周一开始，29 日还是属于去年：
+
+```
+defaultLocale:fr_FR
+格式化: 2019-12-29
+weekYear:2019
+firstDayOfWeek:2
+minimalDaysInFirstWeek:4
+```
+
+
+
 
