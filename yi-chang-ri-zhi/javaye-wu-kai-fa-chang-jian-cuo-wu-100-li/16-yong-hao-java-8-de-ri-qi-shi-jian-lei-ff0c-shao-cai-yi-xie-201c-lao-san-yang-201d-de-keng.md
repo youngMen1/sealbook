@@ -292,6 +292,6 @@ format 方法也类似，你可以自己分析。因此只能在同一个线程�
 
 private static ThreadLocal<SimpleDateFormat> threadSafeSimpleDateFormat = ThreadLocal.withInitial(() -> new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
 ```
-
+第二个坑是，**当需要解析的字符串和格式不匹配的时候，SimpleDateFormat 表现得很宽容，还是能得到结果。**比如，我们期望使用 yyyyMM 来解析 20160901 字符串：
 
 
