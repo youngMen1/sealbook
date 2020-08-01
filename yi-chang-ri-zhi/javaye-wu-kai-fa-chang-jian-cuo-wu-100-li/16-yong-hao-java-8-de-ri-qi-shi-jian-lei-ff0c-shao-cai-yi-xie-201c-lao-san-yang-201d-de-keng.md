@@ -126,3 +126,5 @@ System.out.println(new SimpleDateFormat("[yyyy-MM-dd HH:mm:ss Z]").format(date))
 
 所以，**要正确处理时区，在于存进去和读出来两方面：**存的时候，需要使用正确的当前时区来保存，这样 UTC 时间才会正确；读的时候，也只有正确设置本地时区，才能把 UTC 时间转换为正确的当地时间。
 
+Java 8 推出了新的时间日期类 ZoneId、ZoneOffset、LocalDateTime、ZonedDateTime 和 DateTimeFormatter，处理时区问题更简单清晰。我们再用这些类配合一个完整的例子，来理解一下时间的解析和展示：
+
