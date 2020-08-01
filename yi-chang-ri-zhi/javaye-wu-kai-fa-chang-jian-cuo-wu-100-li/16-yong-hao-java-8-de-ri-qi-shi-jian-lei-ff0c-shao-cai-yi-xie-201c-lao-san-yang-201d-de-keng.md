@@ -466,9 +466,7 @@ System.out.println(LocalDate.now().with(temporal -> temporal.plus(ThreadLocalRan
 ```
 得到：
 
-
 ```
-
 2020-03-15
 ```
 
