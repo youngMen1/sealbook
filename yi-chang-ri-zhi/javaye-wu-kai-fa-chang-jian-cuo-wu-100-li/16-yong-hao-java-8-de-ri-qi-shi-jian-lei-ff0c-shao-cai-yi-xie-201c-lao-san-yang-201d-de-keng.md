@@ -87,5 +87,5 @@ Date date2 = inputFormat.parse(stringDate);
 System.out.println(date2 + ":" + date2.getTime());
 ```
 
-
+可以看到，把 2020-01-02 22:00:00 这样的时间表示，对于当前的上海时区和纽约时区，转化为 UTC 时间戳是不同的时间：
 
