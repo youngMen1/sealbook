@@ -247,3 +247,5 @@ SimpleDateFormat 继承了 DateFormat，DateFormat 有一个字段 Calendar；
 
 SimpleDateFormat 的 parse 方法调用 CalendarBuilder 的 establish 方法，来构建 Calendar；
 
+establish 方法内部先清空 Calendar 再构建 Calendar，整个操作没有加锁。
+
