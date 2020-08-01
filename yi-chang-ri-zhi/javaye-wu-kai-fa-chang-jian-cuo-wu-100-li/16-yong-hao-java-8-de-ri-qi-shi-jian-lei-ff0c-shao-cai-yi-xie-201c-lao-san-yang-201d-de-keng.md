@@ -542,6 +542,13 @@ Date out = Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant());
 很多同学说使用新 API 很麻烦，还需要考虑时区的概念，一点都不简洁。但我通过这篇文章要和你说的是，并不是因为 API 需要设计得这么繁琐，而是 UTC 时间要变为当地时间，必须考虑时区。
 今天用到的代码，我都放在了 GitHub 上，你可以点击这个链接查看。
 
+
+```
+https://github.com/JosephZhu1983/java-common-mistakes
+```
+
+
+
 ## 思考与讨论
 1.我今天多次强调 Date 是一个时间戳，是 UTC 时间、没有时区概念，为什么调用其 toString 方法会输出类似 CST 之类的时区字样呢？
 2.日期时间数据始终要保存到数据库中，MySQL 中有两种数据类型 datetime 和 timestamp 可以用来保存日期时间。你能说说它们的区别吗，它们是否包含时区信息呢？
