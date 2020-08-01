@@ -243,3 +243,5 @@ threadPool.awaitTermination(1, TimeUnit.HOURS);
 
 SimpleDateFormat 的作用是定义解析和格式化日期时间的模式。这，看起来这是一次性的工作，应该复用，但它的解析和格式化操作是非线程安全的。我们来分析一下相关源码：
 
+SimpleDateFormat 继承了 DateFormat，DateFormat 有一个字段 Calendar；
+
