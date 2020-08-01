@@ -424,5 +424,11 @@ System.out.println(LocalDate.now()
 ```
 第二，还可以通过 with 方法进行快捷时间调节，比如：
 
-使用 TemporalAdjusters.firstDayOfMonth 得到当前月的第一天；
+* 使用 TemporalAdjusters.firstDayOfMonth 得到当前月的第一天；
+
+* 使用 TemporalAdjusters.firstDayOfYear() 得到当前年的第一天；
+
+* 使用 TemporalAdjusters.previous(DayOfWeek.SATURDAY) 得到上一个周六；
+
+* 使用 TemporalAdjusters.lastInMonth(DayOfWeek.FRIDAY) 得到本月最后一个周五。
 
