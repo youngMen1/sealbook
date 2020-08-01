@@ -355,4 +355,4 @@ Exception in thread "main" java.time.format.DateTimeParseException: Text '201609
   at org.geekbang.time.commonmistakes.datetime.dateformat.CommonMistakesApplication.better(CommonMistakesApplication.java:80)
   at org.geekbang.time.commonmistakes.datetime.dateformat.CommonMistakesApplication.main(CommonMistakesApplication.java:41)
 ```
-
+到这里我们可以发现，使用 Java 8 中的 DateTimeFormatter 进行日期时间的格式化和解析，显然更让人放心。那么，对于日期时间的运算，使用 Java 8 中的日期时间类会不会更简单呢？
