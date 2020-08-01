@@ -150,5 +150,5 @@ System.out.println(timeZoneSH.getId() + outputFormat.withZone(timeZoneSH).format
 System.out.println(timeZoneNY.getId() + outputFormat.withZone(timeZoneNY).format(date));
 System.out.println(timeZoneJST.getId() + outputFormat.withZone(timeZoneJST).format(date));
 ```
-
+可以看到，相同的时区，经过解析存进去和读出来的时间表示是一样的（比如最后一行）；而对于不同的时区，比如上海和纽约，最后输出的本地时间不同。+9 小时时区的晚上 10 点，对于上海是 +8 小时，所以上海本地时间是晚上 9 点；而对于纽约是 -5 小时，差 14 小时，所以是早上 8 点：
 
