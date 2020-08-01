@@ -190,7 +190,7 @@ weekYear:2020
 firstDayOfWeek:1
 minimalDaysInFirstWeek:1
 ```
-
+出现这个问题的原因在于，这位同学混淆了 SimpleDateFormat 的各种格式化模式。JDK 的文档中有说明：小写 y 是年，而大写 Y 是 week year，也就是所在的周属于哪一年。
 
 
 
