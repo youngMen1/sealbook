@@ -215,5 +215,5 @@ minimalDaysInFirstWeek:4
 ```
 这个案例告诉我们，没有特殊需求，针对年份的日期格式化，应该一律使用 “y” 而非 “Y”。
 
-
+除了格式化表达式容易踩坑外，SimpleDateFormat 还有两个著名的坑。
 
