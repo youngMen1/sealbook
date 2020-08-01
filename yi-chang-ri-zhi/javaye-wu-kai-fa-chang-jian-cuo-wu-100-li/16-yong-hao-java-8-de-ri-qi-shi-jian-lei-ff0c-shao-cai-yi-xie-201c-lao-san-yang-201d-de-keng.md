@@ -304,3 +304,10 @@ System.out.println("result:" + dateFormat.parse(dateString));
 
 居然输出了 2091 年 1 月 1 日，原因是把 0901 当成了月份，相当于 75 年：
 
+
+```
+
+result:Mon Jan 01 00:00:00 CST 2091
+```
+
+
