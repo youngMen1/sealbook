@@ -386,6 +386,14 @@ Date nextMonth = new Date(today.getTime() + 30L * 1000 * 60 * 60 * 24);
 System.out.println(today);
 System.out.println(nextMonth);
 ```
+这样就可以得到正确结果了：
+
+
+```
+
+Sat Feb 01 14:17:41 CST 2020
+Mon Mar 02 14:17:41 CST 2020
+```
 
 
 
