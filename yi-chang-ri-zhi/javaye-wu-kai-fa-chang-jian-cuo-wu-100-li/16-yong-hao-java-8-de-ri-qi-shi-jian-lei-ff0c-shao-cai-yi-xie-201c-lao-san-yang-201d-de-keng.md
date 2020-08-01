@@ -183,5 +183,15 @@ System.out.println("minimalDaysInFirstWeek:" + calendar.getMinimalDaysInFirstWee
 ```
 得到的输出却是 2020 年 12 月 29 日：
 
+```
+defaultLocale:zh_CN
+格式化: 2020-12-29
+weekYear:2020
+firstDayOfWeek:1
+minimalDaysInFirstWeek:1
+```
+
+
+
 
 
