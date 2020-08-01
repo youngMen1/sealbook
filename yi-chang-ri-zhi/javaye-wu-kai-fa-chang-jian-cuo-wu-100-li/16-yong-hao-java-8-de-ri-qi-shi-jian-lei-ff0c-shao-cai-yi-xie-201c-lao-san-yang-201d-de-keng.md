@@ -161,4 +161,6 @@ America/New_York2020-01-02 08:00:00 -0500
 
 到这里，我来小结下。要正确处理国际化时间问题，我推荐使用 Java 8 的日期时间类，即使用 ZonedDateTime 保存时间，然后使用设置了 ZoneId 的 DateTimeFormatter 配合 ZonedDateTime 进行时间格式化得到本地时间表示。这样的划分十分清晰、细化，也不容易出错。
 
+接下来，我们继续看看对于日期时间的格式化和解析，使用遗留的 SimpleDateFormat，会遇到哪些问题。
+
 
