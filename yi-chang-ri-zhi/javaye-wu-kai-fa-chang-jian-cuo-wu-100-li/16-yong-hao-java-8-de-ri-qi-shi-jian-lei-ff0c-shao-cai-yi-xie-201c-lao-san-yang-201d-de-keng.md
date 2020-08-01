@@ -219,3 +219,25 @@ minimalDaysInFirstWeek:4
 
 第一个坑是，**定义的 static 的 SimpleDateFormat 可能会出现线程安全问题。**比如像这样，使用一个 100 线程的线程池，循环 20 次把时间格式化任务提交到线程池处理，每个任务中又循环 10 次解析 2020-01-01 11:12:13 这样一个时间表示：
 
+
+```
+
+ExecutorService threadPool = Executors.newFixedThreadPool(100);
+for (int i = 0; i < 20; i++) {
+    //提交20个并发解析时间的任务到线程池，模拟并发环境
+    threadPool.execute(() -> {
+        for (int j = 0; j < 10; j++) {
+            try {
+                System.out.println(simpleDateFormat.parse("2020-01-01 11:12:13"));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+    });
+}
+threadPool.shutdown();
+threadPool.awaitTermination(1, TimeUnit.HOURS);
+```
+
+
+
