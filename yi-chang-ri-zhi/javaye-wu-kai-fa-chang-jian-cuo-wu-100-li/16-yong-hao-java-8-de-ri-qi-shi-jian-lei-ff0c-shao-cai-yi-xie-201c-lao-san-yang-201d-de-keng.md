@@ -359,3 +359,5 @@ Exception in thread "main" java.time.format.DateTimeParseException: Text '201609
 到这里我们可以发现，使用 Java 8 中的 DateTimeFormatter 进行日期时间的格式化和解析，显然更让人放心。那么，对于日期时间的运算，使用 Java 8 中的日期时间类会不会更简单呢？
 
 ## 日期时间的计算
+
+关于日期时间的计算，我先和你说一个常踩的坑。有些同学喜欢直接使用时间戳进行时间计算，比如希望得到当前时间之后 30 天的时间，会这么写代码：直接把 new Date().getTime 方法得到的时间戳加 30 天对应的毫秒数，也就是 30 天 *1000 毫秒 *3600 秒 *24 小时：
