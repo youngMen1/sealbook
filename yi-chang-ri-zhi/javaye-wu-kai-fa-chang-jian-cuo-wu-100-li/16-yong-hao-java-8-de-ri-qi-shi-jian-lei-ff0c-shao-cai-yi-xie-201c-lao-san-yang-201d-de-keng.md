@@ -469,5 +469,5 @@ System.out.println(LocalDate.now().with(temporal -> temporal.plus(ThreadLocalRan
 ```
 2020-03-15
 ```
-
+除了计算外，还可以判断日期是否符合某个条件。比如，自定义函数，判断指定日期是否是家庭成员的生日：
 
