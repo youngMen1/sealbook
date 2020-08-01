@@ -397,3 +397,13 @@ Mon Mar 02 14:17:41 CST 2020
 不难发现，手动在时间戳上进行计算操作的方式非常容易出错。对于 Java 8 之前的代码，我更建议使用 Calendar：
 
 
+
+```
+
+Calendar c = Calendar.getInstance();
+c.setTime(new Date());
+c.add(Calendar.DAY_OF_MONTH, 30);
+System.out.println(c.getTime());
+```
+
+
