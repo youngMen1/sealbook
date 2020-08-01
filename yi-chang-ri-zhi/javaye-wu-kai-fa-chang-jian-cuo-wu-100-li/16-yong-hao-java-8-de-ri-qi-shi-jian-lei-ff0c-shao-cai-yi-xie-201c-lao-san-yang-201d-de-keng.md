@@ -304,16 +304,13 @@ System.out.println("result:" + dateFormat.parse(dateString));
 
 居然输出了 2091 年 1 月 1 日，原因是把 0901 当成了月份，相当于 75 年：
 
-
 ```
-
 result:Mon Jan 01 00:00:00 CST 2091
 ```
+
 对于 SimpleDateFormat 的这三个坑，我们使用 Java 8 中的 DateTimeFormatter 就可以避过去。首先，使用 DateTimeFormatterBuilder 来定义格式化字符串，不用去记忆使用大写的 Y 还是小写的 Y，大写的 M 还是小写的 m：
 
-
 ```
-
 private static DateTimeFormatter dateTimeFormatter = new DateTimeFormatterBuilder()
         .appendValue(ChronoField.YEAR) //年
         .appendLiteral("/")
