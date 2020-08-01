@@ -327,5 +327,5 @@ private static DateTimeFormatter dateTimeFormatter = new DateTimeFormatterBuilde
         .appendValue(ChronoField.MILLI_OF_SECOND) //毫秒
         .toFormatter();
 ```
-
+其次，DateTimeFormatter 是线程安全的，可以定义为 static 使用；最后，DateTimeFormatter 的解析比较严格，需要解析的字符串和格式不匹配时，会直接报错，而不会把 0901 解析为月份。我们测试一下：
 
