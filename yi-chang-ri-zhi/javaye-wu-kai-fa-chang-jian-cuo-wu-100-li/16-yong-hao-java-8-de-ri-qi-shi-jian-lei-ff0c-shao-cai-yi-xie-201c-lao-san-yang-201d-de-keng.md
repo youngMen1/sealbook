@@ -460,3 +460,16 @@ System.out.println(LocalDate.now().with(TemporalAdjusters.lastInMonth(DayOfWeek.
 2020-02-28
 ```
 第三，可以直接使用 lambda 表达式进行自定义的时间调整。比如，为当前时间增加 100 天以内的随机天数：
+
+```
+System.out.println(LocalDate.now().with(temporal -> temporal.plus(ThreadLocalRandom.current().nextInt(100), ChronoUnit.DAYS)));
+```
+得到：
+
+
+```
+
+2020-03-15
+```
+
+
