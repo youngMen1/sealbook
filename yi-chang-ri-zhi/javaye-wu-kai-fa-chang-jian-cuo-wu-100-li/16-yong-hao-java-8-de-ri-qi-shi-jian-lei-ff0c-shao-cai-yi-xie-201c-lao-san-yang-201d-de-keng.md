@@ -133,3 +133,25 @@ Java 8 推出了新的时间日期类 ZoneId、ZoneOffset、LocalDateTime、Zone
 * 对于日期时间表示，LocalDateTime 不带有时区属性，所以命名为本地时区的日期时间；而 ZonedDateTime=LocalDateTime+ZoneId，具有时区属性。因此，LocalDateTime 只能认为是一个时间表示，ZonedDateTime 才是一个有效的时间。在这里我们把 2020-01-02 22:00:00 这个时间表示，使用东京时区来解析得到一个 ZonedDateTime。
 
 * 使用 DateTimeFormatter 格式化时间的时候，可以直接通过 withZone 方法直接设置格式化使用的时区。最后，分别以上海、纽约和东京三个时区来格式化这个时间输出：
+
+
+
+```
+
+//一个时间表示
+String stringDate = "2020-01-02 22:00:00";
+//初始化三个时区
+ZoneId timeZoneSH = ZoneId.of("Asia/Shanghai");
+ZoneId timeZoneNY = ZoneId.of("America/New_York");
+ZoneId timeZoneJST = ZoneOffset.ofHours(9);
+//格式化器
+DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+ZonedDateTime date = ZonedDateTime.of(LocalDateTime.parse(stringDate, dateTimeFormatter), timeZoneJST);
+//使用DateTimeFormatter格式化时间，可以通过withZone方法直接设置格式化使用的时区
+DateTimeFormatter outputFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss Z");
+System.out.println(timeZoneSH.getId() + outputFormat.withZone(timeZoneSH).format(date));
+System.out.println(timeZoneNY.getId() + outputFormat.withZone(timeZoneNY).format(date));
+System.out.println(timeZoneJST.getId() + outputFormat.withZone(timeZoneJST).format(date));
+```
+
+
