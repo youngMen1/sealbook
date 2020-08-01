@@ -44,5 +44,5 @@ Calendar calendar2 = Calendar.getInstance(TimeZone.getTimeZone("America/New_York
 calendar2.set(2019, Calendar.DECEMBER, 31, 11, 12, 13);
 System.out.println(calendar2.getTime());
 ```
-
+输出显示了两个时间，说明时区产生了作用。但，我们更习惯年 / 月 / 日 时: 分: 秒这样的日期时间格式，对现在输出的日期格式还不满意：
 
