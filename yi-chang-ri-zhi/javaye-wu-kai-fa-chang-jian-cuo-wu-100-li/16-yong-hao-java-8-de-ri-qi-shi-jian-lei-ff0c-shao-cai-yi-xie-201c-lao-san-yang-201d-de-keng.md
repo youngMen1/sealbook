@@ -134,10 +134,7 @@ Java 8 推出了新的时间日期类 ZoneId、ZoneOffset、LocalDateTime、Zone
 
 * 使用 DateTimeFormatter 格式化时间的时候，可以直接通过 withZone 方法直接设置格式化使用的时区。最后，分别以上海、纽约和东京三个时区来格式化这个时间输出：
 
-
-
 ```
-
 //一个时间表示
 String stringDate = "2020-01-02 22:00:00";
 //初始化三个时区
