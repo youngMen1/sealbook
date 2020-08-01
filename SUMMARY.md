@@ -18,7 +18,7 @@
   * [异常日记](yi-chang-ri-zhi/cai-keng-ri-ji.md)
   * [SpringBoot启动异常](java/cuo-wu.md)
   * [Java业务开发常见错误100例](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li.md)
-    * 16 \| 用好Java 8的日期时间类，少踩一些“老三样”的坑
+    * [16 \| 用好Java 8的日期时间类，少踩一些“老三样”的坑](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/16-yong-hao-java-8-de-ri-qi-shi-jian-lei-ff0c-shao-cai-yi-xie-201c-lao-san-yang-201d-de-keng.md)
 * [IDEA](java.md)
   * [使用帮助](java/shi-yong-bang-zhu.md)
     * [IDEA解决提交冲突的问题](java/shi-yong-bang-zhu/ideajie-jue-ti-jiao-chong-tu-de-wen-ti.md)
