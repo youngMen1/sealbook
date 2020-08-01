@@ -469,5 +469,22 @@ System.out.println(LocalDate.now().with(temporal -> temporal.plus(ThreadLocalRan
 ```
 2020-03-15
 ```
+
 除了计算外，还可以判断日期是否符合某个条件。比如，自定义函数，判断指定日期是否是家庭成员的生日：
+
+```
+public static Boolean isFamilyBirthday(TemporalAccessor date) {
+    int month = date.get(MONTH_OF_YEAR);
+    int day = date.get(DAY_OF_MONTH);
+    if (month == Month.FEBRUARY.getValue() && day == 17)
+        return Boolean.TRUE;
+    if (month == Month.SEPTEMBER.getValue() && day == 21)
+        return Boolean.TRUE;
+    if (month == Month.MAY.getValue() && day == 22)
+        return Boolean.TRUE;
+    return Boolean.FALSE;
+}
+```
+然后，使用 query 方法查询是否匹配条件：
+
 
