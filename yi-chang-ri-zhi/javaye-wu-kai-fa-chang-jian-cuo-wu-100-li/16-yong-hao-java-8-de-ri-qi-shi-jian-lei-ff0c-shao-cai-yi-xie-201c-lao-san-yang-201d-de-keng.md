@@ -251,3 +251,38 @@ establish 方法内部先清空 Calendar 再构建 Calendar，整个操作没有
 
 显然，如果多线程池调用 parse 方法，也就意味着多线程在并发操作一个 Calendar，可能会产生一个线程还没来得及处理 Calendar 就被另一个线程清空了的情况：
 
+
+```
+
+public abstract class DateFormat extends Format {
+    protected Calendar calendar;
+}
+public class SimpleDateFormat extends DateFormat {
+    @Override
+    public Date parse(String text, ParsePosition pos)
+    {
+        CalendarBuilder calb = new CalendarBuilder();
+    parsedDate = calb.establish(calendar).getTime();
+        return parsedDate;
+    }
+}
+
+class CalendarBuilder {
+  Calendar establish(Calendar cal) {
+         ...
+        cal.clear();//清空
+        
+        for (int stamp = MINIMUM_USER_STAMP; stamp < nextStamp; stamp++) {
+            for (int index = 0; index <= maxFieldIndex; index++) {
+                if (field[index] == stamp) {
+                    cal.set(index, field[MAX_FIELD + index]);//构建
+                    break;
+                }
+            }
+        }
+        return cal;
+    }
+}
+```
+
+
