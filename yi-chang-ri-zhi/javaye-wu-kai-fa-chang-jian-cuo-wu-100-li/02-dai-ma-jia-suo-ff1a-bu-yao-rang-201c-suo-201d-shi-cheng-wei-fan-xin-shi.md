@@ -94,11 +94,10 @@ class Data {
     }
 }
 ```
+
 写一段代码测试下：
 
-
 ```
-
 @GetMapping("wrong")
 public int wrong(@RequestParam(value = "count", defaultValue = "1000000") int count) {
     Data.reset();
