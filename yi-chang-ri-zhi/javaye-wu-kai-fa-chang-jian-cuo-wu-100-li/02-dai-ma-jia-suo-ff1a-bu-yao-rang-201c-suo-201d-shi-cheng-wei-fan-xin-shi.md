@@ -77,7 +77,7 @@ public synchronized void compare()
 
 我们知道**静态字段属于类，类级别的锁才能保护；而非静态字段属于类实例，实例级别的锁就可以保护。**
 
-
+先看看这段代码有什么问题：在类 Data 中定义了一个静态的 int 字段 counter 和一个非静态的 wrong 方法，实现 counter 字段的累加操作。
 
 
 
