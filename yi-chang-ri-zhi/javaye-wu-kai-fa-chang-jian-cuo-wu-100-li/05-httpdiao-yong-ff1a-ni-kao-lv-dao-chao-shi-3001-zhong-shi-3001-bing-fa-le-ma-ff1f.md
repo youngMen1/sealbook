@@ -394,6 +394,52 @@ public class RibbonRetryIssueClientController {
 ```
 客户端接口被调用的日志只输出了一次，而服务端的日志输出了两次。虽然 Feign 的默认读取超时时间是 1 秒，但客户端 2 秒后才出现超时错误。**显然，这说明客户端自作主张进行了一次重试，导致短信重复发送。**
 
+翻看 Ribbon 的源码可以发现，MaxAutoRetriesNextServer 参数默认为 1，也就是 Get 请求在某个服务端节点出现问题（比如读取超时）时，Ribbon 会自动重试一次：
+
+
+
+```
+
+// DefaultClientConfigImpl
+public static final int DEFAULT_MAX_AUTO_RETRIES_NEXT_SERVER = 1;
+public static final int DEFAULT_MAX_AUTO_RETRIES = 0;
+
+// RibbonLoadBalancedRetryPolicy
+public boolean canRetry(LoadBalancedRetryContext context) {
+   HttpMethod method = context.getRequest().getMethod();
+   return HttpMethod.GET == method || lbContext.isOkToRetryOnAllOperations();
+}
+
+@Override
+public boolean canRetrySameServer(LoadBalancedRetryContext context) {
+   return sameServerCount < lbContext.getRetryHandler().getMaxRetriesOnSameServer()
+         && canRetry(context);
+}
+
+@Override
+public boolean canRetryNextServer(LoadBalancedRetryContext context) {
+   // this will be called after a failure occurs and we increment the counter
+   // so we check that the count is less than or equals to too make sure
+   // we try the next server the right number of times
+   return nextServerCount <= lbContext.getRetryHandler().getMaxRetriesOnNextServer()
+         && canRetry(context);
+}
+```
+
+解决办法有两个：
+
+* 一是，把发短信接口从 Get 改为 Post。其实，这里还有一个 API 设计问题，有状态的 API 接口不应该定义为 Get。根据 HTTP 协议的规范，Get 请求用于数据查询，而 Post 才是把数据提交到服务端用于修改或新增。选择 Get 还是 Post 的依据，应该是 API 的行为，而不是参数大小。**这里的一个误区是，Get 请求的参数包含在 Url QueryString 中，会受浏览器长度限制，所以一些同学会选择使用 JSON 以 Post 提交大参数，使用 Get 提交小参数。**
+
+
+* 二是，将 MaxAutoRetriesNextServer 参数配置为 0，禁用服务调用失败后在下一个服务端节点的自动重试。在配置文件中添加一行即可：
+
+
+```
+
+ribbon.MaxAutoRetriesNextServer=0
+```
+
+
 # 2.总结
 ## 2.1.思考题
 ## 2.2.高质量问题
