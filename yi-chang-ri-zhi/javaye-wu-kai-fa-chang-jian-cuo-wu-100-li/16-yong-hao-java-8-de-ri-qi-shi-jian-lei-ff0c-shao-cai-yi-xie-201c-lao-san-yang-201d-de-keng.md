@@ -569,6 +569,8 @@ By default, the first TIMESTAMP column has both DEFAULT CURRENT_TIMESTAMP and ON
 2. “explicit_defaults_for_timestamp”的值依旧是OFF，也有两种方法可以禁用
      	1> 用DEFAULT子句该该列指定一个默认值
      	2> 为该列指定NULL属性。
+     
+     
    在MySQL 5.6.5版本之前，Automatic Initialization and Updating只适用于TIMESTAMP，而且一张表中，最多允许一个TIMESTAMP字段采用该特性。从MySQL 5.6.5开始，Automatic Initialization and Updating同时适用于TIMESTAMP和DATETIME，且不限制数量。
 
 ## 高质量问题
