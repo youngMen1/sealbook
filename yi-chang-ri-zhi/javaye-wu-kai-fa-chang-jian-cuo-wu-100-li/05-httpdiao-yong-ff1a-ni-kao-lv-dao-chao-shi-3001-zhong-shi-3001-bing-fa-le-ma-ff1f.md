@@ -300,7 +300,7 @@ feign.client.config.default.readTimeout=3000
 feign.client.config.clientsdk.readTimeout=2000
 ribbon.ReadTimeout=4000
 ```
-
+## 你是否知道 Ribbon 会自动重试请求呢？
 
 
 
