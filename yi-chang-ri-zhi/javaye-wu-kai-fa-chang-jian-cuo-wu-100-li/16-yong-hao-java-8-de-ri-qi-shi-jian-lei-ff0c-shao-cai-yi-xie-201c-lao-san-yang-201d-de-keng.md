@@ -548,10 +548,115 @@ Date的toString\(\)方法处理的，同String中有BaseCalendar.Date date = nor
 
 因此其实是获取当前的默认时区的。
 
-  
 2.日期时间数据始终要保存到数据库中，MySQL 中有两种数据类型 datetime 和 timestamp 可以用来保存日期时间。你能说说它们的区别吗，它们是否包含时区信息呢？
 
 **回答：**
+
+从下面几个维度进行区分：
+
+  
+
+
+占用空间：datetime：8字节。timestamp 4字节
+
+  
+
+
+表示范围：datetime '1000-01-01 00:00:00.000000' to '9999-12-31 23:59:59.999999'
+
+  
+
+
+timestamp '1970-01-01 00:00:01.000000' to '2038-01-19 03:14:07.999999'
+
+  
+
+
+时区：timestamp 只占 4 个字节，而且是以utc的格式储存， 它会自动检索当前时区并进行转换。
+
+  
+
+
+datetime以 8 个字节储存，不会进行时区的检索.
+
+  
+
+
+也就是说，对于timestamp来说，如果储存时的时区和检索时的时区不一样，那么拿出来的数据也不一样。对于datetime来说，存什么拿到的就是什么。
+
+  
+
+
+更新：timestamp NOT NULL DEFAULT CURRENT\_TIMESTAMP ON UPDATE CURRENT\_TIMESTAMP；
+
+  
+
+
+这个特性是自动初始化和自动更新（Automatic Initialization and Updating）。
+
+  
+
+
+自动更新指的是如果修改了其它字段，则该字段的值将自动更新为当前系统时间。
+
+  
+
+
+它与“explicit\_defaults\_for\_timestamp”参数有关。
+
+  
+
+
+  
+
+
+By default, the first TIMESTAMP column has both DEFAULT CURRENT\_TIMESTAMP and ON UPDATE CURRENT\_TIMESTAMP if neither is specified explicitly。
+
+  
+
+
+很多时候，这并不是我们想要的，如何禁用呢？
+
+  
+
+
+1. 将“explicit\_defaults\_for\_timestamp”的值设置为ON。
+
+  
+
+
+2. “explicit\_defaults\_for\_timestamp”的值依旧是OFF，也有两种方法可以禁用
+
+  
+
+
+      1
+
+&gt;
+
+ 用DEFAULT子句该该列指定一个默认值
+
+  
+
+
+      2
+
+&gt;
+
+ 为该列指定NULL属性。
+
+  
+
+
+  
+
+
+  
+
+
+    在MySQL 5.6.5版本之前，Automatic Initialization and Updating只适用于TIMESTAMP，而且一张表中，最多允许一个TIMESTAMP字段采用该特性。从MySQL 5.6.5开始，Automatic Initialization and Updating同时适用于TIMESTAMP和DATETIME，且不限制数量。
+
+
 
 ## 高质量问题
 
