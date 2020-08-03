@@ -273,6 +273,25 @@ ribbon.ConnectTimeout=4000
 
 **结论五，同时配置 Feign 和 Ribbon 的超时，以 Feign 为准。**这有点反直觉，因为 Ribbon 更底层所以你会觉得后者的配置会生效，但其实不是这样的。
 
+在 LoadBalancerFeignClient 源码中可以看到，如果 Request.Options 不是默认值，就会创建一个 FeignOptionsClientConfig 代替原来 Ribbon 的 DefaultClientConfigImpl，导致 Ribbon 的配置被 Feign 覆盖：
+
+
+```
+
+IClientConfig getClientConfig(Request.Options options, String clientName) {
+   IClientConfig requestConfig;
+   if (options == DEFAULT_OPTIONS) {
+      requestConfig = this.clientFactory.getClientConfig(clientName);
+   }
+   else {
+      requestConfig = new FeignOptionsClientConfig(options);
+   }
+   return requestConfig;
+}
+```
+
+
+
 # 2.总结
 ## 2.1.思考题
 ## 2.2.高质量问题
