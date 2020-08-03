@@ -565,8 +565,10 @@ datetime以 8 个字节储存，不会进行时区的检索.
 
 By default, the first TIMESTAMP column has both DEFAULT CURRENT_TIMESTAMP and ON UPDATE CURRENT_TIMESTAMP if neither is specified explicitly。
 很多时候，这并不是我们想要的，如何禁用呢？
-
-
+1. 将“explicit_defaults_for_timestamp”的值设置为ON。
+2. “explicit_defaults_for_timestamp”的值依旧是OFF，也有两种方法可以禁用
+     	1> 用DEFAULT子句该该列指定一个默认值
+     	2> 为该列指定NULL属性。
 
 
 ## 高质量问题
