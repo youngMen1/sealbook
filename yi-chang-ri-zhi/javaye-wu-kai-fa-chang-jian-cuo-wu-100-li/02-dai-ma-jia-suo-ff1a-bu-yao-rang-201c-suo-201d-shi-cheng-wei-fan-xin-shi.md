@@ -55,7 +55,7 @@ new Thread(() -> interesting.compare()).start();
 
 public synchronized void add()
 ```
-
+但，加锁后问题并没有解决。
 
 
 # 2.总结
