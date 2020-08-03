@@ -517,7 +517,7 @@ P2M11D
 
 如果有条件的话，我还是建议全面改为使用 Java 8 的日期时间类型。我把 Java 8 前后的日期时间类型，汇总到了一张思维导图上，图中箭头代表的是新老类型在概念上等价的类型：
 
-225d00087f500dbdf5e666e58ead1433.png
+![](/static/image/225d00087f500dbdf5e666e58ead1433.png)
 
 这里有个误区是，认为 java.util.Date 类似于新 API 中的 LocalDateTime。其实不是，虽然它们都没有时区概念，但 java.util.Date 类是因为使用 UTC 表示，所以没有时区概念，其本质是时间戳；而 LocalDateTime，严格上可以认为是一个日期时间的表示，而不是一个时间点。
 
