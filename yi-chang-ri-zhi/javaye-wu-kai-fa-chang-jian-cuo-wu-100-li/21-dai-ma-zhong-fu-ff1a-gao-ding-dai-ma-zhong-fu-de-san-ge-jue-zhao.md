@@ -284,6 +284,26 @@ public class VipUserCart extends NormalUserCart {
 ```
 内部用户购物车 InternalUserCart 是最简单的，直接设置 0 运费和 0 折扣即可：
 
+
+
+```
+
+@Service(value = "InternalUserCart")
+public class InternalUserCart extends AbstractCart {
+    @Override
+    protected void processCouponPrice(long userId, Item item) {
+        item.setCouponPrice(BigDecimal.ZERO);
+    }
+
+    @Override
+    protected void processDeliveryPrice(long userId, Item item) {
+        item.setDeliveryPrice(BigDecimal.ZERO);
+    }
+}
+```
+
+
+
 # 2.总结
 
 ## 2.1.思考题
