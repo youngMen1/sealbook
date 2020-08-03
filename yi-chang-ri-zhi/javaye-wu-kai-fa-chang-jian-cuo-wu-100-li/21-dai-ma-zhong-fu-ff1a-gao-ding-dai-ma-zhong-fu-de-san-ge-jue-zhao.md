@@ -282,7 +282,7 @@ public class VipUserCart extends NormalUserCart {
     }
 }
 ```
-
+内部用户购物车 InternalUserCart 是最简单的，直接设置 0 运费和 0 折扣即可：
 
 # 2.总结
 
