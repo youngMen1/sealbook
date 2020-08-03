@@ -675,3 +675,16 @@ HTTP请求，说到底，还是网络调用。某个老师曾说过，网络，�
 
 7.老师是怎么理解上下游服务的，我一般将被调用方称为上游服务，查资料一般说两种叫法都是正确的，理解方式不同。
 **回复:** 我的理解，上游服务对于当前服务是调用者，下游服务对于当前服务是被调用者
+
+8.老师我有点疑惑，为何很多jdk源码,比如httpclient里边的方法参数为啥大多数都要声明为final ？这样做又什么好处吗？
+
+```
+private E getPoolEntryBlocking(
+final T route, final Object state,
+final long timeout, final TimeUnit tunit,
+final Future<E> future) throws IOException, InterruptedException, TimeoutException {.....}
+```
+
+从连接池中取连接
+
+**回复:** 为了防止参数在方法内重新赋值，或者说不小心被重新赋值，比如没有加final的时候希望给字段赋值可能误改了参数没发现，加了final后重新赋值会出现编译错误，那么就提醒我们应该加上this。。。。
