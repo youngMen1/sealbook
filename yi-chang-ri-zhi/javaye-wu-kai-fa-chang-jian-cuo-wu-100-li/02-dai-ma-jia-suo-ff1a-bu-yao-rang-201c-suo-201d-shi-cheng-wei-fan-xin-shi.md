@@ -115,6 +115,8 @@ public int wrong(@RequestParam(value = "count", defaultValue = "1000000") int co
 
 在非静态的 wrong 方法上加锁，只能确保多个线程无法执行同一个实例的 wrong 方法，却不能保证不会执行不同实例的 wrong 方法。而静态的 counter 在多个实例中共享，所以必然会出现线程安全问题。
 
+理清思路后，修正方法就很清晰了：同样在类中定义一个 Object 类型的静态字段，在操作 counter 之前对这个字段加锁。
+
 
 # 2.总结
 ## 2.1.高质量问题
