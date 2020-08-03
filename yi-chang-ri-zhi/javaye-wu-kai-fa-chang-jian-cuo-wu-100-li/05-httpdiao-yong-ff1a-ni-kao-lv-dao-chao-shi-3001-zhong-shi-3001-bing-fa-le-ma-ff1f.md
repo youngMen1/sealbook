@@ -438,7 +438,9 @@ public boolean canRetryNextServer(LoadBalancedRetryContext context) {
 
 ribbon.MaxAutoRetriesNextServer=0
 ```
+看到这里，你觉得问题出在用户服务还是短信服务呢？
 
+在我看来，双方都有问题。就像之前说的，**Get 请求应该是无状态或者幂等的**，短信接口可以设计为支持幂等调用的；而用户服务的开发同学，如果对 Ribbon 的重试机制有所了解的话，或许就能在排查问题上少走些弯路。
 
 # 2.总结
 ## 2.1.思考题
