@@ -335,7 +335,64 @@ public interface SmsClient {
     void sendSmsWrong(@RequestParam("mobile") String mobile, @RequestParam("message") String message);
 }
 ```
+Feign 内部有一个 Ribbon 组件负责客户端负载均衡，通过配置文件设置其调用的服务端为两个节点：
 
+
+
+```
+
+SmsClient.ribbon.listOfServers=localhost:45679,localhost:45678
+```
+
+写一个客户端接口，通过 Feign 调用服务端：
+
+
+
+```
+
+@RestController
+@RequestMapping("ribbonretryissueclient")
+@Slf4j
+public class RibbonRetryIssueClientController {
+    @Autowired
+    private SmsClient smsClient;
+
+    @GetMapping("wrong")
+    public String wrong() {
+        log.info("client is called");
+        try{
+            //通过Feign调用发送短信接口
+            smsClient.sendSmsWrong("13600000000", UUID.randomUUID().toString());
+        } catch (Exception ex) {
+            //捕获可能出现的网络错误
+            log.error("send sms failed : {}", ex.getMessage());
+        }
+        return "done";
+    }
+}
+```
+
+在 45678 和 45679 两个端口上分别启动服务端，然后访问 45678 的客户端接口进行测试。因为客户端和服务端控制器在一个应用中，所以 45678 同时扮演了客户端和服务端的角色。
+
+在 45678 日志中可以看到，29 秒时客户端收到请求开始调用服务端接口发短信，同时服务端收到了请求，2 秒后（注意对比第一条日志和第三条日志）客户端输出了读取超时的错误信息：
+
+
+
+```
+
+[12:49:29.020] [http-nio-45678-exec-4] [INFO ] [c.d.RibbonRetryIssueClientController:23  ] - client is called
+[12:49:29.026] [http-nio-45678-exec-5] [INFO ] [c.d.RibbonRetryIssueServerController:16  ] - http://localhost:45678/ribbonretryissueserver/sms is called, 13600000000=>a2aa1b32-a044-40e9-8950-7f0189582418
+[12:49:31.029] [http-nio-45678-exec-4] [ERROR] [c.d.RibbonRetryIssueClientController:27  ] - send sms failed : Read timed out executing GET http://SmsClient/ribbonretryissueserver/sms?mobile=13600000000&message=a2aa1b32-a044-40e9-8950-7f0189582418
+```
+而在另一个服务端 45679 的日志中还可以看到一条请求，30 秒时收到请求，也就是客户端接口调用后的 1 秒：
+
+
+
+```
+
+[12:49:30.029] [http-nio-45679-exec-2] [INFO ] [c.d.RibbonRetryIssueServerController:16  ] - http://localhost:45679/ribbonretryissueserver/sms is called, 13600000000=>a2aa1b32-a044-40e9-8950-7f0189582418
+```
+客户端接口被调用的日志只输出了一次，而服务端的日志输出了两次。虽然 Feign 的默认读取超时时间是 1 秒，但客户端 2 秒后才出现超时错误。**显然，这说明客户端自作主张进行了一次重试，导致短信重复发送。**
 
 # 2.总结
 ## 2.1.思考题
