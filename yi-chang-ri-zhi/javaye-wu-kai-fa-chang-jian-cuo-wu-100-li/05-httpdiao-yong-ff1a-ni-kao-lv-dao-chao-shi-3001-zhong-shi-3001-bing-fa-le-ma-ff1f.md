@@ -289,6 +289,18 @@ IClientConfig getClientConfig(Request.Options options, String clientName) {
    return requestConfig;
 }
 ```
+但如果这么配置最终生效的还是 Ribbon 的超时（4 秒），这容易让人产生 Ribbon 覆盖了 Feign 的错觉，其实这还是因为坑二所致，单独配置 Feign 的读取超时并不能生效：
+
+
+
+```
+
+clientsdk.ribbon.listOfServers=localhost:45678
+feign.client.config.default.readTimeout=3000
+feign.client.config.clientsdk.readTimeout=2000
+ribbon.ReadTimeout=4000
+```
+
 
 
 
