@@ -551,16 +551,29 @@ https://github.com/JosephZhu1983/java-common-mistakes
 
 **回答：**TIMESTAMP保存的时候根据当前时区转换为UTC，查询的时候再根据当前时区从UTC转回来，而DATETIME就是一个死的字符串时间（仅仅对MySQL本身而言）表示。有关mysql时间类型可以详细看一下这个ppt
 
-  
-
-
-http://cdn.oreillystatic.com/en/assets/1/event/36/Time%20Zones%20and%20MySQL%20Presentation.pdf
-
-  
-
-
-  
-
+[http://cdn.oreillystatic.com/en/assets/1/event/36/Time Zones and MySQL Presentation.pdf](http://cdn.oreillystatic.com/en/assets/1/event/36/Time Zones and MySQL Presentation.pdf)
 
 如果你的项目有国际化需求，推荐使用时间戳，并且需要确保你的应用服务器和数据库服务器设置了正确的匹配当地时区的时区配置（其实，即便你的项目没有国际化需求，设置正确的需求，至少是应用服务器和数据库服务器设置一致的时区，也是需要的）
+
+2.对于时间，我个人的理解和目前的使用经验是——能用时间戳就用时间戳。
+
+  
+
+
+时间戳有几个优势：
+
+  
+
+
+1，便于比较和排序，无论数据库还是后台业务中都是如此。
+
+  
+
+
+2，也比较便于计算，虽然文中提到了Long的问题，但是，我认为L的问题的根本在于Long类型的理解，不是时间戳这个业务的问题。对Long的基础比较好了之后，也就足以应对计算中的问题了。
+
+  
+
+
+3，多端统一，现在提供给前端的很多服务都采用直接转换好年月日的字符串了，但是有时候，前端需要对时间进行比较的时候还是需要额外转化，会很麻烦。而且不利于格式化。时间戳的话就避免了这个问题，自己进行计算，自己格式化。前端自己随便玩。
 
