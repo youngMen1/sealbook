@@ -33,6 +33,75 @@ Spring Cloud 是 Java 微服务架构的代表性框架。如果使用 Spring Cl
 
 
 
+```
+
+@RestController
+@RequestMapping("clientreadtimeout")
+@Slf4j
+public class ClientReadTimeoutController {
+    private String getResponse(String url, int connectTimeout, int readTimeout) throws IOException {
+        return Request.Get("http://localhost:45678/clientreadtimeout" + url)
+                .connectTimeout(connectTimeout)
+                .socketTimeout(readTimeout)
+                .execute()
+                .returnContent()
+                .asString();
+    }
+    
+    @GetMapping("client")
+    public String client() throws IOException {
+        log.info("client1 called");
+        //服务端5s超时，客户端读取超时2秒
+        return getResponse("/server?timeout=5000", 1000, 2000);
+    }
+
+    @GetMapping("server")
+    public void server(@RequestParam("timeout") int timeout) throws InterruptedException {
+        log.info("server called");
+        TimeUnit.MILLISECONDS.sleep(timeout);
+        log.info("Done");
+    }
+}
+```
+
+调用 client 接口后，从日志中可以看到，客户端 2 秒后出现了 SocketTimeoutException，原因是读取超时，服务端却丝毫没受影响在 3 秒后执行完成。
+
+
+```
+
+[11:35:11.943] [http-nio-45678-exec-1] [INFO ] [.t.c.c.d.ClientReadTimeoutController:29  ] - client1 called
+[11:35:12.032] [http-nio-45678-exec-2] [INFO ] [.t.c.c.d.ClientReadTimeoutController:36  ] - server called
+[11:35:14.042] [http-nio-45678-exec-1] [ERROR] [.a.c.c.C.[.[.[/].[dispatcherServlet]:175 ] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+java.net.SocketTimeoutException: Read timed out
+  at java.net.SocketInputStream.socketRead0(Native Method)
+  ...
+[11:35:17.036] [http-nio-45678-exec-2] [INFO ] [.t.c.c.d.ClientReadTimeoutController:38  ] - Done
+```
+
+我们知道，类似 Tomcat 的 Web 服务器都是把服务端请求提交到线程池处理的，只要服务端收到了请求，网络层面的超时和断开便不会影响服务端的执行。因此，出现读取超时不能随意假设服务端的处理情况，需要根据业务状态考虑如何进行后续处理。
+
+**第二个误区：**认为读取超时只是 Socket 网络层面的概念，是数据传输的最长耗时，故将其配置得非常短，比如 100 毫秒。
+
+其实，发生了读取超时，网络层面无法区分是服务端没有把数据返回给客户端，还是数据在网络上耗时较久或丢包。
+
+但，因为 TCP 是先建立连接后传输数据，对于网络情况不是特别糟糕的服务调用，通常可以认为出现连接超时是网络问题或服务不在线，而出现读取超时是服务处理超时。确切地说，读取超时指的是，向 Socket 写入数据后，我们等到 Socket 返回数据的超时时间，其中包含的时间或者说绝大部分的时间，是服务端处理业务逻辑的时间。
+
+**第三个误区：**认为超时时间越长任务接口成功率就越高，将读取超时参数配置得太长。
+
+进行 HTTP 请求一般是需要获得结果的，属于同步调用。如果超时时间很长，在等待服务端返回数据的同时，客户端线程（通常是 Tomcat 线程）也在等待，当下游服务出现大量超时的时候，程序可能也会受到拖累创建大量线程，最终崩溃。
+对定时任务或异步任务来说，读取超时配置得长些问题不大。但面向用户响应的请求或是微服务短平快的同步接口调用，并发量一般较大，我们应该设置一个较短的读取超时时间，**以防止被下游服务拖慢，通常不会设置超过 30 秒的读取超时。**
+
+你可能会说，如果把读取超时设置为 2 秒，服务端接口需要 3 秒，岂不是永远都拿不到执行结果了？的确是这样，因此设置读取超时一定要根据实际情况，过长可能会让下游抖动影响到自己，过短又可能影响成功率。甚至，有些时候我们还要根据下游服务的 SLA，为不同的服务端接口设置不同的客户端读取超时。
+
+## Feign 和 Ribbon 配合使用，你知道怎么配置超时吗？
+
+
+
+
+
+
+
+
 # 2.总结
 ## 2.1.思考题
 ## 2.2.高质量问题
