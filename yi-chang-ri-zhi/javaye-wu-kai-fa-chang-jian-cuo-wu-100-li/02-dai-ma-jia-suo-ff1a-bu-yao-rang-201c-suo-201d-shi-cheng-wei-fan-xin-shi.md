@@ -106,6 +106,7 @@ public int wrong(@RequestParam(value = "count", defaultValue = "1000000") int co
     return Data.getCounter();
 }
 ```
+
 因为默认运行 100 万次，所以执行后应该输出 100 万，但页面输出的是 639242：
 
 
