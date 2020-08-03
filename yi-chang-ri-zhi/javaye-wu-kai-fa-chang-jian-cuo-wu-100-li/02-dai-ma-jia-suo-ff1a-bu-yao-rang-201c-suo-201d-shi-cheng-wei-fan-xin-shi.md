@@ -6,9 +6,7 @@
 
 于是，他贴出了这样一段代码：在一个类里有两个 int 类型的字段 a 和 b，有一个 add 方法循环 1 万次对 a 和 b 进行 ++ 操作，有另一个 compare 方法，同样循环 1 万次判断 a 是否小于 b，条件成立就打印 a 和 b 的值，并判断 a>b 是否成立。
 
-
 ```
-
 @Slf4j
 public class Interesting {
 
@@ -37,6 +35,17 @@ public class Interesting {
     }
 }
 ```
+
+他起了两个线程来分别执行 add 和 compare 方法：
+
+
+```
+
+Interesting interesting = new Interesting();
+new Thread(() -> interesting.add()).start();
+new Thread(() -> interesting.compare()).start();
+```
+
 
 
 
