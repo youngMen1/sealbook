@@ -242,7 +242,7 @@ threadPool.awaitTermination(1, TimeUnit.HOURS);
 ```
 
 运行程序后大量报错，且没有报错的输出结果也不正常，比如 2020 年解析成了 1212 年：  
-3ee2e923b3cf4e13722b7b0773de1b27.png
+![](/static/image/3ee2e923b3cf4e13722b7b0773de1b27.png)
 
 SimpleDateFormat 的作用是定义解析和格式化日期时间的模式。这，看起来这是一次性的工作，应该复用，但它的解析和格式化操作是非线程安全的。我们来分析一下相关源码：
 
