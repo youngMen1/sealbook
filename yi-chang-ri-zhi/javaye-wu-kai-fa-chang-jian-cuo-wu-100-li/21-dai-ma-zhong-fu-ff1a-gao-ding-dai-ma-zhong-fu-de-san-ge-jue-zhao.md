@@ -699,5 +699,69 @@ https://docs.spring.io/spring/docs/5.2.3.RELEASE/spring-framework-reference/core
 
 ## 2.2.高质量问题
 
+1.写得真好 想问下项目里用到不同设计模式 类的命名规范 以及放置这些设计模式的包的命名规范是怎么样的
+
+
+```
+包名没有规范，涉及到设计模式类名可以以 
+
+Locker
+Iterator
+Extractor
+Accessor
+Validator
+Formatter
+Converter
+Replacer
+Comparer
+Manager
+Combiner
+Parser
+Encoder
+Decoder
+Importer
+Exporter
+Editor
+Modifier
+Evaluator
+Locator
+Creator
+Initializer
+Reader
+Writer
+Activator
+Finder
+Builder
+Selector
+Visitor
+Loader
+Descriptor
+Generator
+Adapter
+Listener
+Wrapper
+Mapper
+Binder
+Invoker
+Executor
+Detector
+Tracer
+Decorator
+Mapper
+Resolver
+Processor
+Advisor
+Dispatcher
+Consumer
+Producer
+Publisher
+Subscriber
+Handler
+Filter
+Interceptor
+Provider
+Container
+单词作为前后缀 以提现类作用或者模式
+```
 
 
