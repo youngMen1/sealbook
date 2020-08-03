@@ -199,9 +199,9 @@ feign.client.config.default.connectTimeout=3000
 ```
 feign.client.config.default.readTimeout=3000
 ```
+测试一下你就会发现，这样的配置是无法生效的！
 
-
-
+**结论二，也是坑点二，如果要配置 Feign 的读取超时，就必须同时配置连接超时，才能生效。**
 
 
 # 2.总结
