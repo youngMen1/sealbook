@@ -766,7 +766,7 @@ Container
 
 2.一、观察者模式的在Spring中的使用：spring listener就是基于观察者模式的：主要是三个组件：
 1. 事件，需要继承ApplicationEvent，即观察者模式中的"主题"，可以看做一个普通的bean类，用于保存在listener的业务逻辑中需要的一些字段；
-2. 事件listener，需要实现ApplicationListener<E extends ApplicationEvent>，即观察者模式中的"观察者"，在主题发生变化时收到通知，并作出相应的更新，加泛型表示只listen某种类型的事件；
+2. 事件listener，需要实现`ApplicationListener<E extends ApplicationEvent>`，即观察者模式中的"观察者"，在主题发生变化时收到通知，并作出相应的更新，加泛型表示只listen某种类型的事件；
 3. 事件发布器，需要实现ApplicationEventPublisherAware，获取spring底层组件ApplicationEventPublisher，并调用其方法发布事件，即"通知"观察者。
 二、Bean 属性复制，原理肯定是反射了，其实自己实现也很简单，或者反射或者内省，内省实现最简单，以前使用内省实现过。现在主要是用hutool，超级好用的工具包，里面基本你想要的工具类都有，欢迎大家使用https://hutool.cn/
 3.这篇文章、demo值得看几十几百遍，感觉打通了任督二脉。
@@ -803,3 +803,5 @@ Container
 9.老师，想问一下，其实第一个案例使用的工厂模式+模版方法和直接使用策略模式有什么区别呀？
 
 **回复: **模板方法针对的是逻辑重用，策略模式针对的是子逻辑切涮，这是有显著区别的
+
+
