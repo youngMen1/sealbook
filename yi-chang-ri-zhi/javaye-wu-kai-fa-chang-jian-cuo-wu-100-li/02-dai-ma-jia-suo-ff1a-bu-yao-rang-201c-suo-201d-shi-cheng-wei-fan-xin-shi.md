@@ -79,6 +79,24 @@ public synchronized void compare()
 
 先看看这段代码有什么问题：在类 Data 中定义了一个静态的 int 字段 counter 和一个非静态的 wrong 方法，实现 counter 字段的累加操作。
 
+```
+class Data {
+    @Getter
+    private static int counter = 0;
+    
+    public static int reset() {
+        counter = 0;
+        return counter;
+    }
+
+    public synchronized void wrong() {
+        counter++;
+    }
+}
+```
+
+
+
 
 
 
