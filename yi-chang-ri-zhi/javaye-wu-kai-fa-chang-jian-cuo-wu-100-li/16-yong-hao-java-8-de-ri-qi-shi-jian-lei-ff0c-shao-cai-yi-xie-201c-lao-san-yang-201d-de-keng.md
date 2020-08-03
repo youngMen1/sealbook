@@ -540,18 +540,18 @@ https://github.com/JosephZhu1983/java-common-mistakes
 
 1.我今天多次强调 Date 是一个时间戳，是 UTC 时间、没有时区概念，为什么调用其 toString 方法会输出类似 CST 之类的时区字样呢？
 
+**回答：**
+
 Date的toString\(\)方法处理的，同String中有BaseCalendar.Date date = normalize\(\);
-
-  
-
 
 而normalize中进行这样处理cdate = \(BaseCalendar.Date\) cal.getCalendarDate\(fastTime,TimeZone.getDefaultRef\(\)；
 
+因此其实是获取当前的默认时区的。
+
   
-
-
-因此其实是获取当前的默认时区的。  
 2.日期时间数据始终要保存到数据库中，MySQL 中有两种数据类型 datetime 和 timestamp 可以用来保存日期时间。你能说说它们的区别吗，它们是否包含时区信息呢？
+
+**回答：**
 
 ## 高质量问题
 
