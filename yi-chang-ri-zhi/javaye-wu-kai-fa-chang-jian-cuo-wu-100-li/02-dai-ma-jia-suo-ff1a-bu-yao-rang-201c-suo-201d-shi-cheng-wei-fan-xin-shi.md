@@ -356,7 +356,40 @@ https://github.com/JosephZhu1983/java-common-mistakes
 
 ### 答案：
 
+volatile的问题：可见性问题和禁止指令重排序优化。
 
+  
+
+
+可见性问题：本质上是cpu缓存失效，必须从主内存读取数据；
+
+  
+
+
+禁止指令重排序优化：x86处理器仅下，只实现了volatile的读写内存屏障，也就是store load，也就是写读，本质上也就是读写可见性，happen-before原则。
+
+  
+
+
+实现原理是通过寄存器esp实现的。
+
+  
+
+
+当然也不会退出循环，因为cpu缓存到主内存的同步不是实时的。
+
+  
+
+
+  
+
+
+锁释放和重复执行问题：锁建议使用synchronized，在JDK1.6后，synchronized与Lock性能上差距很小了（优化了很多，自旋锁，自适应自旋锁、偏向锁，轻量级锁等），synchronized也不用程序获取和释放锁，同步代码块是通过monitorenter monitorexit实现的，同步方法是方法头中有ACC\_SYNCHRONIZED标志；在分布式场景下，可以考虑etcd，etcd支持锁的自动续期等；
+
+  
+
+
+重复执行：首先在锁的使用场景下做好处理，尽量避免重复执行，但业务层面一定要做好幂等。
 
 ## 2.2.高质量问题
 
