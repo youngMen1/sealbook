@@ -306,6 +306,36 @@ ribbon.ReadTimeout=4000
 
 之前遇到过一个短信重复发送的问题，但短信服务的调用方用户服务，反复确认代码里没有重试逻辑。那问题究竟出在哪里了？我们来重现一下这个案例。
 
+首先，定义一个 Get 请求的发送短信接口，里面没有任何逻辑，休眠 2 秒模拟耗时：
+
+
+```
+
+@RestController
+@RequestMapping("ribbonretryissueserver")
+@Slf4j
+public class RibbonRetryIssueServerController {
+    @GetMapping("sms")
+    public void sendSmsWrong(@RequestParam("mobile") String mobile, @RequestParam("message") String message, HttpServletRequest request) throws InterruptedException {
+        //输出调用参数后休眠2秒
+        log.info("{} is called, {}=>{}", request.getRequestURL().toString(), mobile, message);
+        TimeUnit.SECONDS.sleep(2);
+    }
+}
+```
+配置一个 Feign 供客户端调用：
+
+
+
+```
+
+@FeignClient(name = "SmsClient")
+public interface SmsClient {
+    @GetMapping("/ribbonretryissueserver/sms")
+    void sendSmsWrong(@RequestParam("mobile") String mobile, @RequestParam("message") String message);
+}
+```
+
 
 # 2.总结
 ## 2.1.思考题
