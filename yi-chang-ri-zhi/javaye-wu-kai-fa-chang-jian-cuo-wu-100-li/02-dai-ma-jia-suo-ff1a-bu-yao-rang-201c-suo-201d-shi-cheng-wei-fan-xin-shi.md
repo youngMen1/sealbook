@@ -117,6 +117,22 @@ public int wrong(@RequestParam(value = "count", defaultValue = "1000000") int co
 
 理清思路后，修正方法就很清晰了：同样在类中定义一个 Object 类型的静态字段，在操作 counter 之前对这个字段加锁。
 
+```
+class Data {
+    @Getter
+    private static int counter = 0;
+    private static Object locker = new Object();
+
+    public void right() {
+        synchronized (locker) {
+            counter++;
+        }
+    }
+}
+```
+
+
+
 
 # 2.总结
 ## 2.1.高质量问题
