@@ -245,7 +245,7 @@ private List<Item> createCart() {
             .map(name -> items.get(name)).collect(Collectors.toList());
 }
 ```
-
+下单代码如下：先声明一个 List 来保存所有获得的锁，然后遍历购物车中的商品依次尝试获得商品的锁，最长等待 10 秒，获得全部锁之后再扣减库存；如果有无法获得锁的情况则解锁之前获得的所有锁，返回 false 下单失败。
 
 
 # 2.总结
