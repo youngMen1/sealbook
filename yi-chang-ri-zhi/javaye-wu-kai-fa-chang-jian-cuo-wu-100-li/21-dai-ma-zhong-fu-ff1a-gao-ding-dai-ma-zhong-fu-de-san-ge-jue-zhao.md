@@ -577,15 +577,81 @@ public static String pay(long userId, BigDecimal amount) throws IOException {
 ```
 
 
+其实，**许多涉及类结构性的通用处理，都可以按照这个模式来减少重复代码。**反射给予了我们在不知晓类结构的时候，按照固定的逻辑处理类的成员；而注解给了我们为这些成员补充元数据的能力，使得我们利用反射实现通用逻辑的时候，可以从外部获得更多我们关心的数据。
+
+## 利用属性拷贝工具消除重复代码
+
+最后，我们再来看一种业务代码中经常出现的代码逻辑，实体之间的转换复制。
+
+对于三层架构的系统，考虑到层之间的解耦隔离以及每一层对数据的不同需求，通常每一层都会有自己的 POJO 作为数据实体。比如，数据访问层的实体一般叫作 DataObject 或 DO，业务逻辑层的实体一般叫作 Domain，表现层的实体一般叫作 Data Transfer Object 或 DTO。
+
+这里我们需要注意的是，如果手动写这些实体之间的赋值代码，同样容易出错。
+
+对于复杂的业务系统，实体有几十甚至几百个属性也很正常。就比如 ComplicatedOrderDTO 这个数据传输对象，描述的是一个订单中的几十个属性。如果我们要把这个 DTO 转换为一个类似的 DO，复制其中大部分的字段，然后把数据入库，势必需要进行很多属性映射赋值操作。就像这样，密密麻麻的代码是不是已经让你头晕了？
 
 
 
+```
 
+ComplicatedOrderDTO orderDTO = new ComplicatedOrderDTO();
+ComplicatedOrderDO orderDO = new ComplicatedOrderDO();
+orderDO.setAcceptDate(orderDTO.getAcceptDate());
+orderDO.setAddress(orderDTO.getAddress());
+orderDO.setAddressId(orderDTO.getAddressId());
+orderDO.setCancelable(orderDTO.isCancelable());
+orderDO.setCommentable(orderDTO.isComplainable()); //属性错误
+orderDO.setComplainable(orderDTO.isCommentable()); //属性错误
+orderDO.setCancelable(orderDTO.isCancelable());
+orderDO.setCouponAmount(orderDTO.getCouponAmount());
+orderDO.setCouponId(orderDTO.getCouponId());
+orderDO.setCreateDate(orderDTO.getCreateDate());
+orderDO.setDirectCancelable(orderDTO.isDirectCancelable());
+orderDO.setDeliverDate(orderDTO.getDeliverDate());
+orderDO.setDeliverGroup(orderDTO.getDeliverGroup());
+orderDO.setDeliverGroupOrderStatus(orderDTO.getDeliverGroupOrderStatus());
+orderDO.setDeliverMethod(orderDTO.getDeliverMethod());
+orderDO.setDeliverPrice(orderDTO.getDeliverPrice());
+orderDO.setDeliveryManId(orderDTO.getDeliveryManId());
+orderDO.setDeliveryManMobile(orderDO.getDeliveryManMobile()); //对象错误
+orderDO.setDeliveryManName(orderDTO.getDeliveryManName());
+orderDO.setDistance(orderDTO.getDistance());
+orderDO.setExpectDate(orderDTO.getExpectDate());
+orderDO.setFirstDeal(orderDTO.isFirstDeal());
+orderDO.setHasPaid(orderDTO.isHasPaid());
+orderDO.setHeadPic(orderDTO.getHeadPic());
+orderDO.setLongitude(orderDTO.getLongitude());
+orderDO.setLatitude(orderDTO.getLongitude()); //属性赋值错误
+orderDO.setMerchantAddress(orderDTO.getMerchantAddress());
+orderDO.setMerchantHeadPic(orderDTO.getMerchantHeadPic());
+orderDO.setMerchantId(orderDTO.getMerchantId());
+orderDO.setMerchantAddress(orderDTO.getMerchantAddress());
+orderDO.setMerchantName(orderDTO.getMerchantName());
+orderDO.setMerchantPhone(orderDTO.getMerchantPhone());
+orderDO.setOrderNo(orderDTO.getOrderNo());
+orderDO.setOutDate(orderDTO.getOutDate());
+orderDO.setPayable(orderDTO.isPayable());
+orderDO.setPaymentAmount(orderDTO.getPaymentAmount());
+orderDO.setPaymentDate(orderDTO.getPaymentDate());
+orderDO.setPaymentMethod(orderDTO.getPaymentMethod());
+orderDO.setPaymentTimeLimit(orderDTO.getPaymentTimeLimit());
+orderDO.setPhone(orderDTO.getPhone());
+orderDO.setRefundable(orderDTO.isRefundable());
+orderDO.setRemark(orderDTO.getRemark());
+orderDO.setStatus(orderDTO.getStatus());
+orderDO.setTotalQuantity(orderDTO.getTotalQuantity());
+orderDO.setUpdateTime(orderDTO.getUpdateTime());
+orderDO.setName(orderDTO.getName());
+orderDO.setUid(orderDTO.getUid());
+```
+如果不是代码中有注释，你能看出其中的诸多问题吗？
 
+* 如果原始的 DTO 有 100 个字段，我们需要复制 90 个字段到 DO 中，保留 10 个不赋值，最后应该如何校验正确性呢？数数吗？即使数出有 90 行代码，也不一定正确，因为属性可能重复赋值。
+* 有的时候字段命名相近，比如 complainable 和 commentable，容易搞反（第 7 和第 8 行），或者对两个目标字段重复赋值相同的来源字段（比如第 28 行）
+* 明明要把 DTO 的值赋值到 DO 中，却在 set 的时候从 DO 自己取值（比如第 20 行），导致赋值无效。
 
+这段代码并不是我随手写出来的，而是一个真实案例。有位同学就像代码中那样把经纬度赋值反了，因为落库的字段实在太多了。这个 Bug 很久都没发现，直到真正用到数据库中的经纬度做计算时，才发现一直以来都存错了。
 
-
-
+修改方法很简单，可以使用类似 BeanUtils 这种 Mapping 工具来做 Bean 的转换，copyProperties 方法还允许我们提供需要忽略的属性：
 # 2.总结
 
 ## 2.1.思考题
