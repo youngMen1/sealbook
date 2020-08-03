@@ -602,3 +602,41 @@ proxy_next_upstream_tries 这个参数决定重试的次数，0表示关闭该�
 Limits the number of possible tries for passing a request to the next server. The 0 value turns off this limitation.
 
 ## 2.2.高质量问题
+
+1.朱老师，请问Feign声明式HTTP接口调用可以针对某服务单个接口配置读取超时参数吗？我们这边一个微服务有n个接口，有一些接口处理耗时长有一些处理耗时短，但调用方又不期望针对同一个微服务声明多个Feign client。我简单翻了源码没有找到。
+**回答：**
+可以，补充了一个例子：
+
+
+```
+https://github.com/JosephZhu1983/java-common-mistakes/blob/master/src/main/java/org/geekbang/time/commonmistakes/httpinvoke/feignpermethodtimeout/FeignPerMethodTimeoutController.java
+```
+
+
+
+Feign比较新的版本才会支持：
+
+
+```
+https://github.com/OpenFeign/feign/pull/970
+```
+
+
+
+相关源码：
+```
+
+SynchronousMethodHandler
+
+Options findOptions(Object[] argv) {
+    if (argv == null || argv.length == 0) {
+      return this.options;
+    }
+    return (Options) Stream.of(argv)
+        .filter(o -> o instanceof Options)
+        .findFirst()
+        .orElse(this.options);
+  }
+
+```
+
