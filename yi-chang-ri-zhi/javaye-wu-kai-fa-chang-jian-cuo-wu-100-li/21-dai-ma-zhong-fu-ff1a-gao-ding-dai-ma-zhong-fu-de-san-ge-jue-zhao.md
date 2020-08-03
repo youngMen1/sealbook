@@ -7,6 +7,7 @@
 其实，我认为不是这样的。设计模式、OOP 是前辈们在大型项目中积累下来的经验，通过这些方法论来改善大型项目的可维护性。反射、注解、泛型等高级特性在框架中大量使用的原因是，框架往往需要以同一套算法来应对不同的数据结构，而这些特性可以帮助减少重复代码，提升项目可维护性。
 
 在我看来，可维护性是大型项目成熟度的一个重要指标，而提升可维护性非常重要的一个手段就是减少代码重复。那为什么这样说呢？
+
 * 果多处重复代码实现完全相同的功能，很容易修改一处忘记修改另一处，造成 Bug；
 * 有一些代码并不是完全重复，而是相似度很高，修改这些类似的代码容易改（复制粘贴）错，把原本有区别的地方改为了一样。
 
@@ -22,14 +23,11 @@
 
 * 内部用户可以免运费，无商品折扣。
 
-
 我们的目标是实现三种类型的购物车业务逻辑，把入参 Map 对象（Key 是商品 ID，Value 是商品数量），转换为出参购物车类型 Cart。
 
 先实现针对普通用户的购物车处理逻辑：
 
-
 ```
-
 //购物车
 @Data
 public class Cart {
@@ -97,10 +95,7 @@ public class NormalUserCart {
 
 然后实现针对 VIP 用户的购物车逻辑。与普通用户购物车逻辑的不同在于，VIP 用户能享受同类商品多买的折扣。所以，这部分代码只需要额外处理多买折扣部分：
 
-
-
 ```
-
 public class VipUserCart {
 
 
@@ -130,10 +125,7 @@ public class VipUserCart {
 
 最后是免运费、无折扣的内部用户，同样只是处理商品折扣和运费时的逻辑差异：
 
-
-
 ```
-
 public class InternalUserCart {
 
 
@@ -152,17 +144,14 @@ public class InternalUserCart {
     }
 }
 ```
+
 对比一下代码量可以发现，三种购物车 70% 的代码是重复的。原因很简单，虽然不同类型用户计算运费和优惠的方式不同，但整个购物车的初始化、统计总价、总运费、总优惠和支付价格的逻辑都是一样的。
 
-
-正如我们开始时提到的，代码重复本身不可怕，可怕的是漏改或改错。比如，写 VIP 用户购物车的同学发现商品总价计算有 Bug，不应该是把所有 Item 的 price 加在一起，而是应该把所有 Item 的 price*quantity 加在一起。这时，他可能会只修改 VIP 用户购物车的代码，而忽略了普通用户、内部用户的购物车中，重复的逻辑实现也有相同的 Bug。
+正如我们开始时提到的，代码重复本身不可怕，可怕的是漏改或改错。比如，写 VIP 用户购物车的同学发现商品总价计算有 Bug，不应该是把所有 Item 的 price 加在一起，而是应该把所有 Item 的 price\*quantity 加在一起。这时，他可能会只修改 VIP 用户购物车的代码，而忽略了普通用户、内部用户的购物车中，重复的逻辑实现也有相同的 Bug。
 
 有了三个购物车后，我们就需要根据不同的用户类型使用不同的购物车了。如下代码所示，使用三个 if 实现不同类型用户调用不同购物车的 process 方法：
 
-
-
 ```
-
 @GetMapping("wrong")
 public Cart wrong(@RequestParam("userId") int userId) {
     //根据用户ID获得用户类型
@@ -195,12 +184,9 @@ public Cart wrong(@RequestParam("userId") int userId) {
 
 其实，这个模式就是**模板方法模式**。我们在父类中实现了购物车处理的流程模板，然后把需要特殊处理的地方留空白也就是留抽象方法定义，让子类去实现其中的逻辑。由于父类的逻辑不完整无法单独工作，因此需要定义为抽象类。
 
-
 如下代码所示，AbstractCart 抽象类实现了购物车通用的逻辑，额外定义了两个抽象方法让子类去实现。其中，processCouponPrice 方法用于计算商品折扣，processDeliveryPrice 方法用于计算运费。
 
-
 ```
-
 public abstract class AbstractCart {
     //处理购物车的大量重复逻辑在父类实现
     public Cart process(long userId, Map<Long, Integer> items) {
@@ -241,9 +227,7 @@ cart.setPayPrice(cart.getTotalItemPrice().add(cart.getTotalDeliveryPrice()).subt
 
 有了这个抽象类，三个子类的实现就非常简单了。普通用户的购物车 NormalUserCart，实现的是 0 优惠和 10% 运费的逻辑：
 
-
 ```
-
 @Service(value = "NormalUserCart")
 public class NormalUserCart extends AbstractCart {
 
@@ -263,10 +247,7 @@ public class NormalUserCart extends AbstractCart {
 
 VIP 用户的购物车 VipUserCart，直接继承了 NormalUserCart，只需要修改多买优惠策略：
 
-
-
 ```
-
 @Service(value = "VipUserCart")
 public class VipUserCart extends NormalUserCart {
 
@@ -282,12 +263,10 @@ public class VipUserCart extends NormalUserCart {
     }
 }
 ```
+
 内部用户购物车 InternalUserCart 是最简单的，直接设置 0 运费和 0 折扣即可：
 
-
-
 ```
-
 @Service(value = "InternalUserCart")
 public class InternalUserCart extends AbstractCart {
     @Override
@@ -301,18 +280,16 @@ public class InternalUserCart extends AbstractCart {
     }
 }
 ```
-抽象类和三个子类的实现关系图，如下所示：
-55ec188c32805608e0f2341655c87f03.png
+
+抽象类和三个子类的实现关系图，如下所示：  
+55ec188c32805608e0f2341655c87f03.png  
 是不是比三个独立的购物车程序简单了很多呢？接下来，我们再看看如何能避免三个 if 逻辑。
 
 或许你已经注意到了，定义三个购物车子类时，我们在 @Service 注解中对 Bean 进行了命名。既然三个购物车都叫 XXXUserCart，那我们就可以把用户类型字符串拼接 UserCart 构成购物车 Bean 的名称，然后利用 Spring 的 IoC 容器，通过 Bean 的名称直接获取到 AbstractCart，调用其 process 方法即可实现通用。
 
 其实，这就是**工厂模式**，只不过是借助 Spring 容器实现罢了：
 
-
-
 ```
-
 @GetMapping("right")
 public Cart right(@RequestParam("userId") int userId) {
     String userCategory = Db.getUserCategory(userId);
@@ -320,6 +297,7 @@ public Cart right(@RequestParam("userId") int userId) {
     return cart.process(userId, items);
 }
 ```
+
 试想， 之后如果有了新的用户类型、新的用户逻辑，是不是完全不用对代码做任何修改，只要新增一个 XXXUserCart 类继承 AbstractCart，实现特殊的优惠和运费处理逻辑就可以了？
 
 这样一来，我们就**利用工厂模式 + 模板方法模式，不仅消除了重复代码，还避免了修改既有代码的风险。**这就是设计模式中的开闭原则：对修改关闭，对扩展开放。
@@ -328,26 +306,23 @@ public Cart right(@RequestParam("userId") int userId) {
 
 是不是有点兴奋了，业务代码居然也能 OOP 了。我们再看一个三方接口的调用案例，同样也是一个普通的业务逻辑。
 
-
 假设银行提供了一些 API 接口，对参数的序列化有点特殊，不使用 JSON，而是需要我们把参数依次拼在一起构成一个大字符串。
 
 * 按照银行提供的 API 文档的顺序，把所有参数构成定长的数据，然后拼接在一起作为整个字符串。
 
-* 因为每一种参数都有固定长度，未达到长度时需要做填充处理：
- ** 字符串类型的参数不满长度部分需要以下划线右填充，也就是字符串内容靠左；
- ** 数字类型的参数不满长度部分以 0 左填充，也就是实际数字靠右；
- ** 货币类型的表示需要把金额向下舍入 2 位到分，以分为单位，作为数字类型同样进行左填充。
+* 因为每一种参数都有固定长度，未达到长度时需要做填充处理：  
+  ** 字符串类型的参数不满长度部分需要以下划线右填充，也就是字符串内容靠左；  
+  ** 数字类型的参数不满长度部分以 0 左填充，也就是实际数字靠右；  
+  \*\* 货币类型的表示需要把金额向下舍入 2 位到分，以分为单位，作为数字类型同样进行左填充。
 
-* 对所有参数做 MD5 操作作为签名（为了方便理解，Demo 中不涉及加盐处理）。
-比如，创建用户方法和支付方法的定义是这样的：
+* 对所有参数做 MD5 操作作为签名（为了方便理解，Demo 中不涉及加盐处理）。  
+  比如，创建用户方法和支付方法的定义是这样的：
 
-5429e0313c1254c56abf6bc6ff4fc8a6.jpg
-88ceb410987e16f00b5ab5324c0f4c07.jpg
+5429e0313c1254c56abf6bc6ff4fc8a6.jpg  
+88ceb410987e16f00b5ab5324c0f4c07.jpg  
 代码很容易实现，直接根据接口定义实现填充操作、加签名、请求调用操作即可：
 
-
 ```
-
 public class BankService {
 
     //创建用户方法
@@ -367,7 +342,7 @@ public class BankService {
                 .bodyString(stringBuilder.toString(), ContentType.APPLICATION_JSON)
                 .execute().returnContent().asString();
     }
-    
+
     //支付方法
     public static String pay(long userId, BigDecimal amount) throws IOException {
         StringBuilder stringBuilder = new StringBuilder();
@@ -383,29 +358,25 @@ public class BankService {
     }
 }
 ```
+
 可以看到，这段代码的重复粒度更细：
+
 * 三种标准数据类型的处理逻辑有重复，稍有不慎就会出现 Bug；
 * 处理流程中字符串拼接、加签和发请求的逻辑，在所有方法重复；
 * 实际方法的入参的参数类型和顺序，不一定和接口要求一致，容易出错；
 * 代码层面针对每一个参数硬编码，无法清晰地进行核对，如果参数达到几十个、上百个，出错的概率极大。
 
-
 那应该如何改造这段代码呢？没错，就是要用注解和反射！
 
 使用注解和反射这两个武器，就可以针对银行请求的所有逻辑均使用一套代码实现，不会出现任何重复。
 
-
 ```
 
 ```
-
 
 要实现接口逻辑和逻辑实现的剥离，首先需要以 POJO 类（只有属性没有任何业务逻辑的数据类）的方式定义所有的接口参数。比如，下面这个创建用户 API 的参数：
 
-
-
 ```
-
 @Data
 public class CreateUserAPI {
     private String name;
@@ -415,14 +386,9 @@ public class CreateUserAPI {
 }
 ```
 
-
 有了接口参数定义，我们就能通过自定义注解为接口和所有参数增加一些元数据。如下所示，我们定义一个接口 API 的注解 BankAPI，包含接口 URL 地址和接口说明：
 
-
-
-
 ```
-
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 @Documented
@@ -432,13 +398,10 @@ public @interface BankAPI {
     String url() default "";
 }
 ```
+
 然后，我们再定义一个自定义注解 @BankAPIField，用于描述接口的每一个字段规范，包含参数的次序、类型和长度三个属性：
 
-
-
-
 ```
-
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
 @Documented
@@ -449,13 +412,10 @@ public @interface BankAPIField {
     String type() default "";
 }
 ```
+
 接下来，注解就可以发挥威力了。如下所示，我们定义了 CreateUserAPI 类描述创建用户接口的信息，通过为接口增加 @BankAPI 注解，来补充接口的 URL 和描述等元数据；通过为每一个字段增加 @BankAPIField 注解，来补充参数的顺序、类型和长度等元数据：
 
-
-
-
 ```
-
 @BankAPI(url = "/bank/createUser", desc = "创建用户接口")
 @Data
 public class CreateUserAPI extends AbstractAPI {
@@ -470,12 +430,9 @@ public class CreateUserAPI extends AbstractAPI {
 }
 ```
 
-
 另一个 PayAPI 类也是类似的实现：
 
-
 ```
-
 @BankAPI(url = "/bank/pay", desc = "支付接口")
 @Data
 public class PayAPI extends AbstractAPI {
@@ -497,9 +454,7 @@ public class PayAPI extends AbstractAPI {
 * 第 12~38 行代码，实现了反射获取注解的值，然后根据 BankAPIField 拿到的参数类型，按照三种标准进行格式化，将所有参数的格式化逻辑集中在了这一处。
 * 第 41~48 行代码，实现了参数加签和请求调用。
 
-
 ```
-
 private static String remoteCall(AbstractAPI api) throws IOException {
     //从BankAPI注解获取请求地址
     BankAPI bankAPI = api.getClass().getAnnotation(BankAPI.class);
@@ -554,10 +509,7 @@ private static String remoteCall(AbstractAPI api) throws IOException {
 
 可以看到，**所有处理参数排序、填充、加签、请求调用的核心逻辑，都汇聚在了 remoteCall 方法中。**有了这个核心方法，BankService 中每一个接口的实现就非常简单了，只是参数的组装，然后调用 remoteCall 即可。
 
-
-
 ```
-
 //创建用户方法
 public static String createUser(String name, String identity, String mobile, int age) throws IOException {
     CreateUserAPI createUserAPI = new CreateUserAPI();
@@ -576,7 +528,6 @@ public static String pay(long userId, BigDecimal amount) throws IOException {
 }
 ```
 
-
 其实，**许多涉及类结构性的通用处理，都可以按照这个模式来减少重复代码。**反射给予了我们在不知晓类结构的时候，按照固定的逻辑处理类的成员；而注解给了我们为这些成员补充元数据的能力，使得我们利用反射实现通用逻辑的时候，可以从外部获得更多我们关心的数据。
 
 ## 利用属性拷贝工具消除重复代码
@@ -589,10 +540,7 @@ public static String pay(long userId, BigDecimal amount) throws IOException {
 
 对于复杂的业务系统，实体有几十甚至几百个属性也很正常。就比如 ComplicatedOrderDTO 这个数据传输对象，描述的是一个订单中的几十个属性。如果我们要把这个 DTO 转换为一个类似的 DO，复制其中大部分的字段，然后把数据入库，势必需要进行很多属性映射赋值操作。就像这样，密密麻麻的代码是不是已经让你头晕了？
 
-
-
 ```
-
 ComplicatedOrderDTO orderDTO = new ComplicatedOrderDTO();
 ComplicatedOrderDO orderDO = new ComplicatedOrderDO();
 orderDO.setAcceptDate(orderDTO.getAcceptDate());
@@ -643,6 +591,7 @@ orderDO.setUpdateTime(orderDTO.getUpdateTime());
 orderDO.setName(orderDTO.getName());
 orderDO.setUid(orderDTO.getUid());
 ```
+
 如果不是代码中有注释，你能看出其中的诸多问题吗？
 
 * 如果原始的 DTO 有 100 个字段，我们需要复制 90 个字段到 DO 中，保留 10 个不赋值，最后应该如何校验正确性呢？数数吗？即使数出有 90 行代码，也不一定正确，因为属性可能重复赋值。
@@ -653,23 +602,18 @@ orderDO.setUid(orderDTO.getUid());
 
 修改方法很简单，可以使用类似 BeanUtils 这种 Mapping 工具来做 Bean 的转换，copyProperties 方法还允许我们提供需要忽略的属性：
 
-
-
 ```
-
 ComplicatedOrderDTO orderDTO = new ComplicatedOrderDTO();
 ComplicatedOrderDO orderDO = new ComplicatedOrderDO();
 BeanUtils.copyProperties(orderDTO, orderDO, "id");
 return orderDO;
 ```
 
-
 # 2.总结
+
 正所谓“常在河边走哪有不湿鞋”，重复代码多了总有一天会出错。今天，我从几个最常见的维度，和你分享了几个实际业务场景中可能出现的重复问题，以及消除重复的方式。
 
-
 第一种代码重复是，有多个并行的类实现相似的代码逻辑。我们可以考虑提取相同逻辑在父类中实现，差异逻辑通过抽象方法留给子类实现。使用类似的模板方法把相同的流程和逻辑固定成模板，保留差异的同时尽可能避免代码重复。同时，可以使用 Spring 的 IoC 特性注入相应的子类，来避免实例化子类时的大量 if…else 代码。
-
 
 第二种代码重复是，使用硬编码的方式重复实现相同的数据处理算法。我们可以考虑把规则转换为自定义注解，作为元数据对类或对字段、方法进行描述，然后通过反射动态读取这些元数据、字段或调用方法，实现规则参数和规则定义的分离。也就是说，把变化的部分也就是规则的参数放入注解，规则的定义统一处理。
 
@@ -679,28 +623,23 @@ return orderDO;
 
 今天用到的代码，我都放在了 GitHub 上，你可以点击这个链接查看。
 
-
 ```
 https://github.com/JosephZhu1983/java-common-mistakes
 ```
-
 
 ## 2.1.思考题
 
 1.除了模板方法设计模式是减少重复代码的一把好手，观察者模式也常用于减少代码重复（并且是松耦合方式）。Spring 也提供了类似工具（点击这里查看），你能想到有哪些应用场景吗？
 
-
 ```
 https://docs.spring.io/spring/docs/5.2.3.RELEASE/spring-framework-reference/core.html#context-functionality-events-annotation
 ```
-
 
 2.关于 Bean 属性复制工具，除了最简单的 Spring 的 BeanUtils 工具类的使用，你还知道哪些对象映射类库吗？它们又有什么功能呢？
 
 ## 2.2.高质量问题
 
 1.写得真好 想问下项目里用到不同设计模式 类的命名规范 以及放置这些设计模式的包的命名规范是怎么样的
-
 
 ```
 包名没有规范，涉及到设计模式类名可以以 
@@ -764,11 +703,18 @@ Container
 单词作为前后缀 以提现类作用或者模式
 ```
 
-2.一、观察者模式的在Spring中的使用：spring listener就是基于观察者模式的：主要是三个组件：
-1. 事件，需要继承ApplicationEvent，即观察者模式中的"主题"，可以看做一个普通的bean类，用于保存在listener的业务逻辑中需要的一些字段；
-2. 事件listener，需要实现`ApplicationListener<E extends ApplicationEvent>`，即观察者模式中的"观察者"，在主题发生变化时收到通知，并作出相应的更新，加泛型表示只listen某种类型的事件；
+2
+
+* 一、观察者模式的在Spring中的使用：spring listener就是基于观察者模式的：
+
+主要是三个组件：  
+1. 事件，需要继承ApplicationEvent，即观察者模式中的"主题"，可以看做一个普通的bean类，用于保存在listener的业务逻辑中需要的一些字段；  
+2. 事件listener，需要实现`ApplicationListener<E extends ApplicationEvent>`，即观察者模式中的"观察者"，在主题发生变化时收到通知，并作出相应的更新，加泛型表示只listen某种类型的事件；  
 3. 事件发布器，需要实现ApplicationEventPublisherAware，获取spring底层组件ApplicationEventPublisher，并调用其方法发布事件，即"通知"观察者。
-二、Bean 属性复制，原理肯定是反射了，其实自己实现也很简单，或者反射或者内省，内省实现最简单，以前使用内省实现过。现在主要是用hutool，超级好用的工具包，里面基本你想要的工具类都有，欢迎大家使用https://hutool.cn/
+
+* 二、Bean 属性复制，原理肯定是反射了，其实自己实现也很简单，或者反射或者内省，内省实现最简单，以前使用内省实现过。现在主要是用hutool，超级好用的工具包，里面基本你想要的工具类都有，欢迎大家使用[https://hutool.cn/](https://hutool.cn/)
+
+  
 3.这篇文章、demo值得看几十几百遍，感觉打通了任督二脉。
 
 以前学过设计模式、Java的高级特性，但只能算看过，完全不知道怎么用在工作。
@@ -779,13 +725,10 @@ Container
 
 5.
 
-
 ```
 1. 松耦合的方式一般都是用于消息发送，比如说短信发送、日志推送等等，消息队列是分布式中的松耦合
 2. Bean 属性复制：https://www.jianshu.com/p/40e0e64797b9 这篇文章基本全了
 ```
-
-
 
 **回复:** 感谢分享
 
@@ -793,7 +736,7 @@ Container
 
 7.这个是不是很类似于状态机模式。我发现在业务场景里面，状态机模式，和策略模式很常用。
 
-**回复: **策略 状态机 职责链 都比较常用
+**回复: **策略 状态机 职责链 都比较常用  
 8.观察者模式适合所有发布-订阅类型的场景，它的实现方式根据具体需求千变万化，可以是同步阻塞，也可以是异步非阻塞的，可以是进程内的，也可以是系统间的解耦。工作中用的多的是Guava的EventBus。
 
 其他工具搜了一下，cglib中BeanCopier也提供了mapping功能，基于动态代理实现，但是没有实际使用过
@@ -803,5 +746,4 @@ Container
 9.老师，想问一下，其实第一个案例使用的工厂模式+模版方法和直接使用策略模式有什么区别呀？
 
 **回复: **模板方法针对的是逻辑重用，策略模式针对的是子逻辑切涮，这是有显著区别的
-
 
