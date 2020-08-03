@@ -301,7 +301,7 @@ public class InternalUserCart extends AbstractCart {
     }
 }
 ```
-
+抽象类和三个子类的实现关系图，如下所示：
 
 
 # 2.总结
