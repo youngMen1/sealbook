@@ -142,6 +142,61 @@ class Data {
 
 * 二是，可能会极大地降低性能。使用 Spring 框架时，默认情况下 Controller、Service、Repository 是单例的，加上 synchronized 会导致整个程序几乎就只能支持单线程，造成极大的性能问题。
 
+**
+即使我们确实有一些共享资源需要保护，也要尽可能降低锁的粒度，仅对必要的代码块甚至是需要保护的资源本身加锁。**
+
+比如，在业务代码中，有一个 ArrayList 因为会被多个线程操作而需要保护，又有一段比较耗时的操作（代码中的 slow 方法）不涉及线程安全问题，应该如何加锁呢？
+
+
+错误的做法是，给整段业务逻辑加锁，把 slow 方法和操作 ArrayList 的代码同时纳入 synchronized 代码块；更合适的做法是，把加锁的粒度降到最低，只在操作 ArrayList 的时候给这个 ArrayList 加锁。
+
+
+
+```
+
+private List<Integer> data = new ArrayList<>();
+
+//不涉及共享资源的慢方法
+private void slow() {
+    try {
+        TimeUnit.MILLISECONDS.sleep(10);
+    } catch (InterruptedException e) {
+    }
+}
+
+//错误的加锁方法
+@GetMapping("wrong")
+public int wrong() {
+    long begin = System.currentTimeMillis();
+    IntStream.rangeClosed(1, 1000).parallel().forEach(i -> {
+        //加锁粒度太粗了
+        synchronized (this) {
+            slow();
+            data.add(i);
+        }
+    });
+    log.info("took:{}", System.currentTimeMillis() - begin);
+    return data.size();
+}
+
+//正确的加锁方法
+@GetMapping("right")
+public int right() {
+    long begin = System.currentTimeMillis();
+    IntStream.rangeClosed(1, 1000).parallel().forEach(i -> {
+        slow();
+        //只对List加锁
+        synchronized (data) {
+            data.add(i);
+        }
+    });
+    log.info("took:{}", System.currentTimeMillis() - begin);
+    return data.size();
+}
+```
+
+
+
 
 # 2.总结
 ## 2.1.高质量问题
