@@ -68,7 +68,7 @@ public synchronized void add()
 public synchronized void compare()
 ```
 
-
+所以，使用锁解决问题之前一定要理清楚，我们要保护的是什么逻辑，多线程执行的情况又是怎样的。
 
 
 
