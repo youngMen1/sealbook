@@ -444,12 +444,107 @@ ribbon.MaxAutoRetriesNextServer=0
 
 
 ## 并发限制了爬虫的抓取能力
+
 除了超时和重试的坑，进行 HTTP 请求调用还有一个常见的问题是，并发数的限制导致程序的处理能力上不去。
 
+我之前遇到过一个爬虫项目，整体爬取数据的效率很低，增加线程池数量也无济于事，只能堆更多的机器做分布式的爬虫。现在，我们就来模拟下这个场景，看看问题出在了哪里。
+
+假设要爬取的服务端是这样的一个简单实现，休眠 1 秒返回数字 1：
 
 
 
+```
 
+@GetMapping("server")
+public int server() throws InterruptedException {
+    TimeUnit.SECONDS.sleep(1);
+    return 1;
+}
+```
+
+爬虫需要多次调用这个接口进行数据抓取，为了确保线程池不是并发的瓶颈，我们使用一个没有线程上限的 newCachedThreadPool 作为爬取任务的线程池（再次强调，除非你非常清楚自己的需求，否则一般不要使用没有线程数量上限的线程池），然后使用 HttpClient 实现 HTTP 请求，把请求任务循环提交到线程池处理，最后等待所有任务执行完成后输出执行耗时：
+
+
+
+```
+
+private int sendRequest(int count, Supplier<CloseableHttpClient> client) throws InterruptedException {
+    //用于计数发送的请求个数
+    AtomicInteger atomicInteger = new AtomicInteger();
+    //使用HttpClient从server接口查询数据的任务提交到线程池并行处理
+    ExecutorService threadPool = Executors.newCachedThreadPool();
+    long begin = System.currentTimeMillis();
+    IntStream.rangeClosed(1, count).forEach(i -> {
+        threadPool.execute(() -> {
+            try (CloseableHttpResponse response = client.get().execute(new HttpGet("http://127.0.0.1:45678/routelimit/server"))) {
+                atomicInteger.addAndGet(Integer.parseInt(EntityUtils.toString(response.getEntity())));
+            } catch (Exception ex) {``
+                ex.printStackTrace();``
+            }
+        });
+    });
+    //等到count个任务全部执行完毕
+    threadPool.shutdown();
+    threadPool.awaitTermination(1, TimeUnit.HOURS);
+    log.info("发送 {} 次请求，耗时 {} ms", atomicInteger.get(), System.currentTimeMillis() - begin);
+    return atomicInteger.get();
+}
+```
+
+首先，使用默认的 PoolingHttpClientConnectionManager 构造的 CloseableHttpClient，测试一下爬取 10 次的耗时：
+
+
+
+```
+
+static CloseableHttpClient httpClient1;
+
+static {
+    httpClient1 = HttpClients.custom().setConnectionManager(new PoolingHttpClientConnectionManager()).build();
+}
+
+@GetMapping("wrong")
+public int wrong(@RequestParam(value = "count", defaultValue = "10") int count) throws InterruptedException {
+    return sendRequest(count, () -> httpClient1);
+}
+```
+
+虽然一个请求需要 1 秒执行完成，但我们的线程池是可以扩张使用任意数量线程的。按道理说，10 个请求并发处理的时间基本相当于 1 个请求的处理时间，也就是 1 秒，但日志中显示实际耗时 5 秒：
+
+
+
+```
+
+[12:48:48.122] [http-nio-45678-exec-1] [INFO ] [o.g.t.c.h.r.RouteLimitController        :54  ] - 发送 10 次请求，耗时 5265 ms
+```
+查看 PoolingHttpClientConnectionManager 源码，可以注意到有两个重要参数：
+
+* defaultMaxPerRoute=2，也就是同一个主机 / 域名的最大并发请求数为 2。我们的爬虫需要 10 个并发，显然是默认值太小限制了爬虫的效率。
+
+* maxTotal=20，也就是所有主机整体最大并发为 20，这也是 HttpClient 整体的并发度。目前，我们请求数是 10 最大并发是 10，20 不会成为瓶颈。举一个例子，使用同一个 HttpClient 访问 10 个域名，defaultMaxPerRoute 设置为 10，为确保每一个域名都能达到 10 并发，需要把 maxTotal 设置为 100。
+
+
+
+```
+
+public PoolingHttpClientConnectionManager(
+    final HttpClientConnectionOperator httpClientConnectionOperator,
+    final HttpConnectionFactory<HttpRoute, ManagedHttpClientConnection> connFactory,
+    final long timeToLive, final TimeUnit timeUnit) {
+    ...    
+    this.pool = new CPool(new InternalConnectionFactory(
+            this.configData, connFactory), 2, 20, timeToLive, timeUnit);
+   ...
+} 
+
+public CPool(
+        final ConnFactory<HttpRoute, ManagedHttpClientConnection> connFactory,
+        final int defaultMaxPerRoute, final int maxTotal,
+        final long timeToLive, final TimeUnit timeUnit) {
+    ...
+}}
+```
+HttpClient 是 Java 非常常用的 HTTP 客户端，这个问题经常出现。你可能会问，为什么默认值限制得这么小。
 
 
 # 2.总结
