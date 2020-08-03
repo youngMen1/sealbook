@@ -546,7 +546,59 @@ public CPool(
 ```
 HttpClient 是 Java 非常常用的 HTTP 客户端，这个问题经常出现。你可能会问，为什么默认值限制得这么小。
 
+其实，这不能完全怪 HttpClient，很多早期的浏览器也限制了同一个域名两个并发请求。对于同一个域名并发连接的限制，其实是 HTTP 1.1 协议要求的，这里有这么一段话：
+
+
+```
+Clients that use persistent connections SHOULD limit the number of simultaneous connections that they maintain to a given server. A single-user client SHOULD NOT maintain more than 2 connections with any server or proxy. A proxy SHOULD use up to 2*N connections to another server or proxy, where N is the number of simultaneously active users. These guidelines are intended to improve HTTP response times and avoid congestion.
+
+```
+
+HTTP 1.1 协议是 20 年前制定的，现在 HTTP 服务器的能力强很多了，所以有些新的浏览器没有完全遵从 2 并发这个限制，放开并发数到了 8 甚至更大。如果需要通过 HTTP 客户端发起大量并发请求，不管使用什么客户端，请务必确认客户端的实现默认的并发度是否满足需求。
+
+
+既然知道了问题所在，我们就尝试声明一个新的 HttpClient 放开相关限制，设置 maxPerRoute 为 50、maxTotal 为 100，然后修改一下刚才的 wrong 方法，使用新的客户端进行测试：
+
+
+```
+
+httpClient2 = HttpClients.custom().setMaxConnPerRoute(10).setMaxConnTotal(20).build();
+```
+输出如下，10 次请求在 1 秒左右执行完成。可以看到，因为放开了一个 Host 2 个并发的默认限制，爬虫效率得到了大幅提升：
+
+```
+输出如下，10 次请求在 1 秒左右执行完成。可以看到，因为放开了一个 Host 2 个并发的默认限制，爬虫效率得到了大幅提升：
+```
+
+
+
 
 # 2.总结
+
+今天，我和你分享了 HTTP 调用最常遇到的超时、重试和并发问题。
+连接超时代表建立 TCP 连接的时间，读取超时代表了等待远端返回数据的时间，也包括远端程序处理的时间。在解决连接超时问题时，我们要搞清楚连的是谁；在遇到读取超时问题的时候，我们要综合考虑下游服务的服务标准和自己的服务标准，设置合适的读取超时时间。此外，在使用诸如 Spring Cloud Feign 等框架时务必确认，连接和读取超时参数的配置是否正确生效。
+对于重试，因为 HTTP 协议认为 Get 请求是数据查询操作，是无状态的，又考虑到网络出现丢包是比较常见的事情，有些 HTTP 客户端或代理服务器会自动重试 Get/Head 请求。如果你的接口设计不支持幂等，需要关闭自动重试。但，更好的解决方案是，遵从 HTTP 协议的建议来使用合适的 HTTP 方法。
+
+
+```
+https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html
+```
+
+
+
 ## 2.1.思考题
+
+1.第一节中我们强调了要注意连接超时和读取超时参数的配置，大多数的 HTTP 客户端也都有这两个参数。有读就有写，但为什么我们很少看到“写入超时”的概念呢？
+2.除了 Ribbon 的 AutoRetriesNextServer 重试机制，Nginx 也有类似的重试功能。你了解 Nginx 相关的配置吗？
+### 答案
+
+1、为什么很少见到写入超时，客户端发送数据到服务端，首先接力连接（TCP），然后写入TCP缓冲区，TCP缓冲区根据时间窗口，发送数据到服务端，因此写入操作可以任务是自己本地的操作，本地操作是不需要什么超时时间的，如果真的有什么异常，那也是连接（TCP）不上，或者超时的问题，连接超时和读取超时就能覆盖这种场景。
+2、proxy_next_upstream：语法: proxy_next_upstream 
+      [error|timeout|invalid_header|http_500|http_503|http_404|off]
+      默认值: proxy_next_upstream error timeout
+      即 error timeout会自动重试
+可以修改默认值，在去掉error和timeout，这样在发生错误和超时时，不会重试
+proxy_next_upstream_tries 这个参数决定重试的次数，0表示关闭该参数
+Limits the number of possible tries for passing a request to the next server. The 0 value turns off this limitation.
+
 ## 2.2.高质量问题
