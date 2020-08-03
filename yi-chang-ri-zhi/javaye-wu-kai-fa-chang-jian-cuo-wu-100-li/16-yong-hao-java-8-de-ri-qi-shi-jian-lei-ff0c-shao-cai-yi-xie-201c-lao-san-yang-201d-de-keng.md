@@ -543,11 +543,11 @@ https://github.com/JosephZhu1983/java-common-mistakes
 
 ## 高质量问题
 
-1.首先，为了让docker容器的时间格式和宿主机一致，可以在environment中添加TZ: Asia/Shanghai。
+**1.首先，为了让docker容器的时间格式和宿主机一致，可以在environment中添加TZ: Asia/Shanghai。**
 
-实验发现，切换mysql的TIME\_ZONE到“america/new\_york”后，发现datetime格式字段不发生变化，而timestamp格式会换算成纽约时区时间，所以timestamp格式的日期保存了时区信息，而datetime没有。
+**实验发现，切换mysql的TIME\_ZONE到“america/new\_york”后，发现datetime格式字段不发生变化，而timestamp格式会换算成纽约时区时间，所以timestamp格式的日期保存了时区信息，而datetime没有。**
 
-感觉在业务场景中，有可能出现服务器或容器系统时间并未设置时区，导致保存的数据并不是我们想要的。因此，是不是更推荐使用timestamp格式来保存日期，避免这种情况发生呢？
+**感觉在业务场景中，有可能出现服务器或容器系统时间并未设置时区，导致保存的数据并不是我们想要的。因此，是不是更推荐使用timestamp格式来保存日期，避免这种情况发生呢？**
 
 **回答：**TIMESTAMP保存的时候根据当前时区转换为UTC，查询的时候再根据当前时区从UTC转回来，而DATETIME就是一个死的字符串时间（仅仅对MySQL本身而言）表示。有关mysql时间类型可以详细看一下这个ppt
 
