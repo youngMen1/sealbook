@@ -95,9 +95,88 @@ java.net.SocketTimeoutException: Read timed out
 
 ## Feign 和 Ribbon 配合使用，你知道怎么配置超时吗？
 
+刚才我强调了根据自己的需求配置连接超时和读取超时的重要性，你是否尝试过为 Spring Cloud 的 Feign 配置超时参数呢，有没有被网上的各种资料绕晕呢？
+
+在我看来，为 Feign 配置超时参数的复杂之处在于，**Feign 自己有两个超时参数，它使用的负载均衡组件 Ribbon 本身还有相关配置。**那么，这些配置的优先级是怎样的，又哪些什么坑呢？接下来，我们做一些实验吧。
+
+为测试服务端的超时，假设有这么一个服务端接口，什么都不干只休眠 10 分钟：
 
 
+```
+@PostMapping("/server")
+public void server() throws InterruptedException {
+    TimeUnit.MINUTES.sleep(10);
+}
+```
+首先，定义一个 Feign 来调用这个接口：
 
+```
+
+@FeignClient(name = "clientsdk")
+public interface Client {
+    @PostMapping("/feignandribbon/server")
+    void server();
+}
+```
+
+然后，通过 Feign Client 进行接口调用：
+
+```
+@GetMapping("client")
+public void timeout() {
+    long begin=System.currentTimeMillis();
+    try{
+        client.server();
+    }catch (Exception ex){
+        log.warn("执行耗时：{}ms 错误：{}", System.currentTimeMillis() - begin, ex.getMessage());
+    }
+}
+```
+
+在配置文件仅指定服务端地址的情况下：
+
+
+```
+
+clientsdk.ribbon.listOfServers=localhost:45678
+```
+
+得到如下输出：
+
+
+```
+
+[15:40:16.094] [http-nio-45678-exec-3] [WARN ] [o.g.t.c.h.f.FeignAndRibbonController    :26  ] - 执行耗时：1007ms 错误：Read timed out executing POST http://clientsdk/feignandribbon/server
+```
+
+从这个输出中，我们可以得到**结论一，默认情况下 Feign 的读取超时是 1 秒，如此短的读取超时算是坑点一。**
+
+我们来分析一下源码。打开 RibbonClientConfiguration 类后，会看到 DefaultClientConfigImpl 被创建出来之后，ReadTimeout 和 ConnectTimeout 被设置为 1s：
+
+
+```
+
+/**
+ * Ribbon client default connect timeout.
+ */
+public static final int DEFAULT_CONNECT_TIMEOUT = 1000;
+
+/**
+ * Ribbon client default read timeout.
+ */
+public static final int DEFAULT_READ_TIMEOUT = 1000;
+
+@Bean
+@ConditionalOnMissingBean
+public IClientConfig ribbonClientConfig() {
+   DefaultClientConfigImpl config = new DefaultClientConfigImpl();
+   config.loadProperties(this.name);
+   config.set(CommonClientConfigKey.ConnectTimeout, DEFAULT_CONNECT_TIMEOUT);
+   config.set(CommonClientConfigKey.ReadTimeout, DEFAULT_READ_TIMEOUT);
+   config.set(CommonClientConfigKey.GZipPayload, DEFAULT_GZIP_PAYLOAD);
+   return config;
+}
+```
 
 
 
