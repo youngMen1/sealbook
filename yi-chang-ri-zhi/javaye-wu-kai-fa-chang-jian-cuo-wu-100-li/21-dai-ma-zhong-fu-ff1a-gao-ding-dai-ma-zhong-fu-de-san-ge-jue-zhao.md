@@ -239,7 +239,7 @@ cart.setPayPrice(cart.getTotalItemPrice().add(cart.getTotalDeliveryPrice()).subt
 }
 ```
 
-
+有了这个抽象类，三个子类的实现就非常简单了。普通用户的购物车 NormalUserCart，实现的是 0 优惠和 10% 运费的逻辑：
 
 
 
