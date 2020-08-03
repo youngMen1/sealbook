@@ -111,9 +111,9 @@ public int wrong(@RequestParam(value = "count", defaultValue = "1000000") int co
 
 777f520e9d0be89b66e814d3e7c1a30b.png
 
+我们来分析下为什么会出现这个问题吧。
 
-
-
+在非静态的 wrong 方法上加锁，只能确保多个线程无法执行同一个实例的 wrong 方法，却不能保证不会执行不同实例的 wrong 方法。而静态的 counter 在多个实例中共享，所以必然会出现线程安全问题。
 
 
 # 2.总结
