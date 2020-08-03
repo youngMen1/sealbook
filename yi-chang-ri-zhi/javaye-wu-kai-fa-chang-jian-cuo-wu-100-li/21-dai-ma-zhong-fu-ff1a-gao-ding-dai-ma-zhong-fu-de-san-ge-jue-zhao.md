@@ -25,6 +25,75 @@
 
 我们的目标是实现三种类型的购物车业务逻辑，把入参 Map 对象（Key 是商品 ID，Value 是商品数量），转换为出参购物车类型 Cart。
 
+先实现针对普通用户的购物车处理逻辑：
+
+
+```
+
+//购物车
+@Data
+public class Cart {
+    //商品清单
+    private List<Item> items = new ArrayList<>();
+    //总优惠
+    private BigDecimal totalDiscount;
+    //商品总价
+    private BigDecimal totalItemPrice;
+    //总运费
+    private BigDecimal totalDeliveryPrice;
+    //应付总价
+    private BigDecimal payPrice;
+}
+//购物车中的商品
+@Data
+public class Item {
+    //商品ID
+    private long id;
+    //商品数量
+    private int quantity;
+    //商品单价
+    private BigDecimal price;
+    //商品优惠
+    private BigDecimal couponPrice;
+    //商品运费
+    private BigDecimal deliveryPrice;
+}
+//普通用户购物车处理
+public class NormalUserCart {
+    public Cart process(long userId, Map<Long, Integer> items) {
+        Cart cart = new Cart();
+
+        //把Map的购物车转换为Item列表
+        List<Item> itemList = new ArrayList<>();
+        items.entrySet().stream().forEach(entry -> {
+            Item item = new Item();
+            item.setId(entry.getKey());
+            item.setPrice(Db.getItemPrice(entry.getKey()));
+            item.setQuantity(entry.getValue());
+            itemList.add(item);
+        });
+        cart.setItems(itemList);
+
+        //处理运费和商品优惠
+        itemList.stream().forEach(item -> {
+            //运费为商品总价的10%
+            item.setDeliveryPrice(item.getPrice().multiply(BigDecimal.valueOf(item.getQuantity())).multiply(new BigDecimal("0.1")));
+            //无优惠
+            item.setCouponPrice(BigDecimal.ZERO);
+        });
+
+        //计算商品总价
+        cart.setTotalItemPrice(cart.getItems().stream().map(item -> item.getPrice().multiply(BigDecimal.valueOf(item.getQuantity()))).reduce(BigDecimal.ZERO, BigDecimal::add));
+        //计算运费总价
+        cart.setTotalDeliveryPrice(cart.getItems().stream().map(Item::getDeliveryPrice).reduce(BigDecimal.ZERO, BigDecimal::add));
+        //计算总优惠
+        cart.setTotalDiscount(cart.getItems().stream().map(Item::getCouponPrice).reduce(BigDecimal.ZERO, BigDecimal::add));
+        //应付总价=商品总价+运费总价-总优惠
+        cart.setPayPrice(cart.getTotalItemPrice().add(cart.getTotalDeliveryPrice()).subtract(cart.getTotalDiscount()));
+        return cart;
+    }
+}
+```
 
 
 
