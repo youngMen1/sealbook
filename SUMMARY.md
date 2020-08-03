@@ -21,6 +21,7 @@
   * [Java业务开发常见错误100例](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li.md)
     * [16 \| 用好Java 8的日期时间类，少踩一些“老三样”的坑](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/16-yong-hao-java-8-de-ri-qi-shi-jian-lei-ff0c-shao-cai-yi-xie-201c-lao-san-yang-201d-de-keng.md)
     * [02 \| 代码加锁：不要让“锁”事成为烦心事](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/02-dai-ma-jia-suo-ff1a-bu-yao-rang-201c-suo-201d-shi-cheng-wei-fan-xin-shi.md)
+    * 05 \| HTTP调用：你考虑到超时、重试、并发了吗？
 * [IDEA](java.md)
   * [使用帮助](java/shi-yong-bang-zhu.md)
     * [IDEA解决提交冲突的问题](java/shi-yong-bang-zhu/ideajie-jue-ti-jiao-chong-tu-de-wen-ti.md)
