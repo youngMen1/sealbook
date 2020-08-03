@@ -313,10 +313,16 @@ public class InternalUserCart extends AbstractCart {
 
 ```
 
+@GetMapping("right")
+public Cart right(@RequestParam("userId") int userId) {
+    String userCategory = Db.getUserCategory(userId);
+    AbstractCart cart = (AbstractCart) applicationContext.getBean(userCategory + "UserCart");
+    return cart.process(userId, items);
+}
 ```
+试想， 之后如果有了新的用户类型、新的用户逻辑，是不是完全不用对代码做任何修改，只要新增一个 XXXUserCart 类继承 AbstractCart，实现特殊的优惠和运费处理逻辑就可以了？
 
-
-
+这样一来，我们就**利用工厂模式 + 模板方法模式，不仅消除了重复代码，还避免了修改既有代码的风险。**这就是设计模式中的开闭原则：对修改关闭，对扩展开放。
 
 
 
