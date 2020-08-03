@@ -307,7 +307,13 @@ public class InternalUserCart extends AbstractCart {
 
 或许你已经注意到了，定义三个购物车子类时，我们在 @Service 注解中对 Bean 进行了命名。既然三个购物车都叫 XXXUserCart，那我们就可以把用户类型字符串拼接 UserCart 构成购物车 Bean 的名称，然后利用 Spring 的 IoC 容器，通过 Bean 的名称直接获取到 AbstractCart，调用其 process 方法即可实现通用。
 
+其实，这就是**工厂模式**，只不过是借助 Spring 容器实现罢了：
 
+
+
+```
+
+```
 
 
 
