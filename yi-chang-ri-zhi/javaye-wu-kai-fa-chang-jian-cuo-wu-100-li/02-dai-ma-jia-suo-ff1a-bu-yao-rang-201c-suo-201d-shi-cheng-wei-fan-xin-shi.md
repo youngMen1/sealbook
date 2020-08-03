@@ -47,7 +47,7 @@ new Thread(() -> interesting.compare()).start();
 ```
 
 按道理，a 和 b 同样进行累加操作，应该始终相等，compare 中的第一次判断应该始终不会成立，不会输出任何日志。但，执行代码后发现不但输出了日志，而且更诡异的是，compare 方法在判断 ab 也成立：
-
+9ec61aada64ac6d38681dd199c0ee61d.png
 
 
 
