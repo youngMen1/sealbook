@@ -318,8 +318,8 @@ public Cart right(@RequestParam("userId") int userId) {
 * 对所有参数做 MD5 操作作为签名（为了方便理解，Demo 中不涉及加盐处理）。  
   比如，创建用户方法和支付方法的定义是这样的：
 
-5429e0313c1254c56abf6bc6ff4fc8a6.jpg  
-88ceb410987e16f00b5ab5324c0f4c07.jpg  
+![](/static/image/5429e0313c1254c56abf6bc6ff4fc8a6.jpg)  
+![](/static/image/88ceb410987e16f00b5ab5324c0f4c07.jpg)  
 代码很容易实现，直接根据接口定义实现填充操作、加签名、请求调用操作即可：
 
 ```
