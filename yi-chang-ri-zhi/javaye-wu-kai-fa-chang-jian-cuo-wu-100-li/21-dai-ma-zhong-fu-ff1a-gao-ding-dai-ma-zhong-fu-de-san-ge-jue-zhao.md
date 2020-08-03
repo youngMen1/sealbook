@@ -132,6 +132,29 @@ public class VipUserCart {
 
 
 
+```
+
+public class InternalUserCart {
+
+
+    public Cart process(long userId, Map<Long, Integer> items) {
+        ...
+
+        itemList.stream().forEach(item -> {
+            //免运费
+            item.setDeliveryPrice(BigDecimal.ZERO);
+            //无优惠
+            item.setCouponPrice(BigDecimal.ZERO);
+        });
+
+        ...
+        return cart;
+    }
+}
+```
+
+
+
 
 
 
