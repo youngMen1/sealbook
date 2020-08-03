@@ -178,6 +178,29 @@ public IClientConfig ribbonClientConfig() {
 }
 ```
 
+如果要修改 Feign 客户端默认的两个全局超时时间，你可以设置 feign.client.config.default.readTimeout 和 feign.client.config.default.connectTimeout 参数：
+
+
+```
+feign.client.config.default.readTimeout=3000
+feign.client.config.default.connectTimeout=3000
+```
+
+修改配置后重试，得到如下日志：
+
+
+```
+
+[15:43:39.955] [http-nio-45678-exec-3] [WARN ] [o.g.t.c.h.f.FeignAndRibbonController    :26  ] - 执行耗时：3006ms 错误：Read timed out executing POST http://clientsdk/feignandribbon/server
+```
+
+可见，3 秒读取超时生效了。注意：这里有一个大坑，如果你希望只修改读取超时，可能会只配置这么一行：
+
+```
+feign.client.config.default.readTimeout=3000
+```
+
+
 
 
 
