@@ -64,6 +64,14 @@ public synchronized void add()
 所以，正确的做法应该是，为 add 和 compare 都加上方法锁，确保 add 方法执行时，compare 无法读取 a 和 b：
 
 
+```
+
+public synchronized void add()
+public synchronized void compare()
+```
+
+
+
 
 
 
