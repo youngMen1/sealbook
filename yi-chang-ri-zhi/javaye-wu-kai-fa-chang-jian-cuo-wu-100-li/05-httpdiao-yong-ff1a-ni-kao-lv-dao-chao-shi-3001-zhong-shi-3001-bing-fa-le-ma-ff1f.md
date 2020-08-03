@@ -203,6 +203,75 @@ feign.client.config.default.readTimeout=3000
 
 **结论二，也是坑点二，如果要配置 Feign 的读取超时，就必须同时配置连接超时，才能生效。**
 
+打开 FeignClientFactoryBean 可以看到，只有同时设置 ConnectTimeout 和 ReadTimeout，Request.Options 才会被覆盖：
+
+
+
+```
+
+if (config.getConnectTimeout() != null && config.getReadTimeout() != null) {
+   builder.options(new Request.Options(config.getConnectTimeout(),
+         config.getReadTimeout()));
+}
+```
+
+更进一步，如果你希望针对单独的 Feign Client 设置超时时间，可以把 default 替换为 Client 的 name：
+
+
+```
+
+feign.client.config.default.readTimeout=3000
+feign.client.config.default.connectTimeout=3000
+feign.client.config.clientsdk.readTimeout=2000
+feign.client.config.clientsdk.connectTimeout=2000
+```
+可以得出**结论三，单独的超时可以覆盖全局超时，这符合预期，不算坑：**
+
+
+
+```
+
+[15:45:51.708] [http-nio-45678-exec-3] [WARN ] [o.g.t.c.h.f.FeignAndRibbonController    :26  ] - 执行耗时：2006ms 错误：Read timed out executing POST http://clientsdk/feignandribbon/server
+```
+
+
+**结论四，除了可以配置 Feign，也可以配置 Ribbon 组件的参数来修改两个超时时间。这里的坑点三是，参数首字母要大写，和 Feign 的配置不同。**
+
+
+
+```
+ribbon.ReadTimeout=4000
+ribbon.ConnectTimeout=4000
+
+```
+可以通过日志证明参数生效：
+
+
+
+```
+
+[15:55:18.019] [http-nio-45678-exec-3] [WARN ] [o.g.t.c.h.f.FeignAndRibbonController    :26  ] - 执行耗时：4003ms 错误：Read timed out executing POST http://clientsdk/feignandribbon/server
+```
+
+最后，我们来看看同时配置 Feign 和 Ribbon 的参数，最终谁会生效？如下代码的参数配置：
+
+```
+clientsdk.ribbon.listOfServers=localhost:45678
+feign.client.config.default.readTimeout=3000
+feign.client.config.default.connectTimeout=3000
+ribbon.ReadTimeout=4000
+ribbon.ConnectTimeout=4000
+
+```
+日志输出证明，最终生效的是 Feign 的超时：
+
+
+```
+
+[16:01:19.972] [http-nio-45678-exec-3] [WARN ] [o.g.t.c.h.f.FeignAndRibbonController    :26  ] - 执行耗时：3006ms 错误：Read timed out executing POST http://clientsdk/feignandribbon/server
+```
+
+**结论五，同时配置 Feign 和 Ribbon 的超时，以 Feign 为准。**这有点反直觉，因为 Ribbon 更底层所以你会觉得后者的配置会生效，但其实不是这样的。
 
 # 2.总结
 ## 2.1.思考题
