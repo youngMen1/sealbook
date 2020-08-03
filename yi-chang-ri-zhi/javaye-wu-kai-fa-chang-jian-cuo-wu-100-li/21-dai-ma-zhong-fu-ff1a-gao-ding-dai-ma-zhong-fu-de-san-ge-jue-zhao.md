@@ -261,7 +261,7 @@ public class NormalUserCart extends AbstractCart {
 }
 ```
 
-
+VIP 用户的购物车 VipUserCart，直接继承了 NormalUserCart，只需要修改多买优惠策略：
 
 
 # 2.总结
