@@ -551,7 +551,20 @@ Date的toString\(\)方法处理的，同String中有BaseCalendar.Date date = nor
 2.日期时间数据始终要保存到数据库中，MySQL 中有两种数据类型 datetime 和 timestamp 可以用来保存日期时间。你能说说它们的区别吗，它们是否包含时区信息呢？
 
 **回答：**
+从下面几个维度进行区分：
+占用空间：datetime：8字节。timestamp 4字节
+表示范围：datetime	'1000-01-01 00:00:00.000000' to '9999-12-31 23:59:59.999999'
+timestamp	'1970-01-01 00:00:01.000000' to '2038-01-19 03:14:07.999999'
+时区：timestamp 只占 4 个字节，而且是以utc的格式储存， 它会自动检索当前时区并进行转换。
+datetime以 8 个字节储存，不会进行时区的检索.
+也就是说，对于timestamp来说，如果储存时的时区和检索时的时区不一样，那么拿出来的数据也不一样。对于datetime来说，存什么拿到的就是什么。
+更新：timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP；
+这个特性是自动初始化和自动更新（Automatic Initialization and Updating）。
+自动更新指的是如果修改了其它字段，则该字段的值将自动更新为当前系统时间。
+它与“explicit_defaults_for_timestamp”参数有关。
 
+By default, the first TIMESTAMP column has both DEFAULT CURRENT_TIMESTAMP and ON UPDATE CURRENT_TIMESTAMP if neither is specified explicitly。
+很多时候，这并不是我们想要的，如何禁用呢？
 
 
 
