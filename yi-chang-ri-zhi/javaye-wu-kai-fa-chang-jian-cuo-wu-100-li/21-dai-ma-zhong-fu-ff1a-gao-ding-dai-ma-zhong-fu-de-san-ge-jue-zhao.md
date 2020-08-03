@@ -242,6 +242,27 @@ cart.setPayPrice(cart.getTotalItemPrice().add(cart.getTotalDeliveryPrice()).subt
 有了这个抽象类，三个子类的实现就非常简单了。普通用户的购物车 NormalUserCart，实现的是 0 优惠和 10% 运费的逻辑：
 
 
+```
+
+@Service(value = "NormalUserCart")
+public class NormalUserCart extends AbstractCart {
+
+    @Override
+    protected void processCouponPrice(long userId, Item item) {
+        item.setCouponPrice(BigDecimal.ZERO);
+    }
+
+    @Override
+    protected void processDeliveryPrice(long userId, Item item) {
+        item.setDeliveryPrice(item.getPrice()
+                .multiply(BigDecimal.valueOf(item.getQuantity()))
+                .multiply(new BigDecimal("0.1")));
+    }
+}
+```
+
+
+
 
 # 2.总结
 
