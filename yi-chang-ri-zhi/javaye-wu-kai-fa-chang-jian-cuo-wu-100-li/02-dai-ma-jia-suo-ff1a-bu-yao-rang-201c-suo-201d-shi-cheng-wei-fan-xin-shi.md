@@ -210,6 +210,44 @@ public int right() {
 
 ## 多把锁要小心死锁问题
 
+刚才我们聊到锁的粒度够用就好，这就意味着我们的程序逻辑中有时会存在一些细粒度的锁。但一个业务逻辑如果涉及多把锁，容易产生死锁问题。
+
+之前我遇到过这样一个案例：下单操作需要锁定订单中多个商品的库存，拿到所有商品的锁之后进行下单扣减库存操作，全部操作完成之后释放所有的锁。代码上线后发现，下单失败概率很高，失败后需要用户重新下单，极大影响了用户体验，还影响到了销量。
+
+经排查发现是死锁引起的问题，背后原因是扣减库存的顺序不同，导致并发的情况下多个线程可能相互持有部分商品的锁，又等待其他线程释放另一部分商品的锁，于是出现了死锁问题。
+
+接下来，我们剖析一下核心的业务代码。
+
+首先，定义一个商品类型，包含商品名、库存剩余和商品的库存锁三个属性，每一种商品默认库存 1000 个；然后，初始化 10 个这样的商品对象来模拟商品清单：
+
+
+
+```
+
+@Data
+@RequiredArgsConstructor
+static class Item {
+    final String name; //商品名
+    int remaining = 1000; //库存剩余
+    @ToString.Exclude //ToString不包含这个字段 
+    ReentrantLock lock = new ReentrantLock();
+}
+```
+
+随后，写一个方法模拟在购物车进行商品选购，每次从商品清单（items 字段）中随机选购三个商品（为了逻辑简单，我们不考虑每次选购多个同类商品的逻辑，购物车中不体现商品数量）：
+
+
+```
+
+private List<Item> createCart() {
+    return IntStream.rangeClosed(1, 3)
+            .mapToObj(i -> "item" + ThreadLocalRandom.current().nextInt(items.size()))
+            .map(name -> items.get(name)).collect(Collectors.toList());
+}
+```
+
+
+
 # 2.总结
 ## 2.1.高质量问题
 1.加锁解锁没有配对可以用一些代码质量工具协助排插，如Sonar，集成到ide和代码仓库，在编码阶段发现，加上超时自动释放，避免长期占有锁
