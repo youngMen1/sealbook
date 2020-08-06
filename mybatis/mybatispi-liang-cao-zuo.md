@@ -15,9 +15,10 @@
     type,
     phone,
     link
-    
+
     /*方法二*/
     <include refid="Base_Column_List"/>
+    
     )
     values
     <foreach collection="list" item="item" index="index" separator=",">
@@ -51,7 +52,9 @@ insert into
 ```
 
 ## 1.2.批量更新
+
 ### 单个字段写法一
+
 Mybatis写法如下：
 
 ```
@@ -65,10 +68,10 @@ Mybatis写法如下：
     </foreach>      
 </update>
 ```
+
 一条记录update一次，性能比较差，容易造成阻塞。
 
 MySQL没有提供直接的方法来实现批量更新，但可以使用case when语法来实现这个功能。
-
 
 ```
 UPDATE course
@@ -85,9 +88,10 @@ UPDATE course
 WHERE id IN (1,2,3)
 ```
 
-
 ### 多个字段写法二
+
 为了提升操作数据的效率,第一想到的是做批量操作,直接上批量更新代码:
+
 ```
 <update id="updateBatch" parameterType="list">
             update course
@@ -106,7 +110,7 @@ WHERE id IN (1,2,3)
                          </if>
                  </foreach>
               </trim>
-              
+
               <trim prefix="type =case" suffix="end," >
                  <foreach collection="list" item="i" index="index">
                          <if test="i.type!=null">
@@ -164,6 +168,7 @@ where
 ## 1.3.批量删除
 
 ### 1.3.1.如果传入的是单参数且参数类型是一个List的时候，collection属性值为list
+
 ```
 <delete id="deleteByLogic"  parameterType = "java.util.List">
      delete from user where 1>2
@@ -174,7 +179,7 @@ where
 </delete>
 ```
 
-### 1.3.2.如果传入的是单参数且参数类型是一个array数组的时候， 参数类型为parameterType="int"     集合    collection的属性值为array 
+### 1.3.2.如果传入的是单参数且参数类型是一个array数组的时候， 参数类型为parameterType="int"     集合    collection的属性值为array
 
 ```
 <delete id="deleteByLogic"  parameterType = "java.util.List">
@@ -186,11 +191,11 @@ where
 </delete>
 ```
 
-
 ## 1.4.批量查询
 
-
 # 2.参考
-mybatis 实现批量更新：https://www.cnblogs.com/joeblackzqq/p/10892699.html
-Mybatis 批量添加,批量更新: https://www.cnblogs.com/djq-jone/p/10754742.html
-mybatis批量插入、批量更新和批量删除：https://www.jianshu.com/p/041bec8ae6d3
+
+mybatis 实现批量更新：[https://www.cnblogs.com/joeblackzqq/p/10892699.html](https://www.cnblogs.com/joeblackzqq/p/10892699.html)  
+Mybatis 批量添加,批量更新: [https://www.cnblogs.com/djq-jone/p/10754742.html](https://www.cnblogs.com/djq-jone/p/10754742.html)  
+mybatis批量插入、批量更新和批量删除：[https://www.jianshu.com/p/041bec8ae6d3](https://www.jianshu.com/p/041bec8ae6d3)
+
