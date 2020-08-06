@@ -51,7 +51,7 @@ insert into
 ```
 
 ## 1.2.批量更新
-### 写法一
+### 单个字段写法一
 Mybatis写法如下：
 
 ```
@@ -86,7 +86,7 @@ WHERE id IN (1,2,3)
 ```
 
 
-### 写法二
+### 多个字段写法二
 为了提升操作数据的效率,第一想到的是做批量操作,直接上批量更新代码:
 ```
 <update id="updateBatch" parameterType="list">
@@ -165,5 +165,4 @@ where
 # 2.参考
 mybatis 实现批量更新：https://www.cnblogs.com/joeblackzqq/p/10892699.html
 Mybatis 批量添加,批量更新: https://www.cnblogs.com/djq-jone/p/10754742.html
-Mybatis实现批量删除: 
-
+mybatis批量插入、批量更新和批量删除：https://www.jianshu.com/p/041bec8ae6d3
