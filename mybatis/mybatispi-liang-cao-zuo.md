@@ -26,6 +26,25 @@
         </foreach>
     </insert>
 ```
+**生成对应的sql**
+
+
+```
+insert into 
+ 　　crm_member3 　　(
+　　　　id, 
+　　　　name, 
+　　　　type, 
+　　　　phone,
+　　　　link
+　　　　)
+ values
+ 　　(?,?,?,?,?),
+ 　　(?,?,?,?,?),
+ 　　(?,?,?,?,?),
+ 　　(?,?,?,?,?)
+```
+
 
 
 
