@@ -6,25 +6,25 @@
 
 
 ```
-    <insert id="batchInsertMember" parameterType="java.util.List">
-        insert into crm_member(
-        id,
-        name,
-        type,
-        phone,
-        link,
+<insert id="batchInsertMember" parameterType="java.util.List">
+    insert into crm_member(
+    id,
+    name,
+    type,
+    phone,
+    link,
+    )
+    values
+    <foreach collection="list" item="item" index="index" separator=",">
+        (
+        #{item.id},
+        #{item.name},
+        #{item.type},
+        #{item.phone},
+        #{item.link}
         )
-        values
-        <foreach collection="list" item="item" index="index" separator=",">
-            (
-            #{item.id},
-            #{item.name},
-            #{item.type},
-            #{item.phone},
-            #{item.link}
-            )
-        </foreach>
-    </insert>
+    </foreach>
+</insert>
 ```
 
 **生成对应的sql**
