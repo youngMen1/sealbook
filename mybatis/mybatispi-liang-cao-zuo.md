@@ -127,6 +127,36 @@ WHERE id IN (1,2,3)
 
 **生成的sql语句**
 
+```
+update
+　　crm_member
+set
+dept_id =case
+　　when id=? then ?
+　　when id=? then ?
+　　when id=? then ?
+　　when id=? then ?
+end,
+sys_user_id =case
+　　when id=? then ?
+　　when id=? then ?
+　　when id=? then ?
+　　when id=? then ?
+end,
+public_area_id =case
+　　when id=? then ?
+　　when id=? then ?
+　　when id=? then ?
+　　when id=? then ?
+end
+where
+　　id=?
+　　or id=?
+　　 or id=?
+　　or id=?
+　　 or id=?
+```
+
 
 
 
