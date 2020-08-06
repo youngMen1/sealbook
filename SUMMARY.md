@@ -63,7 +63,7 @@
 * [Mybatis](mybatis.md)
   * [错误](mybatis/cuo-wu.md)
   * [Mybatis类型判空](mybatis/mybatislei-xing-pan-kong.md)
-  * Mybatis批量操作
+  * [Mybatis批量操作](mybatis/mybatispi-liang-cao-zuo.md)
 * [SpringCloud](springcloud.md)
   * [Eureka](springcloud/eureka.md)
     * [Eureka高可用](springcloud/eurekagao-ke-yong.md)
