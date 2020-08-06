@@ -163,6 +163,7 @@ where
 
 ## 1.3.批量删除
 
+### 1.3.1.如果传入的是单参数且参数类型是一个List的时候，collection属性值为list
 ```
 <delete id="deleteByLogic"  parameterType = "java.util.List">
      delete from user where 1>2
