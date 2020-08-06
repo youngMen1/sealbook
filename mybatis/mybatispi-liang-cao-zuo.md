@@ -26,8 +26,8 @@
         </foreach>
     </insert>
 ```
-**生成对应的sql**
 
+**生成对应的sql**
 
 ```
 insert into 
