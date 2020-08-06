@@ -7,6 +7,11 @@
 适用场景:数据迁移时使用
 
 ```
+<sql id="Base_Column_List">
+  id, name, type, phone, link
+</sql>
+
+
 <insert id="batchInsertMember" parameterType="java.util.List">
     insert into crm_member(
     /*方法一*/
