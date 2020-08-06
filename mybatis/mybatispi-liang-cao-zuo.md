@@ -174,6 +174,19 @@ where
 </delete>
 ```
 
+### 1.3.2.如果传入的是单参数且参数类型是一个array数组的时候， 参数类型为parameterType="int"     集合    collection的属性值为array 
+
+```
+<delete id="deleteByLogic"  parameterType = "java.util.List">
+     delete from user where 1>2
+         or id in
+     <foreach item="item" collection="array" open="(" separator="," close=")">
+            #{item}
+     </foreach>
+</delete>
+```
+
+
 ## 1.4.批量查询
 
 
