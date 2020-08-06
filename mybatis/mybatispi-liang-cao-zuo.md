@@ -161,6 +161,20 @@ where
 　　 or id=?
 ```
 
+## 1.3.批量删除
+
+```
+<delete id="deleteByLogic"  parameterType = "java.util.List">
+     delete from user where 1>2
+         or id in
+      <foreach collection="list"  item="item" open="(" separator="," close=")"  >
+           #{item}
+      </foreach>
+</delete>
+```
+
+## 1.4.批量查询
+
 
 # 2.参考
 mybatis 实现批量更新：https://www.cnblogs.com/joeblackzqq/p/10892699.html
