@@ -9,11 +9,15 @@
 ```
 <insert id="batchInsertMember" parameterType="java.util.List">
     insert into crm_member(
+    /*方法一*/
     id,
     name,
     type,
     phone,
-    link,
+    link
+    
+    /*方法二*/
+    <include refid="Base_Column_List"/>
     )
     values
     <foreach collection="list" item="item" index="index" separator=",">
@@ -158,7 +162,8 @@ where
 ```
 
 
-
-
-
+# 2.参考
+mybatis 实现批量更新：https://www.cnblogs.com/joeblackzqq/p/10892699.html
+Mybatis 批量添加,批量更新: https://www.cnblogs.com/djq-jone/p/10754742.html
+Mybatis实现批量删除: 
 
