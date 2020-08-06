@@ -125,6 +125,8 @@ WHERE id IN (1,2,3)
 </update>
 ```
 
+**生成的sql语句**
+
 
 
 
