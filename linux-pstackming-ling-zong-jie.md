@@ -16,7 +16,7 @@ pstack是gdb的一部分，如果系统没有pstack命令，使用yum搜索安�
 
 ## 1.2.pstack 与 gstack 区别
 
-pstack是/usr/bin/gstack的软链接
+pstack是/usr/bin/gstack的软链接  
 ![](/static/image/20190814071649437.png)
 
 # 2.使用实例
@@ -31,7 +31,7 @@ pstack是/usr/bin/gstack的软链接
 
 可以看到运行堆栈信息已经打印出来，可根据信息排错
 
-## pstack原理
+## 2.1.pstack原理
 
 gstack本身是基于gdb封装的shell脚本.
 
@@ -41,12 +41,11 @@ gstack本身是基于gdb封装的shell脚本.
 
 ![](/static/image/20190814072932420.png)
 
-
 # 3.总结
 
-由于代码太长, 这边选取最核心的片段, backtrace="thread apply all bt"
-shell采用了here document的方式, 完成了GDB的交互工作(注意EOF标识, 及范围内的交互命令). 
-重要的是输入thread apply all bt这个交互命令. 该命令要求输出所有的线程堆栈信息.
+由于代码太长, 这边选取最核心的片段, backtrace="thread apply all bt"  
+shell采用了here document的方式, 完成了GDB的交互工作\(注意EOF标识, 及范围内的交互命令\).   
+重要的是输入thread apply all bt这个交互命令. 该命令要求输出所有的线程堆栈信息.  
 对GDB输出的结果, 通过管道并借助sed命令进行了替换和过滤.
 
 pstack其实是gdb的一个功能封装, 但其实现的功能, 确实非常实用
