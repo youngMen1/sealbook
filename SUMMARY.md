@@ -92,6 +92,7 @@
   * [服务部署](fu-wu-bu-shu.md)
   * [Linux 高级命令](linux-gao-ji-ming-ling.md)
   * [Linux 系统故障排查](linux-xi-tong-gu-zhang-pai-cha.md)
+  * linux pstack命令总结
 * [WeChat](wechat.md)
   * [普通红包](wechat/pu-tong-hong-bao.md)
   * [微信公众号](wechat/wei-xin-gong-zhong-hao.md)
