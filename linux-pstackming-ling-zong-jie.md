@@ -8,13 +8,17 @@
 
 4\). 能反映出疑似的死锁现象\(多个线程同时在wait lock, 具体需要进一步验证\)
 
-
-
 ## 1.1.pstack的安装
 
 pstack是gdb的一部分，如果系统没有pstack命令，使用yum搜索安装gdb即可
 
 `yum install gdb -y`
+
+
+
+## 1.2.pstack 与 gstack 区别
+
+
 
 # 2.总结
 
