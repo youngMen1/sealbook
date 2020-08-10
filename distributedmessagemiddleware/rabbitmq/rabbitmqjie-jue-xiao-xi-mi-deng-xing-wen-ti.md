@@ -116,7 +116,7 @@ spring:
 
 情况2: 消费者获取到消息后，抛出数据转换异常，是否需要重试? **不需要重试,因为属于程序bug需要重新发布版本**
 
-总结：对于情况2，如果消费者代码抛出异常是需要发布新版本才能解决的问题，那么不需要重试，重试也无济于事。**应该采用日志记录+定时任务job进行健康检查+人工进行补偿    
+总结：对于情况2，如果消费者代码抛出异常是需要发布新版本才能解决的问题，那么不需要重试，重试也无济于事。**应该采用日志记录+定时任务job进行健康检查+人工进行补偿      
 **
 
 ## 3.调用第三方接口自动实现补偿机制
@@ -244,5 +244,9 @@ public class FanoutEamilConsumer {
 
 参考课程:[https://coding.imooc.com/class/262.html](https://links.jianshu.com/go?to=https%3A%2F%2Fcoding.imooc.com%2Fclass%2F262.html)
 
-RabbitMQ解决消息幂等性问题:https://blog.csdn.net/qq\_38252039/article/details/91409955
+RabbitMQ解决消息幂等性问题:[https://blog.csdn.net/qq\_38252039/article/details/91409955](https://blog.csdn.net/qq_38252039/article/details/91409955)
+
+RocketMQ消息幂等的通用解决方案：https://mp.weixin.qq.com/s/X25Jw-sz3XItVrXRS6IQdg
+
+
 
