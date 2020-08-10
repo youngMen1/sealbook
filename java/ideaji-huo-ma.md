@@ -1,4 +1,7 @@
-# IDEA激活码
+# 1.IDEA激活码
+`http://lookdiv.com/`
+
+
 
 
 
