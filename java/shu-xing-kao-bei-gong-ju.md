@@ -17,5 +17,5 @@
 | Apache BeanUtils | 138ms | 816ms | 4154ms | 36938ms |
 | Dozer | 566ms | 2254ms | 11136ms | 102965ms |
 
-
-微信图片_20200810100334.jpg
+## 折线图对比
+![](/static/image/微信图片_20200810100334.jpg)
