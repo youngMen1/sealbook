@@ -15,7 +15,7 @@
 ## 2.1.RabbitMqConfig配置
 
 ```
-/**
+    /**
      * 死信队列 交换机标识符
      */
     private static final String DEAD_LETTER_QUEUE_KEY = "x-dead-letter-exchange";
