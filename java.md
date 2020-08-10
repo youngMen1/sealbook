@@ -1,6 +1,4 @@
-### 注册码地址
+### 
 
-[http://lookdiv.com](http://lookdiv.com)  
-[http://lookdiv.com/nssdh/sereas/sxclo/aloif/smxs/slak/pdoasj/ejekoq/ewqqzsd/wsdwwq/ers.htm](http://lookdiv.com/nssdh/sereas/sxclo/aloif/smxs/slak/pdoasj/ejekoq/ewqqzsd/wsdwwq/ers.html)[l](http://lookdiv.com/nssdh/sereas/sxclo/aloif/smxs/slak/pdoasj/ejekoq/ewqqzsd/wsdwwq/ers.html)
-[http://lookdiv.com/code](http://lookdiv.com/code)
+
 
