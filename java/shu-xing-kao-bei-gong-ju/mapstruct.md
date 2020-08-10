@@ -19,6 +19,9 @@
 
 # 2.总结
 
+本文介绍了一款Java中的字段映射工具类，MapStruct，他的用法比较简单，并且功能非常完善，可以应付各种情况的字段映射。
+并且因为他是编译期就会生成真正的映射代码，使得运行期的性能得到了大大的提升。
+
 # 3.参考
 
 [https://mp.weixin.qq.com/s/L\_lMbHuU138NXAV7Sv8moA](https://mp.weixin.qq.com/s/L_lMbHuU138NXAV7Sv8moA)
