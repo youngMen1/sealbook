@@ -253,7 +253,7 @@
   * [属性拷贝工具](java/shu-xing-kao-bei-gong-ju.md)
     * [MapStruct框架](java/shu-xing-kao-bei-gong-ju/mapstruct.md)
   * [Java 工具类库](java/java-gong-ju-lei-ku.md)
-    * Hutool
+    * [Hutool](java/java-gong-ju-lei-ku/hutool.md)
 * [SpringCloudAlibaba](springcloudalibaba.md)
   * [SpringCloudAlibaba基本介绍](springcloudalibaba/zhu-yi.md)
   * [Nacos](springcloudalibaba/nacos.md)
