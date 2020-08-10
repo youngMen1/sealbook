@@ -14,9 +14,9 @@ pstack是gdb的一部分，如果系统没有pstack命令，使用yum搜索安�
 
 `yum install gdb -y`
 
+## 1.2.pstack 与 gstack 区别
 
-
-## 1.2.pstack 与 gstack 区别
+pstack是/usr/bin/gstack的软链接
 
 
 
