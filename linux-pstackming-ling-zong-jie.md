@@ -10,6 +10,12 @@
 
 
 
+## 1.1.pstack的安装
+
+pstack是gdb的一部分，如果系统没有pstack命令，使用yum搜索安装gdb即可
+
+`yum install gdb -y`
+
 # 2.总结
 
 # 3.参考
