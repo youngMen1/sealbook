@@ -17,12 +17,14 @@ pstack是gdb的一部分，如果系统没有pstack命令，使用yum搜索安�
 ## 1.2.pstack 与 gstack 区别
 
 pstack是/usr/bin/gstack的软链接
+20190814071649437.png
+
+# 2.使用实例
 
 
+# 3.总结
 
-# 2.总结
-
-# 3.参考
+# 4.参考
 
 [http://lnmp.ailinux.net/pstack](http://lnmp.ailinux.net/pstack)
 
