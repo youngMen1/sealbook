@@ -1,6 +1,12 @@
 # 1.linux pstack命令总结
 
-pstack命令用来显示进程的栈跟踪。 pstack 命令必须由相应进程的属主或root账号运行。可以使用pstack来确定进程挂起的位置。此命令只有一个参数，那就是pid，具体关于pstack的介绍可以查看man手册，如下所示：
+1\). 查看线程数\(比pstree, 包含了详细的堆栈信息\)
+
+2\). 能简单验证是否按照预定的调用顺序/调用栈执行
+
+3\). 采用高频率多次采样使用时, 能发现程序当前的阻塞在哪里, 以及性能消耗点在哪里?
+
+4\). 能反映出疑似的死锁现象\(多个线程同时在wait lock, 具体需要进一步验证\)
 
 
 
@@ -16,5 +22,5 @@ linux pstack命令总结
 
 [详解命令-pstack](https://www.linuxprobe.com/pstack-command.html)
 
-https://www.linuxprobe.com/pstack-command.html
+[https://www.linuxprobe.com/pstack-command.html](https://www.linuxprobe.com/pstack-command.html)
 
