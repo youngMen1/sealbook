@@ -225,7 +225,6 @@
   * [SpringBoot整合Spring Security](springbootzhu-jie-yan-zheng-can-shu/springbootzheng-he-spring-security.md)
   * [为什么要写spring.factories文件](springbootzhu-jie-yan-zheng-can-shu/wei-shi-yao-yao-xie-spring-factories-wen-jian.md)
 * [JAVA](java.md)
-  * [日常问题](java/ri-cheng-wen-ti.md)
   * [灰度发布](java/hui-du.md)
   * [BigDecimal类型使用介绍](java/di-fang.md)
   * [Java:如何更优雅的处理空值](java/shi.md)
