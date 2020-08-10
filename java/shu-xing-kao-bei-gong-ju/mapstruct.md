@@ -12,17 +12,18 @@
 
 那么，数据的从前端透传到数据持久化层（从持久层透传到前端），就需要进行对象之间的互相转化，即在不同的对象模型之间进行映射。
 
-
 ## 1.1.MapStruct的使用
 
 ## 1.2.MapStruct的性能
 
 # 2.总结
 
-本文介绍了一款Java中的字段映射工具类，MapStruct，他的用法比较简单，并且功能非常完善，可以应付各种情况的字段映射。
+本文介绍了一款Java中的字段映射工具类，MapStruct，他的用法比较简单，并且功能非常完善，可以应付各种情况的字段映射。  
 并且因为他是编译期就会生成真正的映射代码，使得运行期的性能得到了大大的提升。
 
 # 3.参考
+
+丢弃掉那些BeanUtils工具类吧，MapStruct真香
 
 [https://mp.weixin.qq.com/s/L\_lMbHuU138NXAV7Sv8moA](https://mp.weixin.qq.com/s/L_lMbHuU138NXAV7Sv8moA)
 
