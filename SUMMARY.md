@@ -60,7 +60,7 @@
     * [IDEA 快捷键拆解系列（后记）](java/idea-kuai-jie-jian-chai-jie-xi-lie/idea-kuai-jie-jian-chai-jie-xi-lie-ff08-hou-ji-ff09.md)
   * [IDEA模板](java/mo-ban.md)
   * [免费申请IntelliJ IDEA商业版License指南](java/mian-fei-shen-qing-intellij-idea-shang-ye-ban-license-zhi-nan.md)
-  * IDEA激活码
+  * [IDEA激活码](java/ideaji-huo-ma.md)
 * [Mybatis](mybatis.md)
   * [错误](mybatis/cuo-wu.md)
   * [Mybatis类型判空](mybatis/mybatislei-xing-pan-kong.md)
