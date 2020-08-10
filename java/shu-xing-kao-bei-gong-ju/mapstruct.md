@@ -12,6 +12,9 @@
 
 那么，数据的从前端透传到数据持久化层（从持久层透传到前端），就需要进行对象之间的互相转化，即在不同的对象模型之间进行映射。
 
+
+## 1.1.MapStruct的使用
+
 # 参考
 
 [https://mp.weixin.qq.com/s/L\_lMbHuU138NXAV7Sv8moA](https://mp.weixin.qq.com/s/L_lMbHuU138NXAV7Sv8moA)
