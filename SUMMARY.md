@@ -252,7 +252,8 @@
   * [常见Bean映射工具分析评测及Orika介绍](java/chang-jian-bean-ying-she-gong-ju-fen-xi-ping-ce-ji-orika-jie-shao.md)
   * [属性拷贝工具](java/shu-xing-kao-bei-gong-ju.md)
     * [MapStruct框架](java/shu-xing-kao-bei-gong-ju/mapstruct.md)
-  * Java 工具类库
+  * [Java 工具类库](java/java-gong-ju-lei-ku.md)
+    * Hutool
 * [SpringCloudAlibaba](springcloudalibaba.md)
   * [SpringCloudAlibaba基本介绍](springcloudalibaba/zhu-yi.md)
   * [Nacos](springcloudalibaba/nacos.md)
