@@ -137,7 +137,7 @@
   * [nexus](sealblog/nexus.md)
   * [maven](sealblog/maven.md)
   * [Git](sealblog/git.md)
-    * Git提交规范
+    * [Git提交规范](sealblog/git/gitti-jiao-gui-fan.md)
   * [redis](sealblog/redis.md)
   * [JDK](sealblog/jdk.md)
     * [JDK看源码](sealblog/jdk/jdkkan-yuan-ma.md)
