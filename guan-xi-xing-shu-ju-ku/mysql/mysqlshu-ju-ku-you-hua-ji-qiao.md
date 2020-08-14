@@ -72,3 +72,4 @@ mysql>show globle status like 'max_user_connections'
 ### 1.2.2.使用EXPLAIN关键字检测查询
 使用EXPLAIN关键字可以使我们知道MySQL是如何处理SQL语句的，这样可以帮助我们分析我们的查询语句或是表结构的性能瓶颈；EXPLAIN的查询结果还会告诉我们索引主键是如何被利用的，数据表是如何被被搜索或排序的....等等。语法格式是：EXPLAIN +SELECT语句;
 ![](/STATIC/IMAGE/v2-43bed9558eec0873801d2f377651e1a6_720w.png)
+我们可以看到，前一个结果显示搜索了 7883 行，而后一个只是搜索了两个表的 9 和 16 行。查看rows列可以让我们找到潜在的性能问题。 
