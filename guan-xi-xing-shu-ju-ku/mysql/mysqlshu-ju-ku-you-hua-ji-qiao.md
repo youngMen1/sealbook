@@ -315,5 +315,7 @@ MyISAM是MYSQL5.5版本以前默认的存储引擎，基于传统的ISAM类型�
 InnoDB是事务型引擎，支持ACID事务(实现4种事务隔离机制)、回滚、崩溃恢复能力、行锁。以及提供与Oracle一致的不加锁的读取方式。InnoDB存储它的表和索引在一个表空间中，表空间可以包含多个文件。
 MyISAM和InnoDB比较，如下图所示：
 
+![](/static/image/v2-e78f500f45295ba654ed9ad4b0295c8b_720w.png)
+
 # 2.总结
 # 3.参考
