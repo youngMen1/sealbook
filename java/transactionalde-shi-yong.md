@@ -197,6 +197,8 @@ public class InformationServiceApplication {
 
 # 2.参考
 
+https://zhuanlan.zhihu.com/p/145897825
+
 @Transactional的使用：
 
 [https://blog.csdn.net/u013929527/article/details/102596243](https://blog.csdn.net/u013929527/article/details/102596243)
