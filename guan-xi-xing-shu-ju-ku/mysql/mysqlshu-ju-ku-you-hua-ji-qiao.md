@@ -272,7 +272,10 @@ SELECT company_name FROM users LEFT JOIN companies ON (users.state = companies.s
 ### 1.3.6.切记不要使用ORDER BY RAND()
 
 ### 1.3.7.避免使用SELECT *
+
 ### 1.3.8.永远为每张表设置一个ID主键
+
 ### 1.3.9.使用ENUM而不是VARCHAR
+
 ### 1.3.10.尽可能的不要赋值为NULL
 
