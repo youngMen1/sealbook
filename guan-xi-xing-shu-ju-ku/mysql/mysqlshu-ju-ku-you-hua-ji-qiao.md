@@ -38,10 +38,21 @@ mysql>set globle max_connections = 5000;
 mysql>show globle status like 'max_user_connections'
 ```
 
-
-
-
-
-
-## 1.3.
+## 1.3.MySQL语句性能优化的16条经验
+① 为查询缓存优化查询
+② EXPLAIN 我们的SELECT查询(可以查看执行的行数)
+③ 当只要一行数据时使用LIMIT 1
+④ 为搜索字段建立索引
+⑤ 在Join表的时候使用相当类型的列，并将其索引
+⑥ 千万不要 ORDER BY RAND ()
+⑦ 避免SELECT *
+⑧ 永远为每张表设置一个ID
+⑨ 可以使用ENUM 而不要VARCHAR
+⑩ 尽可能的使用NOT NULL
+⑪ 固定长度的表会更快
+⑫ 垂直分割
+⑬ 拆分打的DELETE或INSERT语句
+⑭ 越小的列会越快
+⑮ 选择正确的存储引擎
+⑯ 小心 "永久链接"
 
