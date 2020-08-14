@@ -74,4 +74,8 @@ feat(Controller):用户查询接口开发
 
 ### 整体流程
 ![](/static/image/v2-3342b351bec8c267c7fd52d33bdb00c5_720w.png)
+* 服务注册：服务注册主要完成代码库相关信息的添加。
+* 重复校验：防止merge request再走一遍验证流程。
+* 消息告警：对不符合规范以及大代码量提交、删除文件等操作发送告警消息。
+* DB：存项目信息和git commit信息便于后续统计commit message规范率。
 
