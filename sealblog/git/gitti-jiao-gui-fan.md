@@ -85,3 +85,4 @@ webhook是作用于代码库上的，用户提交git commit，push到仓库的�
 ![](/static/image/v2-91233f42edba80789ef59afd0198bf7e_720w.png)
 ![](/static/image/v2-540621f9fc00d793668d426e9d3ffe0d_720w.png)
 ![](/static/image/v2-30df9c298f12b77d66afd3ac6c8b7311_720w.png)
+v2-30df9c298f12b77d66afd3ac6c8b7311_720w.png
