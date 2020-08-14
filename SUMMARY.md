@@ -192,6 +192,7 @@
 * [关系型数据库](guan-xi-xing-shu-ju-ku.md)
   * [MySQL](guan-xi-xing-shu-ju-ku/mysql.md)
     * [一千行 MySQL 学习笔记](guan-xi-xing-shu-ju-ku/mysql/yi-qian-xing-mysql-xue-xi-bi-ji.md)
+    * MySQL数据库优化技巧
   * [postgreSQL](guan-xi-xing-shu-ju-ku/postgresql.md)
   * [sqLite](guan-xi-xing-shu-ju-ku/sqlite.md)
   * [TiDB\(开源分布式关系型数据库\)](guan-xi-xing-shu-ju-ku/tidbkai-yuan-fen-bu-shi-guan-xi-xing-shu-ju-5e9329.md)
