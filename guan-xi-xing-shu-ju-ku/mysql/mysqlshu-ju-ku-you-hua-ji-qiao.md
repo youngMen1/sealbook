@@ -23,14 +23,14 @@ mysql> show processlist;
 
 
 3:设置最大连接数
-
+最大可设置16384,超过没用
 
 ```
 mysql>set globle max_connections = 5000;
 ```
 
 
-最大可设置16384,超过没用
+
 4:查看当前被使用的connections
 
 
