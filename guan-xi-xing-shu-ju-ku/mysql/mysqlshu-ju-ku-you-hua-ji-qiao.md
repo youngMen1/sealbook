@@ -68,3 +68,7 @@ mysql>show globle status like 'max_user_connections'
 
 
 上面两条SQL语句的差别就是 CURDATE() ，MySQL的查询缓存对这个函数不起作用。所以，像 NOW() 和 RAND() 或是其它的诸如此类的SQL函数都不会开启查询缓存，因为这些函数的返回是会不定的易变的。所以，你所需要的就是用一个变量来代替MySQL的函数，从而开启缓存。
+
+### 1.2.2.使用EXPLAIN关键字检测查询
+使用EXPLAIN关键字可以使我们知道MySQL是如何处理SQL语句的，这样可以帮助我们分析我们的查询语句或是表结构的性能瓶颈；EXPLAIN的查询结果还会告诉我们索引主键是如何被利用的，数据表是如何被被搜索或排序的....等等。语法格式是：EXPLAIN +SELECT语句;
+![](/STATIC/IMAGE/v2-43bed9558eec0873801d2f377651e1a6_720w.png)
