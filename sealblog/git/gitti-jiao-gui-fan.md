@@ -10,7 +10,6 @@ Git每次提交代码都需要写commit message，否则就不允许提交。一
 
 ### commit message格式
 
-
 ```
 <type>(<scope>): <subject>
 ```
