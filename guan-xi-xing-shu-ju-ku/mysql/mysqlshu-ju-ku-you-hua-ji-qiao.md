@@ -81,44 +81,79 @@ mysql>show globle status like 'max_user_connections'
 
 索引不一定就是给主键或者是唯一的字段，如果在表中，有某个字段经常用来做搜索，需要将其建立索引。
 索引的有关操作如下：
+
 1.创建索引
+
 在执行CREATE TABLE语句时可以创建索引，也可以单独用CREATE INDEX或ALTER TABLE来为表增加索引。
+
 1.1> ALTER TABLE
+
+
+```
 ALTER TABLE 用来创建普通索引、唯一索引、主键索引和全文索引
 ALTER TABLE table_name ADD INDEX index_name (column_list);
 ALTER TABLE table_name ADD UNIQUE (column_list);
 ALTER TABLE table_name ADD PRIMARY KEY (column_list);
 ALTER TABLE table_name ADD FULLTEXT (column_list);
+```
+
+
 其中table_name是要增加索引名的表名，column_list指出对哪些列列进行索引，多列时各列之间使用半角逗号隔开。索引名index_name是可选的，如果不指定索引名称，MySQL将根据第一个索引列自动指定索引名称，另外，ALTER TABLE允许在单个语句中更改多个表，因此可以在同时创建多个索引。
+
 1.2> CREATE INDEX
+
+
+```
 CREATE INDEX可对表增加普通索引或UNIQUE索引以及全文索引，但是不可以对表增加主键索引
 CREATE INDEX index_name ON table_name (column_list);
 CREATE UNIQUE index_name ON table_name (column_list);
 CREATE FULLTEXT index_name ON table_name (column_list);
 table_name、index_name和column_list具有与ALTER TABLE语句中相同的含义，索引名必须指定。另外，不能用CREATE INDEX语句创建PRIMARY KEY索引。
+```
+
+
+
 2.索引类型
 普通索引INDEX：适用于name、email等一般属性
 唯一索引UNIQUE：与普通索引类似，不同的是唯一索引要求索引字段值在表中是唯一的，这一点和主键索引类似，但是不同的是，唯一索引允许有空值。唯一索引一般适用于身份证号码、用户账号等不允许有重复的属性字段上。
 主键索引：其实就是主键，一般在建表时就指定了，不需要额外添加。
 全文检索：只适用于VARCHAR和Text类型的字段。
 注意：全文索引和普通索引是有很大区别的，如果建立的是普通索引，一般会使用like进行模糊查询，只会对查询内容前一部分有效，即只对前面不使用通配符的查询有效，如果前后都有通配符，普通索引将不会起作用。对于全文索引而言在查询时有自己独特的匹配方式，例如我们在对一篇文章的标题和内容进行全文索引时：
+
+
+```
 ALTER TABLE article ADD FULLTEXT ('title', 'content'); 在进行检索时就需要使用如下的语法进行检索：
 SELECT * FROM article WHERE MATCH('title', 'content') AGAINST ('查询字符串');
+```
+
+
+
 在使用全文检索时的注意事项：
 MySql自带的全文索引只能用于数据库引擎为MYISAM的数据表，如果是其他数据引擎，则全文索引不会生效。此外，MySql自带的全文索引只能对英文进行全文检索，目前无法对中文进行全文检索。如果需要对包含中文在内的文本数据进行全文检索，我们需要采用Sphinx（斯芬克斯）/Coreseek技术来处理中文。另外使用MySql自带的全文索引时，如果查询字符串的长度过短将无法得到期望的搜索结果。MySql全文索引所能找到的词默认最小长度为4个字符。另外，如果查询的字符串包含停止词，那么该停止词将会被忽略。
+
 3.组合索引
+
 组合索引又称多列索引，就是建立索引时指定多个字段属性。有点类似于字典目录，比如查询 'guo' 这个拼音的字时，首先查找g字母，然后在g的检索范围内查询第二个字母为u的列表，最后在u的范围内查找最后一个字母为o的字。比如组合索引(a,b,c)，abc都是排好序的，在任意一段a的下面b都是排好序的，任何一段b下面c都是排好序的
 组合索引的生效原则是 从前往后依次使用生效，如果中间某个索引没有使用，那么断点前面的索引部分起作用，断点后面的索引没有起作用；
+
 造成断点的原因：
+
 前边的任意一个索引没有参与查询，后边的全部不生效。
 前边的任意一个索引字段参与的是范围查询，后面的不会生效。
 断点跟索引字字段在SQL语句中的位置前后无关，只与是否存在有关。在网上找到了很好的示例：
 比如：
+
+
+```
 where a=3 and b=45 and c=5 .... #这种三个索引顺序使用中间没有断点，全部发挥作用；
 where a=3 and c=5... #这种情况下b就是断点，a发挥了效果，c没有效果
 where b=3 and c=4... #这种情况下a就是断点，在a后面的索引都没有发挥作用，这种写法联合索引没有发挥任何效果；
 where b=45 and a=3 and c=5 .... #这个跟第一个一样，全部发挥作用，abc只要用上了就行，跟写的顺序无关
 （a,b,c） 三个列上加了联合索引（是联合索引 不是在每个列上单独加索引）而是建立了a,(a,b),(a,b,c)三个索引，另外(a,b,c)多列索引和 (a,c,b)是不一样的。
+```
+
+
+
 具体实例可以说明：
 
 
