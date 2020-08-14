@@ -43,4 +43,10 @@ merge：代码合并。
 sync：同步主线或分支的Bug。
 
 #### scope(可选)
+
+scope用于说明 commit 影响的范围，比如数据层、控制层、视图层等等，视项目不同而不同。
+
+例如在Angular，可以是location，browser，compile，compile，rootScope， ngHref，ngClick，ngView等。如果你的修改影响了不止一个scope，你可以使用*代替。
+
+
 #### subject(必须)
