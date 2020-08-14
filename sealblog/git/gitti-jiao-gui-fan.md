@@ -14,4 +14,6 @@ Git每次提交代码都需要写commit message，否则就不允许提交。一
 ```
 <type>(<scope>): <subject>
 ```
-
+#### type(必须)
+#### scope(可选)
+#### subject(必须)
