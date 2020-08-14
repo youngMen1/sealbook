@@ -9,3 +9,9 @@ Git每次提交代码都需要写commit message，否则就不允许提交。一
 初期我们在互联网上搜索了大量有关git commit规范的资料，但只有Angular规范是目前使用最广的写法，比较合理和系统化，并且有配套的工具（IDEA就有插件支持这种写法）。最后综合阿里巴巴高德地图相关部门已有的规范总结出了一套git commit规范。
 
 ### commit message格式
+
+
+```
+<type>(<scope>): <subject>
+```
+
