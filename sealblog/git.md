@@ -51,7 +51,7 @@ git push origin 自己分支名
 ```
 
 ## 3.参考
-
+**Git 参考手册**
 [http://gitref.justjavac.com/branching/\#merge](http://gitref.justjavac.com/branching/#merge)
 
 **Git 团队协作开发：**
