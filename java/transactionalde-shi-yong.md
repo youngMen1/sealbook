@@ -197,7 +197,9 @@ public class InformationServiceApplication {
 
 # 2.参考
 
-https://zhuanlan.zhihu.com/p/145897825
+一口气说出 6 种 @Transactional 注解的失效场景
+
+[https://zhuanlan.zhihu.com/p/145897825](https://zhuanlan.zhihu.com/p/145897825)
 
 @Transactional的使用：
 
