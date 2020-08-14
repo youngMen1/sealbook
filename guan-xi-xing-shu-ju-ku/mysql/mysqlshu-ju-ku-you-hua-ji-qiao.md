@@ -6,7 +6,7 @@
 3.对SQL语句以及表优化。
 
 ## 1.2.MySQL参数优化
-1:MySQL 默认的最大连接数为 100，可以在 mysql 客户端使用以下命令查看
+1.MySQL 默认的最大连接数为 100，可以在 mysql 客户端使用以下命令查看
 
 
 ```
@@ -14,7 +14,7 @@ mysql> show variables like 'max_connections';
 ```
 
 
-2:查看当前访问Mysql的线程
+2.查看当前访问Mysql的线程
 
 
 ```
@@ -22,7 +22,7 @@ mysql> show processlist;
 ```
 
 
-3:设置最大连接数
+3.设置最大连接数
 最大可设置16384,超过没用
 
 ```
@@ -31,7 +31,7 @@ mysql>set globle max_connections = 5000;
 
 
 
-4:查看当前被使用的connections
+4.查看当前被使用的connections
 
 
 ```
