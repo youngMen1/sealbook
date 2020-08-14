@@ -56,3 +56,4 @@ mysql>show globle status like 'max_user_connections'
 ⑮ 选择正确的存储引擎
 ⑯ 小心 "永久链接"
 
+### 1.3.1.为查询缓存优化查询
