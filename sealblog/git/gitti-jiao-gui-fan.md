@@ -79,3 +79,7 @@ feat(Controller):用户查询接口开发
 * 消息告警：对不符合规范以及大代码量提交、删除文件等操作发送告警消息。
 * DB：存项目信息和git commit信息便于后续统计commit message规范率。
 
+webhook是作用于代码库上的，用户提交git commit，push到仓库的时候就会触发webhook，webhook从用户的commit信息里面获取到commit message，校验其是否满足git commit规范，如果不满足就发送告警消息；如果满足规范，调用gitlab API获取提交的diff信息，验证提交代码量，验证是否有重命名文件和删除文件操作，如果存在以上操作还会发送告警消息，最后把所有记录都入库保存。
+
+以上就是我们整个监控服务的相关内容，告警信息通过如下形式发送到对应的钉钉群里：
+
