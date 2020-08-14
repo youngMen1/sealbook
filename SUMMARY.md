@@ -15,6 +15,7 @@
     * [Owner意识](you-xiu-wen-zhang/owneryi-shi.md)
     * [工作经验分享](you-xiu-wen-zhang/gong-zuo-jing-yan-fen-xiang.md)
     * [如何写出健壮的代码](you-xiu-wen-zhang/ru-he-xie-chu-jian-zhuang-de-dai-ma.md)
+    * 研发路上的一些总结与思考
 * [踩坑日记](cai-keng-ri-ji-2.md)
   * [异常日记](yi-chang-ri-zhi/cai-keng-ri-ji.md)
   * [日常问题](java/ri-cheng-wen-ti.md)
