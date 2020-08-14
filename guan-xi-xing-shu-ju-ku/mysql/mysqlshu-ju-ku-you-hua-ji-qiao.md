@@ -57,3 +57,14 @@ mysql>show globle status like 'max_user_connections'
 ⑯ 小心 "永久链接"
 
 ### 1.3.1.为查询缓存优化查询
+大多数的MySQL服务器都开启了查询缓存。这是提高性能最有效的方法之一，而且这是被MySQL引擎处理的。当有很多相同的查询被执行了多次的时候，这些查询结果会被放入一个缓存中，这样后续的相同查询就不用操作而直接访问缓存结果了。
+这里最主要的问题是，对于我们程序员来说，这个事情是很容易被忽略的。因为我们某些查询语句会让MySQL不使用缓存，示例如下：
+
+
+```
+1：SELECT username FROM user WHERE signup_date >= CURDATE()
+2：SELECT username FROM user WHERE signup_date >= '2014-06-24‘
+```
+
+
+上面两条SQL语句的差别就是 CURDATE() ，MySQL的查询缓存对这个函数不起作用。所以，像 NOW() 和 RAND() 或是其它的诸如此类的SQL函数都不会开启查询缓存，因为这些函数的返回是会不定的易变的。所以，你所需要的就是用一个变量来代替MySQL的函数，从而开启缓存。
