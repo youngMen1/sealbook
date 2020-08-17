@@ -251,6 +251,7 @@
   * [Logback 配置文件](java/logback-pei-zhi-wen-jian.md)
   * [MySQL知识总结](java/mysqlzhi-shi-zong-jie.md)
     * [mysql查询今天、昨天、本周、本月、上一月 、今年数据](java/mysqlzhi-shi-zong-jie/mysqlcha-xun-jin-tian-3001-zuo-tian-3001-ben-zhou-3001-ben-yue-3001-shang-yi-yue-3001-jin-nian-shu-ju.md)
+    * 数据库字符
   * [常见Bean映射工具分析评测及Orika介绍](java/chang-jian-bean-ying-she-gong-ju-fen-xi-ping-ce-ji-orika-jie-shao.md)
   * [属性拷贝工具](java/shu-xing-kao-bei-gong-ju.md)
     * [MapStruct框架](java/shu-xing-kao-bei-gong-ju/mapstruct.md)
