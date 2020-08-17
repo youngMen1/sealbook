@@ -7,5 +7,5 @@
 # 2.参考
 MySQL字符集详解
 https://www.cnblogs.com/skying555/p/10512329.html
-
+永远不要在 MySQL 中使用 UTF-8
 https://zhuanlan.zhihu.com/p/63360270
