@@ -97,6 +97,17 @@ isolation ：事务的隔离级别，默认值为 Isolation.DEFAULT。
 
 timeout ：事务的超时时间，默认值为 -1。如果超过该时间限制但事务还没有完成，则自动回滚事务。
 
+#### readOnly 属性
+
+readOnly ：指定事务是否为只读事务，默认值为 false；为了忽略那些不需要事务的方法，比如读取数据，可以设置 read-only 为 true。
+
+#### rollbackFor 属性
+
+rollbackFor ：用于指定能够触发事务回滚的异常类型，可以指定多个异常类型。
+
+#### noRollbackFor属性**
+noRollbackFor：抛出指定的异常类型，不回滚事务，也可以指定多个异常类型。
+
 # 2.总结
 
 # 3.参考
