@@ -1,1 +1,30 @@
 # 1.如何优雅地使用 Windows 10
+
+分享27个使用Win10的技巧，希望能助你提升Win10的使用效率。
+
+## Windows快捷键
+
+天下武功，唯快不破。说起Windows的使用技巧，不得不提键盘重度用户非常喜欢的快捷键。
+
+Win+D：显示桌面
+
+Win+E：打开资源管理器
+
+Win+I：打开设置界面
+
+Win+L：锁定屏幕
+
+Win+R：打开运行窗口
+
+Win+P：使用投影仪时，打开投影选项
+
+Win+Q/S：打开Cortana搜索框
+
+Win+W：打开Windows INK工作区，内有便利贴等功能
+
+Ctrl+Alt+Del：打开任务管理器
+
+Win+数字键：打开固定在任务栏的软件
+
+这里介绍一下Win+数字键，它可以用来快速打开固定在任务栏的软件，下图是使用Win+1来打开Edge，依此类推，打开排在第四的Photoshop，则需要用快捷键Win+4。
+v2-bf7aae30fc96bdbae41a5dc58b0e2b32_b.jpg
