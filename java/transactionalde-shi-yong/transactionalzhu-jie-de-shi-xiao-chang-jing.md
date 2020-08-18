@@ -119,6 +119,19 @@ noRollbackFor：抛出指定的异常类型，不回滚事务，也可以指定�
 
 v2-9a9a125d552370372717f1d73e8433a7_720w.jpg
 
+之所以会失效是因为在Spring AOP 代理时，如上图所示 TransactionInterceptor （事务拦截器）在目标方法执行前后进行拦截，DynamicAdvisedInterceptor（CglibAopProxy 的内部类）的 intercept 方法或 JdkDynamicAopProxy 的 invoke 方法会间接调用 AbstractFallbackTransactionAttributeSource的 computeTransactionAttribute 方法，获取Transactional 注解的事务配置信息。
+
+
+
+```
+protected TransactionAttribute computeTransactionAttribute(Method method,
+    Class<?> targetClass) {
+        // Don't allow no-public methods as required.
+        if (allowPublicMethodsOnly() && !Modifier.isPublic(method.getModifiers())) {
+        return null;
+}
+```
+
 
 # 2.总结
 
