@@ -247,7 +247,7 @@
   * [PowerDesigner数据建模的使用](java/powerdesignershu-ju-jian-mo-de-jian-dan-shi-yong.md)
   * [Java各种规则引擎](java/javage-zhong-gui-ze-yin-qing.md)
   * [@Transactional的使用](java/transactionalde-shi-yong.md)
-    * @Transactional注解的失效场景
+    * [@Transactional注解的失效场景](java/transactionalde-shi-yong/transactionalzhu-jie-de-shi-xiao-chang-jing.md)
   * [Java8新特性之日期处理](java/jdk8xin-te-xing.md)
   * [Logback 配置文件](java/logback-pei-zhi-wen-jian.md)
   * [MySQL知识总结](java/mysqlzhi-shi-zong-jie.md)
