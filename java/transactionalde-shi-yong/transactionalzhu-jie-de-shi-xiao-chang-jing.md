@@ -83,7 +83,15 @@ propagation 代表事务的传播行为，默认值为 Propagation.REQUIRED，�
 * Propagation.NEVER：以非事务的方式运行，如果当前存在事务，则抛出异常。
 * Propagation.NESTED ：和 Propagation.REQUIRED 效果一样。
 
+#### isolation 属性
 
+isolation ：事务的隔离级别，默认值为 Isolation.DEFAULT。
+
+* Isolation.DEFAULT：使用底层数据库默认的隔离级别。
+* Isolation.READ_UNCOMMITTED
+* Isolation.READ_COMMITTED
+* Isolation.REPEATABLE_READ
+* Isolation.SERIALIZABLE
 
 # 2.总结
 
