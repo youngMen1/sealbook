@@ -93,6 +93,10 @@ isolation ：事务的隔离级别，默认值为 Isolation.DEFAULT。
 * Isolation.REPEATABLE_READ
 * Isolation.SERIALIZABLE
 
+#### timeout 属性
+
+timeout ：事务的超时时间，默认值为 -1。如果超过该时间限制但事务还没有完成，则自动回滚事务。
+
 # 2.总结
 
 # 3.参考
