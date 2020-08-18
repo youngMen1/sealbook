@@ -132,7 +132,7 @@ protected TransactionAttribute computeTransactionAttribute(Method method,
 
 TransactionDefinition.PROPAGATION\_SUPPORTS：如果当前存在事务，则加入该事务；如果当前没有事务，则以非事务的方式继续运行。
 
- TransactionDefinition.PROPAGATION\_NOT\_SUPPORTED：以非事务方式运行，如果当前存在事务，则把当前事务挂起。 TransactionDefinition.PROPAGATION\_NEVER：以非事务方式运行，如果当前存在事务，则抛出异常。
+TransactionDefinition.PROPAGATION\_NOT\_SUPPORTED：以非事务方式运行，如果当前存在事务，则把当前事务挂起。 TransactionDefinition.PROPAGATION\_NEVER：以非事务方式运行，如果当前存在事务，则抛出异常。
 
 ### 1.3.3.@Transactional 注解属性 rollbackFor 设置错误
 
@@ -200,7 +200,7 @@ return getDepth(exceptionClass.getSuperclass(), depth + 1);
 这种情况是最常见的一种@Transactional注解失效场景，
 
 ```
-@Transactional
+    @Transactional
     private Integer A() throws Exception {
         int insert = 0;
         try {
