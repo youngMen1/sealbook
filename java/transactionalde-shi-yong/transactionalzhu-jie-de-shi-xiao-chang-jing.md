@@ -148,6 +148,8 @@ protected TransactionAttribute computeTransactionAttribute(Method method,
 
 # 2.总结
 
+@Transactional 注解的看似简单易用，但如果对它的用法一知半解，还是会踩到很多坑的。
+
 # 3.参考
 一口气说出 6种，@Transactional注解的失效场景
 https://zhuanlan.zhihu.com/p/114461128
