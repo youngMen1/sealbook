@@ -27,6 +27,6 @@ Ctrl+Alt+Del：打开任务管理器
 Win+数字键：打开固定在任务栏的软件
 
 这里介绍一下Win+数字键，它可以用来快速打开固定在任务栏的软件，下图是使用Win+1来打开Edge，依此类推，打开排在第四的Photoshop，则需要用快捷键Win+4。
-![](/static/image/v2-bf7aae30fc96bdbae41a5dc58b0e2b32_b.jpg)
+![](/static/image/v2-bf7aae30fc96bdbae41a5dc58b0e2b32_b.webp)
 
 # 黑夜模式
