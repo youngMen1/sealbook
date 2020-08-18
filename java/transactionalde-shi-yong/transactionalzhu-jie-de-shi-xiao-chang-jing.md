@@ -146,7 +146,7 @@ TransactionDefinition.PROPAGATION_SUPPORTS：如果当前存在事务，则加�
 rollbackFor 可以指定能够触发事务回滚的异常类型。Spring默认抛出了未检查unchecked异常（继承自 RuntimeException 的异常）或者 Error才回滚事务；其他异常不会触发回滚事务。如果在事务中抛出其他类型的异常，但却期望 Spring 能够回滚事务，就需要指定 rollbackFor属性。
 
 
-v2-16070b6638953c173e6bd3364174e079_720w.jpg
+![](/static/image/v2-16070b6638953c173e6bd3364174e079_720w.jpg)
 
 
 
@@ -183,7 +183,7 @@ return getDepth(exceptionClass.getSuperclass(), depth + 1);
 
 
 ```
-//@Transactional
+  // @Transactional
     @GetMapping("/test")
     private Integer A() throws Exception {
         CityInfoDict cityInfoDict = new CityInfoDict();
