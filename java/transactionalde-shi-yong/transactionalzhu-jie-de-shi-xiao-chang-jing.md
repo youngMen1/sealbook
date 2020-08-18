@@ -136,9 +136,17 @@ protected TransactionAttribute computeTransactionAttribute(Method method,
 
 ### 1.3.2.@Transactional 注解属性 propagation 设置错误
 
+这种失效是由于配置错误，若是错误的配置以下三种 propagation，事务将不会发生回滚。
+
+TransactionDefinition.PROPAGATION_SUPPORTS：如果当前存在事务，则加入该事务；如果当前没有事务，则以非事务的方式继续运行。 TransactionDefinition.PROPAGATION_NOT_SUPPORTED：以非事务方式运行，如果当前存在事务，则把当前事务挂起。 TransactionDefinition.PROPAGATION_NEVER：以非事务方式运行，如果当前存在事务，则抛出异常。
+
+
 ### 1.3.3.@Transactional 注解属性 rollbackFor 设置错误
 
+rollbackFor 可以指定能够触发事务回滚的异常类型。Spring默认抛出了未检查unchecked异常（继承自 RuntimeException 的异常）或者 Error才回滚事务；其他异常不会触发回滚事务。如果在事务中抛出其他类型的异常，但却期望 Spring 能够回滚事务，就需要指定 rollbackFor属性。
 
+
+v2-16070b6638953c173e6bd3364174e079_720w.jpg
 ### 1.3.4.同一个类中方法调用，导致@Transactional失效
 
 ### 1.3.5.异常被你的 catch“吃了”导致@Transactional失效
