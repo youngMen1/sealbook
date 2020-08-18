@@ -106,7 +106,19 @@ readOnly ：指定事务是否为只读事务，默认值为 false；为了忽�
 rollbackFor ：用于指定能够触发事务回滚的异常类型，可以指定多个异常类型。
 
 #### noRollbackFor属性
+
 noRollbackFor：抛出指定的异常类型，不回滚事务，也可以指定多个异常类型。
+
+## 1.3.@Transactional失效场景
+
+接下来我们结合具体的代码分析一下哪些场景下，@Transactional 注解会失效。
+
+### 1.3.1.@Transactional 应用在非 public 修饰的方法上
+
+如果Transactional注解应用在非public 修饰的方法上，Transactional将会失效。
+
+v2-9a9a125d552370372717f1d73e8433a7_720w.jpg
+
 
 # 2.总结
 
