@@ -147,9 +147,115 @@ rollbackFor 可以指定能够触发事务回滚的异常类型。Spring默认�
 
 
 v2-16070b6638953c173e6bd3364174e079_720w.jpg
+
+
+
+```
+// 希望自定义的异常可以进行回滚
+@Transactional(propagation= Propagation.REQUIRED,rollbackFor= MyException.class
+```
+
+若在目标方法中抛出的异常是 rollbackFor 指定的异常的子类，事务同样会回滚。Spring源码如下：
+
+
+
+```
+private int getDepth(Class<?> exceptionClass, int depth) {
+        if (exceptionClass.getName().contains(this.exceptionName)) {
+            // Found it!
+            return depth;
+}
+        // If we've gone as far as we can go and haven't found it...
+        if (exceptionClass == Throwable.class) {
+            return -1;
+}
+return getDepth(exceptionClass.getSuperclass(), depth + 1);
+}
+```
+
+
 ### 1.3.4.同一个类中方法调用，导致@Transactional失效
 
+开发中避免不了会对同一个类里面的方法调用，比如有一个类Test，它的一个方法A，A再调用本类的方法B（不论方法B是用public还是private修饰），但方法A没有声明注解事务，而B方法有。则外部调用方法A之后，方法B的事务是不会起作用的。这也是经常犯错误的一个地方。
+
+那为啥会出现这种情况？其实这还是由于使用Spring AOP代理造成的，因为只有当事务方法被当前类以外的代码调用时，才会由Spring生成的代理对象来管理。
+
+
+
+```
+//@Transactional
+    @GetMapping("/test")
+    private Integer A() throws Exception {
+        CityInfoDict cityInfoDict = new CityInfoDict();
+        cityInfoDict.setCityName("2");
+        /**
+         * B 插入字段为 3的数据
+         */
+        this.insertB();
+        /**
+         * A 插入字段为 2的数据
+         */
+        int insert = cityInfoDictMapper.insert(cityInfoDict);
+
+        return insert;
+    }
+
+    @Transactional()
+    public Integer insertB() throws Exception {
+        CityInfoDict cityInfoDict = new CityInfoDict();
+        cityInfoDict.setCityName("3");
+        cityInfoDict.setParentCityId(3);
+
+        return cityInfoDictMapper.insert(cityInfoDict);
+    }
+```
+
+
+
 ### 1.3.5.异常被你的 catch“吃了”导致@Transactional失效
+
+这种情况是最常见的一种@Transactional注解失效场景，
+
+
+
+```
+@Transactional
+    private Integer A() throws Exception {
+        int insert = 0;
+        try {
+            CityInfoDict cityInfoDict = new CityInfoDict();
+            cityInfoDict.setCityName("2");
+            cityInfoDict.setParentCityId(2);
+            /**
+             * A 插入字段为 2的数据
+             */
+            insert = cityInfoDictMapper.insert(cityInfoDict);
+            /**
+             * B 插入字段为 3的数据
+             */
+            b.insertB();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+```
+如果B方法内部抛了异常，而A方法此时try catch了B方法的异常，那这个事务还能正常回滚吗？
+
+**答案：**不能！
+
+会抛出异常：
+
+
+
+```
+org.springframework.transaction.UnexpectedRollbackException: Transaction rolled back because it has been marked as rollback-only
+```
+
+因为当ServiceB中抛出了一个异常以后，ServiceB标识当前事务需要rollback。但是ServiceA中由于你手动的捕获这个异常并进行处理，ServiceA认为当前事务应该正常commit。此时就出现了前后不一致，也就是因为这样，抛出了前面的UnexpectedRollbackException异常。
+
+spring的事务是在调用业务方法之前开始的，业务方法执行完毕之后才执行commit or rollback，事务是否执行取决于是否抛出runtime异常。如果抛出runtime exception 并在你的业务方法中没有catch到的话，事务会回滚。
+
+在业务方法中一般不需要catch异常，如果非要catch一定要抛出throw new RuntimeException()，或者注解中指定抛异常类型@Transactional(rollbackFor=Exception.class)，否则会导致事务失效，数据commit造成数据不一致，所以有些时候try catch反倒会画蛇添足。
 
 ### 1.3.6.数据库引擎不支持事务
 这种情况出现的概率并不高，事务能否生效数据库引擎是否支持事务是关键。常用的MySQL数据库默认使用支持事务的innodb引擎。一旦数据库引擎切换成不支持事务的myisam，那事务就从根本上失效了。
