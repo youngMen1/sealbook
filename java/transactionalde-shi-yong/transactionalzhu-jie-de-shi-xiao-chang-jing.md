@@ -24,6 +24,17 @@ try {
 
 
 
+```
+@Transactional
+    @GetMapping("/test")
+    public String test() {
+    
+        int insert = cityInfoDictMapper.insert(cityInfoDict);
+    }
+```
+
+
+
 # 2.总结
 
 # 3.参考
