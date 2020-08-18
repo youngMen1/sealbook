@@ -138,7 +138,7 @@ v2-ce88ca8411d2a062ac0c1ece47fdb3d9_b.jpg
 如果你觉得静态的背景图显得有些单调，可以切换到动作面板，在右边侧栏选择一种动作，就可以看到背景也动了起来。
 
 
-v2-33a4d48906ac67f5da6b06e36b59c26d_b.jpg
+![](/static/image/v2-33a4d48906ac67f5da6b06e36b59c26d_b.jpg)
 
 
 Edge
