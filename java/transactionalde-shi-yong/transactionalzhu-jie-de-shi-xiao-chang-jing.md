@@ -130,7 +130,9 @@ protected TransactionAttribute computeTransactionAttribute(Method method,
         return null;
 }
 ```
+此方法会检查目标方法的修饰符是否为 public，不是 public则不会获取@Transactional 的属性配置信息。
 
+**注意：protected、private 修饰的方法上使用 @Transactional 注解，虽然事务无效，但不会有任何报错，这是我们很容犯错的一点。**
 
 # 2.总结
 
