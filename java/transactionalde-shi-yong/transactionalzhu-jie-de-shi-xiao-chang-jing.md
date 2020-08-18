@@ -134,6 +134,18 @@ protected TransactionAttribute computeTransactionAttribute(Method method,
 
 **注意：protected、private 修饰的方法上使用 @Transactional 注解，虽然事务无效，但不会有任何报错，这是我们很容犯错的一点。**
 
+### 1.3.2.@Transactional 注解属性 propagation 设置错误
+
+### 1.3.3.@Transactional 注解属性 rollbackFor 设置错误
+
+
+### 1.3.4.同一个类中方法调用，导致@Transactional失效
+
+### 1.3.5.异常被你的 catch“吃了”导致@Transactional失效
+
+### 1.3.6.数据库引擎不支持事务
+这种情况出现的概率并不高，事务能否生效数据库引擎是否支持事务是关键。常用的MySQL数据库默认使用支持事务的innodb引擎。一旦数据库引擎切换成不支持事务的myisam，那事务就从根本上失效了。
+
 # 2.总结
 
 # 3.参考
