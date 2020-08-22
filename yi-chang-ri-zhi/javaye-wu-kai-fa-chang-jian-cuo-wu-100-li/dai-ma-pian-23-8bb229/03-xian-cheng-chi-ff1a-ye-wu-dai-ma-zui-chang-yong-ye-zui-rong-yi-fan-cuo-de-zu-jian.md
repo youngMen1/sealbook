@@ -17,7 +17,6 @@ Java 中的 Executors 类定义了一些快捷的工具方法，来帮助我们�
 我们写一段测试代码，来初始化一个单线程的 FixedThreadPool，循环 1 亿次向线程池提交任务，每个任务都会创建一个比较大的字符串然后休眠一小时：
  
 
-
 ```
 @GetMapping("oom1")
 public void oom1() throws InterruptedException {
