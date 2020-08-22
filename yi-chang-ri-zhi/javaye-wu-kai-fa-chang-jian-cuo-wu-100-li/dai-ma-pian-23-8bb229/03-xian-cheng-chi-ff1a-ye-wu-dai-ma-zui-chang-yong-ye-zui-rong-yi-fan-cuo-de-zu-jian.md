@@ -1,4 +1,4 @@
-****# 03 | 线程池：业务代码最常用也最容易犯错的组件
+# 03 | 线程池：业务代码最常用也最容易犯错的组件
 
 你好，我是朱晔。今天，我来讲讲使用线程池需要注意的一些问题。
 
@@ -19,7 +19,6 @@ Java 中的 Executors 类定义了一些快捷的工具方法，来帮助我们�
 
 
 ```
-
 @GetMapping("oom1")
 public void oom1() throws InterruptedException {
 
@@ -48,7 +47,6 @@ public void oom1() throws InterruptedException {
 
 
 ```
-
 Exception in thread "http-nio-45678-ClientPoller" java.lang.OutOfMemoryError: GC overhead limit exceeded
 ```
 
@@ -97,7 +95,6 @@ java.lang.OutOfMemoryError: unable to create new native thread
 
 
 ```
-
 public static ExecutorService newCachedThreadPool() {
     return new ThreadPoolExecutor(0, Integer.MAX_VALUE,
                                   60L, TimeUnit.SECONDS,
@@ -187,7 +184,7 @@ public int right() throws InterruptedException {
 ```
 60 秒后页面输出了 17，有 3 次提交失败了：
 
-4b820e0b24ce0deefbf2dd7af295c32c.png
+![](/static/image/4b820e0b24ce0deefbf2dd7af295c32c.png)
 
 并且日志中也出现了 3 次类似的错误信息：
 
@@ -200,7 +197,7 @@ java.util.concurrent.RejectedExecutionException: Task java.util.concurrent.Futur
 ```
 
 我们把 printStats 方法打印出的日志绘制成图表，得出如下曲线：
-d819035f60bf1c0022a98051d50e031e.png
+![](/static/image/d819035f60bf1c0022a98051d50e031e.png)
 
 **至此，我们可以总结出线程池默认的工作行为：**
 
@@ -311,7 +308,6 @@ class ThreadPoolHelper {
 
 
 ```
-
 private static ThreadPoolExecutor threadPool = new ThreadPoolExecutor(
         2, 2,
         1, TimeUnit.HOURS,
@@ -351,7 +347,7 @@ public void init() {
 ```
 可以想象到，这个线程池中的 2 个线程任务是相当重的。通过 printStats 方法打印出的日志，我们观察下线程池的负担：
 
-49c132595db60f109530e0dec55ccd55.png
+![](/static/image/49c132595db60f109530e0dec55ccd55.png)
 
 可以看到，**线程池的 2 个线程始终处于活跃状态，队列也基本处于打满状态**。因为开启了 CallerRunsPolicy 拒绝处理策略，所以当线程满载队列也满的情况下，任务会在提交任务的线程，或者说调用 execute 方法的线程执行，也就是说不能认为提交到线程池的任务就一定是异步处理的。如果使用了 CallerRunsPolicy 策略，那么有可能异步任务变为同步执行。从日志的第四行也可以看到这点。这也是这个拒绝策略比较特别的原因。
 
@@ -362,7 +358,6 @@ public void init() {
 
 
 ```
-
 private Callable<Integer> calcTask() {
     return () -> {
         TimeUnit.MILLISECONDS.sleep(10);
@@ -376,7 +371,7 @@ public int wrong() throws ExecutionException, InterruptedException {
 }
 ```
 我们使用 wrk 工具对这个接口进行一个简单的压测，可以看到 TPS 为 75，性能的确非常差。
-989f7ab383e59e21751adb77a9b53507.png
+![](/static/image/989f7ab383e59e21751adb77a9b53507.png)
 
 细想一下，问题其实没有这么简单。因为原来执行 IO 任务的线程池使用的是 CallerRunsPolicy 策略，所以直接使用这个线程池进行异步计算的话，**当线程池饱和的时候，计算任务会在执行 Web 请求的 Tomcat 线程执行，这时就会进一步影响到其他同步处理的线程，甚至造成整个应用程序崩溃。**
 
