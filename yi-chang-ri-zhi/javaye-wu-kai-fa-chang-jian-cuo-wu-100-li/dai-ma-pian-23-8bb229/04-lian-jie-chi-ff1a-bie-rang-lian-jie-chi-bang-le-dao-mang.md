@@ -345,6 +345,6 @@ public String right() {
     return null;
 }
 ```
-
+然后，重新定义一个 wrong2 接口，修复之前按需创建 CloseableHttpClient 的代码，每次用完之后确保连接池可以关闭：
 
 
