@@ -1,6 +1,6 @@
 # 04 \| 连接池：别让连接池帮了倒忙
 
-你好，我是朱晔。今天，我们来聊聊使用连接池需要注意的问题。
+今天，我们来聊聊使用连接池需要注意的问题。
 
 在上一讲，我们学习了使用线程池需要注意的问题。今天，我再与你说说另一种很重要的池化技术，即连接池。我先和你说说连接池的结构。连接池一般对外提供获得连接、归还连接的接口给客户端使用，并暴露最小空闲连接数、最大连接数等可配置参数，在内部则实现连接建立、连接心跳保持、连接管理、空闲连接回收、连接可用性检测等功能。连接池的结构示意图，如下所示：
 
@@ -37,7 +37,6 @@
 首先，向 Redis 初始化 2 组数据，Key=a、Value=1，Key=b、Value=2：
 
 ```
-
 @PostConstruct
 public void init() {
     try (Jedis jedis = new Jedis("127.0.0.1", 6379)) {
@@ -50,7 +49,6 @@ public void init() {
 然后，启动两个线程，共享操作同一个 Jedis 实例，每一个线程循环 1000 次，分别读取 Key 为 a 和 b 的 Value，判断是否分别为 1 和 2：
 
 ```
-
 Jedis jedis = new Jedis("127.0.0.1", 6379);
 new Thread(() -> {
     for (int i = 0; i < 1000; i++) {
@@ -76,7 +74,6 @@ TimeUnit.SECONDS.sleep(5);
 执行程序多次，可以看到日志中出现了各种奇怪的异常信息，有的是读取 Key 为 b 的 Value 读取到了 1，有的是流非正常结束，还有的是连接关闭异常：
 
 ```
-
 //错误1
 [14:56:19.069] [Thread-28] [WARN ] [.t.c.c.redis.JedisMisreuseController:45  ] - Expect b to be 2 but found 1
 //错误2
@@ -106,7 +103,6 @@ java.io.IOException: Socket Closed
 让我们分析一下 Jedis 类的源码，搞清楚其中缘由吧。
 
 ```
-
 public class Jedis extends BinaryJedis implements JedisCommands, MultiKeyCommands,
     AdvancedJedisCommands, ScriptingCommands, BasicCommands, ClusterCommands, SentinelCommands, ModuleCommands {
 }
@@ -135,10 +131,7 @@ BinaryClient 封装了各种 Redis 命令，其最终会调用基类 Connection 
 
 我们在多线程环境下复用 Jedis 对象，其实就是在复用 RedisOutputStream。**如果多个线程在执行操作，那么既无法确保整条命令以一个原子操作写入 Socket，也无法确保写入后、读取前没有其他数据写到远端：**
 
-
-
 ```
-
 private static void sendCommand(final RedisOutputStream os, final byte[] command,
     final byte[]... args) {
   try {
@@ -161,16 +154,14 @@ private static void sendCommand(final RedisOutputStream os, final byte[] command
   }
 }
 ```
+
 看到这里我们也可以理解了，为啥多线程情况下使用 Jedis 对象操作 Redis 会出现各种奇怪的问题。
 
 比如，写操作互相干扰，多条命令相互穿插的话，必然不是合法的 Redis 命令，那么 Redis 会关闭客户端连接，导致连接断开；又比如，线程 1 和 2 先后写入了 get a 和 get b 操作的请求，Redis 也返回了值 1 和 2，但是线程 2 先读取了数据 1 就会出现数据错乱的问题。
 
 修复方式是，使用 Jedis 提供的另一个线程安全的类 JedisPool 来获得 Jedis 的实例。JedisPool 可以声明为 static 在多个线程之间共享，扮演连接池的角色。使用时，按需使用 try-with-resources 模式从 JedisPool 获得和归还 Jedis 实例。
 
-
-
 ```
-
 private static JedisPool jedisPool = new JedisPool("127.0.0.1", 6379);
 
 new Thread(() -> {
@@ -196,11 +187,10 @@ new Thread(() -> {
     }
 }).start();
 ```
+
 这样修复后，代码不再有线程安全问题了。此外，我们最好通过 shutdownhook，在程序退出之前关闭 JedisPool：
 
-
 ```
-
 @PostConstruct
 public void init() {
     Runtime.getRuntime().addShutdownHook(new Thread(() -> {
@@ -208,12 +198,10 @@ public void init() {
     }));
 }
 ```
+
 看一下 Jedis 类 close 方法的实现可以发现，如果 Jedis 是从连接池获取的话，那么 close 方法会调用连接池的 return 方法归还连接：
 
-
-
 ```
-
 public class Jedis extends BinaryJedis implements JedisCommands, MultiKeyCommands,
     AdvancedJedisCommands, ScriptingCommands, BasicCommands, ClusterCommands, SentinelCommands, ModuleCommands {
   protected JedisPoolAbstract dataSource = null;
@@ -235,11 +223,10 @@ public class Jedis extends BinaryJedis implements JedisCommands, MultiKeyCommand
   }
 }
 ```
+
 如果不是，则直接关闭连接，其最终调用 Connection 类的 disconnect 方法来关闭 TCP 连接：
 
-
 ```
-
 public void disconnect() {
   if (isConnected()) {
     try {
@@ -257,9 +244,7 @@ public void disconnect() {
 
 可以看到，Jedis 可以独立使用，也可以配合连接池使用，这个连接池就是 JedisPool。我们再看看 JedisPool 的实现。
 
-
 ```
-
 public class JedisPool extends JedisPoolAbstract {
 @Override
   public Jedis getResource() {
@@ -289,6 +274,7 @@ public abstract class Pool<T> implements Closeable {
   protected GenericObjectPool<T> internalPool;
 }
 ```
+
 JedisPool 的 getResource 方法在拿到 Jedis 对象后，将自己设置为了连接池。连接池 JedisPool，继承了 JedisPoolAbstract，而后者继承了抽象类 Pool，Pool 内部维护了 Apache Common 的通用池 GenericObjectPool。JedisPool 的连接池就是基于 GenericObjectPool 的。
 
 看到这里我们了解了，Jedis 的 API 实现是我们说的三种类型中的第一种，也就是连接池和连接分离的 API，JedisPool 是线程安全的连接池，Jedis 是非线程安全的单一连接。知道了原理之后，我们再使用 Jedis 就胸有成竹了。
@@ -296,7 +282,6 @@ JedisPool 的 getResource 方法在拿到 Jedis 对象后，将自己设置为�
 ## 使用连接池务必确保复用
 
 在介绍线程池的时候我们强调过，**池一定是用来复用的，否则其使用代价会比每次创建单一对象更大。对连接池来说更是如此，原因如下：**
-
 
 * 创建连接池的时候很可能一次性创建了多个连接，大多数连接池考虑到性能，会在初始化的时候维护一定数量的最小连接（毕竟初始化连接池的过程一般是一次性的），可以直接使用。如果每次使用连接池都按需创建连接池，那么很可能你只用到一个连接，但是创建了 N 个连接。
 
@@ -306,9 +291,7 @@ JedisPool 的 getResource 方法在拿到 Jedis 对象后，将自己设置为�
 
 首先，创建一个 CloseableHttpClient，设置使用 PoolingHttpClientConnectionManager 连接池并启用空闲连接驱逐策略，最大空闲时间为 60 秒，然后使用这个连接来请求一个会返回 OK 字符串的服务端接口：
 
-
 ```
-
 @GetMapping("wrong1")
 public String wrong1() {
     CloseableHttpClient client = HttpClients.custom()
@@ -322,13 +305,14 @@ public String wrong1() {
     return null;
 }
 ```
-访问这个接口几次后查看应用线程情况，可以看到有大量叫作 Connection evictor 的线程，且这些线程不会销毁：
+
+访问这个接口几次后查看应用线程情况，可以看到有大量叫作 Connection evictor 的线程，且这些线程不会销毁：  
 33a2389c20653e97b8157897d06c1510.png
 
-对这个接口进行几秒的压测（压测使用 wrk，1 个并发 1 个连接）可以看到，已经建立了三千多个 TCP 连接到 45678 端口（其中有 1 个是压测客户端到 Tomcat 的连接，大部分都是 HttpClient 到 Tomcat 的连接）：
+对这个接口进行几秒的压测（压测使用 wrk，1 个并发 1 个连接）可以看到，已经建立了三千多个 TCP 连接到 45678 端口（其中有 1 个是压测客户端到 Tomcat 的连接，大部分都是 HttpClient 到 Tomcat 的连接）：  
 54a71ee9a7bbbd5e121b12fe6289aff2.png
 
-好在有了空闲连接回收的策略，60 秒之后连接处于 CLOSE_WAIT 状态，最终彻底关闭。
+好在有了空闲连接回收的策略，60 秒之后连接处于 CLOSE\_WAIT 状态，最终彻底关闭。
 
 8ea5f53e6510d76cf447c23fb15daa77.png
 
@@ -338,9 +322,7 @@ public String wrong1() {
 
 首先，定义一个 right 接口来实现服务端接口调用：
 
-
 ```
-
 private static CloseableHttpClient httpClient = null;
 static {
     //当然，也可以把CloseableHttpClient定义为Bean，然后在@PreDestroy标记的方法内close这个HttpClient
@@ -363,8 +345,6 @@ public String right() {
     return null;
 }
 ```
-
-
 
 
 
