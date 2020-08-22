@@ -348,3 +348,25 @@ public String right() {
 然后，重新定义一个 wrong2 接口，修复之前按需创建 CloseableHttpClient 的代码，每次用完之后确保连接池可以关闭：
 
 
+```
+
+@GetMapping("wrong2")
+public String wrong2() {
+    try (CloseableHttpClient client = HttpClients.custom()
+            .setConnectionManager(new PoolingHttpClientConnectionManager())
+            .evictIdleConnections(60, TimeUnit.SECONDS).build();
+         CloseableHttpResponse response = client.execute(new HttpGet("http://127.0.0.1:45678/httpclientnotreuse/test"))) {
+            return EntityUtils.toString(response.getEntity());
+        } catch (Exception ex) {
+        ex.printStackTrace();
+    }
+    return null;
+}
+```
+使用 wrk 对 wrong2 和 right 两个接口分别压测 60 秒，可以看到两种使用方式性能上的差异，每次创建连接池的 QPS 是 337，而复用连接池的 QPS 是 2022：
+
+![](/static/image/b79fb99cf8a5c3a17e60b0850544472d.png)
+
+如此大的性能差异显然是因为 TCP 连接的复用。你可能注意到了，刚才定义连接池时，我将最大连接数设置为 1。所以，复用连接池方式复用的始终应该是同一个连接，而新建连接池方式应该是每次都会创建新的 TCP 连接。
+
+
