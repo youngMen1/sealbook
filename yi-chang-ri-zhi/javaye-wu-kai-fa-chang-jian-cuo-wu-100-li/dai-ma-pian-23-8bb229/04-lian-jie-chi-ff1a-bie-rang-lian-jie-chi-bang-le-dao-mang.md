@@ -36,3 +36,98 @@
 
 首先，向 Redis 初始化 2 组数据，Key=a、Value=1，Key=b、Value=2：
 
+```
+
+@PostConstruct
+public void init() {
+    try (Jedis jedis = new Jedis("127.0.0.1", 6379)) {
+        Assert.isTrue("OK".equals(jedis.set("a", "1")), "set a = 1 return OK");
+        Assert.isTrue("OK".equals(jedis.set("b", "2")), "set b = 2 return OK");
+    }
+}
+```
+
+然后，启动两个线程，共享操作同一个 Jedis 实例，每一个线程循环 1000 次，分别读取 Key 为 a 和 b 的 Value，判断是否分别为 1 和 2：
+
+```
+
+Jedis jedis = new Jedis("127.0.0.1", 6379);
+new Thread(() -> {
+    for (int i = 0; i < 1000; i++) {
+        String result = jedis.get("a");
+        if (!result.equals("1")) {
+            log.warn("Expect a to be 1 but found {}", result);
+            return;
+        }
+    }
+}).start();
+new Thread(() -> {
+    for (int i = 0; i < 1000; i++) {
+        String result = jedis.get("b");
+        if (!result.equals("2")) {
+            log.warn("Expect b to be 2 but found {}", result);
+            return;
+        }
+    }
+}).start();
+TimeUnit.SECONDS.sleep(5);
+```
+
+执行程序多次，可以看到日志中出现了各种奇怪的异常信息，有的是读取 Key 为 b 的 Value 读取到了 1，有的是流非正常结束，还有的是连接关闭异常：
+
+```
+
+//错误1
+[14:56:19.069] [Thread-28] [WARN ] [.t.c.c.redis.JedisMisreuseController:45  ] - Expect b to be 2 but found 1
+//错误2
+redis.clients.jedis.exceptions.JedisConnectionException: Unexpected end of stream.
+  at redis.clients.jedis.util.RedisInputStream.ensureFill(RedisInputStream.java:202)
+  at redis.clients.jedis.util.RedisInputStream.readLine(RedisInputStream.java:50)
+  at redis.clients.jedis.Protocol.processError(Protocol.java:114)
+  at redis.clients.jedis.Protocol.process(Protocol.java:166)
+  at redis.clients.jedis.Protocol.read(Protocol.java:220)
+  at redis.clients.jedis.Connection.readProtocolWithCheckingBroken(Connection.java:318)
+  at redis.clients.jedis.Connection.getBinaryBulkReply(Connection.java:255)
+  at redis.clients.jedis.Connection.getBulkReply(Connection.java:245)
+  at redis.clients.jedis.Jedis.get(Jedis.java:181)
+  at org.geekbang.time.commonmistakes.connectionpool.redis.JedisMisreuseController.lambda$wrong$1(JedisMisreuseController.java:43)
+  at java.lang.Thread.run(Thread.java:748)
+//错误3
+java.io.IOException: Socket Closed
+  at java.net.AbstractPlainSocketImpl.getOutputStream(AbstractPlainSocketImpl.java:440)
+  at java.net.Socket$3.run(Socket.java:954)
+  at java.net.Socket$3.run(Socket.java:952)
+  at java.security.AccessController.doPrivileged(Native Method)
+  at java.net.Socket.getOutputStream(Socket.java:951)
+  at redis.clients.jedis.Connection.connect(Connection.java:200)
+  ... 7 more
+```
+
+让我们分析一下 Jedis 类的源码，搞清楚其中缘由吧。
+
+```
+
+public class Jedis extends BinaryJedis implements JedisCommands, MultiKeyCommands,
+    AdvancedJedisCommands, ScriptingCommands, BasicCommands, ClusterCommands, SentinelCommands, ModuleCommands {
+}
+public class BinaryJedis implements BasicCommands, BinaryJedisCommands, MultiKeyBinaryCommands,
+    AdvancedBinaryJedisCommands, BinaryScriptingCommands, Closeable {
+  protected Client client = null;
+      ...
+}
+
+public class Client extends BinaryClient implements Commands {
+}
+public class BinaryClient extends Connection {
+}
+public class Connection implements Closeable {
+  private Socket socket;
+  private RedisOutputStream outputStream;
+  private RedisInputStream inputStream;
+}
+```
+
+可以看到，Jedis 继承了 BinaryJedis，BinaryJedis 中保存了单个 Client 的实例，Client 最终继承了 Connection，Connection 中保存了单个 Socket 的实例，和 Socket 对应的两个读写流。因此，一个 Jedis 对应一个 Socket 连接。类图如下：
+
+e72120b1f6daf4a951e75c05b9191a0f.png
+
