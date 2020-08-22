@@ -254,6 +254,6 @@ public String wrong() throws InterruptedException {
     return "OK";
 }
 ```
-
+但是，来到 ThreadPoolHelper 的实现让人大跌眼镜，**getThreadPool 方法居然是每次都使用 Executors.newCachedThreadPool 来创建一个线程池。**
 
 
