@@ -373,14 +373,14 @@ public String wrong2() {
 
 如果调用 wrong2 接口每次创建新的连接池来发起 HTTP 请求，从 Wireshark 可以看到，每次请求服务端 45678 的客户端端口都是新的。这里我发起了三次请求，程序通过 HttpClient 访问服务端 45678 的客户端端口号，分别是 51677、51679 和 51681：
 
-7b8f651755cef0c05ecb08727d315e35.png
+![](/static/image/7b8f651755cef0c05ecb08727d315e35.png)
 
 也就是说，每次都是新的 TCP 连接，放开 HTTP 这个过滤条件也可以看到完整的 TCP 握手、挥手的过程：
-4815c0edd21d5bf0cae8c0c3e578960d.png
+![](/static/image/4815c0edd21d5bf0cae8c0c3e578960d.png)
 
 而复用连接池方式的接口 right 的表现就完全不同了。可以看到，第二次 HTTP 请求 #41 的客户端端口 61468 和第一次连接 #23 的端口是一样的，Wireshark 也提示了整个 TCP 会话中，当前 #41 请求是第二次请求，前一次是 #23，后面一次是 #75：
 
-2cbada9be98ce33321b29d38adb09f2c.png
+![](/static/image/2cbada9be98ce33321b29d38adb09f2c.png)
 
 只有 TCP 连接闲置超过 60 秒后才会断开，连接池会新建连接。你可以尝试通过 Wireshark 观察这一过程。
 
