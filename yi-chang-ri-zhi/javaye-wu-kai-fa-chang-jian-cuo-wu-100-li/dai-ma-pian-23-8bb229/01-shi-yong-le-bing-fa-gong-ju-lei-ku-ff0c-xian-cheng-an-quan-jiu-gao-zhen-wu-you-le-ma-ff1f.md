@@ -139,4 +139,6 @@ public String wrong() throws InterruptedException {
 
 ```
 
+重新调用接口，程序的日志输出结果符合预期：
+1151b5b87f27073725060b76c56d95b8.png
 
