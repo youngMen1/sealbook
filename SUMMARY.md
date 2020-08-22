@@ -29,7 +29,7 @@
     * [开篇词 \(1讲\)](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/kai-pian-ci-1-8bb229.md)
       * [开篇词 \| 业务代码真的会有这么多坑？](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/kai-pian-ci-1-8bb229/kai-pian-ci-ye-wu-dai-ma-zhen-de-hui-you-zhe-yao-duo-keng-ff1f.md)
     * [代码篇 \(23讲\)](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/dai-ma-pian-23-8bb229.md)
-      * 01 \| 使用了并发工具类库，线程安全就高枕无忧了吗？
+      * [01 \| 使用了并发工具类库，线程安全就高枕无忧了吗？](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/dai-ma-pian-23-8bb229/01-shi-yong-le-bing-fa-gong-ju-lei-ku-ff0c-xian-cheng-an-quan-jiu-gao-zhen-wu-you-le-ma-ff1f.md)
       * 02 \| 代码加锁：不要让“锁”事成为烦心事
       * 03 \| 线程池：业务代码最常用也最容易犯错的组件
       * 04 \| 连接池：别让连接池帮了倒忙
