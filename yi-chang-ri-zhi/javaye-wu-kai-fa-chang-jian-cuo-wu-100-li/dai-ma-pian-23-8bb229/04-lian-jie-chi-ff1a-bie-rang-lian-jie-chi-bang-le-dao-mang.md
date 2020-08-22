@@ -307,14 +307,14 @@ public String wrong1() {
 ```
 
 访问这个接口几次后查看应用线程情况，可以看到有大量叫作 Connection evictor 的线程，且这些线程不会销毁：  
-33a2389c20653e97b8157897d06c1510.png
+![](/static/image/33a2389c20653e97b8157897d06c1510.png)
 
 对这个接口进行几秒的压测（压测使用 wrk，1 个并发 1 个连接）可以看到，已经建立了三千多个 TCP 连接到 45678 端口（其中有 1 个是压测客户端到 Tomcat 的连接，大部分都是 HttpClient 到 Tomcat 的连接）：  
-54a71ee9a7bbbd5e121b12fe6289aff2.png
+![](/static/image/54a71ee9a7bbbd5e121b12fe6289aff2.png)
 
 好在有了空闲连接回收的策略，60 秒之后连接处于 CLOSE\_WAIT 状态，最终彻底关闭。
 
-8ea5f53e6510d76cf447c23fb15daa77.png
+![](/static/image/8ea5f53e6510d76cf447c23fb15daa77.png)
 
 这 2 点证明，CloseableHttpClient 属于第二种模式，即内部带有连接池的 API，其背后是连接池，最佳实践一定是复用。
 
