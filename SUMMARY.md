@@ -29,6 +29,7 @@
     * [开篇词 \(1讲\)](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/kai-pian-ci-1-8bb229.md)
       * 开篇词 \| 业务代码真的会有这么多坑？
     * [代码篇 \(23讲\)](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/dai-ma-pian-23-8bb229.md)
+      * 01 \| 使用了并发工具类库，线程安全就高枕无忧了吗？
     * 设计篇 \(7讲\)
     * 安全篇 \(5讲\)
     * 加餐 \(8讲\)
