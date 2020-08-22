@@ -131,3 +131,168 @@ public class Connection implements Closeable {
 
 e72120b1f6daf4a951e75c05b9191a0f.png
 
+BinaryClient 封装了各种 Redis 命令，其最终会调用基类 Connection 的方法，使用 Protocol 类发送命令。看一下 Protocol 类的 sendCommand 方法的源码，可以发现其发送命令时是直接操作 RedisOutputStream 写入字节。
+
+我们在多线程环境下复用 Jedis 对象，其实就是在复用 RedisOutputStream。**如果多个线程在执行操作，那么既无法确保整条命令以一个原子操作写入 Socket，也无法确保写入后、读取前没有其他数据写到远端：**
+
+
+
+```
+
+private static void sendCommand(final RedisOutputStream os, final byte[] command,
+    final byte[]... args) {
+  try {
+    os.write(ASTERISK_BYTE);
+    os.writeIntCrLf(args.length + 1);
+    os.write(DOLLAR_BYTE);
+    os.writeIntCrLf(command.length);
+    os.write(command);
+    os.writeCrLf();
+
+
+    for (final byte[] arg : args) {
+      os.write(DOLLAR_BYTE);
+      os.writeIntCrLf(arg.length);
+      os.write(arg);
+      os.writeCrLf();
+    }
+  } catch (IOException e) {
+    throw new JedisConnectionException(e);
+  }
+}
+```
+看到这里我们也可以理解了，为啥多线程情况下使用 Jedis 对象操作 Redis 会出现各种奇怪的问题。
+
+比如，写操作互相干扰，多条命令相互穿插的话，必然不是合法的 Redis 命令，那么 Redis 会关闭客户端连接，导致连接断开；又比如，线程 1 和 2 先后写入了 get a 和 get b 操作的请求，Redis 也返回了值 1 和 2，但是线程 2 先读取了数据 1 就会出现数据错乱的问题。
+
+修复方式是，使用 Jedis 提供的另一个线程安全的类 JedisPool 来获得 Jedis 的实例。JedisPool 可以声明为 static 在多个线程之间共享，扮演连接池的角色。使用时，按需使用 try-with-resources 模式从 JedisPool 获得和归还 Jedis 实例。
+
+
+
+```
+
+private static JedisPool jedisPool = new JedisPool("127.0.0.1", 6379);
+
+new Thread(() -> {
+    try (Jedis jedis = jedisPool.getResource()) {
+        for (int i = 0; i < 1000; i++) {
+            String result = jedis.get("a");
+            if (!result.equals("1")) {
+                log.warn("Expect a to be 1 but found {}", result);
+                return;
+            }
+        }
+    }
+}).start();
+new Thread(() -> {
+    try (Jedis jedis = jedisPool.getResource()) {
+        for (int i = 0; i < 1000; i++) {
+            String result = jedis.get("b");
+            if (!result.equals("2")) {
+                log.warn("Expect b to be 2 but found {}", result);
+                return;
+            }
+        }
+    }
+}).start();
+```
+这样修复后，代码不再有线程安全问题了。此外，我们最好通过 shutdownhook，在程序退出之前关闭 JedisPool：
+
+
+```
+
+@PostConstruct
+public void init() {
+    Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+        jedisPool.close();
+    }));
+}
+```
+看一下 Jedis 类 close 方法的实现可以发现，如果 Jedis 是从连接池获取的话，那么 close 方法会调用连接池的 return 方法归还连接：
+
+
+
+```
+
+public class Jedis extends BinaryJedis implements JedisCommands, MultiKeyCommands,
+    AdvancedJedisCommands, ScriptingCommands, BasicCommands, ClusterCommands, SentinelCommands, ModuleCommands {
+  protected JedisPoolAbstract dataSource = null;
+
+
+  @Override
+  public void close() {
+    if (dataSource != null) {
+      JedisPoolAbstract pool = this.dataSource;
+      this.dataSource = null;
+      if (client.isBroken()) {
+        pool.returnBrokenResource(this);
+      } else {
+        pool.returnResource(this);
+      }
+    } else {
+      super.close();
+    }
+  }
+}
+```
+如果不是，则直接关闭连接，其最终调用 Connection 类的 disconnect 方法来关闭 TCP 连接：
+
+
+```
+
+public void disconnect() {
+  if (isConnected()) {
+    try {
+      outputStream.flush();
+      socket.close();
+    } catch (IOException ex) {
+      broken = true;
+      throw new JedisConnectionException(ex);
+    } finally {
+      IOUtils.closeQuietly(socket);
+    }
+  }
+}
+```
+
+可以看到，Jedis 可以独立使用，也可以配合连接池使用，这个连接池就是 JedisPool。我们再看看 JedisPool 的实现。
+
+
+```
+
+public class JedisPool extends JedisPoolAbstract {
+@Override
+  public Jedis getResource() {
+    Jedis jedis = super.getResource();
+    jedis.setDataSource(this);
+    return jedis;
+  }
+
+  @Override
+  protected void returnResource(final Jedis resource) {
+    if (resource != null) {
+      try {
+        resource.resetState();
+        returnResourceObject(resource);
+      } catch (Exception e) {
+        returnBrokenResource(resource);
+        throw new JedisException("Resource is returned to the pool as broken", e);
+      }
+    }
+  }
+}
+
+public class JedisPoolAbstract extends Pool<Jedis> {
+}
+
+public abstract class Pool<T> implements Closeable {
+  protected GenericObjectPool<T> internalPool;
+}
+```
+JedisPool 的 getResource 方法在拿到 Jedis 对象后，将自己设置为了连接池。连接池 JedisPool，继承了 JedisPoolAbstract，而后者继承了抽象类 Pool，Pool 内部维护了 Apache Common 的通用池 GenericObjectPool。JedisPool 的连接池就是基于 GenericObjectPool 的。
+
+看到这里我们了解了，Jedis 的 API 实现是我们说的三种类型中的第一种，也就是连接池和连接分离的 API，JedisPool 是线程安全的连接池，Jedis 是非线程安全的单一连接。知道了原理之后，我们再使用 Jedis 就胸有成竹了。
+
+## 使用连接池务必确保复用
+
+在介绍线程池的时候我们强调过，**池一定是用来复用的，否则其使用代价会比每次创建单一对象更大。对连接池来说更是如此，原因如下：**
