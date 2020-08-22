@@ -265,6 +265,97 @@ public String good() throws InterruptedException {
 可以看到，**优化后的代码，相比使用锁来操作 ConcurrentHashMap 的方式，性能提升了 10 倍。**
 
 
+你可能会问，computeIfAbsent 为什么如此高效呢？
 
 
+答案就在源码最核心的部分，也就是 Java 自带的 Unsafe 实现的 CAS。它在虚拟机层面确保了写入数据的原子性，比加锁的效率高得多：
+
+
+
+
+```
+
+    static final <K,V> boolean casTabAt(Node<K,V>[] tab, int i,
+                                        Node<K,V> c, Node<K,V> v) {
+        return U.compareAndSetObject(tab, ((long)i << ASHIFT) + ABASE, c, v);
+    }
+```
+
+像 ConcurrentHashMap 这样的高级并发工具的确提供了一些高级 API，只有充分了解其特性才能最大化其威力，而不能因为其足够高级、酷炫盲目使用。
+
+
+## 没有认清并发工具的使用场景，因而导致性能问题
+
+除了 ConcurrentHashMap 这样通用的并发工具类之外，我们的工具包中还有些针对特殊场景实现的生面孔。一般来说，针对通用场景的通用解决方案，在所有场景下性能都还可以，属于“万金油”；而针对特殊场景的特殊实现，会有比通用解决方案更高的性能，但一定要在它针对的场景下使用，否则可能会产生性能问题甚至是 Bug。
+
+之前在排查一个生产性能问题时，我们发现一段简单的非数据库操作的业务逻辑，消耗了超出预期的时间，在修改数据时操作本地缓存比回写数据库慢许多。查看代码发现，开发同学使用了 CopyOnWriteArrayList 来缓存大量的数据，而数据变化又比较频繁。
+
+CopyOnWrite 是一个时髦的技术，不管是 Linux 还是 Redis 都会用到。**在 Java 中，CopyOnWriteArrayList 虽然是一个线程安全的 ArrayList，但因为其实现方式是，每次修改数据时都会复制一份数据出来，所以有明显的适用场景，即读多写少或者说希望无锁读的场景。**
+
+如果我们要使用 CopyOnWriteArrayList，那一定是因为场景需要而不是因为足够酷炫。如果读写比例均衡或者有大量写操作的话，使用 CopyOnWriteArrayList 的性能会非常糟糕。
+
+我们写一段测试代码，来比较下使用 CopyOnWriteArrayList 和普通加锁方式 ArrayList 的读写性能吧。在这段代码中我们针对并发读和并发写分别写了一个测试方法，测试两者一定次数的写或读操作的耗时。
+
+
+
+```
+
+//测试并发写的性能
+@GetMapping("write")
+public Map testWrite() {
+    List<Integer> copyOnWriteArrayList = new CopyOnWriteArrayList<>();
+    List<Integer> synchronizedList = Collections.synchronizedList(new ArrayList<>());
+    StopWatch stopWatch = new StopWatch();
+    int loopCount = 100000;
+    stopWatch.start("Write:copyOnWriteArrayList");
+    //循环100000次并发往CopyOnWriteArrayList写入随机元素
+    IntStream.rangeClosed(1, loopCount).parallel().forEach(__ -> copyOnWriteArrayList.add(ThreadLocalRandom.current().nextInt(loopCount)));
+    stopWatch.stop();
+    stopWatch.start("Write:synchronizedList");
+    //循环100000次并发往加锁的ArrayList写入随机元素
+    IntStream.rangeClosed(1, loopCount).parallel().forEach(__ -> synchronizedList.add(ThreadLocalRandom.current().nextInt(loopCount)));
+    stopWatch.stop();
+    log.info(stopWatch.prettyPrint());
+    Map result = new HashMap();
+    result.put("copyOnWriteArrayList", copyOnWriteArrayList.size());
+    result.put("synchronizedList", synchronizedList.size());
+    return result;
+}
+
+//帮助方法用来填充List
+private void addAll(List<Integer> list) {
+    list.addAll(IntStream.rangeClosed(1, 1000000).boxed().collect(Collectors.toList()));
+}
+
+//测试并发读的性能
+@GetMapping("read")
+public Map testRead() {
+    //创建两个测试对象
+    List<Integer> copyOnWriteArrayList = new CopyOnWriteArrayList<>();
+    List<Integer> synchronizedList = Collections.synchronizedList(new ArrayList<>());
+    //填充数据   
+    addAll(copyOnWriteArrayList);
+    addAll(synchronizedList);
+    StopWatch stopWatch = new StopWatch();
+    int loopCount = 1000000;
+    int count = copyOnWriteArrayList.size();
+    stopWatch.start("Read:copyOnWriteArrayList");
+    //循环1000000次并发从CopyOnWriteArrayList随机查询元素
+    IntStream.rangeClosed(1, loopCount).parallel().forEach(__ -> copyOnWriteArrayList.get(ThreadLocalRandom.current().nextInt(count)));
+    stopWatch.stop();
+    stopWatch.start("Read:synchronizedList");
+    //循环1000000次并发从加锁的ArrayList随机查询元素
+    IntStream.range(0, loopCount).parallel().forEach(__ -> synchronizedList.get(ThreadLocalRandom.current().nextInt(count)));
+    stopWatch.stop();
+    log.info(stopWatch.prettyPrint());
+    Map result = new HashMap();
+    result.put("copyOnWriteArrayList", copyOnWriteArrayList.size());
+    result.put("synchronizedList", synchronizedList.size());
+    return result;
+}
+```
+
+运行程序可以看到，**大量写的场景（10 万次 add 操作），CopyOnWriteArray 几乎比同步的 ArrayList 慢一百倍：**
+
+9789fe2019a1267b7883606b60e498b4.png
 
