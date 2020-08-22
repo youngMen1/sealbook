@@ -362,3 +362,32 @@ public Map testRead() {
 而在大量读的场景下（100 万次 get 操作），CopyOnWriteArray 又比同步的 ArrayList 快五倍以上：
 
 30ba652fb3295c58b03f51de0a132436.png
+
+
+你可能会问，为何在大量写的场景下，CopyOnWriteArrayList 会这么慢呢？
+
+答案就在源码中。以 add 方法为例，每次 add 时，都会用 Arrays.copyOf 创建一个新数组，频繁 add 时内存的申请释放消耗会很大：
+
+
+
+```
+
+    /**
+     * Appends the specified element to the end of this list.
+     *
+     * @param e element to be appended to this list
+     * @return {@code true} (as specified by {@link Collection#add})
+     */
+    public boolean add(E e) {
+        synchronized (lock) {
+            Object[] elements = getArray();
+            int len = elements.length;
+            Object[] newElements = Arrays.copyOf(elements, len + 1);
+            newElements[len] = e;
+            setArray(newElements);
+            return true;
+        }
+    }
+```
+
+## 重点回顾
