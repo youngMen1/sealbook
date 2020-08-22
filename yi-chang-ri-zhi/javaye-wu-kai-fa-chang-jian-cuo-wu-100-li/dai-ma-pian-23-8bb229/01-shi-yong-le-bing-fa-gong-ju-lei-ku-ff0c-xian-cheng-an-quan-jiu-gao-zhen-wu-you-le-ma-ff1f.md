@@ -220,6 +220,7 @@ private Map<String, Long> gooduse() throws InterruptedException {
 }
 ```
 在这段改进后的代码中，我们巧妙利用了下面两点：
+
 * 使用 ConcurrentHashMap 的原子性方法 computeIfAbsent 来做复合逻辑操作，判断 Key 是否存在 Value，如果不存在则把 Lambda 表达式运行后的结果放入 Map 作为 Value，也就是新创建一个 LongAdder 对象，最后返回 Value。
 * 由于 computeIfAbsent 方法返回的 Value 是 LongAdder，是一个线程安全的累加器，因此可以直接调用其 increment 方法进行累加。
 
