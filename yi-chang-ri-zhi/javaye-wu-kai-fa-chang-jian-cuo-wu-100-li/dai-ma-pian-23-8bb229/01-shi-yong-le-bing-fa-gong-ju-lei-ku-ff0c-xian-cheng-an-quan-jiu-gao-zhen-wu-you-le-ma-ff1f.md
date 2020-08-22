@@ -389,5 +389,6 @@ GitHub:'[https://github.com/JosephZhu1983/java-common-mistakes](https://github.c
 
 2.ConcurrentHashMap 还提供了 putIfAbsent 方法，你能否通过查阅JDK 文档，说说 computeIfAbsent 和 putIfAbsent 方法的区别？
 
-微信截图\_20200822155905.png
+微信截图_20200822155951.png
+微信截图_20200822155929.png
 
