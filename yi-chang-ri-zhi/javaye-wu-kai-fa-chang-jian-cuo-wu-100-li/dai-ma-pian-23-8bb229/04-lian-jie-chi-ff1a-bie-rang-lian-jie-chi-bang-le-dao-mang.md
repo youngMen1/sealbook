@@ -402,5 +402,31 @@ public String wrong2() {
 
 ```
 
+@Transactional
+public User register(){
+    User user=new User();
+    user.setName("new-user-"+System.currentTimeMillis());
+    userRepository.save(user);
+    try {
+        TimeUnit.MILLISECONDS.sleep(500);
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+    return user;
+}
 ```
+
+随后，修改配置文件启用 register-mbeans，使 Hikari 连接池能通过 JMX MBean 注册连接池相关统计信息，方便观察连接池：
+
+
+
+```
+
+spring.datasource.hikari.register-mbeans=true
+```
+
+
+启动程序并通过 JConsole 连接进程后，可以看到默认情况下最大连接数为 10：
+
+
 
