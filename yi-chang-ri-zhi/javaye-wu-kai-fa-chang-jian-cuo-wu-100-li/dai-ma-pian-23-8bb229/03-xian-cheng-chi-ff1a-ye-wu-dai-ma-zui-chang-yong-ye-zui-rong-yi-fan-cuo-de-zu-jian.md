@@ -257,3 +257,40 @@ public String wrong() throws InterruptedException {
 但是，来到 ThreadPoolHelper 的实现让人大跌眼镜，**getThreadPool 方法居然是每次都使用 Executors.newCachedThreadPool 来创建一个线程池。**
 
 
+
+```
+
+class ThreadPoolHelper {
+    public static ThreadPoolExecutor getThreadPool() {
+        //线程池没有复用
+        return (ThreadPoolExecutor) Executors.newCachedThreadPool();
+    }
+}
+```
+通过上一小节的学习，我们可以想到 newCachedThreadPool 会在需要时创建必要多的线程，业务代码的一次业务操作会向线程池提交多个慢任务，这样执行一次业务操作就会开启多个线程。如果业务操作并发量较大的话，的确有可能一下子开启几千个线程。
+
+那，为什么我们能在监控中看到线程数量会下降，而不会撑爆内存呢？
+
+
+回到 newCachedThreadPool 的定义就会发现，它的核心线程数是 0，而 keepAliveTime 是 60 秒，也就是在 60 秒之后所有的线程都是可以回收的。好吧，就因为这个特性，我们的业务程序死得没太难看。
+
+要修复这个 Bug 也很简单，使用一个静态字段来存放线程池的引用，返回线程池的代码直接返回这个静态字段即可。这里一定要记得我们的最佳实践，手动创建线程池。修复后的 ThreadPoolHelper 类如下：
+
+
+
+```
+
+class ThreadPoolHelper {
+  private static ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(
+    10, 50,
+    2, TimeUnit.SECONDS,
+    new ArrayBlockingQueue<>(1000),
+    new ThreadFactoryBuilder().setNameFormat("demo-threadpool-%d").get());
+  public static ThreadPoolExecutor getRightThreadPool() {
+    return threadPoolExecutor;
+  }
+}
+```
+
+
+
