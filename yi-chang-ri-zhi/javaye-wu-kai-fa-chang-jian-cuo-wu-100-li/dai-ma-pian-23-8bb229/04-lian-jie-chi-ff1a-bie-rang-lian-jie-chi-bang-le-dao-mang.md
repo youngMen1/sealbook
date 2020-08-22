@@ -125,7 +125,7 @@ public class Connection implements Closeable {
 
 可以看到，Jedis 继承了 BinaryJedis，BinaryJedis 中保存了单个 Client 的实例，Client 最终继承了 Connection，Connection 中保存了单个 Socket 的实例，和 Socket 对应的两个读写流。因此，一个 Jedis 对应一个 Socket 连接。类图如下：
 
-e72120b1f6daf4a951e75c05b9191a0f.png
+![](/static/image/e72120b1f6daf4a951e75c05b9191a0f.png)
 
 BinaryClient 封装了各种 Redis 命令，其最终会调用基类 Connection 的方法，使用 Protocol 类发送命令。看一下 Protocol 类的 sendCommand 方法的源码，可以发现其发送命令时是直接操作 RedisOutputStream 写入字节。
 
