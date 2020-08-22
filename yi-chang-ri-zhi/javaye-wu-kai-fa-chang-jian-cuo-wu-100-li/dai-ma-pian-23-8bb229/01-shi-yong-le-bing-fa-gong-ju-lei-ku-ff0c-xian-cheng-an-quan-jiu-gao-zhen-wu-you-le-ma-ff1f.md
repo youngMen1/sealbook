@@ -63,3 +63,80 @@ a9ccd42716d807687b3acff9a0baf2db.png
 * 我们可能会抱怨学多线程没用，因为代码里没有开启使用多线程。但其实，可能只是我们没有意识到，在 Tomcat 这种 Web 服务器下跑的业务代码，本来就运行在一个多线程环境（否则接口也不可能支持这么高的并发），并不能认为没有显式开启多线程就不会有线程安全问题。
 
 * 因为线程的创建比较昂贵，所以 Web 服务器往往会使用线程池来处理请求，这就意味着线程会被重用。这时，使用类似 ThreadLocal 工具来存放一些数据时，需要特别注意在代码运行完后，显式地去清空设置的数据。如果在代码中使用了自定义的线程池，也同样会遇到这个问题。
+
+理解了这个知识点后，我们修正这段代码的方案是，在代码的 finally 代码块中，显式清除 ThreadLocal 中的数据。这样一来，新的请求过来即使使用了之前的线程也不会获取到错误的用户信息了。修正后的代码如下：
+
+
+
+```
+
+@GetMapping("right")
+public Map right(@RequestParam("userId") Integer userId) {
+    String before  = Thread.currentThread().getName() + ":" + currentUser.get();
+    currentUser.set(userId);
+    try {
+        String after = Thread.currentThread().getName() + ":" + currentUser.get();
+        Map result = new HashMap();
+        result.put("before", before);
+        result.put("after", after);
+        return result;
+    } finally {
+        //在finally代码块中删除ThreadLocal中的数据，确保数据不串
+        currentUser.remove();
+    }
+}
+```
+重新运行程序可以验证，再也不会出现第一次查询用户信息查询到之前用户请求的 Bug：
+
+0dfe40fca441b58d491fc799d120a7cc.png
+
+ThreadLocal 是利用独占资源的方式，来解决线程安全问题，那如果我们确实需要有资源在线程之间共享，应该怎么办呢？这时，我们可能就需要用到线程安全的容器了。
+
+## 使用了线程安全的并发工具，并不代表解决了所有线程安全问题
+
+JDK 1.5 后推出的 ConcurrentHashMap，是一个高性能的线程安全的哈希表容器。“线程安全”这四个字特别容易让人误解，**因为 ConcurrentHashMap 只能保证提供的原子性读写操作是线程安全的。**
+
+我在相当多的业务代码中看到过这个误区，比如下面这个场景。有一个含 900 个元素的 Map，现在再补充 100 个元素进去，这个补充操作由 10 个线程并发进行。开发人员误以为使用了 ConcurrentHashMap 就不会有线程安全问题，于是不加思索地写出了下面的代码：在每一个线程的代码逻辑中先通过 size 方法拿到当前元素数量，计算 ConcurrentHashMap 目前还需要补充多少元素，并在日志中输出了这个值，然后通过 putAll 方法把缺少的元素添加进去。为方便观察问题，我们输出了这个 Map 一开始和最后的元素个数。
+
+
+```
+
+//线程个数
+private static int THREAD_COUNT = 10;
+//总元素数量
+private static int ITEM_COUNT = 1000;
+
+//帮助方法，用来获得一个指定元素数量模拟数据的ConcurrentHashMap
+private ConcurrentHashMap<String, Long> getData(int count) {
+    return LongStream.rangeClosed(1, count)
+            .boxed()
+            .collect(Collectors.toConcurrentMap(i -> UUID.randomUUID().toString(), Function.identity(),
+                    (o1, o2) -> o1, ConcurrentHashMap::new));
+}
+
+@GetMapping("wrong")
+public String wrong() throws InterruptedException {
+    ConcurrentHashMap<String, Long> concurrentHashMap = getData(ITEM_COUNT - 100);
+    //初始900个元素
+    log.info("init size:{}", concurrentHashMap.size());
+
+    ForkJoinPool forkJoinPool = new ForkJoinPool(THREAD_COUNT);
+    //使用线程池并发处理逻辑
+    forkJoinPool.execute(() -> IntStream.rangeClosed(1, 10).parallel().forEach(i -> {
+        //查询还需要补充多少个元素
+        int gap = ITEM_COUNT - concurrentHashMap.size();
+        log.info("gap size:{}", gap);
+        //补充元素
+        concurrentHashMap.putAll(getData(gap));
+    }));
+    //等待所有任务完成
+    forkJoinPool.shutdown();
+    forkJoinPool.awaitTermination(1, TimeUnit.HOURS);
+    //最后元素个数会是1000吗？
+    log.info("finish size:{}", concurrentHashMap.size());
+    return "OK";
+}
+
+```
+
+
