@@ -48,11 +48,11 @@ server.tomcat.max-threads=1
 ```
 
 运行程序后先让用户 1 来请求接口，可以看到第一和第二次获取到用户 ID 分别是 null 和 1，符合预期：  
-4b8f38415d03423132c7a3608ebe2430.png
+![](/static/image/4b8f38415d03423132c7a3608ebe2430.png)
 
 随后用户 2 来请求接口，这次就出现了 Bug，第一和第二次获取到用户 ID 分别是 1 和 2，显然第一次获取到了用户 1 的信息，原因就是 Tomcat 的线程池重用了线程。从图中可以看到，两次请求的线程都是同一个线程：http-nio-8080-exec-1。
 
-a9ccd42716d807687b3acff9a0baf2db.png
+![](/static/image/a9ccd42716d807687b3acff9a0baf2db.png)
 
 这个例子告诉我们，在写业务代码时，首先要理解代码会跑在什么线程上：
 
