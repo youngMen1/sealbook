@@ -30,7 +30,6 @@
       * [开篇词 \| 业务代码真的会有这么多坑？](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/kai-pian-ci-1-8bb229/kai-pian-ci-ye-wu-dai-ma-zhen-de-hui-you-zhe-yao-duo-keng-ff1f.md)
     * [代码篇 \(23讲\)](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/dai-ma-pian-23-8bb229.md)
       * [01 \| 使用了并发工具类库，线程安全就高枕无忧了吗？](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/dai-ma-pian-23-8bb229/01-shi-yong-le-bing-fa-gong-ju-lei-ku-ff0c-xian-cheng-an-quan-jiu-gao-zhen-wu-you-le-ma-ff1f.md)
-      * [02 \| 代码加锁：不要让“锁”事成为烦心事](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/dai-ma-pian-23-8bb229/02-dai-ma-jia-suo-ff1a-bu-yao-rang-201c-suo-201d-shi-cheng-wei-fan-xin-shi.md)
       * [03 \| 线程池：业务代码最常用也最容易犯错的组件](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/dai-ma-pian-23-8bb229/03-xian-cheng-chi-ff1a-ye-wu-dai-ma-zui-chang-yong-ye-zui-rong-yi-fan-cuo-de-zu-jian.md)
       * 04 \| 连接池：别让连接池帮了倒忙
       * 05 \| HTTP调用：你考虑到超时、重试、并发了吗？
