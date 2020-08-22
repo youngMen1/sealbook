@@ -228,3 +228,32 @@ d819035f60bf1c0022a98051d50e031e.png
 接下来，就请你动手试试看如何实现这样一个“弹性”线程池吧。Tomcat 线程池也实现了类似的效果，可供你借鉴。
 
 ## 务必确认清楚线程池本身是不是复用的
+
+不久之前我遇到了这样一个事故：某项目生产环境时不时有报警提示线程数过多，超过 2000 个，收到报警后查看监控发现，瞬时线程数比较多但过一会儿又会降下来，线程数抖动很厉害，而应用的访问量变化不大。
+
+为了定位问题，我们在线程数比较高的时候进行线程栈抓取，抓取后发现内存中有 1000 多个自定义线程池。一般而言，线程池肯定是复用的，有 5 个以内的线程池都可以认为正常，而 1000 多个线程池肯定不正常。
+
+在项目代码里，我们没有搜到声明线程池的地方，搜索 execute 关键字后定位到，原来是业务代码调用了一个类库来获得线程池，类似如下的业务代码：调用 ThreadPoolHelper 的 getThreadPool 方法来获得线程池，然后提交数个任务到线程池处理，看不出什么异常。
+
+
+
+```
+
+@GetMapping("wrong")
+public String wrong() throws InterruptedException {
+    ThreadPoolExecutor threadPool = ThreadPoolHelper.getThreadPool();
+    IntStream.rangeClosed(1, 10).forEach(i -> {
+        threadPool.execute(() -> {
+            ...
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+            }
+        });
+    });
+    return "OK";
+}
+```
+
+
+
