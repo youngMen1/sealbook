@@ -82,7 +82,7 @@ public Map right(@RequestParam("userId") Integer userId) {
 
 重新运行程序可以验证，再也不会出现第一次查询用户信息查询到之前用户请求的 Bug：
 
-0dfe40fca441b58d491fc799d120a7cc.png
+![](/static/image/0dfe40fca441b58d491fc799d120a7cc.png)
 
 ThreadLocal 是利用独占资源的方式，来解决线程安全问题，那如果我们确实需要有资源在线程之间共享，应该怎么办呢？这时，我们可能就需要用到线程安全的容器了。
 
@@ -131,7 +131,7 @@ public String wrong() throws InterruptedException {
 ```
 
 重新调用接口，程序的日志输出结果符合预期：  
-1151b5b87f27073725060b76c56d95b8.png
+![](/static/image/1151b5b87f27073725060b76c56d95b8.png)
 
 可以看到，只有一个线程查询到了需要补 100 个元素，其他 9 个线程查询到不需要补元素，最后 Map 大小为 1000。
 
@@ -245,7 +245,7 @@ public String good() throws InterruptedException {
 
 这段测试代码并无特殊之处，使用 StopWatch 来测试两段代码的性能，最后跟了一个断言判断 Map 中元素的个数以及所有 Value 的和，是否符合预期来校验代码的正确性。测试结果如下：
 
-751d484ecd8c3114c15588e7fff3263a.png
+![](/static/image/751d484ecd8c3114c15588e7fff3263a.png)
 
 可以看到，**优化后的代码，相比使用锁来操作 ConcurrentHashMap 的方式，性能提升了 10 倍。**
 
@@ -332,11 +332,11 @@ public Map testRead() {
 
 运行程序可以看到，**大量写的场景（10 万次 add 操作），CopyOnWriteArray 几乎比同步的 ArrayList 慢一百倍：**
 
-9789fe2019a1267b7883606b60e498b4.png
+![](/static/image/9789fe2019a1267b7883606b60e498b4.png)
 
 而在大量读的场景下（100 万次 get 操作），CopyOnWriteArray 又比同步的 ArrayList 快五倍以上：
 
-30ba652fb3295c58b03f51de0a132436.png
+![](/static/image/30ba652fb3295c58b03f51de0a132436.png)
 
 你可能会问，为何在大量写的场景下，CopyOnWriteArrayList 会这么慢呢？
 
