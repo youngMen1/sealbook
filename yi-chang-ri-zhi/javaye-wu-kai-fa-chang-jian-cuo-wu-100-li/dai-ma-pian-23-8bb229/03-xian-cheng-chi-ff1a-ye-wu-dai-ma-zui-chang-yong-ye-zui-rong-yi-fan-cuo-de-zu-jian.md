@@ -301,3 +301,55 @@ class ThreadPoolHelper {
 * 对于执行比较慢、数量不大的 IO 任务，或许要考虑更多的线程数，
 
 * 而不需要太大的队列。而对于吞吐量较大的计算型任务，线程数量不宜过多，可以是 CPU 核数或核数 *2（理由是，线程一定调度到某个 CPU 进行执行，如果任务本身是 CPU 绑定的任务，那么过多的线程只会增加线程切换的开销，并不能提升吞吐量），但可能需要较长的队列来做缓冲。
+
+之前我也遇到过这么一个问题，业务代码使用了线程池异步处理一些内存中的数据，但通过监控发现处理得非常慢，整个处理过程都是内存中的计算不涉及 IO 操作，也需要数秒的处理时间，应用程序 CPU 占用也不是特别高，有点不可思议。
+
+经排查发现，业务代码使用的线程池，还被一个后台的文件批处理任务用到了。
+
+或许是够用就好的原则，这个线程池只有 2 个核心线程，最大线程也是 2，使用了容量为 100 的 ArrayBlockingQueue 作为工作队列，使用了 CallerRunsPolicy 拒绝策略：
+
+
+
+```
+
+private static ThreadPoolExecutor threadPool = new ThreadPoolExecutor(
+        2, 2,
+        1, TimeUnit.HOURS,
+        new ArrayBlockingQueue<>(100),
+        new ThreadFactoryBuilder().setNameFormat("batchfileprocess-threadpool-%d").get(),
+        new ThreadPoolExecutor.CallerRunsPolicy());
+```
+
+这里，我们模拟一下文件批处理的代码，在程序启动后通过一个线程开启死循环逻辑，不断向线程池提交任务，任务的逻辑是向一个文件中写入大量的数据：
+
+
+
+```
+
+@PostConstruct
+public void init() {
+    printStats(threadPool);
+
+    new Thread(() -> {
+        //模拟需要写入的大量数据
+        String payload = IntStream.rangeClosed(1, 1_000_000)
+                .mapToObj(__ -> "a")
+                .collect(Collectors.joining(""));
+        while (true) {
+            threadPool.execute(() -> {
+                try {
+                    //每次都是创建并写入相同的数据到相同的文件
+                    Files.write(Paths.get("demo.txt"), Collections.singletonList(LocalTime.now().toString() + ":" + payload), UTF_8, CREATE, TRUNCATE_EXISTING);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                log.info("batch file processing done");
+            });
+        }
+    }).start();
+}
+```
+可以想象到，这个线程池中的 2 个线程任务是相当重的。通过 printStats 方法打印出的日志，我们观察下线程池的负担：
+
+49c132595db60f109530e0dec55ccd55.png
+
