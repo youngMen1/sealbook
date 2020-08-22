@@ -353,3 +353,29 @@ public void init() {
 
 49c132595db60f109530e0dec55ccd55.png
 
+可以看到，**线程池的 2 个线程始终处于活跃状态，队列也基本处于打满状态**。因为开启了 CallerRunsPolicy 拒绝处理策略，所以当线程满载队列也满的情况下，任务会在提交任务的线程，或者说调用 execute 方法的线程执行，也就是说不能认为提交到线程池的任务就一定是异步处理的。如果使用了 CallerRunsPolicy 策略，那么有可能异步任务变为同步执行。从日志的第四行也可以看到这点。这也是这个拒绝策略比较特别的原因。
+
+不知道写代码的同学为什么设置这个策略，或许是测试时发现线程池因为任务处理不过来出现了异常，而又不希望线程池丢弃任务，所以最终选择了这样的拒绝策略。不管怎样，这些日志足以说明线程池是饱和状态。
+
+可以想象到，业务代码复用这样的线程池来做内存计算，命运一定是悲惨的。我们写一段代码测试下，向线程池提交一个简单的任务，这个任务只是休眠 10 毫秒没有其他逻辑：
+
+
+
+```
+
+private Callable<Integer> calcTask() {
+    return () -> {
+        TimeUnit.MILLISECONDS.sleep(10);
+        return 1;
+    };
+}
+
+@GetMapping("wrong")
+public int wrong() throws ExecutionException, InterruptedException {
+    return threadPool.submit(calcTask()).get();
+}
+```
+我们使用 wrk 工具对这个接口进行一个简单的压测，可以看到 TPS 为 75，性能的确非常差。
+989f7ab383e59e21751adb77a9b53507.png
+
+细想一下，问题其实没有这么简单。因为原来执行 IO 任务的线程池使用的是 CallerRunsPolicy 策略，所以直接使用这个线程池进行异步计算的话，**当线程池饱和的时候，计算任务会在执行 Web 请求的 Tomcat 线程执行，这时就会进一步影响到其他同步处理的线程，甚至造成整个应用程序崩溃。**
