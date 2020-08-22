@@ -393,7 +393,7 @@ public int right() throws ExecutionException, InterruptedException {
 ```
 使用单独的线程池改造代码后再来测试一下性能，TPS 提高到了 1727：
 
-c21eed38ccd18758d38745dd09496a06.png
+![](/static/image/c21eed38ccd18758d38745dd09496a06.png)
 
 可以看到，盲目复用线程池混用线程的问题在于，别人定义的线程池属性不一定适合你的任务，而且混用会相互干扰。这就好比，我们往往会用虚拟化技术来实现资源的隔离，而不是让所有应用程序都直接使用物理机。
 
