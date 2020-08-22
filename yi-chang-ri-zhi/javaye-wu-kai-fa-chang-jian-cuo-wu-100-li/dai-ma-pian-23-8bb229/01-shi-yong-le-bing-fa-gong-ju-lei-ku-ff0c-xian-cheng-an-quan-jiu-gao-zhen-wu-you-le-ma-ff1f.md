@@ -262,7 +262,7 @@ public String good() throws InterruptedException {
 
 751d484ecd8c3114c15588e7fff3263a.png
 
-
+可以看到，**优化后的代码，相比使用锁来操作 ConcurrentHashMap 的方式，性能提升了 10 倍。**
 
 
 
