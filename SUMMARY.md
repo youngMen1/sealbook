@@ -28,6 +28,7 @@
     * [21 \| 代码重复：搞定代码重复的三个绝招](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/21-dai-ma-zhong-fu-ff1a-gao-ding-dai-ma-zhong-fu-de-san-ge-jue-zhao.md)
     * 代码篇 \(23讲\)
     * 设计篇 \(7讲\)
+    * 安全篇 \(5讲\)
   * [SpringBoot 下载项目中的excel模板](yi-chang-ri-zhi/springboot-xia-zai-xiang-mu-zhong-de-excel-mo-ban.md)
 * [IDEA](java.md)
   * [使用帮助](java/shi-yong-bang-zhu.md)
