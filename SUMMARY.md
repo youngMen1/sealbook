@@ -31,9 +31,9 @@
     * [代码篇 \(23讲\)](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/dai-ma-pian-23-8bb229.md)
       * [01 \| 使用了并发工具类库，线程安全就高枕无忧了吗？](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/dai-ma-pian-23-8bb229/01-shi-yong-le-bing-fa-gong-ju-lei-ku-ff0c-xian-cheng-an-quan-jiu-gao-zhen-wu-you-le-ma-ff1f.md)
       * [03 \| 线程池：业务代码最常用也最容易犯错的组件](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/dai-ma-pian-23-8bb229/03-xian-cheng-chi-ff1a-ye-wu-dai-ma-zui-chang-yong-ye-zui-rong-yi-fan-cuo-de-zu-jian.md)
-      * 04 \| 连接池：别让连接池帮了倒忙
-      * 05 \| HTTP调用：你考虑到超时、重试、并发了吗？
-      * 06 \| 20%的业务代码的Spring声明式事务，可能都没处理正确
+      * [04 \| 连接池：别让连接池帮了倒忙](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/dai-ma-pian-23-8bb229/04-lian-jie-chi-ff1a-bie-rang-lian-jie-chi-bang-le-dao-mang.md)
+      * [05 \| HTTP调用：你考虑到超时、重试、并发了吗？](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/dai-ma-pian-23-8bb229/05-httpdiao-yong-ff1a-ni-kao-lv-dao-chao-shi-3001-zhong-shi-3001-bing-fa-le-ma-ff1f.md)
+      * [06 \| 20%的业务代码的Spring声明式事务，可能都没处理正确](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/dai-ma-pian-23-8bb229/06-20de-ye-wu-dai-ma-de-spring-sheng-ming-shi-shi-wu-ff0c-ke-neng-du-mei-chu-li-zheng-que.md)
       * 答疑篇：代码篇思考题集锦（一）
     * 设计篇 \(7讲\)
     * 安全篇 \(5讲\)
