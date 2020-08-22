@@ -359,3 +359,6 @@ public Map testRead() {
 
 9789fe2019a1267b7883606b60e498b4.png
 
+而在大量读的场景下（100 万次 get 操作），CopyOnWriteArray 又比同步的 ArrayList 快五倍以上：
+
+30ba652fb3295c58b03f51de0a132436.png
