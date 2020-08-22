@@ -23,7 +23,6 @@
   * [SpringBoot启动异常](java/cuo-wu.md)
   * [Java业务开发常见错误100例](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li.md)
     * [16 \| 用好Java 8的日期时间类，少踩一些“老三样”的坑](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/16-yong-hao-java-8-de-ri-qi-shi-jian-lei-ff0c-shao-cai-yi-xie-201c-lao-san-yang-201d-de-keng.md)
-    * [05 \| HTTP调用：你考虑到超时、重试、并发了吗？](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/05-httpdiao-yong-ff1a-ni-kao-lv-dao-chao-shi-3001-zhong-shi-3001-bing-fa-le-ma-ff1f.md)
     * [21 \| 代码重复：搞定代码重复的三个绝招](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/21-dai-ma-zhong-fu-ff1a-gao-ding-dai-ma-zhong-fu-de-san-ge-jue-zhao.md)
     * [开篇词 \(1讲\)](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/kai-pian-ci-1-8bb229.md)
       * [开篇词 \| 业务代码真的会有这么多坑？](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/kai-pian-ci-1-8bb229/kai-pian-ci-ye-wu-dai-ma-zhen-de-hui-you-zhe-yao-duo-keng-ff1f.md)
@@ -32,6 +31,7 @@
       * [02 \| 代码加锁：不要让“锁”事成为烦心事](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/02-dai-ma-jia-suo-ff1a-bu-yao-rang-201c-suo-201d-shi-cheng-wei-fan-xin-shi.md)
       * [03 \| 线程池：业务代码最常用也最容易犯错的组件](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/dai-ma-pian-23-8bb229/03-xian-cheng-chi-ff1a-ye-wu-dai-ma-zui-chang-yong-ye-zui-rong-yi-fan-cuo-de-zu-jian.md)
       * [04 \| 连接池：别让连接池帮了倒忙](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/dai-ma-pian-23-8bb229/04-lian-jie-chi-ff1a-bie-rang-lian-jie-chi-bang-le-dao-mang.md)
+      * [05 \| HTTP调用：你考虑到超时、重试、并发了吗？](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/05-httpdiao-yong-ff1a-ni-kao-lv-dao-chao-shi-3001-zhong-shi-3001-bing-fa-le-ma-ff1f.md)
       * [06 \| 20%的业务代码的Spring声明式事务，可能都没处理正确](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/dai-ma-pian-23-8bb229/06-20de-ye-wu-dai-ma-de-spring-sheng-ming-shi-shi-wu-ff0c-ke-neng-du-mei-chu-li-zheng-que.md)
       * 答疑篇：代码篇思考题集锦（一）
     * 设计篇 \(7讲\)
