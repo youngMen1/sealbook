@@ -225,3 +225,46 @@ private Map<String, Long> gooduse() throws InterruptedException {
 * 由于 computeIfAbsent 方法返回的 Value 是 LongAdder，是一个线程安全的累加器，因此可以直接调用其 increment 方法进行累加。
 
 
+**这样在确保线程安全的情况下达到极致性能，把之前 7 行代码替换为了 1 行。**
+
+我们通过一个简单的测试比较一下修改前后两段代码的性能：
+
+
+
+```
+
+@GetMapping("good")
+public String good() throws InterruptedException {
+    StopWatch stopWatch = new StopWatch();
+    stopWatch.start("normaluse");
+    Map<String, Long> normaluse = normaluse();
+    stopWatch.stop();
+    //校验元素数量
+    Assert.isTrue(normaluse.size() == ITEM_COUNT, "normaluse size error");
+    //校验累计总数    
+    Assert.isTrue(normaluse.entrySet().stream()
+                    .mapToLong(item -> item.getValue()).reduce(0, Long::sum) == LOOP_COUNT
+            , "normaluse count error");
+    stopWatch.start("gooduse");
+    Map<String, Long> gooduse = gooduse();
+    stopWatch.stop();
+    Assert.isTrue(gooduse.size() == ITEM_COUNT, "gooduse size error");
+    Assert.isTrue(gooduse.entrySet().stream()
+                    .mapToLong(item -> item.getValue())
+                    .reduce(0, Long::sum) == LOOP_COUNT
+            , "gooduse count error");
+    log.info(stopWatch.prettyPrint());
+    return "OK";
+}
+```
+
+这段测试代码并无特殊之处，使用 StopWatch 来测试两段代码的性能，最后跟了一个断言判断 Map 中元素的个数以及所有 Value 的和，是否符合预期来校验代码的正确性。测试结果如下：
+
+751d484ecd8c3114c15588e7fff3263a.png
+
+
+
+
+
+
+
