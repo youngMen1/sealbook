@@ -51,4 +51,7 @@ public Map wrong(@RequestParam("userId") Integer userId) {
 
 server.tomcat.max-threads=1
 ```
+运行程序后先让用户 1 来请求接口，可以看到第一和第二次获取到用户 ID 分别是 null 和 1，符合预期：
+4b8f38415d03423132c7a3608ebe2430.png
+
 
