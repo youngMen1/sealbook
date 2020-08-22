@@ -134,8 +134,73 @@ private void printStats(ThreadPoolExecutor threadPool) {
     }, 0, 1, TimeUnit.SECONDS);
 }
 ```
+接下来，我们就利用这个方法来观察一下线程池的基本特性吧。
+
+首先，自定义一个线程池。这个线程池具有 2 个核心线程、5 个最大线程、使用容量为 10 的 ArrayBlockingQueue 阻塞队列作为工作队列，使用默认的 AbortPolicy 拒绝策略，也就是任务添加到线程池失败会抛出 RejectedExecutionException。此外，我们借助了 Jodd 类库的 ThreadFactoryBuilder 方法来构造一个线程工厂，实现线程池线程的自定义命名。
+
+然后，我们写一段测试代码来观察线程池管理线程的策略。测试代码的逻辑为，每次间隔 1 秒向线程池提交任务，循环 20 次，每个任务需要 10 秒才能执行完成，代码如下：
+
+
+```
+
+@GetMapping("right")
+public int right() throws InterruptedException {
+    //使用一个计数器跟踪完成的任务数
+    AtomicInteger atomicInteger = new AtomicInteger();
+    //创建一个具有2个核心线程、5个最大线程，使用容量为10的ArrayBlockingQueue阻塞队列作为工作队列的线程池，使用默认的AbortPolicy拒绝策略
+    ThreadPoolExecutor threadPool = new ThreadPoolExecutor(
+            2, 5,
+            5, TimeUnit.SECONDS,
+            new ArrayBlockingQueue<>(10),
+            new ThreadFactoryBuilder().setNameFormat("demo-threadpool-%d").get(),
+            new ThreadPoolExecutor.AbortPolicy());
+
+    printStats(threadPool);
+    //每隔1秒提交一次，一共提交20次任务
+    IntStream.rangeClosed(1, 20).forEach(i -> {
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        int id = atomicInteger.incrementAndGet();
+        try {
+            threadPool.submit(() -> {
+                log.info("{} started", id);
+                //每个任务耗时10秒
+                try {
+                    TimeUnit.SECONDS.sleep(10);
+                } catch (InterruptedException e) {
+                }
+                log.info("{} finished", id);
+            });
+        } catch (Exception ex) {
+            //提交出现异常的话，打印出错信息并为计数器减一
+            log.error("error submitting task {}", id, ex);
+            atomicInteger.decrementAndGet();
+        }
+    });
+
+    TimeUnit.SECONDS.sleep(60);
+    return atomicInteger.intValue();
+}
+```
+60 秒后页面输出了 17，有 3 次提交失败了：
+
+4b820e0b24ce0deefbf2dd7af295c32c.png
+
+并且日志中也出现了 3 次类似的错误信息：
 
 
 
+```
 
+[14:24:52.879] [http-nio-45678-exec-1] [ERROR] [.t.c.t.demo1.ThreadPoolOOMController:103 ] - error submitting task 18
+java.util.concurrent.RejectedExecutionException: Task java.util.concurrent.FutureTask@163a2dec rejected from java.util.concurrent.ThreadPoolExecutor@18061ad2[Running, pool size = 5, active threads = 5, queued tasks = 10, completed tasks = 2]
+```
+
+我们把 printStats 方法打印出的日志绘制成图表，得出如下曲线：
+d819035f60bf1c0022a98051d50e031e.png
+
+**至此，我们可以总结出线程池默认的工作行为：**
 
