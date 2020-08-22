@@ -1,4 +1,4 @@
-# 01 | 使用了并发工具类库，线程安全就高枕无忧了吗？
+# 01 \| 使用了并发工具类库，线程安全就高枕无忧了吗？
 
 你好，我是朱晔。作为课程的第一讲，我今天要和你聊聊使用并发工具类库相关的话题。在代码审核讨论的时候，我们有时会听到有关线程安全和并发工具的一些片面的观点和结论，比如“把 HashMap 改为 ConcurrentHashMap，就可以解决并发问题了呀”“要不我们试试无锁的 CopyOnWriteArrayList 吧，性能更好”。事实上，这些说法都不太准确。
 
@@ -17,7 +17,6 @@
 使用 Spring Boot 创建一个 Web 应用程序，使用 ThreadLocal 存放一个 Integer 的值，来暂且代表需要在线程中保存的用户信息，这个值初始是 null。在业务逻辑中，我先从 ThreadLocal 获取一次值，然后把外部传入的参数设置到 ThreadLocal 中，来模拟从当前上下文获取到用户信息的逻辑，随后再获取一次值，最后输出两次获得的值和线程名称。
 
 ```
-
 private static final ThreadLocal<Integer> currentUser = ThreadLocal.withInitial(() -> null);
 
 
@@ -35,23 +34,20 @@ public Map wrong(@RequestParam("userId") Integer userId) {
     result.put("after", after);
     return result;
 }
-
 ```
 
 按理说，在设置用户信息之前第一次获取的值始终应该是 null，但我们要意识到，程序运行在 Tomcat 中，执行程序的线程是 Tomcat 的工作线程，而 Tomcat 的工作线程是基于线程池的。
 
-
-**顾名思义，线程池会重用固定的几个线程，一旦线程重用，那么很可能首次从 ThreadLocal 获取的值是之前其他用户的请求遗留的值。这时，ThreadLocal 中的用户信息就是其他用户的信息。
+**顾名思义，线程池会重用固定的几个线程，一旦线程重用，那么很可能首次从 ThreadLocal 获取的值是之前其他用户的请求遗留的值。这时，ThreadLocal 中的用户信息就是其他用户的信息。  
 **
 
 为了更快地重现这个问题，我在配置文件中设置一下 Tomcat 的参数，把工作线程池最大线程数设置为 1，这样始终是同一个线程在处理请求：
 
-
 ```
-
 server.tomcat.max-threads=1
 ```
-运行程序后先让用户 1 来请求接口，可以看到第一和第二次获取到用户 ID 分别是 null 和 1，符合预期：
+
+运行程序后先让用户 1 来请求接口，可以看到第一和第二次获取到用户 ID 分别是 null 和 1，符合预期：  
 4b8f38415d03423132c7a3608ebe2430.png
 
 随后用户 2 来请求接口，这次就出现了 Bug，第一和第二次获取到用户 ID 分别是 1 和 2，显然第一次获取到了用户 1 的信息，原因就是 Tomcat 的线程池重用了线程。从图中可以看到，两次请求的线程都是同一个线程：http-nio-8080-exec-1。
@@ -66,10 +62,7 @@ a9ccd42716d807687b3acff9a0baf2db.png
 
 理解了这个知识点后，我们修正这段代码的方案是，在代码的 finally 代码块中，显式清除 ThreadLocal 中的数据。这样一来，新的请求过来即使使用了之前的线程也不会获取到错误的用户信息了。修正后的代码如下：
 
-
-
 ```
-
 @GetMapping("right")
 public Map right(@RequestParam("userId") Integer userId) {
     String before  = Thread.currentThread().getName() + ":" + currentUser.get();
@@ -86,6 +79,7 @@ public Map right(@RequestParam("userId") Integer userId) {
     }
 }
 ```
+
 重新运行程序可以验证，再也不会出现第一次查询用户信息查询到之前用户请求的 Bug：
 
 0dfe40fca441b58d491fc799d120a7cc.png
@@ -98,9 +92,7 @@ JDK 1.5 后推出的 ConcurrentHashMap，是一个高性能的线程安全的哈
 
 我在相当多的业务代码中看到过这个误区，比如下面这个场景。有一个含 900 个元素的 Map，现在再补充 100 个元素进去，这个补充操作由 10 个线程并发进行。开发人员误以为使用了 ConcurrentHashMap 就不会有线程安全问题，于是不加思索地写出了下面的代码：在每一个线程的代码逻辑中先通过 size 方法拿到当前元素数量，计算 ConcurrentHashMap 目前还需要补充多少元素，并在日志中输出了这个值，然后通过 putAll 方法把缺少的元素添加进去。为方便观察问题，我们输出了这个 Map 一开始和最后的元素个数。
 
-
 ```
-
 //线程个数
 private static int THREAD_COUNT = 10;
 //总元素数量
@@ -136,14 +128,12 @@ public String wrong() throws InterruptedException {
     log.info("finish size:{}", concurrentHashMap.size());
     return "OK";
 }
-
 ```
 
-重新调用接口，程序的日志输出结果符合预期：
+重新调用接口，程序的日志输出结果符合预期：  
 1151b5b87f27073725060b76c56d95b8.png
 
 可以看到，只有一个线程查询到了需要补 100 个元素，其他 9 个线程查询到不需要补元素，最后 Map 大小为 1000。
-
 
 到了这里，你可能又要问了，使用 ConcurrentHashMap 全程加锁，还不如使用普通的 HashMap 呢。
 
@@ -158,15 +148,14 @@ public String wrong() throws InterruptedException {
 ## 没有充分了解并发工具的特性，从而无法发挥其威力
 
 我们来看一个使用 Map 来统计 Key 出现次数的场景吧，这个逻辑在业务代码中非常常见。
+
 * 使用 ConcurrentHashMap 来统计，Key 的范围是 10。
 * 使用最多 10 个并发，循环操作 1000 万次，每次操作累加随机的 Key。
 * 如果 Key 不存在的话，首次设置值为 1。
 
 代码如下：
 
-
 ```
-
 //循环次数
 private static int LOOP_COUNT = 10000000;
 //线程数量
@@ -195,11 +184,10 @@ private Map<String, Long> normaluse() throws InterruptedException {
     return freqs;
 }
 ```
+
 我们吸取之前的教训，直接通过锁的方式锁住 Map，然后做判断、读取现在的累计值、加 1、保存累加后值的逻辑。这段代码在功能上没有问题，但无法充分发挥 ConcurrentHashMap 的威力，改进后的代码如下：
 
-
 ```
-
 private Map<String, Long> gooduse() throws InterruptedException {
     ConcurrentHashMap<String, LongAdder> freqs = new ConcurrentHashMap<>(ITEM_COUNT);
     ForkJoinPool forkJoinPool = new ForkJoinPool(THREAD_COUNT);
@@ -219,20 +207,17 @@ private Map<String, Long> gooduse() throws InterruptedException {
             );
 }
 ```
+
 在这段改进后的代码中，我们巧妙利用了下面两点：
 
 * 使用 ConcurrentHashMap 的原子性方法 computeIfAbsent 来做复合逻辑操作，判断 Key 是否存在 Value，如果不存在则把 Lambda 表达式运行后的结果放入 Map 作为 Value，也就是新创建一个 LongAdder 对象，最后返回 Value。
 * 由于 computeIfAbsent 方法返回的 Value 是 LongAdder，是一个线程安全的累加器，因此可以直接调用其 increment 方法进行累加。
 
-
 **这样在确保线程安全的情况下达到极致性能，把之前 7 行代码替换为了 1 行。**
 
 我们通过一个简单的测试比较一下修改前后两段代码的性能：
 
-
-
 ```
-
 @GetMapping("good")
 public String good() throws InterruptedException {
     StopWatch stopWatch = new StopWatch();
@@ -264,17 +249,11 @@ public String good() throws InterruptedException {
 
 可以看到，**优化后的代码，相比使用锁来操作 ConcurrentHashMap 的方式，性能提升了 10 倍。**
 
-
 你可能会问，computeIfAbsent 为什么如此高效呢？
-
 
 答案就在源码最核心的部分，也就是 Java 自带的 Unsafe 实现的 CAS。它在虚拟机层面确保了写入数据的原子性，比加锁的效率高得多：
 
-
-
-
 ```
-
     static final <K,V> boolean casTabAt(Node<K,V>[] tab, int i,
                                         Node<K,V> c, Node<K,V> v) {
         return U.compareAndSetObject(tab, ((long)i << ASHIFT) + ABASE, c, v);
@@ -282,7 +261,6 @@ public String good() throws InterruptedException {
 ```
 
 像 ConcurrentHashMap 这样的高级并发工具的确提供了一些高级 API，只有充分了解其特性才能最大化其威力，而不能因为其足够高级、酷炫盲目使用。
-
 
 ## 没有认清并发工具的使用场景，因而导致性能问题
 
@@ -296,10 +274,7 @@ CopyOnWrite 是一个时髦的技术，不管是 Linux 还是 Redis 都会用到
 
 我们写一段测试代码，来比较下使用 CopyOnWriteArrayList 和普通加锁方式 ArrayList 的读写性能吧。在这段代码中我们针对并发读和并发写分别写了一个测试方法，测试两者一定次数的写或读操作的耗时。
 
-
-
 ```
-
 //测试并发写的性能
 @GetMapping("write")
 public Map testWrite() {
@@ -363,15 +338,11 @@ public Map testRead() {
 
 30ba652fb3295c58b03f51de0a132436.png
 
-
 你可能会问，为何在大量写的场景下，CopyOnWriteArrayList 会这么慢呢？
 
 答案就在源码中。以 add 方法为例，每次 add 时，都会用 Arrays.copyOf 创建一个新数组，频繁 add 时内存的申请释放消耗会很大：
 
-
-
 ```
-
     /**
      * Appends the specified element to the end of this list.
      *
@@ -398,21 +369,25 @@ public Map testRead() {
 
 二是，误以为使用了并发工具就可以解决一切线程安全问题，期望通过把线程不安全的类替换为线程安全的类来一键解决问题。比如，认为使用了 ConcurrentHashMap 就可以解决线程安全问题，没对复合逻辑加锁导致业务逻辑错误。如果你希望在一整段业务逻辑中，对容器的操作都保持整体一致性的话，需要加锁处理。
 
-三是，没有充分了解并发工具的特性，还是按照老方式使用新工具导致无法发挥其性能。比如，使用了 ConcurrentHashMap，但没有充分利用其提供的基于 CAS 安全的方法，还是使用锁的方式来实现逻辑。你可以阅读一下**ConcurrentHashMap 的文档**，看一下相关原子性操作 API 是否可以满足业务需求，如果可以则优先考虑使用。
+三是，没有充分了解并发工具的特性，还是按照老方式使用新工具导致无法发挥其性能。比如，使用了 ConcurrentHashMap，但没有充分利用其提供的基于 CAS 安全的方法，还是使用锁的方式来实现逻辑。你可以阅读一下**ConcurrentHashMap 的文档**，看一下相关原子性操作 API 是否可以满足业务需求，如果可以则优先考虑使用。  
 ConcurrentHashMap 的文档：`https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ConcurrentHashMap.html`
 
 四是，没有了解清楚工具的适用场景，在不合适的场景下使用了错误的工具导致性能更差。比如，没有理解 CopyOnWriteArrayList 的适用场景，把它用在了读写均衡或者大量写操作的场景下，导致性能问题。对于这种场景，你可以考虑是用普通的 List。
 
 其实，这四类坑之所以容易踩到，原因可以归结为，我们在使用并发工具的时候，并没有充分理解其可能存在的问题、适用场景等。所以最后，**我还要和你分享两点建议**：
+
 * 一定要认真阅读官方文档（比如 Oracle JDK 文档）。充分阅读官方文档，理解工具的适用场景及其 API 的用法，并做一些小实验。了解之后再去使用，就可以避免大部分坑。
 
 * 如果你的代码运行在多线程环境下，那么就会有并发问题，并发问题不那么容易重现，可能需要使用压力测试模拟并发场景，来发现其中的 Bug 或性能问题。
 
-今天用到的代码，我都放在了 GitHub 上，你可以点击这个链接查看。
-GitHub:'https://github.com/JosephZhu1983/java-common-mistakes'
+今天用到的代码，我都放在了 GitHub 上，你可以点击这个链接查看。  
+GitHub:'[https://github.com/JosephZhu1983/java-common-mistakes](https://github.com/JosephZhu1983/java-common-mistakes)'
 
 ## 思考题
 
 1.今天我们多次用到了 ThreadLocalRandom，你觉得是否可以把它的实例设置到静态变量中，在多线程情况下重用呢？
 
 2.ConcurrentHashMap 还提供了 putIfAbsent 方法，你能否通过查阅JDK 文档，说说 computeIfAbsent 和 putIfAbsent 方法的区别？
+
+微信截图\_20200822155905.png
+
