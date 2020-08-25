@@ -241,6 +241,13 @@ spring的事务是在调用业务方法之前开始的，业务方法执行完�
 
 这种情况出现的概率并不高，事务能否生效数据库引擎是否支持事务是关键。常用的MySQL数据库默认使用支持事务的innodb引擎。一旦数据库引擎切换成不支持事务的myisam，那事务就从根本上失效了。
 
+### 1.3.7.@Transactional 与 @Async注解不能同时在一个方法上使用, 这样会导致事物不生效。
+
+1、Spring 实现这两个注解的方式都是通过AOP。
+2、在实现时，Async注解强制覆盖AOP的order为最小值（它认为Async应该是执行的AOP链中的第一个advisor -- https://jira.spring.io/browse/SPR-7147），而且order不可配置。
+3、但是在实现Transactional注解时，却没有覆盖order，这意味着它仍然为默认的Integer.MAX_VALUE，order可配置。所以异步切面会先于事务切面执行。
+4、假设@Transactional能先于Async切面执行，但由于spring事务管理依赖的是ThreadLocal，所以在开启的异步线程里面感知不到事务，说细点就是在Spring开启事务之后，会设置一个连接到当前线程，但这个时候又开启了一个新线程，执行实际的SQL代码时，通过ThreadLocal获取不到连接就会开启新连接，也不会设置autoCommit，所以这个函数整体将没有事务。
+
 # 2.总结
 
 @Transactional 注解的看似简单易用，但如果对它的用法一知半解，还是会踩到很多坑的。
