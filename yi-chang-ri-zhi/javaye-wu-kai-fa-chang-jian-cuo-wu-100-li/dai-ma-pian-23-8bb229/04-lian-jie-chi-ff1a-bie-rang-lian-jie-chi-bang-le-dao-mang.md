@@ -345,11 +345,10 @@ public String right() {
     return null;
 }
 ```
+
 然后，重新定义一个 wrong2 接口，修复之前按需创建 CloseableHttpClient 的代码，每次用完之后确保连接池可以关闭：
 
-
 ```
-
 @GetMapping("wrong2")
 public String wrong2() {
     try (CloseableHttpClient client = HttpClients.custom()
@@ -363,6 +362,7 @@ public String wrong2() {
     return null;
 }
 ```
+
 使用 wrk 对 wrong2 和 right 两个接口分别压测 60 秒，可以看到两种使用方式性能上的差异，每次创建连接池的 QPS 是 337，而复用连接池的 QPS 是 2022：
 
 ![](/static/image/b79fb99cf8a5c3a17e60b0850544472d.png)
@@ -375,10 +375,10 @@ public String wrong2() {
 
 ![](/static/image/7b8f651755cef0c05ecb08727d315e35.png)
 
-也就是说，每次都是新的 TCP 连接，放开 HTTP 这个过滤条件也可以看到完整的 TCP 握手、挥手的过程：
+也就是说，每次都是新的 TCP 连接，放开 HTTP 这个过滤条件也可以看到完整的 TCP 握手、挥手的过程：  
 ![](/static/image/4815c0edd21d5bf0cae8c0c3e578960d.png)
 
-而复用连接池方式的接口 right 的表现就完全不同了。可以看到，第二次 HTTP 请求 #41 的客户端端口 61468 和第一次连接 #23 的端口是一样的，Wireshark 也提示了整个 TCP 会话中，当前 #41 请求是第二次请求，前一次是 #23，后面一次是 #75：
+而复用连接池方式的接口 right 的表现就完全不同了。可以看到，第二次 HTTP 请求 \#41 的客户端端口 61468 和第一次连接 \#23 的端口是一样的，Wireshark 也提示了整个 TCP 会话中，当前 \#41 请求是第二次请求，前一次是 \#23，后面一次是 \#75：
 
 ![](/static/image/2cbada9be98ce33321b29d38adb09f2c.png)
 
@@ -398,10 +398,7 @@ public String wrong2() {
 
 首先，定义一个用户注册方法，通过 @Transactional 注解为方法开启事务。其中包含了 500 毫秒的休眠，一个数据库事务对应一个 TCP 连接，所以 500 多毫秒的时间都会占用数据库连接：
 
-
-
 ```
-
 @Transactional
 public User register(){
     User user=new User();
@@ -418,27 +415,19 @@ public User register(){
 
 随后，修改配置文件启用 register-mbeans，使 Hikari 连接池能通过 JMX MBean 注册连接池相关统计信息，方便观察连接池：
 
-
-
 ```
-
 spring.datasource.hikari.register-mbeans=true
 ```
 
-
 启动程序并通过 JConsole 连接进程后，可以看到默认情况下最大连接数为 10：
 
-
-
-# 重点回顾
+# 2.重点回顾
 
 ## 高质量问题
-![](/static/image/微信截图_20200822172918.png)
-![](/static/image/微信截图_20200822172946.png)
-![](/static/image/微信截图_20200822173002.png)
-![](/static/image/微信截图_20200822173202.png)
+
+![](/static/image/微信截图_20200822172918.png)  
+![](/static/image/微信截图_20200822172946.png)  
+![](/static/image/微信截图_20200822173002.png)  
+![](/static/image/微信截图_20200822173202.png)  
 ![](/static/image/微信截图_20200822173032.png)
-
-
-
 
