@@ -1,4 +1,4 @@
-# 03 | 线程池：业务代码最常用也最容易犯错的组件
+# 03 \| 线程池：业务代码最常用也最容易犯错的组件
 
 你好，我是朱晔。今天，我来讲讲使用线程池需要注意的一些问题。
 
@@ -15,7 +15,6 @@ Java 中的 Executors 类定义了一些快捷的工具方法，来帮助我们�
 首先，我们来看一下 newFixedThreadPool 为什么可能会出现 OOM 的问题。
 
 我们写一段测试代码，来初始化一个单线程的 FixedThreadPool，循环 1 亿次向线程池提交任务，每个任务都会创建一个比较大的字符串然后休眠一小时：
- 
 
 ```
 @GetMapping("oom1")
@@ -41,17 +40,14 @@ public void oom1() throws InterruptedException {
     threadPool.awaitTermination(1, TimeUnit.HOURS);
 }
 ```
+
 执行程序后不久，日志中就出现了如下 OOM：
-
-
 
 ```
 Exception in thread "http-nio-45678-ClientPoller" java.lang.OutOfMemoryError: GC overhead limit exceeded
 ```
 
-翻看 newFixedThreadPool 方法的源码不难发现，线程池的工作队列直接 new 了一个 LinkedBlockingQueue，**而默认构造方法的 LinkedBlockingQueue 是一个 Integer.MAX_VALUE 长度的队列，可以认为是无界的：**
-
-
+翻看 newFixedThreadPool 方法的源码不难发现，线程池的工作队列直接 new 了一个 LinkedBlockingQueue，**而默认构造方法的 LinkedBlockingQueue 是一个 Integer.MAX\_VALUE 长度的队列，可以认为是无界的：**
 
 ```
 public static ExecutorService newFixedThreadPool(int nThreads) {
@@ -80,18 +76,14 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
 
 我们再把刚才的例子稍微改一下，改为使用 newCachedThreadPool 方法来获得线程池。程序运行不久后，同样看到了如下 OOM 异常：
 
-
-
 ```
-
 [11:30:30.487] [http-nio-45678-exec-1] [ERROR] [.a.c.c.C.[.[.[/].[dispatcherServlet]:175 ] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Handler dispatch failed; nested exception is java.lang.OutOfMemoryError: unable to create new native thread] with root cause
-java.lang.OutOfMemoryError: unable to create new native thread 
+java.lang.OutOfMemoryError: unable to create new native thread
 ```
 
-从日志中可以看到，这次 OOM 的原因是无法创建线程，翻看 newCachedThreadPool 的源码可以看到，**这种线程池的最大线程数是 Integer.MAX_VALUE，可以认为是没有上限的，而其工作队列 SynchronousQueue 是一个没有存储空间的阻塞队列。**这意味着，只要有请求到来，就必须找到一条工作线程来处理，如果当前没有空闲的线程就再创建一条新的。
+从日志中可以看到，这次 OOM 的原因是无法创建线程，翻看 newCachedThreadPool 的源码可以看到，**这种线程池的最大线程数是 Integer.MAX\_VALUE，可以认为是没有上限的，而其工作队列 SynchronousQueue 是一个没有存储空间的阻塞队列。**这意味着，只要有请求到来，就必须找到一条工作线程来处理，如果当前没有空闲的线程就再创建一条新的。
 
 由于我们的任务需要 1 小时才能执行完成，大量的任务进来后会创建大量的线程。我们知道线程是需要分配一定的内存空间作为线程栈的，比如 1MB，因此无限制创建线程必然会导致 OOM：
-
 
 ```
 public static ExecutorService newCachedThreadPool() {
@@ -99,6 +91,7 @@ public static ExecutorService newCachedThreadPool() {
                                   60L, TimeUnit.SECONDS,
                                   new SynchronousQueue<Runnable>());
 ```
+
 其实，大部分 Java 开发同学知道这两种线程池的特性，只是抱有侥幸心理，觉得只是使用线程池做一些轻量级的任务，不可能造成队列积压或开启大量线程。
 
 但，现实往往是残酷的。我之前就遇到过这么一个事故：用户注册后，我们调用一个外部服务去发送短信，发送短信接口正常时可以在 100 毫秒内响应，TPS 100 的注册量，CachedThreadPool 能稳定在占用 10 个左右线程的情况下满足需求。在某个时间点，外部短信服务不可用了，我们调用这个服务的超时又特别长， 比如 1 分钟，1 分钟可能就进来了 6000 用户，产生 6000 个发送短信的任务，需要 6000 个线程，没多久就因为无法创建线程导致了 OOM，整个应用程序崩溃。
@@ -112,12 +105,10 @@ public static ExecutorService newCachedThreadPool() {
 除了建议手动声明线程池以外，我还建议**用一些监控手段来观察线程池的状态**。线程池这个组件往往会表现得任劳任怨、默默无闻，除非是出现了拒绝策略，否则压力再大都不会抛出一个异常。如果我们能提前观察到线程池队列的积压，或者线程数量的快速膨胀，往往可以提早发现并解决问题。
 
 ## 线程池线程管理策略详解
+
 在之前的 Demo 中，我们用一个 printStats 方法实现了最简陋的监控，每秒输出一次线程池的基本内部信息，包括线程数、活跃线程数、完成了多少任务，以及队列中还有多少积压任务等信息：
 
-
-
 ```
-
 private void printStats(ThreadPoolExecutor threadPool) {
    Executors.newSingleThreadScheduledExecutor().scheduleAtFixedRate(() -> {
         log.info("=========================");
@@ -130,15 +121,14 @@ private void printStats(ThreadPoolExecutor threadPool) {
     }, 0, 1, TimeUnit.SECONDS);
 }
 ```
+
 接下来，我们就利用这个方法来观察一下线程池的基本特性吧。
 
 首先，自定义一个线程池。这个线程池具有 2 个核心线程、5 个最大线程、使用容量为 10 的 ArrayBlockingQueue 阻塞队列作为工作队列，使用默认的 AbortPolicy 拒绝策略，也就是任务添加到线程池失败会抛出 RejectedExecutionException。此外，我们借助了 Jodd 类库的 ThreadFactoryBuilder 方法来构造一个线程工厂，实现线程池线程的自定义命名。
 
 然后，我们写一段测试代码来观察线程池管理线程的策略。测试代码的逻辑为，每次间隔 1 秒向线程池提交任务，循环 20 次，每个任务需要 10 秒才能执行完成，代码如下：
 
-
 ```
-
 @GetMapping("right")
 public int right() throws InterruptedException {
     //使用一个计数器跟踪完成的任务数
@@ -181,21 +171,19 @@ public int right() throws InterruptedException {
     return atomicInteger.intValue();
 }
 ```
+
 60 秒后页面输出了 17，有 3 次提交失败了：
 
 ![](/static/image/4b820e0b24ce0deefbf2dd7af295c32c.png)
 
 并且日志中也出现了 3 次类似的错误信息：
 
-
-
 ```
-
 [14:24:52.879] [http-nio-45678-exec-1] [ERROR] [.t.c.t.demo1.ThreadPoolOOMController:103 ] - error submitting task 18
 java.util.concurrent.RejectedExecutionException: Task java.util.concurrent.FutureTask@163a2dec rejected from java.util.concurrent.ThreadPoolExecutor@18061ad2[Running, pool size = 5, active threads = 5, queued tasks = 10, completed tasks = 2]
 ```
 
-我们把 printStats 方法打印出的日志绘制成图表，得出如下曲线：
+我们把 printStats 方法打印出的日志绘制成图表，得出如下曲线：  
 ![](/static/image/d819035f60bf1c0022a98051d50e031e.png)
 
 **至此，我们可以总结出线程池默认的工作行为：**
@@ -231,10 +219,7 @@ java.util.concurrent.RejectedExecutionException: Task java.util.concurrent.Futur
 
 在项目代码里，我们没有搜到声明线程池的地方，搜索 execute 关键字后定位到，原来是业务代码调用了一个类库来获得线程池，类似如下的业务代码：调用 ThreadPoolHelper 的 getThreadPool 方法来获得线程池，然后提交数个任务到线程池处理，看不出什么异常。
 
-
-
 ```
-
 @GetMapping("wrong")
 public String wrong() throws InterruptedException {
     ThreadPoolExecutor threadPool = ThreadPoolHelper.getThreadPool();
@@ -250,12 +235,10 @@ public String wrong() throws InterruptedException {
     return "OK";
 }
 ```
+
 但是，来到 ThreadPoolHelper 的实现让人大跌眼镜，**getThreadPool 方法居然是每次都使用 Executors.newCachedThreadPool 来创建一个线程池。**
 
-
-
 ```
-
 class ThreadPoolHelper {
     public static ThreadPoolExecutor getThreadPool() {
         //线程池没有复用
@@ -263,19 +246,16 @@ class ThreadPoolHelper {
     }
 }
 ```
+
 通过上一小节的学习，我们可以想到 newCachedThreadPool 会在需要时创建必要多的线程，业务代码的一次业务操作会向线程池提交多个慢任务，这样执行一次业务操作就会开启多个线程。如果业务操作并发量较大的话，的确有可能一下子开启几千个线程。
 
 那，为什么我们能在监控中看到线程数量会下降，而不会撑爆内存呢？
-
 
 回到 newCachedThreadPool 的定义就会发现，它的核心线程数是 0，而 keepAliveTime 是 60 秒，也就是在 60 秒之后所有的线程都是可以回收的。好吧，就因为这个特性，我们的业务程序死得没太难看。
 
 要修复这个 Bug 也很简单，使用一个静态字段来存放线程池的引用，返回线程池的代码直接返回这个静态字段即可。这里一定要记得我们的最佳实践，手动创建线程池。修复后的 ThreadPoolHelper 类如下：
 
-
-
 ```
-
 class ThreadPoolHelper {
   private static ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(
     10, 50,
@@ -296,15 +276,13 @@ class ThreadPoolHelper {
 
 * 对于执行比较慢、数量不大的 IO 任务，或许要考虑更多的线程数，
 
-* 而不需要太大的队列。而对于吞吐量较大的计算型任务，线程数量不宜过多，可以是 CPU 核数或核数 *2（理由是，线程一定调度到某个 CPU 进行执行，如果任务本身是 CPU 绑定的任务，那么过多的线程只会增加线程切换的开销，并不能提升吞吐量），但可能需要较长的队列来做缓冲。
+* 而不需要太大的队列。而对于吞吐量较大的计算型任务，线程数量不宜过多，可以是 CPU 核数或核数 \*2（理由是，线程一定调度到某个 CPU 进行执行，如果任务本身是 CPU 绑定的任务，那么过多的线程只会增加线程切换的开销，并不能提升吞吐量），但可能需要较长的队列来做缓冲。
 
 之前我也遇到过这么一个问题，业务代码使用了线程池异步处理一些内存中的数据，但通过监控发现处理得非常慢，整个处理过程都是内存中的计算不涉及 IO 操作，也需要数秒的处理时间，应用程序 CPU 占用也不是特别高，有点不可思议。
 
 经排查发现，业务代码使用的线程池，还被一个后台的文件批处理任务用到了。
 
 或许是够用就好的原则，这个线程池只有 2 个核心线程，最大线程也是 2，使用了容量为 100 的 ArrayBlockingQueue 作为工作队列，使用了 CallerRunsPolicy 拒绝策略：
-
-
 
 ```
 private static ThreadPoolExecutor threadPool = new ThreadPoolExecutor(
@@ -317,10 +295,7 @@ private static ThreadPoolExecutor threadPool = new ThreadPoolExecutor(
 
 这里，我们模拟一下文件批处理的代码，在程序启动后通过一个线程开启死循环逻辑，不断向线程池提交任务，任务的逻辑是向一个文件中写入大量的数据：
 
-
-
 ```
-
 @PostConstruct
 public void init() {
     printStats(threadPool);
@@ -344,6 +319,7 @@ public void init() {
     }).start();
 }
 ```
+
 可以想象到，这个线程池中的 2 个线程任务是相当重的。通过 printStats 方法打印出的日志，我们观察下线程池的负担：
 
 ![](/static/image/49c132595db60f109530e0dec55ccd55.png)
@@ -353,8 +329,6 @@ public void init() {
 不知道写代码的同学为什么设置这个策略，或许是测试时发现线程池因为任务处理不过来出现了异常，而又不希望线程池丢弃任务，所以最终选择了这样的拒绝策略。不管怎样，这些日志足以说明线程池是饱和状态。
 
 可以想象到，业务代码复用这样的线程池来做内存计算，命运一定是悲惨的。我们写一段代码测试下，向线程池提交一个简单的任务，这个任务只是休眠 10 毫秒没有其他逻辑：
-
-
 
 ```
 private Callable<Integer> calcTask() {
@@ -369,16 +343,15 @@ public int wrong() throws ExecutionException, InterruptedException {
     return threadPool.submit(calcTask()).get();
 }
 ```
-我们使用 wrk 工具对这个接口进行一个简单的压测，可以看到 TPS 为 75，性能的确非常差。
+
+我们使用 wrk 工具对这个接口进行一个简单的压测，可以看到 TPS 为 75，性能的确非常差。  
 ![](/static/image/989f7ab383e59e21751adb77a9b53507.png)
 
 细想一下，问题其实没有这么简单。因为原来执行 IO 任务的线程池使用的是 CallerRunsPolicy 策略，所以直接使用这个线程池进行异步计算的话，**当线程池饱和的时候，计算任务会在执行 Web 请求的 Tomcat 线程执行，这时就会进一步影响到其他同步处理的线程，甚至造成整个应用程序崩溃。**
 
 解决方案很简单，使用独立的线程池来做这样的“计算任务”即可。计算任务打了双引号，是因为我们的模拟代码执行的是休眠操作，并不属于 CPU 绑定的操作，更类似 IO 绑定的操作，如果线程池线程数设置太小会限制吞吐能力：
 
-
 ```
-
 private static ThreadPoolExecutor asyncCalcThreadPool = new ThreadPoolExecutor(
   200, 200,
   1, TimeUnit.HOURS,
@@ -391,6 +364,7 @@ public int right() throws ExecutionException, InterruptedException {
   return asyncCalcThreadPool.submit(calcTask()).get();
 }
 ```
+
 使用单独的线程池改造代码后再来测试一下性能，TPS 提高到了 1727：
 
 ![](/static/image/c21eed38ccd18758d38745dd09496a06.png)
@@ -399,7 +373,8 @@ public int right() throws ExecutionException, InterruptedException {
 
 就线程池混用问题，我想再和你补充一个坑：**Java 8 的 parallel stream 功能，可以让我们很方便地并行处理集合中的元素，其背后是共享同一个 ForkJoinPool，默认并行度是 CPU 核数 -1。**对于 CPU 绑定的任务来说，使用这样的配置比较合适，但如果集合操作涉及同步 IO 操作的话（比如数据库操作、外部服务调用等），建议自定义一个 ForkJoinPool（或普通线程池）。你可以参考第一讲的相关 Demo。
 
-## 重点回顾
+# 1.重点回顾
+
 线程池管理着线程，线程又属于宝贵的资源，有许多应用程序的性能问题都来自线程池的配置和使用不当。在今天的学习中，我通过三个和线程池相关的生产事故，和你分享了使用线程池的几个最佳实践。
 
 第一，Executors 类提供的一些快捷声明线程池的方法虽然简单，但隐藏了线程池的参数细节。因此，使用线程池时，我们一定要根据场景和需求配置合理的线程数、任务队列、拒绝策略、线程回收策略，并对线程进行明确的命名方便排查问题。
@@ -410,18 +385,17 @@ public int right() throws ExecutionException, InterruptedException {
 
 最后我想强调的是，**线程池作为应用程序内部的核心组件往往缺乏监控（如果你使用类似 RabbitMQ 这样的 MQ 中间件，运维同学一般会帮我们做好中间件监控）**，往往到程序崩溃后才发现线程池的问题，很被动。在设计篇中我们会重新谈及这个问题及其解决方案。
 
-
 ## 思考题
 
 1.在第一节中我们提到，或许一个激进创建线程的弹性线程池更符合我们的需求，你能给出相关的实现吗？实现后再测试一下，是否所有的任务都可以正常处理完成呢？
 
 2.在第二节中，我们改进了 ThreadPoolHelper 使其能够返回复用的线程池。如果我们不小心每次都创建了这样一个自定义的线程池（10 核心线程，50 最大线程，2 秒回收的），反复执行测试接口线程，最终可以被回收吗？会出现 OOM 问题吗？
 
-
 ## 高质量问题
 
-![](/static/image/微信截图_20200822163507.png)
-![](/static/image/微信截图_20200822163532.png)
-![](/static/image/微信截图_20200822163600.png)
-![](/static/image/微信截图_20200822163616.png)
+![](/static/image/微信截图_20200822163507.png)  
+![](/static/image/微信截图_20200822163532.png)  
+![](/static/image/微信截图_20200822163600.png)  
+![](/static/image/微信截图_20200822163616.png)  
 ![](/static/image/微信截图_20200822163749.png)
+
