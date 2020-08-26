@@ -423,7 +423,7 @@ spring.datasource.hikari.register-mbeans=true
 
 # 2.重点回顾
 
-## 高质量问题
+## 2.1.高质量问题
 
 ![](/static/image/微信截图_20200822172918.png)  
 ![](/static/image/微信截图_20200822172946.png)  
