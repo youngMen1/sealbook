@@ -38,7 +38,7 @@
     * 设计篇 \(7讲\)
     * [安全篇 \(5讲\)](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/an-quan-pian-5-8bb229.md)
       * 28 \| 安全兜底：涉及钱时，必须考虑防刷、限量和防重
-      * 30 \| 如何正确保存和传输敏感数据？
+      * [30 \| 如何正确保存和传输敏感数据？](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/an-quan-pian-5-8bb229/30-ru-he-zheng-que-bao-cun-he-chuan-shu-min-gan-shu-ju-ff1f.md)
     * [加餐 \(8讲\)](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/jia-can-8-8bb229.md)
       * 31 \| 加餐1：带你吃透课程中Java 8的那些重要知识点（一）
       * [32 \| 加餐2：带你吃透课程中Java 8的那些重要知识点（二）](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/jia-can-8-8bb229/32-jia-can-2-ff1a-dai-ni-chi-tou-ke-cheng-zhong-java-8-de-na-xie-zhong-yao-zhi-shi-dian-ff08-er-ff09.md)
