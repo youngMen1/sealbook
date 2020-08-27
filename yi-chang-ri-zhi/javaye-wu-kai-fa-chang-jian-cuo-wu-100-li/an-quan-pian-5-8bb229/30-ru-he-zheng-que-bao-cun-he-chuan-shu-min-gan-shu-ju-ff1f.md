@@ -105,3 +105,10 @@ userData.setSalt(UUID.randomUUID().toString());
 userData.setPassword(DigestUtils.md5Hex(userData.getSalt() + password));
 ```
 
+并且每次用户修改密码的时候都重新计算盐，重新保存新的密码。你可能会问，盐保存在数据库中，那被拖库了不是就可以看到了吗？难道不应该加密保存吗？
+
+在我看来，盐没有必要加密保存。盐的作用是，防止通过彩虹表快速实现密码“解密”，如果用户的盐都是唯一的，那么生成一次彩虹表只可能拿到一个用户的密码，这样黑客的动力会小很多。
+
+更好的做法是，不要使用像 MD5 这样快速的摘要算法，而是使用慢一点的算法。比如 Spring Security 已经废弃了 MessageDigestPasswordEncoder，推荐使用 BCryptPasswordEncoder，也就是BCrypt来进行密码哈希。BCrypt 是为保存密码设计的算法，相比 MD5 要慢很多。
+`https://en.wikipedia.org/wiki/Bcrypt`
+
