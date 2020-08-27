@@ -136,5 +136,6 @@ public interface Function<T, R> {
 不过需要注意的是，在自定义函数式接口之前，可以先确认下java.util.function 包中的 43 个标准函数式接口是否能满足需求，我们要尽可能重用这些接口，因为使用大家熟悉的标准接口可以提高代码的可读性。
 `https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html`
 
+## 使用 Java 8 简化代码
 
 
