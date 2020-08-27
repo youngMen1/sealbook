@@ -26,4 +26,11 @@ userData.setName(name);
 userData.setPassword(DigestUtils.md5Hex(password));
 return userRepository.save(userData);
 ```
+通过输出，可以看到密码是 32 位的 MD5：
+
+
+```
+
+"password": "325a2cc052914ceeb8c19016c091d2ac"
+```
 
