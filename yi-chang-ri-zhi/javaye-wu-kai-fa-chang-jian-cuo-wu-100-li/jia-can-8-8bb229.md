@@ -305,4 +305,81 @@ public void coolCache()
 }
 ```
 
+computeIfAbsent 方法在逻辑上相当于：
+
+
+
+```
+
+if (map.get(key) == null) {
+  V newValue = mappingFunction.apply(key);
+  if (newValue != null)
+    map.put(key, newValue);
+}
+```
+又比如，利用 Files.walk 返回一个 Path 的流，通过两行代码就能实现递归搜索 +grep 的操作。整个逻辑是：递归搜索文件夹，查找所有的.java 文件；然后读取文件每一行内容，用正则表达式匹配 public class 关键字；最后输出文件名和这行内容。
+
+
+```
+
+@Test
+public void filesExample() throws IOException {
+    //无限深度，递归遍历文件夹
+    try (Stream<Path> pathStream = Files.walk(Paths.get("."))) {
+        pathStream.filter(Files::isRegularFile) //只查普通文件
+                .filter(FileSystems.getDefault().getPathMatcher("glob:**/*.java")::matches) //搜索java源码文件
+                .flatMap(ThrowingFunction.unchecked(path ->
+                        Files.readAllLines(path).stream() //读取文件内容，转换为Stream<List>
+                        .filter(line -> Pattern.compile("public class").matcher(line).find()) //使用正则过滤带有public class的行
+                        .map(line -> path.getFileName() + " >> " + line))) //把这行文件内容转换为文件名+行
+                .forEach(System.out::println); //打印所有的行
+    }
+}
+```
+输出结果如下：
+
+84349a90ef4aaf30032d0a8f64ab4512.png
+
+我再和你分享一个小技巧吧。因为 Files.readAllLines 方法会抛出一个受检异常（IOException），所以我使用了一个自定义的函数式接口，用 ThrowingFunction 包装这个方法，把受检异常转换为运行时异常，让代码更清晰：
+
+
+
+```
+
+@FunctionalInterface
+public interface ThrowingFunction<T, R, E extends Throwable> {
+    static <T, R, E extends Throwable> Function<T, R> unchecked(ThrowingFunction<T, R, E> f) {
+        return t -> {
+            try {
+                return f.apply(t);
+            } catch (Throwable e) {
+                throw new RuntimeException(e);
+            }
+        };
+    }
+
+    R apply(T t) throws E;
+}
+```
+
+如果用 Java 7 实现类似逻辑的话，大概需要几十行代码，你可以尝试下。
+## 并行流
+
+
+前面我们看到的 Stream 操作都是串行 Stream，操作只是在一个线程中执行，此外 Java 8 还提供了并行流的功能：通过 parallel 方法，一键把 Stream 转换为并行操作提交到线程池处理。
+
+比如，如下代码通过线程池来并行消费处理 1 到 100：
+
+
+```
+
+IntStream.rangeClosed(1,100).parallel().forEach(i->{
+    System.out.println(LocalDateTime.now() + " : " + i);
+    try {
+        Thread.sleep(1000);
+    } catch (InterruptedException e) { }
+});
+```
+
+
 
