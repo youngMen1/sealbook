@@ -138,4 +138,101 @@ public interface Function<T, R> {
 
 ## 使用 Java 8 简化代码
 
+这一部分，我会通过几个具体的例子，带你感受一下使用 Java 8 简化代码的三个重要方面：
+* 使用 Stream 简化集合操作；
+* 使用 Optional 简化判空逻辑；
+* JDK8 结合 Lambda 和 Stream 对各种类的增强。
+
+## 使用 Stream 简化集合操作
+
+Lambda 表达式可以帮我们用简短的代码实现方法的定义，给了我们复用代码的更多可能性。利用这个特性，我们可以把集合的投影、转换、过滤等操作抽象成通用的接口，然后通过 Lambda 表达式传入其具体实现，这也就是 Stream 操作。
+
+我们看一个具体的例子。这里有一段 20 行左右的代码，实现了如下的逻辑：
+
+* 把整数列表转换为 Point2D 列表；
+* 遍历 Point2D 列表过滤出 Y 轴 >1 的对象；
+* 计算 Point2D 点到原点的距离；
+* 累加所有计算出的距离，并计算距离的平均值。
+
+
+```
+
+private static double calc(List<Integer> ints) {
+    //临时中间集合
+    List<Point2D> point2DList = new ArrayList<>();
+    for (Integer i : ints) {
+        point2DList.add(new Point2D.Double((double) i % 3, (double) i / 3));
+    }
+    //临时变量，纯粹是为了获得最后结果需要的中间变量
+    double total = 0;
+    int count = 0;
+
+    for (Point2D point2D : point2DList) {
+        //过滤
+        if (point2D.getY() > 1) {
+            //算距离
+            double distance = point2D.distance(0, 0);
+            total += distance;
+            count++;
+        }
+    }
+    //注意count可能为0的可能
+    return count >0 ? total / count : 0;
+}
+```
+
+现在，我们可以使用 Stream 配合 Lambda 表达式来简化这段代码。简化后一行代码就可以实现这样的逻辑，更重要的是代码可读性更强了，通过方法名就可以知晓大概是在做什么事情。比如：
+
+* map 方法传入的是一个 Function，可以实现对象转换；
+* filter 方法传入一个 Predicate，实现对象的布尔判断，只保留返回 true 的数据；
+* mapToDouble 用于把对象转换为 double；
+* 通过 average 方法返回一个 OptionalDouble，代表可能包含值也可能不包含值的可空 double。
+
+下面的第三行代码，就实现了上面方法的所有工作：
+
+
+```
+
+List<Integer> ints = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8);
+double average = calc(ints);
+double streamResult = ints.stream()
+        .map(i -> new Point2D.Double((double) i % 3, (double) i / 3))
+        .filter(point -> point.getY() > 1)
+        .mapToDouble(point -> point.distance(0, 0))
+        .average()
+        .orElse(0);
+//如何用一行代码来实现，比较一下可读性
+assertThat(average, is(streamResult));
+```
+到这里，你可能会问了，OptionalDouble 又是怎么回事儿？
+
+## 有关 Optional 可空类型
+
+其实，类似 OptionalDouble、OptionalInt、OptionalLong 等，是服务于基本类型的可空对象。此外，Java8 还定义了用于引用类型的 Optional 类。使用 Optional，不仅可以避免使用 Stream 进行级联调用的空指针问题；更重要的是，它提供了一些实用的方法帮我们避免判空逻辑。
+
+如下是一些例子，演示了如何使用 Optional 来避免空指针，以及如何使用它的 fluent API 简化冗长的 if-else 判空逻辑：
+
+
+
+```
+
+@Test(expected = IllegalArgumentException.class)
+public void optional() {
+    //通过get方法获取Optional中的实际值
+    assertThat(Optional.of(1).get(), is(1));
+    //通过ofNullable来初始化一个null，通过orElse方法实现Optional中无数据的时候返回一个默认值
+    assertThat(Optional.ofNullable(null).orElse("A"), is("A"));
+    //OptionalDouble是基本类型double的Optional对象，isPresent判断有无数据
+    assertFalse(OptionalDouble.empty().isPresent());
+    //通过map方法可以对Optional对象进行级联转换，不会出现空指针，转换后还是一个Optional
+    assertThat(Optional.of(1).map(Math::incrementExact).get(), is(2));
+    //通过filter实现Optional中数据的过滤，得到一个Optional，然后级联使用orElse提供默认值
+    assertThat(Optional.of(1).filter(integer -> integer % 2 == 0).orElse(null), is(nullValue()));
+    //通过orElseThrow实现无数据时抛出异常
+    Optional.empty().orElseThrow(IllegalArgumentException::new);
+}
+```
+
+
+
 
