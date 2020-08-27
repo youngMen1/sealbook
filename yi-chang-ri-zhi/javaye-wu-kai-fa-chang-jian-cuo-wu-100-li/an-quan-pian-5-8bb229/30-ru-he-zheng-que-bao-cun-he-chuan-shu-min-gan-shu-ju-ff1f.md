@@ -54,7 +54,7 @@ userData.setPassword(DigestUtils.md5Hex(DigestUtils.md5Hex( password)));
 
 也可以破解出密码，并且破解网站还告知我们这是两次 MD5 算法：
 
-ce87f65a3289e50d4e29754073b7eab1.png
+![](/static/image/ce87f65a3289e50d4e29754073b7eab1.png)
 
 所以直接保存 MD5 后的密码是不安全的。一些同学可能会说，还需要加盐。是的，但是加盐如果不当，还是非常不安全，比较重要的有两点。
 
@@ -77,7 +77,8 @@ userData.setPassword(DigestUtils.md5Hex("salt" + password));
 "password": "55f312f84e7785aa1efa552acbf251db"
 ```
 
-321dfe5822da9fe186b17f283bda1fca.png
+
+![](/static/image/321dfe5822da9fe186b17f283bda1fca.png)
 
 
 其实，知道盐是什么没什么关系，关键的是我们是在代码里写死了盐，并且盐很短、所有用户都是这个盐。这么做有三个问题：
@@ -149,7 +150,8 @@ public void performance() {
 ```
 可以看到，MD5 只需要 0.8 毫秒，而三次 BCrypt 哈希（代价因子分别设置为 10、12 和 14）耗时分别是 82 毫秒、312 毫秒和 1.2 秒：
 
-13241938861dd3ca9ba984776cc90846.png
+
+![](/static/image/13241938861dd3ca9ba984776cc90846.png)
 
 也就是说，如果制作 8 位密码长度的 MD5 彩虹表需要 5 个月，那么对于 BCrypt 来说，可能就需要几十年，大部分黑客应该都没有这个耐心。
 
@@ -208,7 +210,8 @@ AES 是当前公认的比较安全，兼顾性能的对称加密算法。不过�
 
 AES 有一个重要的特点就是分组加密体制，一次只能处理 128 位的明文，然后生成 128 位的密文。如果要加密很长的明文，那么就需要迭代处理，而迭代方式就叫做模式。网上很多使用 AES 来加密的代码，使用的是最简单的 ECB 模式（也叫电子密码本模式），其基本结构如下：
 
-27c2534caeefcac4a5dd1a2814957d8b.png
+
+![](/static/image/27c2534caeefcac4a5dd1a2814957d8b.png)
 
 
 可以看到，这种结构有两个风险：明文和密文是一一对应的，如果明文中有重复的分组，那么密文中可以观察到重复，掌握密文的规律；因为每一个分组是独立加密和解密的 ，如果密文分组的顺序，也可以反过来操纵明文，那么就可以实现不解密密文的情况下，来修改明文。
@@ -279,7 +282,8 @@ private static void test(Cipher cipher, AlgorithmParameterSpec parameterSpec) th
 
 CBC 模式，在解密或解密之前引入了 XOR 运算，第一个分组使用外部提供的初始化向量 IV，从第二个分组开始使用前一个分组的数据，这样即使明文是一样的，加密后的密文也是不同的，并且分组的顺序不能任意调换。这就解决了 ECB 模式的缺陷：
 
-7955a199e2400adc7ac7577b3712bae8.png
+
+![](/static/image/7955a199e2400adc7ac7577b3712bae8.png)
 
 
 
@@ -295,7 +299,8 @@ public void cbc() throws Exception {
 }
 ```
 可以看到，相同的明文字符串复制一遍得到的密文并不是重复两个密文分组，并且调换密文分组的顺序无法操纵明文：
-8b79074d6533a84c32e48eab3daef808.png
+
+![](/static/image/8b79074d6533a84c32e48eab3daef808.png)
 其实，除了 ECB 模式和 CBC 模式外，AES 算法还有 CFB、OFB、CTR 模式，你可以参考这里了解它们的区别。《实用密码学》一书比较推荐的是 CBC 和 CTR 模式。还需要注意的是，ECB 和 CBC 模式还需要设置合适的填充模式，才能处理超过一个分组的数据。
 
 ```
@@ -570,7 +575,8 @@ javax.crypto.AEADBadTagException: Tag mismatch!
 
 那么，我们就来看看 HTTPS TLS 1.2 连接（RSA 握手）的整个过程吧。
 
-982510795a50e4b18808eed81dac647c.png
+
+![](/static/image/982510795a50e4b18808eed81dac647c.png)
 
 作为准备工作，网站管理员需要申请并安装 CA 证书到服务端。CA 证书中包含非对称加密的公钥、网站域名等信息，密钥是服务端自己保存的，不会在任何地方公开。
 
