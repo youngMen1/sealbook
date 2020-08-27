@@ -40,7 +40,7 @@
     * [加餐 \(8讲\)](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/jia-can-8-8bb229.md)
       * [32 \| 加餐2：带你吃透课程中Java 8的那些重要知识点（二）](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/jia-can-8-8bb229/32-jia-can-2-ff1a-dai-ni-chi-tou-ke-cheng-zhong-java-8-de-na-xie-zhong-yao-zhi-shi-dian-ff08-er-ff09.md)
       * 31 \| 加餐1：带你吃透课程中Java 8的那些重要知识点（一）
-      * 33 \| 加餐3：定位应用问题，排错套路很重要
+      * [33 \| 加餐3：定位应用问题，排错套路很重要](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/jia-can-8-8bb229/33-jia-can-3-ff1a-ding-wei-ying-yong-wen-ti-ff0c-pai-cuo-tao-lu-hen-zhong-yao.md)
   * [SpringBoot 下载项目中的excel模板](yi-chang-ri-zhi/springboot-xia-zai-xiang-mu-zhong-de-excel-mo-ban.md)
 * [IDEA](java.md)
   * [使用帮助](java/shi-yong-bang-zhu.md)
