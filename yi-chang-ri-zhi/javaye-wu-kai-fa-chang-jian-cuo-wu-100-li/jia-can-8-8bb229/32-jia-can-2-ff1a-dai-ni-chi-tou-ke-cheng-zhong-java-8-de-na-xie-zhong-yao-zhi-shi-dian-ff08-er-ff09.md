@@ -313,4 +313,17 @@ System.out.println(orders.stream().collect(averagingInt(order ->
 
 其中，groupBy 和 partitionBy 比较复杂，我和你举例介绍。
 
+## groupBy
+
+
+
+
+
+
+
+
+
+
+
+
 
