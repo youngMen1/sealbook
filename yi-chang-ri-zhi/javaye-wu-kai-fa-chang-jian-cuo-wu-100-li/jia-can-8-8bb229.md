@@ -112,6 +112,29 @@ BinaryOperator<Integer> add = Integer::sum;
 BinaryOperator<Integer> subtraction = (a, b) -> a - b;
 assertThat(subtraction.apply(add.apply(1, 2), 3), is(0));
 ```
+Predicate、Function 等函数式接口，还使用 default 关键字实现了几个默认方法。这样一来，它们既可以满足函数式接口只有一个抽象方法，又能为接口提供额外的功能：
+
+
+```
+
+@FunctionalInterface
+public interface Function<T, R> {
+    R apply(T t);
+    default <V> Function<V, R> compose(Function<? super V, ? extends T> before) {
+        Objects.requireNonNull(before);
+        return (V v) -> apply(before.apply(v));
+    }
+    default <V> Function<T, V> andThen(Function<? super R, ? extends V> after) {
+        Objects.requireNonNull(after);
+        return (T t) -> after.apply(apply(t));
+    }
+}
+```
+
+很明显，Lambda 表达式给了我们复用代码的更多可能性：我们可以把一大段逻辑中变化的部分抽象出函数式接口，由外部方法提供函数实现，重用方法内的整体逻辑处理。
+
+不过需要注意的是，在自定义函数式接口之前，可以先确认下java.util.function 包中的 43 个标准函数式接口是否能满足需求，我们要尽可能重用这些接口，因为使用大家熟悉的标准接口可以提高代码的可读性。
+`https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html`
 
 
 
