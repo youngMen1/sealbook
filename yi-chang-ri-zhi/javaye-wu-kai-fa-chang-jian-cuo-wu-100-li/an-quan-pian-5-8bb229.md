@@ -258,6 +258,6 @@ public class PayChannel {
 ### 高质量问题
 ![](/static/image/微信截图_20200827142905.png)
 ![](/static/image/微信截图_20200827142932.png)
-![](/static/image/微信截图_20200827142943.png)
+![](/static/image/微信截图_20200827143206.png)
 ![](/static/image/微信截图_20200827142956.png)
 ![](/static/image/微信截图_20200827143012.png)
