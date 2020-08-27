@@ -35,5 +35,5 @@
 
 * 所有的中间件和存储都要做好监控，不仅仅是监控进程对 CPU、内存、磁盘 IO、网络使用的基本指标，更重要的是监控组件内部的一些重要指标。比如，著名的监控工具 Prometheus，就提供了大量的exporter来对接各种中间件和存储系统。
 `https://prometheus.io/docs/instrumenting/exporters/`
-
-
+* 应用层面，需要监控 JVM 进程的类加载、内存、GC、线程等常见指标（比如使用Micrometer来做应用监控），此外还要确保能够收集、保存应用日志、GC 日志。
+`https://micrometer.io/`
