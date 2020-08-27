@@ -445,5 +445,73 @@ private int threadpool(int taskCount, int threadCount) throws InterruptedExcepti
     return atomicInteger.get();
 }
 ```
+第三种方式是，使用 ForkJoinPool 而不是普通线程池执行任务。
+
+ForkJoinPool 和传统的 ThreadPoolExecutor 区别在于，前者对于 n 并行度有 n 个独立队列，后者是共享队列。如果有大量执行耗时比较短的任务，ThreadPoolExecutor 的单队列就可能会成为瓶颈。这时，使用 ForkJoinPool 性能会更好。
+
+因此，ForkJoinPool 更适合大任务分割成许多小任务并行执行的场景，而 ThreadPoolExecutor 适合许多独立任务并发执行的场景。
+
+在这里，我们先自定义一个具有指定并行数的 ForkJoinPool，再通过这个 ForkJoinPool 并行执行操作：
+
+```
+private int forkjoin(int taskCount, int threadCount) throws InterruptedException {
+    //总操作次数计数器
+    AtomicInteger atomicInteger = new AtomicInteger();
+    //自定义一个并行度=threadCount的ForkJoinPool
+    ForkJoinPool forkJoinPool = new ForkJoinPool(threadCount);
+    //所有任务直接提交到线程池处理
+    forkJoinPool.execute(() -> IntStream.rangeClosed(1, taskCount).parallel().forEach(i -> increment(atomicInteger)));
+    //提交关闭线程池申请，等待之前所有任务执行完成
+    forkJoinPool.shutdown();
+    forkJoinPool.awaitTermination(1, TimeUnit.HOURS);
+    //查询计数器当前值
+    return atomicInteger.get();
+}
+```
+
+第四种方式是，直接使用并行流，并行流使用公共的 ForkJoinPool，也就是 ForkJoinPool.commonPool()。
+
+公共的 ForkJoinPool 默认的并行度是 CPU 核心数 -1，原因是对于 CPU 绑定的任务分配超过 CPU 个数的线程没有意义。由于并行流还会使用主线程执行任务，也会占用一个 CPU 核心，所以公共 ForkJoinPool 的并行度即使 -1 也能用满所有 CPU 核心。
+
+这里，我们通过配置强制指定（增大）了并行数，但因为使用的是公共 ForkJoinPool，所以可能会存在干扰，你可以回顾下第 3 讲有关线程池混用产生的问题：
 
 
+```
+
+private int stream(int taskCount, int threadCount) {
+    //设置公共ForkJoinPool的并行度
+System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism", String.valueOf(threadCount));
+    //总操作次数计数器
+    AtomicInteger atomicInteger = new AtomicInteger();
+    //由于我们设置了公共ForkJoinPool的并行度，直接使用parallel提交任务即可
+    IntStream.rangeClosed(1, taskCount).parallel().forEach(i -> increment(atomicInteger));
+    //查询计数器当前值
+    return atomicInteger.get();
+}
+```
+
+第五种方式是，使用 CompletableFuture 来实现。CompletableFuture.runAsync 方法可以指定一个线程池，一般会在使用 CompletableFuture 的时候用到：
+
+
+```
+
+private int completableFuture(int taskCount, int threadCount) throws InterruptedException, ExecutionException {
+    //总操作次数计数器
+    AtomicInteger atomicInteger = new AtomicInteger();
+    //自定义一个并行度=threadCount的ForkJoinPool
+    ForkJoinPool forkJoinPool = new ForkJoinPool(threadCount);
+    //使用CompletableFuture.runAsync通过指定线程池异步执行任务
+    CompletableFuture.runAsync(() -> IntStream.rangeClosed(1, taskCount).parallel().forEach(i -> increment(atomicInteger)), forkJoinPool).get();
+    //查询计数器当前值
+    return atomicInteger.get();
+}
+```
+上面这五种方法都可以实现类似的效果：
+
+77c42149013fd82c18d39b5e0d0292cc.png
+
+可以看到，这 5 种方式执行完 10000 个任务的耗时都在 5.4 秒到 6 秒之间。这里的结果只是证明并行度的设置是有效的，并不是性能比较。
+
+如果你的程序对性能要求特别敏感，建议通过性能测试根据场景决定适合的模式。一般而言，使用线程池（第二种）和直接使用并行流（第四种）的方式在业务代码中比较常用。但需要注意的是，我们通常会重用线程池，而不会像 Demo 中那样在业务逻辑中直接声明新的线程池，等操作完成后再关闭。
+
+**另外需要注意的是，在上面的例子中我们一定是先运行 stream 方法再运行 forkjoin 方法，对公共 ForkJoinPool 默认并行度的修改才能生效。**
