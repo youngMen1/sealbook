@@ -78,7 +78,46 @@ private void sendSMSCaptcha(String mobile) {
 
 ```
 
+@Slf4j
+public class CouponCenter {
+    //用于统计发了多少优惠券
+    AtomicInteger totalSent = new AtomicInteger(0);
+    public void sendCoupon(Coupon coupon) {
+        if (coupon != null)
+            totalSent.incrementAndGet();
+    }
+
+    public int getTotalSentCoupon() {
+        return totalSent.get();
+    }
+
+    //没有任何限制，来多少请求生成多少优惠券
+    public Coupon generateCouponWrong(long userId, BigDecimal amount)              {
+        return new Coupon(userId, amount);
+    }
+}
+```
+这样一来，使用 CouponCenter 的 generateCouponWrong 方法，想发多少优惠券就可以发多少：
+
 ```
 
+@GetMapping("wrong")
+public int wrong() {
+    CouponCenter couponCenter = new CouponCenter();
+    //发送10000个优惠券
+    IntStream.rangeClosed(1, 10000).forEach(i -> {
+        Coupon coupon = couponCenter.generateCouponWrong(1L, new BigDecimal("100"));
+        couponCenter.sendCoupon(coupon);
+    });
+    return couponCenter.getTotalSentCoupon();
+}
+```
+**更合适的做法是，把优惠券看作一种资源，其生产不是凭空的，而是需要事先申请**，理由是：
+
+* 虚拟资产如果最终可以对应到真实金钱上的优惠，那么，能发多少取决于运营和财务的核算，应该是有计划、有上限的。引言提到的无门槛优惠券，需要特别小心。有门槛优惠券的大量使用至少会带来大量真实的消费，而使用无门槛优惠券下的订单，可能用户一分钱都没有支付。
+
+* 即使虚拟资产不值钱，大量不合常规的虚拟资产流入市场，也会冲垮虚拟资产的经济体系，造成虚拟货币的极速贬值。有量的控制才有价值。
+
+* 资产的申请需要理由，甚至需要走流程，这样才可以追溯是什么活动需要、谁提出的申请，程序依据申请批次来发放。
 
 
