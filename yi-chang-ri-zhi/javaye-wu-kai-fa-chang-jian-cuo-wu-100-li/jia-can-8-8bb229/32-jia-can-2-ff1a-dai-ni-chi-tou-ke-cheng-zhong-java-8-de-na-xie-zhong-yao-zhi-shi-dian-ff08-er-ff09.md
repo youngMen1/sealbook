@@ -15,3 +15,37 @@ Stream 流式操作，用于对集合进行投影、转换、过滤、排序等�
 在接下来的讲述中，我会围绕订单场景，给出如何使用 Stream 的各种 API 完成订单的统计、搜索、查询等功能，和你一起学习 Stream 流式操作的各种方法。你可以结合代码中的注释理解案例，也可以自己运行源码观察输出。
 
 我们先定义一个订单类、一个订单商品类和一个顾客类，用作后续 Demo 代码的数据结构：
+
+
+
+```
+
+//订单类
+@Data
+public class Order {
+    private Long id;
+    private Long customerId;//顾客ID
+    private String customerName;//顾客姓名
+    private List<OrderItem> orderItemList;//订单商品明细
+    private Double totalPrice;//总价格
+    private LocalDateTime placedAt;//下单时间
+}
+//订单商品类
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class OrderItem {
+    private Long productId;//商品ID
+    private String productName;//商品名称
+    private Double productPrice;//商品价格
+    private Integer productQuantity;//商品数量
+}
+//顾客类
+@Data
+@AllArgsConstructor
+public class Customer {
+    private Long id;
+    private String name;//顾客姓名
+}
+```
+
