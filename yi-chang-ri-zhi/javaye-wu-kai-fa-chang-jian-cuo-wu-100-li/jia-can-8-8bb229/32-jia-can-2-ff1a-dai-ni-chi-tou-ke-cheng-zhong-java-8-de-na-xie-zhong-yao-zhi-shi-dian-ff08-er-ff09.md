@@ -315,13 +315,14 @@ System.out.println(orders.stream().collect(averagingInt(order ->
 
 ## groupBy
 
-
-
-
-
-
-
-
+groupBy 是分组统计操作，类似 SQL 中的 group by 子句。它和后面介绍的 partitioningBy 都是特殊的收集器，同样也是终结操作。分组操作比较复杂，为帮你理解得更透彻，我准备了 8 个案例：
+* 第一个案例，按照用户名分组，使用 Collectors.counting 方法统计每个人的下单数量，再按照下单数量倒序输出。
+* 第二个案例，按照用户名分组，使用 Collectors.summingDouble 方法统计订单总金额，再按总金额倒序输出。
+* 第三个案例，按照用户名分组，使用两次 Collectors.summingInt 方法统计商品采购数量，再按总数量倒序输出。* * 第四个案例，统计被采购最多的商品。先通过 flatMap 把订单转换为商品，然后把商品名作为 Key、Collectors.summingInt 作为 Value 分组统计采购数量，再按 Value 倒序获取第一个 Entry，最后查询 Key 就得到了售出最多的商品。
+* 第五个案例，同样统计采购最多的商品。相比第四个案例排序 Map 的方式，这次直接使用 Collectors.maxBy 收集器获得最大的 Entry。
+* 第六个案例，按照用户名分组，统计用户下的金额最高的订单。Key 是用户名，Value 是 Order，直接通过 Collectors.maxBy 方法拿到金额最高的订单，然后通过 collectingAndThen 实现 Optional.get 的内容提取，最后遍历 Key/Value 即可。
+* 第七个案例，根据下单年月分组统计订单 ID 列表。Key 是格式化成年月后的下单时间，Value 直接通过 Collectors.mapping 方法进行了转换，把订单列表转换为订单 ID 构成的 List。
+* 第八个案例，根据下单年月 + 用户名两次分组统计订单 ID 列表，相比上一个案例多了一次分组操作，第二次分组是按照用户名进行分组。
 
 
 
