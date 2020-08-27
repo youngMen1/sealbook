@@ -199,10 +199,27 @@ System.out.println(orders.stream()
                         .stream().mapToDouble(item -> item.getProductQuantity() * item.getProductPrice()))
         .sum());
 ```
+这两种方式可以得到相同的结果，并无本质区别。
 
+## sorted
 
+sorted 操作可以用于行内排序的场景，类似 SQL 中的 order by。比如，要实现大于 50 元订单的按价格倒序取前 5，可以通过 Order::getTotalPrice 方法引用直接指定需要排序的依据字段，通过 reversed() 实现倒序：
 
+```
+//大于50的订单,按照订单价格倒序前5
+orders.stream().filter(order -> order.getTotalPrice() > 50)
+        .sorted(comparing(Order::getTotalPrice).reversed())
+        .limit(5)
+        .forEach(System.out::println);  
+```
 
+## distinct
+
+distinct 操作的作用是去重，类似 SQL 中的 distinct。比如下面的代码实现：
+
+* 查询去重后的下单用户。使用 map 从订单提取出购买用户，然后使用 distinct 去重。
+
+* 查询购买过的商品名。使用 flatMap+map 提取出订单中所有的商品名，然后使用 distinct 去重。
 
 
 
