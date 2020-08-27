@@ -38,5 +38,80 @@ ee9401683b19e57462cb2574c285d67c.png
 Lambda 表达式的初衷是，进一步简化匿名类的语法（不过实现上，Lambda 表达式并不是匿名类的语法糖），使 Java 走向函数式编程。对于匿名类，虽然没有类名，但还是要给出方法定义。这里有个例子，分别使用匿名类和 Lambda 表达式创建一个线程打印字符串：
 
 
+```
+
+//匿名类
+new Thread(new Runnable(){
+    @Override
+    public void run(){
+        System.out.println("hello1");
+    }
+}).start();
+//Lambda表达式
+new Thread(() -> System.out.println("hello2")).start();
+```
+
+那么，Lambda 表达式如何匹配 Java 的类型系统呢？
+
+答案就是，函数式接口。
+
+函数式接口是一种只有单一抽象方法的接口，使用 @FunctionalInterface 来描述，可以隐式地转换成 Lambda 表达式。使用 Lambda 表达式来实现函数式接口，不需要提供类名和方法定义，通过一行代码提供函数式接口的实例，就可以让函数成为程序中的头等公民，可以像普通数据一样作为参数传递，而不是作为一个固定的类中的固定方法。
+
+那，函数式接口到底是什么样的呢？java.util.function 包中定义了各种函数式接口。比如，用于提供数据的 Supplier 接口，就只有一个 get 抽象方法，没有任何入参、有一个返回值：
+
+
+
+```
+
+@FunctionalInterface
+public interface Supplier<T> {
+
+    /**
+     * Gets a result.
+     *
+     * @return a result
+     */
+    T get();
+}
+```
+我们可以使用 Lambda 表达式或方法引用，来得到 Supplier 接口的实例：
+
+
+```
+
+//使用Lambda表达式提供Supplier接口实现，返回OK字符串
+Supplier<String> stringSupplier = ()->"OK";
+//使用方法引用提供Supplier接口实现，返回空字符串
+Supplier<String> supplier = String::new;
+```
+这样，是不是很方便？为了帮你掌握函数式接口及其用法，我再举几个使用 Lambda 表达式或方法引用来构建函数的例子：
+
+
+```
+
+//Predicate接口是输入一个参数，返回布尔值。我们通过and方法组合两个Predicate条件，判断是否值大于0并且是偶数
+Predicate<Integer> positiveNumber = i -> i > 0;
+Predicate<Integer> evenNumber = i -> i % 2 == 0;
+assertTrue(positiveNumber.and(evenNumber).test(2));
+
+//Consumer接口是消费一个数据。我们通过andThen方法组合调用两个Consumer，输出两行abcdefg
+Consumer<String> println = System.out::println;
+println.andThen(println).accept("abcdefg");
+
+//Function接口是输入一个数据，计算后输出一个数据。我们先把字符串转换为大写，然后通过andThen组合另一个Function实现字符串拼接
+Function<String, String> upperCase = String::toUpperCase;
+Function<String, String> duplicate = s -> s.concat(s);
+assertThat(upperCase.andThen(duplicate).apply("test"), is("TESTTEST"));
+
+//Supplier是提供一个数据的接口。这里我们实现获取一个随机数
+Supplier<Integer> random = ()->ThreadLocalRandom.current().nextInt();
+System.out.println(random.get());
+
+//BinaryOperator是输入两个同类型参数，输出一个同类型参数的接口。这里我们通过方法引用获得一个整数加法操作，通过Lambda表达式定义一个减法操作，然后依次调用
+BinaryOperator<Integer> add = Integer::sum;
+BinaryOperator<Integer> subtraction = (a, b) -> a - b;
+assertThat(subtraction.apply(add.apply(1, 2), 3), is(0));
+```
+
 
 
