@@ -296,4 +296,9 @@ public void cbc() throws Exception {
 ```
 可以看到，相同的明文字符串复制一遍得到的密文并不是重复两个密文分组，并且调换密文分组的顺序无法操纵明文：
 8b79074d6533a84c32e48eab3daef808.png
+其实，除了 ECB 模式和 CBC 模式外，AES 算法还有 CFB、OFB、CTR 模式，你可以参考这里了解它们的区别。《实用密码学》一书比较推荐的是 CBC 和 CTR 模式。还需要注意的是，ECB 和 CBC 模式还需要设置合适的填充模式，才能处理超过一个分组的数据。
+
+```
+https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation
+```
 
