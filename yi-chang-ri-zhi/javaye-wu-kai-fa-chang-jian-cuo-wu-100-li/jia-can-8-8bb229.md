@@ -515,3 +515,13 @@ private int completableFuture(int taskCount, int threadCount) throws Interrupted
 如果你的程序对性能要求特别敏感，建议通过性能测试根据场景决定适合的模式。一般而言，使用线程池（第二种）和直接使用并行流（第四种）的方式在业务代码中比较常用。但需要注意的是，我们通常会重用线程池，而不会像 Demo 中那样在业务逻辑中直接声明新的线程池，等操作完成后再关闭。
 
 **另外需要注意的是，在上面的例子中我们一定是先运行 stream 方法再运行 forkjoin 方法，对公共 ForkJoinPool 默认并行度的修改才能生效。**
+
+这是因为 ForkJoinPool 类初始化公共线程池是在静态代码块里，加载类时就会进行的，如果 forkjoin 方法中先使用了 ForkJoinPool，即便 stream 方法中设置了系统属性也不会起作用。因此我的建议是，设置 ForkJoinPool 公共线程池默认并行度的操作，应该放在应用启动时设置。
+
+
+## 重点回顾
+
+
+今天，我和你简单介绍了 Java 8 中最重要的几个功能，包括 Lambda 表达式、Stream 流式操作、Optional 可空对象、并行流操作。这些特性，可以帮助我们写出简单易懂、可读性更强的代码。特别是使用 Stream 的链式方法，可以用一行代码完成之前几十行代码的工作。
+
+因为 Stream 的 API 非常多，使用方法也是千变万化，因此我会在下一讲和你详细介绍 Stream API 的一些使用细节。
