@@ -36,7 +36,8 @@
       * [06 \| 20%的业务代码的Spring声明式事务，可能都没处理正确](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/dai-ma-pian-23-8bb229/06-20de-ye-wu-dai-ma-de-spring-sheng-ming-shi-shi-wu-ff0c-ke-neng-du-mei-chu-li-zheng-que.md)
       * 答疑篇：代码篇思考题集锦（一）
     * 设计篇 \(7讲\)
-    * 安全篇 \(5讲\)
+    * [安全篇 \(5讲\)](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/an-quan-pian-5-8bb229.md)
+      * 28 \| 安全兜底：涉及钱时，必须考虑防刷、限量和防重
     * [加餐 \(8讲\)](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/jia-can-8-8bb229.md)
       * 31 \| 加餐1：带你吃透课程中Java 8的那些重要知识点（一）
       * [32 \| 加餐2：带你吃透课程中Java 8的那些重要知识点（二）](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/jia-can-8-8bb229/32-jia-can-2-ff1a-dai-ni-chi-tou-ke-cheng-zhong-java-8-de-na-xie-zhong-yao-zhi-shi-dian-ff08-er-ff09.md)
