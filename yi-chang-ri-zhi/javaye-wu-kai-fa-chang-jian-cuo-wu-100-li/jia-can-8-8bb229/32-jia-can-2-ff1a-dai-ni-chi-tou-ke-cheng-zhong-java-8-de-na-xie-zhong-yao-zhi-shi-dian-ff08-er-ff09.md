@@ -305,6 +305,9 @@ System.out.println(orders.stream().collect(averagingInt(order ->
             
 ```
 
+可以看到，这 6 个操作使用 Stream 方式一行代码就可以实现，但使用非 Stream 方式实现的话，都需要几行甚至十几行代码。
+
+有关 Collectors 类的一些常用静态方法，我总结到了一张图中，你可以再整理一下思路：
 
 
 
