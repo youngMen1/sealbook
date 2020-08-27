@@ -262,7 +262,13 @@ collect 是收集操作，对流进行终结（终止）操作，把流导出为
 
 查询JDK 文档: `https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html`
 
-
+接下来，我通过 6 个案例，来演示下几种比较常用的 collect 操作：
+* 第一个案例，实现了字符串拼接操作，生成一定位数的随机字符串。
+* 第二个案例，通过 Collectors.toSet 静态方法收集为 Set 去重，得到去重后的下单用户，再通过 Collectors.joining 静态方法实现字符串拼接。
+* 第三个案例，通过 Collectors.toCollection 静态方法获得指定类型的集合，比如把 List转换为 LinkedList。
+* 第四个案例，通过 Collectors.toMap 静态方法将对象快速转换为 Map，Key 是订单 ID、Value 是下单用户名。
+* 第五个案例，通过 Collectors.toMap 静态方法将对象转换为 Map。Key 是下单用户名，Value 是下单时间，一个用户可能多次下单，所以直接在这里进行了合并，只获取最近一次的下单时间。
+* 第六个案例，使用 Collectors.summingInt 方法对商品数量求和，再使用 Collectors.averagingInt 方法对结果求平均值，以统计所有订单平均购买的商品数量。
 
 
 
