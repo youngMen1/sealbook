@@ -280,3 +280,20 @@ private static void test(Cipher cipher, AlgorithmParameterSpec parameterSpec) th
 CBC 模式，在解密或解密之前引入了 XOR 运算，第一个分组使用外部提供的初始化向量 IV，从第二个分组开始使用前一个分组的数据，这样即使明文是一样的，加密后的密文也是不同的，并且分组的顺序不能任意调换。这就解决了 ECB 模式的缺陷：
 
 7955a199e2400adc7ac7577b3712bae8.png
+
+
+
+```
+
+ private static final String initVector = "abcdefghijklmnop"; //初始化向量
+
+@GetMapping("cbc")
+public void cbc() throws Exception {
+    Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
+    IvParameterSpec iv = new IvParameterSpec(initVector.getBytes("UTF-8"));
+    test(cipher, iv);
+}
+```
+可以看到，相同的明文字符串复制一遍得到的密文并不是重复两个密文分组，并且调换密文分组的顺序无法操纵明文：
+8b79074d6533a84c32e48eab3daef808.png
+
