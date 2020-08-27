@@ -309,8 +309,8 @@ System.out.println(orders.stream().collect(averagingInt(order ->
 
 有关 Collectors 类的一些常用静态方法，我总结到了一张图中，你可以再整理一下思路：
 
+![](/static/image/5af5ba60d7af2c8780b69bc6c71cf3de.png)
 
-
-
+其中，groupBy 和 partitionBy 比较复杂，我和你举例介绍。
 
 
