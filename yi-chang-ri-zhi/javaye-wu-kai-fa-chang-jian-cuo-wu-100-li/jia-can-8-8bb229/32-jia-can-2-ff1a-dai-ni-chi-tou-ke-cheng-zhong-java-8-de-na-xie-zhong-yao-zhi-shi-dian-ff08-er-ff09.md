@@ -60,6 +60,148 @@ public class Customer {
 * 通过 IntStream 或 DoubleStream 构造基本类型的流。
 
 
+```
+
+//通过stream方法把List或数组转换为流
+@Test
+public void stream()
+{
+    Arrays.asList("a1", "a2", "a3").stream().forEach(System.out::println);
+    Arrays.stream(new int[]{1, 2, 3}).forEach(System.out::println);
+}
+
+//通过Stream.of方法直接传入多个元素构成一个流
+@Test
+public void of()
+{
+    String[] arr = {"a", "b", "c"};
+    Stream.of(arr).forEach(System.out::println);
+    Stream.of("a", "b", "c").forEach(System.out::println);
+    Stream.of(1, 2, "a").map(item -> item.getClass().getName()).forEach(System.out::println);
+}
+
+//通过Stream.iterate方法使用迭代的方式构造一个无限流，然后使用limit限制流元素个数
+@Test
+public void iterate()
+{
+    Stream.iterate(2, item -> item * 2).limit(10).forEach(System.out::println);
+    Stream.iterate(BigInteger.ZERO, n -> n.add(BigInteger.TEN)).limit(10).forEach(System.out::println);
+}
+
+//通过Stream.generate方法从外部传入一个提供元素的Supplier来构造无限流，然后使用limit限制流元素个数
+@Test
+public void generate()
+{
+    Stream.generate(() -> "test").limit(3).forEach(System.out::println);
+    Stream.generate(Math::random).limit(10).forEach(System.out::println);
+}
+
+//通过IntStream或DoubleStream构造基本类型的流
+@Test
+public void primitive()
+{
+    //演示IntStream和DoubleStream
+    IntStream.range(1, 3).forEach(System.out::println);
+    IntStream.range(0, 3).mapToObj(i -> "x").forEach(System.out::println);
+
+    IntStream.rangeClosed(1, 3).forEach(System.out::println);
+    DoubleStream.of(1.1, 2.2, 3.3).forEach(System.out::println);
+
+    //各种转换，后面注释代表了输出结果
+    System.out.println(IntStream.of(1, 2).toArray().getClass()); //class [I
+    System.out.println(Stream.of(1, 2).mapToInt(Integer::intValue).toArray().getClass()); //class [I
+    System.out.println(IntStream.of(1, 2).boxed().toArray().getClass()); //class [Ljava.lang.Object;
+    System.out.println(IntStream.of(1, 2).asDoubleStream().toArray().getClass()); //class [D
+    System.out.println(IntStream.of(1, 2).asLongStream().toArray().getClass()); //class [J
+
+    //注意基本类型流和装箱后的流的区别
+    Arrays.asList("a", "b", "c").stream()   // Stream<String>
+            .mapToInt(String::length)       // IntStream
+            .asLongStream()                 // LongStream
+            .mapToDouble(x -> x / 10.0)     // DoubleStream
+            .boxed()                        // Stream<Double>
+            .mapToLong(x -> 1L)             // LongStream
+            .mapToObj(x -> "")              // Stream<String>
+            .collect(Collectors.toList());
+}
+```
+
+## filter
+
+filter 方法可以实现过滤操作，类似 SQL 中的 where。我们可以使用一行代码，通过 filter 方法实现查询所有订单中最近半年金额大于 40 的订单，通过连续叠加 filter 方法进行多次条件过滤：
+
+
+
+```
+
+//最近半年的金额大于40的订单
+orders.stream()
+        .filter(Objects::nonNull) //过滤null值
+        .filter(order -> order.getPlacedAt().isAfter(LocalDateTime.now().minusMonths(6))) //最近半年的订单
+        .filter(order -> order.getTotalPrice() > 40) //金额大于40的订单
+        .forEach(System.out::println);  
+```
+如果不使用 Stream 的话，必然需要一个中间集合来收集过滤后的结果，而且所有的过滤条件会堆积在一起，代码冗长且不易读。
+
+## map
+
+map 操作可以做转换（或者说投影），类似 SQL 中的 select。为了对比，我用两种方式统计订单中所有商品的数量，前一种是通过两次遍历实现，后一种是通过两次 mapToLong+sum 方法实现：
+
+
+
+```
+
+//计算所有订单商品数量
+//通过两次遍历实现
+LongAdder longAdder = new LongAdder();
+orders.stream().forEach(order ->
+        order.getOrderItemList().forEach(orderItem -> longAdder.add(orderItem.getProductQuantity())));
+
+//使用两次mapToLong+sum方法实现
+assertThat(longAdder.longValue(), is(orders.stream().mapToLong(order ->
+        order.getOrderItemList().stream()
+                .mapToLong(OrderItem::getProductQuantity).sum()).sum()));
+```
+显然，后一种方式无需中间变量 longAdder，更直观。
+
+这里再补充一下，使用 for 循环生成数据，是我们平时常用的操作，也是这个课程会大量用到的。现在，我们可以用一行代码使用 IntStream 配合 mapToObj 替代 for 循环来生成数据，比如生成 10 个 Product 元素构成 List：
+
+```
+//把IntStream通过转换Stream<Project>
+System.out.println(IntStream.rangeClosed(1,10)
+        .mapToObj(i->new Product((long)i, "product"+i, i*100.0))
+        .collect(toList()));
+```
+
+## flatMap
+
+接下来，我们看看 flatMap 展开或者叫扁平化操作，相当于 map+flat，通过 map 把每一个元素替换为一个流，然后展开这个流。
+
+比如，我们要统计所有订单的总价格，可以有两种方式：
+
+* 直接通过原始商品列表的商品个数 * 商品单价统计的话，可以先把订单通过 flatMap 展开成商品清单，也就是把 Order 替换为 Stream，然后对每一个 OrderItem 用 mapToDouble 转换获得商品总价，最后进行一次 sum 求和；
+
+* 利用 flatMapToDouble 方法把列表中每一项展开替换为一个 DoubleStream，也就是直接把每一个订单转换为每一个商品的总价，然后求和。
+
+
+
+```
+
+//直接展开订单商品进行价格统计
+System.out.println(orders.stream()
+        .flatMap(order -> order.getOrderItemList().stream())
+        .mapToDouble(item -> item.getProductQuantity() * item.getProductPrice()).sum());
+
+//另一种方式flatMap+mapToDouble=flatMapToDouble
+System.out.println(orders.stream()
+        .flatMapToDouble(order ->
+                order.getOrderItemList()
+                        .stream().mapToDouble(item -> item.getProductQuantity() * item.getProductPrice()))
+        .sum());
+```
+
+
+
 
 
 
