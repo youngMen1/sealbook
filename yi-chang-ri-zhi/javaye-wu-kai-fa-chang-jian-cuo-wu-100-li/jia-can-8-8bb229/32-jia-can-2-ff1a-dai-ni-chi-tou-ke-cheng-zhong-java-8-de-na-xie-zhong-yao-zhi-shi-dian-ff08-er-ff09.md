@@ -325,6 +325,59 @@ groupBy 是分组统计操作，类似 SQL 中的 group by 子句。它和后面
 * 第八个案例，根据下单年月 + 用户名两次分组统计订单 ID 列表，相比上一个案例多了一次分组操作，第二次分组是按照用户名进行分组。
 
 
+```
+
+//按照用户名分组，统计下单数量
+System.out.println(orders.stream().collect(groupingBy(Order::getCustomerName, counting()))
+        .entrySet().stream().sorted(Map.Entry.<String, Long>comparingByValue().reversed()).collect(toList()));
+
+//按照用户名分组，统计订单总金额
+System.out.println(orders.stream().collect(groupingBy(Order::getCustomerName, summingDouble(Order::getTotalPrice)))
+        .entrySet().stream().sorted(Map.Entry.<String, Double>comparingByValue().reversed()).collect(toList()));
+
+//按照用户名分组，统计商品采购数量
+System.out.println(orders.stream().collect(groupingBy(Order::getCustomerName,
+        summingInt(order -> order.getOrderItemList().stream()
+                .collect(summingInt(OrderItem::getProductQuantity)))))
+        .entrySet().stream().sorted(Map.Entry.<String, Integer>comparingByValue().reversed()).collect(toList()));
+
+//统计最受欢迎的商品，倒序后取第一个
+orders.stream()
+        .flatMap(order -> order.getOrderItemList().stream())
+        .collect(groupingBy(OrderItem::getProductName, summingInt(OrderItem::getProductQuantity)))
+        .entrySet().stream()
+        .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+        .map(Map.Entry::getKey)
+        .findFirst()
+        .ifPresent(System.out::println);
+
+//统计最受欢迎的商品的另一种方式，直接利用maxBy
+orders.stream()
+        .flatMap(order -> order.getOrderItemList().stream())
+        .collect(groupingBy(OrderItem::getProductName, summingInt(OrderItem::getProductQuantity)))
+        .entrySet().stream()
+        .collect(maxBy(Map.Entry.comparingByValue()))
+        .map(Map.Entry::getKey)
+        .ifPresent(System.out::println);
+
+//按照用户名分组，选用户下的总金额最大的订单
+orders.stream().collect(groupingBy(Order::getCustomerName, collectingAndThen(maxBy(comparingDouble(Order::getTotalPrice)), Optional::get)))
+        .forEach((k, v) -> System.out.println(k + "#" + v.getTotalPrice() + "@" + v.getPlacedAt()));
+
+//根据下单年月分组，统计订单ID列表
+System.out.println(orders.stream().collect
+        (groupingBy(order -> order.getPlacedAt().format(DateTimeFormatter.ofPattern("yyyyMM")),
+                mapping(order -> order.getId(), toList()))));
+
+//根据下单年月+用户名两次分组，统计订单ID列表
+System.out.println(orders.stream().collect
+        (groupingBy(order -> order.getPlacedAt().format(DateTimeFormatter.ofPattern("yyyyMM")),
+                groupingBy(order -> order.getCustomerName(),
+                        mapping(order -> order.getId(), toList())))));
+```
+
+
+
 
 
 
