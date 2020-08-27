@@ -468,5 +468,91 @@ public class CipherService {
     }
 }
 ```
+第四步，分别实现加密和解密接口用于测试。
+我们可以让用户选择，如果需要保护二要素的话，就自己输入一个查询密码作为 AAD。系统需要读取用户敏感信息的时候，还需要用户提供这个密码，否则无法解密。这样一来，即使黑客拿到了用户数据库的密文、加密服务的密钥和 IV，也会因为缺少 AAD 无法解密：
 
 
+```
+
+@Autowired
+private CipherService cipherService;
+
+
+//加密
+@GetMapping("right")
+public UserData right(@RequestParam(value = "name", defaultValue = "朱晔") String name,
+                      @RequestParam(value = "idcard", defaultValue = "300000000000001234") String idCard,
+                      @RequestParam(value = "aad", required = false)String aad) throws Exception {
+    UserData userData = new UserData();
+    userData.setId(1L);
+    //脱敏姓名
+    userData.setName(chineseName(name));
+    //脱敏身份证
+    userData.setIdcard(idCard(idCard));
+    //加密姓名
+    CipherResult cipherResultName = cipherService.encrypt(name,aad);
+    userData.setNameCipherId(cipherResultName.getId());
+    userData.setNameCipherText(cipherResultName.getCipherText());
+    //加密身份证
+    CipherResult cipherResultIdCard = cipherService.encrypt(idCard,aad);
+    userData.setIdcardCipherId(cipherResultIdCard.getId());
+    userData.setIdcardCipherText(cipherResultIdCard.getCipherText());
+    return userRepository.save(userData);
+}
+
+//解密
+@GetMapping("read")
+public void read(@RequestParam(value = "aad", required = false)String aad) throws Exception {
+    //查询用户信息
+    UserData userData = userRepository.findById(1L).get();
+    //使用AAD来解密姓名和身份证
+    log.info("name : {} idcard : {}",
+            cipherService.decrypt(userData.getNameCipherId(), userData.getNameCipherText(),aad),
+            cipherService.decrypt(userData.getIdcardCipherId(), userData.getIdcardCipherText(),aad));
+
+}
+//脱敏身份证
+private static String idCard(String idCard) {
+    String num = StringUtils.right(idCard, 4);
+    return StringUtils.leftPad(num, StringUtils.length(idCard), "*");
+}
+//脱敏姓名
+public static String chineseName(String chineseName) {
+    String name = StringUtils.left(chineseName, 1);
+    return StringUtils.rightPad(name, StringUtils.length(chineseName), "*");
+```
+访问加密接口获得如下结果，可以看到数据库表中只有脱敏数据和密文：
+
+
+```
+
+{"id":1,"name":"朱*","idcard":"**************1234","idcardCipherId":26346,"idcardCipherText":"t/wIh1XTj00wJP1Lt3aGzSvn9GcqQWEwthN58KKU4KZ4Tw==","nameCipherId":26347,"nameCipherText":"+gHrk1mWmveBMVUo+CYon8Zjj9QAtw=="}
+```
+
+访问解密接口，可以看到解密成功了：
+
+
+
+```
+
+[21:46:00.079] [http-nio-45678-exec-6] [INFO ] [o.g.t.c.s.s.StoreIdCardController:102 ] - name : 朱晔 idcard : 300000000000001234
+```
+
+如果 AAD 输入不对，会得到如下异常：
+
+
+
+```
+
+javax.crypto.AEADBadTagException: Tag mismatch!
+  at com.sun.crypto.provider.GaloisCounterMode.decryptFinal(GaloisCounterMode.java:578)
+  at com.sun.crypto.provider.CipherCore.finalNoPadding(CipherCore.java:1116)
+  at com.sun.crypto.provider.CipherCore.fillOutputBuffer(CipherCore.java:1053)
+  at com.sun.crypto.provider.CipherCore.doFinal(CipherCore.java:853)
+  at com.sun.crypto.provider.AESCipher.engineDoFinal(AESCipher.java:446)
+  at javax.crypto.Cipher.doFinal(Cipher.java:2164)
+```
+
+经过这样的设计，二要素就比较安全了。黑客要查询用户二要素的话，需要同时拿到密文、IV+ 密钥、AAD。而这三者可能由三方掌管，要全部拿到比较困难。
+
+## 用一张图说清楚 HTTPS
