@@ -355,4 +355,118 @@ public class CipherData {
 https://tools.ietf.org/html/rfc5116
 ```
 
+使用类似 GCM 的 AEAD 算法进行加解密，除了需要提供初始化向量和密钥之外，还可以提供一个 AAD（附加认证数据，additional authenticated data），用于验证未包含在明文中的附加信息，解密时不使用加密时的 AAD 将解密失败。其实，GCM 模式的内部使用的就是 CTR 模式，只不过还使用了 GMAC 签名算法，对密文进行签名实现完整性校验。
+
+接下来，我们实现基于 AES-256-GCM 的加密服务，包含下面的主要逻辑：
+
+* 加密时允许外部传入一个 AAD 用于认证，加密服务每次都会使用新生成的随机值作为密钥和初始化向量。
+
+* 在加密后，加密服务密钥和初始化向量保存到数据库中，返回加密 ID 作为本次加密的标识。
+
+* 应用解密时，需要提供加密 ID、密文和加密时的 AAD 来解密。加密服务使用加密 ID，从数据库查询出密钥和初始化向量。
+
+这段逻辑的实现代码比较长，我加了详细注释方便你仔细阅读：
+
+
+```
+
+@Service
+public class CipherService {
+    //密钥长度
+    public static final int AES_KEY_SIZE = 256;
+    //初始化向量长度
+    public static final int GCM_IV_LENGTH = 12;
+    //GCM身份认证Tag长度
+    public static final int GCM_TAG_LENGTH = 16;
+    @Autowired
+    private CipherRepository cipherRepository;
+
+    //内部加密方法
+    public static byte[] doEncrypt(byte[] plaintext, SecretKey key, byte[] iv, byte[] aad) throws Exception {
+        //加密算法
+        Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
+        //Key规范
+        SecretKeySpec keySpec = new SecretKeySpec(key.getEncoded(), "AES");
+        //GCM参数规范
+        GCMParameterSpec gcmParameterSpec = new GCMParameterSpec(GCM_TAG_LENGTH * 8, iv);
+        //加密模式
+        cipher.init(Cipher.ENCRYPT_MODE, keySpec, gcmParameterSpec);
+        //设置aad
+        if (aad != null)
+            cipher.updateAAD(aad);
+        //加密
+        byte[] cipherText = cipher.doFinal(plaintext);
+        return cipherText;
+    }
+
+    //内部解密方法
+    public static String doDecrypt(byte[] cipherText, SecretKey key, byte[] iv, byte[] aad) throws Exception {
+        //加密算法
+        Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
+        //Key规范
+        SecretKeySpec keySpec = new SecretKeySpec(key.getEncoded(), "AES");
+        //GCM参数规范
+        GCMParameterSpec gcmParameterSpec = new GCMParameterSpec(GCM_TAG_LENGTH * 8, iv);
+        //解密模式
+        cipher.init(Cipher.DECRYPT_MODE, keySpec, gcmParameterSpec);
+        //设置aad
+        if (aad != null)
+            cipher.updateAAD(aad);
+        //解密
+        byte[] decryptedText = cipher.doFinal(cipherText);
+        return new String(decryptedText);
+    }
+
+    //加密入口
+    public CipherResult encrypt(String data, String aad) throws Exception {
+        //加密结果
+        CipherResult encryptResult = new CipherResult();
+        //密钥生成器
+        KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
+        //生成密钥
+        keyGenerator.init(AES_KEY_SIZE);
+        SecretKey key = keyGenerator.generateKey();
+        //IV数据
+        byte[] iv = new byte[GCM_IV_LENGTH];
+        //随机生成IV
+        SecureRandom random = new SecureRandom();
+        random.nextBytes(iv);
+        //处理aad
+        byte[] aaddata = null;
+        if (!StringUtils.isEmpty(aad))
+            aaddata = aad.getBytes();
+        //获得密文
+        encryptResult.setCipherText(Base64.getEncoder().encodeToString(doEncrypt(data.getBytes(), key, iv, aaddata)));
+        //加密上下文数据
+        CipherData cipherData = new CipherData();
+        //保存IV
+        cipherData.setIv(Base64.getEncoder().encodeToString(iv));
+        //保存密钥
+        cipherData.setSecureKey(Base64.getEncoder().encodeToString(key.getEncoded()));
+        cipherRepository.save(cipherData);
+        //返回本地加密ID
+        encryptResult.setId(cipherData.getId());
+        return encryptResult;
+    }
+
+    //解密入口
+    public String decrypt(long cipherId, String cipherText, String aad) throws Exception {
+        //使用加密ID找到加密上下文数据
+        CipherData cipherData = cipherRepository.findById(cipherId).orElseThrow(() -> new IllegalArgumentException("invlaid cipherId"));
+        //加载密钥
+        byte[] decodedKey = Base64.getDecoder().decode(cipherData.getSecureKey());
+        //初始化密钥
+        SecretKey originalKey = new SecretKeySpec(decodedKey, 0, decodedKey.length, "AES");
+        //加载IV
+        byte[] decodedIv = Base64.getDecoder().decode(cipherData.getIv());
+        //处理aad
+        byte[] aaddata = null;
+        if (!StringUtils.isEmpty(aad))
+            aaddata = aad.getBytes();
+        //解密
+        return doDecrypt(Base64.getDecoder().decode(cipherText.getBytes()), originalKey, decodedIv, aaddata);
+    }
+}
+```
+
 
