@@ -375,9 +375,48 @@ System.out.println(orders.stream().collect
                 groupingBy(order -> order.getCustomerName(),
                         mapping(order -> order.getId(), toList())))));
 ```
+## partitionBy
+partitioningBy 用于分区，分区是特殊的分组，只有 true 和 false 两组。比如，我们把用户按照是否下单进行分区，给 partitioningBy 方法传入一个 Predicate 作为数据分区的区分，输出是 Map>：
 
 
+```
+
+public static <T>
+Collector<T, ?, Map<Boolean, List<T>>> partitioningBy(Predicate<? super T> predicate) {
+    return partitioningBy(predicate, toList());
+}
+```
+测试一下，partitioningBy 配合 anyMatch，可以把用户分为下过订单和没下过订单两组：
 
 
+```
+
+//根据是否有下单记录进行分区
+System.out.println(Customer.getData().stream().collect(
+        partitioningBy(customer -> orders.stream().mapToLong(Order::getCustomerId)
+                .anyMatch(id -> id == customer.getId()))));
+```
+
+## 重点回顾
+
+今天，我用了大量的篇幅和案例，和你展开介绍了 Stream 中很多具体的流式操作方法。有些案例可能不太好理解，我建议你对着代码逐一到源码中查看这些操作的方法定义，以及 JDK 中的代码注释。
+
+最后，我建议你思考下，在日常工作中还会使用 SQL 统计哪些信息，这些 SQL 是否也可以用 Stream 来改写呢？Stream 的 API 博大精深，但其中又有规律可循。这其中的规律主要就是，理清楚这些 API 传参的函数式接口定义，就能搞明白到底是需要我们提供数据、消费数据、还是转换数据等。那，掌握 Stream 的方法便是，多测试多练习，以强化记忆、加深理解。
+
+今天用到的代码，我都放在了 GitHub 上，你可以点击这个链接查看。
+
+### 思考与讨论
+
+1.使用 Stream 可以非常方便地对 List 做各种操作，那有没有什么办法可以实现在整个过程中观察数据变化呢？比如，我们进行 filter+map 操作，如何观察 filter 后 map 的原始数据呢？
+
+2.Collectors 类提供了很多现成的收集器，那我们有没有办法实现自定义的收集器呢？比如，实现一个 MostPopularCollector，来得到 List 中出现次数最多的元素，满足下面两个测试用例：
 
 
+```
+
+assertThat(Stream.of(1, 1, 2, 2, 2, 3, 4, 5, 5).collect(new MostPopularCollector<>()).get(), is(2));
+assertThat(Stream.of('a', 'b', 'c', 'c', 'c', 'd').collect(new MostPopularCollector<>()).get(), is('c'));
+
+```
+
+关于 Java 8，你还有什么使用心得吗？我是朱晔，欢迎在评论区与我留言分享你的想法，也欢迎你把这篇文章分享给你的朋友或同事，一起交流。
