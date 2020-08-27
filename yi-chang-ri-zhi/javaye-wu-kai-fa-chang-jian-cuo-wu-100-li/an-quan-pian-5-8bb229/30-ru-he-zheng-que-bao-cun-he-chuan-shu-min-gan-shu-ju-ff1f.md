@@ -13,3 +13,17 @@
 首先，MD5 其实不是真正的加密算法。所谓加密算法，是可以使用密钥把明文加密为密文，随后还可以使用密钥解密出明文，是双向的。
 
 而 MD5 是散列、哈希算法或者摘要算法。不管多长的数据，使用 MD5 运算后得到的都是固定长度的摘要信息或指纹信息，无法再解密为原始数据。所以，MD5 是单向的。**最重要的是，仅仅使用 MD5 对密码进行摘要，并不安全。**
+
+比如，使用如下代码在保持用户信息时，对密码进行了 MD5 计算：
+
+
+```
+
+UserData userData = new UserData();
+userData.setId(1L);
+userData.setName(name);
+//密码字段使用MD5哈希后保存
+userData.setPassword(DigestUtils.md5Hex(password));
+return userRepository.save(userData);
+```
+
