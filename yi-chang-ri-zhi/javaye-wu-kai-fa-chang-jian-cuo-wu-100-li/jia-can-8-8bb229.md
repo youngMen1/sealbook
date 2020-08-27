@@ -233,6 +233,76 @@ public void optional() {
 }
 ```
 
+c8a901bb16b9fca07ae0fc8bb222b252.jpg
 
+## Java 8 类对于函数式 API 的增强
+
+除了 Stream 之外，Java 8 中有很多类也都实现了函数式的功能。
+
+比如，要通过 HashMap 实现一个缓存的操作，在 Java 8 之前我们可能会写出这样的 getProductAndCache 方法：先判断缓存中是否有值；如果没有值，就从数据库搜索取值；最后，把数据加入缓存。
+
+
+
+```
+
+private Map<Long, Product> cache = new ConcurrentHashMap<>();
+
+private Product getProductAndCache(Long id) {
+    Product product = null;
+    //Key存在，返回Value
+    if (cache.containsKey(id)) {
+        product = cache.get(id);
+    } else {
+        //不存在，则获取Value
+        //需要遍历数据源查询获得Product
+        for (Product p : Product.getData()) {
+            if (p.getId().equals(id)) {
+                product = p;
+                break;
+            }
+        }
+        //加入ConcurrentHashMap
+        if (product != null)
+            cache.put(id, product);
+    }
+    return product;
+}
+
+@Test
+public void notcoolCache() {
+    getProductAndCache(1L);
+    getProductAndCache(100L);
+
+    System.out.println(cache);
+    assertThat(cache.size(), is(1));
+    assertTrue(cache.containsKey(1L));
+}
+```
+
+而在 Java 8 中，我们利用 ConcurrentHashMap 的 computeIfAbsent 方法，用一行代码就可以实现这样的繁琐操作：
+
+
+
+```
+
+private Product getProductAndCacheCool(Long id) {
+    return cache.computeIfAbsent(id, i -> //当Key不存在的时候提供一个Function来代表根据Key获取Value的过程
+            Product.getData().stream()
+                    .filter(p -> p.getId().equals(i)) //过滤
+                    .findFirst() //找第一个，得到Optional<Product>
+                    .orElse(null)); //如果找不到Product，则使用null
+}
+
+@Test
+public void coolCache()
+{
+    getProductAndCacheCool(1L);
+    getProductAndCacheCool(100L);
+
+    System.out.println(cache);
+    assertThat(cache.size(), is(1));
+    assertTrue(cache.containsKey(1L));
+}
+```
 
 
