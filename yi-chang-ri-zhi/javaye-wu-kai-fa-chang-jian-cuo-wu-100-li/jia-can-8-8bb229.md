@@ -382,4 +382,68 @@ IntStream.rangeClosed(1,100).parallel().forEach(i->{
 ```
 并行流不确保执行顺序，并且因为每次处理耗时 1 秒，所以可以看到在 8 核机器上，数组是按照 8 个一组 1 秒输出一次：
 
+f114d98aa2530c3f7e91b06aaa4ee1d6.png
+
+在这个课程中，有很多类似使用 threadCount 个线程对某个方法总计执行 taskCount 次操作的案例，用于演示并发情况下的多线程问题或多线程处理性能。除了会用到并行流，我们有时也会使用线程池或直接使用线程进行类似操作。为了方便你对比各种实现，这里我一次性给出实现此类操作的五种方式。
+
+为了测试这五种实现方式，我们设计一个场景：使用 20 个线程（threadCount）以并行方式总计执行 10000 次（taskCount）操作。因为单个任务单线程执行需要 10 毫秒（任务代码如下），也就是每秒吞吐量是 100 个操作，那 20 个线程 QPS 是 2000，执行完 10000 次操作最少耗时 5 秒。
+```
+
+private void increment(AtomicInteger atomicInteger) {
+    atomicInteger.incrementAndGet();
+    try {
+        TimeUnit.MILLISECONDS.sleep(10);
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+}
+```
+
+现在我们测试一下这五种方式，是否都可以利用更多的线程并行执行操作。
+
+第一种方式是使用线程。直接把任务按照线程数均匀分割，分配到不同的线程执行，使用 CountDownLatch 来阻塞主线程，直到所有线程都完成操作。这种方式，需要我们自己分割任务：
+
+
+```
+
+private int thread(int taskCount, int threadCount) throws InterruptedException {
+    //总操作次数计数器
+    AtomicInteger atomicInteger = new AtomicInteger();
+    //使用CountDownLatch来等待所有线程执行完成
+    CountDownLatch countDownLatch = new CountDownLatch(threadCount);
+    //使用IntStream把数字直接转为Thread
+    IntStream.rangeClosed(1, threadCount).mapToObj(i -> new Thread(() -> {
+        //手动把taskCount分成taskCount份，每一份有一个线程执行
+        IntStream.rangeClosed(1, taskCount / threadCount).forEach(j -> increment(atomicInteger));
+        //每一个线程处理完成自己那部分数据之后，countDown一次
+        countDownLatch.countDown();
+    })).forEach(Thread::start);
+    //等到所有线程执行完成
+    countDownLatch.await();
+    //查询计数器当前值
+    return atomicInteger.get();
+}
+```
+
+第二种方式是，使用 Executors.newFixedThreadPool 来获得固定线程数的线程池，使用 execute 提交所有任务到线程池执行，最后关闭线程池等待所有任务执行完成：
+
+
+
+```
+
+private int threadpool(int taskCount, int threadCount) throws InterruptedException {
+    //总操作次数计数器
+    AtomicInteger atomicInteger = new AtomicInteger();
+    //初始化一个线程数量=threadCount的线程池
+    ExecutorService executorService = Executors.newFixedThreadPool(threadCount);
+    //所有任务直接提交到线程池处理
+    IntStream.rangeClosed(1, taskCount).forEach(i -> executorService.execute(() -> increment(atomicInteger)));
+    //提交关闭线程池申请，等待之前所有任务执行完成
+    executorService.shutdown();
+    executorService.awaitTermination(1, TimeUnit.HOURS);
+    //查询计数器当前值
+    return atomicInteger.get();
+}
+```
+
 
