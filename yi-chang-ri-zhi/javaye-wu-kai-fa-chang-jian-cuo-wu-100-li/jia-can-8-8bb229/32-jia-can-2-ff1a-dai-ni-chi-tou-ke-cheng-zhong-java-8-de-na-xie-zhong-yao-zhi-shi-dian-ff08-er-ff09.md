@@ -270,6 +270,41 @@ collect 是收集操作，对流进行终结（终止）操作，把流导出为
 * 第五个案例，通过 Collectors.toMap 静态方法将对象转换为 Map。Key 是下单用户名，Value 是下单时间，一个用户可能多次下单，所以直接在这里进行了合并，只获取最近一次的下单时间。
 * 第六个案例，使用 Collectors.summingInt 方法对商品数量求和，再使用 Collectors.averagingInt 方法对结果求平均值，以统计所有订单平均购买的商品数量。
 
+```
+
+//生成一定位数的随机字符串
+System.out.println(random.ints(48, 122)
+    .filter(i -> (i < 57 || i > 65) && (i < 90 || i > 97))
+    .mapToObj(i -> (char) i)
+    .limit(20)
+    .collect(StringBuilder::new, StringBuilder::append, StringBuilder::append)
+    .toString());
+
+//所有下单的用户，使用toSet去重后实现字符串拼接
+System.out.println(orders.stream()
+    .map(order -> order.getCustomerName()).collect(toSet())
+    .stream().collect(joining(",", "[", "]")));
+
+//用toCollection收集器指定集合类型
+System.out.println(orders.stream().limit(2).collect(toCollection(LinkedList::new)).getClass());
+
+//使用toMap获取订单ID+下单用户名的Map
+orders.stream()
+    .collect(toMap(Order::getId, Order::getCustomerName))
+    .entrySet().forEach(System.out::println);
+
+//使用toMap获取下单用户名+最近一次下单时间的Map
+orders.stream()
+    .collect(toMap(Order::getCustomerName, Order::getPlacedAt, (x, y) -> x.isAfter(y) ? x : y))
+    .entrySet().forEach(System.out::println);
+
+//订单平均购买的商品数量
+System.out.println(orders.stream().collect(averagingInt(order ->
+    order.getOrderItemList().stream()
+            .collect(summingInt(OrderItem::getProductQuantity)))));
+            
+```
+
 
 
 
