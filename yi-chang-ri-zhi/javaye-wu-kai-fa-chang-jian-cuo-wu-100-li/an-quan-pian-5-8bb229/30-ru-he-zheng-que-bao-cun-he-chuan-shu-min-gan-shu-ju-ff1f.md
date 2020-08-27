@@ -111,4 +111,67 @@ userData.setPassword(DigestUtils.md5Hex(userData.getSalt() + password));
 
 更好的做法是，不要使用像 MD5 这样快速的摘要算法，而是使用慢一点的算法。比如 Spring Security 已经废弃了 MessageDigestPasswordEncoder，推荐使用 BCryptPasswordEncoder，也就是BCrypt来进行密码哈希。BCrypt 是为保存密码设计的算法，相比 MD5 要慢很多。
 `https://en.wikipedia.org/wiki/Bcrypt`
+写段代码来测试一下 MD5，以及使用不同代价因子的 BCrypt，看看哈希一次密码的耗时。
 
+
+```
+
+private static BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
+@GetMapping("performance")
+public void performance() {
+    StopWatch stopWatch = new StopWatch();
+    String password = "Abcd1234";
+    stopWatch.start("MD5");
+    //MD5
+    DigestUtils.md5Hex(password);
+    stopWatch.stop();
+    stopWatch.start("BCrypt(10)");
+    //代价因子为10的BCrypt
+    String hash1 = BCrypt.gensalt(10);
+    BCrypt.hashpw(password, hash1);
+    System.out.println(hash1);
+    stopWatch.stop();
+    stopWatch.start("BCrypt(12)");
+    //代价因子为12的BCrypt
+    String hash2 = BCrypt.gensalt(12);
+    BCrypt.hashpw(password, hash2);
+    System.out.println(hash2);
+    stopWatch.stop();
+    stopWatch.start("BCrypt(14)");
+    //代价因子为14的BCrypt
+    String hash3 = BCrypt.gensalt(14);
+    BCrypt.hashpw(password, hash3);
+    System.out.println(hash3);
+    stopWatch.stop();
+    log.info("{}", stopWatch.prettyPrint());
+}
+```
+可以看到，MD5 只需要 0.8 毫秒，而三次 BCrypt 哈希（代价因子分别设置为 10、12 和 14）耗时分别是 82 毫秒、312 毫秒和 1.2 秒：
+
+13241938861dd3ca9ba984776cc90846.png
+
+也就是说，如果制作 8 位密码长度的 MD5 彩虹表需要 5 个月，那么对于 BCrypt 来说，可能就需要几十年，大部分黑客应该都没有这个耐心。
+
+我们写一段代码观察下，BCryptPasswordEncoder 生成的密码哈希的规律：
+
+
+```
+
+@GetMapping("better")
+public UserData better(@RequestParam(value = "name", defaultValue = "zhuye") String name, @RequestParam(value = "password", defaultValue = "Abcd1234") String password) {
+    UserData userData = new UserData();
+    userData.setId(1L);
+    userData.setName(name);
+    //保存哈希后的密码
+    userData.setPassword(passwordEncoder.encode(password));
+    userRepository.save(userData);
+    //判断密码是否匹配
+    log.info("match ? {}", passwordEncoder.matches(password, userData.getPassword()));
+    return userData;
+}
+```
+
+我们可以发现三点规律。
+
+第一，我们调用 encode、matches 方法进行哈希、做密码比对的时候，不需要传入盐。**BCrypt 把盐作为了算法的一部分，强制我们遵循安全保存密码的最佳实践。**
