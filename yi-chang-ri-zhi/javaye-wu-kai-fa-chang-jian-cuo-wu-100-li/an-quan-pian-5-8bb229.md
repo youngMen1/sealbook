@@ -120,4 +120,71 @@ public int wrong() {
 
 * 资产的申请需要理由，甚至需要走流程，这样才可以追溯是什么活动需要、谁提出的申请，程序依据申请批次来发放。
 
+接下来，我们按照这个思路改进一下程序。
 
+首先，定义一个 CouponBatch 类，要产生优惠券必须先向运营申请优惠券批次，批次中包含了固定张数的优惠券、申请原因等信息：
+
+
+
+```
+
+//优惠券批次
+@Data
+public class CouponBatch {
+    private long id;
+    private AtomicInteger totalCount;
+    private AtomicInteger remainCount;
+    private BigDecimal amount;
+    private String reason;
+}
+```
+
+在业务需要发放优惠券的时候，先申请批次，然后再通过批次发放优惠券：
+
+
+
+```
+
+@GetMapping("right")
+public int right() {
+    CouponCenter couponCenter = new CouponCenter();
+    //申请批次    
+    CouponBatch couponBatch = couponCenter.generateCouponBatch();
+    IntStream.rangeClosed(1, 10000).forEach(i -> {
+        Coupon coupon = couponCenter.generateCouponRight(1L, couponBatch);
+        //发放优惠券
+        couponCenter.sendCoupon(coupon);
+    });
+    return couponCenter.getTotalSentCoupon();
+}
+```
+可以看到，generateCouponBatch 方法申请批次时，设定了这个批次包含 100 张优惠券。在通过 generateCouponRight 方法发放优惠券时，每发一次都会从批次中扣除一张优惠券，发完了就没有了：
+
+
+
+```
+
+public Coupon generateCouponRight(long userId, CouponBatch couponBatch) {
+    if (couponBatch.getRemainCount().decrementAndGet() >= 0) {
+        return new Coupon(userId, couponBatch.getAmount());
+    } else {
+        log.info("优惠券批次 {} 剩余优惠券不足", couponBatch.getId());
+        return null;
+    }
+}
+
+
+public CouponBatch generateCouponBatch() {
+    CouponBatch couponBatch = new CouponBatch();
+    couponBatch.setAmount(new BigDecimal("100"));
+    couponBatch.setId(1L);
+    couponBatch.setTotalCount(new AtomicInteger(100));
+    couponBatch.setRemainCount(couponBatch.getTotalCount());
+    couponBatch.setReason("XXX活动");
+    return couponBatch;
+}
+```
+这样改进后的程序，一个批次最多只能发放 100 张优惠券：
+c971894532afd5f5150a6ab2fc0833cb.png
+
+因为是 Demo，所以我们只是凭空 new 出来一个 Coupon。在真实的生产级代码中，一定是根据 CouponBatch 在数据库中插入一定量的 Coupon 记录，每一个优惠券都有唯一的 ID，可跟踪、可注销。
