@@ -313,3 +313,46 @@ https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation
 接下来，我们按照这个策略完成相关代码实现。
 
 第一步，对于用户姓名和身份证，我们分别保存三个信息，脱敏后的明文、密文和加密 ID。加密服务加密后返回密文和加密 ID，随后使用加密 ID 来请求加密服务进行解密：
+
+
+
+```
+
+@Data
+@Entity
+public class UserData {
+    @Id
+    private Long id;
+    private String idcard;//脱敏的身份证
+    private Long idcardCipherId;//身份证加密ID
+    private String idcardCipherText;//身份证密文
+    private String name;//脱敏的姓名
+    private Long nameCipherId;//姓名加密ID
+    private String nameCipherText;//姓名密文
+}
+```
+第二步，加密服务数据表保存加密 ID、初始化向量和密钥。加密服务表中没有密文，实现了密文和密钥分离保存：
+
+
+
+```
+
+@Data
+@Entity
+public class CipherData {
+    @Id
+    @GeneratedValue(strategy = AUTO)
+    private Long id;
+    private String iv;//初始化向量
+    private String secureKey;//密钥
+}
+```
+第三步，加密服务使用 GCM 模式（ Galois/Counter Mode）的 AES-256 对称加密算法，也就是 AES-256-GCM。
+这是一种AEAD（Authenticated Encryption with Associated Data）认证加密算法，除了能实现普通加密算法提供的保密性之外，还能实现可认证性和密文完整性，是目前最推荐的 AES 模式。
+
+
+```
+https://tools.ietf.org/html/rfc5116
+```
+
+
