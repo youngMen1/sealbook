@@ -49,3 +49,23 @@ public class Customer {
 }
 ```
 
+在这里，我们有一个 orders 字段保存了一些模拟数据，类型是 List。这里，我就不贴出生成模拟数据的代码了。这不会影响你理解后面的代码，你也可以自己下载源码阅读。
+
+## 创建流
+要使用流，就要先创建流。创建流一般有五种方式：
+* 通过 stream 方法把 List 或数组转换为流；
+* 通过 Stream.of 方法直接传入多个元素构成一个流；
+* 通过 Stream.iterate 方法使用迭代的方式构造一个无限流，然后使用 limit 限制流元素个数；
+* 通过 Stream.generate 方法从外部传入一个提供元素的 Supplier 来构造无限流，然后使用 limit 限制流元素个数；
+* 通过 IntStream 或 DoubleStream 构造基本类型的流。
+
+
+
+
+
+
+
+
+
+
+
