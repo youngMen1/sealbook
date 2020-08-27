@@ -223,6 +223,48 @@ distinct 操作的作用是去重，类似 SQL 中的 distinct。比如下面的
 
 
 
+```
+//去重的下单用户
+System.out.println(orders.stream().map(order -> order.getCustomerName()).distinct().collect(joining(",")));
+
+//所有购买过的商品
+System.out.println(orders.stream()
+        .flatMap(order -> order.getOrderItemList().stream())
+        .map(OrderItem::getProductName)
+        .distinct().collect(joining(",")));
+```
+
+## skip & limit
+
+skip 和 limit 操作用于分页，类似 MySQL 中的 limit。其中，skip 实现跳过一定的项，limit 用于限制项总数。比如下面的两段代码：
+
+* 按照下单时间排序，查询前 2 个订单的顾客姓名和下单时间；
+* 按照下单时间排序，查询第 3 和第 4 个订单的顾客姓名和下单时间。
+
+```
+//按照下单时间排序，查询前2个订单的顾客姓名和下单时间
+orders.stream()
+        .sorted(comparing(Order::getPlacedAt))
+        .map(order -> order.getCustomerName() + "@" + order.getPlacedAt())
+        .limit(2).forEach(System.out::println);
+//按照下单时间排序，查询第3和第4个订单的顾客姓名和下单时间
+orders.stream()
+        .sorted(comparing(Order::getPlacedAt))
+        .map(order -> order.getCustomerName() + "@" + order.getPlacedAt())
+        .skip(2).limit(2).forEach(System.out::println);
+```
+
+## collect
+
+collect 是收集操作，对流进行终结（终止）操作，把流导出为我们需要的数据结构。“终结”是指，导出后，无法再串联使用其他中间操作，比如 filter、map、flatmap、sorted、distinct、limit、skip。
+ 
+在 Stream 操作中，collect 是最复杂的终结操作，比较简单的终结操作还有 forEach、toArray、min、max、count、anyMatch 等，我就不再展开了，你可以查询JDK 文档，搜索 terminal operation 或 intermediate operation。
+
+查询JDK 文档: `https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html`
+
+
+
+
 
 
 
