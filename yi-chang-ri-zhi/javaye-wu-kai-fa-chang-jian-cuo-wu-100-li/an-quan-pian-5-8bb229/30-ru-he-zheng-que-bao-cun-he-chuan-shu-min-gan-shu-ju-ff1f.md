@@ -95,3 +95,13 @@ userData.setPassword(DigestUtils.md5Hex(name + password));
 ```
 
 如果世界上所有的系统都是按照这个方案来保存密码，那么 root、admin 这样的用户使用再复杂的密码也总有一天会被破解，因为黑客们完全可以针对这些常用用户名来做彩虹表。**所以，盐最好是随机的值，并且是全球唯一的，意味着全球不可能有现成的彩虹表给你用。**
+
+正确的做法是，使用全球唯一的、和用户无关的、足够长的随机值作为盐。比如，可以使用 UUID 作为盐，把盐一起保存到数据库中：
+
+
+```
+
+userData.setSalt(UUID.randomUUID().toString());
+userData.setPassword(DigestUtils.md5Hex(userData.getSalt() + password));
+```
+
