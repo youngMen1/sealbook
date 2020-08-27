@@ -33,3 +33,6 @@ return userRepository.save(userData);
 "password": "325a2cc052914ceeb8c19016c091d2ac"
 ```
 
+到某 MD5 破解网站上输入这个 MD5，不到 1 秒就得到了原始密码：
+
+e1b3638dea64636494c3dcb0bb9b8ade.png
