@@ -380,6 +380,6 @@ IntStream.rangeClosed(1,100).parallel().forEach(i->{
     } catch (InterruptedException e) { }
 });
 ```
-
+并行流不确保执行顺序，并且因为每次处理耗时 1 秒，所以可以看到在 8 核机器上，数组是按照 8 个一组 1 秒输出一次：
 
 
