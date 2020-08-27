@@ -525,3 +525,9 @@ private int completableFuture(int taskCount, int threadCount) throws Interrupted
 今天，我和你简单介绍了 Java 8 中最重要的几个功能，包括 Lambda 表达式、Stream 流式操作、Optional 可空对象、并行流操作。这些特性，可以帮助我们写出简单易懂、可读性更强的代码。特别是使用 Stream 的链式方法，可以用一行代码完成之前几十行代码的工作。
 
 因为 Stream 的 API 非常多，使用方法也是千变万化，因此我会在下一讲和你详细介绍 Stream API 的一些使用细节。
+
+## 思考与讨论
+
+1.检查下代码中是否有使用匿名类，以及通过遍历 List 进行数据过滤、转换和聚合的代码，看看能否使用 Lambda 表达式和 Stream 来重新实现呢？
+
+2.对于并行流部分的并行消费处理 1 到 100 的例子，如果把 forEach 替换为 forEachOrdered，你觉得会发生什么呢？
