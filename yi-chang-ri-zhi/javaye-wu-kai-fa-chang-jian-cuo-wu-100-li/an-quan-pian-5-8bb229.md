@@ -197,4 +197,32 @@ c971894532afd5f5150a6ab2fc0833cb.png
 涉及钱的进出，需要做好以下两点。
 
 
-**第一，任何资金操作都需要在平台侧生成业务属性的订单，可以是优惠券发放订单，可以是返现订单，也可以是借款订单，一定是先有订单再去做资金操作。同时，订单的产生需要有业务属性。业务属性是指，订单不是凭空产生的，否则就没有控制的意义。比如，返现发放订单必须关联到原先的商品订单产生；再比如，借款订单必须关联到同一个借款合同产生。**
+**第一，任何资金操作都需要在平台侧生成业务属性的订单，可以是优惠券发放订单，可以是返现订单，也可以是借款订单，一定是先有订单再去做资金操作。**同时，订单的产生需要有业务属性。业务属性是指，订单不是凭空产生的，否则就没有控制的意义。比如，返现发放订单必须关联到原先的商品订单产生；再比如，借款订单必须关联到同一个借款合同产生。
+
+
+第二，**一定要做好防重，也就是实现幂等处理，并且幂等处理必须是全链路的**。这里的全链路是指，从前到后都需要有相同的业务订单号来贯穿，实现最终的支付防重。
+
+关于这两点，你可以参考下面的代码示例：
+
+
+```
+
+//错误：每次使用UUID作为订单号
+@GetMapping("wrong")
+public void wrong(@RequestParam("orderId") String orderId) {
+    PayChannel.pay(UUID.randomUUID().toString(), "123", new BigDecimal("100"));
+}
+
+//正确：使用相同的业务订单号
+@GetMapping("right")
+public void right(@RequestParam("orderId") String orderId) {
+    PayChannel.pay(orderId, "123", new BigDecimal("100"));
+}
+//三方支付通道
+public class PayChannel {
+    public static void pay(String orderId, String account, BigDecimal amount) {
+        ...
+    }
+}
+```
+
