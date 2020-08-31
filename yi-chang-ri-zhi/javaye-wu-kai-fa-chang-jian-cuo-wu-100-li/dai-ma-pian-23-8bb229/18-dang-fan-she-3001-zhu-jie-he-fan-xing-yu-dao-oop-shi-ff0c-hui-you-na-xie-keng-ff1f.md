@@ -213,7 +213,7 @@ value: test updateCount: 2
 
 调试一下可以发现，Child2 类其实有 2 个 setValue 方法，入参分别是 String 和 Object。
 
-81116d6f11440f92757e4fe775df71b8.png
+![](/static/image/81116d6f11440f92757e4fe775df71b8.png)
 
 如果不通过反射来调用方法，我们确实很难发现这个问题。**其实，这就是泛型类型擦除导致的问题。**我们来分析一下。
 
@@ -276,7 +276,7 @@ class Child2 extends Parent {
 
 使用 jclasslib 工具打开 Child2 类，同样可以看到入参为 Object 的桥接方法上标记了 public + synthetic + bridge 三个属性。synthetic 代表由编译器生成的不可见代码，bridge 代表这是泛型类型擦除后生成的桥接代码：
 
-b5e30fb0ade19d71cd7fad1730e85808.png
+![](/static/image/b5e30fb0ade19d71cd7fad1730e85808.png)
 
 知道这个问题之后，修改方式就明朗了，可以使用 method 的 isBridge 方法，来判断方法是不是桥接方法：
 
@@ -438,13 +438,14 @@ log.info("ChildMethod:{}", getAnnotationValue(AnnotatedElementUtils.findMergedAn
 
 你可以在反射中多写断言，遇到非预期的情况直接抛异常，避免通过反射实现的业务逻辑不符合预期。
 
-微信截图\_20200828154654.png
+## 高质量代码
+![](/static/image/微信截图_20200828154654.png)
 
-微信截图\_20200828154717.png
+![](/static/image/微信截图_20200828154717.png)
 
-微信截图\_20200828154728.png
+![](/static/image/微信截图_20200828154728.png)
 
-微信截图\_20200828154738.png
+![](/static/image/微信截图_20200828154738.png)
 
-微信截图\_20200828154758.png
+![](/static/image/微信截图_20200828154758.png)
 
