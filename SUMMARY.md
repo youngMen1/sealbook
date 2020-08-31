@@ -40,7 +40,7 @@
       * [19 \| Spring框架：IoC和AOP是扩展的核心](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/dai-ma-pian-23-8bb229/19-springkuang-jia-ff1a-ioc-he-aop-shi-kuo-zhan-de-he-xin.md)
       * [20 \| Spring框架：框架帮我们做了很多工作也带来了复杂度](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/dai-ma-pian-23-8bb229/20-springkuang-jia-ff1a-kuang-jia-bang-wo-men-zuo-le-hen-duo-gong-zuo-ye-dai-lai-le-fu-za-du.md)
     * [设计篇 \(7讲\)](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/she-ji-pian-7-8bb229.md)
-      * 23 \| 缓存设计：缓存可以锦上添花也可以落井下石
+      * [23 \| 缓存设计：缓存可以锦上添花也可以落井下石](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/she-ji-pian-7-8bb229/23-huan-cun-she-ji-ff1a-huan-cun-ke-yi-jin-shang-tian-hua-ye-ke-yi-luo-jing-xia-shi.md)
       * [24 \| 业务代码写完，就意味着生产就绪了？](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/she-ji-pian-7-8bb229/24-ye-wu-dai-ma-xie-wan-ff0c-jiu-yi-wei-zhao-sheng-chan-jiu-xu-le-ff1f.md)
       * [22 \| 接口设计：系统间对话的语言，一定要统一](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/she-ji-pian-7-8bb229/22-jie-kou-she-ji-ff1a-xi-tong-jian-dui-hua-de-yu-yan-ff0c-yi-ding-yao-tong-yi.md)
       * [26 \| 数据存储：NoSQL与RDBMS如何取长补短、相辅相成？](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/she-ji-pian-7-8bb229/26-shu-ju-cun-chu-ff1a-nosql-yu-rdbms-ru-he-qu-chang-bu-duan-3001-xiang-fu-xiang-cheng-ff1f.md)
