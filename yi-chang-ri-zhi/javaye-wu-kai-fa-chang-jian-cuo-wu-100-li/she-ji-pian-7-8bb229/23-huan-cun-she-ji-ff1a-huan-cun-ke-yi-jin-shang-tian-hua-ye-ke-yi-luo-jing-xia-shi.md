@@ -106,7 +106,7 @@ wrk -c10 -t10 -d 100s http://localhost:45678/cacheinvalid/city
 
 启动程序 30 秒后缓存过期，回源的数据库 QPS 最高达到了 700 多：
 
-918a91e34725e475cdee746d5ba8aa6b.png
+![](/static/image/918a91e34725e475cdee746d5ba8aa6b.png)
 
 
 解决缓存 Key 同时大规模失效需要回源，导致数据库压力激增问题的方式有两种。
