@@ -1,5 +1,7 @@
 # 1.sonarqube
-sonarqube
+
+**sonarqube**
+
 基于本地服务和mvn命令进行的代码分析，并将分析结果推送到sonar服务器中
 sonar用于进行代码的质量分析
 
