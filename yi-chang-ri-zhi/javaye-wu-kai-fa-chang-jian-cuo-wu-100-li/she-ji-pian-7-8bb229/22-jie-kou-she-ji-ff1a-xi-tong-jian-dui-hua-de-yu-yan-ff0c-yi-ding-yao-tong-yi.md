@@ -94,7 +94,7 @@ public class APIResponse<T> {
 
 2.特殊情况下，比如收单服务内部处理不当，或是订单服务出现了额外的状态，虽然 success 为 true，但订单实际状态不是 Created，这时可以给予友好的错误提示。
 
-cd799f2bdb407bcb9ff5ad452376a6ed.jpg
+![](/static/image/cd799f2bdb407bcb9ff5ad452376a6ed.jpg)
 
 明确了接口的设计逻辑，我们就是可以实现收单服务的服务端和客户端来模拟这些情况了。首先，实现服务端的逻辑：
 
@@ -133,15 +133,15 @@ public APIResponse<OrderInfo> server(@RequestParam("userId") Long userId) {
 * error==1 的用例模拟一个不存在的 URL，请求无法到收单服务，会得到 404 的 HTTP 状态码，直接进行友好提示，这是第一层处理。
 
 
-c1ddea0ebf6d86956d68efb0424a6b36.png
+![](/static/image/c1ddea0ebf6d86956d68efb0424a6b36.png)
 
 * error==2 的用例模拟 userId 参数为空的情况，收单服务会因为缺少 userId 参数提示非法用户。这时，可以把响应体中的 message 展示给用户，这是第二层处理。
 
-f36d21beb95ce0e7ea96dfde96f21847.png
+![](/static/image/f36d21beb95ce0e7ea96dfde96f21847.png)
 
 * error==3 的用例模拟 userId 为 1 的情况，因为用户有风险，收单服务调用订单服务出错。处理方式和之前没有任何区别，因为收单服务会屏蔽订单服务的内部错误。
 
-412c64e66a574d8252ac8dd59b4cfe2c.png
+![](/static/image/412c64e66a574d8252ac8dd59b4cfe2c.png)
 
 但在服务端可以看到如下错误信息：
 
@@ -152,7 +152,7 @@ f36d21beb95ce0e7ea96dfde96f21847.png
 [14:13:13.951] [http-nio-45678-exec-8] [WARN ] [.c.a.d.APIThreeLevelStatusController:36  ] - 用户 1 调用订单服务失败，原因是 Risk order detected
 ```
 error==0 的用例模拟正常用户，下单成功。这时可以解析 data 结构体提取业务结果，作为兜底，需要判断订单状态，如果不是 Created 则给予友好提示，否则查询 orderId 获得下单的订单号，这是第三层处理。
-f57ae156de7592de167bd09aaadb8348.png
+![](/static/image/f57ae156de7592de167bd09aaadb8348.png)
 
 客户端的实现代码如下：
 
@@ -453,7 +453,7 @@ public int right4() {
 
 加上注解后，访问浏览器查看效果：
 
-f8fae105eae532e93e329ae2d3253502.png
+![](/static/image/f8fae105eae532e93e329ae2d3253502.png)
 
 使用框架来明确 API 版本的指定策略，不仅实现了标准化，更实现了强制的 API 版本控制。对上面代码略做修改，我们就可以实现不设置 @APIVersion 接口就给予报错提示。
 
@@ -509,7 +509,7 @@ public class UploadResponse {
 }
 ```
 到这里，你能看出这种实现方式的问题是什么吗？从接口命名上看虽然是同步上传操作，但其内部通过线程池进行异步上传，并因为设置了较短超时所以接口整体响应挺快。但是，**一旦遇到超时，接口就不能返回完整的数据，不是无法拿到原文件下载地址，就是无法拿到缩略图下载地址，接口的行为变得不可预测：**
-8e75863413fd7a01514b47804f0c4a78.png
+![](/static/image/8e75863413fd7a01514b47804f0c4a78.png)
 
 
 所以，这种优化接口响应速度的方式并不可取，**更合理的方式是，让上传接口要么是彻底的同步处理，要么是彻底的异步处理：**
@@ -636,16 +636,16 @@ response.setDownloadUrl(downloadUrl.getOrDefault(request.getTaskId(), response).
 
 2.在第二节的例子中，我们在类或方法上标记 @APIVersion 自定义注解，实现了 URL 方式统一的接口版本定义。你可以用类似的方式（也就是自定义 RequestMappingHandlerMapping），来实现一套统一的基于请求头方式的版本控制吗？
 
+## 高质量问题）
+![](/static/image/微信截图_20200827175546.png)
 
-微信截图_20200827175546.png
+![](/static/image/微信截图_20200827175637.png)
 
-微信截图_20200827175637.png
+![](/static/image/微信截图_20200827175646.png)
 
-微信截图_20200827175646.png
+![](/static/image/微信截图_20200827175700.png)
 
-微信截图_20200827175700.png
+![](/static/image/微信截图_20200827175757.png)
 
-微信截图_20200827175757.png
-
-微信截图_20200827175831.png
+![](/static/image/微信截图_20200827175831.png)
 
