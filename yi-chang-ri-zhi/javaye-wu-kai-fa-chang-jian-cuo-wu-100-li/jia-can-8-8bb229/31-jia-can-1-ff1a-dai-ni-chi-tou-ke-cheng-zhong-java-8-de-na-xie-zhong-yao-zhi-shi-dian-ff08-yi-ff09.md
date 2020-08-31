@@ -15,7 +15,7 @@ Java 8 的特性有很多，除了这两篇加餐外，我再给你推荐一本�
 
 第二，使用高级的 IDE 来写代码，以此找到可以利用 Java 8 语言特性简化代码的地方。比如，对于 IDEA，我们可以把匿名类型使用 Lambda 替换的检测规则，设置为 Error 级别严重程度：
 
-6707ccf4415c2d8715ed2529cfdec877.png
+![](/static/image/6707ccf4415c2d8715ed2529cfdec877.png)
 
 这样运行 IDEA 的 Inspect Code 的功能，可以在 Error 级别的错误中看到这个问题，引起更多关注，帮助我们建立使用 Lambda 表达式的习惯：
 
