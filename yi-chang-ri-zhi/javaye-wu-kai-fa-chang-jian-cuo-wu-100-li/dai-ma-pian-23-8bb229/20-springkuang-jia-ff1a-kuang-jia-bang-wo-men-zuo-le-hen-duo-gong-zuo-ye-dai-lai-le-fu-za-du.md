@@ -621,13 +621,14 @@ https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-featu
 
 2.Spring 的 Environment 中的 PropertySources 属性可以包含多个 PropertySource，越往前优先级越高。那，我们能否利用这个特点实现配置文件中属性值的自动赋值呢？比如，我们可以定义 %%MYSQL.URL%%、%%MYSQL.USERNAME%% 和 %%MYSQL.PASSWORD%%，分别代表数据库连接字符串、用户名和密码。在配置数据源时，我们只要设置其值为占位符，框架就可以自动根据当前应用程序名 application.name，统一把占位符替换为真实的数据库信息。这样，生产的数据库信息就不需要放在配置文件中了，会更安全。
 
-微信截图\_20200828175712.png
+## 高质量问题
+![](/static/image/微信截图_20200828175712.png)
 
-微信截图\_20200828175726.png
+![](/static/image/微信截图_20200828175726.png)
 
-微信截图\_20200828175737.png
+![](/static/image/微信截图_20200828175737.png)
 
-微信截图\_20200828175747.png
+![](/static/image/微信截图_20200828175747.png)
 
-微信截图\_20200828175756.png
+![](/static/image/微信截图_20200828175756.png)
 
