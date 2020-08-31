@@ -168,7 +168,7 @@ public void rightInit2() throws InterruptedException {
 
 这样，可以把回源到数据库的并发限制在 1：
 .
-63ccde3fdf058b48431fc7c554fed828.png
+![](/static/image/63ccde3fdf058b48431fc7c554fed828.png)
 
 在真实的业务场景下，不一定要这么严格地使用双重检查分布式锁进行全局的并发限制，因为这样虽然可以把数据库回源并发降到最低，但也限制了缓存失效时的并发。可以考虑的方式是：
 
