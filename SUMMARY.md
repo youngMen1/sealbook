@@ -35,6 +35,7 @@
       * [05 \| HTTP调用：你考虑到超时、重试、并发了吗？](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/05-httpdiao-yong-ff1a-ni-kao-lv-dao-chao-shi-3001-zhong-shi-3001-bing-fa-le-ma-ff1f.md)
       * [06 \| 20%的业务代码的Spring声明式事务，可能都没处理正确](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/dai-ma-pian-23-8bb229/06-20de-ye-wu-dai-ma-de-spring-sheng-ming-shi-shi-wu-ff0c-ke-neng-du-mei-chu-li-zheng-que.md)
       * [答疑篇：代码篇思考题集锦（一）](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/dai-ma-pian-23-8bb229/da-yi-pian-ff1a-dai-ma-pian-si-kao-ti-ji-jin-ff08-yi-ff09.md)
+      * [09 \| 数值计算：注意精度、舍入和溢出问题](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/dai-ma-pian-23-8bb229/09-shu-zhi-ji-suan-ff1a-zhu-yi-jing-du-3001-she-ru-he-yi-chu-wen-ti.md)
     * [设计篇 \(7讲\)](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/she-ji-pian-7-8bb229.md)
       * 23 \| 缓存设计：缓存可以锦上添花也可以落井下石
       * [24 \| 业务代码写完，就意味着生产就绪了？](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/she-ji-pian-7-8bb229/24-ye-wu-dai-ma-xie-wan-ff0c-jiu-yi-wei-zhao-sheng-chan-jiu-xu-le-ff1f.md)
