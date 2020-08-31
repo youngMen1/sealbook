@@ -34,10 +34,10 @@
       * [04 \| 连接池：别让连接池帮了倒忙](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/dai-ma-pian-23-8bb229/04-lian-jie-chi-ff1a-bie-rang-lian-jie-chi-bang-le-dao-mang.md)
       * [05 \| HTTP调用：你考虑到超时、重试、并发了吗？](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/05-httpdiao-yong-ff1a-ni-kao-lv-dao-chao-shi-3001-zhong-shi-3001-bing-fa-le-ma-ff1f.md)
       * [06 \| 20%的业务代码的Spring声明式事务，可能都没处理正确](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/dai-ma-pian-23-8bb229/06-20de-ye-wu-dai-ma-de-spring-sheng-ming-shi-shi-wu-ff0c-ke-neng-du-mei-chu-li-zheng-que.md)
-      * 答疑篇：代码篇思考题集锦（一）
+      * [答疑篇：代码篇思考题集锦（一）](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/dai-ma-pian-23-8bb229/da-yi-pian-ff1a-dai-ma-pian-si-kao-ti-ji-jin-ff08-yi-ff09.md)
     * 设计篇 \(7讲\)
     * [安全篇 \(5讲\)](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/an-quan-pian-5-8bb229.md)
-      * 28 \| 安全兜底：涉及钱时，必须考虑防刷、限量和防重
+      * [28 \| 安全兜底：涉及钱时，必须考虑防刷、限量和防重](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/an-quan-pian-5-8bb229/28-an-quan-dou-di-ff1a-she-ji-qian-shi-ff0c-bi-xu-kao-lv-fang-shua-3001-xian-liang-he-fang-zhong.md)
       * [30 \| 如何正确保存和传输敏感数据？](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/an-quan-pian-5-8bb229/30-ru-he-zheng-que-bao-cun-he-chuan-shu-min-gan-shu-ju-ff1f.md)
     * [加餐 \(8讲\)](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/jia-can-8-8bb229.md)
       * 31 \| 加餐1：带你吃透课程中Java 8的那些重要知识点（一）
