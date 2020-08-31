@@ -52,7 +52,7 @@ management.endpoints.web.base-path=/admin
 ```
 
 现在，你就可以访问 http://localhost:45679/admin ，来查看 Actuator 的所有功能 URL 了：
-420d5b3d9c10934e380e555c2347834b.png
+![](/static/image/420d5b3d9c10934e380e555c2347834b.png)
 
 其中，大部分端点提供的是只读信息，比如查询 Spring 的 Bean、ConfigurableEnvironment、定时任务、SpringBoot 自动配置、Spring MVC 映射等；少部分端点还提供了修改功能，比如优雅关闭程序、下载线程 Dump、下载堆 Dump、修改日志级别等。
 
@@ -84,7 +84,7 @@ management.endpoint.health.show-details=always
 ```
 
 访问 health 端点可以看到，数据库、磁盘、RabbitMQ、Redis 等组件健康状态是 UP，整个应用的状态也是 UP：
-3c98443ebb76b65c4231aa35086dc8be.png
+![](/static/image/3c98443ebb76b65c4231aa35086dc8be.png)
 在了解了基本配置之后，我们考虑一下，如果程序依赖一个很重要的三方服务，我们希望这个服务无法访问的时候，应用本身的健康状态也是 DOWN。
 
 比如三方服务有一个 user 接口，出现异常的概率是 50%：
@@ -255,11 +255,11 @@ public class ThreadPoolsHealthContributor implements CompositeHealthContributor 
 ```
 程序启动后可以看到，health 接口展现了线程池和外部服务 userService 的健康状态，以及一些具体信息：
 
-d2721794203dcabf411e15143e342cdc.png
+![](/static/image/d2721794203dcabf411e15143e342cdc.png)
 
 我们看到一个 demoThreadPool 为 DOWN 导致父 threadPools 为 DOWN，进一步导致整个程序的 status 为 DOWN：
 
-bc947b0c6d4a2a71987f16f16120eb54.png
+![](/static/image/bc947b0c6d4a2a71987f16f16120eb54.png)
 以上，就是通过自定义 HealthContributor 和 CompositeHealthContributor，来实现监控检测触达程序内部诸如三方服务、线程池等关键组件，是不是很方便呢？
 
 额外补充一下，Spring Boot 2.3.0增强了健康检测的功能，细化了 Liveness 和 Readiness 两个端点，便于 Spring Boot 应用程序和 Kubernetes 整合。
@@ -303,7 +303,7 @@ public class ThreadPoolInfoContributor implements InfoContributor {
 
 访问 /admin/info 接口，可以看到这些数据：
 
-7ed02ed4d047293fe1287e82a6bf8041.png
+![](/static/image/7ed02ed4d047293fe1287e82a6bf8041.png)
 
 此外，如果设置开启 JMX 的话：
 
@@ -315,7 +315,7 @@ spring.jmx.enabled=true
 ```
 
 可以通过 jconsole 工具，在 org.springframework.boot.Endpoint 中找到 Info 这个 MBean，然后执行 info 操作可以看到，我们刚才自定义的 InfoContributor 输出的有关两个线程池的信息：
-f7c4dd062934be5ca9a5628e7c5d0714.png
+![](/static/image/f7c4dd062934be5ca9a5628e7c5d0714.png)
 
 这里，我再额外补充一点。对于查看和操作 MBean，除了使用 jconsole 之外，你可以使用 jolokia 把 JMX 转换为 HTTP 协议，引入依赖：
 
@@ -328,7 +328,7 @@ f7c4dd062934be5ca9a5628e7c5d0714.png
 </dependency>
 ```
 然后，你就可以通过 jolokia，来执行 org.springframework.boot:type=Endpoint,name=Info 这个 MBean 的 info 操作：
-f7a128cb3efc652b63b773fdceb65f7f.png
+![](/static/image/f7a128cb3efc652b63b773fdceb65f7f.png)
 
 ## 指标 Metrics 是快速定位问题的“金钥匙”
 指标是指一组和时间关联的、衡量某个维度能力的量化数值。通过收集指标并展现为曲线图、饼图等图表，可以帮助我们快速定位、分析问题。
@@ -338,8 +338,7 @@ f7a128cb3efc652b63b773fdceb65f7f.png
 有一个外卖订单的下单和配送流程，如下图所示。
 
 OrderController 进行下单操作，下单操作前先判断参数，如果参数正确调用另一个服务查询商户状态，如果商户在营业的话继续下单，下单成功后发一条消息到 RabbitMQ 进行异步配送流程；然后另一个 DeliverOrderHandler 监听这条消息进行配送操作。
-
-d45e1e97ce1f7881a5930e5eb6648351.png
+![](/static/image/d45e1e97ce1f7881a5930e5eb6648351.png)
 
 对于这样一个涉及同步调用和异步调用的业务流程，如果用户反馈下单失败，那我们如何才能快速知道是哪个环节出了问题呢？
 
@@ -514,11 +513,11 @@ public class DeliverOrderHandler {
 ```
 https://grafana.com/docs/grafana/latest/installation/
 ```
-e74a6f9ac6840974413486239eb4b796.jpg
+![](/static/image/e74a6f9ac6840974413486239eb4b796.jpg)
 
 配置好数据源之后，就可以添加一个监控面板，然后在面板中添加各种监控图表。比如，我们在一个下单次数图表中添加了下单收到、成功和失败三个指标。
 
-b942d8bad647e10417acbc96ed289b25.jpg
+![](/static/image/b942d8bad647e10417acbc96ed289b25.jpg)
 
 关于这张图中的配置：
 
@@ -550,7 +549,7 @@ https://grafana.com/docs/grafana/latest/features/datasources/influxdb/
 wrk -t 1 -c 1 -d 3600s http://localhost:45678/order/createOrder\?userId\=20\&merchantId\=2
 ```
 **从监控面板可以一目了然地看到整个系统的运作情况。**可以看到，目前系统运行良好，不管是下单还是配送操作都是成功的，且下单操作平均处理时间 400ms、配送操作则是在 500ms 左右，符合预期（注意，下单次数曲线中的绿色和黄色两条曲线其实是重叠在一起的，表示所有下单都成功了）：
-117071b8d4f339eceaf50c87b6e69083.png
+![](/static/image/117071b8d4f339eceaf50c87b6e69083.png)
 
 
 **第二种情况是，模拟无效用户 ID 运行一段时间：**
@@ -568,7 +567,7 @@ wrk -t 1 -c 1 -d 3600s http://localhost:45678/order/createOrder\?userId\=2\&merc
 
 * 观察两个配送监控可以发现，配送曲线出现掉 0 现象，是因为下单失败导致的，下单失败 MQ 消息压根就不会发出。再注意下蓝色那条线，可以看到配送曲线掉 0 延后于下单成功曲线的掉 0，原因是配送走的是异步流程，虽然从某个时刻开始下单全部失败了，但是 MQ 队列中还有一些之前未处理的消息。
 
-536ce4dad0e8bc00aa6d9ad4ff285b5b.jpg
+![](/static/image/536ce4dad0e8bc00aa6d9ad4ff285b5b.jpg)
 
 第三种情况是，尝试一下因为商户不营业导致的下单失败：
 
@@ -581,7 +580,7 @@ wrk -t 1 -c 1 -d 3600s http://localhost:45678/order/createOrder\?userId\=20\&mer
 ```
 我把变化的地方圈了出来，你可以自己尝试分析一下：
 
-4cf8d97266f5063550e5db57e61c73d4.jpg
+![](/static/image/4cf8d97266f5063550e5db57e61c73d4.jpg)
 
 
 第四种情况是，配送停止。我们通过 curl 调用接口，来设置配送停止开关：
@@ -675,7 +674,7 @@ tomcat_sessions_expired
 tomcat_sessions_rejected
 ```
 我们可以按照自己的需求，选取其中的一些指标，在 Grafana 中配置应用监控面板：
-1378d9c6a66ea733cf08200d7f4b65e9.png
+![](/static/image/1378d9c6a66ea733cf08200d7f4b65e9.png)
 看到这里，通过监控图表来定位问题，是不是比日志方便了很多呢？
 
 ## 重点回顾
@@ -697,7 +696,7 @@ tomcat_sessions_rejected
 
 我用一张图对比了日志、指标和追踪的区别和特点：
 
-85cabd7ecb4c6a669ff2e8930a369c4c.jpg
+![](/static/image/85cabd7ecb4c6a669ff2e8930a369c4c.jpg)
 
 
 在我看来，完善的监控体系三者缺一不可，它们还可以相互配合，比如通过指标发现性能问题，通过追踪定位性能问题所在的应用和操作，最后通过日志定位出具体请求的明细参数。
@@ -710,9 +709,9 @@ tomcat_sessions_rejected
 2.在介绍指标 Metrics 时我们看到，InfluxDB 中保存了由 Micrometer 框架自动帮我们收集的一些应用指标。你能否参考源码中两个 Grafana 配置的 JSON 文件，把这些指标在 Grafana 中配置出一个完整的应用监控面板呢？
 
 
+## 高质量问题
 
-
-微信截图_20200828141905.png
-微信截图_20200828141917.png
-微信截图_20200828141937.png
-微信截图_20200828141957.png
+![](/static/image/微信截图_20200828141905.png)
+![](/static/image/微信截图_20200828141917.png)
+![](/static/image/微信截图_20200828141937.png)
+![](/static/image/微信截图_20200828141957.png)
