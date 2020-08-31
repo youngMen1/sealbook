@@ -40,7 +40,7 @@
       * [28 \| 安全兜底：涉及钱时，必须考虑防刷、限量和防重](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/an-quan-pian-5-8bb229/28-an-quan-dou-di-ff1a-she-ji-qian-shi-ff0c-bi-xu-kao-lv-fang-shua-3001-xian-liang-he-fang-zhong.md)
       * [30 \| 如何正确保存和传输敏感数据？](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/an-quan-pian-5-8bb229/30-ru-he-zheng-que-bao-cun-he-chuan-shu-min-gan-shu-ju-ff1f.md)
     * [加餐 \(8讲\)](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/jia-can-8-8bb229.md)
-      * 31 \| 加餐1：带你吃透课程中Java 8的那些重要知识点（一）
+      * [31 \| 加餐1：带你吃透课程中Java 8的那些重要知识点（一）](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/jia-can-8-8bb229/31-jia-can-1-ff1a-dai-ni-chi-tou-ke-cheng-zhong-java-8-de-na-xie-zhong-yao-zhi-shi-dian-ff08-yi-ff09.md)
       * [32 \| 加餐2：带你吃透课程中Java 8的那些重要知识点（二）](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/jia-can-8-8bb229/32-jia-can-2-ff1a-dai-ni-chi-tou-ke-cheng-zhong-java-8-de-na-xie-zhong-yao-zhi-shi-dian-ff08-er-ff09.md)
       * [33 \| 加餐3：定位应用问题，排错套路很重要](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/jia-can-8-8bb229/33-jia-can-3-ff1a-ding-wei-ying-yong-wen-ti-ff0c-pai-cuo-tao-lu-hen-zhong-yao.md)
   * [SpringBoot 下载项目中的excel模板](yi-chang-ri-zhi/springboot-xia-zai-xiang-mu-zhong-de-excel-mo-ban.md)
