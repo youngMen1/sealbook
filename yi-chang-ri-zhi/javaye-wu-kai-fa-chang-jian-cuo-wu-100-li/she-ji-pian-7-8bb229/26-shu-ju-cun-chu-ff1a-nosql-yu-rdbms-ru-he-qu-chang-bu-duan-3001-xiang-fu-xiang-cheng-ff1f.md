@@ -123,7 +123,7 @@ Redis 是一款设计简洁的缓存数据库，数据都保存在内存中，�
 
 可以看到，在 QPS 方面，**MySQL 的 QPS 达到了 Redis 的 157 倍；在延迟方面，MySQL 的延迟只有 Redis 的十分之一。**
 
-5de7a4a7bf27f8736b0ac09ba0dd1fe8.png
+![](/static/image/5de7a4a7bf27f8736b0ac09ba0dd1fe8.png)
 
 Redis 慢的原因有两个：
 
