@@ -139,13 +139,13 @@ protected <T> T getOptional(FeignContext context, Class<T> type) {
 
 调试一下可以看到，client 是 LoadBalanceFeignClient，已经是经过代理增强的，明显是一个 Bean：
 
-0510e28cd764aaf7f1b4b4ca03049ffd.png
+![](/static/image/0510e28cd764aaf7f1b4b4ca03049ffd.png)
 
 所以，没有指定 URL 的 @FeignClient 对应的 LoadBalanceFeignClient，是可以通过 feign.Client 切入的。
 
 在我们上面贴出来的源码的 16 行可以看到，当 URL 不为空的时候，client 设置为了 LoadBalanceFeignClient 的 delegate 属性。其原因注释中有提到，因为有了 URL 就不需要客户端负载均衡了，但因为 Ribbon 在 classpath 中，所以需要从 LoadBalanceFeignClient 提取出真正的 Client。断点调试下可以看到，这时 client 是一个 ApacheHttpClient：
 
-1b872a900be7327f74bc09bde4c54230.png
+![](/static/image/1b872a900be7327f74bc09bde4c54230.png)
 
 那么，这个 ApacheHttpClient 是从哪里来的呢？这里，我教你一个小技巧：如果你希望知道一个类是怎样调用栈初始化的，可以在构造方法中设置一个断点进行调试。这样，你就可以在 IDE 的栈窗口看到整个方法调用栈，然后点击每一个栈帧看到整个过程。
 
@@ -291,7 +291,7 @@ MANAGEMENT_SERVER_PORT=12345
 
 问题就是出在这里。MANAGEMENT\_SERVER\_PORT 覆盖了配置文件中的 management.server.port，修改了应用程序本身的端口。当然，监控系统也就无法通过老的管理端口访问到应用的 health 端口了。如下图所示，actuator 的端口号变成了 12345：
 
-b287b7ad823a39bb604fa69e02c720e6.png
+![](/static/image/b287b7ad823a39bb604fa69e02c720e6.png)
 
 到这里坑还没完，为了方便用户登录，需要在页面上显示默认的管理员用户名，于是开发同学在配置文件中定义了一个 user.name 属性，并设置为 defaultadminname：
 
@@ -309,7 +309,7 @@ user.name=defaultadminname
 
 * Profile 定义了场景的概念。通常，我们会定义类似 dev、test、stage 和 prod 等环境作为不同的 Profile，用于按照场景对 Bean 进行逻辑归属。同时，Profile 和配置文件也有关系，每个环境都有独立的配置文件，但我们只会激活某一个环境来生效特定环境的配置文件。
 
-2c68da94d31182cad34c965f878196c0.png
+![](/static/image/2c68da94d31182cad34c965f878196c0.png)
 
 接下来，我们重点看看 Property 的查询过程。
 
@@ -361,7 +361,7 @@ MapPropertySource {name='defaultProperties'}
 * 第 7 到 16 行的输出显示，Spring 中有 9 个配置源，值得关注是 ConfigurationPropertySourcesPropertySource、PropertiesPropertySource、OriginAwareSystemEnvironmentPropertySource 和我们的配置文件。
 
 那么，Spring 真的是按这个顺序查询配置吗？最前面的 configurationProperties，又是什么？为了回答这 2 个问题，我们需要分析下源码。我先说明下，下面源码分析的逻辑有些复杂，你可以结合着下面的整体流程图来理解：  
-3e6dc6456f6d1354da58fb260775c0f9.png  
+![](/static/image/3e6dc6456f6d1354da58fb260775c0f9.png)  
 Demo 中注入的 StandardEnvironment，继承的是 AbstractEnvironment（图中紫色类）。AbstractEnvironment 的源码如下：
 
 ```
@@ -497,7 +497,7 @@ public class PropertySourcesPropertyResolver extends AbstractPropertyResolver {
 调试可以发现，这个循环遍历（getSource\(\) 的结果）的配置源，其实是 SpringConfigurationPropertySources（图中黄色类），其中包含的配置源列表就是之前看到的 9 个配置源，而第一个就是 ConfigurationPropertySourcesPropertySource。看到这里，我们的第一感觉是会不会产生死循环，它在遍历的时候怎么排除自己呢？
 
 同时观察 configurationProperty 可以看到，这个 ConfigurationProperty 其实类似代理的角色，实际配置是从系统属性中获得的：  
-9551d5b5acada84262b7ddeae989750a.png  
+![](/static/image/9551d5b5acada84262b7ddeae989750a.png)  
 继续查看 SpringConfigurationPropertySources 可以发现，它返回的迭代器是内部类 SourcesIterator，在 fetchNext 方法获取下一个项时，通过 isIgnored 方法排除了 ConfigurationPropertySourcesPropertySource（源码第 38 行）：
 
 ```
