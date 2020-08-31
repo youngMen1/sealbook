@@ -38,6 +38,7 @@
     * [设计篇 \(7讲\)](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/she-ji-pian-7-8bb229.md)
       * 23 \| 缓存设计：缓存可以锦上添花也可以落井下石
       * [24 \| 业务代码写完，就意味着生产就绪了？](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/she-ji-pian-7-8bb229/24-ye-wu-dai-ma-xie-wan-ff0c-jiu-yi-wei-zhao-sheng-chan-jiu-xu-le-ff1f.md)
+      * 22 \| 接口设计：系统间对话的语言，一定要统一
     * [安全篇 \(5讲\)](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/an-quan-pian-5-8bb229.md)
       * [28 \| 安全兜底：涉及钱时，必须考虑防刷、限量和防重](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/an-quan-pian-5-8bb229/28-an-quan-dou-di-ff1a-she-ji-qian-shi-ff0c-bi-xu-kao-lv-fang-shua-3001-xian-liang-he-fang-zhong.md)
       * [30 \| 如何正确保存和传输敏感数据？](yi-chang-ri-zhi/javaye-wu-kai-fa-chang-jian-cuo-wu-100-li/an-quan-pian-5-8bb229/30-ru-he-zheng-que-bao-cun-he-chuan-shu-min-gan-shu-ju-ff1f.md)
