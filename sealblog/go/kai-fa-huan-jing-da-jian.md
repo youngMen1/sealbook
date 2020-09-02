@@ -15,8 +15,10 @@ windows需要配置几个环境变量，我是下载的压缩文件，所以需�
   
 ![](/static/image/1599027545.jpg)
 
-GOBIN 是安装go目录里面的bin文件夹  
-GOPATH是你的工作目录  
+GOBIN 是安装go目录里面的bin文件夹
+
+GOPATH是你的工作目录
+
 GOROOT是安装go的根目录
 
 另外需要把GOBIN加入到path里面
