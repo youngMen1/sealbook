@@ -14,3 +14,5 @@ GOBIN 是安装go目录里面的bin文件夹
 GOPATH是你的工作目录
 GOROOT是安装go的根目录
 
+另外需要把GOBIN加入到path里面
+
