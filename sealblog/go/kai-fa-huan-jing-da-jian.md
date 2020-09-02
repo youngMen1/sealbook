@@ -57,12 +57,18 @@ go语言自带一套完整的命令操作系统，你可以在终端中执行go�
 你也可以指定编译输出的文件名。我们可以使用go build -o xxx，来指定编译输出的文件名，默认情况下是你的项目名
 go build会自动忽略以_或者.开头的go文件
 如果你的源代码针对不同操作系统需要不同的处理，那么你可以根据不同操作系统后缀来命名文件。例如有一个读取数组的程序，它对于不同的操作系统可能有如下几个源文件：
+
+
+```
 array_linux.go
 array_windows.go
 array_darwin.go
 1
 2
 3
+```
+
+
 go build会选择性的编译以系统名结尾的文件，例如，在Linux系统下编译只会选择array_linux.go文件，其他系统命名后缀文件全部忽略！
 
 **常用参数介绍：**
@@ -100,6 +106,9 @@ MAINFILE(.exe)：由go build MAINFILE.go产生
 -x：打印出来执行的详细命令，与-n类似，只不过这个会执行
 举个栗子：
 
+
+
+```
 $ go clean -i -x
 cd /root/go_path/src/cx_demo
 rm -f cx_demo cx_demo.exe cx_demo.test cx_demo.test.exe demo_1 demo_1.exe
@@ -109,6 +118,9 @@ rm -f /root/go_path/bin/cx_demo
 3
 4
 go fmt
+```
+
+
 在go中，代码有着标准的风格。由于之前已经有的一些习惯或其它原因我们常将代码写成ANSI风格或者其它更适合自己的格式，这将为人们在阅读别人的代码时添加不必要的负担，所以go强制了代码格式(比如大括号必须放在行尾)，不按照此排版的代码将不能编译通过，为了减少浪费在排版上的时间，go工具集中提供了一个go fmt命令，它可以帮你格式化你写好的代码文件。
 
 参数介绍：
