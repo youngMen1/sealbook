@@ -65,7 +65,7 @@ array_darwin.go
 3
 go build会选择性的编译以系统名结尾的文件，例如，在Linux系统下编译只会选择array_linux.go文件，其他系统命名后缀文件全部忽略！
 
-常用参数介绍：
+**常用参数介绍：**
 
 -o：指定输出的文件名，可以带上路径，例如：`go build -o app/a.exe`
 -i：安装相应的包，相当于build+install
@@ -91,7 +91,8 @@ DIR(.exe)：由go build产生
 DIR.test(.exe)：由go test -c产生
 MAINFILE(.exe)：由go build MAINFILE.go产生
 *.so：由SWIG产生
-参数介绍：
+
+**参数介绍：**
 
 -i：清楚关联的安装包和可运行文件，也就是通过go install安装的文件
 -n：把需要执行的清除命令打印出来，但是不执行
@@ -116,6 +117,9 @@ go fmt
 go get
 这个命令是用来获取远程代码包的，目前支持的有BitBucket、GitHub、Google Code和LaunchPad。这个操作实际上在内部分为了两步：第一步是下载源码包，第二部是执行go install。下载源码包的go工具会自动根据不同的域名调用不同的源码工具，对应关系如下：
 
+
+
+```
 BitBucket(Mercurial Git)
 GitHub(Git)
 Google Code Project Hosting(Git, Mercurial, Subversion)
@@ -124,9 +128,12 @@ LaunchPad(Bazaar)
 2
 3
 4
+```
+
+
 所以，为了go get能正常工作，你必须安装了合适的源码管理工具，并同时把这些命令加入你的PATH中。
 
-参数介绍：
+**参数介绍：**
 
 -d：只下载不install
 -f：只有设置了-u参数才有意义！不让-u去验证import中的每一个都已经获取了
@@ -134,7 +141,15 @@ LaunchPad(Bazaar)
 -t：同时下载需要为运行测试所需要的包
 -u：强制使用网络去更新包和它的依赖
 -v：显示执行的命令
+
+
+```
+
 go install
+```
+
+
+
 这个命令在内部实际分成了两步操作：第一步是生成结果文件(可执行文件或者.a包)，第二部会把编译好的结果转移到$GOPATH/bin或者$GOPATH/pkg。参数支持所有的go build参数，但是，我们只需要记住一个-v参数即可，这可以可以随时查看底层的执行信息！值得注意的是，有两种方式进行安装：
 
 进入对应的项目目录之下，然后执行go isntall，就可以安装了
@@ -142,12 +157,18 @@ go install
 go test
 执行这个命令，会自动读取源码目录下面的*_test.go文件，生成并运行测试用的可执行文件。输出的信息类似：
 
+
+
+```
 ok   archive/tar   0.011s
 FAIL archive/zip   0.022s
 ok   compress/gzip 0.033s
 ...
 1
 2
+```
+
+
 
 ## 4.go语言开发
 ![](/static/image/1599028017.jpg)
