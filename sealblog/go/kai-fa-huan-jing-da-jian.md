@@ -5,3 +5,6 @@
 https://studygolang.com/dl
 ```
 1599027458.jpg
+
+## 2.环境变量配置
+
