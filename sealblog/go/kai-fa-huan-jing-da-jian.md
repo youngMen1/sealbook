@@ -150,7 +150,7 @@ ok   compress/gzip 0.033s
 2
 
 ## 4.go语言开发
-1599028017.jpg
+![](/static/image/1599028017.jpg)
 
 
 
