@@ -10,3 +10,7 @@ https://studygolang.com/dl
 windows需要配置几个环境变量，我是下载的压缩文件，所以需要自己配置，通过安装程序安装的应该不需要设置环境变量，也可以去看下环境变量是否设置起。
 ![](/static/image/1599027545.jpg)
 
+GOBIN 是安装go目录里面的bin文件夹
+GOPATH是你的工作目录
+GOROOT是安装go的根目录
+
