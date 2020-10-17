@@ -37,6 +37,7 @@
 
 ## 1.3.营销中台产品模型
 # 参考
-
-[http://www.woshipm.com/pd/2663713.html](http://www.woshipm.com/pd/2663713.html)
+营销中台建设篇:https://www.sohu.com/a/318296321_100098627
+电商营销中台的促销系统如何设计:http://www.woshipm.com/pd/3182996.html
+解析营销中台产品模型:http://www.woshipm.com/pd/2663713.html
 
