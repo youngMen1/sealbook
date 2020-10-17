@@ -47,6 +47,8 @@ S5frds4AtUWsvTvSJl43.png
 
 XxV3NIwxq7njJrhWgkG7.png
 
+基本的架构，上图已经进行了大概的描述，针对每个部分，做一些细节性描述。
+
 # 2.参考
 
 营销中台建设篇:[https://www.sohu.com/a/318296321\_100098627](https://www.sohu.com/a/318296321_100098627)  
