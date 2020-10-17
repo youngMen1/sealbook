@@ -185,5 +185,4 @@ head -n -10  日志文件  查询日志文件除了最后10行的其他所有日
 原文链接：[https://blog.csdn.net/lch\_2016/article/details/81334993](https://blog.csdn.net/lch_2016/article/details/81334993)
 
 [https://mp.weixin.qq.com/s/fmhBcMugMhNlBu\_PEhAk2A](https://mp.weixin.qq.com/s/fmhBcMugMhNlBu_PEhAk2A)
-
-https://linux265.com/course/linux-command-ab.html
+Linux命令大全:https://linux265.com/course/linux-command-ab.html
