@@ -186,3 +186,4 @@ head -n -10  日志文件  查询日志文件除了最后10行的其他所有日
 
 [https://mp.weixin.qq.com/s/fmhBcMugMhNlBu\_PEhAk2A](https://mp.weixin.qq.com/s/fmhBcMugMhNlBu_PEhAk2A)
 
+https://linux265.com/course/linux-command-ab.html
