@@ -4,6 +4,8 @@
 
 该项目为平时总结的技术资料和工具使用以及面试总结。
 
+![](/static/image/微信截图_20201019093753.png)
+
 # 2.怎么打开
 
 下载GitBook Editor（书籍编辑器）打开，下载地址：[http://www.pc6.com/softview/SoftView\_368608.html](http://www.pc6.com/softview/SoftView_368608.html)
