@@ -1,4 +1,4 @@
-## 基于Nepxion Discovery灰度发布的步骤流程
+## 1.基于Nepxion Discovery灰度发布的步骤流程
 
 采用的技术：
 
