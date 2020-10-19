@@ -63,7 +63,7 @@ D:\utils\gradle-5.6.4
 在cmd命令里输入`gradle -v`如果能打出版本号，说明环境配置完毕。  
 ![](/static/image/微信截图_20200612102824.png)
 
-## 2.4.Idea配置
+## 2.4.IDEA配置
 
 ![](/static/image/微信截图_20200612102904.png)
 
