@@ -10,7 +10,6 @@
     * [Arthas](zhi-shi-tuo-zhan/arthas.md)
     * [Sonarqube](zhi-shi-tuo-zhan/sonarqube.md)
     * [Plantuml\(uml绘图工具\)](zhi-shi-tuo-zhan/plantumlumlhui-tu-gong-517729.md)
-  * [英语](ying-yu.md)
   * [优秀的博客](you-xiu-de-bo-ke.md)
   * [怎么读源码](zen-yao-du-yuan-ma.md)
   * [优秀文章](you-xiu-wen-zhang.md)
