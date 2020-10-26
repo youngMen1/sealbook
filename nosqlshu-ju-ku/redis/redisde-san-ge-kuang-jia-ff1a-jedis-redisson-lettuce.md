@@ -43,5 +43,5 @@ _建议使用：Jedis + Redisson_
 SpringBoot项目上使用RedisTemplate会好一些，现在SpringBoot2.0默认也是使用Lettuce的
 
 # 3.参考
-https://www.cnblogs.com/liyan492/p/9858548.html
+Redis的三个客户端框架比较Jedis,Redisson,Lettuce：https://www.cnblogs.com/liyan492/p/9858548.html
 
