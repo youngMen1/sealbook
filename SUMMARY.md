@@ -266,7 +266,6 @@
 * [JAVA](java.md)
   * [灰度发布](java/hui-du.md)
   * [BigDecimal类型使用介绍](java/di-fang.md)
-  * [Java:如何更优雅的处理空值](java/shi.md)
   * [日期比较大小](java/shou-dao.md)
   * [数据库连接池](java/shu-ju-ku-lian-jie-chi.md)
   * [ProtoBuffer的使用](java/protobufferde-shi-yong.md)
@@ -294,6 +293,7 @@
   * [JAVA8新特性](java/java8.md)
     * 日期
     * [Java8新特性之日期处理](java/jdk8xin-te-xing.md)
+    * [Java:如何更优雅的处理空值](java/shi.md)
 * [SpringCloudAlibaba](springcloudalibaba.md)
   * [SpringCloudAlibaba基本介绍](springcloudalibaba/zhu-yi.md)
   * [Nacos](springcloudalibaba/nacos.md)
