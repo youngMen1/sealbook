@@ -291,7 +291,6 @@
   * [Java 工具类库](java/java-gong-ju-lei-ku.md)
     * [Hutool](java/java-gong-ju-lei-ku/hutool.md)
   * [JAVA8新特性](java/java8.md)
-    * 日期
     * [Java8新特性之日期处理](java/jdk8xin-te-xing.md)
     * [Java:如何更优雅的处理空值](java/shi.md)
 * [SpringCloudAlibaba](springcloudalibaba.md)
