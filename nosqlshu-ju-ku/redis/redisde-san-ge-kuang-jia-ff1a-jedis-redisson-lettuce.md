@@ -42,3 +42,6 @@ _建议使用：Jedis + Redisson_
 
 SpringBoot项目上使用RedisTemplate会好一些，现在SpringBoot2.0默认也是使用Lettuce的
 
+# 3.参考
+https://www.cnblogs.com/liyan492/p/9858548.html
+
