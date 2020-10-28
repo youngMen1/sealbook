@@ -147,11 +147,11 @@ zcat information-rest-ms.log.2020-05-07.0.gz  | grep '7494560570'
 vim gpush-sms.log
 ```
 
-2.grep命令：cat 1.log \| grep key  可以写为： grep key 1.log
+2.grep命令：cat 1.log \| grep key  可以写为： grep key test.log
 
 根据字符串查询日志中关键词出现的位置：cat -n 日志文件\| grep 'keyword'
 
-例：cat -n 1.log \| grep 'keyword'
+例：cat -n test.log \| grep 'keyword'
 
 ```
 cat goods-service.log|grep '调用vip-service服务验证是否为会员'
@@ -184,5 +184,6 @@ head -n -10  日志文件  查询日志文件除了最后10行的其他所有日
 
 原文链接：[https://blog.csdn.net/lch\_2016/article/details/81334993](https://blog.csdn.net/lch_2016/article/details/81334993)
 
-[https://mp.weixin.qq.com/s/fmhBcMugMhNlBu\_PEhAk2A](https://mp.weixin.qq.com/s/fmhBcMugMhNlBu_PEhAk2A)
-Linux命令大全:https://linux265.com/course/linux-command-ab.html
+[https://mp.weixin.qq.com/s/fmhBcMugMhNlBu\_PEhAk2A](https://mp.weixin.qq.com/s/fmhBcMugMhNlBu_PEhAk2A)  
+Linux命令大全:[https://linux265.com/course/linux-command-ab.html](https://linux265.com/course/linux-command-ab.html)
+
