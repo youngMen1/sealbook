@@ -24,7 +24,9 @@
 | EasyCode | 可以直接对数据的表生成entity、controller、service、dao、mapper无需任何编码，简单而强大。 |
 | GenerateSerialVersionUID | 快捷键快速生成serialVersionUID |
 | 1SonarLint | 1潜在Bug检查和代码规范检查 |
-|  |  |
+| 1 | 1 |
+| 1 | 1 |
+| 1 | 1 |
 
 ## 参考:
 
