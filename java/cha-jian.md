@@ -37,7 +37,7 @@
 | 1Markdown support | 1支持md文件的查看和编辑 |
 | 1Gitee | 码云的插件 |
 
-## 参考:
+## 2.参考:
 
 值得推荐的Idea十几大优秀插件：[https://blog.csdn.net/win7system/article/details/83508313](https://blog.csdn.net/win7system/article/details/83508313)
 
