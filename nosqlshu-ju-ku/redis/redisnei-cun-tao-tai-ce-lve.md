@@ -17,7 +17,8 @@ docker run -d -v /usr/local/etc/redis/redis.conf:/usr/local/etc/redis/redis.conf
 ```
 # MAXMEMORY POLICY: how Redis will select what to remove when maxmemory
 # is reached. You can select among five behaviors:
-#
+
+# 8种策略
 # 1.volatile-lru -> Evict using approximated LRU among the keys with an expire set.
 # 2.allkeys-lru -> Evict any key using approximated LRU.
 # 3.volatile-lfu -> Evict using approximated LFU among the keys with an expire set.
