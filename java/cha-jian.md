@@ -10,7 +10,7 @@
 | Maven Helper | maven帮助 |
 | mybatis-log-plugin | sql语句日志\(mybatis log日志\),把 Mybatis 输出的sql日志还原成完整的sql语句，看起来更直观。 |
 | GrepConsole | console输出的日志,高亮log不同级别日志，看日志的时候一目了然。 |
-| gsonFormat | json对象转对象 |
+| GsonFormat | json对象转对象 |
 | ideajad | 反编译工具 |
 | Free-idea-mybatis | 实现功能，点击dao层方法直接跳转到对应xml |
 | nyanProgressBar | 炫酷 |
