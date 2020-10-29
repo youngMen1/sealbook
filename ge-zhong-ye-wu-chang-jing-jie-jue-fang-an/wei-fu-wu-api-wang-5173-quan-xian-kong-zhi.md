@@ -8,7 +8,7 @@
 
 ## 1.1.权限控制设计方案
 
-TODO 
+TODO
 
 ## 1.2.RBAC模型
 
@@ -16,10 +16,13 @@ TODO
 
 ## 1.3.表结构
 
+TODO 
+
 ## 1.4.API网关权限控制模型设计
 
-
-
+TODO 
 
 # 2.参考
-微服务API网关-权限控制：https://blog.csdn.net/haohzhang/article/details/108085662
+
+微服务API网关-权限控制：[https://blog.csdn.net/haohzhang/article/details/108085662](https://blog.csdn.net/haohzhang/article/details/108085662)
+
