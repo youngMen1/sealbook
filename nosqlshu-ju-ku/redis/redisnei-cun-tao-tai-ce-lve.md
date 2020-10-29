@@ -64,6 +64,34 @@ maxmemory-policy noeviction
 
 # 2.Redis的8种数据淘汰策略
 
+## 8.noevication:不驱逐任何东西，仅在写操作时返回错误
+
+**测试代码：**
+
+```
+@Test
+public void noevicationTest() {
+    //flush db
+    redisTemplate.delete(redisTemplate.keys("*"));
+    //1k
+    byte[] bytes = new byte[1024];
+    int i = 0;
+    while (true) {
+        try {
+            redisTemplate.opsForValue().set(String.valueOf(i), bytes);
+            System.out.println(i++);
+        } catch (Exception e) {
+            e.printStackTrace();
+            break;
+        }
+    }
+}
+```
+
+在执行到i为145的时候抛出了异常，有点费解，value为1k，key顶多就几b，把redis最大内存改为10m，可以到7000多个，不知道还有什么占用了内存。
+
+
+
 ## 1.volatile-lru，使用LRU算法删除设置了expire的key
 
 ## 注：redis使用的是一种伪LRU算法，应该是出于性能考虑
@@ -168,31 +196,7 @@ public void volatileTtlTest() {
 i为800前的key全部被删除，800后的被删除部分（极少并且基本在850之前），可见越早过期的越快删除也不是一定的，应该是跟lru、lfu一样并不能达到绝对精确的删除，个人觉得也不用绝对精确，根据项目的需要选择策略即可。
 
 
-## 8.noevication:不驱逐任何东西，仅在写操作时返回错误
 
-**测试代码：**
-
-```
-@Test
-public void noevicationTest() {
-    //flush db
-    redisTemplate.delete(redisTemplate.keys("*"));
-    //1k
-    byte[] bytes = new byte[1024];
-    int i = 0;
-    while (true) {
-        try {
-            redisTemplate.opsForValue().set(String.valueOf(i), bytes);
-            System.out.println(i++);
-        } catch (Exception e) {
-            e.printStackTrace();
-            break;
-        }
-    }
-}
-```
-
-在执行到i为145的时候抛出了异常，有点费解，value为1k，key顶多就几b，把redis最大内存改为10m，可以到7000多个，不知道还有什么占用了内存。
 
 写的单元测试只能算是个小demo，并没有特别去模拟LRU、LFU的场景，而且相信redis的测试肯定要比我做的要好得多了，这里就简单的了解学习一下。
 
