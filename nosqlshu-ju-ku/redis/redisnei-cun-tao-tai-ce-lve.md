@@ -18,14 +18,14 @@ docker run -d -v /usr/local/etc/redis/redis.conf:/usr/local/etc/redis/redis.conf
 # MAXMEMORY POLICY: how Redis will select what to remove when maxmemory
 # is reached. You can select among five behaviors:
 #
-# volatile-lru -> Evict using approximated LRU among the keys with an expire set.
-# allkeys-lru -> Evict any key using approximated LRU.
-# volatile-lfu -> Evict using approximated LFU among the keys with an expire set.
-# allkeys-lfu -> Evict any key using approximated LFU.
-# volatile-random -> Remove a random key among the ones with an expire set.
-# allkeys-random -> Remove a random key, any key.
-# volatile-ttl -> Remove the key with the nearest expire time (minor TTL)
-# noeviction -> Don't evict anything, just return an error on write operations.
+# 1.volatile-lru -> Evict using approximated LRU among the keys with an expire set.
+# 2.allkeys-lru -> Evict any key using approximated LRU.
+# 3.volatile-lfu -> Evict using approximated LFU among the keys with an expire set.
+# 4.allkeys-lfu -> Evict any key using approximated LFU.
+# 5.volatile-random -> Remove a random key among the ones with an expire set.
+# 6.allkeys-random -> Remove a random key, any key.
+# 7.volatile-ttl -> Remove the key with the nearest expire time (minor TTL)
+# 8.noeviction -> Don't evict anything, just return an error on write operations.
 #
 # LRU means Least Recently Used
 # LFU means Least Frequently Used
