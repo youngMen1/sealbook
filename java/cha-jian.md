@@ -1,4 +1,5 @@
 # 1.IDEA插件
+
 | 插件名称 | 插件描述 |
 | :--- | :--- |
 | Lombok | 注解简化代码 |
@@ -22,7 +23,8 @@
 | Alibaba Cloud Toolkit | 通过  Alibaba Cloud Toolkit，开发者能够方便地将本地应用一键部署到任意机器（本地或云端），并内置 Arthas 诊断、高效执行终端命令和 SQL 等，提供 IntelliJ IDEA 版 |
 | EasyCode | 可以直接对数据的表生成entity、controller、service、dao、mapper无需任何编码，简单而强大。 |
 | GenerateSerialVersionUID | 快捷键快速生成serialVersionUID |
-| 1 | 1 |
+| 1SonarLint | 1潜在Bug检查和代码规范检查 |
+|  |  |
 
 ## 参考:
 
