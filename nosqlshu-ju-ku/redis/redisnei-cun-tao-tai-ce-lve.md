@@ -197,7 +197,7 @@ i为800前的key全部被删除，800后的被删除部分（极少并且基本�
 
 # 参考
 
-源码地址：[https://github.com/youngMen1/springboot-code](https://github.com/youngMen1/springboot-code)
+源码地址：https://github.com/youngMen1/springboot-code
 
-[https://blog.yk95.top/2019/02/15/Redis内存淘汰策略/\#more](https://blog.yk95.top/2019/02/15/Redis内存淘汰策略/#more)
+Redis内存淘汰策略：https://blog.yk95.top/2019/02/15/Redis内存淘汰策略/\#more
 
