@@ -64,7 +64,7 @@ maxmemory-policy noeviction
 
 # 2.Redis的8种数据淘汰策略
 
-## 1、no-evication，新写入操作报错。
+## 1、noevication:不驱逐任何东西，仅在写操作时返回错误
 
 **测试代码：**
 
