@@ -1,6 +1,4 @@
-# Redis内存淘汰策略
-
-
+# 1.Redis内存淘汰策略
 
 现在实际项目中用到redis的越来越多，今天心血来潮研究了下Redis内存的淘汰策略。
 
@@ -144,7 +142,7 @@ public void allkeysTest() throws InterruptedException {
 
 i为前100设置了expire的key被删除了部分，去掉sleep的话i为后100的key也被删除部分。
 
-## 4、volatile-lfu，使用LFU算法删除设置了expire的key 
+## 4、volatile-lfu，使用LFU算法删除设置了expire的key
 
 ## 注：使用的也是一种伪LFU算法
 
