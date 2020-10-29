@@ -199,7 +199,7 @@ Multiset<String> multiset = HashMultiset.create();
 | [limit\(Iterable, int\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Iterables.html#limit%28java.lang.Iterable, int%29) | 限制iterable的元素个数限制给定值 | [FluentIterable.limit\(int\)](http://docs.guava-libraries.googlecode.com/git-history/release12/javadoc/com/google/common/collect/FluentIterable.html#limit%28int%29) |
 | [getOnlyElement\(Iterable\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Iterables.html#getOnlyElement%28java.lang.Iterable%29) | 获取iterable中唯一的元素，如果iterable为空或有多个元素，则快速失败 | [getOnlyElement\(Iterable, T default\)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/collect/Iterables.html#getOnlyElement%28java.lang.Iterable, T%29) |
 
-\*译者注：懒视图意味着如果还没访问到某个iterable中的元素，则不会对它进行串联操作。
+* 译者注：懒视图意味着如果还没访问到某个iterable中的元素，则不会对它进行串联操作。
 
 ```
 Iterable<Integer> concatenated = Iterables.concat(
