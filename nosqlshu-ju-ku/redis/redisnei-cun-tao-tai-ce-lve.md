@@ -61,7 +61,7 @@ maxmemory 1048576
 maxmemory-policy noeviction
 ```
 
-# 2.Redis8种数据淘汰策略
+# 2.Redis的8种数据淘汰策略
 
 ## 1、noevication，新写入操作报错。
 
