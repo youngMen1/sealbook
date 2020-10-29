@@ -64,7 +64,7 @@ maxmemory-policy noeviction
 
 # 2.Redis的8种数据淘汰策略
 
-## 8.noevication:不驱逐任何东西，仅在写操作时返回错误
+## 1.noevication:不驱逐任何东西，仅在写操作时返回错误
 
 **测试代码：**
 
@@ -90,9 +90,7 @@ public void noevicationTest() {
 
 在执行到i为145的时候抛出了异常，有点费解，value为1k，key顶多就几b，把redis最大内存改为10m，可以到7000多个，不知道还有什么占用了内存。
 
-
-
-## 1.volatile-lru，使用LRU算法删除设置了expire的key
+## 2.volatile-lru，使用LRU算法删除设置了expire的key
 
 ## 注：redis使用的是一种伪LRU算法，应该是出于性能考虑
 
@@ -121,7 +119,7 @@ public void volatileTest() {
 
 该测试结果是i为前100设置了expire的key被删除了部分，使用volatile-lru重新执行noevicationTest方法，内存不足时也会抛出异常
 
-## 2.allkeys-lru，使用LRU算法（最近最少使用）删除key
+## 3.allkeys-lru，使用LRU算法（最近最少使用）删除key
 
 **测试代码：**
 
@@ -147,7 +145,7 @@ public void allkeysTest() throws InterruptedException {
 
 i为前100设置了expire的key被删除了部分，去掉sleep的话i为后100的key也被删除部分。
 
-## 3.volatile-lfu，使用LFU算法删除设置了expire的key
+## 4.volatile-lfu，使用LFU算法删除设置了expire的key
 
 ## 注：使用的也是一种伪LFU算法
 
@@ -157,25 +155,25 @@ LFU（Least Frequently Used）算法根据数据的历史访问频率来淘汰�
 
 结果同2
 
-## 4.allkeys-lfu，使用LFU算法删除key
+## 5.allkeys-lfu，使用LFU算法删除key
 
 执行allKeysTest方法
 
 结果同3
 
-## 5.volatile-random，随机删除设置了expire的key
+## 6.volatile-random，随机删除设置了expire的key
 
 执行volatileTest方法
 
 i为前100设置了expire的key被随机删除了部分
 
-## 6.allkeys-random，随机删除key
+## 7.allkeys-random，随机删除key
 
 执行allKeysTest
 
 key被随机删除部分
 
-## 7.volatile-ttl，按expire删除key，越早过期的越快删除
+## 9.volatile-ttl，按expire删除key，越早过期的越快删除
 
 **测试代码：**
 
@@ -195,14 +193,11 @@ public void volatileTtlTest() {
 
 i为800前的key全部被删除，800后的被删除部分（极少并且基本在850之前），可见越早过期的越快删除也不是一定的，应该是跟lru、lfu一样并不能达到绝对精确的删除，个人觉得也不用绝对精确，根据项目的需要选择策略即可。
 
-
-
-
 写的单元测试只能算是个小demo，并没有特别去模拟LRU、LFU的场景，而且相信redis的测试肯定要比我做的要好得多了，这里就简单的了解学习一下。
 
 # 参考
 
-源码地址：https://github.com/youngMen1/springboot-code
+源码地址：[https://github.com/youngMen1/springboot-code](https://github.com/youngMen1/springboot-code)
 
-Redis内存淘汰策略：https://blog.yk95.top/2019/02/15/Redis内存淘汰策略/\#more
+Redis内存淘汰策略：[https://blog.yk95.top/2019/02/15/Redis内存淘汰策略/\#more](https://blog.yk95.top/2019/02/15/Redis内存淘汰策略/#more)
 
