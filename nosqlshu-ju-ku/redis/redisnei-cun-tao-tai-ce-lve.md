@@ -12,7 +12,7 @@ docker run -d -v /usr/local/etc/redis/redis.conf:/usr/local/etc/redis/redis.conf
 
 需要在redis官网下载获取最新的redis.conf放在/usr/local/etc/redis/
 
-总共有8种策略，以下是redis.conf关于内存淘汰策略的原文介绍
+**总共有8种策略，以下是redis.conf关于内存淘汰策略的原文介绍**
 
 ```
 # MAXMEMORY POLICY: how Redis will select what to remove when maxmemory
