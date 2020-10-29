@@ -64,9 +64,7 @@ maxmemory-policy noeviction
 
 # 2.Redis的8种数据淘汰策略
 
-
-
-## 2、volatile-lru，使用LRU算法删除设置了expire的key
+## 1.volatile-lru，使用LRU算法删除设置了expire的key
 
 ## 注：redis使用的是一种伪LRU算法，应该是出于性能考虑
 
@@ -95,7 +93,7 @@ public void volatileTest() {
 
 该测试结果是i为前100设置了expire的key被删除了部分，使用volatile-lru重新执行noevicationTest方法，内存不足时也会抛出异常
 
-## 3、allkeys-lru，使用LRU算法（最近最少使用）删除key
+## 2.allkeys-lru，使用LRU算法（最近最少使用）删除key
 
 **测试代码：**
 
@@ -121,7 +119,7 @@ public void allkeysTest() throws InterruptedException {
 
 i为前100设置了expire的key被删除了部分，去掉sleep的话i为后100的key也被删除部分。
 
-## 4、volatile-lfu，使用LFU算法删除设置了expire的key
+## 3.volatile-lfu，使用LFU算法删除设置了expire的key
 
 ## 注：使用的也是一种伪LFU算法
 
@@ -131,7 +129,7 @@ LFU（Least Frequently Used）算法根据数据的历史访问频率来淘汰�
 
 结果同2
 
-## 5、allkeys-lfu，使用LFU算法删除key
+## 4.allkeys-lfu，使用LFU算法删除key
 
 执行allKeysTest方法
 
