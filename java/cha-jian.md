@@ -27,6 +27,15 @@
 | 1tasks | 1代码任务列表，相当于memo |
 | 1CheckStyle-IDEA | 1代码规范检查 |
 | 1Key promoter X | 1当鼠标点击功能时，快捷键提示 |
+| 1Statistic | 1代码统计 |
+| 1CodeGlance | 1在编辑代码最右侧，显示一块代码小地图 |
+| 1CamelCase | 1驼峰式命名和下划线命名交替变化 |
+| 1Background Image Plus | 1修改背景图片 |
+| 1Nyan progress bar | 1美化进度条 |
+| 1String Manipulation | 1字符串处理神器 |
+| 1restfultookit | 1搜索url，还自动生成默认的测试用例 |
+| 1Markdown support | 1支持md文件的查看和编辑 |
+| 1Gitee | 码云的插件 |
 
 ## 参考:
 
