@@ -23,19 +23,19 @@
 | Alibaba Cloud Toolkit | 通过  Alibaba Cloud Toolkit，开发者能够方便地将本地应用一键部署到任意机器（本地或云端），并内置 Arthas 诊断、高效执行终端命令和 SQL 等，提供 IntelliJ IDEA 版 |
 | EasyCode | 可以直接对数据的表生成entity、controller、service、dao、mapper无需任何编码，简单而强大。 |
 | GenerateSerialVersionUID | 快捷键快速生成serialVersionUID |
-| 1SonarLint | 1潜在Bug检查和代码规范检查 |
-| 1tasks | 1代码任务列表，相当于memo |
-| 1CheckStyle-IDEA | 1代码规范检查 |
-| 1Key promoter X | 1当鼠标点击功能时，快捷键提示 |
-| 1Statistic | 1代码统计 |
-| 1CodeGlance | 1在编辑代码最右侧，显示一块代码小地图 |
-| 1CamelCase | 1驼峰式命名和下划线命名交替变化 |
-| 1Background Image Plus | 1修改背景图片 |
-| 1Nyan progress bar | 1美化进度条 |
-| 1String Manipulation | 1字符串处理神器 |
-| 1restfultookit | 1搜索url，还自动生成默认的测试用例 |
-| 1Markdown support | 1支持md文件的查看和编辑 |
-| 1Gitee | 码云的插件 |
+| SonarLint | 潜在Bug检查和代码规范检查 |
+| tasks | 代码任务列表，相当于memo |
+| CheckStyle-IDEA | 代码规范检查 |
+| Key promoter X | 当鼠标点击功能时，快捷键提示 |
+| Statistic | 代码统计 |
+| CodeGlance | 在编辑代码最右侧，显示一块代码小地图 |
+| CamelCase | 驼峰式命名和下划线命名交替变化 |
+| Background Image Plus | 修改背景图片 |
+| Nyan progress bar | 美化进度条 |
+| String Manipulation | 字符串处理神器 |
+| restfultookit | 搜索url，还自动生成默认的测试用例 |
+| Markdown support | 支持md文件的查看和编辑 |
+| Gitee | 码云的插件 |
 
 ## 2.参考:
 
