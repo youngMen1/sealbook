@@ -1,4 +1,4 @@
-## **MongoDB 数据类型**![](/assets/mongodb数据类型.png)
+## 1.**MongoDB 数据类型**![](/assets/mongodb数据类型.png)
 
 ```
 {
@@ -24,10 +24,6 @@
         ....
     },
 ```
-
-
-
-
 
 ## 特性
 
@@ -70,7 +66,7 @@ MongoDB 的主要特性，可以对照自己的业务需求看看，匹配的越
 
 ---
 
-## 参考:
+## 2.参考:
 
 [https://yq.aliyun.com/articles/73884?spm=5176.10695662.1996646101.searchclickresult.12535a51yAjKGr](https://yq.aliyun.com/articles/73884?spm=5176.10695662.1996646101.searchclickresult.12535a51yAjKGr)
 
