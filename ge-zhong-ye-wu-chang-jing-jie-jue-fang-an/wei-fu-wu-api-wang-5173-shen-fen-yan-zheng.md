@@ -27,6 +27,8 @@
 
 ## 1.2.接口调用验证
 
+**指用户直接通过调用系统的RESTful API等方式来发起操作，常见的接口调用验证方案有HMAC、JWT、证书等。**
+
 
 # 2.参考
 微服务API网关-身份验证：https://blog.csdn.net/haohzhang/article/details/108085488
