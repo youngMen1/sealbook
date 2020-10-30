@@ -306,7 +306,7 @@
   * [设计模式在外卖营销业务中的实践](she-ji-mo-shi/she-ji-mo-shi-zai-wai-mai-ying-xiao-ye-wu-zhong-de-shi-jian.md)
 * [各种业务场景解决方案](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an.md)
   * [支付系统](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/zhi-fu-xi-tong.md)
-    * 支付系统设计白皮书：支付核心的 7 个要点
+    * [支付系统设计白皮书：支付核心的 7 个要点](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/zhi-fu-xi-tong/zhi-fu-xi-tong-she-ji-bai-pi-shu-ff1a-zhi-fu-he-xin-de-7-ge-yao-dian.md)
   * [订单服务](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/ding-dan-fu-wu.md)
     * [订单系统：从0到1设计思路](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/ding-dan-fu-wu/ding-dan-xi-tong-ff1a-cong-0-dao-1-she-ji-si-lu.md)
   * [在线旅游\(OTA\)](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/zai-xian-lv-6e3828-ota.md)
