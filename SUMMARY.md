@@ -317,7 +317,9 @@
   * [营销中台](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/ying-xiao-zhong-tai.md)
   * [微服务API网关-身份验证](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/wei-fu-wu-api-wang-5173-shen-fen-yan-zheng.md)
   * [微服务API网关-权限控制](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/wei-fu-wu-api-wang-5173-quan-xian-kong-zhi.md)
-  * 秒杀系统设计
+  * [秒杀系统设计](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/miao-sha-xi-tong-she-ji.md)
+    * 01 \| 设计秒杀系统时应该注意的5个架构原则
+    * 开篇词 \| 秒杀系统架构设计都有哪些关键点
 * [CSDN专栏文章](csdnlan-mu-wen-zhang.md)
   * [并发编程](csdnlan-mu-wen-zhang/bing-fa-bian-cheng.md)
   * [许令波老师晋升评审](csdnlan-mu-wen-zhang/xu-ling-bo-lao-shi-jin-sheng-ping-shen.md)
