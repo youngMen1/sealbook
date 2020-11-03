@@ -324,6 +324,7 @@
   * [秒杀系统设计](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/miao-sha-xi-tong-she-ji.md)
     * [01 \| 设计秒杀系统时应该注意的5个架构原则](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/miao-sha-xi-tong-she-ji/01-she-ji-miao-sha-xi-tong-shi-ying-gai-zhu-yi-de-5-ge-jia-gou-yuan-ze.md)
     * [开篇词 \| 秒杀系统架构设计都有哪些关键点](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/miao-sha-xi-tong-she-ji/kai-pian-ci-miao-sha-xi-tong-jia-gou-she-ji-du-you-na-xie-guan-jian-dian.md)
+    * 02 \| 如何才能做好动静分离？有哪些方案可选？
 * [CSDN专栏文章](csdnlan-mu-wen-zhang.md)
   * [并发编程](csdnlan-mu-wen-zhang/bing-fa-bian-cheng.md)
   * [许令波老师晋升评审](csdnlan-mu-wen-zhang/xu-ling-bo-lao-shi-jin-sheng-ping-shen.md)
