@@ -187,7 +187,8 @@
   * Apache ab压力测试工具
   * Jmeter
   * TarsBenchmark无码压测工具
-  * 压测工具
+  * [压测工具](sealblog/ya-ce-gong-ju.md)
+    * ADSFSD
 * [分布式配置中心](fen-bu-shi-pei-zhi-zhong-xin.md)
   * [阿里的Diamond](fen-bu-shi-pei-zhi-zhong-xin/a-lidiamond.md)
   * [百度的Disconf](fen-bu-shi-pei-zhi-zhong-xin/bai-du-disconf.md)
