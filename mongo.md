@@ -81,7 +81,7 @@ rm -r /var/log/mongodb
 rm -r /var/lib/mongo
 ```
 
-### 参考官网：
+# 2.参考
 
-[https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/)
+官网：[https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/)
 
