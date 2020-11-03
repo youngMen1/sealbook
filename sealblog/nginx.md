@@ -1,4 +1,4 @@
-# centos7安装nginx
+# 1.centos7安装nginx
 
 ---
 
@@ -17,6 +17,8 @@
 ```
 
 ---
+
+# 2.参考
 
 [https://www.linuxidc.com/Linux/2016-09/134907.htm](https://www.linuxidc.com/Linux/2016-09/134907.htm)
 
