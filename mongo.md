@@ -1,4 +1,4 @@
-## centos7安装mongodb
+# 1.centos7安装mongodb
 
 ### 配置yum管理包
 
