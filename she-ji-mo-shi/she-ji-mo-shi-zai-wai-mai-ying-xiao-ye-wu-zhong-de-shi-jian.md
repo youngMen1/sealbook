@@ -107,7 +107,7 @@ public class Context {
 
 **工程实践**
 
-通过上文介绍的返奖业务模型，我们可以看到返奖的主流程就是选择不同的返奖策略的过程，每个返奖策略都包括返奖金额计算、更新用户奖金信息、以及结算这三个步骤。我们可以使用工厂模式生产出不同的策略，同时使用策略模式来进行不同的策略执行。首先确定我们需要生成出n种不同的返奖策略，其编码如下：
+通过上文介绍的**返奖业务模型**，我们可以看到**返奖的主流程就是选择不同的返奖策略的过程，每个返奖策略都包括返奖金额计算、更新用户奖金信息、以及结算这三个步骤。**我们可以使用工厂模式生产出不同的策略，同时使用策略模式来进行不同的策略执行。首先确定我们需要生成出n种不同的返奖策略，其编码如下：
 
 ```
 //抽象策略
@@ -553,13 +553,13 @@ Software design pattern：
 
 《领域驱动设计-软件核心复杂性应对之道》，Eric Evans，人民邮电出版社。  
 领域驱动设计（DDD）在互联网业务系统的实践:  
-[https://mp.weixin.qq.com/s?\_\_biz=MjM5NjQ5MTI5OA==&mid=2651747236&idx=1&sn=baf67052ec1961c3c6de1af26fba9b22&chksm=bd12aae98a6523ff90b3461d00fee548554fdeb2112b541de87d0c59dea45bc60d2f5211d6a6&scene=21\#wechat\_redirect](https://mp.weixin.qq.com/s?__biz=MjM5NjQ5MTI5OA==&mid=2651747236&idx=1&sn=baf67052ec1961c3c6de1af26fba9b22&chksm=bd12aae98a6523ff90b3461d00fee548554fdeb2112b541de87d0c59dea45bc60d2f5211d6a6&scene=21#wechat_redirect)
+[https://mp.weixin.qq.com/s?\_\_biz=MjM5NjQ5MTI5OA==∣=2651747236&idx=1&sn=baf67052ec1961c3c6de1af26fba9b22&chksm=bd12aae98a6523ff90b3461d00fee548554fdeb2112b541de87d0c59dea45bc60d2f5211d6a6&scene=21\#wechat\_redirect](https://mp.weixin.qq.com/s?__biz=MjM5NjQ5MTI5OA==&mid=2651747236&idx=1&sn=baf67052ec1961c3c6de1af26fba9b22&chksm=bd12aae98a6523ff90b3461d00fee548554fdeb2112b541de87d0c59dea45bc60d2f5211d6a6&scene=21#wechat_redirect)
 
 美团下一代服务治理系统 OCTO2.0 的探索与实践:  
-[https://mp.weixin.qq.com/s?\_\_biz=MjM5NjQ5MTI5OA==&mid=2651751158&idx=1&sn=c01a900ae4cef7decf3acfbaad62168f&chksm=bd125bbb8a65d2ad4a896e5ec2dc366be198da09bc04dbfedc397e3821d66ef89d70ed6bc49e&scene=21\#wechat\_redirect](https://mp.weixin.qq.com/s?__biz=MjM5NjQ5MTI5OA==&mid=2651751158&idx=1&sn=c01a900ae4cef7decf3acfbaad62168f&chksm=bd125bbb8a65d2ad4a896e5ec2dc366be198da09bc04dbfedc397e3821d66ef89d70ed6bc49e&scene=21#wechat_redirect)
+[https://mp.weixin.qq.com/s?\_\_biz=MjM5NjQ5MTI5OA==∣=2651751158&idx=1&sn=c01a900ae4cef7decf3acfbaad62168f&chksm=bd125bbb8a65d2ad4a896e5ec2dc366be198da09bc04dbfedc397e3821d66ef89d70ed6bc49e&scene=21\#wechat\_redirect](https://mp.weixin.qq.com/s?__biz=MjM5NjQ5MTI5OA==&mid=2651751158&idx=1&sn=c01a900ae4cef7decf3acfbaad62168f&chksm=bd125bbb8a65d2ad4a896e5ec2dc366be198da09bc04dbfedc397e3821d66ef89d70ed6bc49e&scene=21#wechat_redirect)
 
 数据驱动精准化营销在大众点评的实践:  
-[https://mp.weixin.qq.com/s?\_\_biz=MjM5NjQ5MTI5OA==&mid=404261497&idx=1&sn=1c7628e36701d4ceee6f0f651fa7d1d3&chksm=3b0453340c73da223144e7f8825caff3355bb60a95c0e33804f39a9476bd4875b80fc5a259f4&scene=21\#wechat\_redirect](https://mp.weixin.qq.com/s?__biz=MjM5NjQ5MTI5OA==&mid=404261497&idx=1&sn=1c7628e36701d4ceee6f0f651fa7d1d3&chksm=3b0453340c73da223144e7f8825caff3355bb60a95c0e33804f39a9476bd4875b80fc5a259f4&scene=21#wechat_redirect)
+[https://mp.weixin.qq.com/s?\_\_biz=MjM5NjQ5MTI5OA==∣=404261497&idx=1&sn=1c7628e36701d4ceee6f0f651fa7d1d3&chksm=3b0453340c73da223144e7f8825caff3355bb60a95c0e33804f39a9476bd4875b80fc5a259f4&scene=21\#wechat\_redirect](https://mp.weixin.qq.com/s?__biz=MjM5NjQ5MTI5OA==&mid=404261497&idx=1&sn=1c7628e36701d4ceee6f0f651fa7d1d3&chksm=3b0453340c73da223144e7f8825caff3355bb60a95c0e33804f39a9476bd4875b80fc5a259f4&scene=21#wechat_redirect)
 
 原文：[https://zyl.me/blog/2162](https://zyl.me/blog/2162)
 
