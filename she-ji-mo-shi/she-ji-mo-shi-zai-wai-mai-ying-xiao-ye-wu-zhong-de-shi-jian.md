@@ -1,4 +1,4 @@
-为了实现过滤规则的解耦，对单个规则值对象的修改封闭，并对规则集合组成的过滤链条开放，我们在资源位过滤的领域服务中引入了责任链模式。# 1.设计模式在外卖营销业务中的具体案例
+为了实现过滤规则的解耦，对单个规则值对象的修改封闭，并对规则集合组成的过滤链条开放，我们在资源位过滤的领域服务中引入了责任链模式。\# 1.设计模式在外卖营销业务中的具体案例
 
 ## 1.1.**“邀请下单”业务中设计模式的实践**
 
@@ -20,7 +20,7 @@
 
 ![img](/static/image/2.png)
 
-从这份业务逻辑图中可以看到返奖金额计算的规则。首先要根据用户状态确定用户是否满足返奖条件。如果满足返奖条件，则继续判断当前用户属于新用户还是老用户，从而给予不同的奖励方案。一共涉及以下几种不同的奖励方案：
+从这份业务逻辑图中可以看到**返奖金额计算的规则**。首先要根据用户状态确定用户是否满足返奖条件。如果满足返奖条件，则继续判断当前用户属于新用户还是老用户，从而给予不同的奖励方案。一共涉及以下几种不同的奖励方案：
 
 **新用户**
 
@@ -33,7 +33,7 @@
 * 根据老用户的用户属性来计算返奖金额。为了评估不同的邀新效果，老用户返奖会存在多种返奖机制。
   计算完奖励金额以后，还需要更新用户的奖金信息，以及通知结算服务对用户的金额进行结算。这两个模块对于所有的奖励来说都是一样的。
 
-可以看到，无论是何种用户，对于整体返奖流程是不变的，唯一变化的是返奖规则。此处，我们可参考**开闭原则**，对于返奖流程保持封闭，对于可能扩展的返奖规则进行开放。我们将返奖规则抽象为**返奖策略**，即针对不同用户类型的不同返奖方案，我们视为不同的**返奖策略**，不同的返奖策略会产生不同的返奖金额结果。
+可以看到，无论是何种用户，对于整体返奖流程是不变的，**唯一变化的是返奖规则。**此处，我们可参考**开闭原则**，对于返奖流程保持封闭，对于可能扩展的返奖规则进行开放。我们将返奖规则抽象为**返奖策略**，即针对不同用户类型的不同返奖方案，我们视为不同的**返奖策略**，不同的返奖策略会产生不同的返奖金额结果。
 
 在我们的领域模型里，返奖策略是一个**值对象**，我们通过工厂的方式生产针对不同用户的奖励策略值对象。下文我们将介绍以上领域模型的工程实现，即**工厂模式**和**策略模式**的实际应用。
 
@@ -397,7 +397,6 @@ public class InviteRewardServiceImpl {
 
 我们通过一段比较通用的代码来解释如何使用责任链模式：
 
-
 ```
 //定义一个抽象的handle
 public abstract class Handler {
@@ -452,9 +451,9 @@ class Client {
     }
 }
 ```
-**工程实践**
-下面通过代码向大家展示如何实现这一套流程：
 
+**工程实践**  
+下面通过代码向大家展示如何实现这一套流程：
 
 ```
 //定义一个抽象的规则
@@ -512,7 +511,7 @@ public class UserPortraitRule extends BasicRule<UserPortrait, UserPortraitRuleCo
         "userGroupValidRule"/>
         "cityInfoValidRule"/>
         "userPortraitRule"/>
-    
+
 
 //规则执行
 public class DefaultRuleEngine{
@@ -525,8 +524,8 @@ public class DefaultRuleEngine{
         }
     }
 }
-
 ```
+
 责任链模式最重要的优点就是解耦，将客户端与处理者分开，客户端不需要了解是哪个处理者对事件进行处理，处理者也不需要知道处理的整个流程。
 
 在我们的系统中，后台的过滤规则会经常变动，规则和规则之间可能也会存在传递关系，通过责任链模式，我们将规则与规则分开，将规则与规则之间的传递关系通过Spring注入到List中，形成一个链的关系。当增加一个规则时，只需要实现BasicRule接口，然后将新增的规则按照顺序加入Spring中即可。当删除时，只需删除相关规则即可，不需要考虑代码的其他逻辑。从而显著地提高了代码的灵活性，提高了代码的开发效率，同时也保证了系统的稳定性。
@@ -543,25 +542,24 @@ public class DefaultRuleEngine{
 
 # 4.参考
 
-
 软件设计模式-百度百科
 
-快速理解-设计模式六大原则：
-https://www.jianshu.com/p/807bc228dbc2
-Software design pattern：
-https://en.wikipedia.org/wiki/Software_design_pattern
+快速理解-设计模式六大原则：  
+[https://www.jianshu.com/p/807bc228dbc2](https://www.jianshu.com/p/807bc228dbc2)  
+Software design pattern：  
+[https://en.wikipedia.org/wiki/Software\_design\_pattern](https://en.wikipedia.org/wiki/Software_design_pattern)
 
 《设计模式之禅》，秦小波，机械工业出版社
 
-《领域驱动设计-软件核心复杂性应对之道》，Eric Evans，人民邮电出版社。
-领域驱动设计（DDD）在互联网业务系统的实践:
-https://mp.weixin.qq.com/s?__biz=MjM5NjQ5MTI5OA==&mid=2651747236&idx=1&sn=baf67052ec1961c3c6de1af26fba9b22&chksm=bd12aae98a6523ff90b3461d00fee548554fdeb2112b541de87d0c59dea45bc60d2f5211d6a6&scene=21#wechat_redirect
+《领域驱动设计-软件核心复杂性应对之道》，Eric Evans，人民邮电出版社。  
+领域驱动设计（DDD）在互联网业务系统的实践:  
+[https://mp.weixin.qq.com/s?\_\_biz=MjM5NjQ5MTI5OA==&mid=2651747236&idx=1&sn=baf67052ec1961c3c6de1af26fba9b22&chksm=bd12aae98a6523ff90b3461d00fee548554fdeb2112b541de87d0c59dea45bc60d2f5211d6a6&scene=21\#wechat\_redirect](https://mp.weixin.qq.com/s?__biz=MjM5NjQ5MTI5OA==&mid=2651747236&idx=1&sn=baf67052ec1961c3c6de1af26fba9b22&chksm=bd12aae98a6523ff90b3461d00fee548554fdeb2112b541de87d0c59dea45bc60d2f5211d6a6&scene=21#wechat_redirect)
 
-美团下一代服务治理系统 OCTO2.0 的探索与实践:
-https://mp.weixin.qq.com/s?__biz=MjM5NjQ5MTI5OA==&mid=2651751158&idx=1&sn=c01a900ae4cef7decf3acfbaad62168f&chksm=bd125bbb8a65d2ad4a896e5ec2dc366be198da09bc04dbfedc397e3821d66ef89d70ed6bc49e&scene=21#wechat_redirect
+美团下一代服务治理系统 OCTO2.0 的探索与实践:  
+[https://mp.weixin.qq.com/s?\_\_biz=MjM5NjQ5MTI5OA==&mid=2651751158&idx=1&sn=c01a900ae4cef7decf3acfbaad62168f&chksm=bd125bbb8a65d2ad4a896e5ec2dc366be198da09bc04dbfedc397e3821d66ef89d70ed6bc49e&scene=21\#wechat\_redirect](https://mp.weixin.qq.com/s?__biz=MjM5NjQ5MTI5OA==&mid=2651751158&idx=1&sn=c01a900ae4cef7decf3acfbaad62168f&chksm=bd125bbb8a65d2ad4a896e5ec2dc366be198da09bc04dbfedc397e3821d66ef89d70ed6bc49e&scene=21#wechat_redirect)
 
-数据驱动精准化营销在大众点评的实践:
-https://mp.weixin.qq.com/s?__biz=MjM5NjQ5MTI5OA==&mid=404261497&idx=1&sn=1c7628e36701d4ceee6f0f651fa7d1d3&chksm=3b0453340c73da223144e7f8825caff3355bb60a95c0e33804f39a9476bd4875b80fc5a259f4&scene=21#wechat_redirect
+数据驱动精准化营销在大众点评的实践:  
+[https://mp.weixin.qq.com/s?\_\_biz=MjM5NjQ5MTI5OA==&mid=404261497&idx=1&sn=1c7628e36701d4ceee6f0f651fa7d1d3&chksm=3b0453340c73da223144e7f8825caff3355bb60a95c0e33804f39a9476bd4875b80fc5a259f4&scene=21\#wechat\_redirect](https://mp.weixin.qq.com/s?__biz=MjM5NjQ5MTI5OA==&mid=404261497&idx=1&sn=1c7628e36701d4ceee6f0f651fa7d1d3&chksm=3b0453340c73da223144e7f8825caff3355bb60a95c0e33804f39a9476bd4875b80fc5a259f4&scene=21#wechat_redirect)
 
-原文：https://zyl.me/blog/2162
+原文：[https://zyl.me/blog/2162](https://zyl.me/blog/2162)
 
