@@ -28,5 +28,7 @@ IDEA 从入门到精通：[https://github.com/xiaoxiunique/tool-tips](https://gi
 
 并发编程网：[http://ifeve.com/](http://ifeve.com/)
 
-pzdn2009：https://docs.kolematech.com/basic/ddd
+pzdn2009：[https://docs.kolematech.com/basic/ddd](https://docs.kolematech.com/basic/ddd)
+
+支付系统设计：http://doc.cocolian.cn
 
