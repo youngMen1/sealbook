@@ -38,6 +38,8 @@ yml在线格式转换工具（properties）：[https://www.toyaml.com/index1.htm
 
 Discuz论坛：[https://www.discuz.net/library/library/database/uc/uc\_index.htm](https://www.discuz.net/library/library/database/uc/uc_index.htm)
 
+redis命令参考：http://redisdoc.com
+
 阿里云去年上线了一款项目初始化工具\(可以生成demo\)：[https://start.aliyun.com/](https://start.aliyun.com/)
 
 ![](/static/image/微信图片_20200702101829.jpg)
