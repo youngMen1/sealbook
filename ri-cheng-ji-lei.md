@@ -26,7 +26,7 @@ TinyPNG:[https://tinypng.com](https://tinypng.com)
 
 guava:[https://www.yiibai.com/guava/](https://www.yiibai.com/guava/)
 
-MaHua 在线markdown编辑器:mahua.jser.me
+MaHua 在线markdown编辑器：mahua.jser.me
 
 emoji表情代码大全:bj.96weixin.com/tools/emoji
 
@@ -38,7 +38,7 @@ yml在线格式转换工具（properties）：[https://www.toyaml.com/index1.htm
 
 Discuz论坛：[https://www.discuz.net/library/library/database/uc/uc\_index.htm](https://www.discuz.net/library/library/database/uc/uc_index.htm)
 
-redis命令参考：http://redisdoc.com
+redis命令参考：[http://redisdoc.com](http://redisdoc.com)
 
 阿里云去年上线了一款项目初始化工具\(可以生成demo\)：[https://start.aliyun.com/](https://start.aliyun.com/)
 
