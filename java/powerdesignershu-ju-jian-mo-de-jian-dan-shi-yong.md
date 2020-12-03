@@ -40,9 +40,8 @@
 
 # 4.参考
 
-PowerDesigner数据建模的简单使用\(设计表\)：  
-[https://blog.csdn.net/qq\_38200548/article/details/80238083](https://blog.csdn.net/qq_38200548/article/details/80238083)
+PowerDesigner数据建模的简单使用(设计表)：https://blog.csdn.net/qq_38200548/article/details/80238083
 
-[使用PowerDesigner设计数据库](https://www.cnblogs.com/cn-chy-com/p/10710508.html)：[https://www.cnblogs.com/cn-chy-com/p/10710508.html](https://www.cnblogs.com/cn-chy-com/p/10710508.html)
+使用PowerDesigner设计数据库：https://www.cnblogs.com/cn-chy-com/p/10710508.html
 
-https://www.cnblogs.com/cube/p/3591194.html
+PowerDesigner创建物理模型：https://www.cnblogs.com/cube/p/3591194.html
