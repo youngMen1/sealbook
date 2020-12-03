@@ -45,3 +45,4 @@ PowerDesigner数据建模的简单使用\(设计表\)：
 
 [使用PowerDesigner设计数据库](https://www.cnblogs.com/cn-chy-com/p/10710508.html)：[https://www.cnblogs.com/cn-chy-com/p/10710508.html](https://www.cnblogs.com/cn-chy-com/p/10710508.html)
 
+https://www.cnblogs.com/cube/p/3591194.html
