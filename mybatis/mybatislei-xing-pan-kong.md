@@ -18,9 +18,7 @@
 
 ## 集合类型判空
 
-
 ```
-
     <select id="listSpecialCardOrder" resultMap="ResultSpecialOrderListVOMap">
         SELECT
             o.id,
