@@ -110,20 +110,22 @@
     </select>
 ```
 
-## MySQL DATE_FORMAT() 函数
+## 1.3.MySQL DATE\_FORMAT\(\) 函数
+
 ### 实例
-下面的脚本使用 DATE_FORMAT() 函数来显示不同的格式。我们使用 NOW() 来获得当前的日期/时间：
-DATE_FORMAT(NOW(),'%b %d %Y %h:%i %p')
-DATE_FORMAT(NOW(),'%m-%d-%Y')
-DATE_FORMAT(NOW(),'%d %b %y')
-DATE_FORMAT(NOW(),'%d %b %Y %T:%f')
-DATE_FORMAT(NOW(),'%y-%m-%d')
+
+下面的脚本使用 DATE\_FORMAT\(\) 函数来显示不同的格式。我们使用 NOW\(\) 来获得当前的日期/时间：  
+DATE\_FORMAT\(NOW\(\),'%b %d %Y %h:%i %p'\)  
+DATE\_FORMAT\(NOW\(\),'%m-%d-%Y'\)  
+DATE\_FORMAT\(NOW\(\),'%d %b %y'\)  
+DATE\_FORMAT\(NOW\(\),'%d %b %Y %T:%f'\)  
+DATE\_FORMAT\(NOW\(\),'%y-%m-%d'\)
+
 ### 结果类似：
-Dec 29 2008 11:45 PM
-12-29-2008
-29 Dec 08
-29 Dec 2008 16:25:46.635
+
+Dec 29 2008 11:45 PM  
+12-29-2008  
+29 Dec 08  
+29 Dec 2008 16:25:46.635  
 2008-29-12
-
-
 
