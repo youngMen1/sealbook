@@ -25,12 +25,14 @@
 
 ## 1.2.mybatis传入混合参数（多个不同类型的参数）
 
-### 方式一
+### 1.2.1.方式一
 
 #### 调用的接口
+
 `public List<User> selectUserInIDs(List<Integer> ids,String name);`
 
 #### Mapper.xml文件
+
 ```
 <select id="selectUserInIDs" resultType="User">  
         select * from user where id in   
@@ -38,13 +40,10 @@
             #{item}  
         </foreach>  
         and name = #{param2}  
-    </select>  
+    </select>
 ```
 
-
-
-
-### 方式二
+### 1.2.2.方式二
 
 #### 调用的接口
 
