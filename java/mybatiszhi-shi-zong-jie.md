@@ -23,15 +23,30 @@
  尽量缩小 <![CDATA[  ]]> 的范围。
 ```
 
-
 ## 1.2.mybatis传入混合参数（多个不同类型的参数）
 
 #### 调用的接口
-   `List<SpecialOrderListVO> listSpecialOrder(@Param("id") String id, @Param("specialOrderVO") SpecialOrderVO specialOrderVO);`
+
+`List<SpecialOrderListVO> listSpecialOrder(@Param("id") String id, @Param("specialOrderVO") SpecialOrderVO specialOrderVO);`
 
 #### Mapper.xml文件
 
 ```
+     <resultMap id="ResultSpecialOrderListVOMap" type="com.gdfl.order.vo.SpecialOrderListVO">
+        <result column="order_no" property="orderNo"/>
+        <result column="member_name" property="memberName"/>
+        <result column="member_phone" property="memberPhone"/>
+        <result column="order_amount" property="orderAmount"/>
+        <result column="staff_name" property="staffName"/>
+        <result column="goods_type" property="goodsType"/>
+        <result column="create_time" property="createTime"/>
+        <result column="pay_mode" property="payMode"/>
+        <result column="pay_time" property="payTime"/>
+        <result column="status" property="status"/>
+        <result column="name" property="clubName"/>
+        <result column="phone" property="salePhone"/>
+    </resultMap>
+ 
  <select id="listSpecialOrder" resultMap="ResultSpecialOrderListVOMap">
         SELECT
         o.order_no,
@@ -73,7 +88,7 @@
         </if>
          ORDER BY so.create_time DESC
     </select>
-
 ```
+
 
 
