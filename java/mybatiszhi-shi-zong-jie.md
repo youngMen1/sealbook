@@ -25,6 +25,27 @@
 
 ## 1.2.mybatis传入混合参数（多个不同类型的参数）
 
+### 方式一
+
+#### 调用的接口
+`public List<User> selectUserInIDs(List<Integer> ids,String name);`
+
+#### Mapper.xml文件
+```
+<select id="selectUserInIDs" resultType="User">  
+        select * from user where id in   
+        <foreach collection="param1" item="item" open="(" separator="," close=")">  
+            #{item}  
+        </foreach>  
+        and name = #{param2}  
+    </select>  
+```
+
+
+
+
+### 方式二
+
 #### 调用的接口
 
 `List<SpecialOrderListVO> listSpecialOrder(@Param("id") String id, @Param("specialOrderVO") SpecialOrderVO specialOrderVO);`
@@ -46,7 +67,7 @@
         <result column="name" property="clubName"/>
         <result column="phone" property="salePhone"/>
     </resultMap>
- 
+
  <select id="listSpecialOrder" resultMap="ResultSpecialOrderListVOMap">
         SELECT
         o.order_no,
