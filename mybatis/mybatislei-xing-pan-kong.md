@@ -1,14 +1,14 @@
 # 1.Mybatis类型判空
 
-## int/Integer类型的参数为空判断
+## 1.1.int/Integer类型的参数为空判断
 
 ```
-<if test="orderStatus!= null and orderStatus != ''">
+<if test="orderStatus != null and orderStatus != ''">
     order_status= #{orderStatus},
 </if>
 ```
 
-## String类型的参数为空判断
+## 1.2.String类型的参数为空判断
 
 ```
 <if test="userName != null and userName != ''">
@@ -16,7 +16,7 @@
 </if>
 ```
 
-## 集合类型判空
+## 1.3.集合类型判空
 
 ```
     <select id="listSpecialCardOrder" resultMap="ResultSpecialOrderListVOMap">
