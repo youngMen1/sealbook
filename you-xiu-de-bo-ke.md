@@ -30,5 +30,5 @@ IDEA 从入门到精通：[https://github.com/xiaoxiunique/tool-tips](https://gi
 
 pzdn2009：[https://docs.kolematech.com/basic/ddd](https://docs.kolematech.com/basic/ddd)
 
-支付系统设计：http://doc.cocolian.cn
+支付系统设计：[http://doc.cocolian.cn](http://doc.cocolian.cn)、http://docs.xxpay.org/docs/api/19
 
