@@ -24,7 +24,12 @@
 
 公钥加密，私钥解密；私钥签名，公钥验签。
 
-# 5.参考
+# 5.问题
+#### 1.RSA加密的原理——为什么被公钥加密的可以被私钥解密？
+1.RSA 数学理论基础
+2.RSA实现原理
+3.RSA加密的过程
+# 6.参考
 公钥与私钥：https://zhuanlan.zhihu.com/p/31477508
 签名和验签（简易流程）：https://www.cnblogs.com/zhoujl-5071/articles/9667394.html
 
