@@ -316,6 +316,7 @@
     * [支付系统设计白皮书：支付核心的 7 个要点](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/zhi-fu-xi-tong/zhi-fu-xi-tong-she-ji-bai-pi-shu-ff1a-zhi-fu-he-xin-de-7-ge-yao-dian.md)
     * [支付系统难点全面梳理剖析：核算对账核心](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/zhi-fu-xi-tong/zhi-fu-xi-tong-nan-dian-quan-mian-shu-li-pou-xi-ff1a-he-suan-dui-zhang-he-xin.md)
     * [支付系统设计](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/zhi-fu-xi-tong/zhi-fu-xi-tong-she-ji.md)
+    * 支付系统设计实例
   * [订单服务](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/ding-dan-fu-wu.md)
     * [订单系统：从0到1设计思路](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/ding-dan-fu-wu/ding-dan-xi-tong-ff1a-cong-0-dao-1-she-ji-si-lu.md)
   * [在线旅游\(OTA\)](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/zai-xian-lv-6e3828-ota.md)
