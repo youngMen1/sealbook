@@ -25,6 +25,7 @@
 公钥加密，私钥解密；私钥签名，公钥验签。
 
 # 5.参考
-https://zhuanlan.zhihu.com/p/31477508
+公钥与私钥：https://zhuanlan.zhihu.com/p/31477508
+https://www.cnblogs.com/zhoujl-5071/articles/9667394.html
 
 
