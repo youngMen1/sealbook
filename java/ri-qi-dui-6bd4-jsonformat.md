@@ -9,8 +9,10 @@
 
 ## @JsonFormat
 
-@JsonFormat是Jackson的注解，和@JSONField功能相同，将日期按照指定格式进行格式化，模式的市区是GMT
+主要用于后台传值到前台
 
+@JsonFormat是Jackson的注解，和@JSONField功能相同，将日期按照指定格式进行格式化，模式的市区是GMT
+将Java对象转换成json对象和xml文档，或将json、xml转换成Java对象。
 
 ```
 @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
