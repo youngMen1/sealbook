@@ -1,5 +1,5 @@
 # 日期对比
-## @JSONField(format = "yyyy-MM-dd HH:mm:ss")
+## @JSONField
 
 @JSONField是fastjson的注解，作用是将日期按照指定的格式，格式化为字符串，返回给前端
 
@@ -7,7 +7,7 @@
 @JSONField(format = "yyyy-MM-dd HH:mm:ss")
 ```
 
-## @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
+## @JsonFormat
 
 @JsonFormat是Jackson的注解，和@JSONField功能相同，将日期按照指定格式进行格式化，模式的市区是GMT
 
@@ -16,7 +16,6 @@
 @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
 
 ```
-
 
 ## @DateTimeFormat
 
