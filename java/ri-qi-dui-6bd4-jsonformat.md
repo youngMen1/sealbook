@@ -2,6 +2,11 @@
 
 ## @JSONField
 
+```
+@JSONField(format = "yyyy-MM-dd HH:mm:ss")
+```
+
+
 @JSONField是fastjson的注解，作用是将日期按照指定的格式，格式化为字符串，返回给前端  
 **@JSONField的作用对象:**
 
@@ -13,9 +18,6 @@
 
 当作用在getter上时，在bean转换为json时，其key值为name定义的值。
 
-```
-@JSONField(format = "yyyy-MM-dd HH:mm:ss")
-```
 
 ## @JsonFormat
 
