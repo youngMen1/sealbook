@@ -14,9 +14,7 @@
   @JSONField作用在Field时，其name不仅定义了输入key的名称，同时也定义了输出的名称。
 
 * 2.Setter 和 Getter方法  
-  顾名思义，当作用在setter方法上时，就相当于根据 name 到 json中寻找对应的值，并调用该setter对象赋值。
-
-当作用在getter上时，在bean转换为json时，其key值为name定义的值。
+  顾名思义，当作用在setter方法上时，就相当于根据 name 到 json中寻找对应的值，并调用该setter对象赋值。当作用在getter上时，在bean转换为json时，其key值为name定义的值。
 
 
 ## @JsonFormat
