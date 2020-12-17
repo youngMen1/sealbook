@@ -129,3 +129,40 @@ Dec 29 2008 11:45 PM
 29 Dec 2008 16:25:46.635  
 2008-29-12
 
+```
+    SELECT
+    cui.id,
+    cui.employee_name,
+    cui.employee_mobile,
+    cui.shop_name,
+    cui.shop_id,
+    cui.admission_time,
+    ci.channel_name
+    FROM channel_consumption_record cui
+    INNER JOIN channel_order co ON (cui.order_id=co.order_no)
+    INNER JOIN channel_info ci on (co.channel_code=ci.id)
+    WHERE 1=1
+    <if test="channelInfoId != null and channelInfoId != ''">
+    AND ci.id = #{channelInfoId}
+    </if>
+    <if test="startAdmissionTime != null">
+    <![CDATA[AND DATE_FORMAT(cui.admission_time,'%y-%m-%d') >= DATE_FORMAT(#{startAdmissionTime},'%y-%m-%d')]]>
+    </if>
+    <if test="endAdmissionTime != null">
+        <![CDATA[AND DATE_FORMAT(cui.admission_time,'%y-%m-%d') <= DATE_FORMAT(#{endAdmissionTime},'%y-%m-%d')]]>
+    </if>
+    <if test="employeeMobile != null and employeeMobile != ''">
+    AND cui.employee_mobile = #{employeeMobile}
+    </if>
+    <if test="shopId != null and shopId != ''">
+    AND cui.shop_id = #{shopId}
+    </if>
+    <if test="admissionTime != null and admissionTime != ''">
+    <![CDATA[AND DATE_FORMAT(cui.admission_time,'%y-%m-%d') >= DATE_FORMAT(#{admissionTime},'%y-%m-%d')]]>
+    </if>
+    GROUP BY cui.id,cui.employee_name,cui.employee_mobile,cui.shop_name,cui.shop_id,cui.admission_time,ci.channel_name
+    ORDER BY cui.admission_time ASC
+```
+
+
+
