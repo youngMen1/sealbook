@@ -328,6 +328,7 @@
     * [Java生鲜电商平台-优惠券系统的架构设计与源码解析](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/sheng-xian-ping-tai/javasheng-xian-dian-shang-ping-53f0-you-hui-quan-xi-tong-de-jia-gou-she-ji-yu-yuan-ma-jie-xi.md)
     * [Java生鲜电商平台-系统架构图](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/sheng-xian-ping-tai/javasheng-xian-dian-shang-ping-53f0-xi-tong-jia-gou-tu.md)
     * [Java生鲜电商平台-盈利模式详解](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/sheng-xian-ping-tai/javasheng-xian-dian-shang-ping-53f0-ying-li-mo-shi-xiang-jie.md)
+    * Java生鲜电商平台-用户表的设计
   * [营销中台](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/ying-xiao-zhong-tai.md)
   * [微服务API网关-身份验证](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/wei-fu-wu-api-wang-5173-shen-fen-yan-zheng.md)
   * [微服务API网关-权限控制](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/wei-fu-wu-api-wang-5173-quan-xian-kong-zhi.md)
