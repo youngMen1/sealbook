@@ -60,3 +60,15 @@ CREATE TABLE `suggestion_reply` (
 说明：其实我们系统需要知道整个售后的过程的，比如买家什么时候发起的不要钱，要货，然后师傅是什么时候知道这个消息的，如何进行售后的，他们会遇到什么问题，
 
 当然这里面有很多的问题，系统可以做的事情其实是很少的，而我们需要做的是更多的事情。
+
+```
+CREATE TABLE `order_timeline` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '自动增加ID',
+  `item_id` bigint(20) DEFAULT NULL COMMENT '订单项ID',
+  `remarks` varchar(256) DEFAULT NULL COMMENT '备注',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1980 DEFAULT CHARSET=utf8 COMMENT='售后模块，退换货时间轴，针对的是某一个订单项';
+```
+相关时间轴运营截图如下：
+641237-20180521111500103-1654435830.png
