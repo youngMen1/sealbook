@@ -53,4 +53,4 @@ CREATE TABLE `suggestion_reply` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COMMENT='客户建议回复信息表';
 ```
-
+说明：作为一个平台，平台需要回复客户的信息，买家也需要看到，当然这边系统是不区分是买家还是卖家的，我们都是可以数据的处理的。
