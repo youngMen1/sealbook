@@ -84,3 +84,33 @@ CREATE TABLE `order_item` (
 **相关业务核心代码如下：**
 
 1.注册代码中添加
+
+
+```
+/**
+     * 买家注册,第二步完善资料
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value = "/register/second/step", method = { RequestMethod.GET, RequestMethod.POST })
+    public JsonResult secondStepRegister(HttpServletRequest request, HttpServletResponse response,@RequestBody Buyer buyer) 
+    {
+        logger.info("UsersController.secondStepRegister.seller:新增买家：" + buyer);
+        if (buyer == null)
+        {
+            return new JsonResult(JsonResultCode.FAILURE, "参数异常", "");
+        }
+        try 
+        {
+            buyerService.updateBuyer(buyer);
+            //添加买家默认的常用清单
+            buyerService.insertBuyerCommon(buyer.getBuyerId(), buyer.getBuyerType(), buyer.getRegionId());
+            return new JsonResult(JsonResultCode.SUCCESS, "完善买家信息成功",buyer);
+        } catch (Exception e) {
+            logger.error("[UsersController][secondStepRegister] exception :", e);
+            return new JsonResult(JsonResultCode.FAILURE, "系统错误,请稍后重试", "");
+        }
+    }
+```
+
