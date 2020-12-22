@@ -36,7 +36,21 @@ CREATE TABLE `suggestion` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8 COMMENT='用户对平台的建议';
 ```
+说明: 平台建议表，是买家对平台的建议以及自己的需求的一个入口，可以是图片与内容两点。
+
+比如说：他说我们送的菜有问题，很多烂的，那么他是需要拍图片证明的。
 
 
 2.平台回复信息表
- 
+
+
+```
+CREATE TABLE `suggestion_reply` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '自动增加ID',
+  `suggestion_id` bigint(20) DEFAULT NULL COMMENT '客户的建议⁯ID',
+  `content` varchar(512) DEFAULT NULL COMMENT '回复的内容',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COMMENT='客户建议回复信息表';
+```
+
