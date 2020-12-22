@@ -102,3 +102,8 @@ payLogsDao.updatePayLogs(payLogs); 这块代码进行了优化。
 4.避免在整个表上使用count(*),它可能锁住整张表。
 
 相关的优化理论，我已经整理到以前的一篇文章了，这边就不再列举
+
+查看《Mysql性能优化》---https://www.cnblogs.com/jurendage/p/3798703.html
+
+3.服务器监控
+
