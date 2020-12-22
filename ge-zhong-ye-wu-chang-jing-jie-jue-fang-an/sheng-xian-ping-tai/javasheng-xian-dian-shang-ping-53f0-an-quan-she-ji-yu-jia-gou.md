@@ -30,9 +30,9 @@ App与服务器的通信接口如何设计得好，需要考虑的地方挺多�
 
 ## 接口数据的设计
 接口的数据一般都采用JSON格式进行传输，不过，需要注意的是，JSON的值只有六种数据类型：
-Number：整数或浮点数
-String：字符串
-Boolean：true 或 false
-Array：数组包含在方括号[]中
-Object：对象包含在大括号{}中
-Null：空类型
+* Number：整数或浮点数
+* String：字符串
+* Boolean：true 或 false
+* Array：数组包含在方括号[]中
+* Object：对象包含在大括号{}中
+* Null：空类型
