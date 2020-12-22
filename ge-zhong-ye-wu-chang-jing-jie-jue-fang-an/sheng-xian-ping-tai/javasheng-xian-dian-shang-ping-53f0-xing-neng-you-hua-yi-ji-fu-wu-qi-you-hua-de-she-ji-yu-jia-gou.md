@@ -1,6 +1,6 @@
 # Java生鲜电商平台-性能优化以及服务器优化的设计与架构
 
-说明：Java开源生鲜电商平台-性能优化以及服务器优化的设计与架构，我采用以下三种维度来讲解
+说明：Java开源生鲜电商平台-性能优化以及服务器优化的设计与架构，我采用以下三种维度来讲解  
 1.代码层面。
 
 2.数据库层面。
@@ -9,11 +9,10 @@
 
 诚然，性能优化这个方面的确是一个长期的过程，并不是大伙们看了我的文章后就觉得可以做的很好的，我这边只是起一个抛砖引玉的作用，给大伙一种解决问题的思路与方向。
 
-1.Java代码层面优化
+1.Java代码层面优化  
 补充说明：Java代码层面优化，你需要知道的是，那些代码需要优化，我们知道八二定律告诉我们，80%的性能问题出在20%的代码上，我们需要的是找到那些20%的代码进行针
 
 对性的优化，这样才能把服务的质量优化得最好。
-
 
 ```
 那么如何进行监控呢？又怎么样进行监控呢？可以先看前一篇文章：<Java开源生鲜电商平台-监控模块的设计与架构(源码可下载）>.  具体情况大家可以去看。
@@ -26,8 +25,6 @@
 我们知道，买家在支付成功后，支付宝或者微信会服务端回调，然后我们处理自己的业务。
 
 相应的业务，我们在订单服务器层创建一个方法：
-
-
 
 ```
 /**
@@ -59,7 +56,8 @@
         orderInfoDao.payReturn(orderInfo);
         orderItemDao.updateOrderItemByOrderNumber(orderInfo.getOrderNumber());
         buyerDao.updateBuyerBalanceToZero(orderInfo.getBuyerId());
-        payLogsDao.updatePayLogs(payLogs);        logDao.insertOperatorLogs(orderInfo,payLogs);
+        payLogsDao.updatePayLogs(payLogs);        
+        logDao.insertOperatorLogs(orderInfo,payLogs);
     }
 ```
 
@@ -69,23 +67,23 @@
 
 以上代码，究竟那块的性能最差呢？
 
-orderInfoDao.payReturn(orderInfo);      花费：100ms
+orderInfoDao.payReturn\(orderInfo\);      花费：100ms
 
-orderItemDao.updateOrderItemByOrderNumber(orderInfo.getOrderNumber());  花费300ms
+orderItemDao.updateOrderItemByOrderNumber\(orderInfo.getOrderNumber\(\)\);  花费300ms
 
-buyerDao.updateBuyerBalanceToZero(orderInfo.getBuyerId());   花费200ms
+buyerDao.updateBuyerBalanceToZero\(orderInfo.getBuyerId\(\)\);   花费200ms
 
-payLogsDao.updatePayLogs(payLogs);  花费800ms
+payLogsDao.updatePayLogs\(payLogs\);  花费800ms
 
-logDao.insertOperatorLogs(orderInfo,payLogs); 花费600ms
+logDao.insertOperatorLogs\(orderInfo,payLogs\); 花费600ms
 
 综合以上分析，我们需要把同步改成异步，分析出问题的关键。
 
-payLogsDao.updatePayLogs(payLogs); 这块代码进行了优化。
+payLogsDao.updatePayLogs\(payLogs\); 这块代码进行了优化。
 
 我们惊奇的发现，用户存在刷单的情况，就是不停的支付，就是不支付，对于线上1000多个买家而言，平均每天2单-5单，每单平均订单数在1-10之间
 
-那么一个月的订单日志记录就是：1000*30*5*10=1500000记录，我的天，问题出在这里。日志表也有巨大的量。
+那么一个月的订单日志记录就是：1000_30_5\*10=1500000记录，我的天，问题出在这里。日志表也有巨大的量。
 
 最终解决方案：同步改异步进行处理。用redis队列处理，最终性能提高到了500ms内。
 
@@ -95,15 +93,15 @@ payLogsDao.updatePayLogs(payLogs); 这块代码进行了优化。
 
 补充说明：数据库方面无外乎就是关联查询的时候，增加索引，使查询性能更高。那么到底如何做呢？
 
-查询优化:
-1.使用慢查询日志去发现慢查询。 
-2.使用执行计划去判断查询是否正常运行。 
-3.总是去测试你的查询看看是否他们运行在最佳状态下 –久而久之性能总会变化。 
-4.避免在整个表上使用count(*),它可能锁住整张表。
+查询优化:  
+1.使用慢查询日志去发现慢查询。   
+2.使用执行计划去判断查询是否正常运行。   
+3.总是去测试你的查询看看是否他们运行在最佳状态下 –久而久之性能总会变化。   
+4.避免在整个表上使用count\(\*\),它可能锁住整张表。
 
 相关的优化理论，我已经整理到以前的一篇文章了，这边就不再列举
 
-查看《Mysql性能优化》---https://www.cnblogs.com/jurendage/p/3798703.html
+查看《Mysql性能优化》---[https://www.cnblogs.com/jurendage/p/3798703.html](https://www.cnblogs.com/jurendage/p/3798703.html)
 
 3.服务器监控
 
@@ -113,16 +111,14 @@ payLogsDao.updatePayLogs(payLogs); 这块代码进行了优化。
 
 这个根据大家自己的电脑进行配置，具体情况需要大家百度自己研究，说来话长
 
-
-
 ```
 #!/bin/sh
 JAVA_OPTS="-server -Xms1024M -Xmx1024M -Xss512k -XX:+AggressiveOpts -XX:+UseBiasedLocking -XX:+DisableExplicitGC -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/log/buyer/gcdump -XX:MaxTenuringThreshold=15 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+CMSParallelRemarkEnabled -XX:+UseCMSCompactAtFullCollection -XX:LargePageSizeInBytes=128m -XX:+UseFastAccessorMethods -XX:+UseCMSInitiatingOccupancyOnly -Djava.awt.headless=true"
 ```
+
 这个是笔者的阿里云的服务器的优化。
 
 3.2.tomcat的连接池优化
-
 
 ```
 <Connector port="8081" protocol="org.apache.coyote.http11.Http11NioProtocol"
@@ -136,6 +132,7 @@ JAVA_OPTS="-server -Xms1024M -Xmx1024M -Xss512k -XX:+AggressiveOpts -XX:+UseBias
                            URIEncoding="UTF-8"
                            redirectPort="8443" />
 ```
+
 相关的优化方案可能很多，但是这些都是笔者1年半的实战总结，可能又不算很好的地方，但是稳定性压倒一切，希望分享出来，一起努力。
 
 总结：优化是一个长期的过程，无外乎就是代码级别，数据库级别，服务器级别，负载均衡等等手段
