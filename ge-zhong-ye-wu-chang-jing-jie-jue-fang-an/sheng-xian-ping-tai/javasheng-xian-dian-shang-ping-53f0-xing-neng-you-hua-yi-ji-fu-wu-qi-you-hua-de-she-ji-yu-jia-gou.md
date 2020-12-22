@@ -63,4 +63,19 @@
     }
 ```
 
+我们发现，以上6补需要采用5个数据库连接才可以完成，而且在同一个事务里面，因为需要保证数据的一致性。
+
+我们发现，整个业务的操作需要2s完成，对于我们监控业务在500ms的目标，相距太远了，怎么办？
+
+以上代码，究竟那块的性能最差呢？
+
+orderInfoDao.payReturn(orderInfo);      花费：100ms
+
+orderItemDao.updateOrderItemByOrderNumber(orderInfo.getOrderNumber());  花费300ms
+
+buyerDao.updateBuyerBalanceToZero(orderInfo.getBuyerId());   花费200ms
+
+payLogsDao.updatePayLogs(payLogs);  花费800ms
+
+logDao.insertOperatorLogs(orderInfo,payLogs); 花费600ms
 
