@@ -24,5 +24,19 @@
 
 相关数据库的设计与架构如下：
 
- 1. 买家平台建议信息表
+1.买家平台建议信息表
+
+```
+CREATE TABLE `suggestion` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '自动增加ID',
+  `suggestion_content` varchar(1024) DEFAULT NULL COMMENT '建议内容',
+  `suggestion_imgs` varchar(255) DEFAULT NULL COMMENT '多张图片',
+  `user_id` bigint(20) DEFAULT NULL COMMENT '所属用户ID',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8 COMMENT='用户对平台的建议';
+```
+
+
+2.平台回复信息表
  
