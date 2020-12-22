@@ -111,3 +111,21 @@
 **相关的业务核心代码如下：（数据也是来源于订单明细表中）**
 
 订单主表的列表：
+
+
+```
+/**
+     * 查询买家需要确认的订单列表
+     */
+    @RequestMapping(value = "/order/list", method = { RequestMethod.GET, RequestMethod.POST })
+    public JsonResult orderList(HttpServletRequest request, HttpServletResponse response,Integer type,Long saleId) {
+        try {
+            List<OrderVo> orderList = orderService.getOrderList(type, saleId);
+            return new JsonResult(JsonResultCode.SUCCESS, "查询信息成功", orderList);
+        } catch (Exception ex) {
+            logger.error("[OrderController][orderList] exception :", ex);
+            return new JsonResult(JsonResultCode.FAILURE, "系统错误,请稍后重试", "");
+        }
+    }
+```
+
