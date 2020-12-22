@@ -228,11 +228,11 @@ private static final Logger logger = LoggerFactory.getLogger(GoodsCartController
 
 1.购物车可以清空。
 
-2. 购物车可以提交。
+2.购物车可以提交。
 
-3. 购物车可以更新。
+3.购物车可以更新。
 
-4. 购物车也可以查询。
+4.购物车也可以查询。
 
 补充说明：那么APP端提交给后端的API的对象应该是怎么样的呢？
 
