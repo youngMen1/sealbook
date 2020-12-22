@@ -236,5 +236,96 @@ public class JsonResult implements java.io.Serializable {
     }
 }
 ```
+相关的JsonResultCode对象如下：
 
 
+```
+/**
+ */
+public class JsonResultCode {
+
+    /**成功**/
+    public static final String SUCCESS="200";
+
+    /**失败**/
+    public static final String FAILURE="201";
+}
+```
+最终形成了一套完整的数据量的处理，另外还有特殊的情况，比如：404,500等等其他的业务请求，我们应该如何处理的？
+
+由于我们是运行在tomcat下面的，我们在web.xml进行了配置。
+代码如下
+
+
+```
+<error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/error_500</location>
+    </error-page>
+    <error-page>
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/error_404</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error_500</location>
+    </error-page>
+    <error-page>
+        <error-code>501</error-code>
+        <location>/error_500</location>
+    </error-page>
+    <error-page>
+        <error-code>502</error-code>
+        <location>/error_500</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error_404</location>
+    </error-page>
+    <error-page>
+        <error-code>403</error-code>
+        <location>/error_404</location>
+    </error-page>
+    <error-page>
+        <error-code>400</error-code>
+        <location>/error_404</location>
+    </error-page>
+```
+
+我们把可能出现的任何情况都进行了拦截，然后交给spring来处理这种请求，最终形成一套自己的特殊异常处理
+
+代码如下：
+
+
+
+```
+/**
+ * 错误统一处理
+ */
+@RestController
+public class ErrorController {
+
+    /**
+     * 请求异常404
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/error_404", method = { RequestMethod.GET, RequestMethod.POST })
+    public JsonResult error_404() throws Exception 
+    {
+        return new JsonResult(JsonResultCode.FAILURE, "404请求找不到请求", "");
+    }
+    
+    /**
+     * 服务器异常
+     * @return JsonResult
+     */
+    @RequestMapping(value = "/error_500", method = { RequestMethod.GET, RequestMethod.POST })
+    public JsonResult error_500()
+    {    
+        return new JsonResult(JsonResultCode.FAILURE, "500服务器内部错误", "");
+    }
+}
+```
+
+总结：我们通过3种情况来进行了所有可能异常的处理，全局异常，业务代码异常，特殊情况异常，架构封装，统一的数据返回与处理等等，进行了完美的结合，该项目运行一年半以来，采用这种异常架构后，从没出现过返回给app什么500错误或者其他乱七八糟的错误，依然是正确的JsonResult对象，APP那边也不用处理特殊情况，一举两得
