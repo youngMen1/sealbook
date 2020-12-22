@@ -114,3 +114,31 @@ CREATE TABLE `order_item` (
     }
 ```
 2.常用清单方面
+
+
+```
+/**
+     * 我的常用清单
+     */
+    @RequestMapping(value = "/my/commonList", method = { RequestMethod.GET, RequestMethod.POST })
+    public JsonResult commonList(HttpServletRequest request, HttpServletResponse response, Long userId) {
+        try {
+            List<CommonListVo> list = buyerService.getCommonList(userId);
+            return new JsonResult(JsonResultCode.SUCCESS, "查询信息成功", list);
+        } catch (Exception ex) {
+            logger.error("[MyController][commonList] exception :", ex);
+            return new JsonResult(JsonResultCode.FAILURE, "系统错误,请稍后重试", "");
+        }
+    }
+```
+3.系统常用清单
+说明：系统常用清单来源于后台管理人员人工添加
+相应代码如下:
+
+
+```
+
+```
+
+
+
