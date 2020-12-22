@@ -28,3 +28,36 @@
 根据以上的业务分析，我们理清楚了上述的所有维度，以下是数据库的设计与思路：
 
 1.购买记录。来源于订单明细记录表：
+
+
+```
+CREATE TABLE `order_item` (
+  `item_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `order_id` bigint(20) DEFAULT NULL COMMENT '订单主表id,order_info表的order_id',
+  `order_number` varchar(32) DEFAULT NULL COMMENT '唯一订单号',
+  `order_status` tinyint(4) DEFAULT NULL COMMENT '订单项状态，1为已提交订单，2为取消订单',
+  `format_id` bigint(20) DEFAULT NULL COMMENT '商品规格的ID',
+  `buyer_id` bigint(20) unsigned DEFAULT '0' COMMENT '买家ID',
+  `seller_id` bigint(20) DEFAULT NULL COMMENT '所属卖家ID',
+  `delivery_type` tinyint(2) DEFAULT '1' COMMENT '配送类型，1为平台送,2.卖家自己送',
+  `delivery_status` tinyint(2) DEFAULT '0' COMMENT '配送状态，0 表示未收货，1表示已收货,送货中，2表示已收货，已送货',
+  `seller_status` tinyint(4) DEFAULT '0' COMMENT '卖家备货状态，0为备货中，1为备货完成,2为缺货',
+  `buyer_status` tinyint(2) unsigned DEFAULT '0' COMMENT '买家状态，0待收货，1为已收货，2为换货，3为退货',
+  `remark` varchar(255) DEFAULT NULL COMMENT '订单项备注，由用户提交订单前填写',
+  `goods_number_old` decimal(12,2) DEFAULT NULL COMMENT '订单初始商品数量',
+  `goods_number` decimal(12,2) DEFAULT NULL COMMENT '商品的数量',
+  `goods_price` decimal(12,2) DEFAULT NULL COMMENT '商品的单价',
+  `goods_amount` decimal(12,2) DEFAULT NULL COMMENT '单项总金额',
+  `delivery_money` decimal(12,2) DEFAULT '0.00' COMMENT '配送费用',
+  `create_time` datetime DEFAULT NULL COMMENT '订单创建时间',
+  `delivery_receive_time` datetime DEFAULT NULL COMMENT '配送人员收货时间',
+  `delivery_finish_time` datetime DEFAULT NULL COMMENT '配送人员完成时间',
+  `seller_finish_time` datetime DEFAULT NULL COMMENT '卖家完成时间',
+  `buyer_finish_time` datetime DEFAULT NULL COMMENT '买家完成时间',
+  `method_id` bigint(20) DEFAULT NULL COMMENT '加工方式ID',
+  `delivery_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`item_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3424 DEFAULT CHARSET=utf8 COMMENT='订单的子项目';
+```
+
+2.收藏夹系统数据库表：
