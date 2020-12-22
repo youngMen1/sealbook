@@ -432,4 +432,54 @@ public class GoodsCart implements Serializable{
 * 1.这个菜品的规格，以及所属卖家，买家，包括是否需要加工等等。（比如买家买了鱼，这个鱼到底是需要怎么样处理呢？活鱼，肚杀，背杀）,
 特别说明：这个跟实际的业务有关，如果不是做生鲜这块的话，可能很难体会。
 * 2.买家肯定会买多个菜品，而不是一个，所以需要有一个List<GoodsCart> list;
+
+相关实际代码如下：
+
+
+```
+public class GoodsListVo implements Serializable{
+
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -2024011567608945523L;
+
+    private List<GoodsCart> list;
+    
+    private Long userId;
+    
+    private Long sellerId;
+
+    public List<GoodsCart> getList() {
+        return list;
+    }
+
+    public void setList(List<GoodsCart> list) {
+        this.list = list;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public Long getSellerId() {
+        return sellerId;
+    }
+
+    public void setSellerId(Long sellerId) {
+        this.sellerId = sellerId;
+    }
+    
+}
+```
+
+相关的运营截图如下：
+
+641237-20180515091127661-1211082651.png
+
+
 ## 2.
