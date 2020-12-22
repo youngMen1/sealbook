@@ -47,4 +47,26 @@ CREATE TABLE `coupon_receive` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='优惠券领取记录表';
 ```
 
+3.优惠券消费记录表
+
+说明：优惠券消费记录表，是需要知道那个买家，那个优惠券，那个订单使用了优惠券，这边有个特别注意的地方是，这个优惠券的执行在支付成功后的回调。
+
+```
+CREATE TABLE `coupon_logs` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '自动增加ID',
+  `buyer_id` bigint(20) DEFAULT NULL COMMENT '买家ID',
+  `coupon_receive_id` bigint(20) DEFAULT NULL COMMENT '优惠券id',
+  `order_number` varchar(64) DEFAULT NULL COMMENT '订单号',
+  `order_original_amount` decimal(12,2) DEFAULT NULL COMMENT '原订单金额',
+  `coupon_amount` decimal(11,2) DEFAULT NULL COMMENT '优惠券的金额',
+  `order_final_amount` decimal(12,2) DEFAULT NULL COMMENT '抵扣优惠券之后的订单金额',
+  `create_time` datetime DEFAULT NULL COMMENT '领取时间',
+  `status` int(2) DEFAULT '0' COMMENT '日志状态: 默认为0，支付回调成功后为1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='优惠券消费记录表';
+```
+
+
+
+
 
