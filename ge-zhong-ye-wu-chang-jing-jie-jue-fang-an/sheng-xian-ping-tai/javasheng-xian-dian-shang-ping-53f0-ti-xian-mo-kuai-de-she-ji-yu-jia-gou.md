@@ -65,8 +65,6 @@ CREATE TABLE `withdrawal_bank` (
 补充说明：如果是支付宝，那么bank_code填写alipay,bank_name为支付宝，bank_number为支付宝卡号,cnname为提现的姓名
 
 3.卖家提现日志表。（会根据卖家的提现时间，形成时间轴）
-
-
 ```
 CREATE TABLE `withdrawal_logs` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '自动增加ID',
