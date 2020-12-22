@@ -136,5 +136,5 @@ JAVA_OPTS="-server -Xms1024M -Xmx1024M -Xss512k -XX:+AggressiveOpts -XX:+UseBias
                            URIEncoding="UTF-8"
                            redirectPort="8443" />
 ```
-
+相关的优化方案可能很多，但是这些都是笔者1年半的实战总结，可能又不算很好的地方，但是稳定性压倒一切，希望分享出来，一起努力。
 
