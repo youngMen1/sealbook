@@ -107,3 +107,18 @@ payLogsDao.updatePayLogs(payLogs); 这块代码进行了优化。
 
 3.服务器监控
 
+说明:我们所说的服务器优化，很大部分是指的tomcat的优化，而不是大家所说的Linux本身的优化，当然这样文章很多，笔者只是用实际说话，看看我们的B2B电商平台如何进行服务器性能的优化。
+
+3.1.tomcat的JVM优化。
+
+这个根据大家自己的电脑进行配置，具体情况需要大家百度自己研究，说来话长
+
+
+
+```
+#!/bin/sh
+JAVA_OPTS="-server -Xms1024M -Xmx1024M -Xss512k -XX:+AggressiveOpts -XX:+UseBiasedLocking -XX:+DisableExplicitGC -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/log/buyer/gcdump -XX:MaxTenuringThreshold=15 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+CMSParallelRemarkEnabled -XX:+UseCMSCompactAtFullCollection -XX:LargePageSizeInBytes=128m -XX:+UseFastAccessorMethods -XX:+UseCMSInitiatingOccupancyOnly -Djava.awt.headless=true"
+```
+这个是笔者的阿里云的服务器的优化。
+
+
