@@ -80,3 +80,71 @@ public class TasksQuartz{
 实际运营情况来讲是每个卖家的账期是不一样的，有的两天，有的三天，有的一周，有的是一个月。
 
 相关核心算法与代码如下：
+
+
+```
+/**
+     * 统计10天前的账单更新卖家余额和账单金额
+     */
+    @Override
+    public void updateMoney() {
+        // 获取10天前的日期d
+        String day = DateUtil.dateToString(DateUtil.addDay(new Date(), -9), DateUtil.FMT_DATE);
+        // 查询十天前的所有帐单信息
+        List<Map<String, Object>> list = billDao.getBillsByDay(day);
+        if (CollectionUtils.isEmpty(list)) {
+            logger.info("TasksQuartz.updateMoney.isEmpty-->day:" + day);
+            return;
+        }
+        for (Map<String, Object> map : list) {
+            // 卖家ID
+            Long sellerId = (Long) map.get("sellerId");
+            if (sellerId == null) {
+                continue;
+            }
+            // 获取提现的金额即最终账单的金额
+            BigDecimal realityMoney = (BigDecimal) map.get("realIncome");
+            if (realityMoney == null) {
+                continue;
+            }
+            // 获取卖家的余额
+            BigDecimal balanceMoney = (BigDecimal) map.get("balanceMoney");
+            if (balanceMoney == null) {
+                balanceMoney = BigDecimal.ZERO;
+            }
+            // 获取卖家的账单金额
+            BigDecimal billMoney = (BigDecimal) map.get("billMoney");
+            if (billMoney == null) {
+                billMoney = BigDecimal.ZERO;
+            }
+            // 金额相加
+            BigDecimal resultBalanceMoney = realityMoney.add(balanceMoney);
+
+            BigDecimal resultBillMoney = realityMoney.add(billMoney);
+
+            logger.info("当前用户sellerId:" + sellerId + " 当前的余额为：balanceMoney=" + balanceMoney
+                    + " 最终金额：resultBalanceMoney=" + resultBalanceMoney);
+
+            logger.info("当前的余额为：billMoney=" + billMoney + " 最终金额：resultBillMoney=" + resultBillMoney);
+            // 更新卖家余额和账单金额
+            int result = sellerDao.updateMoney(sellerId, resultBalanceMoney, resultBillMoney);
+            logger.info("当前用户sellerId:" + sellerId + " 更新结果为：" + (result > 0));
+        }
+        // 更新十天前的所有账单的状态
+        int count = billDao.updateStatus(day);
+        logger.info(" 更新" + count + "条账单，状态变为已结算");
+    }
+```
+业务说明：
+
+1.无外乎每天需要统计卖家的今日收益情况。
+
+2.更新卖家的最终余额。
+
+3.根据卖家的所设置的账单周期，形成用户的账单金额。
+
+4.最终根据账单金额，形成用户的可提现余额的过程。
+
+业务有点绕口，但是整体是非常地清晰的，思路就是押用户所配置的账期金额。配置10天就压10天，配置15天就压15天。
+
+以下是账单跟卖家的核心关联表，就是配置所属的卖家对应的所属账期时间。
