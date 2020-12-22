@@ -13,3 +13,54 @@
 **这个算法采用的是Spring quartz定时器每天晚上23:00点处理的。**
 
 相关核心的代码如下：
+
+
+```
+/**
+ * 任务工作
+ * @author wangfucai
+ */
+@Component
+public class TasksQuartz{
+    
+    private static final Logger logger=LoggerFactory.getLogger(TasksQuartz.class);
+    
+    @Autowired
+    private BillService billService;
+    @Autowired
+    private SellerService sellerService;
+    @Autowired
+    private DeliveryIncomeService deliveryIncomeService;
+    @Autowired
+    private BuyerService buyerService;
+    @Autowired
+    private OrderInfoService orderInfoService;
+    @Autowired
+    private GroupsBuyerService groupsBuyerService;
+    
+    /**
+     * 计算每天账单
+     * 每天23点执行
+     */
+    @Scheduled(cron="0 0 23 * * ?")
+    protected void makeBill(){
+        try
+        {
+            logger.info("TasksQuartz.execute.start");
+            //统计当天的交易完成的订单生成账单
+            billService.addBills();
+            logger.info("账单数据更新完成");
+            //根据卖家抽点金额更新账单实际金额
+            billService.updateRealAmountByPercentage();
+            logger.info("根据卖家抽点金额更新账单实际金额完成");
+            //更新卖家余额
+            sellerService.updateBalanceByBill();
+            logger.info("卖家余额数据更新完成");
+            logger.info("TasksQuartz.execute.end");
+        }catch(Exception ex)
+        {
+            logger.error("TasksQuartz.execute.exception",ex);
+        }
+    }
+```
+
