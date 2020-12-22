@@ -121,4 +121,20 @@ JAVA_OPTS="-server -Xms1024M -Xmx1024M -Xss512k -XX:+AggressiveOpts -XX:+UseBias
 ```
 这个是笔者的阿里云的服务器的优化。
 
+3.2.tomcat的连接池优化
+
+
+```
+<Connector port="8081" protocol="org.apache.coyote.http11.Http11NioProtocol"
+                           connectionTimeout="20000"
+                           maxConnections="1000"
+                           maxThreads="100"
+                           minSpareThreads="50"
+                           acceptCount="500"
+                           enableLookups="false"
+                           compression="on"
+                           URIEncoding="UTF-8"
+                           redirectPort="8443" />
+```
+
 
