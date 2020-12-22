@@ -64,7 +64,7 @@ CREATE TABLE `coupon_logs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='优惠券消费记录表';
 ```
 
-
+说明：相对而言，优惠券的难度不算大，重点的是业务方面的指导与学习，包括数据库的架构与设计等等，还有就是思路的学习。
 
 
 
