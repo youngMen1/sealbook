@@ -474,8 +474,8 @@ public class GoodsListVo implements Serializable{
     public void setSellerId(Long sellerId) {
         this.sellerId = sellerId;
     }
-    
 }
+
 ```
 
 相关的运营截图如下：
