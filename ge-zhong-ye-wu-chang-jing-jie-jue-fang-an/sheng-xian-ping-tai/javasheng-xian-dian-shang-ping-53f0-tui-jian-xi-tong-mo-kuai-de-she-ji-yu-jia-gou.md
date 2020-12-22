@@ -137,8 +137,49 @@ CREATE TABLE `order_item` (
 
 
 ```
-
+/**
+     * 到新增页面;
+     */
+    @RequestMapping(value = "/toAdd", method = { RequestMethod.GET, RequestMethod.POST })
+    public String toAdd(HttpServletRequest request, HttpServletResponse response, Model model, SysCommonVo sysCommonVo,@ModelAttribute SearchGoodsVo sgv) {
+        
+        // 获取分页当前的页码
+        int currentPageNum = this.getPageNum(request);
+        
+        // 获取分页的大小
+        int currentPageSize = this.getPageSize(request);
+        
+        //区域ID
+        Long areaId = sysCommonVo.getAreaId();
+        
+        sgv.setAreaId(areaId);
+        sgv.setSearchStatus((short) 1);
+        sgv.setFormatStatus((short)1);
+        sgv.setSellerStatus((short)3);
+        List<SysCommonVo> sysCommon = sysCommonService.getSysCommon(sysCommonVo);
+        StringBuffer sb = new StringBuffer();
+        
+        if(sysCommon.size()>0){
+            for (int i = 0; i < sysCommon.size(); i++) {
+                if(i != sysCommon.size()-1){
+                    SysCommonVo sc = sysCommon.get(i);
+                    sb.append(sc.getGoodsId());
+                    sb.append(",");
+                }else {
+                    SysCommonVo sc = sysCommon.get(i);
+                    sb.append(sc.getGoodsId());
+                }
+            }
+        }
+        sgv.setGoodIds(new String(sb));
+        
+        PageUtil paginator = goodsService.getPageResultByCommon(sgv, currentPageNum, currentPageSize);
+        model.addAttribute("paginator", paginator);
+        model.addAttribute("sgv", sgv);
+        model.addAttribute("sysCommonVo", sysCommonVo);
+        return "sys/common/addFrom";
+    }
 ```
-
+说明：相对而言，这个代码都是强依赖于数据库，毕竟不可能很多时间都有人同时买菜与注册。很多时候都是联表查询即可完成数据的分析与统计。
 
 
