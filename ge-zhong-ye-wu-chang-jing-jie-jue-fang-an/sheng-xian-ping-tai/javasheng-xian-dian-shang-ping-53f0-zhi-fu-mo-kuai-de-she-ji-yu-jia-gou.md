@@ -147,3 +147,199 @@ public class AlipayController extends BaseController
 }
 ```
 
+### 支付宝服务端回调代码
+
+
+```
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.alipay.api.AlipayApiException;
+import com.alipay.api.internal.util.AlipaySignature;
+/**
+ * alipay 支付宝服务端回调
+ * 参考文档：https://docs.open.alipay.com/204/105301/
+ * 对于App支付产生的交易，支付宝会根据原始支付API中传入的异步通知地址notify_url，通过POST请求的形式将支付结果作为参数通知到商户系统。
+ */
+@Controller
+@RequestMapping("/buyer")
+public class AlipayNotifyController extends BaseController {
+
+    private static final Logger logger = LoggerFactory.getLogger(AlipayNotifyController.class);
+
+    private static final String ALIPAYPUBLICKEY = "";
+
+    private static final String CHARSET = "UTF-8";
+
+    /**支付成功*/
+    private static final int PAY_LOGS_SUCCESS=1;
+    
+    @Autowired
+    private OrderInfoService orderInfoService;
+   
+    
+    @RequestMapping(value = "/alipay/notify", method = { RequestMethod.GET, RequestMethod.POST })
+    public void alipayNotify(HttpServletRequest request, HttpServletResponse response) throws IOException 
+    {
+        String url=request.getRequestURL().toString();
+        
+        logger.info("AlipayNotifyController.alipayNotify.s+tart");
+        
+        logger.info("[AlipayNotifyController][alipayNotify] url:" +url);
+        
+        ServletOutputStream out = response.getOutputStream();
+        //支付宝交易号
+        String alipayTradeNo=this.getNotNull("trade_no", request);
+        
+        //商户订单号
+        String outerTradeNo=this.getNotNull("out_trade_no", request);
+        
+        //买家支付宝用户号
+        String buyerId=this.getNotNull("buyer_id", request);
+        
+        //买家支付宝账号
+        String buyerLogonId=this.getNotNull("buyer_logon_id", request);
+        
+        //交易状态
+        String tradeStatus=this.getNotNull("trade_status", request);
+        
+        //订单金额,精确到小数点后2位
+        String money=getNotNull("total_amount", request);
+        
+        logger.info("[AlipayNotifyController][alipayNotify] tradeStatus:" +tradeStatus+" money:"+money);
+        
+        StringBuffer buf = new StringBuffer();
+        if (request.getMethod().equalsIgnoreCase("POST"))
+        {
+            Enumeration<String> em = request.getParameterNames();
+            for (; em.hasMoreElements();)
+            {
+                Object o = em.nextElement();
+                buf.append(o).append("=").append(request.getParameter(o.toString())).append(",");
+            }
+            logger.info("回调 method:post]http://" + request.getServerName() + request.getServletPath() + " [<prams:" + buf + ">]");
+        } else
+        {
+            buf.append(request.getQueryString());
+            logger.info("回调 method:get]http://" + request.getServerName() + request.getServletPath() + "?" + request.getQueryString());
+        }
+        
+        //检验支付宝参数
+        if(!verifyAlipay(request))
+        {
+               out.print("fail");
+               return;
+        }
+        
+        //交易成功
+        if("TRADE_SUCCESS".equalsIgnoreCase(tradeStatus))
+        {
+            try
+            {
+                if(StringUtils.isNotBlank(outerTradeNo))
+                {
+                    //查询当前订单信息
+                    OrderInfo info=this.orderInfoService.getOrderInfoByOrderNumber(outerTradeNo);
+                    
+                    if(info==null)
+                    {
+                        logger.error("[AlipayNotifyController][alipayNotify] info:" +info);
+                        out.print("fail");
+                           return;
+                    }
+                    
+                    //订单信息
+                    OrderInfo orderInfo=new OrderInfo();
+                    orderInfo.setOrderNumber(outerTradeNo);    
+                    orderInfo.setCardCode("alipay");
+                    orderInfo.setCardName("支付宝");
+                    orderInfo.setCardNumber(buyerLogonId);
+                    orderInfo.setCardOwner(buyerId);
+                    orderInfo.setPayTime(new Date());
+                    orderInfo.setOuterTradeNo(alipayTradeNo);
+                    orderInfo.setPayStatus(PayStatus.PAY_SUCCESS);
+                    orderInfo.setTradeStatus(TradeStatus.TRADE_PROGRESS);
+                    orderInfo.setPayAmount(new BigDecimal(money));
+                    orderInfo.setBuyerId(info.getBuyerId());
+                    
+                    //付款日志
+                    PayLogs payLogs=new PayLogs();
+                    payLogs.setOrderNumber(outerTradeNo);
+                    payLogs.setOuterTradeNo(alipayTradeNo);
+                    payLogs.setStatus(PAY_LOGS_SUCCESS);
+                    
+                    orderInfoService.payReturn(orderInfo,payLogs);
+                    out.print("success");
+                    return;
+                }
+            }catch(Exception ex)
+            {
+                logger.error("[AlipayNotifyController][payReturn] 出现了异常:",ex);
+                out.print("success");
+                return;
+            }
+        }else
+        {
+            out.print("fail");
+            return;
+        }
+    }
+    /**
+     * 检验支付宝
+     * @param request
+     * @return
+     */
+    @SuppressWarnings("rawtypes")
+    public boolean verifyAlipay(HttpServletRequest request)
+    {
+        boolean flag=true;
+        
+        // 获取支付宝POST过来反馈信息
+        Map<String, String> params = new HashMap<String, String>();
+        Map requestParams = request.getParameterMap();
+        for (Iterator iter = requestParams.keySet().iterator(); iter.hasNext();) {
+            String name = (String) iter.next();
+            String[] values = (String[]) requestParams.get(name);
+            String valueStr = "";
+            for (int i = 0; i < values.length; i++) {
+                valueStr = (i == values.length - 1) ? valueStr + values[i] : valueStr + values[i] + ",";
+            }
+            params.put(name, valueStr);
+        }
+        try
+        {
+            flag= AlipaySignature.rsaCheckV1(params, ALIPAYPUBLICKEY, CHARSET, "RSA2");
+        } catch (AlipayApiException e) {
+            e.printStackTrace();
+            flag=false;
+        }
+        return flag;
+    }
+}
+```
+
+APP支付成功后，其实支付宝或者微信都会告诉你是否成功，只是这种通知是不可靠的，最可靠的的一种方式是支付宝或者微信的服务端回调。
+
+根据回调处理相关的业务。
+
+相应的微信回调代码如下：（注意，这个业务模块属于买家。）
+641237-20180514084952365-1481603002.png
+
+
