@@ -8,7 +8,6 @@
 
 说明：任何一个优惠券或者说代金券都是有一个基础的说明，比如：优惠券名称，类型，价格，有效期，状态,说明等等基础信息。
 
-
 ```
 CREATE TABLE `coupon` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '自动增加ID',
