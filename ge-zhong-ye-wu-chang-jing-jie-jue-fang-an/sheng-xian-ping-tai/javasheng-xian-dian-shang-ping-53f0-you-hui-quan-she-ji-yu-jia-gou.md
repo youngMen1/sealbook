@@ -33,7 +33,6 @@ CREATE TABLE `coupon` (
 2.优惠券领取记录表
 说明：我们需要记录那个买家，什么时候进行的领取，领取的的时间，券的额度是多少等等，是否已经使用等信息
 
-
 ```
 CREATE TABLE `coupon_receive` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '自动增加ID',
