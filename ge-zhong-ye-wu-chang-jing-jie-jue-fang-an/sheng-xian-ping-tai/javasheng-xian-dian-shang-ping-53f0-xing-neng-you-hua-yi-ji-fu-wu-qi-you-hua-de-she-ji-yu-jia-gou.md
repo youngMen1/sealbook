@@ -52,3 +52,15 @@
 6.记录相关的操作日志等等。
 
 相应的代码如下：（spring 事物控制在服务层，如果以上6个步骤有一个错误，则全部回滚。）
+
+```
+@Override
+    public void payReturn(OrderInfo orderInfo, PayLogs payLogs) {
+        orderInfoDao.payReturn(orderInfo);
+        orderItemDao.updateOrderItemByOrderNumber(orderInfo.getOrderNumber());
+        buyerDao.updateBuyerBalanceToZero(orderInfo.getBuyerId());
+        payLogsDao.updatePayLogs(payLogs);        logDao.insertOperatorLogs(orderInfo,payLogs);
+    }
+```
+
+
