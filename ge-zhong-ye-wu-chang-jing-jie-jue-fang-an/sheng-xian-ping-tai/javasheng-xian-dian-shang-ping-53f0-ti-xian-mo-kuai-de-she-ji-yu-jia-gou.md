@@ -4,7 +4,7 @@
 
 功能相对而言不算复杂，有以下几个功能需要处理。
 
-业务逻辑如下：
+业务逻辑如下：  
 1.卖家登陆自己的B2B系统提交提现功能。
 
 2.如果没有绑定银行卡或者支付宝，则需要先绑定银行卡或者支付宝账户，以及填写提现密码
@@ -23,81 +23,75 @@
 
 9.系统自动审核提现的金额数据量的正确与否，来源于用户的订单以及账单数据。
 
-相关的系统设计表如下:
+相关的系统设计表如下:  
 1.提现信息表，为了便于大家理解，我详细的注释都写上了。
 
+    CREATE TABLE `withdrawal` (
+      `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '自动增加ID',
+      `uid` bigint(20) NOT NULL COMMENT '提现申请人',
+      `withdraw_order` varchar(64) NOT NULL COMMENT '提现订单号,系统自动生成的.',
+      `withdraw_bank_id` bigint(20) NOT NULL COMMENT '用户对应的卡的编号',
+      `withdraw_charge` decimal(12,2) NOT NULL COMMENT '提现手续费',
+      `withdraw_reality_total` decimal(12,2) NOT NULL COMMENT '实际提现金额',
+      `withdraw_apply_total` decimal(12,2) NOT NULL COMMENT '申请提现的金额',
+      `withdraw_apply_time` datetime NOT NULL COMMENT '申请提现时间',
+      `status` int(11) NOT NULL COMMENT '提现状态,1表示申请提现,2表示审批通过,3,交易完成,-1审批不通过.',
+      `create_by` bigint(20) DEFAULT NULL COMMENT '创建人',
+      `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+      `update_by` bigint(20) DEFAULT NULL COMMENT '修改人',
+      `last_update_time` datetime DEFAULT NULL COMMENT '最后修改时间',
+      PRIMARY KEY (`id`),
+      KEY `unique_order` (`withdraw_order`) USING BTREE
+    ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='提现信息表';
 
-```
-CREATE TABLE `withdrawal` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '自动增加ID',
-  `uid` bigint(20) NOT NULL COMMENT '提现申请人',
-  `withdraw_order` varchar(64) NOT NULL COMMENT '提现订单号,系统自动生成的.',
-  `withdraw_bank_id` bigint(20) NOT NULL COMMENT '用户对应的卡的编号',
-  `withdraw_charge` decimal(12,2) NOT NULL COMMENT '提现手续费',
-  `withdraw_reality_total` decimal(12,2) NOT NULL COMMENT '实际提现金额',
-  `withdraw_apply_total` decimal(12,2) NOT NULL COMMENT '申请提现的金额',
-  `withdraw_apply_time` datetime NOT NULL COMMENT '申请提现时间',
-  `status` int(11) NOT NULL COMMENT '提现状态,1表示申请提现,2表示审批通过,3,交易完成,-1审批不通过.',
-  `create_by` bigint(20) DEFAULT NULL COMMENT '创建人',
-  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
-  `update_by` bigint(20) DEFAULT NULL COMMENT '修改人',
-  `last_update_time` datetime DEFAULT NULL COMMENT '最后修改时间',
-  PRIMARY KEY (`id`),
-  KEY `unique_order` (`withdraw_order`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='提现信息表';
-```
 2.卖家绑定卡的记录表
 
+    CREATE TABLE `withdrawal_bank` (
+      `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '自动增加ID',
+      `uid` bigint(20) NOT NULL COMMENT '用户ID',
+      `cnname` varchar(8) NOT NULL COMMENT '中文姓名',
+      `bank_code` varchar(32) NOT NULL COMMENT '卡的缩写，例如：ICBC',
+      `bank_name` varchar(32) NOT NULL COMMENT '卡的名字',
+      `bank_number` varchar(64) NOT NULL COMMENT '卡号',
+      `sequence` tinyint(11) DEFAULT NULL COMMENT '排序用。按照小到大排序。',
+      `create_time` datetime NOT NULL COMMENT '创建时间',
+      PRIMARY KEY (`id`)
+    ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='用户绑定的银行';
 
-```
-CREATE TABLE `withdrawal_bank` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '自动增加ID',
-  `uid` bigint(20) NOT NULL COMMENT '用户ID',
-  `cnname` varchar(8) NOT NULL COMMENT '中文姓名',
-  `bank_code` varchar(32) NOT NULL COMMENT '卡的缩写，例如：ICBC',
-  `bank_name` varchar(32) NOT NULL COMMENT '卡的名字',
-  `bank_number` varchar(64) NOT NULL COMMENT '卡号',
-  `sequence` tinyint(11) DEFAULT NULL COMMENT '排序用。按照小到大排序。',
-  `create_time` datetime NOT NULL COMMENT '创建时间',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='用户绑定的银行';
-```
-补充说明：如果是支付宝，那么bank_code填写alipay,bank_name为支付宝，bank_number为支付宝卡号,cnname为提现的姓名
+补充说明：如果是支付宝，那么bank\_code填写alipay,bank\_name为支付宝，bank\_number为支付宝卡号,cnname为提现的姓名
 
 3.卖家提现日志表。（会根据卖家的提现时间，形成时间轴）
-```
-CREATE TABLE `withdrawal_logs` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '自动增加ID',
-  `uid` bigint(20) NOT NULL COMMENT '提现申请人',
-  `withdraw_order` varchar(64) NOT NULL COMMENT '提现订单号,系统自动生成的.',
-  `remark` varchar(64) NOT NULL COMMENT '备注',
-  `status` int(11) DEFAULT NULL COMMENT '提现的状态',
-  `create_by` bigint(20) DEFAULT NULL COMMENT '创建人',
-  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
-  PRIMARY KEY (`id`),
-  KEY `unique_order` (`withdraw_order`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='用户提现日志表';
-```
+
+    CREATE TABLE `withdrawal_logs` (
+      `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '自动增加ID',
+      `uid` bigint(20) NOT NULL COMMENT '提现申请人',
+      `withdraw_order` varchar(64) NOT NULL COMMENT '提现订单号,系统自动生成的.',
+      `remark` varchar(64) NOT NULL COMMENT '备注',
+      `status` int(11) DEFAULT NULL COMMENT '提现的状态',
+      `create_by` bigint(20) DEFAULT NULL COMMENT '创建人',
+      `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+      PRIMARY KEY (`id`),
+      KEY `unique_order` (`withdraw_order`) USING BTREE
+    ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='用户提现日志表';
+
 补充说明:形成时间轴来显示。
 
 4.卖家提现密码：
 
-```
-CREATE TABLE `withdrawal_password` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '自动增加ID',
-  `uid` bigint(20) NOT NULL COMMENT '用户ID',
-  `password` varchar(32) NOT NULL COMMENT '密码，md5加密',
-  `create_time` datetime NOT NULL COMMENT '记录创建时间',
-  `last_update_time` datetime DEFAULT NULL COMMENT '最后一次更新时间',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `unique_key_uid` (`uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COMMENT='用户提现密码';
-```
-补充说明：由于设计到资金安全问题，提现需要设置提现密码，这个有别于用户的登陆密码。
-整个业务比较简单，只是步骤比较多而已。
-相关的业务核心代码如下：
-2.1 卖家绑定自己的银行卡或者支付宝
+    CREATE TABLE `withdrawal_password` (
+      `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '自动增加ID',
+      `uid` bigint(20) NOT NULL COMMENT '用户ID',
+      `password` varchar(32) NOT NULL COMMENT '密码，md5加密',
+      `create_time` datetime NOT NULL COMMENT '记录创建时间',
+      `last_update_time` datetime DEFAULT NULL COMMENT '最后一次更新时间',
+      PRIMARY KEY (`id`),
+      UNIQUE KEY `unique_key_uid` (`uid`)
+    ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COMMENT='用户提现密码';
 
+补充说明：由于设计到资金安全问题，提现需要设置提现密码，这个有别于用户的登陆密码。  
+整个业务比较简单，只是步骤比较多而已。  
+**相关的业务核心代码如下：**  
+2.1.卖家绑定自己的银行卡或者支付宝
 
 ```
 /**
@@ -108,37 +102,37 @@ CREATE TABLE `withdrawal_password` (
      */
     @RequestMapping(value = "/withdrawalBank/add", method = { RequestMethod.GET, RequestMethod.POST })
     public JsonResult  addWithdrawalBank(HttpServletRequest request, HttpServletResponse response,@RequestBody WithdrawalBank withdrawalBank) {
-        
+
         try
         {
             if(withdrawalBank==null)
             {
                 return new JsonResult(JsonResultCode.FAILURE, "传入对象有误", "");
             }
-            
+
             Long uid = withdrawalBank.getUid();
             String bankCode = withdrawalBank.getBankCode();
             if(uid == null)
             {
                 return new JsonResult(JsonResultCode.FAILURE, "参数有误", "");
             }
-            
+
             //拿到当前银行卡的唯一编号
             WithdrawalBank dbWithdrawalBank = withdrawalBankService.getWithdrawalBankByUidAndBankCode(uid, bankCode);
-            
+
             if(dbWithdrawalBank != null){
                 return new JsonResult(JsonResultCode.FAILURE, "卡已存在,请重试",dbWithdrawalBank); 
             }
-            
+
             int result = withdrawalBankService.insertWithdrawalBank(withdrawalBank);
-            
+
             if (result>0) 
             {
                 return new JsonResult(JsonResultCode.SUCCESS, "添加用户银行成功", result);
             } 
             return new JsonResult(JsonResultCode.FAILURE, "添加用户银行失败", "");
         }catch(Exception e){
-            
+
             logger.error("[WithdrawalBankController][addWithdrawalBank] exception :",e);
             return new JsonResult(JsonResultCode.FAILURE, "系统错误,请稍后重试","");
         }
@@ -146,8 +140,6 @@ CREATE TABLE `withdrawal_password` (
 ```
 
 2.2.修改与管理自己的提现密码：
-
-
 
 ```
 /**
@@ -196,14 +188,14 @@ CREATE TABLE `withdrawal_password` (
         try 
         {
             Long userId = withdrawal.getUid();
-            
+
             if (userId==null)
             {
                 return new JsonResult(JsonResultCode.FAILURE, "参数异常!", "");
             }
             // 查询提现表中是否存在当前用户正在审核的提现，如果存在就不允许继续申请
             Withdrawal withdrawalByUserId = withdrawalService.getWithdrawalByUserId(userId);
-            
+
             if (withdrawalByUserId != null) 
             {
                 return new JsonResult(JsonResultCode.FAILURE, "已有提现记录,正在审核中!", withdrawalByUserId);
@@ -211,7 +203,7 @@ CREATE TABLE `withdrawal_password` (
 
             //所属卖家
             Seller seller = sellerService.getSellerById(userId);
-            
+
             // 卖家可提现金额
             BigDecimal billMoney = seller.getBillMoney();
 
@@ -226,7 +218,7 @@ CREATE TABLE `withdrawal_password` (
             if (withdrawApplyTotal.compareTo(billMoney) == 1) {
                 return new JsonResult(JsonResultCode.FAILURE, "申请金额错误,返回重试!", "");
             }
-            
+
             String orderNumber = OrderIDGenerator.getOrderNumber();
             withdrawal.setWithdrawApplyTime(new Date());
             withdrawal.setCreateTime(new Date());
@@ -244,7 +236,7 @@ CREATE TABLE `withdrawal_password` (
             withdrawalService.applyWithdrawal(withdrawal, withdrawalLogs);
 
             sendSmsNotice(withdrawal, userId, seller, billMoney, withdrawApplyTotal);
-            
+
             return new JsonResult(JsonResultCode.SUCCESS, "申请提现成功", "");
         } catch (Exception ex) {
             logger.error("[WithdrawalController][applyWithDrawal]exception ", ex);
@@ -285,7 +277,7 @@ CREATE TABLE `withdrawal_password` (
             logger.error("[WithdrawalController][sendSmsNotice]exception",ex);
         }
     }
-    
+
     /**
      * 提现申请 列表
      * @param withdrawal
@@ -339,8 +331,8 @@ CREATE TABLE `withdrawal_password` (
         }
     }
 ```
-3.提现记录表核心代码
 
+3.提现记录表核心代码
 
 ```
 /**
@@ -352,10 +344,10 @@ public class WithdrawalBankController extends BaseController
 {
 
     private static final Logger logger = LoggerFactory.getLogger(WithdrawalBankController.class);
-    
+
     @Autowired
     private WithdrawalBankService withdrawalBankService;
-    
+
     /**
      * 根据用户Uid查询用户绑定的银行卡信息；
      * @param request
@@ -370,7 +362,7 @@ public class WithdrawalBankController extends BaseController
         try
         {
             List<WithdrawalBank> withdrawalBankList = withdrawalBankService.getWithdrawalBankByUid(userId);
-            
+
             if(CollectionUtils.isEmpty(withdrawalBankList))
             {
                 return new JsonResult(JsonResultCode.SUCCESS, "用户未绑定银行卡", withdrawalBankList);
@@ -381,7 +373,7 @@ public class WithdrawalBankController extends BaseController
             return new JsonResult(JsonResultCode.FAILURE, "系统错误,请稍后重试","");
         }
     }
-    
+
     /**
      * 添加用户银行信息
      * @param request
@@ -390,37 +382,37 @@ public class WithdrawalBankController extends BaseController
      */
     @RequestMapping(value = "/withdrawalBank/add", method = { RequestMethod.GET, RequestMethod.POST })
     public JsonResult  addWithdrawalBank(HttpServletRequest request, HttpServletResponse response,@RequestBody WithdrawalBank withdrawalBank) {
-        
+
         try
         {
             if(withdrawalBank==null)
             {
                 return new JsonResult(JsonResultCode.FAILURE, "传入对象有误", "");
             }
-            
+
             Long uid = withdrawalBank.getUid();
             String bankCode = withdrawalBank.getBankCode();
             if(uid == null)
             {
                 return new JsonResult(JsonResultCode.FAILURE, "参数有误", "");
             }
-            
+
             //拿到当前银行卡的唯一编号
             WithdrawalBank dbWithdrawalBank = withdrawalBankService.getWithdrawalBankByUidAndBankCode(uid, bankCode);
-            
+
             if(dbWithdrawalBank != null){
                 return new JsonResult(JsonResultCode.FAILURE, "卡已存在,请重试",dbWithdrawalBank); 
             }
-            
+
             int result = withdrawalBankService.insertWithdrawalBank(withdrawalBank);
-            
+
             if (result>0) 
             {
                 return new JsonResult(JsonResultCode.SUCCESS, "添加用户银行成功", result);
             } 
             return new JsonResult(JsonResultCode.FAILURE, "添加用户银行失败", "");
         }catch(Exception e){
-            
+
             logger.error("[WithdrawalBankController][addWithdrawalBank] exception :",e);
             return new JsonResult(JsonResultCode.FAILURE, "系统错误,请稍后重试","");
         }
@@ -429,7 +421,6 @@ public class WithdrawalBankController extends BaseController
 ```
 
 4.卖家提现日志表：
-
 
 ```
 /**
@@ -470,9 +461,10 @@ public class WithdrawalLogsController extends BaseController {
 }
 ```
 
-相关的运营截图如下：
-![](/static/image/641237-20180517215059767-1310554111.png)
-![](/static/image/641237-20180517215001448-1896295605.png)
-![](/static/image/641237-20180517215015003-565780502.png)
-![](/static/image/641237-20180517215027401-1637273574.png)
+相关的运营截图如下：  
+![](/static/image/641237-20180517215059767-1310554111.png)  
+![](/static/image/641237-20180517215001448-1896295605.png)  
+![](/static/image/641237-20180517215015003-565780502.png)  
+![](/static/image/641237-20180517215027401-1637273574.png)  
 ![](/static/image/641237-20180517215042261-1059117618.png)
+
