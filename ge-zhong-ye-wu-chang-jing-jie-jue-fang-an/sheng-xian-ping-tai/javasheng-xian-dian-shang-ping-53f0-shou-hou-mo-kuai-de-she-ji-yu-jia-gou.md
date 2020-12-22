@@ -89,5 +89,144 @@ CREATE TABLE `order_timeline` (
 2.    当师傅点击不补货，则这个订单项不做任何扣款逻辑，不管线下还是线上，直接修改状态即可，同时记录时间轴日志。
 补充说明：补货与不补货属于互斥操作，即已补货后不允许再出现不补货，不补货后不再允许出现补货。按照规则来处理。
 ```
+相关业务核心代码如下：
+
+
+```
+/**
+ * 订单项退货*/
+@RestController
+@RequestMapping("/delivery")
+public class OrderReturnController extends BaseController {
+
+    private static final Logger logger = LoggerFactory.getLogger(OrderReturnController.class);
+
+    @Autowired
+    private OrderItemService orderItemService;
+
+    @Autowired
+    private OrderReturnService orderReturnService;
+
+    /**
+     * 订单项退货
+     * 
+     */
+    @RequestMapping(value = "/order/return/item", method = { RequestMethod.GET, RequestMethod.POST })
+    public JsonResult orderReturnItem(HttpServletRequest request, HttpServletResponse response,
+            @Param("itemId") Long itemId, @Param("deliveryId") Long deliveryId, @Param("status") int status) {
+        try {
+            if (itemId == null) {
+                return new JsonResult(JsonResultCode.FAILURE, "item参数有误", "");
+            }
+
+            OrderItem orderItem = orderItemService.getOrderItemByItemId(itemId);
+
+            if (orderItem == null) {
+                return new JsonResult(JsonResultCode.FAILURE, "无此订单项", "");
+            }
+            
+            String returnMsg = "";
+            if(status == BuyerStatus.THREE){
+                returnMsg = TimelineTemplate.return_MSG;
+            }if(status == BuyerStatus.FOUR){
+                returnMsg = TimelineTemplate.BACK_MSG;
+            }if(status == BuyerStatus.ZERO){
+                returnMsg = TimelineTemplate.OFF_MSG;
+            }
+            orderItemService.updateOrderItemStatus(itemId, status, deliveryId, returnMsg);
+            return new JsonResult(JsonResultCode.SUCCESS, "操作成功", "");
+        } catch (Exception ex) {
+            logger.error("[OrderReturnController][orderReturnItem] exception :", ex);
+            return new JsonResult(JsonResultCode.FAILURE, "系统错误,请稍后重试", "");
+        }
+    }
+
+    /**
+     * 退还列表
+     */
+    @RequestMapping(value = "/order/return/list", method = { RequestMethod.GET, RequestMethod.POST })
+    public JsonResult orderReturnList(HttpServletRequest request, HttpServletResponse response,@Param("deliveryId") Long deliveryId, @Param("status") int status) {
+        try 
+        {
+            // 组装成为最终的列表结果
+            List<OrderReturnVo> listResult = new ArrayList<OrderReturnVo>();
+
+            List<OrderGoodsVo> goodsList = orderReturnService.getReturnOrderGoodsList(deliveryId,status);
+
+            if (CollectionUtils.isEmpty(goodsList)) {
+                return new JsonResult(JsonResultCode.SUCCESS, "查询完成", listResult);
+            }
+
+            // 临时参数，判断时间
+            Map<String, List<OrderReturnEntity>> paramTimeMap = new HashMap<String, List<OrderReturnEntity>>();
+
+            // 过滤卖家
+            Map<String, List<OrderGoodsVo>> paramSellerMap = new HashMap<String, List<OrderGoodsVo>>();
+
+            for (OrderGoodsVo vo : goodsList) {
+                String bestTime = DateUtil.dateToString(vo.getBestTime(), "yyyy-MM-dd");
+
+                // 时间相同
+                if (paramTimeMap.get(bestTime) != null) {
+                    List<OrderReturnEntity> mapOrderReturnEntity = paramTimeMap.get(bestTime);
+
+                    // 组装时间
+                    OrderReturnVo resultVo = new OrderReturnVo();
+                    resultVo.setBestTime(bestTime);
+
+                    // 判断是否是同一个卖家的
+                    if (paramSellerMap.get(vo.getSellerName()) != null) 
+                    {
+                        OrderReturnEntity entity = new OrderReturnEntity();
+                        List<OrderGoodsVo> listVo = paramSellerMap.get(vo.getSellerName());
+                        listVo.add(vo);
+                        entity.setListOrderGoodsVo(listVo);
+                        resultVo.setListOrderReturnEntity(mapOrderReturnEntity);
+                    }else
+                    {
+                        //不同买家
+                        OrderReturnEntity entity = new OrderReturnEntity();
+                        entity.setSellerName(vo.getSellerName());
+                        
+                        List<OrderGoodsVo> listVo =new ArrayList<OrderGoodsVo>();
+                        listVo.add(vo);
+                        entity.setListOrderGoodsVo(listVo);
+                        mapOrderReturnEntity.add(entity);
+                        
+                        paramSellerMap.put(vo.getSellerName(), listVo);
+                    }
+                } else {
+                    // 组装时间
+                    OrderReturnVo resultVo = new OrderReturnVo();
+                    resultVo.setBestTime(bestTime);
+
+                    OrderReturnEntity entity = new OrderReturnEntity();
+                    entity.setSellerName(vo.getSellerName());
+
+                    List<OrderGoodsVo> paramOrderGoodsVo = new ArrayList<OrderGoodsVo>();
+                    paramOrderGoodsVo.add(vo);
+                    entity.setListOrderGoodsVo(paramOrderGoodsVo);
+
+                    List<OrderReturnEntity> listOrderReturnEntity = new ArrayList<OrderReturnEntity>();
+                    listOrderReturnEntity.add(entity);
+
+                    resultVo.setListOrderReturnEntity(listOrderReturnEntity);
+
+                    listResult.add(resultVo);
+
+                    paramSellerMap.put(vo.getSellerName(), paramOrderGoodsVo);
+
+                    paramTimeMap.put(bestTime, listOrderReturnEntity);
+                }
+            }
+            return new JsonResult(JsonResultCode.SUCCESS, "查询信息成功", listResult);
+        } catch (Exception ex) {
+            logger.error("[OrderReturnController][orderReturnItem] exception :", ex);
+            return new JsonResult(JsonResultCode.FAILURE, "系统错误,请稍后重试", "");
+        }
+    }
+```
+
+
 
 
