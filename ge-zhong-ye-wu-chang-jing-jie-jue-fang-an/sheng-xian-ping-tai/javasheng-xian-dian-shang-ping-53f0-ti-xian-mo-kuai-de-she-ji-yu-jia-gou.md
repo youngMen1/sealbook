@@ -26,4 +26,27 @@
 相关的系统设计表如下:
 1.提现信息表，为了便于大家理解，我详细的注释都写上了。
 
+
+```
+CREATE TABLE `withdrawal` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '自动增加ID',
+  `uid` bigint(20) NOT NULL COMMENT '提现申请人',
+  `withdraw_order` varchar(64) NOT NULL COMMENT '提现订单号,系统自动生成的.',
+  `withdraw_bank_id` bigint(20) NOT NULL COMMENT '用户对应的卡的编号',
+  `withdraw_charge` decimal(12,2) NOT NULL COMMENT '提现手续费',
+  `withdraw_reality_total` decimal(12,2) NOT NULL COMMENT '实际提现金额',
+  `withdraw_apply_total` decimal(12,2) NOT NULL COMMENT '申请提现的金额',
+  `withdraw_apply_time` datetime NOT NULL COMMENT '申请提现时间',
+  `status` int(11) NOT NULL COMMENT '提现状态,1表示申请提现,2表示审批通过,3,交易完成,-1审批不通过.',
+  `create_by` bigint(20) DEFAULT NULL COMMENT '创建人',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_by` bigint(20) DEFAULT NULL COMMENT '修改人',
+  `last_update_time` datetime DEFAULT NULL COMMENT '最后修改时间',
+  PRIMARY KEY (`id`),
+  KEY `unique_order` (`withdraw_order`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='提现信息表';
+```
+
+
+
     
