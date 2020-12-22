@@ -344,4 +344,446 @@ APP支付成功后，其实支付宝或者微信都会告诉你是否成功，�
 
 ### APP调用微信：
 
- `` 
+
+```
+/***
+ * APP端调用请求微信
+ */
+@RestController
+@RequestMapping("/buyer")
+public class WeiXinController extends BaseController
+{
+    private static final Logger logger = LoggerFactory.getLogger(WeiXinController.class);
+    
+    /**待支付*/
+    private static final int PAY_LOGS_READY=0;
+    
+    @Autowired
+    private OrderInfoService orderInfoService;
+    
+    @Autowired
+    private BuyerService buyerService;
+    
+    @Autowired
+    private PayLogsService payLogsService;
+    
+    @Autowired
+    private CouponReceiveService couponReceiveService;
+    
+    /**
+     * APP端请求调用微信
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value="/weixin/invoke",method={RequestMethod.GET,RequestMethod.POST})
+    public JsonResult weixinInvoke(HttpServletRequest req, HttpServletResponse resp)
+    {
+        try 
+        {
+            /**订单号*/
+            String orderNumber=this.getNotNull("orderNumber", req);
+                    
+            /**金额*/
+            String money=this.getNotNull("money", req);
+            
+            /**优惠券id*/
+            String couponReceiveId = req.getParameter("couponReceiveId");
+            
+            if(StringUtils.isBlank(orderNumber) || StringUtils.isBlank(money))
+            {
+                return new JsonResult(JsonResultCode.FAILURE,"请求参数有误,请稍后重试","");
+            }
+            
+            //对比金额
+            OrderInfo orderInfo=this.orderInfoService.getOrderInfoByOrderNumber(orderNumber);
+            if(orderInfo==null)
+            {
+                return new JsonResult(JsonResultCode.FAILURE,"订单号不存在，请稍后重试","");
+            }
+            
+            //获取订单的金额
+            BigDecimal orderAmount=orderInfo.getOrderAmount();
+            
+            //减余额
+            Long buyerId=orderInfo.getBuyerId();
+            
+            Buyer buyer=this.buyerService.getBuyerById(buyerId);
+            
+            //用户余额
+            BigDecimal balanceMoney=buyer.getBalanceMoney();
+            
+            //计算最终需要给微信的金额
+            BigDecimal payAmount=orderAmount.subtract(balanceMoney);
+            
+            //买家支付时抵扣优惠券
+            if(StringUtils.isNotBlank(couponReceiveId)){
+                Long id = Long.parseLong(couponReceiveId);
+                payAmount = couponReceiveService.deductionCouponMoney(id, orderNumber, payAmount);
+            }
+            
+            logger.info("[WeiXinController][weixinInvoke] orderNumber:" +orderNumber +" money:" +money+" orderAmount:"+orderAmount+" balanceMoney:"+balanceMoney+" payAmount:" +payAmount);
+            
+            //考虑重复订单的问题，会产生重复日志
+            PayLogs payLogs=this.payLogsService.getPayLogsByOrderNumber(orderNumber);
+            
+            if(payLogs==null)
+            {
+                //创建订单日志
+                PayLogs logs=new PayLogs();
+                logs.setUserId(buyerId);
+                logs.setOrderId(orderInfo.getOrderId());
+                logs.setOrderNumber(orderNumber);
+                logs.setOrderAmount(payAmount);
+                logs.setStatus(PAY_LOGS_READY);
+                logs.setCreateTime(new Date());
+                int payLogsResult=payLogsService.addPayLogs(logs);
+                logger.info("[WeiXinController][weixinInvoke] 创建订单日志结果:" + (payLogsResult>0));
+            }else
+            {
+                logger.info("[WeiXinController][weixinInvoke] 创建重复订单");
+            }
+            
+            //微信开始
+            SortedMap<Object,Object> paramMap = new TreeMap<Object,Object>();  
+            paramMap.put("appid", WeiXinUtil.APPID);
+            paramMap.put("mch_id", WeiXinUtil.MCHID);
+            
+            String nonceStr=RandomUtil.generateString(8);
+            // 随机字符串    
+            paramMap.put("nonce_str", nonceStr);
+            paramMap.put("body","魔笛食材");// 商品描述  
+            paramMap.put("out_trade_no", orderNumber);// 商户订单编号  
+            paramMap.put("total_fee",Math.round(payAmount.doubleValue()*100));
+            //IP地址
+            String ip=IpUtils.getIpAddr(req);
+            paramMap.put("spbill_create_ip",ip);
+            paramMap.put("notify_url", WeiXinUtil.NOTIFYURL);// 回调地址  
+            paramMap.put("trade_type",WeiXinUtil.TRADETYPE);// 交易类型APP  
+            String sign=createSign(paramMap);
+            paramMap.put("sign", sign);// 数字签证  
+
+            logger.info("weixin支付请求IP:" +ip+ " sign:" +sign);
+            
+            String xml = getRequestXML(paramMap);   
+            
+            String content = HttpClientUtil.getInstance().sendHttpPost(WeiXinUtil.URL,xml,"UTF-8");
+            
+            logger.info("weixin支付请求的内容content:" +content);
+            
+            JSONObject jsonObject = JSONObject.fromObject(XmltoJsonUtil.xml2JSON(content));
+            
+            JSONObject resultXml = jsonObject.getJSONObject("xml");
+            
+            //返回的编码
+            JSONArray returnCodeArray =resultXml.getJSONArray("return_code");
+            
+            //返回的消息
+            JSONArray returnMsgArray =resultXml.getJSONArray("return_msg");
+            
+            //结果编码
+            JSONArray resultCodeArray =resultXml.getJSONArray("result_code");
+            
+            String returnCode= (String)returnCodeArray.get(0);
+            
+            String returnMsg= (String)returnMsgArray.get(0);
+            
+            String resultCode = (String)resultCodeArray.get(0);
+            
+            logger.info("[WeiXinController][weixinInvoke] returnCode: " +returnCode+" returnMsg:"+returnMsg +" resultCode:"+resultCode);
+            
+            if(resultCode.equalsIgnoreCase("FAIL"))
+            {  
+                return new JsonResult(JsonResultCode.FAILURE,"微信统一订单下单失败","");
+            }
+            
+            if(resultCode.equalsIgnoreCase("SUCCESS"))
+            {
+                JSONArray prepayIdArray =resultXml.getJSONArray("prepay_id");
+                
+                String prepayId= (String)prepayIdArray.get(0);
+                
+                WeiXinBean weixin=new WeiXinBean();
+                weixin.setAppid(WeiXinUtil.APPID);
+                weixin.setPartnerid(WeiXinUtil.MCHID);
+                weixin.setNoncestr(nonceStr);
+                weixin.setPrepayid(prepayId);
+                String timestamp=System.currentTimeMillis()/1000+"";
+                weixin.setTimestamp(timestamp);
+                //最终返回签名
+                SortedMap<Object,Object> apiMap = new TreeMap<Object,Object>();  
+                apiMap.put("appid", WeiXinUtil.APPID);
+                apiMap.put("partnerid", WeiXinUtil.MCHID);
+                apiMap.put("prepayid", prepayId);
+                apiMap.put("package","Sign=WXPay");
+                apiMap.put("noncestr",nonceStr);
+                apiMap.put("timestamp", timestamp);
+                //再次签名
+                weixin.setSign(createSign(apiMap));
+                return new JsonResult(JsonResultCode.SUCCESS,"微信统一订单下单成功",weixin);
+            }             
+            return new JsonResult(JsonResultCode.FAILURE,"操作失败","");
+        } catch (Exception ex) 
+        {
+            logger.error("[WeiXinController][weixinInvoke] exception:",ex);
+            return new JsonResult(JsonResultCode.FAILURE,"系统错误,请稍后重试","");
+        }
+    } 
+    //拼接xml 请求路径 
+    @SuppressWarnings({"rawtypes"})
+    private String getRequestXML(SortedMap<Object, Object> parame){  
+        StringBuffer buffer = new StringBuffer();  
+        buffer.append("<xml>");  
+        Set set = parame.entrySet();  
+        Iterator iterator = set.iterator();  
+        while(iterator.hasNext()){  
+            Map.Entry entry = (Map.Entry) iterator.next();  
+            String key =String.valueOf(entry.getKey());  
+            String value = String.valueOf(entry.getValue());
+            //过滤相关字段sign  
+            if("sign".equalsIgnoreCase(key)){  
+                buffer.append("<"+key+">"+"<![CDATA["+value+"]]>"+"</"+key+">");  
+            }else{  
+                buffer.append("<"+key+">"+value+"</"+key+">");  
+            }             
+        }  
+        buffer.append("</xml>");  
+        return buffer.toString();  
+    }
+    
+    //创建md5 数字签证  
+    @SuppressWarnings({"rawtypes"})
+    private String createSign(SortedMap<Object, Object> param){ 
+         StringBuffer buffer = new StringBuffer();  
+            Set set = param.entrySet();  
+            Iterator<?> iterator = set.iterator();  
+            while(iterator.hasNext()){  
+                Map.Entry entry = (Map.Entry) iterator.next();  
+                String key = String.valueOf(entry.getKey());  
+                Object value =String.valueOf(entry.getValue());  
+                if(null != value && !"".equals(value) && !"sign".equals(key) && !"key".equals(key)){  
+                    buffer.append(key+"="+value+"&");  
+                }             
+            }  
+            buffer.append("key="+WeiXinUtil.APIKEY);  
+            String sign =EncryptUtil.getMD5(buffer.toString()).toUpperCase();   
+            return sign;
+    }
+}
+```
+
+
+### 微信回调接口：
+
+
+
+```
+/**
+ * weixin 微信服务端回调
+ */
+@Controller
+@RequestMapping("/buyer")
+public class WeiXinNotifyController extends BaseController {
+
+    private static final Logger logger = LoggerFactory.getLogger(WeiXinNotifyController.class);
+
+    /**支付成功*/
+    private static final int PAY_LOGS_SUCCESS=1;
+    
+    @Autowired
+    private OrderInfoService orderInfoService;
+    
+    @Autowired
+    private CouponReceiveService couponReceiveService;
+    
+    @Autowired
+    private GroupsService groupsService;
+    
+    @RequestMapping(value = "/weixin/notify", method = { RequestMethod.GET, RequestMethod.POST })
+    public void weixinNotify(HttpServletRequest request, HttpServletResponse response) throws IOException 
+    {
+        String url=request.getRequestURL().toString();
+        logger.info("WeiXinNotifyController.weixinNotify.start-->url:" +url);
+        try
+        {
+            StringBuffer buf = new StringBuffer();
+            if (request.getMethod().equalsIgnoreCase("POST"))
+            {
+                Enumeration<String> em = request.getParameterNames();
+                for (; em.hasMoreElements();)
+                {
+                    Object o = em.nextElement();
+                    buf.append(o).append("=").append(request.getParameter(o.toString())).append(",");
+                }
+                logger.info("回调 method:post]http://" + request.getServerName() + request.getServletPath() + " [<prams:" + buf + ">]");
+            } else
+            {
+                buf.append(request.getQueryString());
+                logger.info("回调 method:get]http://" + request.getServerName() + request.getServletPath() + "?" + request.getQueryString());
+            }
+            
+            request.setCharacterEncoding("UTF-8");    
+            response.setCharacterEncoding("UTF-8");    
+            response.setContentType("text/html;charset=UTF-8");    
+            response.setHeader("Access-Control-Allow-Origin", "*");     
+            InputStream in=request.getInputStream();    
+            ByteArrayOutputStream out=new ByteArrayOutputStream();    
+            byte[] buffer =new byte[1024];    
+            int len=0;    
+            while((len=in.read(buffer))!=-1){    
+                out.write(buffer, 0, len);    
+            }    
+            out.close();    
+            in.close();    
+            String content=new String(out.toByteArray(),"utf-8");//xml数据    
+            
+            logger.info("[WeiXinNotifyController][weixinNotify] content:" +content);
+            
+            //日志显示，存在为空的情况.
+            if(StringUtils.isBlank(content))
+            {
+                logger.error("[WeiXinNotifyController][weixinNotify] content is blank,please check it");
+                response.getWriter().write(setXml("FAIL", "ERROR"));
+                return; 
+            }
+            
+            JSONObject jsonObject = JSONObject.fromObject(XmltoJsonUtil.xml2JSON(content));
+            
+            JSONObject resultXml = jsonObject.getJSONObject("xml");
+            JSONArray returnCode =  resultXml.getJSONArray("return_code");  
+            String code = (String)returnCode.get(0);
+            
+            if(code.equalsIgnoreCase("FAIL"))
+            {  
+                response.getWriter().write(setXml("SUCCESS", "OK"));
+                return;
+            }else if(code.equalsIgnoreCase("SUCCESS"))
+            {  
+                //商户订单号即订单编号
+                String outerTradeNo =String.valueOf(resultXml.getJSONArray("out_trade_no").get(0));
+                
+                //微信交易订单号
+                String tradeNo = String.valueOf(resultXml.getJSONArray("transaction_id").get(0));
+                
+                //交易状态
+                String resultCode = String.valueOf(resultXml.getJSONArray("result_code").get(0));
+                
+                //金额
+                String money =String.valueOf(resultXml.getJSONArray("total_fee").get(0));
+                
+                //微信的用户ID
+                String openId =String.valueOf(resultXml.getJSONArray("openid").get(0));
+                
+                logger.info("[WeiXinNotifyController][weixinNotify] resultCode:" +resultCode+" money:"+money);
+                
+                //根据这个判断来获取订单交易是否OK
+                if(!resultCode.equalsIgnoreCase("SUCCESS"))
+                {
+                    response.getWriter().write(setXml("FAIL", "ERROR"));
+                    return;
+                }
+                
+                try
+                {
+                    if(StringUtils.isNotBlank(outerTradeNo))
+                    {
+                        //查询当前订单信息
+                        OrderInfo info=this.orderInfoService.getOrderInfoByOrderNumber(outerTradeNo);
+                        
+                        if(info==null)
+                        {
+                            logger.error("[WeiXinNotifyController][weixinNotify] info:" +info);
+                            response.getWriter().write(setXml("FAIL", "ERROR"));
+                            return;
+                        }
+                        
+                        //订单信息
+                        OrderInfo orderInfo=new OrderInfo();
+                        orderInfo.setOrderNumber(outerTradeNo);    
+                        orderInfo.setCardCode("weixin");
+                        orderInfo.setCardName("微信支付");
+                        orderInfo.setCardNumber(openId);
+                        orderInfo.setCardOwner(openId);
+                        orderInfo.setPayTime(new Date());
+                        orderInfo.setOuterTradeNo(tradeNo);
+                        orderInfo.setPayStatus(PayStatus.PAY_SUCCESS);
+                        orderInfo.setTradeStatus(TradeStatus.TRADE_PROGRESS);
+                        orderInfo.setPayAmount(new BigDecimal(money).divide(new BigDecimal(100)));
+                        orderInfo.setBuyerId(info.getBuyerId());
+                        
+                        //付款日志
+                        PayLogs payLogs=new PayLogs();
+                        payLogs.setOrderNumber(outerTradeNo);
+                        payLogs.setOuterTradeNo(tradeNo);
+                        payLogs.setStatus(PAY_LOGS_SUCCESS);
+                        
+                        orderInfoService.payReturn(orderInfo,payLogs);
+                        
+                        //回写团购成功状态
+                        groupsService.updateGbStatusByOrderNumber(outerTradeNo);
+                        response.getWriter().write(setXml("SUCCESS", "OK"));
+                        try
+                        {
+                            //更新优惠券状态为已用
+                            couponReceiveService.updateStatus(outerTradeNo);
+                        }catch(Exception ex){
+                            logger.error("[AlipayNotifyController][payReturn] 更新优惠券状态异常:",ex);
+                        }
+                        return;
+                    }
+                }catch(Exception ex)
+                {
+                    logger.error("[WeiXinNotifyController][payReturn] 出现了异常:",ex);
+                    response.getWriter().write(setXml("SUCCESS", "OK"));
+                    return;
+                }
+            }             
+        }catch(Exception e){
+            logger.error("[WeiXinNotifyController][weixinNotify] exception:" ,e);
+            response.getWriter().write(setXml("SUCCESS", "OK"));
+            return;
+        }  
+    }  
+    //返回微信服务  
+    private String setXml(String returnCode,String returnMsg)
+    {    
+       return "<xml><return_code><![CDATA["+returnCode+"]]></return_code><return_msg><![CDATA["+returnMsg+"]]></return_msg></xml>";    
+    }   
+}
+```
+
+Java开源生鲜电商平台-支付表的设计与架构(源码可下载），如果需要下载的话，可以在我的github下面进行下载。 
+
+### 相关的运营截图如下：
+
+641237-20180514085555049-419299049.png
+
+641237-20180514085836966-1746087629.png
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
