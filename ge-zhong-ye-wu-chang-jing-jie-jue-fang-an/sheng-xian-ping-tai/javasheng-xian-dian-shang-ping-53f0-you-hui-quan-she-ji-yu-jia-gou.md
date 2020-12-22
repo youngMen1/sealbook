@@ -32,3 +32,19 @@ CREATE TABLE `coupon` (
 
 2.优惠券领取记录表
 说明：我们需要记录那个买家，什么时候进行的领取，领取的的时间，券的额度是多少等等，是否已经使用等信息
+
+
+```
+CREATE TABLE `coupon_receive` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '自动增加ID',
+  `buyer_id` bigint(20) DEFAULT NULL COMMENT '买家ID',
+  `coupon_id` bigint(20) DEFAULT NULL COMMENT '优惠券编号',
+  `coupon_money` decimal(12,2) DEFAULT NULL COMMENT '券额',
+  `create_time` datetime DEFAULT NULL COMMENT '领取时间',
+  `full_money` decimal(12,2) DEFAULT NULL COMMENT '金额满',
+  `status` int(11) DEFAULT NULL COMMENT '状态，1为已使用，0为已领取未使用，-1为已过期',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='优惠券领取记录表';
+```
+
+
