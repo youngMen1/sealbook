@@ -79,3 +79,11 @@ payLogsDao.updatePayLogs(payLogs);  花费800ms
 
 logDao.insertOperatorLogs(orderInfo,payLogs); 花费600ms
 
+综合以上分析，我们需要把同步改成异步，分析出问题的关键。
+
+payLogsDao.updatePayLogs(payLogs); 这块代码进行了优化。
+
+我们惊奇的发现，用户存在刷单的情况，就是不停的支付，就是不支付，对于线上1000多个买家而言，平均每天2单-5单，每单平均订单数在1-10之间
+
+那么一个月的订单日志记录就是：1000*30*5*10=1500000记录，我的天，问题出在这里。日志表也有巨大的量。
+
