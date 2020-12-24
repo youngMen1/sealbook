@@ -61,7 +61,11 @@ system应该在git安装目录的下;
 
 进入目录创建`git_learning`文件夹: `git init git_learning`
 
-## 3.2.
+### 3.2.将文件添加到版本库中
+将index.html（指定文件）添加到版本库中：git add index.html
+将当前目录及子目录中的文件都添加到版本库里：git add
 
+### 3.3.提交文件
+提交文件（提交先要进行git add操作)：`git commit -m "提交新文件" `
 
 
