@@ -48,7 +48,10 @@ system应该在git安装目录的下;
 修改：`git config --global configname configvalue`  
 查询：`git config --global configname`
 
-## 3.
+
+## 3.创建第一个仓库并配置用户信息
+
+
 
 
 
