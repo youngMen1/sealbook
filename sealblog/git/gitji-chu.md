@@ -22,4 +22,8 @@ git config --list --local ##只能在仓库里面起作用, 普通路径git不�
 git config --list --global 
 git config --list --system 
 
-local的在.git/config里面；global的在个人home目录下的.gitconfig里面；system应该在git安装目录的下
+local的在.git/config里面；
+global的在个人home目录下的.gitconfig里面；
+system应该在git安装目录的下;
+
+## 3.
