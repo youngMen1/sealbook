@@ -50,3 +50,9 @@ File–>settings–>Editor–>General -->Editor Tabs–>去掉√
 
 ## 1.9.查看本地代码历史
 微信图片_20201224093048.jpg
+
+## 1.10.快速找到Controller方法
+如果你的项目里有非常多的controller，里面有非常多的http或者resful方法。如何快速找到这些方法呢？这个时候，ctrl+alt+shift+n就可以派上用场了。
+
+比如说，你依稀记得入账单相关的接口，都有个/pc/order的url路径，那么使用ctrl+alt+shift+n后，直接输入/pc即可。
+微信截图_20201224093218.png
