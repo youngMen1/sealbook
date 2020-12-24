@@ -9,7 +9,7 @@ Linux 平台 Git 下载地址：`https://git-scm.com/download/linux`
 
 ## 2.使用Git之前需要做的最小配置
 
-### 2.1.配置User配置提交作者信息:
+### 2.1.配置User提交作者信息:
 
 Mac:
 
