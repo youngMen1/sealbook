@@ -10,3 +10,8 @@
 ### 1.2.1.设置方法
 File–>settings–>Editor–>General–>勾选Show quick documentation…
 微信图片_20201224092211.jpg
+
+## 1.3.显示方法分隔符
+### 1.3.1.设置方法
+File–>settings–>Editor–>Appearance–>勾选
+微信图片_20201224092247.jpg
