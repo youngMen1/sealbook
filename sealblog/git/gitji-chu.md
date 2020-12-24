@@ -11,6 +11,9 @@ Linux 平台 Git 下载地址：`https://git-scm.com/download/linux`
 git config --local user.name 'lunzi'
 git config --local user.email 'lunzi@163.com'
 
+
+
+
 ### 2.2.参数区别:
 git config --local ##只对某个仓库有效,切换到另外一个仓库失效
 git config --global ##当前用户的所有仓库有效,工作当中最常用
@@ -25,5 +28,12 @@ git config --list --system
 local的在.git/config里面；
 global的在个人home目录下的.gitconfig里面；
 system应该在git安装目录的下;
+
+
+### 2.4.config 增删改查操作
+新增：`git config --global --add configname configvalue`
+删除：`git config --global --unset configname`
+修改：`git config --global configname configvalue`
+查询：`git config --global configname`
 
 ## 3.
