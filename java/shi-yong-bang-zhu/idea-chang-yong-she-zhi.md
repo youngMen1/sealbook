@@ -15,3 +15,11 @@ File–>settings–>Editor–>General–>勾选Show quick documentation…
 ### 1.3.1.设置方法
 File–>settings–>Editor–>Appearance–>勾选
 微信图片_20201224092247.jpg
+
+## 1.4.忽略大小写提示
+### 1.4.1.设置方法
+File–>settings–>Editor–>General -->Code Completion -->
+微信图片_20201224092347.jpg
+
+备注：idea的默认设置是严格区分大小写提示的，例如输入string不会提示String，不方便编码
+微信图片_20201224092402.jpg
