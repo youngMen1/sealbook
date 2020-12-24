@@ -9,7 +9,7 @@ Linux 平台 Git 下载地址：`https://git-scm.com/download/linux`
 
 ## 2.使用Git之前需要做的最小配置
 
-### 2.1.配置User信息:
+### 2.1.配置User配置提交作者信息:
 
 Mac:
 
@@ -33,8 +33,8 @@ git config --system \#\#系统的所有用户,几乎不用
 
 ### 2.3.查看配置:
 
-git config --list --local \#\#只能在仓库里面起作用, 普通路径git不管理   
-git config --list --global   
+git config --list --local \#\#只能在仓库里面起作用, 普通路径git不管理  
+git config --list --global  
 git config --list --system
 
 local的在.git/config里面；  
