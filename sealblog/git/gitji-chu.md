@@ -14,7 +14,7 @@ git config --local user.email 'lunzi@163.com'
 ### 2.2.参数区别:
 git config --local ##只对某个仓库有效,切换到另外一个仓库失效
 git config --global ##当前用户的所有仓库有效,工作当中最常用
-git config --sysstem ##系统的所有用户,几乎不用
+git config --system ##系统的所有用户,几乎不用
 
 ### 2.3.查看配置:
 
