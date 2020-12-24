@@ -57,7 +57,7 @@ system应该在git安装目录的下;
 转化为git版本库：`git init`—将所在目录（git_learning）转化为git版本库（此时的版本库是空的，目录下的文件默认不会被放入版本库中，视为临时文件）
 
 或者
-进入目录创建git_learning文件夹: `git init git_learning`
+进入目录创建`git_learning`文件夹: `git init git_learning`
 
 
 
