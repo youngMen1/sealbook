@@ -50,8 +50,8 @@ system应该在git安装目录的下;
 
 
 ## 3.创建第一个仓库并配置用户信息
-### 在E盘的git目录下创建
-进入操作目录：`cd e:/git`
+### 在F盘的git目录下创建
+进入操作目录：`cd f:/git`
 新建文件夹：`mkdir git_learning`
 进入新建的文件夹：`cd git_learning`
 
