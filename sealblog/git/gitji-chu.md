@@ -28,7 +28,7 @@ git config --local user.email "lunzi@163.com"
 ### 2.2.参数区别:
 
 git config --local \#\#只对某个仓库有效,切换到另外一个仓库失效  
-git config --global \#\#当前用户的所有仓库有效,工作当中最常用  ``
+git config --global \#\#当前用户的所有仓库有效,工作当中最常用  
 git config --system \#\#系统的所有用户,几乎不用
 
 ### 2.3.查看配置:
@@ -69,9 +69,6 @@ system应该在git安装目录的下;
 
 ### 3.3.提交文件
 
-提交文件（提交先要进行git add操作\)：`git commit -m "提交新文件"`
-合并git add 和 git commit 操作（适用于比较小的变更): `git commit -am "提交信息"`
-
-
-
+提交文件（提交先要进行git add操作\)：`git commit -m "提交新文件"`  
+合并git add 和 git commit 操作（适用于比较小的变更\): `git commit -am "提交信息"`
 
