@@ -51,12 +51,14 @@ system应该在git安装目录的下;
 
 ## 3.创建第一个仓库并配置用户信息
 ### 3.1.在F:\git\repositories盘的git目录下创建
+方式一：
 进入操作目录：`cd f:/git`
 新建文件夹：`mkdir git_learning`
 进入新建的文件夹：`cd git_learning`
 转化为git版本库：`git init`—将所在目录（git_learning）转化为git版本库（此时的版本库是空的，目录下的文件默认不会被放入版本库中，视为临时文件）
 
-或者
+方式二：
+
 进入目录创建`git_learning`文件夹: `git init git_learning`
 
 
