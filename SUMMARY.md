@@ -175,6 +175,7 @@
     * [独自使用Git时的常见场景\(二\)](sealblog/git/du-zi-shi-yong-git-shi-de-chang-jian-chang-666f28-4e8c29.md)
     * [Git与GitHub的简单同步\(三\)](sealblog/git/gityu-github-de-jian-dan-tong-bu.md)
     * Git多人单分支集成协作时的常见场景\(四\)
+    * Git集成使用禁忌\(五\)
   * [redis](sealblog/redis.md)
   * [JDK](sealblog/jdk.md)
     * [JDK看源码](sealblog/jdk/jdkkan-yuan-ma.md)
