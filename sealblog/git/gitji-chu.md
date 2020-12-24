@@ -61,6 +61,7 @@ system应该在git安装目录的下;
 
 进入目录创建`git_learning`文件夹: `git init git_learning`
 
+## 3.2.
 
 
 
