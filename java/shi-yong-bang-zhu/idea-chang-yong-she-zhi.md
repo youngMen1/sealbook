@@ -29,5 +29,11 @@ File–>settings–>Editor–>General -->Code Completion -->
 
 ## 1.5.单行显示多个Tabs
 ### 1.5.1.设置方法
+File–>settings–>Editor–>General -->Editor Tabs–>去掉√
+微信图片_20201224092628.jpg
 ### 1.5.2.效果图
+* 1.默认是显示单排的Tabs:
+微信图片_20201224092648.jpg
+* 2.单行显示多个Tabs:
+微信图片_20201224092700.jpg
 
