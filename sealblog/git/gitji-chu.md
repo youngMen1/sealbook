@@ -28,7 +28,7 @@ git config --local user.email "lunzi@163.com"
 ### 2.2.参数区别:
 
 git config --local \#\#只对某个仓库有效,切换到另外一个仓库失效  
-git config --global \#\#当前用户的所有仓库有效,工作当中最常用  
+git config --global \#\#当前用户的所有仓库有效,工作当中最常用  ``
 git config --system \#\#系统的所有用户,几乎不用
 
 ### 2.3.查看配置:
@@ -48,24 +48,30 @@ system应该在git安装目录的下;
 修改：`git config --global configname configvalue`  
 查询：`git config --global configname`
 
-
 ## 3.创建第一个仓库并配置用户信息
+
 ### 3.1.在F:\git\repositories盘的git目录下创建
-方式一：
-进入操作目录：`cd f:/git`
-新建文件夹：`mkdir git_learning`
-进入新建的文件夹：`cd git_learning`
-转化为git版本库：`git init`—将所在目录（git_learning）转化为git版本库（此时的版本库是空的，目录下的文件默认不会被放入版本库中，视为临时文件）
+
+方式一：  
+进入操作目录：`cd f:/git`  
+新建文件夹：`mkdir git_learning`  
+进入新建的文件夹：`cd git_learning`  
+转化为git版本库：`git init`—将所在目录（git\_learning）转化为git版本库（此时的版本库是空的，目录下的文件默认不会被放入版本库中，视为临时文件）
 
 方式二：
 
 进入目录创建`git_learning`文件夹: `git init git_learning`
 
 ### 3.2.将文件添加到版本库中
-将index.html（指定文件）添加到版本库中：git add index.html
+
+将index.html（指定文件）添加到版本库中：git add index.html  
 将当前目录及子目录中的文件都添加到版本库里：git add
 
 ### 3.3.提交文件
-提交文件（提交先要进行git add操作)：`git commit -m "提交新文件" `
+
+提交文件（提交先要进行git add操作\)：`git commit -m "提交新文件"`
+合并git add 和 git commit 操作（适用于比较小的变更): `git commit -am "提交信息"`
+
+
 
 
