@@ -8,11 +8,19 @@ Linux 平台 Git 下载地址：`https://git-scm.com/download/linux`
 
 ## 2.使用Git之前需要做的最小配置
 ### 2.1.配置User信息:
+
+Mac:
+
+```
 git config --local user.name 'lunzi'
 git config --local user.email 'lunzi@163.com'
+```
 
-
-
+Windows:
+```
+git config --local user.name "lunzi"
+git config --local user.email "lunzi@163.com"
+```
 
 ### 2.2.参数区别:
 git config --local ##只对某个仓库有效,切换到另外一个仓库失效
