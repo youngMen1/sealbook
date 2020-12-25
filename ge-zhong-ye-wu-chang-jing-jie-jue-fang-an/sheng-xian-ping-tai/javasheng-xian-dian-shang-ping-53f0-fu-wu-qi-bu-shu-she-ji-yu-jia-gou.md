@@ -18,4 +18,14 @@
 
 目前根据业务的情况，采购了阿里云服务器，由于是创业，我身上没多少钱，只采购了一台阿里云.(具体配置如下与域名规划如下)
 
-目前根据业务的情况，采购了阿里云服务器，由于是创业，我身上没多少钱，只采购了一台阿里云.(具体配置如下与域名规划如下)
+公司网址: `http://www.netcai.com`
+
+买家端:  `http://buyer.netcai.com`
+
+卖家端:  `http://seller.netcai.com`
+
+配送端：`http://delivery.netcai.com`
+
+销售端：`http://sales.netcai.com`
+
+后台端：`http://admin.netcai.com`
