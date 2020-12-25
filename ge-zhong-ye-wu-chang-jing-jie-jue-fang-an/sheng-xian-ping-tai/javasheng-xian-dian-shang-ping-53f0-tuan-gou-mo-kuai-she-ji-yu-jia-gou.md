@@ -29,4 +29,5 @@ CREATE TABLE `groups` (
   PRIMARY KEY (`group_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='团购主表';
 ```
+
 说明：这里面有一个团购的状态需要指明下，买家用户选择好几样商品后发起了团购，然后默认状态为-1，表示不可用，等组成了团购，最终状态会有团成的状态。
