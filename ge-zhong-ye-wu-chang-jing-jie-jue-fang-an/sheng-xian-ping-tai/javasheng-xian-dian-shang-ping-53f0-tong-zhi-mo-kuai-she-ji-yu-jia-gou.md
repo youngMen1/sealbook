@@ -219,3 +219,83 @@ CREATE TABLE `buyer_notice` (
 
 **说明：字段相对比较简单，就是买家ID,内容，读取状态等等，
 业务逻辑为：当用户进入系统，我们系统代码查询业务逻辑的时候，也查询 下这个表是否存在通知，如果已经有的，就不用弹窗，没有就弹窗，强迫用户选择已读或者未读。相对而言业务比较简单**
+
+
+
+```
+/**
+ * 买家进入首页，看到的通知
+ */
+@RestController
+@RequestMapping("/buyer")
+public class NoticeController extends BaseController{
+
+    private static final Logger logger = LoggerFactory.getLogger(MyController.class);
+    
+    public static final String CONTENT="平台下单时间调整为上午10:00到晚上23:59";
+    
+    @Autowired
+    private NoticeService noticeService;
+    
+    /**
+     * 查询消息
+     */
+    @RequestMapping(value = "/notice/index", method = { RequestMethod.GET, RequestMethod.POST })
+    public JsonResult noticeIndex(HttpServletRequest request, HttpServletResponse response,Long buyerId){
+        try
+        {
+            if(buyerId==null)
+            {
+                return new JsonResult(JsonResultCode.FAILURE, "请求参数有误，请重新输入","");
+            }
+            
+            Notice notice=this.noticeService.getNoticeByBuyerId(buyerId);
+            
+            if(notice==null)
+            {
+                
+                int result=this.noticeService.insertNotice(buyerId, CONTENT);
+                
+                if(result>0)
+                {
+                    notice=this.noticeService.getNoticeByBuyerId(buyerId);
+                }
+            }
+            return new JsonResult(JsonResultCode.SUCCESS, "查询信息成功", notice);
+            
+        }catch(Exception ex){
+            logger.error("[NoticeController][noticeIndex] exception :",ex);
+            return new JsonResult(JsonResultCode.FAILURE, "系统错误,请稍后重试","");
+        }
+    }
+    
+    
+    /**
+     * 更新消息
+     */
+    @RequestMapping(value = "/notice/update", method = { RequestMethod.GET, RequestMethod.POST })
+    public JsonResult noticeUpdate(HttpServletRequest request, HttpServletResponse response,Long buyerId){
+        try
+        {
+            if(buyerId==null)
+            {
+                return new JsonResult(JsonResultCode.FAILURE, "请求参数有误，请重新输入","");
+            }
+            
+            int result=this.noticeService.updateBuyerNotice(buyerId);
+            
+            if(result>0)
+            {
+                return new JsonResult(JsonResultCode.SUCCESS, "更新成功","");
+            }else
+            {
+                return new JsonResult(JsonResultCode.FAILURE, "更新失败","");
+            }
+        }catch(Exception ex){
+            logger.error("[NoticeController][noticeUpdate] exception :",ex);
+            return new JsonResult(JsonResultCode.FAILURE, "系统错误,请稍后重试","");
+        }
+    }
+}
+```
+
