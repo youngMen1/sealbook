@@ -19,3 +19,16 @@
 如何进行一起努力与学习。
 
 统计表的系统设计如下：
+
+
+```
+CREATE TABLE `report_days` (
+  `id` bigint(20) DEFAULT NULL,
+  `order_number_count` int(11) DEFAULT NULL COMMENT '今日订单数',
+  `order_rmb_count` decimal(12,2) DEFAULT NULL COMMENT '今日营业额',
+  `order_number_amount` int(11) DEFAULT NULL COMMENT '总订单数',
+  `order_rmb_amount` decimal(12,2) DEFAULT NULL COMMENT '总营业额',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='每日报表';
+```
+
