@@ -494,3 +494,78 @@ public class SmsResult implements java.io.Serializable{
 
 #### 4.短信发送工具类的封装
 
+
+```
+/**
+ * 短信工具
+ */
+@Component
+public class SmsUtil {
+    
+    private static final Logger logger=LoggerFactory.getLogger(SmsUtil.class);
+    
+    @Value("#{applicationProperties['environment']}")
+    private String environment;
+    
+    /**
+     * 默认编码的格式
+     */
+    private static final String CHARSET="GBK";
+    
+    /**
+     * 请求的网关接口
+     */
+    private static final String URL = "http://api.sms.cn/sms/";
+    
+    public boolean sendSms(SmsMessage smsMessage)
+    {
+        boolean result=true;
+        
+        logger.debug("[SmsUtil]当前的运行环境为："+environment);
+
+        //开发环境就直接返回成功
+        if("dev".equalsIgnoreCase(environment))
+        {
+            return result;
+        }
+        
+        Map<String, String> map=new HashMap<String,String>();
+        
+        map.put("ac","send");
+        map.put("uid","");
+        map.put("pwd","");
+        map.put("template",smsMessage.getTemplate());
+        map.put("mobile",smsMessage.getAccount());
+        map.put("content",smsMessage.toString());
+        
+        try
+        {
+            String responseContent=HttpClientUtil.getInstance().sendHttpPost(URL, map,CHARSET);
+            
+            logger.info("SmsUtil.sendSms.responseContent:" + responseContent);
+            
+            JSONObject json = JSONObject.fromObject(responseContent);
+            
+            logger.info("SmsUtil.sendSms.json:" + json);
+            
+            String stat=json.getString("stat");
+            
+            if(!"100".equalsIgnoreCase(stat))
+            {
+                result=false;
+            }
+            
+        }catch(Exception ex)
+        {
+            result=false;
+            logger.error("[SmsUtil][sendSms] exception:",ex);
+        }
+        return result;
+    }
+}
+```
+补充说明；其实我可以用一个工具类来解决所有问题，为什么我没采用呢？
+
+1.代码耦合度高，不变管理与扩展.(业务分析，其实就是三种情况，1，发送，2，内容，3，返回结果)
+
+2.我采用代码拆分，一个类只做一件事情，几个类分别协同开发，达到最高程度的解耦，代码清晰，维护度高。
