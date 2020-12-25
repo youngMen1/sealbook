@@ -34,3 +34,40 @@ CREATE TABLE `report_days` (
 说明：其实就是向这里面进行数据的更新与增加操作即可，每天进行报表的读取与显示不过有些网友提出采用缓存来处理，我个人的意见是不需要。数据也没那么多，而且都是定时器来执行，缓存的价值与意义很小。
 
 相关的执行代码如下：
+
+
+```
+@Component
+public class TaskReport {
+
+    private static final Logger logger=LoggerFactory.getLogger(TaskReport.class);
+    
+    @Autowired
+    private BuyerOrderReportService buyerOrderReportService;
+    
+    @Autowired
+    private ReportDayService reportDayService;
+    
+    @Autowired
+    private BillService billService;
+    /**
+     * 计算每天报表;
+     *    每日上午6:00触发
+     */
+    @Scheduled(cron="0 0 6 * * ?")
+    protected void day(){
+        try{
+            logger.info("TaskReport.day.start");
+            //统计每天订单报表;
+            Integer today = 0;//0表示今天    1表示昨天;
+            reportDayService.insertBatch(today);
+            //统计买家每日订单金额;
+            buyerOrderReportService.insertBatch(today);
+        }catch(Exception e){
+            logger.error("TaskReport.day.exception",e);
+        }finally {
+            logger.info("TaskReport.day.end");
+        }
+   }
+```
+
