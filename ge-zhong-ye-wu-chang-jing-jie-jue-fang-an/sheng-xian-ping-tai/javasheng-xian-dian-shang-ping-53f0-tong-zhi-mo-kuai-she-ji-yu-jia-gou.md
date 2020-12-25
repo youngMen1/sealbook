@@ -204,3 +204,18 @@ public class Jdpush {
 
 数据库设计如下：
 
+
+```
+CREATE TABLE `buyer_notice` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '自动增加ID',
+  `buyer_id` bigint(20) DEFAULT NULL COMMENT '买家ID',
+  `content` varchar(60) DEFAULT NULL COMMENT '内容',
+  `status` int(11) DEFAULT NULL COMMENT '状态，0为未读，1为已读',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL COMMENT '最后更新时间，已读时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=262 DEFAULT CHARSET=utf8 COMMENT='买家通知';
+```
+
+**说明：字段相对比较简单，就是买家ID,内容，读取状态等等，
+业务逻辑为：当用户进入系统，我们系统代码查询业务逻辑的时候，也查询 下这个表是否存在通知，如果已经有的，就不用弹窗，没有就弹窗，强迫用户选择已读或者未读。相对而言业务比较简单**
