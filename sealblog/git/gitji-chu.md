@@ -26,19 +26,18 @@ git config [--local | --global | --system] user.email "Your email"
 ```
 
 **例如：**
+
 ```
 git config --global user.name "fengzhiqiang"
 git config --global user.email "fengzhiqiangzxx@163.com"
-
 ```
-
-
 
 ### 2.2.查看配置:
 
 ```
 git config --list [--local | --global | --system]
 ```
+
 ### 2.3.参数区别:
 
 ```
