@@ -70,6 +70,6 @@ public class TaskReport {
         }
    }
 ```
-
+2. 相关的报表的形状显示，目前折线图，柱状图是比较理想的一种方式，采用百度的echarts进行显示
 
 
