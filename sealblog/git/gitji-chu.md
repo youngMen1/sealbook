@@ -89,4 +89,20 @@ git log  查看历史
 git status  查看状态
 ```
 
+**课程中使用的几个命令，对应windows版：**
+```
+# 清屏
+Mac: clear
+Windows: cls
+
+# 展示文件夹内的内容
+Mac: ls -al
+Windows: dir
+
+# 展示文件内容（比如展示style.css的内容）
+Mac: vi style.css
+Windows: more style.css
+```
+
+
 
