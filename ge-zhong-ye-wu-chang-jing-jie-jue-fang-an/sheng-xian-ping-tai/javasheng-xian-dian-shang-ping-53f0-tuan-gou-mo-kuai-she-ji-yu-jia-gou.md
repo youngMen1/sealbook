@@ -92,3 +92,89 @@ CREATE TABLE `groups_item` (
 2.团购明细。
 3.我的团购。
 4.我的取消团购等
+
+
+
+
+```
+/**
+ * 团购Controller
+ */
+@RestController
+@RequestMapping("/buyer")
+public class GroupsController extends BaseController {
+
+    private static final Logger logger = LoggerFactory.getLogger(GroupsController.class);
+    @Autowired
+    private GroupsService groupsService;
+    
+    /**
+     * 团购活动列表
+     * @param request
+     * @param response
+     */
+    @RequestMapping(value = "/groups/list", method = { RequestMethod.GET})
+    public JsonResult groupsList(HttpServletRequest request, HttpServletResponse response,Long regionId) {
+        try{
+            if(null == regionId || 0 == regionId){
+                return new JsonResult(JsonResultCode.FAILURE, "参数错误，请检查regionId是否有传","");
+            }
+            List<GroupsVo> cgList = groupsService.getGroupsList(regionId);
+            return new JsonResult(JsonResultCode.SUCCESS, "查询信息成功", cgList);
+        }catch(Exception ex){
+            logger.error("[GroupsController][groupsList] exception :",ex);
+            return new JsonResult(JsonResultCode.FAILURE, "系统错误,请稍后重试","");
+        }
+    }
+    
+    /*
+     * 团购活动详情
+     */
+    @RequestMapping(value = "/groups/detail", method = { RequestMethod.GET })
+    public JsonResult detailGroups(HttpServletRequest request, HttpServletResponse response,Long groupId) {
+        try{
+            if(null == groupId || 0 == groupId){
+                return new JsonResult(JsonResultCode.FAILURE, "参数错误，请检查groupId是否有传","");
+            }
+            GroupsVo groupsVo = groupsService.getGroupsInfo(groupId);
+            if(groupsVo == null){
+                groupsVo = new GroupsVo();
+            }
+            return new JsonResult(JsonResultCode.SUCCESS, "查询信息成功", groupsVo);
+        }catch(Exception ex){
+            logger.error("[GroupsController][detailGroups] exception :",ex);
+            return new JsonResult(JsonResultCode.FAILURE, "系统错误,请稍后重试","");
+        }
+    }
+    
+    /**
+     * 团购下单
+     * @param request
+     * @param response
+     */
+    @RequestMapping(value = "/groups/createOrder", method = { RequestMethod.POST })
+    public JsonResult createOrder(HttpServletRequest request, HttpServletResponse response,
+            @RequestBody GroupOrder groupOrder) {
+        try {
+            String time = groupOrder.getBestTime();
+            if (StringUtils.isBlank(time)) {
+                return new JsonResult(JsonResultCode.FAILURE, "订单创建失败,收货时间不允许为空", "");
+            }
+            
+            OrderInfo addOrderInfo = groupsService.addOrderInfo(groupOrder);
+            if (addOrderInfo == null) {
+                return new JsonResult(JsonResultCode.FAILURE, "创建订单失败，订单金额小于起送价", "");
+            }
+            return new JsonResult(JsonResultCode.SUCCESS, "创建订单成功", addOrderInfo);
+        } catch (Exception ex) {
+            logger.error("[GroupsController][createOrder] exception :", ex);
+            return new JsonResult(JsonResultCode.FAILURE, "系统错误,请稍后重试", "");
+        }
+    }
+}
+```
+总结：目前Java开源生鲜电商平台-团购模块设计与架构只是针对的是很普通的一些团购手段，当然对于拼多多而言，差距还是很大的。
+
+这个也是跟业务形态有关，非技术有关，每一种促销方案并不是适合左右的买家用户或者说系统平台本身的。
+
+由于时间关系或者说有关规定， APP运营截图相对而言比较简单，我这边就不贴出来了。
