@@ -31,4 +31,4 @@ CREATE TABLE `report_days` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='每日报表';
 ```
-
+说明：其实就是向这里面进行数据的更新与增加操作即可，每天进行报表的读取与显示
