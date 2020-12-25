@@ -20,7 +20,6 @@
 
 **统计表的系统设计如下：**
 
-
 ```
 CREATE TABLE `report_days` (
   `id` bigint(20) DEFAULT NULL,
@@ -31,4 +30,5 @@ CREATE TABLE `report_days` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='每日报表';
 ```
-说明：其实就是向这里面进行数据的更新与增加操作即可，每天进行报表的读取与显示
+
+说明：其实就是向这里面进行数据的更新与增加操作即可，每天进行报表的读取与显示不过有些网友提出采用缓存来处理，我个人的意见是不需要。数据也没那么多，而且都是定时器来执行，缓存的价值与意义很小。
