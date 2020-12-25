@@ -50,5 +50,5 @@ CREATE TABLE `groups_buyer` (
   PRIMARY KEY (`gb_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='团购买家表';
 ```
-
+说明：团购买家表，记录那个买家，那个团购，团购的最终数量以及团购的价格等等，最终是否有买家在规定的时间内推出了团购，或者团购未形成等等。
 
