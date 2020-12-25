@@ -305,7 +305,6 @@ public class NoticeController extends BaseController{
 内容其实就是短信的发送而言。
 接口文档很简单：
 
-
 ```
 参数名    参数字段    参数说明
 ac    接口功能    接口功能，传入值请填写 send
@@ -431,3 +430,4 @@ public class SmsMessage
     }
 ```
 
+#### 3.短信发送结果的封装：
