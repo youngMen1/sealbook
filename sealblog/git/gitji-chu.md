@@ -14,28 +14,30 @@ Linux 平台 Git 下载地址：`https://git-scm.com/download/linux`
 Mac:
 
 ```
-git config --local user.name 'lunzi'
-git config --local user.email 'lunzi@163.com'
+git config [--local | --global | --system] user.name 'lunzi'
+git config [--local | --global | --system] user.email 'lunzi@163.com'
 ```
 
 Windows:
 
 ```
-git config --local user.name "lunzi"
-git config --local user.email "lunzi@163.com"
+git config [--local | --global | --system] user.name "Your name"
+git config [--local | --global | --system] user.email "Your email"
 ```
 
-### 2.2.参数区别:
 
-git config --local \#\#只对某个仓库有效,切换到另外一个仓库失效  
-git config --global \#\#当前用户的所有仓库有效,工作当中最常用  
-git config --system \#\#系统的所有用户,几乎不用
+### 2.2.查看配置:
 
-### 2.3.查看配置:
+```
+git config --list [--local | --global | --system]
+```
+### 2.3.参数区别:
 
-git config --list --local \#\#只能在仓库里面起作用, 普通路径git不管理  
-git config --list --global  
-git config --list --system
+```
+local：区域为本仓库
+global: 当前用户的所有仓库 
+system: 本系统的所有用户
+```
 
 local的在.git/config里面；  
 global的在个人home目录下的.gitconfig里面；  
@@ -89,11 +91,11 @@ git log  查看历史
 git status  查看状态
 ```
 
-git add -u 可以添加所有已经被 git 控制的文件到暂存区
+git add -u 可以添加所有已经被 git 控制的文件到暂存区  
 以前删除文件夹只会用 「-rf」，今天学到了 「-r」，并得知它们两个区别：「-r」 有时候会提示是否确认删除。
 
-
 **课程中使用的几个命令，对应windows版：**
+
 ```
 # 清屏
 Mac: clear
