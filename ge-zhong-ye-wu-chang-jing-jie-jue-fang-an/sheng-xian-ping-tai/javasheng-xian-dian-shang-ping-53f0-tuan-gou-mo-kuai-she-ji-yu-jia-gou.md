@@ -63,3 +63,26 @@ CREATE TABLE `groups_buyer` (
 
 因此，最终系统架构如下：
 
+
+```
+CREATE TABLE `groups_item` (
+  `item_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+  `group_id` bigint(20) DEFAULT NULL COMMENT '团购ID',
+  `goods_id` bigint(20) DEFAULT NULL COMMENT '商品ID',
+  `format_id` bigint(20) DEFAULT NULL COMMENT '商品规格ID',
+  `group_price` decimal(12,2) DEFAULT NULL COMMENT '团购价格',
+  `group_num` int(11) DEFAULT NULL COMMENT '团购数量',
+  `item_status` tinyint(4) DEFAULT NULL COMMENT '状态(1在用 -1停用)',
+  `create_user_id` bigint(20) DEFAULT NULL COMMENT '创建人',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`item_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='团购明细表';
+```
+业务总结：
+1. 存在 一个买家发起的团购申请记录表。
+
+           2. 后端会有一个审核机制，默认1个小时内审核通过。
+
+           3. 团购会有商品的明细组成。也有时间段的范围与有消息。
+
+           4. 团购最终需要记录那些人参与了，然后交费完成等等。
