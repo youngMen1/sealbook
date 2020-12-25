@@ -34,3 +34,21 @@ CREATE TABLE `groups` (
 
 
 2.对于团购而言，系统肯定需要记录，那些买家参与了那些团购，因此有以下的一张表记录
+
+```
+CREATE TABLE `groups_buyer` (
+  `gb_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+  `buyer_id` bigint(20) DEFAULT NULL COMMENT '买家ID',
+  `group_id` bigint(20) DEFAULT NULL COMMENT '团购ID',
+  `item_id` bigint(20) DEFAULT NULL COMMENT '团购明细ID',
+  `order_id` bigint(20) DEFAULT NULL COMMENT '订单ID',
+  `gb_num` int(11) DEFAULT NULL COMMENT '团购数量',
+  `gb_price` decimal(12,2) DEFAULT NULL COMMENT '团购价格',
+  `gb_amt` decimal(12,2) DEFAULT NULL COMMENT '团购金额',
+  `gb_status` tinyint(4) DEFAULT NULL COMMENT '状态(1完成 -1取消)',
+  `gb_time` datetime DEFAULT NULL COMMENT '团购时间',
+  PRIMARY KEY (`gb_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='团购买家表';
+```
+
+
