@@ -11,19 +11,27 @@ Linux 平台 Git 下载地址：`https://git-scm.com/download/linux`
 
 ### 2.1.配置User提交作者信息:
 
-Mac:
+**Mac:**
 
 ```
 git config [--local | --global | --system] user.name 'lunzi'
 git config [--local | --global | --system] user.email 'lunzi@163.com'
 ```
 
-Windows:
+**Windows:**
 
 ```
 git config [--local | --global | --system] user.name "Your name"
 git config [--local | --global | --system] user.email "Your email"
 ```
+
+**例如：**
+```
+git config --global user.name "fengzhiqiang"
+git config --global user.email "fengzhiqiangzxx@163.com"
+
+```
+
 
 
 ### 2.2.查看配置:
