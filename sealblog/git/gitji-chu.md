@@ -74,3 +74,20 @@ system应该在git安装目录的下;
 
 ## 4.通过几次commit来认识工作区和暂存区
 
+
+```
+git add . ：将工作空间新增和被修改的文件添加的暂存区
+git add -u :将工作空间被修改和被删除的文件添加到暂存区(不包含没有纳入Git管理的新增文件)
+```    
+
+# 创建仓库
+```bash
+git init [project folder name]  初始化 git 仓库
+git add [fileName]  把文件从工作目录添加到暂存区
+git commit -m'some information'  用于提交暂存区的文件
+git commit -am'Some information' 用于提交跟踪过的文件
+git log  查看历史
+git status  查看状态
+```
+
+
