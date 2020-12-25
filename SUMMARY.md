@@ -353,7 +353,7 @@
     * [Java生鲜电商平台-优惠券设计与架构](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/sheng-xian-ping-tai/javasheng-xian-dian-shang-ping-53f0-you-hui-quan-she-ji-yu-jia-gou.md)
     * [Java生鲜电商平台-通知模块设计与架构](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/sheng-xian-ping-tai/javasheng-xian-dian-shang-ping-53f0-tong-zhi-mo-kuai-she-ji-yu-jia-gou.md)
     * [Java生鲜电商平台-团购模块设计与架构](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/sheng-xian-ping-tai/javasheng-xian-dian-shang-ping-53f0-tuan-gou-mo-kuai-she-ji-yu-jia-gou.md)
-    * Java生鲜电商平台-服务器部署设计与架构
+    * [Java生鲜电商平台-服务器部署设计与架构](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/sheng-xian-ping-tai/javasheng-xian-dian-shang-ping-53f0-fu-wu-qi-bu-shu-she-ji-yu-jia-gou.md)
   * [营销中台](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/ying-xiao-zhong-tai.md)
   * [微服务API网关-身份验证](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/wei-fu-wu-api-wang-5173-shen-fen-yan-zheng.md)
   * [微服务API网关-权限控制](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/wei-fu-wu-api-wang-5173-quan-xian-kong-zhi.md)
