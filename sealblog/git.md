@@ -55,7 +55,7 @@ git push origin 自己分支名
 
 
 ```
-http://gitref.justjavac.com/branching/\#merge
+http://gitref.justjavac.com/branching/#merge
 ```
 
 
