@@ -299,3 +299,69 @@ public class NoticeController extends BaseController{
 }
 ```
 
+### 3.短信通知模块的设计
+
+说明：市面上短信供应商很多，可能大家就是关注一个价格与及时性的问题，目前我们找的一个稍微便宜点的供应商：`http://api.sms.cn/`
+内容其实就是短信的发送而言。
+接口文档很简单：
+
+
+```
+参数名    参数字段    参数说明
+ac    接口功能    接口功能，传入值请填写 send
+format    返回格式    可选项，有三参数值：json,xml,txt 默认json格式
+uid    用户账号    登录名
+pwd    用户密码    32位MD5加密md5(密码+uid)
+如登录密码是：123123 ，uid是：test;
+pwd=md5(123123test)
+pwd=b9887c5ebb23ebb294acab183ecf0769
+encode    字符编码    可选项，默认接收数据是UTF-8编码,如提交的是GBK编码字符,需要添加参数 encode=gbk
+mobile    接收号码    同时发送给多个号码时,号码之间用英文半角逗号分隔(,);小灵通需加区号
+如:13972827282,13072827282
+mobileids    消息编号    可选项
+该参数用于发送短信收取状态报告用，格式为消息编号+逗号；与接收号码一一对应，可以重复出现多次。
+消息编号:全部由数字组成接收状态报告的时候用到，该消息编号的格式可就为目标号码+当前时间戳整数，精确到毫秒，确保唯一性。供收取状态报告用 如: 1590049111112869461937;
+
+content    短信内容    变量模板发送，传参规则{"key":"value"}JSON格式，key的名字须和申请模板中的变量名一致，多个变量之间以逗号隔开。示例：针对模板“短信验证码{$code}，您正在进行{$product}身份验证，请在10分钟内完成操作！”，传参时需传入{"code":"352333","product":"电商平台"}
+template    模板短信ID    发送变量模板短信时需要填写对应的模板ID号，进入平台-》短信设置-》模板管理
+```
+
+对此，我们如何进行业务研究与处理呢？
+
+* 1.短信验证码的长度与算法。
+
+* 2.代码的模板进行封装。
+
+* 3.短信工具类的使用方便
+
+ 
+
+#### 1.短信验证码生成算法：
+
+```
+import org.apache.commons.lang3.RandomStringUtils;
+
+/**
+ * 短信验证码
+ * 
+ */
+public final class SmsCode {
+
+    /**
+     * 默认产生的验证码数目
+     */
+    private static int DEFAULT_NUMBER = 6;
+
+    /**
+     * 产生的随机号码数目
+     * 
+     * @param number
+     * @return
+     */
+    public static String createRandomCode(int number) {
+        int num = number <= 3 ? DEFAULT_NUMBER : number;
+        return RandomStringUtils.randomNumeric(num);
+    }
+}
+```
+简单粗暴的解决问题：
