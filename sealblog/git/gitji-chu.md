@@ -72,3 +72,5 @@ system应该在git安装目录的下;
 提交文件（提交先要进行git add操作\)：`git commit -m "提交新文件"`  
 合并git add 和 git commit 操作（适用于比较小的变更\): `git commit -am "提交信息"`
 
+## 4.通过几次commit来认识工作区和暂存区
+

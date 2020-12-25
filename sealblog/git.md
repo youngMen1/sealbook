@@ -52,9 +52,22 @@ git push origin 自己分支名
 
 ## 3.参考
 **Git 参考手册**
-[http://gitref.justjavac.com/branching/\#merge](http://gitref.justjavac.com/branching/#merge)
+
+
+```
+http://gitref.justjavac.com/branching/\#merge
+```
+
+
 
 **Git 团队协作开发：**
 
-[https://juejin.im/post/5ea8daa66fb9a04382227c14](https://juejin.im/post/5ea8daa66fb9a04382227c14)
+
+```
+https://juejin.im/post/5ea8daa66fb9a04382227c14
+```
+
+
+
+git教程：`https://aimuch.com/2019/03/21/git%E6%95%99%E7%A8%8B/#more`
 
