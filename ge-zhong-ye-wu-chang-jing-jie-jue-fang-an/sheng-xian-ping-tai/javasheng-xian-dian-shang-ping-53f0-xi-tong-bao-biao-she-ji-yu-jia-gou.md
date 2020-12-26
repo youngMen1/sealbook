@@ -180,3 +180,4 @@ public class IndexController extends BaseController {
 
 641237-20180530071221366-107109721.png
 
+ 这里面也是些统计的数据，相对而言跟上面的买家维度差不多，代码方面也类似，无外乎需要的是多点数据库的查询与统计即可。
