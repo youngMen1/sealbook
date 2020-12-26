@@ -35,7 +35,7 @@ SessionCalback提供了良好的封装，优先使用它，
 redisCallback使用起来有点复杂（很多工作需要我们自己来完成）还是优先选择SessionCalback
 
 
-## 1.2.redis 基础操作
+## 1.2.redis基础操作
 
 
 
