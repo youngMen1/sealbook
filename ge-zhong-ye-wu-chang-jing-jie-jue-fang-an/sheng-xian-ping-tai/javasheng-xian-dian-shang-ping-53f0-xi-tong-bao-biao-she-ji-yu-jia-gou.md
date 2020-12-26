@@ -81,6 +81,8 @@ public class TaskReport {
 
 ![](/static/image/641237-20180530070814534-101856237.png)
 
+**补充说明：相关的echarts的用法，这边就不列举了，的确蛮简单的，返回json给echarts所需要的数据格式即可。**
 
+代码这里只贴出相对核心的代码：
 
 
