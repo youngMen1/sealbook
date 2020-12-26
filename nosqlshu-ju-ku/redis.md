@@ -232,6 +232,11 @@ public class RedisTest {
 ```
 在这里要说明下我实现的管道pipeline批量获取使用的是RedisCallback对象实现的,原因是我使用SessionCalback对象来实现时调用get方法总是获取null最后也没找到原因所以使用了RedisCallback对象来实现的批量获取，如果有哪位大神了解SessionCalback对象的实现方法求指点一二
 
+### 1.3.4.批量操作multi和pipeline效率的比较
+
+multi和pipeline的区别在于multi会将操作都即刻的发送至redis服务端queued起来，每条指令queued的操作都有一次通信开销，执行exec时redis服务端再一口气执行queued队列里的指令，pipeline则是在客户端本地queued起来，执行exec时一次性的发送给redis服务端，这样只有一次通信开销。比如我有5个incr操作，multi的话这5个incr会有5次通信开销，但pipeline只有一次。
+
+所以在批量操作使用pipeline效率会更高。
 
 # 参考 
 redis常用操作(管道(pipeline)实现批量操作,Redis模糊匹配等:`http://www.xiaoheidiannao.com/9747.html`
