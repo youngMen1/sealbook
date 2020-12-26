@@ -123,6 +123,36 @@ public class RedisTest {
     }
 }
 ```
+### 1.3.2.redis的管道 pipeline批量 delete
+
+```
+    @RequestMapping(value = "/redisPipeline", method = RequestMethod.DELETE)
+    @ApiOperation(value = "redis的管道 pipeline删除测试")
+    public void  redisDeletetest(){
+        log.info("redistest开始");
+        // 开始时间
+        long start = System.currentTimeMillis();
+        RedisSerializer stringSerializer = new StringRedisSerializer();
+        redisTemplate.setKeySerializer(stringSerializer);
+        redisTemplate.setValueSerializer(stringSerializer);
+        redisTemplate.executePipelined(new SessionCallback() {
+            //执行流水线
+            @Override
+            public Object execute(RedisOperations operations) throws DataAccessException {
+                //批量处理的内容
+                for (int i = 0; i < 20000; i++) {
+                    //operations.opsForValue().set("redistest:"+"k"+i,"v"+i);
+                    operations.delete("redistest:"+"k"+i);
+                    System.out.println(i);
+                }
+                return null;
+            }
+        });
+        // 结束时间
+        long end = System.currentTimeMillis();
+        log.info("运行时间："+(end-start));
+    }
+```
 
 
 
