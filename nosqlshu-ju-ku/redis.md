@@ -65,6 +65,13 @@ List<String> strings = stringRedisTemplate.opsForValue().multiGet(keysList);
 
 
 ## 1.3.Redis管道(pipeline)流操作
+总的来说Redis的管道可以在大量数据需要一次性操作完成的时候,使用Pipeline进行批处理,将多次操作合并成一次操作,可以减少链路层的时间消耗。
+流水线：
+redis的读写速度十分快，所以系统的瓶颈往往是在网络通信中的延迟。
+redis可能会在很多时候处于空闲状态而等待命令的到达。
+为了解决这个问题，可以使用redis的流水线，流水线是一种通讯协议，类似一个队列批量执行一组命令。
+
+
 
 # 参考 
 redis常用操作(管道(pipeline)实现批量操作,Redis模糊匹配等:`http://www.xiaoheidiannao.com/9747.html`
