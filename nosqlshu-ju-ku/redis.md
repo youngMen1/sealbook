@@ -31,10 +31,13 @@ StringRedisTemplate继承RedisTemplate，只是提供字符串的操作，复杂
 
 ### RedisCallback和SessionCallBack
 作用: 让RedisTemplate进行回调，通过他们可以在同一条连接中执行多个redis命令
-SessionCalback提供了良好的封装，优先使用它，redisCallback使用起来有点复杂（很多工作需要我们自己来完成）还是优先选择SessionCalback
+SessionCalback提供了良好的封装，优先使用它，
+redisCallback使用起来有点复杂（很多工作需要我们自己来完成）还是优先选择SessionCalback
 
 
-## 1.2.redisTemplate模糊匹配
+## 1.2.redis 基础操作
+
+
 
 
 ## 1.3.Redis管道(pipeline)流操作
