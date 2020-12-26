@@ -55,6 +55,13 @@ redisTemplate.delete(key);
 Set<String> keysUserRole = redisTemplate.keys("userRole:" + "*");
 ```
 
+**批量查询**
+
+```
+Set<String> keysList = stringRedisTemplate.keys(keys);
+List<String> strings = stringRedisTemplate.opsForValue().multiGet(keysList);
+```
+
 
 
 ## 1.3.Redis管道(pipeline)流操作
