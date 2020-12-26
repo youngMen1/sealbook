@@ -36,7 +36,24 @@ redisCallback使用起来有点复杂（很多工作需要我们自己来完成�
 
 
 ## 1.2.redis基础操作
+### 1.2.1.redisTemplate模糊匹配删除
 
+```
+String key = "userRole:*";
+redisTemplate.delete(key);
+```
+### 1.2.2.Redis模糊查询
+可以通过Redis中keys命令进行获取key值，具体命令格式：keys pattern
+
+文中提到redis中允许模糊查询的有3个通配符，分别是：*，?，[]
+
+其中：
+**使用通配符拿到keys**
+
+
+```
+Set<String> keysUserRole = redisTemplate.keys("userRole:" + "*");
+```
 
 
 
