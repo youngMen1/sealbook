@@ -74,6 +74,57 @@ redis可能会在很多时候处于空闲状态而等待命令的到达。
 ### 1.3.1.redis的管道 pipeline批量set
 
 
+```
+@RequestMapping(value = "/redisPipeline", method = RequestMethod.POST)
+    @ApiOperation(value = "redis的管道 pipeline 添加数据测试")
+    public void  redistest(){
+        log.info("redistest开始");
+        // 开始时间
+        long start = System.currentTimeMillis();
+        RedisSerializer stringSerializer = new StringRedisSerializer();
+        redisTemplate.setKeySerializer(stringSerializer);
+        redisTemplate.setValueSerializer(stringSerializer);
+        List<String> result = redisTemplate.executePipelined(new SessionCallback() {
+            //执行流水线
+            @Override
+            public Object execute(RedisOperations operations) throws DataAccessException {
+                //批量处理的内容
+                for (int i = 0; i < 10000; i++) {
+                    operations.opsForValue().set("redistest:" + "k" + i, "v" + i);
+                }
+                //注意这里一定要返回null，最终pipeline的执行结果，才会返回给最外层
+                return null;
+            }
+        });
+        // 结束时间
+        long end = System.currentTimeMillis();
+        log.info("运行时间："+(end-start));
+        }
+```
+此处与未使用管道流水线操作做对比后续其他操作就不一一对比了
+未使用流水线处理10000次请求：//耗时：5692；
+
+
+```
+public class RedisTest {
+    @Autowired
+    private RedisTemplate redisTemplate;
+
+    @Test
+    public void test(){
+        // 开始时间
+        long start = System.currentTimeMillis();
+        for (int i = 0; i < 10000; i++) {
+            redisTemplate.opsForValue().set("k"+i,"v"+i);
+        }
+        // 结束时间
+        long end = System.currentTimeMillis();
+        System.out.println(end-start);
+    }
+}
+```
+
+
 
 # 参考 
 redis常用操作(管道(pipeline)实现批量操作,Redis模糊匹配等:`http://www.xiaoheidiannao.com/9747.html`
