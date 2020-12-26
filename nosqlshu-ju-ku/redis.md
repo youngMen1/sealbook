@@ -154,6 +154,83 @@ public class RedisTest {
     }
 ```
 
+### 1.3.3.redis的管道 pipeline批量 GET
+
+
+```
+ /**
+     * redis 批量操作其中一种方式
+     * redis pipeline 管道技术
+     */
+    @RequestMapping(value = "/redisPipeline", method = RequestMethod.GET)
+    @ApiOperation(value = "redis的管道 pipeline GET测试")
+    public void redisPipeline(){
+        RedisSerializer stringSerializer = new StringRedisSerializer();
+        stringRedisTemplate.setKeySerializer(stringSerializer);
+        stringRedisTemplate.setValueSerializer(stringSerializer);
+        List<String>  keys=new ArrayList();
+        for (int i = 0; i < 200; i++) {
+            keys.add("redistest:"+"k"+i);
+        }
+        //调用 通道批量获取
+        Map<String, Object> stringObjectMap = batchQueryByKeys(keys, true);
+        System.out.println(stringObjectMap.size());
+    }
+
+    /**
+     *
+     * @param keys
+     * @param useParallel  是否使用并行平行流
+     * @return
+     */
+    public Map<String,Object> batchQueryByKeys(List<String> keys,Boolean useParallel){
+        if(null == keys || keys.size() == 0 ){
+            return null;
+        }
+        if(null == useParallel){
+            useParallel = true;
+        }
+        List<Object> results = stringRedisTemplate.executePipelined(
+                new RedisCallback<Object>() {
+                    @Override
+                    public Object doInRedis(RedisConnection connection) throws DataAccessException {
+                        StringRedisConnection stringRedisConn = (StringRedisConnection)connection;
+                        for(String key:keys) {
+                            stringRedisConn.get(key);
+                        }
+                        return null;
+                    }
+                });
+        if(null == results || results.size() == 0 ){return null;}
+
+        Map<String,Object> resultMap  =  null;
+
+        if(useParallel){
+
+            Map<String,Object> resultMapOne  = Collections.synchronizedMap(new HashMap<String,Object>());
+
+            keys.parallelStream().forEach(t -> {
+                resultMapOne.put(t,results.get(keys.indexOf(t)));
+            });
+
+            resultMap = resultMapOne;
+
+        }else{
+
+            Map<String,Object> resultMapTwo  = new HashMap<>();
+
+            for(String t:keys){
+                resultMapTwo.put(t,results.get(keys.indexOf(t)));
+            }
+
+            resultMap = resultMapTwo;
+        }
+
+        return  resultMap;
+
+    }
+```
+在这里要说明下我实现的管道pipeline批量获取使用的是RedisCallback对象实现的,原因是我使用SessionCalback对象来实现时调用get方法总是获取null最后也没找到原因所以使用了RedisCallback对象来实现的批量获取，如果有哪位大神了解SessionCalback对象的实现方法求指点一二
 
 
 # 参考 
