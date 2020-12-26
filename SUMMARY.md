@@ -225,6 +225,7 @@
     * [Redis的三个框架：Jedis,Redisson,Lettuce](nosqlshu-ju-ku/redis/redisde-san-ge-kuang-jia-ff1a-jedis-redisson-lettuce.md)
     * [Redis分布式锁](nosqlshu-ju-ku/redis/redisfen-bu-shi-suo.md)
     * [RedisTemplate访问Redis数据结构](nosqlshu-ju-ku/redis/redistemplatefang-wen-redis-shu-ju-jie-gou.md)
+    * Redis使用pipelined批量存取数据
   * [riak](nosqlshu-ju-ku/riak.md)
   * [membase](nosqlshu-ju-ku/membase.md)
   * [neo4j](nosqlshu-ju-ku/neo4j.md)
