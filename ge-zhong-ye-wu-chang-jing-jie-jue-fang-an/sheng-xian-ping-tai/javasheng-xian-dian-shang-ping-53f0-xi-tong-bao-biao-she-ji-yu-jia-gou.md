@@ -86,3 +86,99 @@ public class TaskReport {
 代码这里只贴出相对核心的代码：
 
 
+```
+public class IndexController extends BaseController {
+
+    private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
+    
+    @Autowired
+    private OrderInfoService orderInfoService;
+
+    @Autowired
+    private OrderItemService orderItemService;
+
+    @Autowired
+    private SalesService salesService;
+
+    @Autowired
+    private BuyerService buyerService;
+
+    @Autowired
+    private SellerService sellerService;
+
+    @Autowired
+    private ReportedService reportedService;
+
+    @RequestMapping(value = "/index", method = { RequestMethod.GET, RequestMethod.POST })
+    public String index(HttpServletRequest request, HttpServletResponse response, Model model, Long areaId) {
+
+        logger.info("[IndexController][index] :查询订单统计数据");
+        try {
+
+            // 查询订单总数量和金额
+            Map<String, Object> totalMap = orderInfoService.getCountAndAmount();
+            int totalCount = (int) totalMap.get("count");
+            BigDecimal totalAmount = (BigDecimal) totalMap.get("amount");
+            if (totalAmount == null) {
+                totalAmount = BigDecimal.ZERO;
+            }
+            // 查询今日的订单总数量和金额
+            Map<String, Object> todayMap = orderInfoService.getOrderCountAndAmountByToday();
+            int todayOrderCount = (int) todayMap.get("count");
+            BigDecimal todayOrderAmount = (BigDecimal) todayMap.get("amount");
+            if (todayOrderAmount == null) {
+                todayOrderAmount = BigDecimal.ZERO;
+            }
+
+            // 查询实时的订单总数量和金额
+            Map<String, Object> realTimeRevenueMap = orderInfoService.getRealTimeRevenueCount();
+            int realTimeOrderCount = (int) realTimeRevenueMap.get("count");
+            BigDecimal realTimeOrderAmount = (BigDecimal) realTimeRevenueMap.get("amount");
+            if (realTimeOrderAmount == null) {
+                realTimeOrderAmount = BigDecimal.ZERO;
+            }
+
+            // 入驻买家数量
+            int totalBuyerCount = buyerService.getBuyerCount(null);
+            // 当日注册买家数量
+            int todayBuyercount = buyerService.getDailyBuyerCount();
+            // 当日入驻卖家数量
+            int todaySellerCount = sellerService.getDailySellerCount();
+
+            model.addAttribute("totalCount", totalCount);
+            model.addAttribute("totalAmount", totalAmount);
+            model.addAttribute("todayOrderCount", todayOrderCount);
+            model.addAttribute("todayOrderAmount", todayOrderAmount);
+            model.addAttribute("totalBuyerCount", totalBuyerCount);
+            model.addAttribute("todayBuyercount", todayBuyercount);
+            model.addAttribute("todaySellerCount", todaySellerCount);
+            model.addAttribute("realTimeOrderAmount", realTimeOrderAmount);
+            model.addAttribute("realTimeOrderCount", realTimeOrderCount);
+
+            // 查询今儿下单买家数量和空降A;
+            int order_buyerCount = orderInfoService.getBuyerCountByTodayOrder();
+            int newBuyerNum = orderInfoService.getBuyerNumByThatDay();
+            model.addAttribute("order_buyerCount", order_buyerCount);
+            model.addAttribute("newBuyerNum", newBuyerNum);
+            Reported reported = new Reported();
+            reported.setrSolveStatus(1);
+            int count = reportedService.getCount(reported);
+            model.addAttribute("count", count);
+        } catch (Exception ex) {
+            logger.error("[IndexController][index] :exception", ex);
+        }
+        return "index";
+    }
+```
+
+3.对于卖家而言，我们的报表需要有以下几个维度来统计（统计最新的TOP的卖家）
+3.1   买家消费。
+
+        3. 2  卖家收入
+
+        3.3   热卖的菜品
+
+        3.4   销售业绩
+
+        3. 5  订单项最多的买家。
+
