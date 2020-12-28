@@ -4,8 +4,8 @@
 
 ## 1.1.spring官方文档
 
-微信截图_20201228091121.png
-微信截图_20201228091152.png
+![](/static/image/微信截图_20201228091121.png)
+![](/static/image/微信截图_20201228091152.png)
 
 `https://spring.io/projects/spring-integration`
 
