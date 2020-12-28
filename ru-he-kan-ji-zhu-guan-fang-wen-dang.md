@@ -6,8 +6,8 @@
 
 ```
 spring官方文档：https://spring.io/projects/spring-integration
-Spring Cloud Alibaba Sentinel： https://sentinelguard.io/zh-cn/docs/basic-api-resource-rule.html
-Spring Cloud Alibaba Nacos://nacos.io/en-us/
+Spring Cloud Alibaba Sentinel：https://sentinelguard.io/zh-cn/docs/basic-api-resource-rule.html
+Spring Cloud Alibaba Nacos: https://nacos.io/en-us/
 ```
 
 
