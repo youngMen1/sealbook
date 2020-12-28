@@ -21,7 +21,7 @@
     * [如何优雅地使用 Windows 10](you-xiu-wen-zhang/ru-he-you-ya-di-shi-yong-windows-10.md)
   * [在线工具](zai-xian-gong-ju.md)
   * [工具收集](gong-ju-shou-ji.md)
-  * 如何看技术官方文档
+  * [如何看技术官方文档](ru-he-kan-ji-zhu-guan-fang-wen-dang.md)
 * [踩坑日记](cai-keng-ri-ji-2.md)
   * [异常日记](yi-chang-ri-zhi/cai-keng-ri-ji.md)
   * [日常问题](java/ri-cheng-wen-ti.md)
