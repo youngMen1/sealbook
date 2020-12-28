@@ -6,6 +6,7 @@
 
 ```
 spring官方文档：https://spring.io/projects/spring-integration
+Spring Cloud Alibaba Sentinel： https://sentinelguard.io/zh-cn/docs/basic-api-resource-rule.html
 
 ```
 
