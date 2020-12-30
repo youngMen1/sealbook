@@ -72,7 +72,7 @@ hash类型的(key, field, value)的结构与对象的(对象id, 属性, 值)的�
 由于hash类型存储的是一个键值对，比如数据库有以下一个用户表结构
 ![](/static/image/微信截图_20201230104544.png)
 
-将以上信息存入redis，用表明:id作为key，用户属性作为值：
+将以上信息存入redis，用表明:id 作为key，用户属性作为值：
 
 ```
 hset user:1 name Java旅途 age 18
