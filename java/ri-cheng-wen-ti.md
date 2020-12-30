@@ -41,7 +41,13 @@ com.aliyuncs.exceptions.ClientException: SDK.ServerUnreachable : Server unreacha
 
 1.经多次尝试，该问题得以解决：
 
-[https://help.aliyun.com/document\_detail/68360.html?spm=a2c4g.11186623.6.699.1c0137edsk3wUh](https://help.aliyun.com/document_detail/68360.html?spm=a2c4g.11186623.6.699.1c0137edsk3wUh)
+
+
+```
+https://help.aliyun.com/document\_detail/68360.html?spm=a2c4g.11186623.6.699.1c0137edsk3wUh
+```
+
+
 
 **如我的服务区域是深圳，我就选择深圳的内网IP：**
 
@@ -60,3 +66,12 @@ request.putQueryParameter("RegionId", "cn-shanghai");
 我们先来写个单元测试，重现一下这个问题。
 测试逻辑：
 * 1、创建两个日期格式化，一个是出问题的YYYY-MM-dd，**另一个是正确用法yyyy-MM-dd**
+* 2、分别去格式化两个不同的日期：2020年12月26日（周六），2020年12月27日（周日）
+具体代码如下：
+
+
+```
+
+```
+
+
