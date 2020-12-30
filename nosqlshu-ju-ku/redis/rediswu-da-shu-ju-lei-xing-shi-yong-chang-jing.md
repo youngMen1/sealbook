@@ -36,10 +36,24 @@ Redis中有一个字符串相关的命令incr key，incr命令对值做自增操
 Redis中，哈希类型是指一个键值对的存储结构。
 
 ## 2.1.内部编码
-2.1 内部编码
+
+哈希类型的内部编码有两种：
+
+* ziplist（压缩列表）：当哈希类型元素个数小于hash-max-ziplist-entries配置（默认512个）同时所有值都小于hash-max-ziplist-value配置（默认64字节）时使用。ziplist使用更加紧凑的结构实现多个元素的连续存储，所以比hashtable更加节省内存。
+
+* hashtable（哈希表）：当ziplist不能满足要求时，会使用hashtable。
 
 
 ## 2.2.使用场景
+由于hash类型存储的是一个键值对，比如数据库有以下一个用户表结构
+![](/static/image/微信截图_20201230104544.png)
+
+将以上信息存入redis，用表明:id作为key，用户属性作为值：
+
+
+```
+hset user:1 name Java旅途 age 18
+```
 
 
 # 2.参考
