@@ -56,6 +56,6 @@ request.setDomain(“dysmsapi-vpc.cn-shenzhen.aliyuncs.com”);
 // 改为深圳
 request.putQueryParameter("RegionId", "cn-shanghai");
 ```
-
+## 1.2.日期格式化使用 YYYY-MM-dd 的潜在问题
 
 
