@@ -140,10 +140,22 @@ sinter user:1:tags user:2:tags
 ### 4.2.2.抽奖功能
 集合有两个命令支持获取随机数，分别是：
 * 随机获取count个元素，集合元素个数不变
-srandmember key [count]
-* 随机弹出count个元素，元素从集合弹出，集合元素个数改变
-spop key [count]
 
+
+```
+srandmember key [count]
+```
+
+
+* 随机弹出count个元素，元素从集合弹出，集合元素个数改变
+
+
+```
+spop key [count]
+```
+
+
+用户点击抽奖按钮，参数抽奖，将用户编号放入集合，然后抽奖，分别抽一等奖、二等奖，如果已经抽中一等奖的用户不能参数抽二等奖则使用spop，反之使用srandmember。
 # 2.参考
 Redis五大数据类型使用场景
 ```
