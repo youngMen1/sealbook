@@ -56,7 +56,7 @@ request.setDomain(“dysmsapi-vpc.cn-shenzhen.aliyuncs.com”);
 // 改为深圳
 request.putQueryParameter("RegionId", "cn-shanghai");
 ```
-## 1.2.日期格式化使用 YYYY-MM-dd 的潜在问题
+## 1.2.日期格式化使用 YYYY-MM-dd 的潜在问题（正确的写法是yyyy-MM-dd）
 我们先来写个单元测试，重现一下这个问题。
 测试逻辑：
 * 1、创建两个日期格式化，一个是出问题的YYYY-MM-dd，**另一个是正确用法yyyy-MM-dd**
