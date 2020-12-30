@@ -41,13 +41,9 @@ com.aliyuncs.exceptions.ClientException: SDK.ServerUnreachable : Server unreacha
 
 1.经多次尝试，该问题得以解决：
 
-
-
 ```
 https://help.aliyun.com/document\_detail/68360.html?spm=a2c4g.11186623.6.699.1c0137edsk3wUh
 ```
-
-
 
 **如我的服务区域是深圳，我就选择深圳的内网IP：**
 
@@ -62,13 +58,15 @@ request.setDomain(“dysmsapi-vpc.cn-shenzhen.aliyuncs.com”);
 // 改为深圳
 request.putQueryParameter("RegionId", "cn-shanghai");
 ```
+
 ## 1.2.日期格式化使用 YYYY-MM-dd 的潜在问题（正确的写法是yyyy-MM-dd）
-我们先来写个单元测试，重现一下这个问题。
+
+我们先来写个单元测试，重现一下这个问题。  
 测试逻辑：
+
 * 1.创建两个日期格式化，一个是出问题的YYYY-MM-dd，**另一个是正确用法yyyy-MM-dd**
 * 2.分别去格式化两个不同的日期：2020年12月26日（周六），2020年12月27日（周日）
-具体代码如下：
-
+  具体代码如下：
 
 ```
 public class Tests {
@@ -76,14 +74,14 @@ public class Tests {
   public void test() throws Exception { 
     SimpleDateFormat df1 = new SimpleDateFormat("YYYY-MM-dd"); 
     SimpleDateFormat df2 = new SimpleDateFormat("yyyy-MM-dd"); 
-    
+
     Calendar c = Calendar.getInstance(); 
-    
+
     // 2020年12月26日周六 
     c.set(Calendar.DATE, 26); 
     System.out.println("YYYY-MM-dd = " + df1.format(c.getTime())); 
     System.out.println("yyyy-MM-dd = " + df2.format(c.getTime())); 
-    
+
     // 分割线 
     System.out.println("========================"); 
     // 2020年12月27日 周日 
@@ -93,8 +91,8 @@ public class Tests {
   } 
 }
 ```
-跑一下测试，可以看到输出结果如下：
 
+跑一下测试，可以看到输出结果如下：
 
 ```
 YYYY-MM-dd = 2020-12-26 
@@ -103,6 +101,7 @@ yyyy-MM-dd = 2020-12-26
 YYYY-MM-dd = 2021-12-27 
 yyyy-MM-dd = 2020-12-27
 ```
+
 * 2020年12月26日（周六），两种格式化都正确
 * 2020年12月27日（周日），YYYY-MM-dd出了问题，年份到了2021年
 
@@ -114,4 +113,5 @@ yyyy-MM-dd = 2020-12-27
 
 所以2020年12月27日那天在这种表述方式下就已经到 2021 年了。
 
-而当使用yyyy的时候，就还是 2020 年。
+**而当使用yyyy的时候，就还是 2020 年。**
+
