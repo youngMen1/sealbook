@@ -71,7 +71,47 @@ request.putQueryParameter("RegionId", "cn-shanghai");
 
 
 ```
+public class Tests {
+  @Test 
+  public void test() throws Exception { 
+    SimpleDateFormat df1 = new SimpleDateFormat("YYYY-MM-dd"); 
+    SimpleDateFormat df2 = new SimpleDateFormat("yyyy-MM-dd"); 
+    
+    Calendar c = Calendar.getInstance(); 
+    
+    // 2020年12月26日周六 
+    c.set(Calendar.DATE, 26); 
+    System.out.println("YYYY-MM-dd = " + df1.format(c.getTime())); 
+    System.out.println("yyyy-MM-dd = " + df2.format(c.getTime())); 
+    
+    // 分割线 
+    System.out.println("========================"); 
+    // 2020年12月27日 周日 
+    c.add(Calendar.DATE, 1); 
+    System.out.println("YYYY-MM-dd = " + df1.format(c.getTime())); 
+    System.out.println("yyyy-MM-dd = " + df2.format(c.getTime())); 
+  } 
+}
+```
+跑一下测试，可以看到输出结果如下：
+
 
 ```
+YYYY-MM-dd = 2020-12-26 
+yyyy-MM-dd = 2020-12-26 
+======================== 
+YYYY-MM-dd = 2021-12-27 
+yyyy-MM-dd = 2020-12-27
+```
+* 2020年12月26日（周六），两种格式化都正确
+* 2020年12月27日（周日），YYYY-MM-dd出了问题，年份到了2021年
 
+**问题原因**
 
+为什么YYYY-MM-dd格式化2020年12月27日的时候，会到2021年呢？
+
+**因为YYYY是week-based-year，表示：当天所在的周属于的年份，一周从周日开始，周六结束，只要本周跨年，那么这周就算入下一年。**
+
+所以2020年12月27日那天在这种表述方式下就已经到 2021 年了。
+
+而当使用yyyy的时候，就还是 2020 年。
