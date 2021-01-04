@@ -16,7 +16,7 @@ Spring Cloud Alibaba Nacos: https://nacos.io/en-us/
 
 ### 1.1.1.spring-integration
 
-选择LEARN一栏
+**选择LEARN一栏**
 
 ![](/static/image/微信截图_20201228091152.png)
 
