@@ -71,3 +71,6 @@ GitHub 只提供基本的语法高亮，你想找到某个变量需要 Ctrl + F 
 微信图片_20210105140713.jpg
 拖拽下载好的 .crx 扩展进去就完成了安装
 微信图片_20210105140729.gif
+
+# 5.来源
+github插件：`https://mp.weixin.qq.com/s/dl5OIe-iMm8_k4Q5sZpBMw`
