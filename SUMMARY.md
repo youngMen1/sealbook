@@ -188,6 +188,7 @@
     * [错误日志](sealblog/gradle/cuo-wu-ri-zhi.md)
   * [Github](sealblog/github.md)
     * [Fork](sealblog/github/fork.md)
+    * GitHub 插件
   * [Percona\(pt-kill\)](sealblog/perconapt-kill.md)
   * [Svn](sealblog/svn.md)
   * [Go](sealblog/go.md)
