@@ -20,6 +20,8 @@
 
 微信截图_20210105135836.png
 
+Chrome 插件 Octotree 有 30W + 用户，评分 5.0 。
+
 
 ## 2.Sourcegraph  
 
