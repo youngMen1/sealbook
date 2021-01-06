@@ -164,5 +164,13 @@ Dec 29 2008 11:45 PM
     ORDER BY cui.admission_time ASC
 ```
 
+## 1.4.Mybatis中like模糊查询的几种写法及注意点
 
+### 1.4.1.第一种：使用${...}
+
+```
+and member_name like '%${memberName}%'
+```
+
+注意：由于$是参数直接注入的，导致这种写法，大括号里面不能注明jdbcType，不然会报错。
 
