@@ -178,8 +178,7 @@ and member_name like '%${memberName}%'
 
 弊端：可能会引起sql的注入，平时尽量避免使用${...}
 
-### 1.4.2.第二种：使用#{...}
-
+### 1.4.2.第二种：使用\#{...}
 
 ```
 <if test="memberName!=null and memberName!=''">
@@ -187,15 +186,15 @@ and member_name like "%"#{memberName,jdbcType=VARCHAR}"%"
 </if>
 ```
 
-注意：因为#{...}解析成sql语句时候，会在变量外侧自动加单引号' '，所以这里 % 需要使用双引号" "，不能使用单引号 ' '，不然会查不到任何结果。
+注意：因为\#{...}解析成sql语句时候，会在变量外侧自动加单引号' '，所以这里 % 需要使用双引号" "，不能使用单引号 ' '，不然会查不到任何结果。
 
-
-### 1.4.3.使用CONCAT()函数连接参数形式
-
+### 1.4.3.使用CONCAT\(\)函数连接参数形式
 
 ```
  <if test="memberName!=null and memberName!=''">
 and member_name LIKE CONCAT('%',#{memberName},'%')
  </if>
 ```
+
+
 
