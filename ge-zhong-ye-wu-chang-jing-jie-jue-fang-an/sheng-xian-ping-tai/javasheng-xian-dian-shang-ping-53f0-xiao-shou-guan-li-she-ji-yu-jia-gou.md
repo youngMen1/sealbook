@@ -136,5 +136,6 @@ CREATE TABLE `sales_weekly` (
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COMMENT='销售周报';
 ```
 
-
-
+#### 7.最终根据业务的形态构建了系统架构，同时也设计的数据库，最终业务核心代码如下
+ 日报的核心代码：
+ ``
