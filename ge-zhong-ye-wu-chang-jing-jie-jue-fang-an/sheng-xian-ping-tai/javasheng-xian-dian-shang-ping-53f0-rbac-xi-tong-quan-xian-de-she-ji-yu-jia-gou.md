@@ -255,7 +255,7 @@ RBAC2的约束规定了权限被赋予角色时,或角色被赋予用户时,以�
 | resUrl | 资源访问地址 | Varchar\(30\) | 手动输入 | 后期自动产生 |
 | leafCount | 子级菜单数量 | **DECIMAL**\(1,0\) | 系统产生 |  |
 | resPath | 企业名称 | Varchar\(30\) | 系统产生 | 来源t\_sys\_org表\(orgName\) |
-|  | iconCls | 创建人ID | Varchar\(32\) | 系统产生 |
+| iconCls | 创建人ID | Varchar\(32\) | 系统产生 |
 
 
 
