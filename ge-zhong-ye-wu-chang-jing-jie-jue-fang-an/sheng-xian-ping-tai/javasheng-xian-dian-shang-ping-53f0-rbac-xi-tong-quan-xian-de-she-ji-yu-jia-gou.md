@@ -51,6 +51,9 @@ RBAC模型作为目前最为广泛接受的权限模型，在此也将对其模�
 
 NIST（The National Institute of Standards and Technology，美国国家标准与技术研究院）标准RBAC模型由4个部件模型组成，这4个部件模型分别是基本模型RBAC0（Core RBAC）、角色分级模型RBAC1（Hierarchal RBAC）、角色限制模型RBAC2（Constraint RBAC）和统一模型RBAC3（Combines RBAC）[1]。RBAC0模型如图1所示。
 
+#### 图表 1 RBAC 0模型
+1.RBAC0定义了能构成一个RBAC控制系统的最小的元素集合
+在RBAC之中,包含用户users(USERS)、角色roles(ROLES)、目标objects(OBS)、操作operations(OPS)、许可权permissions(PRMS)五个基本数据元素，权限被赋予角色,而不是用户，当一个角色被指定给一个用户时，此用户就拥有了该角色所包含的权限。会话sessions是用户与激活的角色集合之间的映射。RBAC0与传统访问控制的差别在于增加一层间接性带来了灵活性，RBAC1、RBAC2、RBAC3都是先后在RBAC0上的扩展。
 
 
 ### 2.2.实现方案
