@@ -56,4 +56,26 @@ CREATE TABLE `sales_daily` (
   PRIMARY KEY (`sd_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8 COMMENT='销售日报';
 ```
+说明：主管以及以上的人员都需要进行日报是审批与处理，根据日报反应出来的问题，进行及时的处理。
+
+### 3.每天要做什么，怎么做，你需要有一个计划进行
+
+
+```
+CREATE TABLE `sales_plan` (
+  `sp_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '自增ID',
+  `sp_type` tinyint(4) DEFAULT NULL COMMENT '类型(1区域 2销售)',
+  `sp_fmon` varchar(10) DEFAULT NULL COMMENT '月份',
+  `sale_id` bigint(20) DEFAULT NULL COMMENT '销售人员ID',
+  `area_id` bigint(20) DEFAULT NULL COMMENT '区域ID',
+  `goal_amt` decimal(12,2) DEFAULT NULL COMMENT '销售总目标',
+  `online_amt` decimal(12,2) DEFAULT NULL COMMENT '线上目标',
+  `green_amt` decimal(12,2) DEFAULT NULL COMMENT '蔬菜销售',
+  `register_num` int(11) DEFAULT NULL COMMENT '注册量',
+  `create_user_id` bigint(20) DEFAULT NULL COMMENT '创建人',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`sp_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='销售计划';
+```
+
 
