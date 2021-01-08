@@ -362,7 +362,7 @@
     * [Java生鲜电商平台-服务器部署设计与架构](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/sheng-xian-ping-tai/javasheng-xian-dian-shang-ping-53f0-fu-wu-qi-bu-shu-she-ji-yu-jia-gou.md)
     * [Java生鲜电商平台-系统报表设计与架构](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/sheng-xian-ping-tai/javasheng-xian-dian-shang-ping-53f0-xi-tong-bao-biao-she-ji-yu-jia-gou.md)
     * [Java生鲜电商平台-RBAC系统权限的设计与架构](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/sheng-xian-ping-tai/javasheng-xian-dian-shang-ping-53f0-rbac-xi-tong-quan-xian-de-she-ji-yu-jia-gou.md)
-    * Java生鲜电商平台-物流配送的设计与架构
+    * [Java生鲜电商平台-物流配送的设计与架构](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/sheng-xian-ping-tai/javasheng-xian-dian-shang-ping-53f0-wu-liu-pei-song-de-she-ji-yu-jia-gou.md)
   * [营销中台](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/ying-xiao-zhong-tai.md)
   * [微服务API网关-身份验证](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/wei-fu-wu-api-wang-5173-shen-fen-yan-zheng.md)
   * [微服务API网关-权限控制](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/wei-fu-wu-api-wang-5173-quan-xian-kong-zhi.md)
