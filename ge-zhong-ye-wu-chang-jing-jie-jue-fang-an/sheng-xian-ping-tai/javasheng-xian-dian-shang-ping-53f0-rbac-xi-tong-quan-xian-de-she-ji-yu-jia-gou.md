@@ -196,7 +196,7 @@ RBAC2的约束规定了权限被赋予角色时,或角色被赋予用户时,以�
 | createTime | 创建时间 | **DATETIME** | 系统产生 |  |
 | updateBy | 更新人ID | Varchar\(20\) | 系统产生 |  |
 | updateName | 更新人名称 | Varchar\(30\) | 系统产生 |  |
-|  | lastUpdateTime | 更新时间 | **DATETIME** | 系统产生 |
+| lastUpdateTime | 更新时间 | **DATETIME** | 系统产生 | |
 
     CREATE TABLE `t_sys_userInfo` (
 
