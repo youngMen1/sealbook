@@ -196,7 +196,7 @@ RBAC2的约束规定了权限被赋予角色时,或角色被赋予用户时,以�
 | createTime | 创建时间 | **DATETIME** | 系统产生 |  |
 | updateBy | 更新人ID | Varchar\(20\) | 系统产生 |  |
 | updateName | 更新人名称 | Varchar\(30\) | 系统产生 |  |
-| lastUpdateTime | 更新时间 | **DATETIME** | 系统产生 | |
+| lastUpdateTime | 更新时间 | **DATETIME** | 系统产生 |  |
 
     CREATE TABLE `t_sys_userInfo` (
 
@@ -246,231 +246,209 @@ RBAC2的约束规定了权限被赋予角色时,或角色被赋予用户时,以�
 | resName | 用户名称 | Varchar\(20\) | 手工输入 | 不可为空 |
 | parentId | 用户帐户 | Varchar\(20\) | 手工输入 | 来源t\_sys\_resInfo表\(resId\) |
 | parentName | 移动电话 | Varchar\(20\) | 可以为空 | 来源t\_sys\_resInfo表\(resName\) |
-| resType | 资源类型 | **  DECIMAL**\(1,0\) | 手动选择 | 1、目录2、菜单 3.操作权限检查规则：1、目录下面，不能添加操作权限2、菜单下面不能添加目录3、以此类推 |
-| resState | 资源状态 | **  DECIMAL**\(1,0\) | 手动选择 | 0，不可用1可用 |
+| resType | 资源类型 | **  DECIMAL**\(1,0\) | 手动选择 | 1、目录2、菜单 3.操作权限检查规则：1、目录下面，不能添加操作权限2、菜单下面不能添加目录3、以此类推 |
+| resState | 资源状态 | **  DECIMAL**\(1,0\) | 手动选择 | 0，不可用1可用 |
 | resSort | 资源排序字段 | **DECIMAL**\(1,0\) | 系统产生 | 来源t\_sys\_org表\(orgId\) |
 | resUrl | 资源访问地址 | Varchar\(30\) | 手动输入 | 后期自动产生 |
 | leafCount | 子级菜单数量 | **DECIMAL**\(1,0\) | 系统产生 |  |
 | resPath | 企业名称 | Varchar\(30\) | 系统产生 | 来源t\_sys\_org表\(orgName\) |
-| iconCls | 创建人ID | Varchar\(32\) | 系统产生 | |
+| iconCls | 创建人ID | Varchar\(32\) | 系统产生 |  |
 
+    CREATE TABLE `t_sys_resInfo` (
 
-```
-CREATE TABLE `t_sys_resInfo` (
+    `resId` VARCHAR(32) NOT NULL COMMENT '主键ID',
 
-`resId` VARCHAR(32) NOT NULL COMMENT '主键ID',
+    `resName` VARCHAR(128) NOT NULL COMMENT '资源名称',
 
-`resName` VARCHAR(128) NOT NULL COMMENT '资源名称',
+    `parentId` VARCHAR(32) NOT NULL COMMENT '资源父节点',
 
-`parentId` VARCHAR(32) NOT NULL COMMENT '资源父节点',
+    `parentName` VARCHAR(128) NOT NULL COMMENT '资源父节点名称',
 
-`parentName` VARCHAR(128) NOT NULL COMMENT '资源父节点名称',
+    `resType` DECIMAL(1,0) NULL DEFAULT '1' COMMENT '1、功能菜单　２、功能点　３、按钮',
 
-`resType` DECIMAL(1,0) NULL DEFAULT '1' COMMENT '1、功能菜单　２、功能点　３、按钮',
+    `resState` DECIMAL(1,0) NULL DEFAULT '1' COMMENT '记录资源的状态(可用，不可用):0表示不可用，1表示可用',
 
-`resState` DECIMAL(1,0) NULL DEFAULT '1' COMMENT '记录资源的状态(可用，不可用):0表示不可用，1表示可用',
+    `resSort` DECIMAL(8,0) NULL DEFAULT '0' COMMENT '资源排序 ',
 
-`resSort` DECIMAL(8,0) NULL DEFAULT '0' COMMENT '资源排序 ',
+    `resUrl` VARCHAR(512) NULL DEFAULT '' COMMENT '资源URL地址',
 
-`resUrl` VARCHAR(512) NULL DEFAULT '' COMMENT '资源URL地址',
+    `leafCount` DECIMAL(1,0) NULL DEFAULT '0' COMMENT '子节点数量',
 
-`leafCount` DECIMAL(1,0) NULL DEFAULT '0' COMMENT '子节点数量',
+    `resPath` VARCHAR(2048) NULL DEFAULT '' COMMENT '记录资源节点的路径：当前菜单的上级菜单，上级菜单的父级菜单',
 
-`resPath` VARCHAR(2048) NULL DEFAULT '' COMMENT '记录资源节点的路径：当前菜单的上级菜单，上级菜单的父级菜单',
+    `iconCls` VARCHAR(20) NULL DEFAULT '' COMMENT '资源图标',
 
-`iconCls` VARCHAR(20) NULL DEFAULT '' COMMENT '资源图标',
+    PRIMARY KEY (`resId`)
 
-PRIMARY KEY (`resId`)
+    )COMMENT='系统资源'COLLATE='utf8_general_ci'ENGINE=InnoDB;
 
-)COMMENT='系统资源'COLLATE='utf8_general_ci'ENGINE=InnoDB;
-```
+#### 2.2.组织机构表\(t\_sys\_org\)
 
+    CREATE TABLE `t_sys_org` (
 
-#### 2.2.组织机构表(t_sys_org)
+    `orgId` VARCHAR(20) NOT NULL COMMENT '组织主键',
 
+    `orgName` VARCHAR(50) NOT NULL COMMENT '组织名称',
 
-```
-CREATE TABLE `t_sys_org` (
+    `orgShortName` VARCHAR(30) NULL DEFAULT NULL COMMENT '组织简称',
 
-`orgId` VARCHAR(20) NOT NULL COMMENT '组织主键',
+    `parentId` VARCHAR(32) NOT NULL COMMENT '组织父节点ID',
 
-`orgName` VARCHAR(50) NOT NULL COMMENT '组织名称',
+    `parentName` VARCHAR(50) NOT NULL COMMENT '父节点编码',
 
-`orgShortName` VARCHAR(30) NULL DEFAULT NULL COMMENT '组织简称',
+    `orgType` DECIMAL(1,0) NOT NULL DEFAULT '1' COMMENT '组织的类型 1、企业 2、部门 3、分公司,4,支行',
 
-`parentId` VARCHAR(32) NOT NULL COMMENT '组织父节点ID',
+    `orgStatus` DECIMAL(1,0) NOT NULL DEFAULT '1' COMMENT '记录组织的状态是否启用：0，停用/1，启用',
 
-`parentName` VARCHAR(50) NOT NULL COMMENT '父节点编码',
+    `orgHisStatus` DECIMAL(1,0) NOT NULL DEFAULT '1' COMMENT '0，停用/1，启用',
 
-`orgType` DECIMAL(1,0) NOT NULL DEFAULT '1' COMMENT '组织的类型 1、企业 2、部门 3、分公司,4,支行',
+    `orgLinkMan` VARCHAR(50) NULL DEFAULT NULL COMMENT '机构的法人代表名称',
 
-`orgStatus` DECIMAL(1,0) NOT NULL DEFAULT '1' COMMENT '记录组织的状态是否启用：0，停用/1，启用',
+    `orgTelephone` VARCHAR(20) NULL DEFAULT NULL COMMENT '机构的联系电话',
 
-`orgHisStatus` DECIMAL(1,0) NOT NULL DEFAULT '1' COMMENT '0，停用/1，启用',
+    `orgFax` VARCHAR(20) NULL DEFAULT NULL COMMENT '机构的传真',
 
-`orgLinkMan` VARCHAR(50) NULL DEFAULT NULL COMMENT '机构的法人代表名称',
+    `orgEmail` VARCHAR(100) NULL DEFAULT NULL COMMENT '机构的电子邮箱',
 
-`orgTelephone` VARCHAR(20) NULL DEFAULT NULL COMMENT '机构的联系电话',
+    `orgAddress` VARCHAR(200) NULL DEFAULT NULL COMMENT '组织地址',
 
-`orgFax` VARCHAR(20) NULL DEFAULT NULL COMMENT '机构的传真',
+    `orgWebsite` VARCHAR(200) NULL DEFAULT NULL COMMENT '组织的网站',
 
-`orgEmail` VARCHAR(100) NULL DEFAULT NULL COMMENT '机构的电子邮箱',
+    `leafCount` DECIMAL(1,0) NULL DEFAULT NULL COMMENT '子企业数量',
 
-`orgAddress` VARCHAR(200) NULL DEFAULT NULL COMMENT '组织地址',
+    `orgSort` DECIMAL(10,0) NULL DEFAULT NULL COMMENT '组织排序',
 
-`orgWebsite` VARCHAR(200) NULL DEFAULT NULL COMMENT '组织的网站',
+    `resIconStyle` VARCHAR(20) NULL DEFAULT '' COMMENT '资源图标',
 
-`leafCount` DECIMAL(1,0) NULL DEFAULT NULL COMMENT '子企业数量',
+    `orgPath` VARCHAR(2048) NULL DEFAULT NULL COMMENT '记录组织的节点路径',
 
-`orgSort` DECIMAL(10,0) NULL DEFAULT NULL COMMENT '组织排序',
+    `createBy` VARCHAR(20) NULL DEFAULT NULL COMMENT '创建人ID',
 
-`resIconStyle` VARCHAR(20) NULL DEFAULT '' COMMENT '资源图标',
+    `createName` VARCHAR(50) NULL DEFAULT NULL COMMENT '创建人',
 
-`orgPath` VARCHAR(2048) NULL DEFAULT NULL COMMENT '记录组织的节点路径',
+    `createTime` DATETIME NULL DEFAULT NULL COMMENT '创建时间',
 
-`createBy` VARCHAR(20) NULL DEFAULT NULL COMMENT '创建人ID',
+    `lastUpdateBy` VARCHAR(20) NULL DEFAULT NULL COMMENT '最后修改人ID',
 
-`createName` VARCHAR(50) NULL DEFAULT NULL COMMENT '创建人',
+    `updateName` VARCHAR(50) NULL DEFAULT NULL COMMENT '最后修改人',
 
-`createTime` DATETIME NULL DEFAULT NULL COMMENT '创建时间',
+    `lastUpdateTime` DATETIME NULL DEFAULT NULL COMMENT '最后修改时间',
 
-`lastUpdateBy` VARCHAR(20) NULL DEFAULT NULL COMMENT '最后修改人ID',
+    PRIMARY KEY (`orgId`)
 
-`updateName` VARCHAR(50) NULL DEFAULT NULL COMMENT '最后修改人',
+    )
 
-`lastUpdateTime` DATETIME NULL DEFAULT NULL COMMENT '最后修改时间',
+    COMMENT='组织架构信息'
 
-PRIMARY KEY (`orgId`)
+    COLLATE='utf8_general_ci'
 
-)
+    ENGINE=InnoDB
 
-COMMENT='组织架构信息'
+    ;
 
-COLLATE='utf8_general_ci'
+#### 2.3.组织角色表\(t\_sys\_role\)
 
-ENGINE=InnoDB
+    CREATE TABLE `t_sys_role` (
 
-;
-```
-#### 2.3.组织角色表(t_sys_role)
+    `roleId` VARCHAR(20) NOT NULL COMMENT '角色表主键ID',
 
+    `orgId` VARCHAR(20) NULL DEFAULT NULL COMMENT '所属组织',
 
+    `orgPath` VARCHAR(20) NULL DEFAULT NULL COMMENT '组织路径',
 
-```
-CREATE TABLE `t_sys_role` (
+    `orgName` VARCHAR(50) NOT NULL COMMENT '组织名称',
 
-`roleId` VARCHAR(20) NOT NULL COMMENT '角色表主键ID',
+    `roleName` VARCHAR(50) NOT NULL COMMENT '角色名称',
 
-`orgId` VARCHAR(20) NULL DEFAULT NULL COMMENT '所属组织',
+    `roleDesc` VARCHAR(100) NULL DEFAULT NULL COMMENT '角色描述',
 
-`orgPath` VARCHAR(20) NULL DEFAULT NULL COMMENT '组织路径',
+    `createBy` VARCHAR(20) NOT NULL COMMENT '创建人ID',
 
-`orgName` VARCHAR(50) NOT NULL COMMENT '组织名称',
+    `createName` VARCHAR(50) NOT NULL COMMENT '创建人',
 
-`roleName` VARCHAR(50) NOT NULL COMMENT '角色名称',
+    `createTime` DATETIME NOT NULL COMMENT '创建时间',
 
-`roleDesc` VARCHAR(100) NULL DEFAULT NULL COMMENT '角色描述',
+    `lastUpdateBy` VARCHAR(20) NULL DEFAULT NULL COMMENT '最后修改人ID',
 
-`createBy` VARCHAR(20) NOT NULL COMMENT '创建人ID',
+    `updateName` VARCHAR(50) NULL DEFAULT NULL COMMENT '最后修改人',
 
-`createName` VARCHAR(50) NOT NULL COMMENT '创建人',
+    `lastUpdateTime` DATETIME NULL DEFAULT NULL COMMENT '最后修改时间',
 
-`createTime` DATETIME NOT NULL COMMENT '创建时间',
+    PRIMARY KEY (`roleId`)
 
-`lastUpdateBy` VARCHAR(20) NULL DEFAULT NULL COMMENT '最后修改人ID',
+    )
 
-`updateName` VARCHAR(50) NULL DEFAULT NULL COMMENT '最后修改人',
+    COMMENT='角色信息表'
 
-`lastUpdateTime` DATETIME NULL DEFAULT NULL COMMENT '最后修改时间',
+    COLLATE='utf8_general_ci'
 
-PRIMARY KEY (`roleId`)
+    ENGINE=InnoDB
 
-)
+    ;
 
-COMMENT='角色信息表'
+#### 2.4.用户角色表\(t\_sys\_userRole\)
 
-COLLATE='utf8_general_ci'
+    CREATE TABLE `t_sys_userRole` (
 
-ENGINE=InnoDB
+    `userRoleId` VARCHAR(20) NOT NULL COMMENT '主键ID',
 
-;
-```
+    `roleId` VARCHAR(20) NULL DEFAULT NULL COMMENT '角色表主键ID',
 
-#### 2.4.用户角色表(t_sys_userRole)
+    `userId` VARCHAR(20) NULL DEFAULT NULL COMMENT '用户主键',
 
+    PRIMARY KEY (`userRoleId`)
 
-```
-CREATE TABLE `t_sys_userRole` (
+    )
 
-`userRoleId` VARCHAR(20) NOT NULL COMMENT '主键ID',
+    COMMENT='用户角色关系表'
 
-`roleId` VARCHAR(20) NULL DEFAULT NULL COMMENT '角色表主键ID',
+    COLLATE='utf8_general_ci'
 
-`userId` VARCHAR(20) NULL DEFAULT NULL COMMENT '用户主键',
+    ENGINE=InnoDB;
 
-PRIMARY KEY (`userRoleId`)
+#### 2.5.角色资源表\(t\_sys\_roleRes\)
 
-)
+    CREATE TABLE `t_sys_roleRes` (
 
-COMMENT='用户角色关系表'
+    `roleResId` VARCHAR(20) NOT NULL COMMENT '角色资源主键ID',
 
-COLLATE='utf8_general_ci'
+    `roleId` VARCHAR(22) NOT NULL  COMMENT '角色表主键ID',
 
-ENGINE=InnoDB;
-```
+    `resId` VARCHAR(20) NOT NULL  COMMENT '资源主键',
 
-####  2.5.角色资源表(t_sys_roleRes)
+    `isReadWrite` DECIMAL(1,0) NOT NULL DEFAULT 1 COMMENT '1,只读取2，可读写',
 
+    PRIMARY KEY (`roleResId`)
 
+    )
 
-```
-CREATE TABLE `t_sys_roleRes` (
+    COMMENT='角色资源关系表'
 
-`roleResId` VARCHAR(20) NOT NULL COMMENT '角色资源主键ID',
+    COLLATE='utf8_general_ci'
 
-`roleId` VARCHAR(22) NOT NULL  COMMENT '角色表主键ID',
+    ENGINE=InnoDB
 
-`resId` VARCHAR(20) NOT NULL  COMMENT '资源主键',
+#### 2.6.企业资源表\(t\_sys\_orgRes\)
 
-`isReadWrite` DECIMAL(1,0) NOT NULL DEFAULT 1 COMMENT '1,只读取2，可读写',
+    CREATE TABLE `t_sys_orgRes` (
 
- 
+    `orgResId` VARCHAR(20) NOT NULL COMMENT '角色资源主键ID',
 
-PRIMARY KEY (`roleResId`)
+    `orgId` VARCHAR(22) NOT NULL  COMMENT '角色表主键ID',
 
-)
+    `resId` VARCHAR(20) NOT NULL   COMMENT '资源主键',
 
-COMMENT='角色资源关系表'
+    `isReadWrite` DECIMAL(1,0) NOT NULL DEFAULT 1 COMMENT '1,只读取2，可读写',
 
-COLLATE='utf8_general_ci'
+    PRIMARY KEY (`orgResId`)
 
-ENGINE=InnoDB
-```
-#### 2.6.企业资源表(t_sys_orgRes)
+    )
 
+    COMMENT='角色资源关系表'
 
-```
-CREATE TABLE `t_sys_orgRes` (
+    COLLATE='utf8_general_ci'
 
-`orgResId` VARCHAR(20) NOT NULL COMMENT '角色资源主键ID',
+    ENGINE=InnoDB
 
-`orgId` VARCHAR(22) NOT NULL  COMMENT '角色表主键ID',
-
-`resId` VARCHAR(20) NOT NULL   COMMENT '资源主键',
-
-`isReadWrite` DECIMAL(1,0) NOT NULL DEFAULT 1 COMMENT '1,只读取2，可读写',
-
- 
-
-PRIMARY KEY (`orgResId`)
-
-)
-
-COMMENT='角色资源关系表'
-
-COLLATE='utf8_general_ci'
-
-ENGINE=InnoDB
-```
 
 
