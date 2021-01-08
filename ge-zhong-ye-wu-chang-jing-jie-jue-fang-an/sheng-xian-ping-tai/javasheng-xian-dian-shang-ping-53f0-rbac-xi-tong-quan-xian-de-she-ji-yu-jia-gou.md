@@ -47,6 +47,11 @@
 ## 2.基于RBAC的实现
 
 ### 2.1.RBAC介绍
+RBAC模型作为目前最为广泛接受的权限模型，在此也将对其模型进行简要的介绍，RBAC模型成功的经典应用案例当属Unix系统了。
+
+NIST（The National Institute of Standards and Technology，美国国家标准与技术研究院）标准RBAC模型由4个部件模型组成，这4个部件模型分别是基本模型RBAC0（Core RBAC）、角色分级模型RBAC1（Hierarchal RBAC）、角色限制模型RBAC2（Constraint RBAC）和统一模型RBAC3（Combines RBAC）[1]。RBAC0模型如图1所示。
+
+
 
 ### 2.2.实现方案
 
