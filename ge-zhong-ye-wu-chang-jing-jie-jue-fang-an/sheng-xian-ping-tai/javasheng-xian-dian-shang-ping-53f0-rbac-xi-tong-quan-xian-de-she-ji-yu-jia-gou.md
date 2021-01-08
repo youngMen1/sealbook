@@ -446,4 +446,31 @@ COLLATE='utf8_general_ci'
 
 ENGINE=InnoDB
 ```
+#### 2.6.企业资源表(t_sys_orgRes)
+
+
+```
+CREATE TABLE `t_sys_orgRes` (
+
+`orgResId` VARCHAR(20) NOT NULL COMMENT '角色资源主键ID',
+
+`orgId` VARCHAR(22) NOT NULL  COMMENT '角色表主键ID',
+
+`resId` VARCHAR(20) NOT NULL   COMMENT '资源主键',
+
+`isReadWrite` DECIMAL(1,0) NOT NULL DEFAULT 1 COMMENT '1,只读取2，可读写',
+
+ 
+
+PRIMARY KEY (`orgResId`)
+
+)
+
+COMMENT='角色资源关系表'
+
+COLLATE='utf8_general_ci'
+
+ENGINE=InnoDB
+```
+
 
