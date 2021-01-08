@@ -34,4 +34,4 @@ CREATE TABLE `sales` (
   KEY `unique_phone` (`phone`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COMMENT='销售人员基本信息';
 ```
-
+补充说明；任何人员的管理都会存在一个管理人员的权限问题，最高领导者应该具有查看所有的内容的权限。
