@@ -17,3 +17,21 @@
 1.技术上设计，会设计到以下几点；
 
 2.销售人员本身的管理。
+
+```
+CREATE TABLE `sales` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '自动增加ID',
+  `phone` varchar(32) DEFAULT NULL COMMENT '手机号码',
+  `password` varchar(32) DEFAULT NULL COMMENT 'md5加密',
+  `true_name` varchar(16) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL COMMENT '1为在职，-1为离职',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `last_update_time` datetime DEFAULT NULL COMMENT '更新时间',
+  `level` int(11) DEFAULT NULL COMMENT '类型1总监 2主管 3职员',
+  `experience` decimal(12,2) DEFAULT NULL,
+  `parent_id` bigint(20) DEFAULT NULL COMMENT '直属上级',
+  PRIMARY KEY (`id`),
+  KEY `unique_phone` (`phone`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COMMENT='销售人员基本信息';
+```
+
