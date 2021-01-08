@@ -200,6 +200,50 @@ RBAC2的约束规定了权限被赋予角色时,或角色被赋予用户时,以�
 
 
 
+```
+CREATE TABLE `t_sys_userInfo` (
+
+`userId` VARCHAR(20) NOT NULL COMMENT '用户主键',
+
+`userName` VARCHAR(20) NOT NULL,
+
+`orgId` VARCHAR(20) NOT NULL COMMENT '所属机构ID',
+
+`orgName` VARCHAR(50) NOT NULL COMMENT '所属机构名称',
+
+`orgPath` VARCHAR(120) NOT NULL COMMENT '所属机构路径',
+
+`userAccount` VARCHAR(16) NOT NULL COMMENT '登录帐号',
+
+`userPwd` VARCHAR(16) NOT NULL COMMENT '登录密码',
+
+`userMobile` VARCHAR(11) NULL DEFAULT NULL COMMENT '移动电话',
+
+`isAdmin` DECIMAL(1,0) NOT NULL DEFAULT '3' COMMENT '1、超级管理员2、企业管理员3用户',
+
+`lockFlag` DECIMAL(1,0) NOT NULL COMMENT '是否锁住 1、锁住　0、未锁住',
+
+`departId` VARCHAR(20) NOT NULL COMMENT '所属部门',
+
+`createBy` VARCHAR(20) NOT NULL,
+
+`createName` VARCHAR(50) NOT NULL COMMENT '创建人',
+
+`createTime` DATETIME NOT NULL COMMENT '创建时间',
+
+`lastUpdateBy` VARCHAR(32) NOT NULL COMMENT '最后修改人ID',
+
+`updateName` VARCHAR(50) NOT NULL COMMENT '最后修改人',
+
+`lastUpdateTime` DATETIME NOT NULL COMMENT '最后修改时间',
+
+PRIMARY KEY (`userId`)
+
+)COMMENT='用户信息表'COLLATE='utf8_general_ci'ENGINE=InnoDB;
+```
+
+
+
 #### 2.1.用户管理\(t\_sys\_userInfo\)
 
 
