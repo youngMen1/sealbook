@@ -77,5 +77,64 @@ CREATE TABLE `sales_plan` (
   PRIMARY KEY (`sp_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='销售计划';
 ```
+### 4.销售过程中，肯定会出现一些其他的特殊情况，这种情况需要销售报备
+
+
+```
+CREATE TABLE `sales_reported` (
+  `sr_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+  `sale_id` bigint(20) DEFAULT NULL COMMENT '销售ID',
+  `sr_type` tinyint(4) DEFAULT NULL COMMENT '报备类型(1缺填日报 2其他)',
+  `sr_desc` varchar(512) DEFAULT NULL COMMENT '报备原因',
+  `sr_time` datetime DEFAULT NULL COMMENT '报备时间',
+  `look_sale_id` bigint(20) DEFAULT NULL COMMENT '查阅人ID',
+  `look_status` tinyint(4) DEFAULT NULL COMMENT '查阅状态',
+  `look_time` datetime DEFAULT NULL COMMENT '查阅时间',
+  `look_reply` varchar(512) DEFAULT NULL COMMENT '查阅回复',
+  PRIMARY KEY (`sr_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='销售报备';
+```
+
+### 5.对于一个销售人员而言，你每天需要做的事情很多都是陌生拜访，那么拜访，你总应该有个记录吧，无论是否拜访成功,这里是有一个成功率的问题的。不是每个都成功的
+
+
+```
+CREATE TABLE `sales_visit` (
+  `sv_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+  `buyer_id` bigint(20) DEFAULT NULL COMMENT '商家ID',
+  `sale_id` bigint(20) DEFAULT NULL COMMENT '销售人员ID',
+  `sv_way` tinyint(4) DEFAULT NULL COMMENT '拜访方式(1预约 2其他)',
+  `sv_type` tinyint(4) DEFAULT NULL COMMENT '拜访类型(1上门 2电话)',
+  `sv_logo` varchar(128) DEFAULT NULL COMMENT '门头照',
+  `sv_address` varchar(256) DEFAULT NULL COMMENT '拜访地址',
+  `sv_status` tinyint(4) DEFAULT NULL COMMENT '拜访状态(0未 1已)',
+  `sv_date` date DEFAULT NULL COMMENT '预约日期',
+  `sv_time` datetime DEFAULT NULL COMMENT '拜访时间',
+  `sv_remark` varchar(512) DEFAULT NULL COMMENT '拜访感想',
+  PRIMARY KEY (`sv_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=508 DEFAULT CHARSET=utf8 COMMENT='销售拜访';
+```
+
+#### 6.销售不管有日报还有周报，总结与分析这周的所有问题，成功的也好，失败的也好，需要分享与记录
+
+
+```
+CREATE TABLE `sales_weekly` (
+  `sw_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `sale_id` bigint(20) DEFAULT NULL COMMENT '销售ID',
+  `sw_fmon` varchar(10) DEFAULT NULL COMMENT '月份',
+  `sw_range` varchar(128) DEFAULT NULL COMMENT '时间范围',
+  `sw_summary` varchar(1024) DEFAULT NULL COMMENT '本周总结',
+  `sw_plan` varchar(1024) DEFAULT NULL COMMENT '下周计划',
+  `need_help` varchar(1024) DEFAULT NULL COMMENT '需求帮助',
+  `sw_time` datetime DEFAULT NULL COMMENT '填写时间',
+  `look_status` tinyint(4) DEFAULT NULL COMMENT '查看状态',
+  `look_sale_id` bigint(20) DEFAULT NULL COMMENT '查看人',
+  `look_time` datetime DEFAULT NULL COMMENT '查看时间',
+  `look_reply` varchar(1024) DEFAULT NULL COMMENT '查看回复',
+  PRIMARY KEY (`sw_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COMMENT='销售周报';
+```
+
 
 
