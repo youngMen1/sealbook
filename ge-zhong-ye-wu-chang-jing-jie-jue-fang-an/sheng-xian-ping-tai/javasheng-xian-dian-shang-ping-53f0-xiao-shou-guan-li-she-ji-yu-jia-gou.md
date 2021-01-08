@@ -411,3 +411,117 @@ public class DaliyController extends BaseController {
 ```
 
 **周报的核心代码：**
+
+
+
+```
+/**
+ * 销售周报信息
+ */
+@RestController
+@RequestMapping("/sales")
+public class WeeklyController extends BaseController {
+
+    private static final Logger logger = LoggerFactory.getLogger(WeeklyController.class);
+
+    @Autowired
+    private SalesWeeklyService salesWeeklyService;
+
+    /**
+     * 销售人员周报列表
+     */
+    @RequestMapping(value = "/getWeeklyList", method = { RequestMethod.GET, RequestMethod.POST })
+    public JsonResult getWeeklyList(HttpServletRequest request, HttpServletResponse response,Long saleId) {
+        try {
+            List<WeeklyVo> biList = salesWeeklyService.getWeeklyList(saleId);
+            return new JsonResult(JsonResultCode.SUCCESS, "查询信息成功", biList);
+        } catch (Exception ex) {
+            logger.error("[WeeklyController][getWeeklyList] exception :", ex);
+            return new JsonResult(JsonResultCode.FAILURE, "系统错误,请稍后重试", "");
+        }
+    }
+    
+    /**
+     * 管理员查看周报列表
+     */
+    @RequestMapping(value = "/getMargerWeeklyList", method = { RequestMethod.GET, RequestMethod.POST })
+    public JsonResult getMargerWeeklyList(HttpServletRequest request, HttpServletResponse response,Long saleId) {
+        try {
+            List<WeeklyListVo> biList = salesWeeklyService.getMargerWeeklyList(saleId);
+            return new JsonResult(JsonResultCode.SUCCESS, "查询信息成功", biList);
+        } catch (Exception ex) {
+            logger.error("[WeeklyController][getMargerWeeklyList] exception :", ex);
+            return new JsonResult(JsonResultCode.FAILURE, "系统错误,请稍后重试", "");
+        }
+    }
+    
+    /**
+     * 销售人员周报详情
+     */
+    @RequestMapping(value = "/getWeeklyVo", method = { RequestMethod.GET, RequestMethod.POST })
+    public JsonResult getWeeklyVo(HttpServletRequest request, HttpServletResponse response,Long swId) {
+        try {
+            WeeklyVo weeklyVo = salesWeeklyService.getWeeklyVo(swId);
+            return new JsonResult(JsonResultCode.SUCCESS, "查询信息成功", weeklyVo);
+        } catch (Exception ex) {
+            logger.error("[WeeklyController][getWeeklyVo] exception :", ex);
+            return new JsonResult(JsonResultCode.FAILURE, "系统错误,请稍后重试", "");
+        }
+    }
+    
+    /**
+     * 销售人员填写周报时调用
+     */
+    @RequestMapping(value = "/findWeeklyVo", method = { RequestMethod.GET, RequestMethod.POST })
+    public JsonResult findWeeklyVo(HttpServletRequest request, HttpServletResponse response,Long saleId) {
+        try {
+            WeeklyVo weeklyVo = salesWeeklyService.findWeeklyVo(saleId);
+            return new JsonResult(JsonResultCode.SUCCESS, "查询信息成功", weeklyVo);
+        } catch (Exception ex) {
+            logger.error("[WeeklyController][findWeeklyVo] exception :", ex);
+            return new JsonResult(JsonResultCode.FAILURE, "系统错误,请稍后重试", "");
+        }
+    }
+
+    /**
+     * 添加销售周报
+     */
+    @RequestMapping(value = "/insertSalesWeekly", method = { RequestMethod.GET, RequestMethod.POST })
+    public JsonResult insertSalesWeekly(HttpServletRequest request, HttpServletResponse response,@RequestBody SalesWeekly salesWeekly) {
+        try {
+            if(salesWeekly == null){
+                return new JsonResult(JsonResultCode.FAILURE, "参数有误！", "");
+            }
+            int result = salesWeeklyService.insertSalesWeekly(salesWeekly);
+            if(result > 0){
+                return new JsonResult(JsonResultCode.SUCCESS, "添加信息成功", "");
+            }else{
+                return new JsonResult(JsonResultCode.FAILURE, "添加信息失败", "");
+            }
+        } catch (Exception ex) {
+            logger.error("[WeeklyController][insertSalesWeekly] exception :", ex);
+            return new JsonResult(JsonResultCode.FAILURE, "系统错误,请稍后重试", "");
+        }
+    }
+    
+    /**
+     * 管理员评价
+     */
+    @RequestMapping(value = "/updateWeeklyLookStatus", method = { RequestMethod.GET, RequestMethod.POST })
+    public JsonResult updateWeeklyLookStatus(HttpServletRequest request, HttpServletResponse response,Long saleId,String reply,Long swId) {
+        try {
+            int result = salesWeeklyService.updateWeeklyLookStatus(saleId, reply, swId);
+            if(result > 0){
+                return new JsonResult(JsonResultCode.SUCCESS, "更新信息成功", "");
+            }else{
+                return new JsonResult(JsonResultCode.FAILURE, "跟新信息失败", "");
+            }
+        } catch (Exception ex) {
+            logger.error("[WeeklyController][updateWeeklyLookStatus] exception :", ex);
+            return new JsonResult(JsonResultCode.FAILURE, "系统错误,请稍后重试", "");
+        }
+    }
+
+}
+```
+
