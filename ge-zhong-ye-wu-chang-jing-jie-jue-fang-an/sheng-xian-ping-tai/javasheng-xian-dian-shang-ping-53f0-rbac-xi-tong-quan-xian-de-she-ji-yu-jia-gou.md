@@ -284,5 +284,71 @@ PRIMARY KEY (`resId`)
 
 )COMMENT='系统资源'COLLATE='utf8_general_ci'ENGINE=InnoDB;
 ```
+#### 2.2.组织机构表(t_sys_org)
+
+
+```
+CREATE TABLE `t_sys_org` (
+
+`orgId` VARCHAR(20) NOT NULL COMMENT '组织主键',
+
+`orgName` VARCHAR(50) NOT NULL COMMENT '组织名称',
+
+`orgShortName` VARCHAR(30) NULL DEFAULT NULL COMMENT '组织简称',
+
+`parentId` VARCHAR(32) NOT NULL COMMENT '组织父节点ID',
+
+`parentName` VARCHAR(50) NOT NULL COMMENT '父节点编码',
+
+`orgType` DECIMAL(1,0) NOT NULL DEFAULT '1' COMMENT '组织的类型 1、企业 2、部门 3、分公司,4,支行',
+
+`orgStatus` DECIMAL(1,0) NOT NULL DEFAULT '1' COMMENT '记录组织的状态是否启用：0，停用/1，启用',
+
+`orgHisStatus` DECIMAL(1,0) NOT NULL DEFAULT '1' COMMENT '0，停用/1，启用',
+
+`orgLinkMan` VARCHAR(50) NULL DEFAULT NULL COMMENT '机构的法人代表名称',
+
+`orgTelephone` VARCHAR(20) NULL DEFAULT NULL COMMENT '机构的联系电话',
+
+`orgFax` VARCHAR(20) NULL DEFAULT NULL COMMENT '机构的传真',
+
+`orgEmail` VARCHAR(100) NULL DEFAULT NULL COMMENT '机构的电子邮箱',
+
+`orgAddress` VARCHAR(200) NULL DEFAULT NULL COMMENT '组织地址',
+
+`orgWebsite` VARCHAR(200) NULL DEFAULT NULL COMMENT '组织的网站',
+
+`leafCount` DECIMAL(1,0) NULL DEFAULT NULL COMMENT '子企业数量',
+
+`orgSort` DECIMAL(10,0) NULL DEFAULT NULL COMMENT '组织排序',
+
+`resIconStyle` VARCHAR(20) NULL DEFAULT '' COMMENT '资源图标',
+
+`orgPath` VARCHAR(2048) NULL DEFAULT NULL COMMENT '记录组织的节点路径',
+
+`createBy` VARCHAR(20) NULL DEFAULT NULL COMMENT '创建人ID',
+
+`createName` VARCHAR(50) NULL DEFAULT NULL COMMENT '创建人',
+
+`createTime` DATETIME NULL DEFAULT NULL COMMENT '创建时间',
+
+`lastUpdateBy` VARCHAR(20) NULL DEFAULT NULL COMMENT '最后修改人ID',
+
+`updateName` VARCHAR(50) NULL DEFAULT NULL COMMENT '最后修改人',
+
+`lastUpdateTime` DATETIME NULL DEFAULT NULL COMMENT '最后修改时间',
+
+PRIMARY KEY (`orgId`)
+
+)
+
+COMMENT='组织架构信息'
+
+COLLATE='utf8_general_ci'
+
+ENGINE=InnoDB
+
+;
+```
 
 
