@@ -97,4 +97,19 @@ CREATE TABLE `delivery_da` (
 ) ENGINE=InnoDB AUTO_INCREMENT=465 DEFAULT CHARSET=utf8 COMMENT='配送人员管理区域';
 ```
 
+7.对于有些特殊的情况，比如车在路上坏了，那么需要进行人工分配物流
+
+```
+CREATE TABLE `delivery_task` (
+  `task_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+  `delivery_id` bigint(20) DEFAULT NULL COMMENT '配送人员ID',
+  `order_id` bigint(20) DEFAULT NULL COMMENT '订单ID',
+  `order_item_id` bigint(20) DEFAULT NULL COMMENT '订单明细ID',
+  `sys_user_id` bigint(20) DEFAULT NULL COMMENT '分配人员ID',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`task_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
+
+最终形成了完整的业务逻辑闭环
 
