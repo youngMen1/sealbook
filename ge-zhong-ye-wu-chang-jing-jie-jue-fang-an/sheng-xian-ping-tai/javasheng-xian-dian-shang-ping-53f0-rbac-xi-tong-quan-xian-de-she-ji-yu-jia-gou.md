@@ -165,7 +165,7 @@ RBAC2的约束规定了权限被赋予角色时,或角色被赋予用户时,以�
 
 2.对于数据权限的不够支持
 
-没有明确的数据权限模型，可以看到在经过重构的数据权限模型其实已经和RBAC模型有一定的   
+没有明确的数据权限模型，可以看到在经过重构的数据权限模型其实已经和RBAC模型有一定的  
 出入，而且在数据权限的校验上实现起来是非常的低效。
 
 最终根据说明，设计如下系统架构图：  
@@ -185,8 +185,8 @@ RBAC2的约束规定了权限被赋予角色时,或角色被赋予用户时,以�
 | userName | 用户名称 | Varchar\(8\) | 手工输入 | 不可为空 |
 | userAccount | 用户帐户 | Varchar\(20\) | 手工输入 | 全系统唯一 |
 | userMobile | 移动电话 | Varchar\(11\) | 可以为空 |  |
-| isAdmin | 管理员标志 | **  DECIMAL**\(1,0\) | 系统产生 | 1、超级管理员2、企业管理员3用户 |
-| lockFlag | 帐号锁定标志 | **  DECIMAL**\(1,0\) | 系统产生 | 是否锁定 1、锁住　0、未锁住锁定后的用户不能登录系统 |
+| isAdmin | 管理员标志 | **  DECIMAL**\(1,0\) | 系统产生 | 1、超级管理员2、企业管理员3用户 |
+| lockFlag | 帐号锁定标志 | **  DECIMAL**\(1,0\) | 系统产生 | 是否锁定 1、锁住　0、未锁住锁定后的用户不能登录系统 |
 | departId | 所属部门ID | Varchar\(20\) | 手动选择 | 来源t\_sys\_org表\(orgId\) |
 | departName | 部门名称 | Varchar\(30\) | 系统产生 |  |
 | orgId | 企业ID | Varchar\(20\) | 系统产生 | 来源t\_sys\_org表\(orgId\) |
@@ -196,55 +196,66 @@ RBAC2的约束规定了权限被赋予角色时,或角色被赋予用户时,以�
 | createTime | 创建时间 | **DATETIME** | 系统产生 |  |
 | updateBy | 更新人ID | Varchar\(20\) | 系统产生 |  |
 | updateName | 更新人名称 | Varchar\(30\) | 系统产生 |  |
-| lastUpdateTime | 更新时间 | **DATETIME** | 系统产生 |
+|  | lastUpdateTime | 更新时间 | **DATETIME** | 系统产生 |
 
+    CREATE TABLE `t_sys_userInfo` (
 
+    `userId` VARCHAR(20) NOT NULL COMMENT '用户主键',
 
-```
-CREATE TABLE `t_sys_userInfo` (
+    `userName` VARCHAR(20) NOT NULL,
 
-`userId` VARCHAR(20) NOT NULL COMMENT '用户主键',
+    `orgId` VARCHAR(20) NOT NULL COMMENT '所属机构ID',
 
-`userName` VARCHAR(20) NOT NULL,
+    `orgName` VARCHAR(50) NOT NULL COMMENT '所属机构名称',
 
-`orgId` VARCHAR(20) NOT NULL COMMENT '所属机构ID',
+    `orgPath` VARCHAR(120) NOT NULL COMMENT '所属机构路径',
 
-`orgName` VARCHAR(50) NOT NULL COMMENT '所属机构名称',
+    `userAccount` VARCHAR(16) NOT NULL COMMENT '登录帐号',
 
-`orgPath` VARCHAR(120) NOT NULL COMMENT '所属机构路径',
+    `userPwd` VARCHAR(16) NOT NULL COMMENT '登录密码',
 
-`userAccount` VARCHAR(16) NOT NULL COMMENT '登录帐号',
+    `userMobile` VARCHAR(11) NULL DEFAULT NULL COMMENT '移动电话',
 
-`userPwd` VARCHAR(16) NOT NULL COMMENT '登录密码',
+    `isAdmin` DECIMAL(1,0) NOT NULL DEFAULT '3' COMMENT '1、超级管理员2、企业管理员3用户',
 
-`userMobile` VARCHAR(11) NULL DEFAULT NULL COMMENT '移动电话',
+    `lockFlag` DECIMAL(1,0) NOT NULL COMMENT '是否锁住 1、锁住　0、未锁住',
 
-`isAdmin` DECIMAL(1,0) NOT NULL DEFAULT '3' COMMENT '1、超级管理员2、企业管理员3用户',
+    `departId` VARCHAR(20) NOT NULL COMMENT '所属部门',
 
-`lockFlag` DECIMAL(1,0) NOT NULL COMMENT '是否锁住 1、锁住　0、未锁住',
+    `createBy` VARCHAR(20) NOT NULL,
 
-`departId` VARCHAR(20) NOT NULL COMMENT '所属部门',
+    `createName` VARCHAR(50) NOT NULL COMMENT '创建人',
 
-`createBy` VARCHAR(20) NOT NULL,
+    `createTime` DATETIME NOT NULL COMMENT '创建时间',
 
-`createName` VARCHAR(50) NOT NULL COMMENT '创建人',
+    `lastUpdateBy` VARCHAR(32) NOT NULL COMMENT '最后修改人ID',
 
-`createTime` DATETIME NOT NULL COMMENT '创建时间',
+    `updateName` VARCHAR(50) NOT NULL COMMENT '最后修改人',
 
-`lastUpdateBy` VARCHAR(32) NOT NULL COMMENT '最后修改人ID',
+    `lastUpdateTime` DATETIME NOT NULL COMMENT '最后修改时间',
 
-`updateName` VARCHAR(50) NOT NULL COMMENT '最后修改人',
+    PRIMARY KEY (`userId`)
 
-`lastUpdateTime` DATETIME NOT NULL COMMENT '最后修改时间',
-
-PRIMARY KEY (`userId`)
-
-)COMMENT='用户信息表'COLLATE='utf8_general_ci'ENGINE=InnoDB;
-```
-
-
+    )COMMENT='用户信息表'COLLATE='utf8_general_ci'ENGINE=InnoDB;
 
 #### 2.1.用户管理\(t\_sys\_userInfo\)
+
+  
+
+
+| **数据项** | **字段名称** | **数据定义** | **必输项** | **检查规则** |
+| :--- | :--- | :--- | :--- | :--- |
+| resId | 用户ID | Varchar\(20\) | 系统产生\(UUID\) | 单表唯一 |
+| resName | 用户名称 | Varchar\(20\) | 手工输入 | 不可为空 |
+| parentId | 用户帐户 | Varchar\(20\) | 手工输入 | 来源t\_sys\_resInfo表\(resId\) |
+| parentName | 移动电话 | Varchar\(20\) | 可以为空 | 来源t\_sys\_resInfo表\(resName\) |
+| resType | 资源类型 | **  DECIMAL**\(1,0\) | 手动选择 | 1、目录2、菜单 3.操作权限检查规则：1、目录下面，不能添加操作权限2、菜单下面不能添加目录3、以此类推 |
+| resState | 资源状态 | **  DECIMAL**\(1,0\) | 手动选择 | 0，不可用1可用 |
+| resSort | 资源排序字段 | **DECIMAL**\(1,0\) | 系统产生 | 来源t\_sys\_org表\(orgId\) |
+| resUrl | 资源访问地址 | Varchar\(30\) | 手动输入 | 后期自动产生 |
+| leafCount | 子级菜单数量 | **DECIMAL**\(1,0\) | 系统产生 |  |
+| resPath | 企业名称 | Varchar\(30\) | 系统产生 | 来源t\_sys\_org表\(orgName\) |
+|  | iconCls | 创建人ID | Varchar\(32\) | 系统产生 |
 
 
 
