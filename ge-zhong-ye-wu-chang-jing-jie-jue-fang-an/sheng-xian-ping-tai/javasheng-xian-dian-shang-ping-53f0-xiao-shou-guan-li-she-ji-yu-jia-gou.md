@@ -37,3 +37,23 @@ CREATE TABLE `sales` (
 补充说明；任何人员的管理都会存在一个管理人员的权限问题，最高领导者应该具有查看所有的内容的权限。
 
 ### 2.销售每天需要写日报，因此销售日报
+
+
+```
+CREATE TABLE `sales_daily` (
+  `sd_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+  `sale_id` bigint(20) DEFAULT NULL COMMENT '销售人员ID',
+  `sd_date` date DEFAULT NULL COMMENT '工作日期',
+  `task1` decimal(12,2) DEFAULT NULL COMMENT '销售任务',
+  `task2` int(11) DEFAULT NULL COMMENT '日拜访量',
+  `sd_street` varchar(256) DEFAULT NULL COMMENT '拜访街道',
+  `sd_summary` varchar(512) DEFAULT NULL COMMENT '工作总结',
+  `sd_time` datetime DEFAULT NULL COMMENT '提交时间',
+  `look_status` int(11) DEFAULT NULL COMMENT '查阅状态(0未读 1已读)',
+  `look_sale_id` bigint(20) DEFAULT NULL COMMENT '查阅人',
+  `look_time` datetime DEFAULT NULL COMMENT '查阅时间',
+  `look_reply` varchar(512) DEFAULT NULL COMMENT '主管回复',
+  PRIMARY KEY (`sd_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8 COMMENT='销售日报';
+```
+
