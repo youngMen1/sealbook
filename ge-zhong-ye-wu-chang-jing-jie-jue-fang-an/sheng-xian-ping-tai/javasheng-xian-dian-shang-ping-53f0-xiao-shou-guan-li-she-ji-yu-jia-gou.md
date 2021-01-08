@@ -137,5 +137,274 @@ CREATE TABLE `sales_weekly` (
 ```
 
 #### 7.最终根据业务的形态构建了系统架构，同时也设计的数据库，最终业务核心代码如下
- 日报的核心代码：
+日报的核心代码：
  
+
+
+```
+/**
+ */
+@RestController
+@RequestMapping("/sales")
+public class DaliyController extends BaseController {
+
+    private static final Logger logger = LoggerFactory.getLogger(DaliyController.class);
+
+    @Autowired
+    private DaliyService daliyService;
+
+    /**
+     * 销售人员日报列表
+     */
+    @RequestMapping(value = "/getSalesDaliyList", method = { RequestMethod.GET, RequestMethod.POST })
+    public JsonResult getSalesDaliyList(HttpServletRequest request, HttpServletResponse response,Long saleId) {
+        try {
+            List<DaliyListVo> biList = daliyService.getSalesDaliyList(saleId);
+            return new JsonResult(JsonResultCode.SUCCESS, "查询信息成功", biList);
+        } catch (Exception ex) {
+            logger.error("[DaliyController][getSalesDaliyList] exception :", ex);
+            return new JsonResult(JsonResultCode.FAILURE, "系统错误,请稍后重试", "");
+        }
+    }
+    
+    /**
+     * 销售人员日报详情
+     */
+    @RequestMapping(value = "/getSalesDaliyInfo", method = { RequestMethod.GET, RequestMethod.POST })
+    public JsonResult getSalesDaliyInfo(HttpServletRequest request, HttpServletResponse response,Long saleId,String sdDate) {
+        try {
+            DaliyVo daliyVo = daliyService.getSalesDaliyInfo(saleId, sdDate);
+            return new JsonResult(JsonResultCode.SUCCESS, "查询信息成功", daliyVo);
+        } catch (Exception ex) {
+            logger.error("[DaliyController][getSalesDaliyInfo] exception :", ex);
+            return new JsonResult(JsonResultCode.FAILURE, "系统错误,请稍后重试", "");
+        }
+    }
+
+    /**
+     * 添加工作计划
+     */
+    @RequestMapping(value = "/insertSalesDaliy", method = { RequestMethod.GET, RequestMethod.POST })
+    public JsonResult insertSalesDaliy(HttpServletRequest request, HttpServletResponse response,@RequestBody SalesDaliy salesDaliy) {
+        try {
+            if(salesDaliy == null){
+                return new JsonResult(JsonResultCode.FAILURE, "参数有误！", "");
+            }
+            int result = daliyService.insertSalesDaliy(salesDaliy);
+            if(result > 0){
+                return new JsonResult(JsonResultCode.SUCCESS, "添加信息成功", "");
+            }else{
+                return new JsonResult(JsonResultCode.FAILURE, "添加信息失败", "");
+            }
+        } catch (Exception ex) {
+            logger.error("[DaliyController][insertSalesDaliy] exception :", ex);
+            return new JsonResult(JsonResultCode.FAILURE, "系统错误,请稍后重试", "");
+        }
+    }
+    
+    /**
+     * 修改工作计划
+     */
+    @RequestMapping(value = "/updateSalesDaliy", method = { RequestMethod.GET, RequestMethod.POST })
+    public JsonResult updateSalesDaliy(HttpServletRequest request, HttpServletResponse response,@RequestBody SalesDaliy salesDaliy) {
+        try {
+            if(salesDaliy == null){
+                return new JsonResult(JsonResultCode.FAILURE, "参数有误！", "");
+            }
+            if(salesDaliy.getSdId() == null){
+                return new JsonResult(JsonResultCode.FAILURE, "参数有误！", "");
+            }
+            int result = daliyService.updateSalesDaliy(salesDaliy);
+            if(result > 0){
+                return new JsonResult(JsonResultCode.SUCCESS, "更新信息成功", "");
+            }else{
+                return new JsonResult(JsonResultCode.FAILURE, "更新信息失败", "");
+            }
+        } catch (Exception ex) {
+            logger.error("[DaliyController][updateSalesDaliy] exception :", ex);
+            return new JsonResult(JsonResultCode.FAILURE, "系统错误,请稍后重试", "");
+        }
+    }
+    
+    /**
+     * 今日工作总结
+     */
+    @RequestMapping(value = "/updateSalesDaliySummary", method = { RequestMethod.GET, RequestMethod.POST })
+    public JsonResult updateSalesDaliySummary(HttpServletRequest request, HttpServletResponse response,Long saleId,String sdDate,String summary) {
+        try {
+            int result = daliyService.updateSalesDaliySummary(saleId, sdDate, summary);
+            if(result > 0){
+                return new JsonResult(JsonResultCode.SUCCESS, "修改信息成功", "");
+            }else{
+                return new JsonResult(JsonResultCode.FAILURE, "修改信息失败", "");
+            }
+        } catch (Exception ex) {
+            logger.error("[DaliyController][updateSalesDaliySummary] exception :", ex);
+            return new JsonResult(JsonResultCode.FAILURE, "系统错误,请稍后重试", "");
+        }
+    }
+    
+    /**
+     * 添加客户拜访
+     */
+    @RequestMapping(value = "/insertSalesVisit", method = { RequestMethod.GET, RequestMethod.POST })
+    public JsonResult insertSalesVisit(HttpServletRequest request, HttpServletResponse response,@RequestBody MultipartFile[] svLogoFile
+            ,Long saleId,Long buyerId,String svAddress,Short svType,String svRemark) {
+        try {
+            if(saleId == null || saleId == 0){
+                return new JsonResult(JsonResultCode.FAILURE, "参数saleId异常", "");
+            }
+            if(buyerId == null || buyerId == 0){
+                return new JsonResult(JsonResultCode.FAILURE, "参数buyerId异常", "");
+            }
+            List<String> logoList = MultipartFileUtils.getImgPath(request, response, svLogoFile);
+            SalesVisit salesVisit = new SalesVisit();
+            salesVisit.setSaleId(saleId);
+            salesVisit.setBuyerId(buyerId);
+            if(logoList!=null && logoList.size()>0){
+                salesVisit.setSvLogo(logoList.get(0));
+            }
+            salesVisit.setSvAddress(svAddress);
+            salesVisit.setSvType(svType);
+            salesVisit.setSvRemark(svRemark);
+            
+            VisitVo vv = daliyService.getVisitInfoById(saleId, buyerId);
+            if(vv == null){
+                //直接拜访
+                salesVisit.setSvWay((short)2);
+                salesVisit.setSvStatus((short)1);
+                salesVisit.setSvTime("1");
+                int result = daliyService.insertSalesVisit(salesVisit);
+                if(result > 0){
+                    return new JsonResult(JsonResultCode.SUCCESS, "添加信息成功", "");
+                }else{
+                    return new JsonResult(JsonResultCode.FAILURE, "添加信息失败", "");
+                }
+            }else{
+                //预约拜访
+                if(vv.getSvStatus()==0){
+                    salesVisit.setSvId(vv.getSvId());
+                    daliyService.updateSalesVisit(salesVisit);
+                    return new JsonResult(JsonResultCode.SUCCESS, "更新信息成功", "");
+                }else{
+                    return new JsonResult(JsonResultCode.FAILURE, "该商家您今天已经拜访过了！", "");
+                }
+            }
+        } catch (Exception ex) {
+            logger.error("[DaliyController][insertSalesVisit] exception :", ex);
+            return new JsonResult(JsonResultCode.FAILURE, "系统错误,请稍后重试", "");
+        }
+    }
+    
+    /**
+     * 销售人员拜访记录列表
+     */
+    @RequestMapping(value = "/getSalesVisitList", method = { RequestMethod.GET, RequestMethod.POST })
+    public JsonResult getSalesVisitList(HttpServletRequest request, HttpServletResponse response,Long saleId,Short svType) {
+        try {
+            List<VisitVo> biList = daliyService.getSalesVisitList(saleId,svType);
+            return new JsonResult(JsonResultCode.SUCCESS, "查询信息成功", biList);
+        } catch (Exception ex) {
+            logger.error("[DaliyController][getSalesVisitList] exception :", ex);
+            return new JsonResult(JsonResultCode.FAILURE, "系统错误,请稍后重试", "");
+        }
+    }
+    
+    /**
+     * 销售人员拜访记录详情
+     */
+    @RequestMapping(value = "/getSalesVisitInfo", method = { RequestMethod.GET, RequestMethod.POST })
+    public JsonResult getSalesVisitInfo(HttpServletRequest request, HttpServletResponse response,Long svId) {
+        try {
+            VisitVo visitVo = daliyService.getSalesVisitInfo(svId);
+            return new JsonResult(JsonResultCode.SUCCESS, "查询信息成功", visitVo);
+        } catch (Exception ex) {
+            logger.error("[DaliyController][getSalesDaliyInfo] exception :", ex);
+            return new JsonResult(JsonResultCode.FAILURE, "系统错误,请稍后重试", "");
+        }
+    }
+    
+    /**
+     * 主管查看
+     */
+    @RequestMapping(value = "/updateLookStatus", method = { RequestMethod.GET, RequestMethod.POST })
+    public JsonResult updateDaliyLookStatus(HttpServletRequest request, HttpServletResponse response,Long saleId,Long sdId,String reply) {
+        try {
+            int result = daliyService.updateDaliyLookStatus(saleId, sdId,reply);
+            if(result > 0){
+                return new JsonResult(JsonResultCode.SUCCESS, "修改信息成功", "");
+            }else{
+                return new JsonResult(JsonResultCode.FAILURE, "修改信息失败", "");
+            }
+        } catch (Exception ex) {
+            logger.error("[DaliyController][updateLookStatus] exception :", ex);
+            return new JsonResult(JsonResultCode.FAILURE, "系统错误,请稍后重试", "");
+        }
+    }
+    
+    /**
+     * 添加工作报备
+     */
+    @RequestMapping(value = "/insertSalesReported", method = { RequestMethod.GET, RequestMethod.POST })
+    public JsonResult insertSalesReported(HttpServletRequest request, HttpServletResponse response,@RequestBody SalesReported salesReported) {
+        try {
+            int result = daliyService.insertSalesReported(salesReported);
+            if(result > 0){
+                return new JsonResult(JsonResultCode.SUCCESS, "添加信息成功", "");
+            }else{
+                return new JsonResult(JsonResultCode.FAILURE, "添加信息失败", "");
+            }
+        } catch (Exception ex) {
+            logger.error("[DaliyController][insertSalesReported] exception :", ex);
+            return new JsonResult(JsonResultCode.FAILURE, "系统错误,请稍后重试", "");
+        }
+    }
+    
+    /**
+     * 报备主管查看
+     */
+    @RequestMapping(value = "/updateReportedLookStatus", method = { RequestMethod.GET, RequestMethod.POST })
+    public JsonResult updateReportedLookStatus(HttpServletRequest request, HttpServletResponse response,Long saleId,Long srId,String reply) {
+        try {
+            int result = daliyService.updateReportedLookStatus(saleId, srId, reply);
+            if(result > 0){
+                return new JsonResult(JsonResultCode.SUCCESS, "修改信息成功", "");
+            }else{
+                return new JsonResult(JsonResultCode.FAILURE, "修改信息失败", "");
+            }
+        } catch (Exception ex) {
+            logger.error("[DaliyController][updateReportedLookStatus] exception :", ex);
+            return new JsonResult(JsonResultCode.FAILURE, "系统错误,请稍后重试", "");
+        }
+    }
+    
+    /**
+     * 销售人员报备记录列表
+     */
+    @RequestMapping(value = "/getSalesReportedList", method = { RequestMethod.GET, RequestMethod.POST })
+    public JsonResult getSalesReportedList(HttpServletRequest request, HttpServletResponse response,Long saleId) {
+        try {
+            List<ReportedVo> biList = daliyService.getSalesReportedList(saleId);
+            return new JsonResult(JsonResultCode.SUCCESS, "查询信息成功", biList);
+        } catch (Exception ex) {
+            logger.error("[DaliyController][getSalesReportedList] exception :", ex);
+            return new JsonResult(JsonResultCode.FAILURE, "系统错误,请稍后重试", "");
+        }
+    }
+    
+    /**
+     * 管理人员查看销售人员报备记录列表
+     */
+    @RequestMapping(value = "/getMargeReportedList", method = { RequestMethod.GET, RequestMethod.POST })
+    public JsonResult getMargeReportedList(HttpServletRequest request, HttpServletResponse response,Long saleId) {
+        try {
+            List<ReportedListVo> biList = daliyService.getMargeReportedList(saleId);
+            return new JsonResult(JsonResultCode.SUCCESS, "查询信息成功", biList);
+        } catch (Exception ex) {
+            logger.error("[DaliyController][getMargeReportedList] exception :", ex);
+            return new JsonResult(JsonResultCode.FAILURE, "系统错误,请稍后重试", "");
+        }
+    }
+}
+```
+
