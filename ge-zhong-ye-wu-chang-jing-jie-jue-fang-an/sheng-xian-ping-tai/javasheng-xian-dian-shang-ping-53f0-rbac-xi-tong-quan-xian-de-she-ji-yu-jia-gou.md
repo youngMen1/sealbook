@@ -352,5 +352,98 @@ ENGINE=InnoDB
 
 ;
 ```
+#### 2.3.组织角色表(t_sys_role)
 
+
+
+```
+CREATE TABLE `t_sys_role` (
+
+`roleId` VARCHAR(20) NOT NULL COMMENT '角色表主键ID',
+
+`orgId` VARCHAR(20) NULL DEFAULT NULL COMMENT '所属组织',
+
+`orgPath` VARCHAR(20) NULL DEFAULT NULL COMMENT '组织路径',
+
+`orgName` VARCHAR(50) NOT NULL COMMENT '组织名称',
+
+`roleName` VARCHAR(50) NOT NULL COMMENT '角色名称',
+
+`roleDesc` VARCHAR(100) NULL DEFAULT NULL COMMENT '角色描述',
+
+`createBy` VARCHAR(20) NOT NULL COMMENT '创建人ID',
+
+`createName` VARCHAR(50) NOT NULL COMMENT '创建人',
+
+`createTime` DATETIME NOT NULL COMMENT '创建时间',
+
+`lastUpdateBy` VARCHAR(20) NULL DEFAULT NULL COMMENT '最后修改人ID',
+
+`updateName` VARCHAR(50) NULL DEFAULT NULL COMMENT '最后修改人',
+
+`lastUpdateTime` DATETIME NULL DEFAULT NULL COMMENT '最后修改时间',
+
+PRIMARY KEY (`roleId`)
+
+)
+
+COMMENT='角色信息表'
+
+COLLATE='utf8_general_ci'
+
+ENGINE=InnoDB
+
+;
+```
+
+#### 2.4.用户角色表(t_sys_userRole)
+
+
+```
+CREATE TABLE `t_sys_userRole` (
+
+`userRoleId` VARCHAR(20) NOT NULL COMMENT '主键ID',
+
+`roleId` VARCHAR(20) NULL DEFAULT NULL COMMENT '角色表主键ID',
+
+`userId` VARCHAR(20) NULL DEFAULT NULL COMMENT '用户主键',
+
+PRIMARY KEY (`userRoleId`)
+
+)
+
+COMMENT='用户角色关系表'
+
+COLLATE='utf8_general_ci'
+
+ENGINE=InnoDB;
+```
+
+####  2.5.角色资源表(t_sys_roleRes)
+
+
+
+```
+CREATE TABLE `t_sys_roleRes` (
+
+`roleResId` VARCHAR(20) NOT NULL COMMENT '角色资源主键ID',
+
+`roleId` VARCHAR(22) NOT NULL  COMMENT '角色表主键ID',
+
+`resId` VARCHAR(20) NOT NULL  COMMENT '资源主键',
+
+`isReadWrite` DECIMAL(1,0) NOT NULL DEFAULT 1 COMMENT '1,只读取2，可读写',
+
+ 
+
+PRIMARY KEY (`roleResId`)
+
+)
+
+COMMENT='角色资源关系表'
+
+COLLATE='utf8_general_ci'
+
+ENGINE=InnoDB
+```
 
