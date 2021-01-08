@@ -284,6 +284,8 @@ PRIMARY KEY (`resId`)
 
 )COMMENT='系统资源'COLLATE='utf8_general_ci'ENGINE=InnoDB;
 ```
+
+
 #### 2.2.组织机构表(t_sys_org)
 
 
