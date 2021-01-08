@@ -255,4 +255,34 @@ RBAC2的约束规定了权限被赋予角色时,或角色被赋予用户时,以�
 | iconCls | 创建人ID | Varchar\(32\) | 系统产生 |
 
 
+```
+CREATE TABLE `t_sys_resInfo` (
+
+`resId` VARCHAR(32) NOT NULL COMMENT '主键ID',
+
+`resName` VARCHAR(128) NOT NULL COMMENT '资源名称',
+
+`parentId` VARCHAR(32) NOT NULL COMMENT '资源父节点',
+
+`parentName` VARCHAR(128) NOT NULL COMMENT '资源父节点名称',
+
+`resType` DECIMAL(1,0) NULL DEFAULT '1' COMMENT '1、功能菜单　２、功能点　３、按钮',
+
+`resState` DECIMAL(1,0) NULL DEFAULT '1' COMMENT '记录资源的状态(可用，不可用):0表示不可用，1表示可用',
+
+`resSort` DECIMAL(8,0) NULL DEFAULT '0' COMMENT '资源排序 ',
+
+`resUrl` VARCHAR(512) NULL DEFAULT '' COMMENT '资源URL地址',
+
+`leafCount` DECIMAL(1,0) NULL DEFAULT '0' COMMENT '子节点数量',
+
+`resPath` VARCHAR(2048) NULL DEFAULT '' COMMENT '记录资源节点的路径：当前菜单的上级菜单，上级菜单的父级菜单',
+
+`iconCls` VARCHAR(20) NULL DEFAULT '' COMMENT '资源图标',
+
+PRIMARY KEY (`resId`)
+
+)COMMENT='系统资源'COLLATE='utf8_general_ci'ENGINE=InnoDB;
+```
+
 
