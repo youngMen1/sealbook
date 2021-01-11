@@ -17,4 +17,19 @@
 
 为了满足业务的需求，根据quartz的技术选型，设计一下基础架构：
 
-1. 任务记录信息表：
+1.任务记录信息表：
+
+```
+CREATE TABLE `t_job` (
+  `JOB_ID` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '任务id',
+  `BEAN_NAME` varchar(100) NOT NULL COMMENT 'spring bean名称',
+  `METHOD_NAME` varchar(100) NOT NULL COMMENT '方法名',
+  `PARAMS` varchar(200) DEFAULT NULL COMMENT '参数',
+  `CRON_EXPRESSION` varchar(100) NOT NULL COMMENT 'cron表达式',
+  `STATUS` char(2) NOT NULL COMMENT '任务状态  0：正常  1：暂停',
+  `REMARK` varchar(200) DEFAULT NULL COMMENT '备注',
+  `CREATE_TIME` datetime DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`JOB_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+```
+
