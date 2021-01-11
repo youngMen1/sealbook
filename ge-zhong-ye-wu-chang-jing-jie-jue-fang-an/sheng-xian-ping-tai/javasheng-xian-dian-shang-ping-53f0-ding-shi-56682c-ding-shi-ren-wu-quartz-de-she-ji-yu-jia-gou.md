@@ -33,3 +33,24 @@ CREATE TABLE `t_job` (
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 ```
 
+2.任务操作日志记录表：
+
+```
+CREATE TABLE `t_job_log` (
+  `LOG_ID` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '任务日志id',
+  `JOB_ID` bigint(20) NOT NULL COMMENT '任务id',
+  `BEAN_NAME` varchar(100) NOT NULL COMMENT 'spring bean名称',
+  `METHOD_NAME` varchar(100) NOT NULL COMMENT '方法名',
+  `PARAMS` varchar(200) DEFAULT NULL COMMENT '参数',
+  `STATUS` char(2) NOT NULL COMMENT '任务状态    0：成功    1：失败',
+  `ERROR` text COMMENT '失败信息',
+  `TIMES` decimal(11,0) DEFAULT NULL COMMENT '耗时(单位：毫秒)',
+  `CREATE_TIME` datetime DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`LOG_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2476 DEFAULT CHARSET=utf8;
+```
+
+说明：整个业务很简单，整个表设计与架构也很简单。
+
+最终运营截图如下：
+641237-20180608085846548-2117223474.png
