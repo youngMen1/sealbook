@@ -134,3 +134,4 @@ BMLkCNR6zsXBehnnOKve.png
 所以，针对第三种类型的促销活动，我们就可以得出以下结论：同一笔订单只能使用一张针对于订单的优惠券。
 
 ## 三、功能需求清单（促销活动）
+ROh1TtUOIaUpWaIUdW2w.png
