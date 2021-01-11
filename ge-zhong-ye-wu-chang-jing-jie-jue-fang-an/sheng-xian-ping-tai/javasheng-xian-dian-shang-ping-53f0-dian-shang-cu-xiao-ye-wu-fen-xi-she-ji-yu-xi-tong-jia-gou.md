@@ -112,13 +112,23 @@
 类图有些大，手机上如果看不清，可以分享到pc上查看。
 
 设计思路过程描述：
-
- 提供CartRuleService作为对外接口
-
-分别调用：
-
-PromotionService：促销活动接口
-
-CouponService：优惠券接口
+1.提供CartRuleService作为对外接口
+2.分别调用：
+* PromotionService：促销活动接口
+* CouponService：优惠券接口
 
 来处理促销活动和优惠券。
+
+1.促销活动接口和优惠券接口均是实际调用RuleService来实现促销规则计算。
+
+2.RuleService的实现采用桥模式和策略模式，并通过工程模式获得各个策略的实例。
+
+3.传入的上下文参数封装为RuleContext，传给RuleService
+
+4.RuleService返回RuleResult对象
+
+5.PromotionResult和CoupontResult分别封装RuleResult对象进行返回。
+
+通过这个设计方案，当有新的资格判断方式、目标范围和优惠类型时，通过新增策略实现即可，符合开闭原则。
+
+7.规则的持久化
