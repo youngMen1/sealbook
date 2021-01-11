@@ -370,6 +370,7 @@
     * [Java生鲜电商平台-商品价格的设计与架构](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/sheng-xian-ping-tai/javasheng-xian-dian-shang-ping-53f0-shang-pin-jia-ge-de-she-ji-yu-jia-gou.md)
     * [Java生鲜电商平台-定时器,定时任务quartz的设计与架构](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/sheng-xian-ping-tai/javasheng-xian-dian-shang-ping-53f0-ding-shi-56682c-ding-shi-ren-wu-quartz-de-she-ji-yu-jia-gou.md)
     * [Java生鲜电商平台-高并发的设计与架构](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/sheng-xian-ping-tai/javasheng-xian-dian-shang-ping-53f0-gao-bing-fa-de-she-ji-yu-jia-gou.md)
+    * Java生鲜电商平台-积分,优惠券,会员折扣,签到、预售、拼团、砍价、秒杀及抽奖等促销模块架构设计
   * [营销中台](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/ying-xiao-zhong-tai.md)
   * [微服务API网关-身份验证](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/wei-fu-wu-api-wang-5173-shen-fen-yan-zheng.md)
   * [微服务API网关-权限控制](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/wei-fu-wu-api-wang-5173-quan-xian-kong-zhi.md)
