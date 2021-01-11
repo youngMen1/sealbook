@@ -55,3 +55,180 @@ CREATE TABLE `t_job_log` (
 最终运营截图如下：
 641237-20180608085846548-2117223474.png
 641237-20180608085938081-1006465536.png
+
+相关的系统设置与配置说明：
+
+相关的核心代码如下：（贴些核心的，不算很核心的，大家可以去我github下面下载即可）
+
+
+
+```
+/**
+ * 定时任务
+ * 
+ * @author Administrator
+ *
+ */
+public class ScheduleJob extends QuartzJobBean {
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
+    private ExecutorService service = Executors.newSingleThreadExecutor();
+
+    @Override
+    protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
+        Job scheduleJob = (Job) context.getMergedJobDataMap().get(Job.JOB_PARAM_KEY);
+
+        // 获取spring bean
+        JobLogService scheduleJobLogService = (JobLogService) SpringContextUtils.getBean("JobLogService");
+
+        JobLog log = new JobLog();
+        log.setJobId(scheduleJob.getJobId());
+        log.setBeanName(scheduleJob.getBeanName());
+        log.setMethodName(scheduleJob.getMethodName());
+        log.setParams(scheduleJob.getParams());
+        log.setCreateTime(new Date());
+
+        long startTime = System.currentTimeMillis();
+
+        try {
+            // 执行任务
+            logger.info("任务准备执行，任务ID：" + scheduleJob.getJobId());
+            ScheduleRunnable task = new ScheduleRunnable(scheduleJob.getBeanName(), scheduleJob.getMethodName(),
+                    scheduleJob.getParams());
+            Future<?> future = service.submit(task);
+            future.get();
+            long times = System.currentTimeMillis() - startTime;
+            log.setTimes(times);
+            // 任务状态 0：成功 1：失败
+            log.setStatus("0");
+
+            logger.info("任务执行完毕，任务ID：" + scheduleJob.getJobId() + "  总共耗时：" + times + "毫秒");
+        } catch (Exception e) {
+            logger.error("任务执行失败，任务ID：" + scheduleJob.getJobId(), e);
+            long times = System.currentTimeMillis() - startTime;
+            log.setTimes(times);
+            // 任务状态 0：成功 1：失败
+            log.setStatus("1");
+            log.setError(StringUtils.substring(e.toString(), 0, 2000));
+        } finally {
+            scheduleJobLogService.saveJobLog(log);
+        }
+    }
+}
+```
+
+
+```
+/**
+ * 执行定时任务
+ * 
+ * @author Administrator
+ *
+ */
+public class ScheduleRunnable implements Runnable {
+    private Object target;
+    private Method method;
+    private String params;
+
+    public ScheduleRunnable(String beanName, String methodName, String params)
+            throws NoSuchMethodException, SecurityException {
+        this.target = SpringContextUtils.getBean(beanName);
+        this.params = params;
+
+        if (StringUtils.isNotBlank(params)) {
+            this.method = target.getClass().getDeclaredMethod(methodName, String.class);
+        } else {
+            this.method = target.getClass().getDeclaredMethod(methodName);
+        }
+    }
+
+    @Override
+    public void run() {
+        try {
+            ReflectionUtils.makeAccessible(method);
+            if (StringUtils.isNotBlank(params)) {
+                method.invoke(target, params);
+            } else {
+                method.invoke(target);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+}
+```
+
+
+```
+/**
+ * 执行定时任务
+ * 
+ * @author Administrator
+ *
+ */
+public class ScheduleRunnable implements Runnable {
+    private Object target;
+    private Method method;
+    private String params;
+
+    public ScheduleRunnable(String beanName, String methodName, String params)
+            throws NoSuchMethodException, SecurityException {
+        this.target = SpringContextUtils.getBean(beanName);
+        this.params = params;
+
+        if (StringUtils.isNotBlank(params)) {
+            this.method = target.getClass().getDeclaredMethod(methodName, String.class);
+        } else {
+            this.method = target.getClass().getDeclaredMethod(methodName);
+        }
+    }
+
+    @Override
+    public void run() {
+        try {
+            ReflectionUtils.makeAccessible(method);
+            if (StringUtils.isNotBlank(params)) {
+                method.invoke(target, params);
+            } else {
+                method.invoke(target);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+
+POM文件
+
+
+```
+<dependency>
+    <groupId>org.quartz-scheduler</groupId>
+    <artifactId>quartz</artifactId>
+    <version>2.2.1</version>
+</dependency>
+<dependency>
+    <groupId>org.quartz-scheduler</groupId>
+    <artifactId>quartz-jobs</artifactId>
+    <version>2.2.1</version>
+</dependency>
+```
+org.quartz.scheduler.instanceName属性可为任何值，用在 JDBC JobStore 中来唯一标识实例，但是所有集群节点中必须相同。
+
+org.quartz.scheduler.instanceId　属性为 AUTO即可，基于主机名和时间戳来产生实例 ID。
+
+org.quartz.jobStore.class属性为 JobStoreTX，将任务持久化到数据中。因为集群中节点依赖于数据库来传播 Scheduler 实例的状态，你只能在使用 JDBC JobStore 时应用 Quartz 集群。这意味着你必须使用 JobStoreTX 或是 JobStoreCMT 作为 Job 存储；你不能在集群中使用 RAMJobStore。
+
+org.quartz.jobStore.isClustered 属性为 true，你就告诉了 Scheduler 实例要它参与到一个集群当中。这一属性会贯穿于调度框架的始终，用于修改集群环境中操作的默认行为。
+
+org.quartz.jobStore.clusterCheckinInterval 属性定义了Scheduler 实例检入到数据库中的频率(单位：毫秒)。Scheduler 检查是否其他的实例到了它们应当检入的时候未检入；这能指出一个失败的 Scheduler 实例，且当前 Scheduler 会以此来接管任何执行失败并可恢复的 Job。通过检入操作，Scheduler 也会更新自身的状态记录。clusterChedkinInterval 越小，Scheduler 节点检查失败的 Scheduler 实例就越频繁。默认值是 15000 (即15 秒)。
+
+ 
+
+最终：系统架构设计图：
+641237-20180608090643791-1170168567.png
+最后：很多人说系统功能很强大很好，但是我的一种思维方式是不一定，强大固然好，但是你需要通过这么多的系统数据中来分析出问题的关键，而不是所谓的代码堆积。
+
+           你所需要的是思考，再思考，最终思考。
