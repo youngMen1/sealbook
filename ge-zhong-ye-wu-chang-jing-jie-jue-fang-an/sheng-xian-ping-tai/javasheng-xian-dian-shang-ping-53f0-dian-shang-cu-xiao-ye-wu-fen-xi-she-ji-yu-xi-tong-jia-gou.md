@@ -120,3 +120,5 @@
 PromotionService：促销活动接口
 
 CouponService：优惠券接口
+
+来处理促销活动和优惠券。
