@@ -34,7 +34,12 @@ pzdn2009：[https://docs.kolematech.com/basic/ddd](https://docs.kolematech.com/b
 
 ## 优秀的github
 
-淘宝特价版：`https://github.com/qiurunze123`
+淘宝特价版的员工:`https://github.com/qiurunze123`
+1.秒杀系统设计与实现.互联网工程师进阶与分析
+2.高并发-高可靠-高性能three-high-import导入系统-高并发多线程进
+3.zk的设计与使用（集群，dubbo，分布式锁，master选举，负载均衡，watch，权限等）
+4.JVM内存结构GC分析 如何配置生产的JVM参数 你其实更需要
+
 
 
 
