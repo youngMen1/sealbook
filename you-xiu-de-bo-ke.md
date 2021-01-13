@@ -34,11 +34,7 @@ pzdn2009：[https://docs.kolematech.com/basic/ddd](https://docs.kolematech.com/b
 
 ## 优秀的github
 
-淘宝特价版：
-
-```
-https://github.com/qiurunze123
-```
+淘宝特价版：`https://github.com/qiurunze123`
 
 
 
