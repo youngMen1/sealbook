@@ -1,4 +1,4 @@
-## 优秀的博客地址
+## 1.优秀的博客地址
 
 掘金：[https://juejin.im/post/5aeec351518825670a103292](https://juejin.im/post/5aeec351518825670a103292)
 
@@ -32,9 +32,10 @@ pzdn2009：[https://docs.kolematech.com/basic/ddd](https://docs.kolematech.com/b
 
 支付系统设计：[http://doc.cocolian.cn](http://doc.cocolian.cn)、[http://docs.xxpay.org/docs/api/19](http://docs.xxpay.org/docs/api/19)
 
-## 优秀的github
+## 2.优秀的github
 
-淘宝特价版的员工:`https://github.com/qiurunze123`
+### 2.1.淘宝特价版的员工
+github：`https://github.com/qiurunze123`
 1.秒杀系统设计与实现.互联网工程师进阶与分析
 2.高并发-高可靠-高性能three-high-import导入系统-高并发多线程进
 3.zk的设计与使用（集群，dubbo，分布式锁，master选举，负载均衡，watch，权限等）
