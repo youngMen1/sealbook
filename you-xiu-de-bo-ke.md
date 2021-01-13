@@ -32,7 +32,7 @@ pzdn2009：[https://docs.kolematech.com/basic/ddd](https://docs.kolematech.com/b
 
 支付系统设计：[http://doc.cocolian.cn](http://doc.cocolian.cn)、[http://docs.xxpay.org/docs/api/19](http://docs.xxpay.org/docs/api/19)
 
-## 2.优秀的github
+## 2.优秀的github博客
 
 ### 2.1.淘宝特价版的员工
 github：`https://github.com/qiurunze123`
