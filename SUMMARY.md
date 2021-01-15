@@ -380,6 +380,6 @@
     * [开篇词 \| 秒杀系统架构设计都有哪些关键点](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/miao-sha-xi-tong-she-ji/kai-pian-ci-miao-sha-xi-tong-jia-gou-she-ji-du-you-na-xie-guan-jian-dian.md)
     * [01 \| 设计秒杀系统时应该注意的5个架构原则](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/miao-sha-xi-tong-she-ji/01-she-ji-miao-sha-xi-tong-shi-ying-gai-zhu-yi-de-5-ge-jia-gou-yuan-ze.md)
     * [02 \| 如何才能做好动静分离？有哪些方案可选？](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/miao-sha-xi-tong-she-ji/02-ru-he-cai-neng-zuo-hao-dong-jing-fen-li-ff1f-you-na-xie-fang-an-ke-xuan-ff1f.md)
-  * 拼团业务流程
+  * [拼团业务流程](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/pin-tuan-ye-wu-liu-cheng.md)
 * [Dubbo](dubbo.md)
 
