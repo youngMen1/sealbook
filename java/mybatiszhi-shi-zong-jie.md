@@ -196,5 +196,40 @@ and member_name LIKE CONCAT('%',#{memberName},'%')
  </if>
 ```
 
+### 1.5.映射文件里sql标签Base_column_List
+
+
+```
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gdfl.goods.member.dao.GroupTimeDao">
+    <resultMap id="BaseResultMap" type="com.gdfl.goods.model.GroupTime">
+        <id column="id" property="id"/>
+        <result column="group_teacher_id" property="groupTeacherId"/>
+        <result column="day" property="day"/>
+        <result column="start_time" property="startTime"/>
+        <result column="end_time" property="endTime"/>
+        <result column="create_time" property="createTime"/>
+        <result column="delete_status" property="deleteStatus"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+    id, group_teacher_id, day, start_time, end_time, create_time, delete_status
+  </sql>
+
+    <select id="findGroupTimeByDay" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM group_time
+        WHERE 1=1
+        <if test="day != null and day !=''">
+            day = #{day}
+        </if>
+        ORDER BY create_time DESC
+    </select>
+
+</mapper>
+```
+
 
 
