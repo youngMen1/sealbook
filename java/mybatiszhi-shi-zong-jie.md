@@ -196,8 +196,7 @@ and member_name LIKE CONCAT('%',#{memberName},'%')
  </if>
 ```
 
-### 1.5.映射文件里sql标签Base_column_List
-
+### 1.5.Mybatis映射文件里sql标签Base\_column\_List
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
