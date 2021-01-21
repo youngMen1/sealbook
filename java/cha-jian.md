@@ -36,7 +36,7 @@
 | restfultookit | 搜索url，还自动生成默认的测试用例 |
 | Markdown support | 支持md文件的查看和编辑 |
 | Gitee | 码云的插件 |
-| 1 | 1 |
+| SequenceDiagram | 画时序图 |
 
 ## 2.参考:
 
