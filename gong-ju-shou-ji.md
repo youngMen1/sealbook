@@ -20,6 +20,6 @@
   
 ## 4.markdown
 * Typora
-微信截图_20210121144848.png
+![](/static/image/微信截图_20210121144848.png)
 
 
