@@ -19,7 +19,7 @@
   ![](/static/image/微信截图_20210121142252.png)
   
 ## 4.
-Typora
+* Typora
 
 
 
