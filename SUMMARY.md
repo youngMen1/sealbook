@@ -72,6 +72,7 @@
     * [JProfiler插件分析](java/cha-jian/jprofilercha-jian-fen-xi.md)
     * [Docker镜像部署插件](java/cha-jian/dockercha-jian.md)
     * IDEA插件Git Flow
+    * SequenceDiagram插件时序图
   * [IDEA 快捷键拆解系列](java/idea-kuai-jie-jian-chai-jie-xi-lie.md)
     * [IDEA 快捷键拆解系列（一）](java/idea-kuai-jie-jian-chai-jie-xi-lie/idea-kuai-jie-jian-chai-jie-xi-lie-ff08-yi-ff09.md)
     * [IDEA 快捷键拆解系列（二）：File 篇](java/idea-kuai-jie-jian-chai-jie-xi-lie/idea-kuai-jie-jian-chai-jie-xi-lie-ff08-er-ff09-ff1a-file-pian.md)
