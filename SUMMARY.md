@@ -384,7 +384,7 @@
     * [01 \| 设计秒杀系统时应该注意的5个架构原则](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/miao-sha-xi-tong-she-ji/01-she-ji-miao-sha-xi-tong-shi-ying-gai-zhu-yi-de-5-ge-jia-gou-yuan-ze.md)
     * [02 \| 如何才能做好动静分离？有哪些方案可选？](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/miao-sha-xi-tong-she-ji/02-ru-he-cai-neng-zuo-hao-dong-jing-fen-li-ff1f-you-na-xie-fang-an-ke-xuan-ff1f.md)
   * [拼团业务流程](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/pin-tuan-ye-wu-liu-cheng.md)
-    * 拼团活动如何设计
+    * [拼团活动如何设计](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/pin-tuan-ye-wu-liu-cheng/pin-tuan-huo-dong-ru-he-she-ji.md)
   * [消息通知系统](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/xiao-xi-tong-zhi-xi-tong.md)
     * [微服务中的短信服务如何设计](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/xiao-xi-tong-zhi-xi-tong/wei-fu-wu-zhong-de-duan-xin-fu-wu-ru-he-she-ji.md)
     * 如何设计一个公司级别的消息通知系统
