@@ -386,5 +386,6 @@
   * [拼团业务流程](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/pin-tuan-ye-wu-liu-cheng.md)
   * [消息通知系统](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/xiao-xi-tong-zhi-xi-tong.md)
     * [微服务中的短信服务如何设计](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/xiao-xi-tong-zhi-xi-tong/wei-fu-wu-zhong-de-duan-xin-fu-wu-ru-he-she-ji.md)
+    * 如何设计一个公司级别的消息通知系统
 * [Dubbo](dubbo.md)
 
