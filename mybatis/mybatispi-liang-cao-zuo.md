@@ -22,8 +22,8 @@
     link
 )
     /*方法二*/
-    <include refid="Base_Column_List"/>
-   
+    (<include refid="Base_Column_List"/>)
+
     values
     <foreach collection="list" item="item" index="index" separator=",">
         (
