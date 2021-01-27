@@ -201,7 +201,7 @@
     * [TarsBenchmark无码压测工具](sealblog/tarsbenchmarkwu-ma-ya-ce-gong-ju.md)
     * [Jmeter](sealblog/jmeter.md)
     * [Apache ab压力测试工具](sealblog/apache-abya-li-ce-shi-gong-ju.md)
-    * Gatling
+    * [Gatling](sealblog/gatling.md)
   * [Arthas](sealblog/arthas.md)
 * [分布式配置中心](fen-bu-shi-pei-zhi-zhong-xin.md)
   * [阿里的Diamond](fen-bu-shi-pei-zhi-zhong-xin/a-lidiamond.md)
