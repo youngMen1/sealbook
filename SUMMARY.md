@@ -63,6 +63,7 @@
     * [IDEA解决提交冲突的问题](java/shi-yong-bang-zhu/ideajie-jue-ti-jiao-chong-tu-de-wen-ti.md)
     * [IDEA多光标操作集锦](java/shi-yong-bang-zhu/ideaduo-guang-biao-cao-zuo-ji-jin.md)
     * [IDEA 常用设置](java/shi-yong-bang-zhu/idea-chang-yong-she-zhi.md)
+    * IDEA禁止指定文件提交
   * [IDEA插件](java/cha-jian.md)
     * [LomBok插件](java/cha-jian/lombokcha-jian.md)
     * [Cloud Toolkit插件](java/cha-jian/cloud-toolkit.md)
