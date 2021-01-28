@@ -1,7 +1,7 @@
 # 1.IDEA禁止指定文件提交
 ## 1.1.idea svn提交时忽略.iml文件
 
-**在File Types**
+**在File Types加**
 ```
 idea;*.iml;
 ```
