@@ -77,6 +77,19 @@ mysql> flush hosts;
 grant all privileges on *.* to 'wang'@'%' identified by 'MyNewPass4!';
 ```
 
+# 2.2.解决mysql数据库表锁死（表打不开，也关不上）
+原因：两个或两个以上的进程在执行过程中，因争夺资源而造成的一种互相等待。
 
+解决方案：
+1.查询所有进程
+show full processlist ;
+
+2.关闭锁死进行，kill + id
+KILL 168;
+KILL 172;
+KILL 174;
+KILL 177;
+20190627135753776.png
+或者重启mysql,检查造成死锁的代码。
 
 
