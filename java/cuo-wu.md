@@ -82,14 +82,27 @@ grant all privileges on *.* to 'wang'@'%' identified by 'MyNewPass4!';
 
 解决方案：
 1.查询所有进程
-show full processlist ;
+
+
+```
+show full processlist
+```
+
+
 
 2.关闭锁死进行，kill + id
+
+
+```
 KILL 168;
 KILL 172;
 KILL 174;
 KILL 177;
-20190627135753776.png
+```
+
+
+
+![](/static/image/20190627135753776.png)
 或者重启mysql,检查造成死锁的代码。
 
 
