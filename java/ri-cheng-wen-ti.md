@@ -115,7 +115,6 @@ yyyy-MM-dd = 2020-12-27
 
 **而当使用yyyy的时候，就还是 2020 年。**
 
-
 # 2.Mysql异常
 
 ## 2.1.MySql Host is blocked because of many connection errors 解决方法
@@ -126,8 +125,8 @@ yyyy-MM-dd = 2020-12-27
 message from server: "Host '192.168.1.28' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'"
 ```
 
-**原因：**
-同一个ip在短时间内产生太多（超过mysql数据库max\_connection\_errors的最大值）中断的数据库连接而导致的阻塞；
+**原因：**  
+同一个ip在短时间内产生太多（超过mysql数据库max\_connection\_errors的最大值）中断的数据库连接而导致的阻塞；  
 **解决方法：**
 
 ```
@@ -160,20 +159,17 @@ grant all privileges on *.* to 'wang'@'%' identified by 'MyNewPass4!';
 ```
 
 # 2.2.解决mysql数据库表锁死（表打不开，也关不上）
+
 原因：两个或两个以上的进程在执行过程中，因争夺资源而造成的一种互相等待。
 
-解决方案：
+**解决方案：**  
 1.查询所有进程
-
 
 ```
 show full processlist
 ```
 
-
-
 2.关闭锁死进行，kill + id
-
 
 ```
 KILL 168;
@@ -182,7 +178,6 @@ KILL 174;
 KILL 177;
 ```
 
-
-
-![](/static/image/20190627135753776.png)
+![](/static/image/20190627135753776.png)  
 或者重启mysql,检查造成死锁的代码。
+
