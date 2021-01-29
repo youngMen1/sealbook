@@ -37,7 +37,7 @@
 | Markdown support | 支持md文件的查看和编辑 |
 | Gitee | 码云的插件 |
 | SequenceDiagram | 画时序图 |
-| 1 | 1 |
+| jclasslib bytecode viewer | 字节码查看插件 |
 
 ## 2.参考:
 
