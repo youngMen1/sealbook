@@ -323,7 +323,7 @@
   * [jdk8常用方法](java/jdk8chang-yong-fang-fa.md)
   * [UML时序图](java/umlshi-xu-tu.md)
   * [Excel导入导出](java/exceldao-ru-dao-chu.md)
-    * JXLS \(Excel导入、导出工具使用\)
+    * [JXLS \(Excel导入、导出工具使用\)](java/exceldao-ru-dao-chu/jxls-exceldao-ru-3001-dao-chu-gong-ju-shi-752829.md)
     * EasyPOI导入导出
     * 阿里巴巴的EasyExcel导入导出
 * [SpringCloudAlibaba](springcloudalibaba.md)
