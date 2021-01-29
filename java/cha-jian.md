@@ -37,6 +37,7 @@
 | Markdown support | 支持md文件的查看和编辑 |
 | Gitee | 码云的插件 |
 | SequenceDiagram | 画时序图 |
+| 1 | 1 |
 
 ## 2.参考:
 
