@@ -44,5 +44,7 @@
 
 # 2.参考
 
-IDEA 快捷键拆解系列:[https://www.jianshu.com/p/c9963b722d3b](https://www.jianshu.com/p/c9963b722d3b)
+IDEA 快捷键拆解系列：[`https://www.jianshu.com/p/c9963b722d3b`](https://www.jianshu.com/p/c9963b722d3b)
+
+2020年IntelliJ IDEA：`https://blog.csdn.net/qq_39816581/article/details/105384973`
 
