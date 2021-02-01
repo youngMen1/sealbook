@@ -6,14 +6,13 @@
 2.购买隧道：
 ![](/static/image/20180320183743444.png)
 购买前需要认证一下，不要用免费的，因为免费的是随机分配域名的，每次都会变，之前VIP_1型是5元，现在涨到9元了，自行选择（官方9折优惠码709ABD4F），我买的是VIP_2型，购买后如下图：
-20180320184001958.png
+![](/static/image/20180320184001958.png)
 
-```
 
-购买后使用方式：
-```
 
-https://natapp.cn/article/natapp_newbie
+**购买后使用方式：**
+
+```https://natapp.cn/article/natapp_newbie```
 
 使用后会得到natapp分配的网址，如 xxx.natapp.cn，这个地址就可以访问到开发本机。
 
