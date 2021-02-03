@@ -221,7 +221,6 @@ public interface StrategyHandler<T, R> {
 
 这句话源自 Donald Knuth 他老人家：
 
-
 ```
 we should forget about small efficiencies,say about 97% of the time:premature optimization is the root of all evil.
 ```
