@@ -239,17 +239,13 @@ we should forget about small efficiencies,say about 97% of the time:premature op
 
 所以，我觉得不要被这句话束缚手脚，当然更不要闭门造车，在开发过程中勤于思考，向更有经验的人请教，在架构设计上不断学习、探索，才能摆脱日复一日通过“if-else”堆砌业务逻辑的循环。
 
-
-
 # 2.参考
 
 如何优化你的if-else？来试试“责任树模式”
+
 ```
 https://developer.aliyun.com/article/781471?utm_content=g_1000234115
 ```
-
-
-
 
 
 
