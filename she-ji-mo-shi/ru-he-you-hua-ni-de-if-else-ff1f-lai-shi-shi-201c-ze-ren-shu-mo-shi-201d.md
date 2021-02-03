@@ -243,6 +243,12 @@ we should forget about small efficiencies,say about 97% of the time:premature op
 
 # 2.参考
 
+如何优化你的if-else？来试试“责任树模式”
+```
+https://developer.aliyun.com/article/781471?utm_content=g_1000234115
+```
+
+
 
 
 
