@@ -43,7 +43,7 @@
 
 将责任链与策略模式融合，即成为了一种广义的责任链模式，我简称为“责任树模式”。这种模式不仅可以完成任务的逐级委托，也可以在任一级选择不同的下游策略进行处理。
 
-微信图片_20210203111729.png
+![](/static/image/微信图片_20210203111729.png)
 
 那么问题来了，如何通过责任树模式解决前面我们遇到的问题呢？
 
@@ -76,7 +76,7 @@ Handler 是接口，负责实现每个节点的业务逻辑。
 
 我们可以非常方便地通过 Router 和 Handler 的组合拼装成整棵树的结构。
 
-微信图片_20210203111809.png
+![](/static/image/微信图片_20210203111809.png)
 
 从图中我们可以看出以下几个要点：
 
@@ -178,7 +178,7 @@ public abstract class AbstractStrategyRouter<T, R> {
     protected abstract StrategyMapper<T, R> registerStrategyMapper();
 }
 ```
-继承 AbstractStrategyRouter<T, R> 抽象类只需要实现 protected abstract StrategyMapper<T, R> registerStrategyMapper(); 抽象方法即可，在该方法中实现其不同子节点的路由逻辑。
+继承 `AbstractStrategyRouter<T, R>` 抽象类只需要实现 `protected abstract StrategyMapper<T, R>` registerStrategyMapper(); 抽象方法即可，在该方法中实现其不同子节点的路由逻辑。
 
 如果子节点路由逻辑比较简单，可以直接通过 if-else 进行分发。当然如果为了更好地性能、适应更复杂的分发逻辑也可以使用 Map 等保存映射。
 
@@ -207,7 +207,7 @@ public interface StrategyHandler<T, R> {
 }
 ```
 
-除了根节点外，都要实现 StrategyHandler<T, R> 接口。如果是叶子节点，由于不需要再向下委托，因此不再需要同时继承 AbstractStrategyRouter<T, R> 抽象类，只需要在 R apply(T param); 中实现业务逻辑即可。
+除了根节点外，都要实现 `StrategyHandler<T, R> `接口。如果是叶子节点，由于不需要再向下委托，因此不再需要同时继承 `AbstractStrategyRouter<T, R>` 抽象类，只需要在 R apply(T param); 中实现业务逻辑即可。
 
 对于其他责任树中的中间层节点，都需要同时继承 Router 抽象类和实现 Handler 接口，在 R apply(T param); 方法中首先进行一定异常入参拦截，遵循 fail-fast 原则，避免将这一层可以拦截的错误传递到下一层，同时也要避免“越权”做非本层职责的拦截校验，避免产生耦合，为后面业务拓展挖坑。在拦截逻辑后直接调用本身 Router 的 public R applyStrategy(T param) 方法路由给下游节点即可。
 
