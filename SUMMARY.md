@@ -338,7 +338,7 @@
     * [Jprofile使用怎么分析](jvm/jprofile/jprofileshi-yong-zen-yao-fen-xi.md)
 * [设计模式实践](she-ji-mo-shi.md)
   * [设计模式在外卖营销业务中的实践](she-ji-mo-shi/she-ji-mo-shi-zai-wai-mai-ying-xiao-ye-wu-zhong-de-shi-jian.md)
-  * 如何优化你的if-else？来试试“责任树模式”
+  * [如何优化你的if-else？来试试“责任树模式”](she-ji-mo-shi/ru-he-you-hua-ni-de-if-else-ff1f-lai-shi-shi-201c-ze-ren-shu-mo-shi-201d.md)
 * [各种业务场景解决方案](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an.md)
   * [支付系统](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/zhi-fu-xi-tong.md)
     * [支付系统设计白皮书：支付核心的 7 个要点](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/zhi-fu-xi-tong/zhi-fu-xi-tong-she-ji-bai-pi-shu-ff1a-zhi-fu-he-xin-de-7-ge-yao-dian.md)
