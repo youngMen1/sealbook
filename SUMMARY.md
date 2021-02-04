@@ -327,6 +327,7 @@
     * [基于JXLS \(Excel导入、导出工具使用\)](java/exceldao-ru-dao-chu/jxls-exceldao-ru-3001-dao-chu-gong-ju-shi-752829.md)
     * [基于EasyPOI便捷高效地实现Excel导出操作](java/ji-yu-easypoi-bian-jie-gao-xiao-di-shi-xian-excel-dao-chu-cao-zuo.md)
     * 基于阿里巴巴的EasyExcel导入导出
+  * [Guava Cache用法介绍](java/guava-cacheyong-fa-jie-shao.md)
 * [SpringCloudAlibaba](springcloudalibaba.md)
   * [SpringCloudAlibaba基本介绍](springcloudalibaba/zhu-yi.md)
   * [Nacos](springcloudalibaba/nacos.md)
