@@ -101,8 +101,9 @@
   * [IDEA模板](java/mo-ban.md)
   * [免费申请IntelliJ IDEA商业版License指南](java/mian-fei-shen-qing-intellij-idea-shang-ye-ban-license-zhi-nan.md)
   * [IDEA激活码](java/ideaji-huo-ma.md)
-  * IDEA版本
+  * [IDEA版本](java/ideaban-ben.md)
     * [IDEA\(2020.3\)版本](java/idea20203ban-ben.md)
+    * IntelliJ IDEA 之 工具箱\(Tool Box\)
 * [Mybatis](mybatis.md)
   * [错误](mybatis/cuo-wu.md)
   * [Mybatis知识总结](java/mybatiszhi-shi-zong-jie.md)
