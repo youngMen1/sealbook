@@ -103,7 +103,7 @@
   * [IDEA激活码](java/ideaji-huo-ma.md)
   * [IDEA版本](java/ideaban-ben.md)
     * [IDEA\(2020.3\)版本](java/idea20203ban-ben.md)
-    * IntelliJ IDEA 之 工具箱\(Tool Box\)
+    * [IntelliJ IDEA 之 工具箱\(Tool Box\)](java/intellij-idea-zhi-gong-ju-7bb128-tool-box.md)
 * [Mybatis](mybatis.md)
   * [错误](mybatis/cuo-wu.md)
   * [Mybatis知识总结](java/mybatiszhi-shi-zong-jie.md)
