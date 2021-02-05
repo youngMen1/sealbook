@@ -102,7 +102,7 @@
   * [免费申请IntelliJ IDEA商业版License指南](java/mian-fei-shen-qing-intellij-idea-shang-ye-ban-license-zhi-nan.md)
   * [IDEA激活码](java/ideaji-huo-ma.md)
   * IDEA版本
-    * IDEA\(2020.3\)版本
+    * [IDEA\(2020.3\)版本](java/idea20203ban-ben.md)
 * [Mybatis](mybatis.md)
   * [错误](mybatis/cuo-wu.md)
   * [Mybatis知识总结](java/mybatiszhi-shi-zong-jie.md)
