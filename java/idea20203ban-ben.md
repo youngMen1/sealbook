@@ -9,5 +9,12 @@
 ## 1.6.Scala 支持相关的新功能
 # 2.参考
 IntelliJ IDEA 2020.3 重大特性：`https://jiangxinlingdu.blog.csdn.net/article/details/110500891`
-IntelliJ IDEA 2020.3 正式版发布，多项超酷新功能
+IntelliJ IDEA 2020.3 正式版发布，多项超酷新功能：
+
+
+```
+https://iteblog.blog.csdn.net/article/details/111087559?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control
+```
+
+
 
