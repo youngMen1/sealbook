@@ -1,2 +1,2 @@
 
-# IntelliJ IDEA 之 工具箱(Tool Box)
+# IntelliJ IDEA之工具箱(Tool Box)
