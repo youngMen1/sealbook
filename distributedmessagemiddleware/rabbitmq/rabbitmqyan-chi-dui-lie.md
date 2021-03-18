@@ -10,3 +10,6 @@
 2.延时队列使用场景
 3.RabbitMQ中的TTL
 4.如何利用RabbitMQ来实现延时队列
+
+
+5d3d74d99699d43032.png
