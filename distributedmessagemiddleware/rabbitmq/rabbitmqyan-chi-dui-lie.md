@@ -32,7 +32,7 @@
 新创建的店铺，如果在十天内都没有上传过商品，则自动发送消息提醒。
 账单在一周内未支付，则自动结算。
 用户注册成功后，如果三天内没有登陆则进行短信提醒。
-用户发起退款，如果三天内没有得到处理则通知相关运营人员。
+用户发起退款，如果三天内没有得到处理则通知相关运营人员。``
 预定会议后，需要在预定的时间点前十分钟通知各个与会人员参加会议。
 这些场景都有一个特点，需要在某个事件发生之后或者之前的指定时间点完成某一项任务，如：发生订单生成事件，在十分钟之后检查该订单支付状态，然后将未支付的订单进行关闭；发生店铺创建事件，十天后检查该店铺上新商品数，然后通知上新数为0的商户；发生账单生成事件，检查账单支付状态，然后自动结算未支付的账单；发生新用户注册事件，三天后检查新注册用户的活动数据，然后通知没有任何活动记录的用户；发生退款事件，在三天之后检查该订单是否已被处理，如仍未被处理，则发送消息给相关运营人员；发生预定会议事件，判断离会议开始是否只有十分钟了，如果是，则通知各个与会人员。
 
@@ -64,4 +64,14 @@ channel.queueDeclare(queueName, durable, exclusive, autoDelete, args);
 这样所有被投递到该队列的消息都最多不会存活超过6s。
 
 另一种方式便是针对每条消息设置TTL，代码如下：
+
+
+```
+AMQP.BasicProperties.Builder builder = new AMQP.BasicProperties.Builder();
+builder.expiration("6000");
+AMQP.BasicProperties properties = builder.build();
+channel.basicPublish(exchangeName, routingKey, mandatory, properties, "msg body".getBytes());
+```
+
+
 
