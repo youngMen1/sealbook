@@ -238,7 +238,20 @@ public class DelayMessageSender {
 
 
 ```
+@Slf4j
+@RequestMapping("rabbitmq")
+@RestController
+public class RabbitMQMsgController {
 
+    @Autowired
+    private DelayMessageSender sender;
+
+    @RequestMapping("sendmsg")
+    public void sendMsg(String msg, Integer delayType){
+        log.info("当前时间：{},收到请求，msg:{},delayType:{}", new Date(), msg, delayType);
+        sender.sendMsg(msg, Objects.requireNonNull(DelayTypeEnum.getDelayTypeEnumByValue(delayType)));
+    }
+}
 ```
 
 
