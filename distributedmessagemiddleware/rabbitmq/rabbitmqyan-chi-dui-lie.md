@@ -383,3 +383,10 @@ public void receiveC(Message message, Channel channel) throws IOException {
 ```
 我们先发了一个延时时长为20s的消息，然后发了一个延时时长为2s的消息，结果显示，第二个消息会在等第一个消息成为死信后才会“死亡“。
 
+
+## 8.利用RabbitMQ插件实现延迟队列
+
+
+
+
+
