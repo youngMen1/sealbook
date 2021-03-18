@@ -436,6 +436,5 @@ public void delayMsg2(String msg, Integer delayTime) {
     sender.sendDelayMsg(msg, delayTime);
 }
 ```
-
-
+消息生产者的代码也需要修改：
 
