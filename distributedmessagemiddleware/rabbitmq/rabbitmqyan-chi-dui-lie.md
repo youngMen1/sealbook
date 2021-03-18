@@ -429,3 +429,13 @@ public class DelayedRabbitMQConfig {
 controller层再添加一个入口：
 
 
+```
+@RequestMapping("delayMsg2")
+public void delayMsg2(String msg, Integer delayTime) {
+    log.info("当前时间：{},收到请求，msg:{},delayTime:{}", new Date(), msg, delayTime);
+    sender.sendDelayMsg(msg, delayTime);
+}
+```
+
+
+
