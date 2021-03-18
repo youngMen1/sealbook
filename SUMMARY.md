@@ -253,6 +253,7 @@
   * [注解](spring5/zhu-jie.md)
   * [Spring Event使用](spring5/spring-eventshi-yong.md)
   * [Spring TaskExecutor及Async](spring5/spring-taskexecutorji-async.md)
+  * Spring Boot 之 spring.factories
 * [关系型数据库](guan-xi-xing-shu-ju-ku.md)
   * [MySQL](guan-xi-xing-shu-ju-ku/mysql.md)
     * [一千行 MySQL 学习笔记](guan-xi-xing-shu-ju-ku/mysql/yi-qian-xing-mysql-xue-xi-bi-ji.md)
