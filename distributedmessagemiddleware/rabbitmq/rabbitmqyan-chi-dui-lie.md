@@ -230,7 +230,6 @@ public class DelayMessageSender {
                 rabbitTemplate.convertAndSend(DELAY_EXCHANGE_NAME, DELAY_QUEUEB_ROUTING_KEY, msg);
                 break;
         }
-    }
 }
 ```
 
