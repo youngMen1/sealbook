@@ -192,4 +192,28 @@ public class RabbitMQConfig {
     }
     }
 ```
+接下来，创建两个消费者，分别对两个死信队列的消息进行消费：
+
+
+```
+@Slf4j
+@Component
+public class DeadLetterQueueConsumer {
+
+    @RabbitListener(queues = DEAD_LETTER_QUEUEA_NAME)
+    public void receiveA(Message message, Channel channel) throws IOException {
+        String msg = new String(message.getBody());
+        log.info("当前时间：{},死信队列A收到消息：{}", new Date().toString(), msg);
+        channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+    }
+
+    @RabbitListener(queues = DEAD_LETTER_QUEUEB_NAME)
+    public void receiveB(Message message, Channel channel) throws IOException {
+        String msg = new String(message.getBody());
+        log.info("当前时间：{},死信队列B收到消息：{}", new Date().toString(), msg);
+        channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+    }
+}
+```
+
 
