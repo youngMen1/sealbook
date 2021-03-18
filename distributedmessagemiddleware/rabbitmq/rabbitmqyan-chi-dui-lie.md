@@ -215,5 +215,27 @@ public class DeadLetterQueueConsumer {
     }
 }
 ```
+然后是消息的生产者：
+
+
+```
+@Component
+public class DelayMessageSender {
+
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
+
+    public void sendMsg(String msg, DelayTypeEnum type){
+        switch (type){
+            case DELAY_10s:
+                rabbitTemplate.convertAndSend(DELAY_EXCHANGE_NAME, DELAY_QUEUEA_ROUTING_KEY, msg);
+                break;
+            case DELAY_60s:
+                rabbitTemplate.convertAndSend(DELAY_EXCHANGE_NAME, DELAY_QUEUEB_ROUTING_KEY, msg);
+                break;
+        }
+    }
+}
+```
 
 
