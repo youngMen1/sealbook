@@ -88,3 +88,4 @@ channel.basicPublish(exchangeName, routingKey, mandatory, properties, "msg body"
 想想看，**延时队列**，不就是想要消息延迟多久被处理吗，TTL则刚好能让消息在延迟多久之后成为死信，另一方面，成为死信的消息都会被投递到死信队列里，这样只需要消费者一直消费死信队列里的消息就万事大吉了，因为里面的消息都是希望被立即处理的消息。
 
 从下图可以大致看出消息的流向：
+![](/static/image/5d3d743143ecc85643.png)
