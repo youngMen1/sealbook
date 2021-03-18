@@ -347,5 +347,5 @@ public class RabbitMQConfig {
     }
 }
 ```
-
+增加一个死信队列C的消费者：
 
