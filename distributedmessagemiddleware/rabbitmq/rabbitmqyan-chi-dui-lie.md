@@ -438,3 +438,14 @@ public void delayMsg2(String msg, Integer delayTime) {
 ```
 消息生产者的代码也需要修改：
 
+
+
+```
+public void sendDelayMsg(String msg, Integer delayTime) {
+    rabbitTemplate.convertAndSend(DELAYED_EXCHANGE_NAME, DELAYED_ROUTING_KEY, msg, a ->{
+        a.getMessageProperties().setDelay(delayTime);
+        return a;
+    });
+}
+```
+
