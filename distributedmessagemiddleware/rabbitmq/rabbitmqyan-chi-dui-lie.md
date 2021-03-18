@@ -349,3 +349,14 @@ public class RabbitMQConfig {
 ```
 增加一个死信队列C的消费者：
 
+
+
+```
+@RabbitListener(queues = DEAD_LETTER_QUEUEC_NAME)
+public void receiveC(Message message, Channel channel) throws IOException {
+    String msg = new String(message.getBody());
+    log.info("当前时间：{},死信队列C收到消息：{}", new Date().toString(), msg);
+    channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+}
+```
+
