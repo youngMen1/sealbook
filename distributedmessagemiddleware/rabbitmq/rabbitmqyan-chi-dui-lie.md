@@ -449,3 +449,15 @@ public void sendDelayMsg(String msg, Integer delayTime) {
 }
 ```
 
+最后，再创建一个消费者：
+
+
+```
+@RabbitListener(queues = DELAYED_QUEUE_NAME)
+public void receiveD(Message message, Channel channel) throws IOException {
+    String msg = new String(message.getBody());
+    log.info("当前时间：{},延时队列收到消息：{}", new Date().toString(), msg);
+    channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+}
+```
+
