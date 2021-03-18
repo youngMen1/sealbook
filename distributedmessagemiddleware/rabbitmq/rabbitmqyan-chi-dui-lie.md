@@ -385,7 +385,11 @@ public void receiveC(Message message, Channel channel) throws IOException {
 
 
 ## 8.利用RabbitMQ插件实现延迟队列
+上文中提到的问题，确实是一个硬伤，如果不能实现在消息粒度上添加TTL，并使其在设置的TTL时间及时死亡，就无法设计成一个通用的延时队列。
 
+那如何解决这个问题呢？不要慌，安装一个插件即可：`https://www.rabbitmq.com/community-plugins.html` ，下载rabbitmq_delayed_message_exchange插件，然后解压放置到RabbitMQ的插件目录。
+
+接下来，进入RabbitMQ的安装目录下的sbin目录，执行下面命令让该插件生效，然后重启RabbitMQ。
 
 
 
