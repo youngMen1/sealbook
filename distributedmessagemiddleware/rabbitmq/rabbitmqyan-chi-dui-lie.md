@@ -469,4 +469,4 @@ http://localhost:8080/rabbitmq/delayMsg2?msg=msg1&delayTime=20000
 http://localhost:8080/rabbitmq/delayMsg2?msg=msg2&delayTime=2000
 ```
 
-
+日志如下：
