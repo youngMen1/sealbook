@@ -461,3 +461,12 @@ public void receiveD(Message message, Channel channel) throws IOException {
 }
 ```
 一切准备就绪，启动！然后分别访问以下链接：
+
+
+
+```
+http://localhost:8080/rabbitmq/delayMsg2?msg=msg1&delayTime=20000
+http://localhost:8080/rabbitmq/delayMsg2?msg=msg2&delayTime=2000
+```
+
+
