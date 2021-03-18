@@ -90,3 +90,6 @@ channel.basicPublish(exchangeName, routingKey, mandatory, properties, "msg body"
 从下图可以大致看出消息的流向：
 ![](/static/image/5d3d743143ecc85643.png)
 生产者生产一条延时消息，根据需要延时时间的不同，利用不同的routingkey将消息路由到不同的延时队列，每个队列都设置了不同的TTL属性，并绑定在同一个死信交换机中，消息过期后，根据routingkey的不同，又会被路由到不同的死信队列中，消费者只需要监听对应的死信队列进行处理即可。
+下面来看代码：
+
+先声明交换机、队列以及他们的绑定关系：
