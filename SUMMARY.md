@@ -159,7 +159,7 @@
     * [相关配置](distributedmessagemiddleware/rabbitmq/xiang-guan-pei-zhi.md)
     * [RabbitMq Channel参数详解](distributedmessagemiddleware/rabbitmq/rabbitmq-channelcan-shu-xiang-jie.md)
     * [RabbitMQ解决消息幂等性问题](distributedmessagemiddleware/rabbitmq/rabbitmqjie-jue-xiao-xi-mi-deng-xing-wen-ti.md)
-    * RabbitMQ延迟队列
+    * [RabbitMQ延迟队列](distributedmessagemiddleware/rabbitmq/rabbitmqyan-chi-dui-lie.md)
   * [metaMq](sealblog/metamq.md)
   * [kafka](sealblog/kafka.md)
   * [activityMq](activitymq.md)
