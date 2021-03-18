@@ -256,5 +256,5 @@ public class RabbitMQMsgController {
 准备就绪，启动！
 
 打开rabbitMQ的管理后台，可以看到我们刚才创建的交换机和队列信息：
-
-
+5d3d54e15534398514.png
+5d3d54e17df8183993.png
