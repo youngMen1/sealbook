@@ -460,4 +460,4 @@ public void receiveD(Message message, Channel channel) throws IOException {
     channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
 }
 ```
-
+一切准备就绪，启动！然后分别访问以下链接：
