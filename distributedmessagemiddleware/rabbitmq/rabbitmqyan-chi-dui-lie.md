@@ -73,5 +73,11 @@ AMQP.BasicProperties properties = builder.build();
 channel.basicPublish(exchangeName, routingKey, mandatory, properties, "msg body".getBytes());
 ```
 
+这样这条消息的过期时间也被设置成了6s。
+
+但这两种方式是有区别的，如果设置了队列的TTL属性，那么一旦消息过期，就会被队列丢弃，而第二种方式，消息即使过期，也不一定会被马上丢弃，因为消息是否过期是在即将投递到消费者之前判定的，如果当前队列有严重的消息积压情况，则已过期的消息也许还能存活较长时间。
+
+另外，还需要注意的一点是，如果不设置TTL，表示消息永远不会过期，如果将TTL设置为0，则表示除非此时可以直接投递该消息到消费者，否则该消息将会被丢弃。
+
 
 
