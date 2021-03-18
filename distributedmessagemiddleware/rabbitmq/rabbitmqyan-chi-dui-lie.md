@@ -53,3 +53,15 @@
 **TTL**是什么呢？**TTL**是RabbitMQ中一个消息或者队列的属性，表明**一条消息或者该队列中的所有消息的最大存活时间，单位是毫秒。**换句话说，如果一条消息设置了TTL属性或者进入了设置TTL属性的队列，那么这条消息如果在TTL设置的时间内没有被消费，则会成为“死信”（至于什么是死信，请翻看上一篇）。如果同时配置了队列的TTL和消息的TTL，那么较小的那个值将会被使用。
 
 那么，如何设置这个TTL值呢？有两种方式，第一种是在创建队列的时候设置队列的“x-message-ttl”属性，如下：
+
+
+
+```
+Map<String, Object> args = new HashMap<String, Object>();
+args.put("x-message-ttl", 6000);
+channel.queueDeclare(queueName, durable, exclusive, autoDelete, args);
+```
+这样所有被投递到该队列的消息都最多不会存活超过6s。
+
+另一种方式便是针对每条消息设置TTL，代码如下：
+
