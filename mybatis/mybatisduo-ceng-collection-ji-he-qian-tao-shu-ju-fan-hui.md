@@ -63,6 +63,58 @@ public class TemplateListResp {
 TagResp
 
 
+
+```
+@Data
+@ToString
+public class TagResp {
+    private Integer tagId;
+
+    private String tagName;
+
+    private Byte tagType;
+}
+```
+可以看到StrategyDetailResp对象有一个List集合有多个TemplateListResp对象，是一个一对多关系，TemplateListResp对象有一个List集合有多个TagResp对象，是一个一对多关系。所以这样需要使用一个多重Collection集合实现。
+
+## mapper.xml
+
+### 实现一
+
+
+```
+<resultMap id="StrategyDetailMap" type="com.codegen.dao.resq.StrategyDetailResp">
+  <id column="S_ID" property="id" jdbcType="INTEGER" />
+  <result column="S_NAME" property="name" jdbcType="VARCHAR" />
+  <result column="S_BASE_PATH" property="basePath" jdbcType="VARCHAR" />
+  <result column="S_MODULE_PATH" property="modulePath" jdbcType="VARCHAR" />
+  <result column="S_REMARK" property="remark" jdbcType="VARCHAR" />
+  <result column="S_UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+ 
+  <collection property="templateList" ofType="com.codegen.dao.resq.TemplateListResp">
+    <id column="tplId" property="id" jdbcType="INTEGER" />
+    <result column="tplName" property="name" jdbcType="VARCHAR" />
+    <result column="tplUserId" property="userId" jdbcType="INTEGER" />
+    <result column="tplContent" property="content" jdbcType="VARCHAR" />
+    <result column="tplDescription" property="description" jdbcType="VARCHAR" />
+    <result column="tplStatus" property="status" jdbcType="TINYINT" />
+    <result column="tplFavoCount" property="favoCount" jdbcType="INTEGER" />
+    <result column="tplUseCount" property="useCount" jdbcType="INTEGER" />
+    <result column="tplCreateTime" property="createTime" jdbcType="TIMESTAMP" />
+
+    <collection property="tags" ofType="com.codegen.dao.resq.TagResp">
+      <id column="tagId" property="tagId" jdbcType="INTEGER"/>
+      <result column="tagName" property="tagName" jdbcType="VARCHAR"/>
+      <result column="tagType" property="tagType" jdbcType="TINYINT" />
+    </collection>
+  </collection>
+</resultMap>
+
+```
+
+
+
+
 # 2.参考
 MyBatis多层Collection集合嵌套数据返回:
 
