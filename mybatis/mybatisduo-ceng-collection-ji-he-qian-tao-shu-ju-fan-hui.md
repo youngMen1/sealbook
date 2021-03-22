@@ -1,4 +1,4 @@
-# MyBatis多层Collection集合嵌套数据返回
+# 1.MyBatis多层Collection集合嵌套数据返回
 
 本示例使用策略+模板+标签。策略列表详情下显示策略模板和模板标签。是一个多层一对多的嵌套关系。
 
@@ -201,7 +201,70 @@ ofType：指的是集合中元素的类型
 </select>
 ```
 
-# 2.参考
+# 2.Mybatis嵌套查询结果集中包含简单数据类型集合或者多个List<T>的处理
+
+## 2.1.包含多个 List(String)属性的情况
+
+实体类
+
+
+```
+@Data
+public class User {
+    private Long id;
+    private List<String> names;
+    private List<String> roles;
+}
+```
+Mapper 层
+
+
+```
+public interface UserMapper {
+    List<User> queryUsers();
+}
+```
+Mapper Sql 映射文件
+
+
+```
+<resultMap id="UserMap" type="User">
+   <result column="id" property="id" jdbcType="BIGINT" />
+    <collection property="names" resultMap="NamesMap" />
+    <collection property="roles" resultMap="RolesMap" />
+</resultMap>
+
+<resultMap id="NamesMap" type="string">
+    <result column="user_name" />
+</resultMap>
+
+<resultMap id="RolesMap" type="string">
+    <result column="role_name" />
+</resultMap>
+
+<select id="queryUsers" resultMap="UserMap">
+	SELECT au.id, an.user_name, ar.role_name
+    FROM ai_user au
+    LEFT JOIN ai_name an ON an.user_id = au.id
+    LEFT JOIN ai_role ar ON ar.user_id = au.id
+</select>
+```
+
+结果输出示例
+
+
+```
+{"id":1,"names":["Answer","AI","AAL"],"roles":["Admin","Manager","Coder"]}
+{"id":2,"names":["Iris","Ellis","Monta"],"roles":["CustomerService"]}
+```
+
+
+
+
+
+
+
+# 3.参考
 
 MyBatis多层Collection集合嵌套数据返回:
 
