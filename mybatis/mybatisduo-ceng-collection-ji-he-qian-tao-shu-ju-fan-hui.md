@@ -259,7 +259,7 @@ public interface UserMapper {
 ```
 
 
-## 2.2.包含多个 List(T) 和 List(String)属性的情况
+## 2.2.包含多个` List(T) `和 `List(String)`属性的情况
 ### 实体类
 
 
