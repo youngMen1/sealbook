@@ -205,7 +205,7 @@ ofType：指的是集合中元素的类型
 
 ## 2.1.包含多个 List(String)属性的情况
 
-实体类
+### 实体类
 
 
 ```
@@ -216,7 +216,7 @@ public class User {
     private List<String> roles;
 }
 ```
-Mapper 层
+### Mapper 层
 
 
 ```
@@ -224,7 +224,7 @@ public interface UserMapper {
     List<User> queryUsers();
 }
 ```
-Mapper Sql 映射文件
+### Mapper Sql 映射文件
 
 
 ```
@@ -258,6 +258,132 @@ Mapper Sql 映射文件
 {"id":2,"names":["Iris","Ellis","Monta"],"roles":["CustomerService"]}
 ```
 
+
+## 2.2.包含多个 List(T) 和 List(String)属性的情况
+### 实体类
+
+
+```
+@Data
+public class SysUser {
+    private Long id;
+
+    private String loginName;
+
+    private String userName;
+
+    private String email;
+
+    private List<Long> roleIds;
+
+    private List<SysRole> roles;
+}
+```
+
+
+```
+@Data
+public class SysRole {
+    private Long id;
+
+    private String roleName;
+
+    private String roleDesc;
+}
+```
+
+### Mapper 接口
+
+
+```
+public interface UserMapper {
+    List<SysUser> findUsers(int status);
+} 
+```
+### Mapper Sql 映射文件
+
+
+
+```
+<resultMap id="SysUserMap" type="com.answer.ai.entity.SysUser">
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="login_name" property="loginName" jdbcType="VARCHAR"/>
+    <result column="user_name" property="userName" jdbcType="VARCHAR"/>
+    <result column="email" property="email" jdbcType="VARCHAR"/>
+	
+	<!-- userId 和 roleStatus 为查询 findRoleById 的入参, id 和 role_status 为查询 findUsers 的结果信息 -->
+	<!-- 如果查询 findRoleById 需要 roleId 作为入参, column 写法 {userId=id,roleStatus=role_status,roleId=role_id} -->
+    <collection property="roles" ofType="com.answer.ai.entity.SysRole" select="findRoleById" column="{userId=id,roleStatus=role_status}" />
+    <collection property="roleIds" ofType="Long">
+        <constructor>
+            <arg column="role_id" />
+        </constructor>
+    </collection>
+</resultMap>
+
+<!-- 查询 findUsers 的入参 #{status} 放在结果集上作为查询 findRoleById 作为入参 -->
+<select id="findUsers" parameterType="Integer" resultMap="SysUserMap">
+    SELECT su.id, su.login_name, su.user_name, su.email, sur.role_id, #{status} AS role_status
+    FROM ai_user su
+    LEFT JOIN dc_sys_user_role sur ON sur.user_id = su.id
+</select>
+
+
+<select id="findRoleById" resultType="com.answer.ai.entity.SysRole">
+    SELECT id, role_name, role_descript AS role_desc
+    FROM ai_user_role
+    WHERE user_id = #{userId} AND role_status = #{roleStatus}
+</select>
+```
+
+### 接口调用结果
+
+```
+{
+    "code": 10000,
+    "desc": "success",
+    "data": [
+        {
+            "id": 1,
+            "loginName": "admin",
+            "userName": "林**",
+            "email": "answer_ljm@163.com",
+            "roleIds": [
+                1
+            ],
+            "roles": [
+                {
+                    "id": 1,
+                    "roleName": "admin",
+                    "roleDesc": "超级管理员"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "loginName": "answer",
+            "userName": "杨**",
+            "email": "1072594307@qq.com",
+            "roleIds": [
+                2,
+                3
+            ],
+            "roles": [
+                {
+                    "id": 2,
+                    "roleName": "answer",
+                    "roleDesc": "普通管理员"
+                },
+                {
+                    "id": 3,
+                    "roleName": "develop",
+                    "roleDesc": "开发者权限"
+                }
+            ]
+        }
+    ]
+}
+```
 
 
 
