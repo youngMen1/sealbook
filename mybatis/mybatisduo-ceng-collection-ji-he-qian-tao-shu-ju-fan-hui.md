@@ -23,7 +23,7 @@ public class StrategyDetailResp {
     private Date updateTime;
 
     List<TemplateListResp> templateList;
-    
+
 }
 ```
 
@@ -55,7 +55,7 @@ public class TemplateListResp {
     private Date createTime;
 
     private List<TagResp> tags;
-    
+
 
 }
 ```
@@ -108,7 +108,7 @@ public class TagResp {
       <result column="tagType" property="tagType" jdbcType="TINYINT" />
     </collection>
   </collection>
-  
+
 </resultMap>
 
 <resultMap id="NamesMap" type="string">
@@ -154,8 +154,6 @@ public class TagResp {
 <result column="tagType" property="tagType" jdbcType="TINYINT" />
 </collection>
 </resultMap>
-
-
 ```
 
 type：对象上面响应对象类  
@@ -203,10 +201,9 @@ ofType：指的是集合中元素的类型
 
 # 2.Mybatis嵌套查询结果集中包含简单数据类型集合或者多个`List<T>`的处理
 
-## 2.1.包含多个` List(String)`属性的情况
+## 2.1.包含多个`List(String)`属性的情况
 
 ### 实体类
-
 
 ```
 @Data
@@ -216,16 +213,16 @@ public class User {
     private List<String> roles;
 }
 ```
-### Mapper 层
 
+### Mapper 层
 
 ```
 public interface UserMapper {
     List<User> queryUsers();
 }
 ```
-### Mapper Sql 映射文件
 
+### Mapper Sql 映射文件
 
 ```
 <resultMap id="UserMap" type="User">
@@ -243,7 +240,7 @@ public interface UserMapper {
 </resultMap>
 
 <select id="queryUsers" resultMap="UserMap">
-	SELECT au.id, an.user_name, ar.role_name
+    SELECT au.id, an.user_name, ar.role_name
     FROM ai_user au
     LEFT JOIN ai_name an ON an.user_id = au.id
     LEFT JOIN ai_role ar ON ar.user_id = au.id
@@ -252,16 +249,14 @@ public interface UserMapper {
 
 结果输出示例
 
-
 ```
 {"id":1,"names":["Answer","AI","AAL"],"roles":["Admin","Manager","Coder"]}
 {"id":2,"names":["Iris","Ellis","Monta"],"roles":["CustomerService"]}
 ```
 
+## 2.2.包含多个`List(T)`和 `List(String)`属性的情况
 
-## 2.2.包含多个` List(T) `和 `List(String)`属性的情况
 ### 实体类
-
 
 ```
 @Data
@@ -280,7 +275,6 @@ public class SysUser {
 }
 ```
 
-
 ```
 @Data
 public class SysRole {
@@ -294,15 +288,13 @@ public class SysRole {
 
 ### Mapper 接口
 
-
 ```
 public interface UserMapper {
     List<SysUser> findUsers(int status);
-} 
+}
 ```
-### `Mapper Sql `映射文件
 
-
+### `Mapper Sql`映射文件
 
 ```
 <resultMap id="SysUserMap" type="com.answer.ai.entity.SysUser">
@@ -310,9 +302,9 @@ public interface UserMapper {
     <result column="login_name" property="loginName" jdbcType="VARCHAR"/>
     <result column="user_name" property="userName" jdbcType="VARCHAR"/>
     <result column="email" property="email" jdbcType="VARCHAR"/>
-	
-	<!-- userId 和 roleStatus 为查询 findRoleById 的入参, id 和 role_status 为查询 findUsers 的结果信息 -->
-	<!-- 如果查询 findRoleById 需要 roleId 作为入参, column 写法 {userId=id,roleStatus=role_status,roleId=role_id} -->
+
+    <!-- userId 和 roleStatus 为查询 findRoleById 的入参, id 和 role_status 为查询 findUsers 的结果信息 -->
+    <!-- 如果查询 findRoleById 需要 roleId 作为入参, column 写法 {userId=id,roleStatus=role_status,roleId=role_id} -->
     <collection property="roles" ofType="com.answer.ai.entity.SysRole" select="findRoleById" column="{userId=id,roleStatus=role_status}" />
     <collection property="roleIds" ofType="Long">
         <constructor>
@@ -384,11 +376,6 @@ public interface UserMapper {
     ]
 }
 ```
-
-
-
-
-
 
 # 3.参考
 
