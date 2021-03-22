@@ -3,33 +3,33 @@
 本示例使用策略+模板+标签。策略列表详情下显示策略模板和模板标签。是一个多层一对多的嵌套关系。
 
 ## 策略响应对象类
-StrategyDetailResp
 
+StrategyDetailResp
 
 ```
 @Data
 @ToString
 public class StrategyDetailResp {
     private Integer id;
-    
+
     private String name;
-    
+
     private String basePath;
-    
+
     private String modulePath;
-    
+
     private String remark;
-    
+
     private Date updateTime;
-    
+
     List<TemplateListResp> templateList;
+    
 }
 ```
 
 ## 模板响应对象类
 
 TemplateListResp
-
 
 ```
 @Data
@@ -55,14 +55,14 @@ public class TemplateListResp {
     private Date createTime;
 
     private List<TagResp> tags;
+    
+
 }
 ```
 
 ## 标签响应对象类
 
 TagResp
-
-
 
 ```
 @Data
@@ -75,12 +75,12 @@ public class TagResp {
     private Byte tagType;
 }
 ```
+
 可以看到StrategyDetailResp对象有一个List集合有多个TemplateListResp对象，是一个一对多关系，TemplateListResp对象有一个List集合有多个TagResp对象，是一个一对多关系。所以这样需要使用一个多重Collection集合实现。
 
 ## mapper.xml
 
 ### 实现一
-
 
 ```
 <resultMap id="StrategyDetailMap" type="com.codegen.dao.resq.StrategyDetailResp">
@@ -90,7 +90,7 @@ public class TagResp {
   <result column="S_MODULE_PATH" property="modulePath" jdbcType="VARCHAR" />
   <result column="S_REMARK" property="remark" jdbcType="VARCHAR" />
   <result column="S_UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
- 
+
   <collection property="templateList" ofType="com.codegen.dao.resq.TemplateListResp">
     <id column="tplId" property="id" jdbcType="INTEGER" />
     <result column="tplName" property="name" jdbcType="VARCHAR" />
@@ -108,12 +108,19 @@ public class TagResp {
       <result column="tagType" property="tagType" jdbcType="TINYINT" />
     </collection>
   </collection>
+  
 </resultMap>
 
+<resultMap id="NamesMap" type="string">
+    <result column="user_name" />
+</resultMap>
+
+<resultMap id="RolesMap" type="string">
+    <result column="role_name" />
+</resultMap>
 ```
 
 ### 实现二
-
 
 ```
 <resultMap id="StrategyDetailMap" type="com.codegen.dao.resq.StrategyDetailResp">
@@ -123,8 +130,10 @@ public class TagResp {
 <result column="S_MODULE_PATH" property="modulePath" jdbcType="VARCHAR" />
 <result column="S_REMARK" property="remark" jdbcType="VARCHAR" />
 <result column="S_UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+
 <!--resultMap 对应下面id的 templateListResp-->
 <collection property="templateList" resultMap="templateListResp"/>
+
 </resultMap>
 
 <resultMap id="templateListResp" type="com.codegen.dao.resq.TemplateListResp">
@@ -138,6 +147,7 @@ public class TagResp {
 <result column="tplUseCount" property="useCount" jdbcType="INTEGER" />
 <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
 
+
 <collection property="tags" ofType="com.codegen.dao.resq.TagResp">
 <id column="tagId" property="tagId" jdbcType="INTEGER"/>
 <result column="tagName" property="tagName" jdbcType="VARCHAR"/>
@@ -145,13 +155,14 @@ public class TagResp {
 </collection>
 </resultMap>
 
+
 ```
-type：对象上面响应对象类
-property：指的是集合属性的值
+
+type：对象上面响应对象类  
+property：指的是集合属性的值  
 ofType：指的是集合中元素的类型
 
 ## 最后附加上SQL查询
-
 
 ```
 <select id="findStrategyById" resultMap="StrategyDetailMap" parameterType="com.codegen.dao.req.StrategyReq">
@@ -188,19 +199,15 @@ ofType：指的是集合中元素的类型
       AND tpl.IS_ACTIVE = #{isActive, jdbcType=TINYINT}
       AND tag.IS_ACTIVE = #{isActive, jdbcType=TINYINT}
 </select>
-
 ```
 
-
 # 2.参考
-MyBatis多层Collection集合嵌套数据返回:
 
+MyBatis多层Collection集合嵌套数据返回:
 
 ```
 https://blog.csdn.net/qq_22067469/article/details/88094722
 ```
-
-
 
 
 
