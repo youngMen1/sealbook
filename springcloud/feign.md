@@ -65,7 +65,7 @@ private void registerDefaultConfiguration(AnnotationMetadata metadata,
 
 # 2.总结
 
-总到来说，Feign的源码实现的过程如下：
+总的来说，Feign的源码实现的过程如下：
 
 首先通过@EnableFeignCleints注解开启FeignCleint
 
