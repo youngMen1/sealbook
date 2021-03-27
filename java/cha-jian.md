@@ -25,7 +25,7 @@
 | GenerateSerialVersionUID | 快捷键快速生成serialVersionUID |
 | SonarLint | 潜在Bug检查和代码规范检查 |
 | tasks | 代码任务列表，相当于memo |
-| CheckStyle-IDEA | 代码规范检查 |
+| CheckStyle-IDEA | 代码规范检查\(google java style guide\) |
 | Key promoter X | 当鼠标点击功能时，快捷键提示 |
 | Statistic | 代码统计 |
 | CodeGlance | 在编辑代码最右侧，显示一块代码小地图 |
