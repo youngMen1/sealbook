@@ -32,7 +32,9 @@ pzdn2009：[https://docs.kolematech.com/basic/ddd](https://docs.kolematech.com/b
 
 支付系统设计：[http://doc.cocolian.cn](http://doc.cocolian.cn)、[http://docs.xxpay.org/docs/api/19](http://docs.xxpay.org/docs/api/19)
 
-字节跳动员工：https://www.cnblogs.com/mfrank/p/13021553.html
+字节跳动员工：[https://www.cnblogs.com/mfrank/p/13021553.html](https://www.cnblogs.com/mfrank/p/13021553.html)
+
+国外算法网站：https://www.programiz.com/dsa/bubble-sort
 
 ## 2.优秀的github博客
 
