@@ -49,6 +49,30 @@ git merge master
 ```
 git push origin 自己分支名
 ```
+## 2.2.git合并某次提交到当前分支
+
+有的时候，在develop分支开发，是大家公用的开发分支，但是只想合并自己提交的到master,如何操作呢？那就要用cherry-pick了
+
+语法 : `git cherry-pick commitid`
+
+首先，git log查看自己提交的log，找到版本号，如最近的版本号是 9caedb2313425a953cb59bf36878f539465e2b20
+例如：
+
+
+
+```
+git cherry-pick 9caedb2313425a953cb59bf36878f539465e2b20
+```
+如果想合并多个提交到当前分支
+语法：
+
+
+```
+git cherry-pick <C commit-id> <D commit-id> <E commit-id>
+```
+例如:`git cherry-pick 9caedb2313425a953cb59bf36878f539465e2b20 e680af9f64960be3c6de002ce410ce38924c74be`
+
+
 
 ## 3.参考
 **Git 参考手册**
@@ -70,4 +94,13 @@ https://juejin.im/post/5ea8daa66fb9a04382227c14
 
 
 git教程：`https://aimuch.com/2019/03/21/git%E6%95%99%E7%A8%8B/#more`
+
+Git push 时如何避免出现 "Merge branch 'master' of ...":
+
+
+```
+https://www.cnblogs.com/yanglang/p/11679858.html
+```
+
+
 
