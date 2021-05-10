@@ -1,8 +1,8 @@
 
-
+## 空检查
 | 验证注解 | 验证的数据类型 | 说明 |
 | :--- | :--- | :--- |
-|  |  | 空检查 |
+
 | [@Null](https://my.oschina.net/u/561366) | 任意类型 | 验证注解的元素值是null |
 | [@NotNull](https://my.oschina.net/notnull) | 任意类型 | 验证注解的元素不是null |
 | @NotBlank | CharSequence子类型（CharBuffer、String、StringBuffer、StringBuilder） | 验证注解的元素值不为空（不为null、去除首尾空格后长度不为0），不同于@NotEmpty，@NotBlank只应用于字符串且在比较时会去除字符串的首尾空格 |
