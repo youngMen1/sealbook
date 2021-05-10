@@ -302,6 +302,7 @@
   * [数据库连接池](java/shu-ju-ku-lian-jie-chi.md)
   * [ProtoBuffer的使用](java/protobufferde-shi-yong.md)
   * [注解](java/zhu-jie.md)
+    * 注解校验
   * [集合的特性](java/ji-he-de-te-xing.md)
   * [使用try-with-resources优雅关闭资源](java/shi-yong-try-with-resources-you-ya-guan-bi-zi-yuan.md)
   * [理解正确的日志输出级别](java/li-jie-zheng-que-de-ri-zhi-shu-chu-ji-bie.md)
