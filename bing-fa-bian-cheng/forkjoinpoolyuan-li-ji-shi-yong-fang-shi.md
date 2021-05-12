@@ -62,6 +62,12 @@ ForkJoinPool是JDK1.7出现的一个对于forkjoin模式的实现。通过ForkJo
 ForkJoinPool与ThreadPoolExecutor都是ExecutorService的实现类，同时也都是Doug Lea大神的作品。ForkJoinPool并不是作为ThreadPoolExecutor的优化，两者应该是互补的关系，处理的场景也不同。根本性区别在于ForkJoinPool使用了Fork-Join和Work-Stealing机制。这两个机制保证了ForkJoinPool可以将大任务拆分成多个小任务，使用整个ForkJoinPool的多线程能力参与计算，避免了ThreadPoolExecutor在处理单个大任务造成的线程池吞吐量低问题。但是ForkJoinPool也存在自身的缺点，ForkJoinPool更适合处理可以被Fork的CPU密集型任务，大量能够被快速计算的小任务才能将ForkJoinPool优势发挥的更高。
 
 
+### work-stealing机制
+
+### 如何创建一个ForkJoinPool
+
+### 提交任务至ForkJoinPool
+
 
 
 
