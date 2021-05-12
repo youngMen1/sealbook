@@ -243,7 +243,9 @@ public static void invokeAll(ForkJoinTask<?> t1, ForkJoinTask<?> t2) {
             t2.reportException(s2);
 }
 
-
-
 ```
+
+fork、join和invoke方法的签名都还是比较容易理解，这里要额外介绍一下invokeAll方法。假设，我们提交了一个任务t1到ForkJoinPool, t1会被拆解成两个子任务t2和t3，t2又会被拆分成两个子任务t4和t5，t3又会被拆分成两个子任务t6和t7。我们可以得到如下图的任务关系：
+
+89104282-bf472280-d44a-11ea-827d-669297983457.png
 
