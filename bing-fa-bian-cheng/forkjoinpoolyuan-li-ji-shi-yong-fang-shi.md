@@ -110,9 +110,23 @@ public ForkJoinPool(int parallelism,
 }
 
 ```
+
 * parallelism：并行级别，默认当前JVM可用处理器个数Runtime.getRuntime().availableProcessors()
 
 * factory：创建自定义工作线程的工厂类
+
+
+
+```
+public static interface ForkJoinWorkerThreadFactory {
+  public ForkJoinWorkerThread newThread(ForkJoinPool pool);
+}
+
+```
+* handler：用于处理任务线程中的未处理异常。
+
+* asyncMode：用於控制WorkQueue的工作模式。分为FIFO和LIFO两种模式。如果选择asynMode=true则为FIFO，这也是FrokJoinPool默认的实现方式。但是对于递归式的任务执行，LIFO要比FIFO模式更好，性能更高。
+
 
 
 
@@ -121,5 +135,64 @@ public ForkJoinPool(int parallelism,
 因为ForkJoinPool实现了ExecutorService接口，所以其提交任务的API与ThreadPoolExecutor基本相同
 
 
+```
+// 提交沒有返回值的任务
+public void execute(ForkJoinTask<?> task) {
+    if (task == null)
+        throw new NullPointerException();
+    externalPush(task);
+}
+public void execute(Runnable task) {
+    if (task == null)
+        throw new NullPointerException();
+    ForkJoinTask<?> job;
+    if (task instanceof ForkJoinTask<?>) 
+        job = (ForkJoinTask<?>) task;
+    else
+        job = new ForkJoinTask.RunnableExecuteAction(task); 
+    externalPush(job);
+}
+// 提交有返回值的任务
+public <T> ForkJoinTask<T> submit(ForkJoinTask<T> task) {
+    if (task == null)
+        throw new NullPointerException();
+    externalPush(task);
+    return task;
+}
+public <T> ForkJoinTask<T> submit(Callable<T> task) {
+    ForkJoinTask<T> job = new ForkJoinTask.AdaptedCallable<T>(task);
+    externalPush(job);
+    return job;
+}
+public <T> ForkJoinTask<T> submit(Runnable task, T result) {
+    ForkJoinTask<T> job = new ForkJoinTask.AdaptedRunnable<T>(task, result);
+    externalPush(job);
+    return job;
+}
+public ForkJoinTask<?> submit(Runnable task) {
+    if (task == null)
+        throw new NullPointerException();
+    ForkJoinTask<?> job;
+    if (task instanceof ForkJoinTask<?>)
+        job = (ForkJoinTask<?>) task;
+    else
+        job = new ForkJoinTask.AdaptedRunnableAction(task);
+    externalPush(job);
+    return job;
+}
+// 同步执行任务
+public <T> T invoke(ForkJoinTask<T> task) {
+    if (task == null)
+        throw new NullPointerException();
+    externalPush(task);
+    return task.join();
+}
 
+```
+
+## ForkJoinTask
+
+提交到ForkJoinPool的任务必须为ForkJoinTask的子类。我们来看一下ForkJoinTask的血缘关系
+
+89102093-72f2e700-d438-11ea-97c0-57230117a90c.png
 
