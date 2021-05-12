@@ -4,3 +4,12 @@ Fork的是分叉，交叉的意思，Join是合并、聚合的意思。所以For
 88870061-f816aa00-d246-11ea-9a90-744d8f332186.png
 
 ForkJoinPool是JDK1.7出现的一个对于forkjoin模式的实现。通过ForkJoinPool可以轻松做到任务的Fork以及Join操作。同时在JDK1.8时，又使用避免代码伪共享对其性能优化，以及CompletableFuture及集合并行计算等，底层都是基于ForkJoinPool实现。
+
+## 2.使用Demo（可见项目seal-common->seal-features）
+
+接下来使用ForkJoinPool实现一个简单的归并排序算法。
+
+
+
+
+
