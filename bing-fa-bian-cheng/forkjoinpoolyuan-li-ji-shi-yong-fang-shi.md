@@ -67,7 +67,7 @@ ForkJoinPool与ThreadPoolExecutor都是ExecutorService的实现类，同时也�
 ### 如何创建一个ForkJoinPool
 
 ### 提交任务至ForkJoinPool
-
+因为ForkJoinPool实现了ExecutorService接口，所以其提交任务的API与ThreadPoolExecutor基本相同
 
 
 
