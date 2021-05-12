@@ -64,7 +64,58 @@ ForkJoinPool与ThreadPoolExecutor都是ExecutorService的实现类，同时也�
 
 ### work-stealing机制
 
+work-stealing机制，简单来讲，就是一个ForkJoinPool存在多个任务，每个任务都独自包含一个队列，同时还存在一个通用队列。每个线程优先处理自身队列，当自身队列任务为空时，从其他任务或者通用队列里偷取任务执行。
+
+89092715-cc322a80-d3e6-11ea-9171-3227c939f678.jpg
+
+Work-stealing机制是通过空间换取时间的思想。当我们使用ThreadPoolExecutor的时候，如果队列里存在大量任务，同时这些任务的所需要的执行时间又很短。那么线程池里任务将浪费大量的时间在从同步队列里获取任务。work-stealing机制中，每个线程都存在自己的双端队列，线程从自身队头端列获取任务，其他空闲线程从该队列的尾部steal任务。既避免了线程间的竞争，又充分的利用了资源。
+
 ### 如何创建一个ForkJoinPool
+
+1、使用Executors工具类
+
+Java8在Exetors工具类中新增了两个工厂方法：
+
+
+```
+// parallelism 定义并行级别
+public static ExecutorService newWorkStealingPool(int parallelism);
+// 默认JVM可用处理器个数
+// Runtime.getRuntime().availableProcessors()
+public static ExecutorService newWorkStealingPool();
+
+```
+
+2、使用ForkJoinPool内部提供的初始化commonPool
+
+
+```
+public static ForkJoinPool commonPool();
+
+```
+3、使用构造函数（不推荐）
+
+
+```
+public ForkJoinPool(int parallelism,
+                    ForkJoinWorkerThreadFactory factory,
+                    UncaughtExceptionHandler handler,
+                    boolean asyncMode) {
+    this(checkParallelism(parallelism),
+         checkFactory(factory),
+         handler,
+         asyncMode ? FIFO_QUEUE : LIFO_QUEUE, // 队列工作模式
+         "ForkJoinPool-" + nextPoolId() + "-worker-");
+    checkPermission();
+}
+
+```
+* parallelism：并行级别，默认当前JVM可用处理器个数Runtime.getRuntime().availableProcessors()
+
+* factory：创建自定义工作线程的工厂类
+
+
+
 
 ### 提交任务至ForkJoinPool
 因为ForkJoinPool实现了ExecutorService接口，所以其提交任务的API与ThreadPoolExecutor基本相同
