@@ -194,3 +194,56 @@ public <T> T invoke(ForkJoinTask<T> task) {
 
 89102093-72f2e700-d438-11ea-97c0-57230117a90c.png
 
+ForkJoinTask实现了Future接口，所以ForkJoinTask可以以异步的方式获取执行结果。但是我们一般不会直接使用ForkJoinTask而是使用其两个子类RecursiveAction和RecursiveTask,区别仅仅在于该任务是否存在返回值。对于ForkJoinTask来说，最重要的方法就是fork和join，我们来看一下相关方法签名
+
+
+
+```
+// 将当前任务加入任务队列。如果是ForkJoinWorkerThread则加入工作线程队列，否则加入到通用队列。
+public final ForkJoinTask<V> fork() {
+        Thread t;
+        if ((t = Thread.currentThread()) instanceof ForkJoinWorkerThread)
+            ((ForkJoinWorkerThread)t).workQueue.push(this);
+        else
+            ForkJoinPool.common.externalPush(this);
+        return this;
+}
+// 异步执行当前任务，等待当前任务执行完成并返回，不受线程Interupt状态影响。相似方法quietlyJoin()方法不会拋出异常也不会返回結果。
+public final V join() {
+        int s;
+        if ((s = doJoin() & DONE_MASK) != NORMAL)
+            reportException(s);
+        return getRawResult();
+}
+// 同步执行当前任务，知道执行完成。相似方法quietlyInvoke()方法不会拋出异常也不会返回結果，需要使用额外方法处理。
+public final V invoke() {
+        int s;
+        if ((s = doInvoke() & DONE_MASK) != NORMAL)
+            reportException(s);
+        return getRawResult();
+}
+//存在编译时异常。在工作线程内部调用get方法与调用join方法相同。在其他线程调用get方法，会受线程Interupt状态影响，需要使用额外方法处理。
+public final V get() throws InterruptedException, ExecutionException {
+        int s = (Thread.currentThread() instanceof ForkJoinWorkerThread) ?
+            doJoin() : externalInterruptibleAwaitDone();
+        Throwable ex;
+        if ((s &= DONE_MASK) == CANCELLED)
+            throw new CancellationException();
+        if (s == EXCEPTIONAL && (ex = getThrowableException()) != null)
+            throw new ExecutionException(ex);
+        return getRawResult();
+}
+// 执行两个异步任务，第一个任务同步执行，第二个任务异步执行，可以优化性能。
+public static void invokeAll(ForkJoinTask<?> t1, ForkJoinTask<?> t2) {
+        int s1, s2;
+        t2.fork();
+        if ((s1 = t1.doInvoke() & DONE_MASK) != NORMAL)
+            t1.reportException(s1);
+        if ((s2 = t2.doJoin() & DONE_MASK) != NORMAL)
+            t2.reportException(s2);
+}
+
+
+
+```
+
