@@ -128,10 +128,8 @@ public static interface ForkJoinWorkerThreadFactory {
 * asyncMode：用於控制WorkQueue的工作模式。分为FIFO和LIFO两种模式。如果选择asynMode=true则为FIFO，这也是FrokJoinPool默认的实现方式。但是对于递归式的任务执行，LIFO要比FIFO模式更好，性能更高。
 
 
-
-
-
 ### 提交任务至ForkJoinPool
+
 因为ForkJoinPool实现了ExecutorService接口，所以其提交任务的API与ThreadPoolExecutor基本相同
 
 
