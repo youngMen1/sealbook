@@ -13,6 +13,15 @@
 | git remote -v | 查看GIT项目是从GIT的哪个分支上拉下来的命令 |
 | git stash | 把本地当前改动暂存起来，此时master分支就恢复到了上次拉取时的状态 |
 | git stash pop | 将改动pop到自己当前的分支 |
+| git reset --soft | 不删除工作空间改动代码，撤销commit，不撤销git add，回退到某个版本，只回退了commit的信息，如果还要提交，直接commit即可 |
+| git reset -–hard | 删除工作空间改动代码，撤销commit，撤销git add 注意完成这个操作后，就恢复到了上一次的commit状态。 |
+
+
+
+
+
+
+
 
 
 
