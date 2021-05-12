@@ -1,7 +1,8 @@
 # ForkJoinPool原理及使用方式
 
 Fork的是分叉，交叉的意思，Join是合并、聚合的意思。所以Fork Join模式指的就是不停的拆分和聚合的过程。“天下大势，合久必分，分久必合”描述的就是一个不停Fork Join的过程。“分而治之”也是对ForkJoin模式一个描述。我们常见的归并排序算法就是ForkJoin模式的一个具体应用：
-88870061-f816aa00-d246-11ea-9a90-744d8f332186.png
+
+![](/static/image/88870061-f816aa00-d246-11ea-9a90-744d8f332186.png)
 
 ForkJoinPool是JDK1.7出现的一个对于forkjoin模式的实现。通过ForkJoinPool可以轻松做到任务的Fork以及Join操作。同时在JDK1.8时，又使用避免代码伪共享对其性能优化，以及CompletableFuture及集合并行计算等，底层都是基于ForkJoinPool实现。
 
@@ -66,7 +67,8 @@ ForkJoinPool与ThreadPoolExecutor都是ExecutorService的实现类，同时也�
 
 work-stealing机制，简单来讲，就是一个ForkJoinPool存在多个任务，每个任务都独自包含一个队列，同时还存在一个通用队列。每个线程优先处理自身队列，当自身队列任务为空时，从其他任务或者通用队列里偷取任务执行。
 
-89092715-cc322a80-d3e6-11ea-9171-3227c939f678.jpg
+
+![](/static/image/89092715-cc322a80-d3e6-11ea-9171-3227c939f678.jpg)
 
 Work-stealing机制是通过空间换取时间的思想。当我们使用ThreadPoolExecutor的时候，如果队列里存在大量任务，同时这些任务的所需要的执行时间又很短。那么线程池里任务将浪费大量的时间在从同步队列里获取任务。work-stealing机制中，每个线程都存在自己的双端队列，线程从自身队头端列获取任务，其他空闲线程从该队列的尾部steal任务。既避免了线程间的竞争，又充分的利用了资源。
 
@@ -192,7 +194,8 @@ public <T> T invoke(ForkJoinTask<T> task) {
 
 提交到ForkJoinPool的任务必须为ForkJoinTask的子类。我们来看一下ForkJoinTask的血缘关系
 
-89102093-72f2e700-d438-11ea-97c0-57230117a90c.png
+
+![](/static/image/89102093-72f2e700-d438-11ea-97c0-57230117a90c.png)
 
 ForkJoinTask实现了Future接口，所以ForkJoinTask可以以异步的方式获取执行结果。但是我们一般不会直接使用ForkJoinTask而是使用其两个子类RecursiveAction和RecursiveTask,区别仅仅在于该任务是否存在返回值。对于ForkJoinTask来说，最重要的方法就是fork和join，我们来看一下相关方法签名
 
@@ -247,18 +250,20 @@ public static void invokeAll(ForkJoinTask<?> t1, ForkJoinTask<?> t2) {
 
 fork、join和invoke方法的签名都还是比较容易理解，这里要额外介绍一下invokeAll方法。假设，我们提交了一个任务t1到ForkJoinPool, t1会被拆解成两个子任务t2和t3，t2又会被拆分成两个子任务t4和t5，t3又会被拆分成两个子任务t6和t7。我们可以得到如下图的任务关系：
 
-89104282-bf472280-d44a-11ea-827d-669297983457.png
+
+![](/static/image/89104282-bf472280-d44a-11ea-827d-669297983457.png)
 
 如果我们使用最浅显易懂的先fork再join的方式，可以得到如下的任务入队和出队流程：
 
-89104301-f7e6fc00-d44a-11ea-93de-c507c63db404.png
+
+![](/static/image/89104301-f7e6fc00-d44a-11ea-93de-c507c63db404.png)
 
 可以看出，最先入队的任务t2虽然是最先执行，但是因为默认的FIFO方式，最先执行完成却是t3, t2任务等待任务执行完成用了很多步骤。
 如果使用上文demo使用的invokeAll方法，可以得到如下的任务入队和出队流程：
 
-89104485-48ab2480-d44c-11ea-8fb6-b470c61046d9.png
+![](/static/image/89104485-48ab2480-d44c-11ea-8fb6-b470c61046d9.png)
 
 因为t3是同步执行的任务，所以t6和t7要先入队，并调用后使得t3执行完成且仅需要较短的等待时间。之后再执行任务t2及子任务t4和t5。通过这种任务入队和出队的顺序变化达到优化的目的。
 
-总结
+## 总结
 本文并没有通过深入代码的方式，详细解释ForkJoinPool的原理。主要原因是ForkJoinPool的实现非常复杂，代码中又大量使用二进制操作，导致代码可读性非常的差。对于ForkJoinPool还有很多需要了解的细节，也没在本文提及。本文的主要目的还是介绍一下ForkJoinPool的原理、优势以及使用方式。
