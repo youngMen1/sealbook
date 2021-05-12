@@ -67,7 +67,7 @@
     * [IDEA 常用设置](java/shi-yong-bang-zhu/idea-chang-yong-she-zhi.md)
     * [IDEA禁止指定文件提交](java/shi-yong-bang-zhu/ideajin-zhi-zhi-ding-wen-jian-ti-jiao.md)
     * [IDEA使用技巧](java/shi-yong-bang-zhu/ideshi-yong-ji-qiao.md)
-    * idea打开maven项目没有识别加载maven
+    * [IDEA打开maven项目没有识别加载maven](java/shi-yong-bang-zhu/ideada-kai-maven-xiang-mu-mei-you-shi-bie-jia-zai-maven.md)
   * [IDEA插件](java/cha-jian.md)
     * [LomBok插件](java/cha-jian/lombokcha-jian.md)
     * [Cloud Toolkit插件](java/cha-jian/cloud-toolkit.md)
