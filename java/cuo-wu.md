@@ -30,6 +30,28 @@ spring:
       location: /data/upload_tmp
 ```
 
+## 1.4.Idea SpringBoot工程提示 "Error running 'xxxx'": Command line is too long... 问题解决
+解决办法：在.idea文件夹下面的workspace.xml中的
+
+
+
+```
+<component name="PropertiesComponent">
+```
+
+
+
+
+标签下面添加：
+
+
+
+
+```
+<property name="dynamic.classpath" value="true" />
+```
+
+
 
 
 
