@@ -31,5 +31,17 @@ idea;*.iml;
 
 #### 创建一个changelist
 首先创建一个changelist，为了好记，可以叫忽略的或者ignored，new changelist—-忽略的
-1313575-20181016090843893-2075448006.png
+![](/static/image/1313575-20181016090843893-2075448006.png)
 
+将文件纳入ignored list
+此时，修改了add.jsp，它会在Default里出现，如果我们不想提交，拖动文件到忽略的changelist
+![](/static/image/微信截图_20210517151147.png)
+
+只提交Default changelist
+提交时，先点击Default，然后点击提交，就只提交指定的文件了。
+![](/static/image/1313575-20181016090931858-658602583.png)
+
+当然，在提交文件夹时，将某些文件排除后，会出现对话框，问你是否将排除的纳入另外一个changelist，那时候再建这个忽略的changelist也是可以的。
+
+也可以通过文件夹分组
+![](/static/image/1313575-20181016090943581-1255532069.png)
