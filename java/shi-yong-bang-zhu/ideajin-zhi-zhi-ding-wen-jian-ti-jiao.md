@@ -10,7 +10,7 @@ idea;*.iml;
 
 ![](/static/image/微信截图_20210128142744.png)
 
-**2020.3版本**
+**2020.3版本**  
 ![](/static/image/微信截图_20210129100449.png)
 
 ## 1.2.idea中git禁止提交隐藏指定文件
@@ -27,5 +27,9 @@ idea;*.iml;
 
 ### 1.2.3.IDEA提交时忽略某些文件的提交
 
+### 1.2.4.intellij idea 忽略文件不提交
 
+#### 创建一个changelist
+首先创建一个changelist，为了好记，可以叫忽略的或者ignored，new changelist—-忽略的
+1313575-20181016090843893-2075448006.png
 
