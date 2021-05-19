@@ -1,0 +1,31 @@
+[0517/173831:INFO:http_cache_transaction.cc(72)] IgnoreZeroCacheError: 0
+[0517/173833:WARNING:url_request_job_manager.cc(89)] Failed to map: weixin://resourceid/blank
+[0517/181818:WARNING:url_request_job_manager.cc(89)] Failed to map: weixin://resourceid/blank
+[0518/082631:WARNING:url_request_job_manager.cc(89)] Failed to map: weixin://resourceid/blank
+[0518/124800:WARNING:webmediaplayer_impl.cc(341)] Using MultibufferDataSource
+[0518/124845:WARNING:url_request_job_manager.cc(89)] Failed to map: weixin://resourceid/blank
+[0518/133348:WARNING:url_request_job_manager.cc(89)] Failed to map: weixin://resourceid/blank
+[0518/135349:WARNING:url_request_job_manager.cc(89)] Failed to map: weixin://resourceid/blank
+[0518/163859:WARNING:webmediaplayer_impl.cc(341)] Using MultibufferDataSource
+[0518/163900:ERROR:ffmpeg_demuxer.cc(1510)] media::FFmpegDemuxer::OnReadFrameDone result=-541478725 IsMaxMemoryUsageReached=0
+[0518/163900:WARNING:webmediaplayer_impl.cc(341)] Using MultibufferDataSource
+[0518/163900:WARNING:webmediaplayer_impl.cc(341)] Using MultibufferDataSource
+[0518/163901:WARNING:webmediaplayer_impl.cc(341)] Using MultibufferDataSource
+[0518/163917:WARNING:webmediaplayer_impl.cc(341)] Using MultibufferDataSource
+[0518/163917:ERROR:ffmpeg_demuxer.cc(1510)] media::FFmpegDemuxer::OnReadFrameDone result=-541478725 IsMaxMemoryUsageReached=0
+[0518/163917:WARNING:webmediaplayer_impl.cc(341)] Using MultibufferDataSource
+[0518/163917:WARNING:webmediaplayer_impl.cc(341)] Using MultibufferDataSource
+[0518/163917:WARNING:webmediaplayer_impl.cc(341)] Using MultibufferDataSource
+[0518/163932:ERROR:ffmpeg_demuxer.cc(1510)] media::FFmpegDemuxer::OnReadFrameDone result=-541478725 IsMaxMemoryUsageReached=0
+[0518/163947:ERROR:ffmpeg_demuxer.cc(1510)] media::FFmpegDemuxer::OnReadFrameDone result=-541478725 IsMaxMemoryUsageReached=0
+[0518/164048:ERROR:ffmpeg_demuxer.cc(1510)] media::FFmpegDemuxer::OnReadFrameDone result=-541478725 IsMaxMemoryUsageReached=0
+[0518/164050:WARNING:url_request_job_manager.cc(89)] Failed to map: weixin://resourceid/blank
+[0518/164107:WARNING:webmediaplayer_impl.cc(341)] Using MultibufferDataSource
+[0518/164107:ERROR:ffmpeg_demuxer.cc(1510)] media::FFmpegDemuxer::OnReadFrameDone result=-541478725 IsMaxMemoryUsageReached=0
+[0518/164107:WARNING:webmediaplayer_impl.cc(341)] Using MultibufferDataSource
+[0518/164108:WARNING:webmediaplayer_impl.cc(341)] Using MultibufferDataSource
+[0518/164108:WARNING:webmediaplayer_impl.cc(341)] Using MultibufferDataSource
+[0518/164122:ERROR:ffmpeg_demuxer.cc(1510)] media::FFmpegDemuxer::OnReadFrameDone result=-541478725 IsMaxMemoryUsageReached=0
+[0518/164138:ERROR:ffmpeg_demuxer.cc(1510)] media::FFmpegDemuxer::OnReadFrameDone result=-541478725 IsMaxMemoryUsageReached=0
+[0518/164232:WARNING:url_request_job_manager.cc(89)] Failed to map: weixin://resourceid/blank
+[0519/090119:WARNING:url_request_job_manager.cc(89)] Failed to map: weixin://resourceid/blank
