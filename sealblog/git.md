@@ -97,7 +97,7 @@ error: Your local changes to the following files would be overwritten by merge:
 // 备份当前的工作区的内容，从最近的一次提交中读取相关内容，让工作区保证和上次提交的内容一致。同时，将当前的工作区内容保存到Git栈中。
 git stash
 git pull
-//  从Git栈中读取最近一次保存的内容，恢复工作区的相关内容。
+// 从Git栈中读取最近一次保存的内容，恢复工作区的相关内容。
 git stash pop
 ```
 
