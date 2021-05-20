@@ -81,7 +81,23 @@ git cherry-pick <C commit-id> <D commit-id> <E commit-id>
 ```
 例如:`git cherry-pick 9caedb2313425a953cb59bf36878f539465e2b20 e680af9f64960be3c6de002ce410ce38924c74be`
 
+## 2.3.
 
+
+```
+error: Your local changes to the following files would be overwritten by merge:
+```
+
+
+```
+git stash
+git pull
+git stash pop
+```
+
+
+
+如果你想保留刚才本地修改的代码，并把git服务器上的代码pull到本地（本地刚才修改的代码将会被暂时封存起来）
 
 ## 3.参考
 **Git 参考手册**
