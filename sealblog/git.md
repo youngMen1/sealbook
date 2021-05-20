@@ -16,15 +16,6 @@
 | git reset --soft | 不删除工作空间改动代码，撤销commit，不撤销git add，回退到某个版本，只回退了commit的信息，如果还要提交，直接commit即可 |
 | git reset -–hard | 删除工作空间改动代码，撤销commit，撤销git add 注意完成这个操作后，就恢复到了上一次的commit状态。 |
 
-
-
-
-
-
-
-
-
-
 ## 2.如何使用？
 
 ## 2.1.如何把master分支代码合并到自己的分支
@@ -58,40 +49,36 @@ git merge master
 ```
 git push origin 自己分支名
 ```
+
 ## 2.2.git合并某次提交到当前分支
 
 有的时候，在develop分支开发，是大家公用的开发分支，但是只想合并自己提交的到master,如何操作呢？那就要用cherry-pick了
 
 语法 : `git cherry-pick commitid`
 
-首先，git log查看自己提交的log，找到版本号，如最近的版本号是 9caedb2313425a953cb59bf36878f539465e2b20
+首先，git log查看自己提交的log，找到版本号，如最近的版本号是 9caedb2313425a953cb59bf36878f539465e2b20  
 例如：
-
-
 
 ```
 git cherry-pick 9caedb2313425a953cb59bf36878f539465e2b20
 ```
-如果想合并多个提交到当前分支
-语法：
 
+如果想合并多个提交到当前分支  
+语法：
 
 ```
 git cherry-pick <C commit-id> <D commit-id> <E commit-id>
 ```
+
 例如:`git cherry-pick 9caedb2313425a953cb59bf36878f539465e2b20 e680af9f64960be3c6de002ce410ce38924c74be`
 
 ## 2.3.如果你想保留刚才本地修改的代码，并把git服务器上的代码pull到本地（本地刚才修改的代码将会被暂时封存起来）
 
-
 如果你想保留刚才本地修改的代码，并把git服务器上的代码pull到本地（本地刚才修改的代码将会被暂时封存起来）
-
-
 
 ```
 error: Your local changes to the following files would be overwritten by merge:
 ```
-
 
 ```
 // 备份当前的工作区的内容，从最近的一次提交中读取相关内容，让工作区保证和上次提交的内容一致。同时，将当前的工作区内容保存到Git栈中。
@@ -101,36 +88,26 @@ git pull
 git stash pop
 ```
 
-
-
-
-
 ## 3.参考
-**Git 参考手册**
 
+**Git 参考手册**
 
 ```
 http://gitref.justjavac.com/branching/#merge
 ```
 
-
-
 **Git 团队协作开发：**
-
 
 ```
 https://juejin.im/post/5ea8daa66fb9a04382227c14
 ```
 
-
-
 git教程：`https://aimuch.com/2019/03/21/git%E6%95%99%E7%A8%8B/#more`
 
 Git push 时如何避免出现 "Merge branch 'master' of ...":
 
-
 ```
-https://www.cnblogs.com/yanglang/p/11679858.html
+https://www.cnblogs.com/yanglang/p/11679858.html
 ```
 
 
