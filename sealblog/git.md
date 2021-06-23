@@ -87,6 +87,7 @@ git pull
 // 从Git栈中读取最近一次保存的内容，恢复工作区的相关内容。
 git stash pop
 ```
+## 2.4.可以看到弹框底部有Force Checkout     Don`t checkout     Smart Checkout,表示什么意思呢
 
 ## 3.参考
 
