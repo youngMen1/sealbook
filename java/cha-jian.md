@@ -40,7 +40,7 @@
 | jclasslib bytecode viewer | 字节码查看插件 |
 | Properties File Sorter | 项目中经常使用properties文件来配置系统参数、国际化描述等，随着项目推进，文件变得又臭又长，不便阅读和比对，因此开发了一个排序的小工具。 |
 | Save Actions | 号称能提升工作效率 |
-| 1Convert YAML and Properties |  |
+| Convert YAML and Properties | yaml与properties文件转换 |
 
 ## 2.参考:
 
