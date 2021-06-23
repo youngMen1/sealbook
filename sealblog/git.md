@@ -87,7 +87,14 @@ git pull
 // 从Git栈中读取最近一次保存的内容，恢复工作区的相关内容。
 git stash pop
 ```
-## 2.4.可以看到弹框底部有Force Checkout     Don`t checkout     Smart Checkout,表示什么意思呢
+## 2.4.可以看到弹框底部有Force Checkout、Don`t checkout、Smart Checkout,表示什么意思呢
+Smart Checkout就会把冲突的这部分内容带到开发分支（如果你没有点进窗口的那些文件处理冲突的话),比如我在test分支修改到代码，要切换到master分支，点击smart checkout后，master分支会有test分支修改到代码，最好是选smart checkout这样会把本地修改的代码先保存到statsh中，再checkout分支。
+
+Force Checkout  就不会把冲突的这部分内容带到开发分支，如果点了force checkout则本地修改都会丢失！！！！！！！！！正确操作是： 切换分支之前，应该先GIT --> Repository --> Stash changes 保存该分支下的改动。 切换回来后，GIT --> Repository --> UnStash changes 恢复之前的改动，
+
+ Don`t checkout   当然是不切分支,继续留在当前分支了
+
+总结：不要点击force checkout，如果不想当前分支修改到代码出现在要切换到分支中，需要手动Stash changes，如果允许当前分支修改到代码出现在要切换到分支中，可以选择smart checkout
 
 ## 3.参考
 
