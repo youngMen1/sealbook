@@ -41,7 +41,7 @@
 | Gitee | 码云的插件 |
 | SequenceDiagram | 画时序图 |
 | jclasslib bytecode viewer | 字节码查看插件 |
-| Properties File Sorter | 项目中经常使用properties文件来配置系统参数、国际化描述等，随着项目推进，文件变得又臭又长，不便阅读和比对，因此开发了一个排序的小工具。 |
+| IntelliJ IDEA Properties Sorter | properties文件内容排序工具 |
 | Save Actions | 号称能提升工作效率 |
 | Convert YAML and Properties | yaml与properties文件转换 |
 
@@ -56,4 +56,6 @@ Alibaba Cloud Toolkit：
 ```
 http://mp.weixin.qq.com/s?__biz=MzU4NzU0MDIzOQ==&mid=2247485842&idx=1&sn=18489e421ddc25b5cc38ca2283836687&chksm=fdeb3bf2ca9cb2e451e20359b5b29347d1389736eed336813eb222cc921a1ccee1c95b34855d&scene=21#wechat_redirect
 ```
+
+
 
