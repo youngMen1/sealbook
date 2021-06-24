@@ -34,7 +34,9 @@ pzdn2009：[https://docs.kolematech.com/basic/ddd](https://docs.kolematech.com/b
 
 字节跳动员工：[https://www.cnblogs.com/mfrank/p/13021553.html](https://www.cnblogs.com/mfrank/p/13021553.html)
 
-国外算法网站：https://www.programiz.com/dsa/bubble-sort
+国外算法网站：[https://www.programiz.com/dsa/bubble-sort](https://www.programiz.com/dsa/bubble-sort)
+
+http://icyfenix.cn/
 
 ## 2.优秀的github博客
 
