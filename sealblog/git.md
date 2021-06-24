@@ -99,6 +99,8 @@ Don\`t checkout   当然是不切分支,继续留在当前分支了
 总结：不要点击force checkout，如果不想当前分支修改到代码出现在要切换到分支中，需要手动Stash changes，如果允许当前分支修改到代码出现在要切换到分支中，可以选择smart checkout
 
 ## 2.5.使用IDEA进行commit合并(折叠)
+当前有，test1，test2两个commit，想把这两个分支合成一个commit去提交代码
+1392964-20190621172802475-360225013.png
 
 
 ## 3.参考
