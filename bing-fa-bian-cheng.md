@@ -100,6 +100,71 @@ static <U> CompletableFuture<U>
 创建完 CompletableFuture 对象之后，会自动地异步执行 runnable.run() 方法或者 supplier.get() 方法，对于一个异步操作，你需要关注两个问题：一个是异步操作什么时候结束，另一个是如何获取异步操作的执行结果。因为 CompletableFuture 类实现了 Future 接口，所以这两个问题你都可以通过 Future 接口来解决。另外，CompletableFuture 类还实现了 CompletionStage 接口，这个接口内容实在是太丰富了，在 1.8 版本里有 40 个方法，这些方法我们该如何理解呢？
 
 
+## 例子
+
+```
+/**
+     * 我们分了3个任务:
+     * 任务1-> 负责洗水壶、烧开水
+     * 任务2-> 负责洗茶壶、洗茶杯和拿茶叶
+     * 任务3-> 要等待任务 1 和任务 2 都完成后才能开始。
+     */
+    private static void createCompletableFuture() {
+        // 任务1：洗水壶->烧开水
+        CompletableFuture<Void> f1 =
+                CompletableFuture.runAsync(() -> {
+                    System.out.println("T1:洗水壶...");
+                    sleep(1, TimeUnit.SECONDS);
+
+                    System.out.println("T1:烧开水...");
+                    sleep(15, TimeUnit.SECONDS);
+                });
+        // 任务2：洗茶壶->洗茶杯->拿茶叶
+        CompletableFuture<String> f2 =
+                CompletableFuture.supplyAsync(() -> {
+                    System.out.println("T2:洗茶壶...");
+                    sleep(1, TimeUnit.SECONDS);
+
+                    System.out.println("T2:洗茶杯...");
+                    sleep(2, TimeUnit.SECONDS);
+
+                    System.out.println("T2:拿茶叶...");
+                    sleep(1, TimeUnit.SECONDS);
+                    return "龙井";
+                });
+        // 任务3：任务1和任务2完成后执行：泡茶
+        CompletableFuture<String> f3 =
+                f1.thenCombine(f2, (result1, result2) -> {
+                    System.out.println("T1:拿到茶叶:" + result2);
+                    System.out.println("T1:泡茶...");
+                    return "上茶:" + result2;
+                });
+        // 等待任务3执行结果
+        System.out.println(f3.join());
+
+        //                一次执行结果：
+        //                T1:洗水壶...
+        //                T2:洗茶壶...
+        //                T1:烧开水...
+        //                T2:洗茶杯...
+        //                T2:拿茶叶...
+        //                T1:拿到茶叶:龙井
+        //                T1:泡茶...
+        //                上茶:龙井
+    }
+
+    private static void sleep(int t, TimeUnit u) {
+        try {
+            u.sleep(t);
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+    }
+```
+
+
+
+
 
 
 
