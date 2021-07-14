@@ -9,6 +9,15 @@ doBizB();
 还是挺简单的，就像下面代码中这样，创建两个子线程去执行就可以了。你会发现下面的并行方案，主线程无需等待 doBizA() 和 doBizB() 的执行结果，也就是说 doBizA() 和 doBizB() 两个操作已经被异步化了。
 
 
+```
+new Thread(()->doBizA())
+  .start();
+new Thread(()->doBizB())
+  .start();  
+```
+
+
+
 
 
 
