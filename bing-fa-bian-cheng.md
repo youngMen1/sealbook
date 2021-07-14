@@ -259,6 +259,7 @@ thenCombine()--->thenCombine会在两个任务都执行完成后，把两个任�
         });
         List<Student> result = future.join();
         System.out.println(result.toString());
+        
     }
 ```
 
