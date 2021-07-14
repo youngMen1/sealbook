@@ -104,9 +104,14 @@ static <U> CompletableFuture<U>
 创建完 CompletableFuture 对象之后，会自动地异步执行 runnable.run\(\) 方法或者 supplier.get\(\) 方法，对于一个异步操作，你需要关注两个问题：一个是异步操作什么时候结束，另一个是如何获取异步操作的执行结果。因为 CompletableFuture 类实现了 Future 接口，所以这两个问题你都可以通过 Future 接口来解决。另外，CompletableFuture 类还实现了 CompletionStage 接口，这个接口内容实在是太丰富了，在 1.8 版本里有 40 个方法，这些方法我们该如何理解呢？
 
 ## 例子
-
+#### 烧水泡茶的例子
+runAsync(Runnable runnable)--->run()方法没有返回值
+supplyAsync(Supplier<U> supplier)--->调用方通过join或者get就能取到该CompletableFuture的result字段的值。（
+1.join()方法抛出的是uncheck异常（即未经检查的异常),不会强制开发者抛出，
+2.get()方法抛出的是经过检查的异常，ExecutionException, InterruptedException 需要用户手动处理（抛出或者 try catch））
+thenCombine()--->thenCombine会在两个任务都执行完成后，把两个任务的结果合并。
 ```
-/**
+    /**
      * 我们分了3个任务:
      * 任务1-> 负责洗水壶、烧开水
      * 任务2-> 负责洗茶壶、洗茶杯和拿茶叶
@@ -165,8 +170,10 @@ static <U> CompletableFuture<U>
     }
 ```
 
+#### thenApply()例子
+还是原来的CompletableFuture，相当于将CompletableFuture<T> 转换成CompletableFuture<U>,只是泛型从Student转换成Person。
 ```
-   /**
+    /**
      * thenApply()例子
      */
     private static void completableFutureExample() {
@@ -187,6 +194,11 @@ static <U> CompletableFuture<U>
         Person person = future1.join();
         System.out.println(person.toString());
     }
+```
+#### thenCompose()例子
+用来连接两个CompletableFuture，是生成一个新的CompletableFuture。
+```
+
 
     /**
      * thenCompose()例子
@@ -210,6 +222,12 @@ static <U> CompletableFuture<U>
         Person person = future1.join();
         System.out.println(person.toString());
     }
+```
+
+#### thenApplyAsync()方法例子
+链式编程
+```
+
 
     /**
      * thenApplyAsync()方法例子链式编程
