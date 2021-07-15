@@ -1,8 +1,10 @@
 # CompletableFuture异步编程
 
+
+
 用多线程优化性能，其实不过就是将串行操作变成并行操作。如果仔细观察，你还会发现在串行转换成并行的过程中，一定会涉及到异步化，例如下面的示例代码，现在是串行的，为了提升性能，我们得把它们并行化，那具体实施起来该怎么做呢？
 
-```
+```java
 //以下两个方法都是耗时操作
 
 doBizA();
@@ -10,9 +12,11 @@ doBizA();
 doBizB();
 ```
 
+
+
 还是挺简单的，就像下面代码中这样，创建两个子线程去执行就可以了。你会发现下面的并行方案，主线程无需等待 doBizA\(\) 和 doBizB\(\) 的执行结果，也就是说 doBizA\(\) 和 doBizB\(\) 两个操作已经被异步化了。
 
-```
+```java
 new Thread(()->doBizA())
 
 .start();
@@ -44,9 +48,9 @@ new Thread(()->doBizB())
 
 无需手工维护线程，没有繁琐的手工维护线程的工作，给任务分配线程的工作也不需要我们关注；
 
-语义更清晰，例如 f3 = f1.thenCombine(f2, ()->{}) 能够清晰地表述“任务 3 要等待任务 1 和任务 2 都完成后才能开始”；
+语义更清晰，例如 f3 = f1.thenCombine\(f2, \(\)-&gt;{}\) 能够清晰地表述“任务 3 要等待任务 1 和任务 2 都完成后才能开始”；
 
-```
+```java
 //任务1：洗水壶->烧开水
 
 CompletableFuture<Void> f1 =
@@ -132,13 +136,13 @@ T1:泡茶...
 上茶:龙井
 ```
 
-##  **创建 CompletableFuture 对象**
+## **创建 CompletableFuture 对象**
 
 创建 CompletableFuture 对象主要靠下面代码中展示的这 4 个静态方法，我们先看前两个。在烧水泡茶的例子中，我们已经使用了runAsync\(Runnable runnable\)和`supplyAsync(Supplier<U> supplier)`，它们之间的区别是：Runnable 接口的 run\(\) 方法没有返回值，而 Supplier 接口的 get\(\) 方法是有返回值的。
 
 前两个方法和后两个方法的区别在于：后两个方法可以指定线程池参数。
 
-默认情况下 CompletableFuture 会使用公共的 ForkJoinPool 线程池，这个线程池默认创建的线程数是 CPU 的核数（也可以通过 JVM option:-Djava.util.concurrent.ForkJoinPool.common.parallelism 来设置 ForkJoinPool 线程池的线程数）。如果所有 CompletableFuture 共享一个线程池，那么一旦有任务执行一些很慢的 I/O 操作，就会导致线程池中所有线程都阻塞在 I/O 操作上(同一个线程池里面)，从而造成线程饥饿，进而影响整个系统的性能。所以，强烈建议你要根据不同的业务类型创建不同的线程池，以避免互相干扰。
+默认情况下 CompletableFuture 会使用公共的 ForkJoinPool 线程池，这个线程池默认创建的线程数是 CPU 的核数（也可以通过 JVM option:-Djava.util.concurrent.ForkJoinPool.common.parallelism 来设置 ForkJoinPool 线程池的线程数）。如果所有 CompletableFuture 共享一个线程池，那么一旦有任务执行一些很慢的 I/O 操作，就会导致线程池中所有线程都阻塞在 I/O 操作上\(同一个线程池里面\)，从而造成线程饥饿，进而影响整个系统的性能。所以，强烈建议你要根据不同的业务类型创建不同的线程池，以避免互相干扰。
 
 ```
 //使用默认线程池
@@ -163,20 +167,20 @@ supplyAsync(Supplier<U> supplier, Executor executor)
 ```
 
 创建完 CompletableFuture 对象之后，会自动地异步执行 runnable.run\(\) 方法或者 supplier.get\(\) 方法，对于一个异步操作，你需要关注两个问题：一个是异步操作什么时候结束，另一个是如何获取异步操作的执行结果。因为 CompletableFuture 类实现了 Future 接口，所以这两个问题你都可以通过 Future 接口来解决。另外，CompletableFuture 类还实现了 CompletionStage 接口，这个接口内容实在是太丰富了，在 1.8 版本里有 40 个方法，这些方法我们该如何理解呢？
-##  **例子**
 
-####  **1.烧水泡茶的例子**
+## **例子**
 
-runAsync(Runnable runnable)--->run()方法没有返回值
+#### **1.烧水泡茶的例子**
+
+runAsync\(Runnable runnable\)---&gt;run\(\)方法没有返回值
 
 `supplyAsync(Supplier<U> supplier)--->`调用方通过join或者get就能取到该CompletableFuture的result字段的值。（
 
-1.join()方法抛出的是uncheck异常（即未经检查的异常),不会强制开发者抛出，
+1.join\(\)方法抛出的是uncheck异常（即未经检查的异常\),不会强制开发者抛出，
 
-2.get()方法抛出的是经过检查的异常，ExecutionException, InterruptedException 需要用户手动处理（抛出或者 try catch））
+2.get\(\)方法抛出的是经过检查的异常，ExecutionException, InterruptedException 需要用户手动处理（抛出或者 try catch））
 
-thenCombine()--->thenCombine会在两个任务都执行完成后，把两个任务的结果合并。
-
+thenCombine\(\)---&gt;thenCombine会在两个任务都执行完成后，把两个任务的结果合并。
 
 ```
 /**
@@ -283,10 +287,10 @@ System.out.println(e);
 
 }
 ```
-#### **2.thenApply()例子**
+
+#### **2.thenApply\(\)例子**
 
 还是原来的CompletableFuture，相当于将`CompletableFuture<T>` 转换成`CompletableFuture<U>`,只是泛型从Student转换成Person。
-
 
 ```
 /**
@@ -328,11 +332,10 @@ Person person = future1.join();
 System.out.println(person.toString());
 }
 ```
-#### 3.**thenCompose()例子**
+
+#### 3.**thenCompose\(\)例子**
 
 用来连接两个CompletableFuture，是生成一个新的CompletableFuture。
-
-
 
 ```
 /**
@@ -380,10 +383,9 @@ System.out.println(person.toString());
 }
 ```
 
-####  **4.thenApplyAsync()方法例子**
+#### **4.thenApplyAsync\(\)方法例子**
 
 链式编程
-
 
 ```
 /**
@@ -443,8 +445,6 @@ System.out.println(result.toString());
 
 }
 ```
-
-
 
 
 
