@@ -143,23 +143,15 @@ T1:泡茶...
 ```java
 //使用默认线程池
 
-static CompletableFuture<Void>
+static CompletableFuture<Void> runAsync(Runnable runnable)
 
-runAsync(Runnable runnable)
-
-static <U> CompletableFuture<U>
-
-supplyAsync(Supplier<U> supplier)
+static <U> CompletableFuture<U> supplyAsync(Supplier<U> supplier)
 
 //可以指定线程池
 
-static CompletableFuture<Void>
+static CompletableFuture<Void> runAsync(Runnable runnable, Executor executor)
 
-runAsync(Runnable runnable, Executor executor)
-
-static <U> CompletableFuture<U>
-
-supplyAsync(Supplier<U> supplier, Executor executor)
+static <U> CompletableFuture<U> supplyAsync(Supplier<U> supplier, Executor executor)
 ```
 
 创建完 CompletableFuture 对象之后，会自动地异步执行 runnable.run\(\) 方法或者 supplier.get\(\) 方法，对于一个异步操作，你需要关注两个问题：一个是异步操作什么时候结束，另一个是如何获取异步操作的执行结果。因为 CompletableFuture 类实现了 Future 接口，所以这两个问题你都可以通过 Future 接口来解决。另外，CompletableFuture 类还实现了 CompletionStage 接口，这个接口内容实在是太丰富了，在 1.8 版本里有 40 个方法，这些方法我们该如何理解呢？
