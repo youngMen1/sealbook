@@ -8,11 +8,11 @@ Fork的是分叉，交叉的意思，Join是合并、聚合的意思。所以For
 
 ForkJoinPool是JDK1.7出现的一个对于forkjoin模式的实现。通过ForkJoinPool可以轻松做到任务的Fork以及Join操作。同时在JDK1.8时，又使用避免代码伪共享对其性能优化，以及CompletableFuture及集合并行计算等，底层都是基于ForkJoinPool实现。
 
-## 2.使用Demo（可见项目seal-common->seal-features）
+## 2.使用Demo（可见项目seal-common-&gt;seal-features）
 
 接下来使用ForkJoinPool实现一个简单的归并排序算法。
 
-```
+```java
  public static void main(String[] args) {
         int[] arr = new int[]{1,3,4,2,5,7,3,8,5,9};
         int[] result = new int[10];
@@ -57,18 +57,15 @@ ForkJoinPool是JDK1.7出现的一个对于forkjoin模式的实现。通过ForkJo
         }
 
     }
-
 ```
 
 ## 核心原理
 
 ForkJoinPool与ThreadPoolExecutor都是ExecutorService的实现类，同时也都是Doug Lea大神的作品。ForkJoinPool并不是作为ThreadPoolExecutor的优化，两者应该是互补的关系，处理的场景也不同。根本性区别在于ForkJoinPool使用了Fork-Join和Work-Stealing机制。这两个机制保证了ForkJoinPool可以将大任务拆分成多个小任务，使用整个ForkJoinPool的多线程能力参与计算，避免了ThreadPoolExecutor在处理单个大任务造成的线程池吞吐量低问题。但是ForkJoinPool也存在自身的缺点，ForkJoinPool更适合处理可以被Fork的CPU密集型任务，大量能够被快速计算的小任务才能将ForkJoinPool优势发挥的更高。
 
-
 ### work-stealing机制
 
 work-stealing机制，简单来讲，就是一个ForkJoinPool存在多个任务，每个任务都独自包含一个队列，同时还存在一个通用队列。每个线程优先处理自身队列，当自身队列任务为空时，从其他任务或者通用队列里偷取任务执行。
-
 
 ![](/static/image/89092715-cc322a80-d3e6-11ea-9171-3227c939f678.jpg)
 
@@ -80,25 +77,21 @@ Work-stealing机制是通过空间换取时间的思想。当我们使用ThreadP
 
 Java8在Exetors工具类中新增了两个工厂方法：
 
-
 ```
 // parallelism 定义并行级别
 public static ExecutorService newWorkStealingPool(int parallelism);
 // 默认JVM可用处理器个数
 // Runtime.getRuntime().availableProcessors()
 public static ExecutorService newWorkStealingPool();
-
 ```
 
 2、使用ForkJoinPool内部提供的初始化commonPool
 
-
 ```
 public static ForkJoinPool commonPool();
-
 ```
-3、使用构造函数（不推荐）
 
+3、使用构造函数（不推荐）
 
 ```
 public ForkJoinPool(int parallelism,
@@ -112,30 +105,25 @@ public ForkJoinPool(int parallelism,
          "ForkJoinPool-" + nextPoolId() + "-worker-");
     checkPermission();
 }
-
 ```
 
-* parallelism：并行级别，默认当前JVM可用处理器个数Runtime.getRuntime().availableProcessors()
+* parallelism：并行级别，默认当前JVM可用处理器个数Runtime.getRuntime\(\).availableProcessors\(\)
 
 * factory：创建自定义工作线程的工厂类
-
-
 
 ```
 public static interface ForkJoinWorkerThreadFactory {
   public ForkJoinWorkerThread newThread(ForkJoinPool pool);
 }
-
 ```
+
 * handler：用于处理任务线程中的未处理异常。
 
 * asyncMode：用於控制WorkQueue的工作模式。分为FIFO和LIFO两种模式。如果选择asynMode=true则为FIFO，这也是FrokJoinPool默认的实现方式。但是对于递归式的任务执行，LIFO要比FIFO模式更好，性能更高。
 
-
 ### 提交任务至ForkJoinPool
 
 因为ForkJoinPool实现了ExecutorService接口，所以其提交任务的API与ThreadPoolExecutor基本相同
-
 
 ```
 // 提交沒有返回值的任务
@@ -189,19 +177,15 @@ public <T> T invoke(ForkJoinTask<T> task) {
     externalPush(task);
     return task.join();
 }
-
 ```
 
 ## ForkJoinTask
 
 提交到ForkJoinPool的任务必须为ForkJoinTask的子类。我们来看一下ForkJoinTask的血缘关系
 
-
 ![](/static/image/89102093-72f2e700-d438-11ea-97c0-57230117a90c.png)
 
 ForkJoinTask实现了Future接口，所以ForkJoinTask可以以异步的方式获取执行结果。但是我们一般不会直接使用ForkJoinTask而是使用其两个子类RecursiveAction和RecursiveTask,区别仅仅在于该任务是否存在返回值。对于ForkJoinTask来说，最重要的方法就是fork和join，我们来看一下相关方法签名
-
-
 
 ```
 // 将当前任务加入任务队列。如果是ForkJoinWorkerThread则加入工作线程队列，否则加入到通用队列。
@@ -247,20 +231,17 @@ public static void invokeAll(ForkJoinTask<?> t1, ForkJoinTask<?> t2) {
         if ((s2 = t2.doJoin() & DONE_MASK) != NORMAL)
             t2.reportException(s2);
 }
-
 ```
 
 fork、join和invoke方法的签名都还是比较容易理解，这里要额外介绍一下invokeAll方法。假设，我们提交了一个任务t1到ForkJoinPool, t1会被拆解成两个子任务t2和t3，t2又会被拆分成两个子任务t4和t5，t3又会被拆分成两个子任务t6和t7。我们可以得到如下图的任务关系：
-
 
 ![](/static/image/89104282-bf472280-d44a-11ea-827d-669297983457.png)
 
 如果我们使用最浅显易懂的先fork再join的方式，可以得到如下的任务入队和出队流程：
 
-
 ![](/static/image/89104301-f7e6fc00-d44a-11ea-93de-c507c63db404.png)
 
-可以看出，最先入队的任务t2虽然是最先执行，但是因为默认的FIFO方式，最先执行完成却是t3, t2任务等待任务执行完成用了很多步骤。
+可以看出，最先入队的任务t2虽然是最先执行，但是因为默认的FIFO方式，最先执行完成却是t3, t2任务等待任务执行完成用了很多步骤。  
 如果使用上文demo使用的invokeAll方法，可以得到如下的任务入队和出队流程：
 
 ![](/static/image/89104485-48ab2480-d44c-11ea-8fb6-b470c61046d9.png)
@@ -270,3 +251,4 @@ fork、join和invoke方法的签名都还是比较容易理解，这里要额外
 ## 总结
 
 本文并没有通过深入代码的方式，详细解释ForkJoinPool的原理。主要原因是ForkJoinPool的实现非常复杂，代码中又大量使用二进制操作，导致代码可读性非常的差。对于ForkJoinPool还有很多需要了解的细节，也没在本文提及。本文的主要目的还是介绍一下ForkJoinPool的原理、优势以及使用方式。
+
