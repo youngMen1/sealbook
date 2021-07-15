@@ -285,7 +285,7 @@ System.out.println(e);
 ```
 #### **2.thenApply()例子**
 
-还是原来的CompletableFuture，相当于将CompletableFuture<T> 转换成CompletableFuture<U>,只是泛型从Student转换成Person。
+还是原来的CompletableFuture，相当于将`CompletableFuture<T>` 转换成`CompletableFuture<U>`,只是泛型从Student转换成Person。
 
 
 ```
