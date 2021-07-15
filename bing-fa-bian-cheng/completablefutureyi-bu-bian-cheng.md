@@ -169,7 +169,7 @@ supplyAsync(Supplier<U> supplier, Executor executor)
 
 runAsync(Runnable runnable)--->run()方法没有返回值
 
-supplyAsync(Supplier<U> supplier)--->调用方通过join或者get就能取到该CompletableFuture的result字段的值。（
+`supplyAsync(Supplier<U> supplier)--->`调用方通过join或者get就能取到该CompletableFuture的result字段的值。（
 
 1.join()方法抛出的是uncheck异常（即未经检查的异常),不会强制开发者抛出，
 
