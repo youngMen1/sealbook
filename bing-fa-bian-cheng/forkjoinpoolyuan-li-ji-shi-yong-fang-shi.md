@@ -77,7 +77,7 @@ Work-stealing机制是通过空间换取时间的思想。当我们使用ThreadP
 
 Java8在Exetors工具类中新增了两个工厂方法：
 
-```
+```java
 // parallelism 定义并行级别
 public static ExecutorService newWorkStealingPool(int parallelism);
 // 默认JVM可用处理器个数
@@ -87,7 +87,7 @@ public static ExecutorService newWorkStealingPool();
 
 2、使用ForkJoinPool内部提供的初始化commonPool
 
-```
+```java
 public static ForkJoinPool commonPool();
 ```
 
@@ -111,7 +111,7 @@ public ForkJoinPool(int parallelism,
 
 * factory：创建自定义工作线程的工厂类
 
-```
+```java
 public static interface ForkJoinWorkerThreadFactory {
   public ForkJoinWorkerThread newThread(ForkJoinPool pool);
 }
@@ -125,7 +125,7 @@ public static interface ForkJoinWorkerThreadFactory {
 
 因为ForkJoinPool实现了ExecutorService接口，所以其提交任务的API与ThreadPoolExecutor基本相同
 
-```
+```java
 // 提交沒有返回值的任务
 public void execute(ForkJoinTask<?> task) {
     if (task == null)
