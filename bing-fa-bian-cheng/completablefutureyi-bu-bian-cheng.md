@@ -182,7 +182,7 @@ runAsync\(Runnable runnable\)---&gt;run\(\)方法没有返回值
 
 thenCombine\(\)---&gt;thenCombine会在两个任务都执行完成后，把两个任务的结果合并。
 
-```
+```java
 /**
 
 * 我们分了3个任务:
@@ -292,7 +292,7 @@ System.out.println(e);
 
 还是原来的CompletableFuture，相当于将`CompletableFuture<T>` 转换成`CompletableFuture<U>`,只是泛型从Student转换成Person。
 
-```
+```java
 /**
 * thenApply()例子
 */
@@ -337,7 +337,7 @@ System.out.println(person.toString());
 
 用来连接两个CompletableFuture，是生成一个新的CompletableFuture。
 
-```
+```java
 /**
 
 * thenCompose()例子
@@ -387,7 +387,7 @@ System.out.println(person.toString());
 
 链式编程
 
-```
+```java
 /**
 * thenApplyAsync()方法例子链式编程
 */
