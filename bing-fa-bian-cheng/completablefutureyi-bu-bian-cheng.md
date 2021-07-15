@@ -38,7 +38,7 @@ new Thread(()->doBizB())
 
 其中任务 3 要等待任务 1 和任务 2 都完成后才能开始。这个分工如下图所示。
 
-![70ba42eba681ebe848799fb2bf7dce7](C:\Users\ADMINI~1\AppData\Local\Temp\WeChat Files\70ba42eba681ebe848799fb2bf7dce7.jpg)
+![](/static/image/微信图片_20210714205644.jpg)
 
 下面是代码实现，你先略过 runAsync\(\)、supplyAsync\(\)、thenCombine\(\) 这些不太熟悉的方法，从大局上看，你会发现：
 
