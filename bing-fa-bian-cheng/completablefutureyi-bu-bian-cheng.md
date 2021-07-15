@@ -283,4 +283,168 @@ System.out.println(e);
 
 }
 ```
+#### **2.thenApply()例子**
+
+还是原来的CompletableFuture，相当于将CompletableFuture<T> 转换成CompletableFuture<U>,只是泛型从Student转换成Person。
+
+
+```
+/**
+* thenApply()例子
+*/
+
+private static void completableFutureExample() {
+
+CompletableFuture<Person> future1 = CompletableFuture.supplyAsync(() -> {
+
+Student student = new Student();
+
+student.setName("张三");
+
+student.setSex("男");
+
+student.setMoney(1.1D);
+
+return student;
+
+}).thenApply(student -> {
+
+Person person = new Person();
+
+person.setName(student.getName());
+
+person.setAge(student.getSex().equals("男") ? "0" : "1");
+
+person.setCity(new City("11"));
+
+person.setHeight(175);
+
+return person;
+
+});
+
+Person person = future1.join();
+
+System.out.println(person.toString());
+}
+```
+#### 3.**thenCompose()例子**
+
+用来连接两个CompletableFuture，是生成一个新的CompletableFuture。
+
+
+
+```
+/**
+
+* thenCompose()例子
+
+*/
+
+private static void completableFutureExample2() {
+
+CompletableFuture<Person> future1 = CompletableFuture.supplyAsync(() -> {
+
+Student student = new Student();
+
+student.setName("张三");
+
+student.setSex("男");
+
+student.setMoney(1.1D);
+
+return student;
+
+}).thenCompose(student -> CompletableFuture.supplyAsync(()->{
+
+// 注意这里用到了上个线程的返回值student
+
+Person person = new Person();
+
+person.setName(student.getName());
+
+person.setAge(student.getSex().equals("男") ? "0" : "1");
+
+person.setCity(new City("11"));
+
+person.setHeight(175);
+
+return person;
+
+}));
+
+Person person = future1.join();
+
+System.out.println(person.toString());
+
+}
+```
+
+####  **4.thenApplyAsync()方法例子**
+
+链式编程
+
+
+```
+/**
+* thenApplyAsync()方法例子链式编程
+*/
+private static void completableFutureExample3() {
+
+CompletableFuture<List<Student>> future = CompletableFuture.supplyAsync(() -> {
+
+List<Student> list = new ArrayList<>();
+
+Student student = new Student();
+
+student.setName("张三");
+
+student.setSex("男");
+
+student.setMoney(0);
+
+list.add(student);
+
+return list;
+
+}).thenApplyAsync(list->{
+
+Student student = new Student();
+
+student.setName("李四");
+
+student.setSex("男");
+
+student.setMoney(0);
+
+list.add(student);
+
+return list;
+
+}).thenApplyAsync(list->{
+
+Student student = new Student();
+
+student.setName("王五");
+
+student.setSex("男");
+
+student.setMoney(0);
+
+list.add(student);
+
+return list;
+
+});
+
+List<Student> result = future.join();
+
+System.out.println(result.toString());
+
+}
+```
+
+
+
+
 
