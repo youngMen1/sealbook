@@ -109,10 +109,9 @@ F2 跳转到下一个高亮错误 或 警告位置
  </option>
 ```
 
-## git commit 最左边侧边栏标签转换为模态框
-修改教程
-打开 Settings -> Version Control -> Commit
+## 4.git commit 最左边侧边栏标签转换为模态框
+
+修改教程  
+打开 Settings -&gt; Version Control -&gt; Commit  
 ![](/static/image/20210601153726915.png)
-
-
 
