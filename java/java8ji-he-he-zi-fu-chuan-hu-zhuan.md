@@ -1,8 +1,9 @@
 # Java8集合和字符串互转
 
-## 1.使用谷歌的Joiner（代码超级短）
+## 1.String 和 List互转
 
 ```java
+1.使用谷歌的Joiner（代码超级短）
 import com.google.common.base.Joiner;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,7 @@ public class Convert {
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
- 
+
 public class Convert {
     public static void main(String[] args) {
         List<Integer> list = new ArrayList<>();
@@ -46,7 +47,7 @@ public class Convert {
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
- 
+
 public class Convert {
     public static void main(String[] args) {
         List<Integer> list = new ArrayList<>();
@@ -58,11 +59,9 @@ public class Convert {
         System.out.println(list.stream().map(String::valueOf).collect(Collectors.joining(",")));
     }
 }
-
 ```
 
 ## 2.String 和 List互转
-
 
 ```java
 String auctionBlockIds = "45,46,47";
@@ -87,10 +86,7 @@ String requisitionLineIds=list.stream().map(requisitionLine->String.valueOf(requ
 或者
 
 String result = Joiner.on(",").join(list)
-
 ```
-
-
 
 
 
