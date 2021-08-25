@@ -18,6 +18,7 @@ public class Convert {
         list.add(1);
 
         String result = Joiner.on(",").join(list)
+        
         System.out.println(result);
 
         List<Integer> list = Arrays.stream(result.split(",")).map(Integer::parseInt).collect(Collectors.toList())
