@@ -65,7 +65,7 @@ public class Convert {
 
 
 ```java
-String  auctionBlockIds="45,46,47";
+String auctionBlockIds = "45,46,47";
 
 1.String 转List<String>
 
