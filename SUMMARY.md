@@ -331,6 +331,7 @@
   * [JAVA8新特性](java/java8.md)
     * [Java8新特性之日期处理](java/jdk8xin-te-xing.md)
     * [Java8如何更优雅的处理空值](java/shi.md)
+    * Java8集合和字符串互转
   * [公钥与私钥](java/gong-yao-yu-si-yao.md)
   * [加密算法](java/jia-mi-suan-fa.md)
   * [日期对比@JsonFormat](java/ri-qi-dui-6bd4-jsonformat.md)
