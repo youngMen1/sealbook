@@ -67,22 +67,25 @@ public class Convert {
 ```java
 String auctionBlockIds = "45,46,47";
 
-1.String 转List<String>
+1.String 转 List<String>
 
 List<String> auctionBlockId= Arrays.asList(auctionBlockIds.split(",")).stream().map(block -> (block.trim())).collect(Collectors.toList());
 
-2.List<String> 转  String 
+2.List<String> 转 String 
 
 String auctionBlockIds=String.join(",",auctionBlockId);
-3.String 转List<Integer>
+
+3.String 转 List<Integer>
 
 List<Integer> auctionBlockId= Arrays.stream(auctionBlockIds.split(",")).map(s -> Integer.valueOf(s.trim())).collect(Collectors.toList());
 
 
 4.List<Integer> 转 String 
+
 String requisitionLineIds=list.stream().map(requisitionLine->String.valueOf(requisitionLine.getRequisitionLineId())).collect(Collectors.joining(","));
 
 或者
+
 String result = Joiner.on(",").join(list)
 
 ```
