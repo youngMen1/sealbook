@@ -23,6 +23,42 @@ public class Convert {
 
     }
 }
+
+
+2、使用String.join方法（不用需要CharSequence类型的子类才行，并且需要同类型）
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+ 
+public class Convert {
+    public static void main(String[] args) {
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(5);
+        list.add(4);
+        list.add(1);
+        System.out.println(String.join(",", list.stream().map(String::valueOf).collect(Collectors.toList())));
+    }
+}
+
+3、使用collect转换
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+ 
+public class Convert {
+    public static void main(String[] args) {
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(5);
+        list.add(4);
+        list.add(1);
+        System.out.println(list.stream().map(String::valueOf).collect(Collectors.joining(",")));
+    }
+}
+
 ```
 
 ## 2.
