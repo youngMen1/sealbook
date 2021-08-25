@@ -28,22 +28,22 @@ public class Convert {
 ## 2.
 
 
-```
+```java
 String  auctionBlockIds="45,46,47";
 
-一、String 转List<String>
+1.String 转List<String>
 
 List<String> auctionBlockId= Arrays.asList(auctionBlockIds.split(",")).stream().map(block -> (block.trim())).collect(Collectors.toList());
 
- 二、List<String> 转  String 
+2.List<String> 转  String 
 
 String auctionBlockIds=String.join(",",auctionBlockId);
-三、 String 转List<Integer>
+3.String 转List<Integer>
 
 List<Integer> auctionBlockId= Arrays.stream(auctionBlockIds.split(",")).map(s -> Integer.valueOf(s.trim())).collect(Collectors.toList());
 
 
-四、List<Integer> 转 String 
+4.List<Integer> 转 String 
 String requisitionLineIds=list.stream().map(requisitionLine->String.valueOf(requisitionLine.getRequisitionLineId())).collect(Collectors.joining(","));
 
 或者
