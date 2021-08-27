@@ -344,7 +344,7 @@
   * [Guava Cache用法介绍](java/guava-cacheyong-fa-jie-shao.md)
   * [常见位运算问题](java/chang-jian-wei-yun-suan-wen-ti.md)
   * [常用正则表达式](java/chang-yong-zheng-ze-biao-da-shi.md)
-  * 全局跨域配置类
+  * [全局跨域配置类](java/quan-ju-kua-yu-pei-zhi-lei.md)
 * [SpringCloudAlibaba](springcloudalibaba.md)
   * [SpringCloudAlibaba基本介绍](springcloudalibaba/zhu-yi.md)
   * [Nacos](springcloudalibaba/nacos.md)
