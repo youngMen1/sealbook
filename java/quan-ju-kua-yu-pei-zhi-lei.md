@@ -1,4 +1,4 @@
-# 全局跨域配置类
+# 1.全局跨域配置类
 
 ```java
 package cn.udream.saas.config;
@@ -41,6 +41,7 @@ public class GlobalCorsConfig {
         return new CorsFilter(configSource);
     }
 }
-
 ```
+
+
 
