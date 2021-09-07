@@ -19,7 +19,7 @@
     * [如何写出健壮的代码](you-xiu-wen-zhang/ru-he-xie-chu-jian-zhuang-de-dai-ma.md)
     * [研发路上的一些总结与思考](you-xiu-wen-zhang/yan-fa-lu-shang-de-yi-xie-zong-jie-yu-si-kao.md)
     * [如何优雅地使用 Windows 10](you-xiu-wen-zhang/ru-he-you-ya-di-shi-yong-windows-10.md)
-    * 代码质量的方法
+    * [代码质量的方法](you-xiu-wen-zhang/dai-ma-zhi-liang-de-fang-fa.md)
   * [在线工具](zai-xian-gong-ju.md)
   * [工具收集](gong-ju-shou-ji.md)
   * [如何看技术官方文档](ru-he-kan-ji-zhu-guan-fang-wen-dang.md)
