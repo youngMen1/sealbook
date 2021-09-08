@@ -44,7 +44,7 @@
 | IntelliJ IDEA Properties Sorter | properties文件内容排序工具 |
 | Save Actions | 号称能提升工作效率 |
 | Convert YAML and Properties | yaml与properties文件转换 |
-| 1 | 1 |
+| arthas idea | 1 |
 
 ## 2.参考:
 
