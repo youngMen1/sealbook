@@ -44,7 +44,7 @@
 | IntelliJ IDEA Properties Sorter | properties文件内容排序工具 |
 | Save Actions | 号称能提升工作效率 |
 | Convert YAML and Properties | yaml与properties文件转换 |
-| arthas idea | Arthas 命令 |
+| arthas idea | Arthas 是Alibaba开源的Java诊断工具 |
 
 ## 2.参考:
 
