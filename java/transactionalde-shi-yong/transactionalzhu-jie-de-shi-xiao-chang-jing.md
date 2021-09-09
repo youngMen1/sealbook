@@ -255,5 +255,11 @@ spring的事务是在调用业务方法之前开始的，业务方法执行完�
 # 3.参考
 
 一口气说出 6种，@Transactional注解的失效场景  
-[https://zhuanlan.zhihu.com/p/114461128](https://zhuanlan.zhihu.com/p/114461128)
+
+```
+https://zhuanlan.zhihu.com/p/114461128
+https://mp.weixin.qq.com/s/kM1CnkJNq_LWRWX4HUGFWA
+```
+
+
 
