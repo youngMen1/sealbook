@@ -2,12 +2,11 @@
 
 ## 多维度排序
 
-
 ```java
-        List<ShareLeaderboardVO> list = shareRecordInviteNums.stream()
-                .sorted(Comparator.comparing(ShareLeaderboardVO::getClinchNum, Comparator.reverseOrder())
-                        .thenComparing(ShareLeaderboardVO::getShareUid, Comparator.reverseOrder()))
-                .collect(Collectors.toList());
+List<ShareLeaderboardVO> list = shareRecordInviteNums.stream()
+.sorted(Comparator.comparing(ShareLeaderboardVO::getClinchNum, Comparator.reverseOrder())
+.thenComparing(ShareLeaderboardVO::getShareUid, Comparator.reverseOrder()))
+.collect(Collectors.toList());
 ```
 
 
