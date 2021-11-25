@@ -1,7 +1,7 @@
 # jdk8排序
 
 
-```
+```java
   public static void main(String[] args) {
 
         List<UserInfo> userInfoList = new ArrayList<>();
