@@ -68,9 +68,11 @@
 
     }
     
-    
-    
-    
-    
+先按年龄降序,遇见年龄相同的,再按身高降序:[UserInfo(name=5, age=50, height=40), UserInfo(name=4, age=40, height=30), UserInfo(name=3, age=30, height=10), UserInfo(name=2, age=20, height=22), UserInfo(name=2, age=20, height=20)]
+先按年龄降序,遇见年龄相同的,再按身高升序:[UserInfo(name=5, age=50, height=40), UserInfo(name=4, age=40, height=30), UserInfo(name=3, age=30, height=10), UserInfo(name=2, age=20, height=20), UserInfo(name=2, age=20, height=22)]
+先按年龄升序,遇见年龄相同的,再按身高升序:[UserInfo(name=2, age=20, height=20), UserInfo(name=2, age=20, height=22), UserInfo(name=3, age=30, height=10), UserInfo(name=4, age=40, height=30), UserInfo(name=5, age=50, height=40)]
+先按姓名降序,遇见姓名相同的,再按身高降序:[UserInfo(name=5, age=50, height=40), UserInfo(name=4, age=40, height=30), UserInfo(name=3, age=30, height=10), UserInfo(name=2, age=20, height=22), UserInfo(name=2, age=20, height=20)]
+先按姓名降序,遇见姓名相同的,再按身高降序:[UserInfo(name=2, age=20, height=22), UserInfo(name=2, age=20, height=20), UserInfo(name=3, age=30, height=10), UserInfo(name=4, age=40, height=30), UserInfo(name=5, age=50, height=40)]
+
 ```
 
