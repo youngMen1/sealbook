@@ -175,7 +175,7 @@
   * [IronMQ](distributedmessagemiddleware/ironmq.md)
 * [分布式追踪系统](fen-bu-shi-zhui-zong-xi-tong.md)
   * [SkyWalking](fen-bu-shi-zhui-zong-xi-tong/skywalking.md)
-  * Zipkin
+  * [Zipkin](fen-bu-shi-zhui-zong-xi-tong/zipkin.md)
   * Pinpoint
   * [Cat](fen-bu-shi-zhui-zong-xi-tong/cat.md)
   * [Jaeger](fen-bu-shi-zhui-zong-xi-tong/jaeger.md)
@@ -237,6 +237,7 @@
   * [分布式事务设计方案](fen-bu-shi-xi-tong/fen-bu-shi-shi-wu-she-ji-fang-an.md)
   * [分布式理论\(BASE理论\)](fen-bu-shi-xi-tong/fen-bu-shi-li-8bba28-base-li-8bba29.md)
   * [高并发下接口幂等性解决方案](fen-bu-shi-xi-tong/gao-bing-fa-xia-jie-kou-mi-deng-xing-jie-jue-fang-an.md)
+  * [Seata\(分布式事务\)](fen-bu-shi-xi-tong/seatefen-bu-shi-shi-52a129.md)
 * [NoSql数据库](nosqlshu-ju-ku.md)
   * [简介](nosqlshu-ju-ku/jian-jie.md)
   * [Mongodb](nosqlshu-ju-ku/mongodb.md)
