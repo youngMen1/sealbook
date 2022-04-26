@@ -423,5 +423,4 @@
     * [微服务中的短信服务如何设计](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/xiao-xi-tong-zhi-xi-tong/wei-fu-wu-zhong-de-duan-xin-fu-wu-ru-he-she-ji.md)
     * [如何设计一个公司级别的消息通知系统](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/xiao-xi-tong-zhi-xi-tong/ru-he-she-ji-yi-ge-gong-si-ji-bie-de-xiao-xi-tong-zhi-xi-tong.md)
     * [如何设计短信验证码防刷机制](ge-zhong-ye-wu-chang-jing-jie-jue-fang-an/xiao-xi-tong-zhi-xi-tong/ru-he-she-ji-duan-xin-yan-zheng-ma-fang-shua-ji-zhi.md)
-* [Dubbo](dubbo.md)
 
