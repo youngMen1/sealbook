@@ -71,6 +71,15 @@ Mybatis写法如下：
         where id = ${item.id}
     </foreach>      
 </update>
+
+
+<update id="updateBatchByIds" parameterType="java.util.List">
+        update task_user_relation set is_del = 1
+        where id in
+        <foreach collection="taskUserRelationIds" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </update>
 ```
 
 一条记录update一次，性能比较差，容易造成阻塞。
