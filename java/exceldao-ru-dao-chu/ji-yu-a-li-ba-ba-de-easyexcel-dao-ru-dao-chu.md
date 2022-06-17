@@ -10,5 +10,7 @@
 
 遂抛弃自己封装的，转战研究阿里开源的EasyExcel. 不过 说实话，当时自己封装的那个还是有些技术含量的，例如 外观模式，模板方法模式，以及委托思想，组合思想，可以看看。
 
-# 参考
-https://zhuanlan.zhihu.com/p/375682804
+# 2.参考
+
+[https://zhuanlan.zhihu.com/p/375682804](https://zhuanlan.zhihu.com/p/375682804)
+
