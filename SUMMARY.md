@@ -352,6 +352,7 @@
   * [全局跨域配置类](java/quan-ju-kua-yu-pei-zhi-lei.md)
   * [Spring Boot + Redis 实现延时队列](java/spring-boot-+-redis-shi-xian-yan-shi-dui-lie.md)
   * [接口返回设计建议](java/jie-kou-fan-hui-she-ji-jian-yi.md)
+  * [加密数据如何进行模糊查询](java/jia-mi-shu-ju-ru-he-jin-xing-mo-hu-cha-xun.md)
 * [SpringCloudAlibaba](springcloudalibaba.md)
   * [SpringCloudAlibaba基本介绍](springcloudalibaba/zhu-yi.md)
   * [Nacos](springcloudalibaba/nacos.md)
