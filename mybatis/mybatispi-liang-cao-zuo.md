@@ -66,9 +66,9 @@ Mybatis写法如下：
     <foreach collection="list" item="item" index="index" open="" close="" separator=";">
         update course
         <set>
-            name=${item.name}
+            name=#{item.name}
         </set>
-        where id = ${item.id}
+        where id = #{item.id}
     </foreach>      
 </update>
 
