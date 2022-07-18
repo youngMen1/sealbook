@@ -47,6 +47,8 @@
 | arthas idea | Arthas 是Alibaba开源的Java诊断工具 |
 | swagger tools |  |
 | mybatis-log-plus | [https://github.com/pg-liudong/mybatis-log-plus-usage/blob/main/mybatis-log-plus-2.0.3.zip](https://github.com/pg-liudong/mybatis-log-plus-usage/blob/main/mybatis-log-plus-2.0.3.zip，https://zhuanlan.zhihu.com/p/459011273) |
+| MyBatisCodeHelper-Pro| sql语法检查 |
+
 
 ## 2.参考:
 
