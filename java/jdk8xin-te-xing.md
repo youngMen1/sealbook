@@ -430,6 +430,22 @@ Java 8引入了全新的日期时间格式工具，线程安全而且使用方�
 Date generated from String 20180210 is 2018-02
 ```
 
+### 19.两时间相差小时数
+
+
+```
+    public static void main(String[] args) {
+        LocalDateTime start = LocalDateTime.of(2022, 5, 7, 1, 1);
+        LocalDateTime end = LocalDateTime.of(2022, 5, 10, 1, 1);
+        System.out.println("相差的天数: " + Duration.between(start, end).toDays() + "天");
+        System.out.println("相差的小时数: " + Duration.between(start, end).toHours() + "小时");
+        System.out.println("相差的分钟数: " + Duration.between(start, end).toMinutes() + "分钟");
+        System.out.println("相差的毫秒数: " + Duration.between(start, end).toMillis() + "毫秒");
+    }
+```
+
+
+
 # 3.总结
 
 1.提供了javax.time.ZoneId 获取时区。
