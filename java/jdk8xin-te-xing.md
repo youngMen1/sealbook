@@ -441,7 +441,13 @@ Date generated from String 20180210 is 2018-02
         System.out.println("相差的小时数: " + Duration.between(start, end).toHours() + "小时");
         System.out.println("相差的分钟数: " + Duration.between(start, end).toMinutes() + "分钟");
         System.out.println("相差的毫秒数: " + Duration.between(start, end).toMillis() + "毫秒");
+    
+        相差的天数: 3天
+        相差的小时数: 72小时
+        相差的分钟数: 4320分钟
+        相差的毫秒数: 259200000毫秒
     }
+    
 ```
 
 
