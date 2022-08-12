@@ -3,7 +3,7 @@
 ## 1.1.int/Integer类型的参数为空判断
 
 ```
-<if test="orderStatus != null and orderStatus != ''">
+<if test="orderStatus != null">
     order_status= #{orderStatus},
 </if>
 ```
