@@ -181,3 +181,14 @@ KILL 177;
 ![](/static/image/20190627135753776.png)  
 或者重启mysql,检查造成死锁的代码。
 
+# 2.3.本地替换zookeeper
+
+
+```
+elasticjob:
+  regCenter:
+    serverLists: localhost:2181
+    namespace: udream-elastic-job
+```
+
+
